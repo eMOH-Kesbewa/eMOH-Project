@@ -47,26 +47,23 @@ app.post('/insert', (req, res) => {
 
 
 app.get('/insert', async(req, res) => {
-    //console.log(req.body);
-    var query = req.query;
-    //console.log(req.query);
-    //req.params.Identity_number = req.params.Identity_number;
-    /*ApprovedFamily.findOneAndUpdate(query, req.body, { upsert: true }, function(err, doc) {
-        if (err) return res.send(500, { error: err })
-        else { console.log(doc) };
-        return res.send("succesfully saved");
-    });*/
-    const filter = req.query;
-    const update = req.body;
 
-    mongoose.set('useFindAndModify', false);
-    await ApprovedFamily.countDocuments(filter); // 0
+    try {
+        const filter = req.query;
+        const update = req.body;
 
-    let doc = await ApprovedFamily.findOneAndUpdate(filter, update, {
-        new: true,
-        upsert: true // Make this update into an upsert
-    });
-    console.log(doc);
+        mongoose.set('useFindAndModify', false);
+        await ApprovedFamily.countDocuments(filter); // 0
+
+        let doc = await ApprovedFamily.findOneAndUpdate(filter, update, {
+            new: true,
+            upsert: true // Make this update into an upsert
+        });
+        console.log(doc);
+    } catch (error) {
+        res.status(500).send(error);
+        console.log(error);
+    }
 
 });
 
