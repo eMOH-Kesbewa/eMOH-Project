@@ -4,7 +4,9 @@ var connection = require('./connection');
 var mongoose = require('mongoose');
 var ApprovedFamily = require('./Schemas/ApprovedFamiliesSchema');
 var Mother = require('./Schemas/MotherSchema');
-var Mother_baby = require('./Schemas/MotherBabyJoined')
+var Mother_baby = require('./Schemas/MotherBabyJoined');
+var Notification = require('./Schemas/NotificationSchema');
+
 
 var bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: false }))
@@ -173,5 +175,32 @@ app.get('/', (req, res) => {
     ApprovedFamily.find((err, doc) => {
         res.send(doc)
     })
+});
+
+/*app.post('/nofi', (req, res) => {
+    console.log(req.body);
+    var data = new Notification(req.body);
+    data.save();
+    console.log("Completed");
+});*/
+app.post('/nofi', async(req, res) => {
+
+    try {
+        const filter = req.query;
+        const update = req.body;
+
+        mongoose.set('useFindAndModify', false);
+        await Notification.countDocuments(filter); // 0
+
+        let doc = await Notification.findOneAndUpdate(filter, update, {
+            new: true,
+            upsert: true // Make this update into an upsert
+        });
+        console.log(doc);
+    } catch (error) {
+        res.status(500).send(error);
+        console.log(error);
+    }
+
 });
 app.listen(3000);
