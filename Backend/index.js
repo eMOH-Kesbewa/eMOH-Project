@@ -66,6 +66,86 @@ app.get('/insert', async(req, res) => {
     }
 
 });
+app.get('/insert_baby', async(req, res) => {
+
+    try {
+        const filter = req.query;
+        const update = req.body;
+
+        mongoose.set('useFindAndModify', false);
+        await Baby.countDocuments(filter); // 0
+
+        let doc = await Baby.findOneAndUpdate(filter, update, {
+            new: true,
+            upsert: true // Make this update into an upsert
+        });
+        console.log(doc);
+    } catch (error) {
+        res.status(500).send(error);
+        console.log(error);
+    }
+
+});
+app.get('/insert_motherbaby', async(req, res) => {
+
+    try {
+        const filter = req.query;
+        const update = req.body;
+
+        mongoose.set('useFindAndModify', false);
+        await MotherBabyJoined.countDocuments(filter); // 0
+
+        let doc = await MotherBabyJoined.findOneAndUpdate(filter, update, {
+            new: true,
+            upsert: true // Make this update into an upsert
+        });
+        console.log(doc);
+    } catch (error) {
+        res.status(500).send(error);
+        console.log(error);
+    }
+
+});
+app.get('/insert_mother', async(req, res) => {
+
+    try {
+        const filter = req.query;
+        const update = req.body;
+
+        mongoose.set('useFindAndModify', false);
+        await MotherSchema.countDocuments(filter); // 0
+
+        let doc = await MotherSchema.findOneAndUpdate(filter, update, {
+            new: true,
+            upsert: true // Make this update into an upsert
+        });
+        console.log(doc);
+    } catch (error) {
+        res.status(500).send(error);
+        console.log(error);
+    }
+
+});
+app.get('/insert_weightheight', async(req, res) => {
+
+    try {
+        const filter = req.query;
+        const update = req.body;
+
+        mongoose.set('useFindAndModify', false);
+        await WeightHeight.countDocuments(filter); // 0
+
+        let doc = await WeightHeight.findOneAndUpdate(filter, update, {
+            new: true,
+            upsert: true // Make this update into an upsert
+        });
+        console.log(doc);
+    } catch (error) {
+        res.status(500).send(error);
+        console.log(error);
+    }
+
+});
 
 
 app.post('/insertmother', (req, res) => {
@@ -78,7 +158,7 @@ app.post('/insertmother', (req, res) => {
 app.post('/insertmotherandbaby', (req, res) => {
     console.log(req.body);
     var data = new Mother_baby(req.body);
-    data.save();
+    data.save();++
     console.log("Completed");
 });
 
