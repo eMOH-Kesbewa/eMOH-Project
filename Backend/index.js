@@ -214,7 +214,7 @@ app.get('/family/:id', (req, res) => {
             console.log(doc);
         }
         else {
-            console.log('Error in Retriving Employee :' + JSON.stringify(err, undefined, 2));
+            console.log('Error in Retriving Family :' + JSON.stringify(err, undefined, 2));
 
         }
     });
