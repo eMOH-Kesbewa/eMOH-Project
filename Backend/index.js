@@ -14,6 +14,7 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
 
+
 app.post('/', function (req, res) {
 
     var userlogindetails = req.body;
@@ -172,7 +173,7 @@ app.post('/', (req, res) => {
     console.log("Completed");
 });
 
-app.get('/', (req, res) => {
+app.get('/appfam', (req, res) => {
     ApprovedFamily.find((err, doc) => {
         res.send(doc)
     })
