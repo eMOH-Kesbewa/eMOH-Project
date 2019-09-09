@@ -7,7 +7,7 @@ var ApprovedFamily = require('./Schemas/ApprovedFamiliesSchema');
 var Mother = require('./Schemas/MotherSchema');
 var Mother_baby = require('./Schemas/MotherBabyJoined');
 var Notification = require('./Schemas/NotificationSchema');
-
+var login = require('./login');
 
 var bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: false }))
@@ -178,12 +178,7 @@ app.get('/', (req, res) => {
     })
 });
 
-/*app.post('/nofi', (req, res) => {
-    console.log(req.body);
-    var data = new Notification(req.body);
-    data.save();
-    console.log("Completed");
-});*/
+
 app.post('/nofi', async (req, res) => {
 
     try {
@@ -221,4 +216,4 @@ app.get('/family/:id', (req, res) => {
 
 });
 
-app.listen(3000);
+app.listen(5000);
