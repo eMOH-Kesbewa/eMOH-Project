@@ -1,7 +1,9 @@
 var express = require('express');
 var router = express.Router();
+var Baby = require('../Schemas/baby');
+var motherbabyjoined = require('../Schemas/MotherBabyJoined');
 
-router.get('/add', async (req, res) => {
+router.get('/update', async (req, res) => {
 
     try {
         const filter = req.query;
@@ -12,7 +14,7 @@ router.get('/add', async (req, res) => {
 
         let doc = await Baby.findOneAndUpdate(filter, update, {
             new: true,
-            upsert: true // Make this update into an upsert
+            upsert: false // Make this update into an upsert
         });
         console.log(doc);
     } catch (error) {
@@ -22,8 +24,24 @@ router.get('/add', async (req, res) => {
 
 });
 
-router.get('/view',(req,res)=>{
-    res.send("Welcome");
-})
+router.get('/view', (req, res) => {
+    motherbabyjoined.find((err, doc) => {
+        res.send(doc)
+    })
+});
+
+router.get('/viewbyid/:id', (req, res) => {
+    baby.find({ mother_id: req.params.id }, (err, doc) => {
+        if (!err) {
+            res.send(doc);
+            console.log(doc);
+        }
+        else {
+            console.log('Error in Retriving Mother Details :' + JSON.stringify(err, undefined, 2));
+
+        }
+    });
+
+});
 
 module.exports = router;

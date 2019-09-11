@@ -380,7 +380,7 @@ var baby= new Schema({
           "status":String
 	},
 	"fourtytwo_days":{
-	   "date":date,
+	   "date":Date,
           "status":String
 	}
     },
@@ -910,52 +910,52 @@ var baby= new Schema({
        "nine":{
           "Number_of_teeth":Number,
           "status":String,
-          "date":date
+          "date":Date
        },
        "ten":{
           "Number_of_teeth":Number,
           "status":String,
-          "date":date
+          "date":Date
        },
        "eleven":{
           "Number_of_teeth":Number,
           "status":String,
-          "date":date
+          "date":Date
        },
        "twelve":{
           "Number_of_teeth":Number,
           "status":String,
-          "date":date
+          "date":Date
        },
        "thirteen":{
           "Number_of_teeth":Number,
           "status":String,
-          "date":date
+          "date":Date
        },
        "fourteen":{
           "Number_of_teeth":Number,
           "status":String,
-          "date":date
+          "date":Date
        },
        "fifteen":{
           "Number_of_teeth":Number,
           "status":String,
-          "date":date
+          "date":Date
        },
        "sixteen":{
           "Number_of_teeth":Number,
           "status":String,
-          "date":date
+          "date":Date
        },
        "seventeen":{
           "Number_of_teeth":Number,
           "status":String,
-          "date":date
+          "date":Date
        },
        "eighteen":{
           "Number_of_teeth":Number,
           "status":String,
-          "date":date
+          "date":Date
        }
        },
     
