@@ -3,9 +3,8 @@ var express = require('express');
 var app = express();
 var connection = require('./connection');
 
-var ApprovedFamily = require('./Schemas/ApprovedFamiliesSchema');
 
-var Mother_baby = require('./Schemas/MotherBabyJoined');
+
 var Notification = require('./Schemas/NotificationSchema');
 
 var bodyParser = require('body-parser');
@@ -88,4 +87,4 @@ app.post('/', (req, res) => {
 
 
 
-app.listen(3000);
+app.listen(5000);

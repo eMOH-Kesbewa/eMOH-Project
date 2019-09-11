@@ -10,6 +10,7 @@ router.post('/add', (req, res) => {
     console.log("Completed");
 });
 
+//View all families in the area
 router.get('/view', (req, res) => {
     ApprovedFamily.find((err, doc) => {
         res.send(doc)

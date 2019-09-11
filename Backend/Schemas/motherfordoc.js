@@ -1,17 +1,18 @@
 const mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var mother_baby_fordoc= new Schema({
+	"mother_id":String,
 	"mothers_personal_details": {
 		"mothers_name": String,
 		"mothers_age": Number,
-		"husband_name": Schema,
+		"husband_name": String,
 		"husband_age": Number,
 		"mothers_education_level": String,
 		"husbands_education_level": String,
 		"mothers_occupation": String,
 		"fathers_occupation": String,
 	},
-	"maiden_or_risked": Boolean, //if maiden 1 else 0
+	"maiden_or_risked": Boolean, 
 	"blood_group": String,
 	"identified_maternal_risks_diseases": String,
 	"registration_details": {
@@ -171,7 +172,7 @@ var mother_baby_fordoc= new Schema({
 			"pregnancy_weeks": Number,
 			"urine":String,
 			"natritional_needs_myths": String,
-			"embryo_height": Float,
+			"embryo_height": Number,
 			"embryo_moves": Boolean,
 			"embryo_sounds": Boolean,
 			"temporiry_left_the_province": Boolean,
@@ -186,7 +187,7 @@ var mother_baby_fordoc= new Schema({
 			"pregnancy_weeks": Number,
 			"urine":String,
 			"natritional_needs_myths": String,
-			"embryo_height": Float,
+			"embryo_height": Number,
 			"embryo_moves": Boolean,
 			"embryo_sounds": Boolean,
 			"temporiry_left_the_province": Boolean,
@@ -201,7 +202,7 @@ var mother_baby_fordoc= new Schema({
 			"pregnancy_weeks": Number,
 			"urine":String,
 			"natritional_needs_myths": String,
-			"embryo_height": Float,
+			"embryo_height": Number,
 			"embryo_moves": Boolean,
 			"embryo_sounds": Boolean,
 			"temporiry_left_the_province": Boolean,
@@ -216,7 +217,7 @@ var mother_baby_fordoc= new Schema({
 			"pregnancy_weeks": Number,
 			"urine":String,
 			"natritional_needs_myths": String,
-			"embryo_height": Float,
+			"embryo_height": Number,
 			"embryo_moves": Boolean,
 			"embryo_sounds": Boolean,
 			"temporiry_left_the_province": Boolean,
@@ -233,12 +234,12 @@ var mother_baby_fordoc= new Schema({
 		"day1": {
 			"clinical_day": Date,
 			"weeks_into_pregnancy": String,
-			"weight": Float,
+			"weight": Number,
 			"urine": {
-				"sugar": Float,
-				"hemoglobin": Float
+				"sugar": Number,
+				"hemoglobin": Number
 			},
-			"blood_pressure": Float,
+			"blood_pressure": Number,
 			"position": String,
 			"embryo_moves": Boolean,
 			"embryo_sounds": Boolean,
@@ -251,12 +252,12 @@ var mother_baby_fordoc= new Schema({
 		"day2": {
 			"clinical_day": Date,
 			"weeks_into_pregnancy": String,
-			"weight": Float,
+			"weight": Number,
 			"urine": {
-				"sugar": Float,
-				"hemoglobin": Float
+				"sugar": Number,
+				"hemoglobin": Number
 			},
-			"blood_pressure": Float,
+			"blood_pressure": Number,
 			"position": String,
 			"embryo_moves": Boolean,
 			"embryo_sounds": Boolean,
@@ -269,12 +270,12 @@ var mother_baby_fordoc= new Schema({
 		"day3": {
 			"clinical_day": Date,
 			"weeks_into_pregnancy": String,
-			"weight": Float,
+			"weight": Number,
 			"urine":{
-				"sugar": Float,
-				"hemoglobin": Float
+				"sugar": Number,
+				"hemoglobin": Number
 			},
-			"blood_pressure": Float,
+			"blood_pressure": Number,
 			"position": String,
 			"embryo_moves": Boolean,
 			"embryo_sounds": Boolean,
@@ -287,12 +288,12 @@ var mother_baby_fordoc= new Schema({
 		"day4":{
 			"clinical_day": Date,
 			"weeks_into_pregnancy": String,
-			"weight": Float,
+			"weight": Number,
 			"urine":{
-				"sugar": Float,
-				"hemoglobin": Float
+				"sugar": Number,
+				"hemoglobin": Number
 			},
-			"blood_pressure": Float,
+			"blood_pressure": Number,
 			"position": String,
 			"embryo_moves": Boolean,
 			"embryo_sounds": Boolean,
@@ -305,12 +306,12 @@ var mother_baby_fordoc= new Schema({
 		"day5":{
 			"clinical_day": Date,
 			"weeks_into_pregnancy": String,
-			"weight": Float,
+			"weight": Number,
 			"urine":{
-				"sugar": Float,
-				"hemoglobin": Float
+				"sugar": Number,
+				"hemoglobin": Number
 			},
-			"blood_pressure": Float,
+			"blood_pressure": Number,
 			"position": String,
 			"embryo_moves": Boolean,
 			"embryo_sounds": Boolean,
@@ -323,12 +324,12 @@ var mother_baby_fordoc= new Schema({
 		"day6":{
 			"clinical_day": Date,
 			"weeks_into_pregnancy": String,
-			"weight": Float,
+			"weight": Number,
 			"urine":{
-				"sugar": Float,
-				"hemoglobin": Float
+				"sugar": Number,
+				"hemoglobin": Number
 			},
-			"blood_pressure": Float,
+			"blood_pressure": Number,
 			"position": String,
 			"embryo_moves": Boolean,
 			"embryo_sounds": Boolean,
@@ -341,12 +342,12 @@ var mother_baby_fordoc= new Schema({
 		"day7":{
 			"clinical_day": Date,
 			"weeks_into_pregnancy": String,
-			"weight": Float,
+			"weight": Number,
 			"urine":{
-				"sugar": Float,
-				"hemoglobin": Float
+				"sugar": Number,
+				"hemoglobin": Number
 			},
-			"blood_pressure": Float,
+			"blood_pressure": Number,
 			"position": String,
 			"embryo_moves": Boolean,
 			"embryo_sounds": Boolean,
@@ -359,12 +360,12 @@ var mother_baby_fordoc= new Schema({
 		"day8":{
 			"clinical_day": Date,
 			"weeks_into_pregnancy": String,
-			"weight": Float,
+			"weight": Number,
 			"urine":{
-				"sugar": Float,
-				"hemoglobin": Float
+				"sugar": Number,
+				"hemoglobin": Number
 			},
-			"blood_pressure": Float,
+			"blood_pressure": Number,
 			"position": String,
 			"embryo_moves": Boolean,
 			"embryo_sounds": Boolean,
@@ -377,13 +378,13 @@ var mother_baby_fordoc= new Schema({
 		
 		"worm_treatment_given_date": Date,
 		"tetanus_treatments":{
-		type: String,
-		given_date: Date,
-		type_number: String
+		"type": String,
+		"given_date": Date,
+		"type_number": String
 		}
 		},
-		"height": Float,
-		"bmi": Float,
+		"height": Number,
+		"bmi": Number,
 		"vdrl":{
 			"blood_sample_obtained_date": Date,
 			"weeks_into_pregnancy_when_blood_sample_was_obtained": Number,
@@ -412,7 +413,7 @@ var mother_baby_fordoc= new Schema({
 		"day_mother_came_home": Date,
 		"child":{
 			"sex": String,
-			"birth_weight": Float,
+			"birth_weight": Number,
 			"immatured": Boolean,
 			"abnormalities": Boolean,
 			"other_details": String
@@ -426,7 +427,7 @@ var mother_baby_fordoc= new Schema({
 			"day1":{
 			"date": Date,
 			"mother":{
-				"temperature": Float,
+				"temperature": Number,
 				"paleness": Boolean,
 				"breast": String,
 				"filamemtous_blood": String,
@@ -451,7 +452,7 @@ var mother_baby_fordoc= new Schema({
 			"day2":{
 			"date": Date,
 			"mother":{
-				"temperature": Float,
+				"temperature": Number,
 				"paleness": Boolean,
 				"breast": String,
 				"filamemtous_blood": String,
@@ -476,7 +477,7 @@ var mother_baby_fordoc= new Schema({
 			"day3":{
 			"date": Date,
 			"mother":{
-				"temperature": Float,
+				"temperature": Number,
 				"paleness": Boolean,
 				"breast": String,
 				"filamemtous_blood": String,
@@ -501,7 +502,7 @@ var mother_baby_fordoc= new Schema({
 			"day4":{
 			"date": Date,
 			"mother":{
-				"temperature": Float,
+				"temperature": Number,
 				"paleness": Boolean,
 				"breast": String,
 				"filamemtous_blood": String,
@@ -526,7 +527,7 @@ var mother_baby_fordoc= new Schema({
 			"day5":{
 			"date": Date,
 			"mother":{
-				"temperature": Float,
+				"temperature": Number,
 				"paleness": Boolean,
 				"breast": String,
 				"filamemtous_blood": String,
@@ -551,7 +552,7 @@ var mother_baby_fordoc= new Schema({
 			"day6":{
 			"date": Date,
 			"mother":{
-				"temperature": Float,
+				"temperature": Number,
 				"paleness": Boolean,
 				"breast": String,
 				"filamemtous_blood": String,
@@ -576,7 +577,7 @@ var mother_baby_fordoc= new Schema({
 			"day7":{
 			"date": Date,
 			"mother":{
-				"temperature": Float,
+				"temperature": Number,
 				"paleness": Boolean,
 				"breast": String,
 				"filamemtous_blood": String,
@@ -601,7 +602,7 @@ var mother_baby_fordoc= new Schema({
 			"day8":{
 			"date": Date,
 			"mother":{
-				"temperature": Float,
+				"temperature": Number,
 				"paleness": Boolean,
 				"breast": String,
 				"filamemtous_blood": String,

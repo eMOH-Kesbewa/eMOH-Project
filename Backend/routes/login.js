@@ -1,8 +1,7 @@
-var express = require('express')
-var app = express()
-var mongoose = require('./connection');
+var express = require('express');
+var router = express.Router();
+var mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
-
 
 var Schema = mongoose.Schema;
 
@@ -14,12 +13,9 @@ var useraccount = new Schema({
 var useraccounts = mongoose.model('useraccount', useraccount);
 
 
-var bodyParser = require('body-parser');
-app.use(bodyParser.urlencoded({ extended: false }))
-app.use(bodyParser.json())
-
-
-app.post('/login', function(req, res) {
+//Check username with the password with errors
+/*
+router.post('/', function(req, res) {
     var userlogindetails = req.body;
     var password = req.body.password;
     useraccounts.find({ username: req.body.username }, (err, docs) => {
@@ -47,8 +43,8 @@ app.post('/login', function(req, res) {
 
 });
 
-
-app.post('/reguser', async(req, res) => {
+*/
+router.post('/reguser', async(req, res) => {
     var hashedpassword = await hashPassword(req.body);
     req.body.password = hashedpassword;
     var data = new useraccounts(req.body);
@@ -73,18 +69,21 @@ async function hashPassword (user) {
   }
 
 function checkvariable(password,hashedpassword){
-
+   flag = 0;
     bcrypt.compare(password, hashedpassword, function(err, res) {
-        return true;
+        flag=1;
     });
-   
+   if(flag==1) return true;
 }
 
-app.get('/', (req, res) => {
+router.get('/', (req, res) => {
     useraccounts.find((err, doc) => {
         res.send(doc)
     })
 
 });
+
+
+module.exports = router;
 
 
