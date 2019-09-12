@@ -54,7 +54,9 @@ var ApprovedFamilies = new Schema({
     "Other_details": String,
     "number_of_young_children": Number
 
-}, { collection: 'ApprovedFamilies' });
+}, {
+    collection: 'ApprovedFamilies'
+});
 
 var ApprovedFamily = mongoose.model('ApprovedFamily', ApprovedFamilies);
 

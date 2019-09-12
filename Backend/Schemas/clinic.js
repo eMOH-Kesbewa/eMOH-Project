@@ -1,11 +1,13 @@
 const mongoose = require('mongoose');
 var Schema = mongoose.Schema;
-var clinicScheduling= new Schema({
-    "clinic_id":String,
+var clinicScheduling = new Schema({
+    "clinic_id": String,
     "clinic_name": String,
-    "clinic_type": String,
+    "clinic_discription": String,
     "date": Date
-},{collection: 'clinicScheduling'});
-var  clinicScheduling= mongoose.model('clinicScheduling', clinicScheduling);
+}, {
+    collection: 'Clinics'
+});
+var clinicScheduling = mongoose.model('clinicScheduling', clinicScheduling);
 
 module.exports = clinicScheduling;
