@@ -1,7 +1,8 @@
 const mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var clinicScheduling= new Schema({
-    "clinic_name":String,
+    "clinic_id":String,
+    "clinic_name": String,
     "clinic_type": String,
     "date": Date
 },{collection: 'clinicScheduling'});
