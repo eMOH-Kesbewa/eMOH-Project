@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var Mother = new Schema({
+    "mother_id": String,
     "registration_no": String,
     "registration_date": String,
     "mothers_name": String,
@@ -52,7 +53,9 @@ var Mother = new Schema({
     },
     "registration_no_and_date_of_reg_in_bi_register": String,
     "remarks": String
-}, { collection: 'Mother' });
+}, {
+    collection: 'Mother'
+});
 
 var Mother = mongoose.model('Mother', Mother);
 
