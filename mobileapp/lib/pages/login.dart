@@ -26,10 +26,9 @@ class _LoginState extends State<Login> {
       obscureText: false,
       //style: style,
       decoration: InputDecoration(
-          contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
+          contentPadding: EdgeInsets.fromLTRB(10.0, 15.0, 20.0, 15.0),
           hintText: "email",
-          border:
-              OutlineInputBorder(borderRadius: BorderRadius.circular(10.0))),
+),
       onSaved: (input) => email = input,
     );
 
@@ -42,10 +41,9 @@ class _LoginState extends State<Login> {
       obscureText: true,
       //style: style,
       decoration: InputDecoration(
-          contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
+          contentPadding: EdgeInsets.fromLTRB(10.0, 15.0, 20.0, 15.0),
           hintText: "password",
-          border:
-              OutlineInputBorder(borderRadius: BorderRadius.circular(10.0))),
+        ),
       onSaved: (input) => password = input,
     );
 
