@@ -5,4 +5,6 @@ mongoose.connect('mongodb+srv://admin:adm123@mohdatabase-gv00s.mongodb.net/mohDB
     .then(() => console.log("Succesfully Connected"))
     .catch((err) => console.error(err));
 
+
+
 module.exports = mongoose;
