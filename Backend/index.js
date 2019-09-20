@@ -5,6 +5,10 @@ const connection = require('./connection');
 var router = express.Router();
 const mongoose = require('mongoose');
 
+const cors = require('cors');
+app.use(cors());
+
+
 const passport = require('passport');
 app.use(passport.initialize());
 app.use(passport.session());
