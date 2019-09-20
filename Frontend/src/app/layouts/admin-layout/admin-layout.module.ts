@@ -11,7 +11,8 @@ import { IconsComponent } from '../../icons/icons.component';
 import { MapsComponent } from '../../maps/maps.component';
 import { NotificationsComponent } from '../../notifications/notifications.component';
 import { UpgradeComponent } from '../../upgrade/upgrade.component';
-
+import { ViewApprovedFamiliesComponent } from 'app/MOHComponents/view-approved-families/view-approved-families.component';
+import { AddApprovedFamiliesComponent } from 'app/MOHComponents/add-approved-families/add-approved-families.component';
 import {
   MatButtonModule,
   MatInputModule,
@@ -20,6 +21,8 @@ import {
   MatTooltipModule,
   MatSelectModule
 } from '@angular/material';
+
+
 @NgModule({
   imports: [
     CommonModule,
@@ -42,6 +45,8 @@ import {
     MapsComponent,
     NotificationsComponent,
     UpgradeComponent,
+    ViewApprovedFamiliesComponent,
+    AddApprovedFamiliesComponent
   ]
 })
 
