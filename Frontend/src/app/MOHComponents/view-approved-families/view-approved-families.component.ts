@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FamiliesService } from 'app/Services/families.service';
+import { Family } from 'app/Services/family';
 
 @Component({
   selector: 'app-view-approved-families',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ViewApprovedFamiliesComponent implements OnInit {
 
-  constructor() { }
+  constructor(private familyservice : FamiliesService) { }
 
+  families : Family;
+  
+  
   ngOnInit() {
+    this.familyservice.getfamilydata().subscribe(data => this.families = data);
   }
 
   

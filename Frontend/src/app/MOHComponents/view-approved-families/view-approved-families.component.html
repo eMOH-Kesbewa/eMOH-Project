@@ -22,22 +22,66 @@
                   </div>
                   <div class="card-body">
                     <div class="table-responsive">
-                        <table class="table table-hover">
-                                <col>
-                                <colgroup span="2"></colgroup>
-                                <colgroup span="2"></colgroup>
-                                <tr>
-                                  <td rowspan="2"></td>
-                                  <th colspan="2" scope="colgroup">Mars</th>
-                                  <th colspan="2" scope="colgroup">Venus</th>
-                                </tr>
-                                <tr>
-                                  <th scope="col">Produced</th>
-                                  <th scope="col">Sold</th>
-                                  <th scope="col">Produced</th>
-                                  <th scope="col">Sold</th>
-                                </tr>
-                          
+                        <table class="table table-hover table-bordered">
+                            
+                                <tbody>
+                                    <tr>
+                                    <td rowspan = 3>Village ID</td><td rowspan = 3>Approved Family Category</td><td rowspan = 3>NIC No</td><td rowspan = 3>Date</td><td rowspan = 3>Name_of_wife</td><td rowspan = 3>Name Of Husband</td><td rowspan = 3>Address</td> <td rowspan = 3>DOB</td> <td rowspan = 3>Age at the time of Marriage</td> <td rowspan = 3>Job Status</td> <td rowspan = 3>Education Level</td> <td rowspan = 3>Address</td> <td rowspan = 3>Number Of Living Children</td>  <td colspan = 8 align="center">Pregnancy details </td>  <td colspan = 8 align="center">Famlily Planning Methods details </td><td rowspan=3>Safe For Rubella</td><td rowspan=3>Date of cervical mucoustest</td><td rowspan=3> Other Details</td><td rowspan="3">Number Of Young Children </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td colspan=4 align="center">Pregnancy</td>  <td colspan=4 align="center" >Result</td>     <td colspan=2 align="center">1</td>   <td colspan=2 align="center">2</td> <td colspan=2 align="center">3</td> <td colspan=2 align="center">4</td> 
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>1</td><td>2</td><td>3</td><td>4</td><td>1</td><td>2</td><td>3</td><td>4</td> <td>Method</td><td>Date</td>  <td>Method</td><td>Date</td> <td>Method</td><td>Date</td> <td>Method</td><td>Date</td>
+                                    </tr>
+
+                                    <tr *ngFor="let family of families">
+                                    <td>{{family.village_id}}</td>
+                                    <td>{{family.Approved_family_category}}</td>
+                                    <td>{{family.Identity_number}}</td>
+                                    <td>{{family.Date | date: 'yyyy/MM/dd' }}</td>
+                                    <td>{{family.Name_of_wife}}</td>
+                                    <td>{{family.Name_of_husband}}</td>
+                                    <td>{{family.Address}}</td>
+                                    <td>{{family.Date_of_birth | date: 'yyyy/MM/dd' }}</td>
+                                    <td>{{family.Age_at_the_time_of_marriage}}</td>
+                                    <td>{{family.Job_status}}</td>
+                                    <td>{{family.Education_level}}</td>
+                                    <td>{{family.Number_of_living_children}}</td>
+
+                                    <td>{{family.Pregnancy_details__Pregnancy__First}}</td>
+                                    <td>{{family.Pregnancy_details__Pregnancy__Second}}</td>
+                                    <td>{{family.Pregnancy_details__Pregnancy__Third}}</td>
+                                    <td>{{family.Pregnancy_details__Pregnancy__Fourth}}</td>
+                                    
+
+                                    <td>{{family.Pregnancy_details__Result__First}}</td>
+                                    <td>{{family.Pregnancy_details__Result__Second}}</td>
+                                    <td>{{family.Pregnancy_details__Result__Third}}</td>
+                                    <td>{{family.Pregnancy_details__Result__Fourth}}</td>
+
+                                    <td>{{family.Family_planning_methods__First__Method}}</td>
+                                    <td>{{family.Family_planning_methods__First__Date | date: 'yyyy/MM/dd' }}</td>
+
+                                    <td>{{family.Family_planning_methods__second__Method}}</td>
+                                    <td>{{family.Family_planning_methods__second__Date | date: 'yyyy/MM/dd' }}</td>
+
+                                    <td>{{family.Family_planning_methods__third__Method}}</td>
+                                    <td>{{family.Family_planning_methods__third__Date | date: 'yyyy/MM/dd' }}</td>
+
+                                    <td>{{family.Family_planning_methods__fourth__Method}}</td>
+                                    <td>{{family.Family_planning_methods__fourth__Date | date: 'yyyy/MM/dd' }}</td>
+
+                                    <td>{{family.Safeforrubella}}</td>
+                                    <td>{{family.Dateofcervicalmucoustest}}</td>
+                                    <td>{{family.Otherdetails}}</td>
+                                    <td>{{family.numberofyoungchildren}}</td>
+                                    
+                                    </tr>
+                            </tbody>
+                           
                         </table>
                   
 
@@ -49,7 +93,7 @@
           <div class="card card-plain">
               <div class="card-header card-header-danger">
                   <h4 class="card-title mt-0"> Table on Plain Background</h4>
-                  <p class="card-category"> Here is a subtitle for this table</p>
+                  <p class="card-category"> Here is a subtitle for this table
               </div>
               <div class="card-body">
                   <div class="table-responsive">
