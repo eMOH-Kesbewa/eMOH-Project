@@ -31,8 +31,8 @@ const user = require('./routes/users');
 app.use('/user',user);
 
 
-app.listen(5000,function(){
-    console.log("listen to port 5000");
+app.listen(3000,function(){
+    console.log("listen to port 3000");
 });
 app.get("/",function(req,res){
     res.send("hello bab"); 
