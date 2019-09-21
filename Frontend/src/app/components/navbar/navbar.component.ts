@@ -14,6 +14,7 @@ export class NavbarComponent implements OnInit {
       mobile_menu_visible: any = 0;
     private toggleButton: any;
     private sidebarVisible: boolean;
+    public nameOftheSearch;
 
     constructor(location: Location,  private element: ElementRef, private router: Router) {
       this.location = location;
@@ -32,6 +33,8 @@ export class NavbarComponent implements OnInit {
            this.mobile_menu_visible = 0;
          }
      });
+     //MYCode
+    
     }
 
     sidebarOpen() {
@@ -110,6 +113,7 @@ export class NavbarComponent implements OnInit {
     };
 
     getTitle(){
+        /* 
       var titlee = this.location.prepareExternalUrl(this.location.path());
       if(titlee.charAt(0) === '#'){
           titlee = titlee.slice( 1 );
@@ -121,5 +125,25 @@ export class NavbarComponent implements OnInit {
           }
       }
       return 'Dashboard';
+    }*/
+    var routeurl = this.router.url;
+    var urlarray = routeurl.split("/");
+    var currentroute = urlarray[urlarray.length - 1];
+    if(currentroute == "viewApprovedFamilies") return "View Approved Families";
+    else if(currentroute == "AddApprovedFamilies") return "Add Approved Families";
+    else return currentroute.toString();
+    }
+
+    Display(){
+       
+        var routeurl = this.router.url;
+        var urlarray = routeurl.split("/");
+        var currentroute = urlarray[urlarray.length - 1];
+        if(currentroute == "viewBabies"){
+            this.nameOftheSearch = "Search by Baby Id";
+            return true;
+        }
+        else return false;
+        
     }
 }

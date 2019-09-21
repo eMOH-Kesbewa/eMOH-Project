@@ -10,6 +10,7 @@ import { NotificationsComponent } from '../../notifications/notifications.compon
 import { UpgradeComponent } from '../../upgrade/upgrade.component';
 import { ViewApprovedFamiliesComponent } from 'app/MOHComponents/view-approved-families/view-approved-families.component';
 import { AddApprovedFamiliesComponent } from 'app/MOHComponents/add-approved-families/add-approved-families.component';
+import { ViewBabiesofAreaComponent } from 'app/MOHComponents/view-babiesof-area/view-babiesof-area.component';
 
 export const AdminLayoutRoutes: Routes = [
     // {
@@ -71,5 +72,6 @@ export const AdminLayoutRoutes: Routes = [
                 component: AddApprovedFamiliesComponent
             }
         ]
-    }
+    },
+    { path: 'viewBabies',        component: ViewBabiesofAreaComponent }
 ];

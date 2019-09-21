@@ -22,6 +22,8 @@ import {
   AgmCoreModule
 } from '@agm/core';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
+import { ViewBabiesofAreaComponent } from './MOHComponents/view-babiesof-area/view-babiesof-area.component';
+import { ViewBabybyIDComponent } from './MOHComponents/view-babyby-id/view-babyby-id.component';
 
 
 @NgModule({
@@ -41,6 +43,8 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
   declarations: [
     AppComponent,
     AdminLayoutComponent,
+    ViewBabybyIDComponent,
+    
  
     
    
