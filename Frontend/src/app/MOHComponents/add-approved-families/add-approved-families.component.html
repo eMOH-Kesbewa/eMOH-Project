@@ -1,3 +1,187 @@
-<p>
-  add-approved-families works!
-</p>
+<div class="main-content">
+  <div class="container-fluid">
+      <div class="row">
+          <div class="col-md-12">
+              <div class="card">
+                  <div class="card-header card-header-danger">
+                      <h4 class="card-title">Add approved families</h4>
+                      <p class="card-category">Complete profile</p>
+                  </div>
+                  <div class="card-body">
+                      <form [formGroup]="approvedFamilyForm" [hidden]="success" (ngSubmit)="onSubmit()">
+                          <div class="row">
+                              <div class="col-md-3">
+                                  <mat-form-field class="example-full-width">
+                                    <input matInput placeholder="Village ID" type="text" formControlName="village_id">
+                                    <div *ngIf="submitted && approvedFamilyForm.controls.village_id.errors" class="error">
+                                        <div *ngIf="approvedFamilyForm.controls.village_id.errors.required">This field is required</div>
+                                      </div>
+                                  </mat-form-field>
+                              </div>
+                              <div class="col-md-5">
+                                  <mat-form-field class="example-full-width">
+                                    <input matInput placeholder="Approved familly category" type= "text" formControlName="Approved_family_category">
+                                    <div *ngIf="submitted && approvedFamilyForm.controls.Approved_family_category.errors" class="error">
+                                        <div *ngIf="approvedFamilyForm.controls.Approved_family_category.errors.required">This field is required</div>
+                                      </div>
+                                  </mat-form-field>
+                              </div>
+                              <div class="col-md-3">
+                                  <mat-form-field class="example-full-width">
+                                    <input matInput placeholder="Identity number" type="text" formControlName="Identity_number">
+                                    <div *ngIf="submitted && approvedFamilyForm.controls.Identity_number.errors" class="error">
+                                        <div *ngIf="approvedFamilyForm.controls.Identity_number.errors.required">This field is required</div>
+                                      </div>
+                                  </mat-form-field>
+                              </div>
+                              <div class="col-md-3">
+                                  <mat-form-field class="example-full-width">
+                                    <input matInput placeholder="Date" type="date" formControlName="Date">
+                                  </mat-form-field>
+                              </div>
+                          </div>
+                          <div class="row">
+                              <div class="col-md-5">
+                                  <mat-form-field class="example-full-width">
+                                    <input matInput placeholder="Name of wife" type= "text" formControlName="Name_of_wife">
+                                    <div *ngIf="submitted && approvedFamilyForm.controls.Name_of_wife.errors" class="error">
+                                        <div *ngIf="approvedFamilyForm.controls.Name_of_wife.errors.required">This field is required</div>
+                                      </div>
+                                  </mat-form-field>
+                              </div>
+                              <div class="col-md-5">
+                                  <mat-form-field class="example-full-width">
+                                    <input matInput placeholder="Name of husband" type= "text" formControlName="Name_of_husband">
+                                  </mat-form-field>
+                              </div>
+                          </div>
+                          <div class="row">
+                              <div class="col-md-3">
+                                  <mat-form-field class="example-full-width">
+                                    <input matInput placeholder="Date of birth" type= "date" formControlName="Date_of_birth">
+                                  </mat-form-field>
+                              </div><div class="col-md-5">
+                                  <mat-form-field class="example-full-width">
+                                    <input matInput placeholder="Address" type= "text" formControlName="address">
+                                    <div *ngIf="submitted && approvedFamilyForm.controls.address.errors" class="error">
+                                        <div *ngIf="approvedFamilyForm.controls.address.errors.required">This field is required</div>
+                                      </div>
+                                  </mat-form-field>
+                              </div><div class="col-md-3">
+                                  <mat-form-field class="example-full-width">
+                                    <input matInput placeholder="Age at marriage" type= "number" formControlName="Age_at_the_time_of_marriage">
+                                    <div *ngIf="submitted && approvedFamilyForm.controls.Age_at_the_time_of_marriage.errors" class="error">
+                                        <div *ngIf="approvedFamilyForm.controls.Age_at_the_time_of_marriage.errors.required">This field is required</div>
+                                      </div>
+                                  </mat-form-field>
+                              </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-md-3">
+                                <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="Job status" type= "text" formControlName="Job_status">
+                                </mat-form-field>
+                            </div>
+                            <div class="col-md-3">
+                              <mat-form-field class="example-full-width">
+                                <input matInput placeholder="Education level" type= "text" formControlName="Education_level">
+                              </mat-form-field>
+                          </div>
+                          <div class="col-md-3">
+                            <mat-form-field class="example-full-width">
+                              <input matInput placeholder="Number of living children" type= "number" formControlName="Number_of_living_children">
+                              <div *ngIf="submitted && approvedFamilyForm.controls.Number_of_living_children.errors" class="error">
+                                  <div *ngIf="approvedFamilyForm.controls.Number_of_living_children.errors.required">This field is required</div>
+                                </div>
+                            </mat-form-field>
+                          </div>
+                        </div>
+                        <h5>Pregnancy details</h5>
+                        <h5>  Pregnancy</h5>
+                        <div class="row">
+                            <div class="col-md-2">
+                                <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="First" type= "text" formControlName="Pregnancy_details_Pregnancy_Frist">
+                                </mat-form-field>
+                            </div>
+                            <div class="col-md-2">
+                                <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="Second" type= "text" formControlName="Pregnancy_details_Pregnancy_Second">
+                                </mat-form-field>
+                            </div>
+                            <div class="col-md-2">
+                                <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="Third" type= "text" formControlName="Pregnancy_details_Pregnancy_Third">
+                                </mat-form-field>
+                            </div>
+                            <div class="col-md-2">
+                                <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="Fourth" type= "text" formControlName="Pregnancy_details_Pregnancy_Fourth">
+                                </mat-form-field>
+                            </div>
+                            <div class="col-md-2">
+                                <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="Fifth" type= "text" formControlName="Pregnancy_details_Pregnancy_Fifth">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <h5>Results</h5>
+                        <div class="row">
+                            <div class="col-md-2">
+                                <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="First" type= "text" formControlName="Pregnancy_details_Result_First">
+                                </mat-form-field>
+                            </div>
+                            <div class="col-md-2">
+                                <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="Second" type= "text" formControlName="Pregnancy_details_Result_Second">
+                                </mat-form-field>
+                            </div>
+                            <div class="col-md-2">
+                                <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="Third" type= "text" formControlName="Pregnancy_details_Result_Third">
+                                </mat-form-field>
+                            </div>
+                            <div class="col-md-2">
+                                <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="Fourth" type= "text" formControlName="Pregnancy_details_Result_Fourth">
+                                </mat-form-field>
+                            </div>
+                            <div class="col-md-2">
+                                <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="Fifth" type= "text" formControlName="Pregnancy_details_Result_Fifth">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2">
+                                <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="Safe for rubella" type= "text" formControlName="Safe_for_rubella">
+                                </mat-form-field>
+                            </div>
+                            <div class="col-md-3">
+                                <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="Date of cervical mucous test" type= "text" formControlName="Date_of_cervical_mucous_test">
+                                </mat-form-field>
+                            </div>
+                            <div class="col-md-2">
+                                <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="Other details" type= "text" formControlName="Other_details">
+                                </mat-form-field>
+                            </div>
+                            <div class="col-md-3">
+                                <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="Number of young children" type= "text" formControlName="number_of_young_children">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <input type="submit" value="Submit details" class="btn btn-danger pull-right">
+                        
+                        </form>
+                          <div *ngIf="success"><h1>You submitted a record</h1></div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
