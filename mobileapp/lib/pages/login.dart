@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:mobileapp/pages/home.dart';
+import '../services/loginService.dart';
 //import 'dart:io';
 //import 'package:flutter/services.dart';
 
@@ -8,10 +10,13 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
+  bool _isLoading = false;
   final _formKey = GlobalKey<FormState>();
+  final _usernameController = TextEditingController();
+  final _passwordController = TextEditingController();
   var email;
   var password;
-
+//https://protected-bayou-52277.herokuapp.com/
   @override
   Widget build(BuildContext context) {
     final motherLogo = const ImageIcon(AssetImage("images/mother.png"),
@@ -26,9 +31,9 @@ class _LoginState extends State<Login> {
       obscureText: false,
       //style: style,
       decoration: InputDecoration(
-          contentPadding: EdgeInsets.fromLTRB(10.0, 15.0, 20.0, 15.0),
-          hintText: "email",
-),
+        contentPadding: EdgeInsets.fromLTRB(10.0, 15.0, 20.0, 15.0),
+        hintText: "email",
+      ),
       onSaved: (input) => email = input,
     );
 
@@ -41,9 +46,9 @@ class _LoginState extends State<Login> {
       obscureText: true,
       //style: style,
       decoration: InputDecoration(
-          contentPadding: EdgeInsets.fromLTRB(10.0, 15.0, 20.0, 15.0),
-          hintText: "password",
-        ),
+        contentPadding: EdgeInsets.fromLTRB(10.0, 15.0, 20.0, 15.0),
+        hintText: "password",
+      ),
       onSaved: (input) => password = input,
     );
 
@@ -54,7 +59,9 @@ class _LoginState extends State<Login> {
         shape: RoundedRectangleBorder(
             borderRadius: new BorderRadius.circular(10.0)),
         child: new Text('Login'),
-        onPressed: () {},
+        onPressed: ()  {
+          checkDetails();
+        },
       ),
     );
     final forgotPasswordText = FlatButton(
@@ -103,5 +110,61 @@ class _LoginState extends State<Login> {
         ),
       ),
     );
+  }
+
+  Future checkDetails() async {
+    setState(() {
+      _isLoading = true;
+      print('setst 1');
+    });
+    final users = await ApiService.getUserList();
+    print(users);
+    setState(() {
+      _isLoading = false;
+      print('setst 2');
+    });
+    if (users == null) {
+      showDialog(
+          context: context,
+          builder: (context) {
+            return AlertDialog(
+              title: Text('Error'),
+              content: Text("Check your internet connection"),
+              actions: <Widget>[
+                FlatButton(
+                  child: Text('Ok'),
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                )
+              ],
+            );
+          });
+      return;
+    } else {
+      final userWithUsernameExists =
+          users.any((u) => u['username'] == _usernameController.text);
+      if (userWithUsernameExists) {
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => Home()));
+      } else {
+        showDialog(
+            context: context,
+            builder: (context) {
+              return AlertDialog(
+                title: Text('Incorrect username'),
+                content: Text('Try with a different username'),
+                actions: <Widget>[
+                  FlatButton(
+                    child: Text('Ok'),
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                  )
+                ],
+              );
+            });
+      }
+    }
   }
 }
