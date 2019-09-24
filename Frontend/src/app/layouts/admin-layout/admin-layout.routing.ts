@@ -11,6 +11,7 @@ import { UpgradeComponent } from '../../upgrade/upgrade.component';
 import { ViewApprovedFamiliesComponent } from 'app/MOHComponents/view-approved-families/view-approved-families.component';
 import { AddApprovedFamiliesComponent } from 'app/MOHComponents/add-approved-families/add-approved-families.component';
 import { ViewBabiesofAreaComponent } from 'app/MOHComponents/view-babiesof-area/view-babiesof-area.component';
+import { AddmotherbabyjoineddataComponent } from 'app/MOHComponents/addmotherbabyjoineddata/addmotherbabyjoineddata.component';
 
 export const AdminLayoutRoutes: Routes = [
     // {
@@ -73,5 +74,15 @@ export const AdminLayoutRoutes: Routes = [
             }
         ]
     },
-    { path: 'viewBabies',        component: ViewBabiesofAreaComponent }
+    {
+         path: 'viewBabies',        
+         component: ViewBabiesofAreaComponent,
+         children: [
+            {
+                path: 'AddMotherBabyJoined',
+                component: AddmotherbabyjoineddataComponent
+            }
+        ]
+        
+        }
 ];

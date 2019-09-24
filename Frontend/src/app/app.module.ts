@@ -26,6 +26,7 @@ import { ViewBabiesofAreaComponent } from './MOHComponents/view-babiesof-area/vi
 import { ViewBabybyIDComponent } from './MOHComponents/view-babyby-id/view-babyby-id.component';
 
 
+
 @NgModule({
   imports: [
     BrowserAnimationsModule,
@@ -44,6 +45,7 @@ import { ViewBabybyIDComponent } from './MOHComponents/view-babyby-id/view-babyb
     AppComponent,
     AdminLayoutComponent,
     ViewBabybyIDComponent,
+
     
  
     
