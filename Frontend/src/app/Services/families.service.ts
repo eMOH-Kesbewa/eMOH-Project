@@ -13,4 +13,11 @@ export class FamiliesService {
     let uri = "http://localhost:3000/families/view";
     return this.http.get<Family>(uri);
   }
+
+  _url= 'http://localhost:3000/add';
+  register(userData){
+   
+    return this.http.post<any>(this._url , userData);
+   }
+  
 }
