@@ -1,19 +1,22 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
+import { FamiliesService } from 'app/Services/families.service';
+
 @Component({
   selector: 'app-add-approved-families',
   templateUrl: './add-approved-families.component.html',
-  styleUrls: ['./add-approved-families.component.scss']
+  styleUrls: ['./add-approved-families.component.scss'],
+  providers: [FamiliesService]
 })
 export class AddApprovedFamiliesComponent implements OnInit {
-
+  
 
   approvedFamilyForm: FormGroup;
   submitted = false;
   success = false;
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder, private addfamilyService: FamiliesService) { }
 
   ngOnInit() {
     this.approvedFamilyForm = this.formBuilder.group({
@@ -56,12 +59,14 @@ export class AddApprovedFamiliesComponent implements OnInit {
 
   onSubmit() {
     this.submitted = true;
+      
 
     if (this.approvedFamilyForm.invalid) {
         return;
     }
 
     this.success = true;
+    this.addfamilyService.register(this.approvedFamilyForm.value);
 }
 
 }
