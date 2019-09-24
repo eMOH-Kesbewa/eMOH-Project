@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FamiliesService } from 'app/Services/families.service';
 import { Family } from 'app/Services/family';
-
+import { Router } from '@angular/router';
+import { RouterModule } from '@angular/router';
 @Component({
   selector: 'app-view-approved-families',
   templateUrl: './view-approved-families.component.html',
@@ -9,7 +10,7 @@ import { Family } from 'app/Services/family';
 })
 export class ViewApprovedFamiliesComponent implements OnInit {
 
-  constructor(private familyservice : FamiliesService) { }
+  constructor(private familyservice : FamiliesService,private router: Router) { }
 
   families : Family;
   
@@ -18,5 +19,9 @@ export class ViewApprovedFamiliesComponent implements OnInit {
     this.familyservice.getfamilydata().subscribe(data => this.families = data);
   }
 
+  checkRoute(){
+    //console.log(this.router.url);
+    if(this.router.url=='/viewApprovedFamilies') return true;
+  }
   
 }
