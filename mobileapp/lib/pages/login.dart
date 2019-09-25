@@ -1,6 +1,10 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:mobileapp/pages/home.dart';
 import '../services/loginService.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:http/http.dart' as http;
 //import 'dart:io';
 //import 'package:flutter/services.dart';
 
@@ -12,10 +16,11 @@ class Login extends StatefulWidget {
 class _LoginState extends State<Login> {
   bool _isLoading = false;
   final _formKey = GlobalKey<FormState>();
-  final _usernameController = TextEditingController();
-  final _passwordController = TextEditingController();
+  final TextEditingController emailController = new TextEditingController();
+  final TextEditingController passwordController = new TextEditingController();
   var email;
   var password;
+
 //https://protected-bayou-52277.herokuapp.com/
   @override
   Widget build(BuildContext context) {
@@ -23,33 +28,30 @@ class _LoginState extends State<Login> {
         size: 200.0, color: Colors.black);
 
     final emailField = TextFormField(
-      validator: (input) {
-        if (input.isEmpty) {
-          return 'Please Enter Index Number';
-        }
-      },
-      obscureText: false,
-      //style: style,
+      controller: emailController,
+      cursorColor: Colors.white,
+      style: TextStyle(color: Colors.black),
       decoration: InputDecoration(
-        contentPadding: EdgeInsets.fromLTRB(10.0, 15.0, 20.0, 15.0),
-        hintText: "email",
+        icon: Icon(Icons.email, color: Colors.black),
+        hintText: "Email",
+        border:
+            UnderlineInputBorder(borderSide: BorderSide(color: Colors.white70)),
+        hintStyle: TextStyle(color: Colors.black),
       ),
-      onSaved: (input) => email = input,
     );
 
     final pwField = TextFormField(
-      validator: (input) {
-        if (input.isEmpty) {
-          return 'Please Enter Password';
-        }
-      },
+      controller: passwordController,
+      cursorColor: Colors.white,
       obscureText: true,
-      //style: style,
+      style: TextStyle(color: Colors.black),
       decoration: InputDecoration(
-        contentPadding: EdgeInsets.fromLTRB(10.0, 15.0, 20.0, 15.0),
-        hintText: "password",
+        icon: Icon(Icons.lock, color: Colors.black),
+        hintText: "Password",
+        border:
+            UnderlineInputBorder(borderSide: BorderSide(color: Colors.white70)),
+        hintStyle: TextStyle(color: Colors.black),
       ),
-      onSaved: (input) => password = input,
     );
 
     final loginButton = Container(
@@ -59,8 +61,11 @@ class _LoginState extends State<Login> {
         shape: RoundedRectangleBorder(
             borderRadius: new BorderRadius.circular(10.0)),
         child: new Text('Login'),
-        onPressed: ()  {
-          checkDetails();
+        onPressed: () {
+          setState(() {
+            _isLoading = true;
+          });
+          signIn(emailController.text, passwordController.text);
         },
       ),
     );
@@ -74,7 +79,7 @@ class _LoginState extends State<Login> {
     return Scaffold(
       body: SingleChildScrollView(
         child: Center(
-          child: Column(
+          child: _isLoading ? CircularProgressIndicator():Column(
             children: <Widget>[
               Padding(
                 padding: EdgeInsets.fromLTRB(0, 100, 0, 20),
@@ -112,59 +117,31 @@ class _LoginState extends State<Login> {
     );
   }
 
-  Future checkDetails() async {
-    setState(() {
-      _isLoading = true;
-      print('setst 1');
-    });
-    final users = await ApiService.getUserList();
-    print(users);
-    setState(() {
-      _isLoading = false;
-      print('setst 2');
-    });
-    if (users == null) {
-      showDialog(
-          context: context,
-          builder: (context) {
-            return AlertDialog(
-              title: Text('Error'),
-              content: Text("Check your internet connection"),
-              actions: <Widget>[
-                FlatButton(
-                  child: Text('Ok'),
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                )
-              ],
-            );
-          });
-      return;
-    } else {
-      final userWithUsernameExists =
-          users.any((u) => u['username'] == _usernameController.text);
-      if (userWithUsernameExists) {
-        Navigator.push(
-            context, MaterialPageRoute(builder: (context) => Home()));
-      } else {
-        showDialog(
-            context: context,
-            builder: (context) {
-              return AlertDialog(
-                title: Text('Incorrect username'),
-                content: Text('Try with a different username'),
-                actions: <Widget>[
-                  FlatButton(
-                    child: Text('Ok'),
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
-                  )
-                ],
-              );
-            });
+  signIn(String email, pass) async {
+    // SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
+
+    Map data = {'username': email, 'password': pass};
+    var jsonResponse = null;
+    var response = await http.post(
+        "https://protected-bayou-52277.herokuapp.com/users/login",
+        body: data);
+    if (response.statusCode == 200) {
+      jsonResponse = json.decode(response.body);
+      print(jsonResponse);
+      if (jsonResponse != null) {
+        setState(() {
+          _isLoading = false;
+        });
+        // sharedPreferences.setString("token", jsonResponse['token']);
+        Navigator.of(context).pushAndRemoveUntil(
+            MaterialPageRoute(builder: (BuildContext context) => Home()),
+            (Route<dynamic> route) => false);
       }
+    } else {
+      setState(() {
+        _isLoading = false;
+      });
+      print(response.body);
     }
   }
 }
