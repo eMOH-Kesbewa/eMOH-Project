@@ -14,15 +14,22 @@ export class ClinicNotificationsComponent implements OnInit {
   constructor(private clinicService: ClinicsService, private router: Router) { }
 
   clinics : Clinic;
+ 
+  
   
   ngOnInit() {
     //this.ClinicsService.getfamilydata().subscribe(data => this.clinics = data);
     this.clinicService.getClinicData().subscribe(data => this.clinics = data);
+    
   }
 
   checkRoute(){
     //console.log(this.router.url);
     //if(this.router.url=='/viewApprovedFamilies') return true;
   }
+
+
   
+ 
+
 }

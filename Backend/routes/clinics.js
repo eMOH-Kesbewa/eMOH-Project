@@ -10,12 +10,25 @@ router.post('/add', (req, res) => {
     console.log("Completed");
 });
 
-//View all families in the area
-router.get('/view', (req, res) => {
-    clinics.find((err, doc) => {
-        res.send(doc)
+//View all Upcoming Clinics 
+router.get('/viewUpComingClinics', (req, res) => {
+    //Sorted in a Latest to Oldest Order
+    var now = new Date();
+    var newFomat = formatDate(now);
+    clinics.find({date:{$gte: newFomat}}).sort({date: 'descending'}).exec(function(err, docs) { 
+        res.send(docs) 
     });
-    console.log("Completed");
+    //console.log("Completed");
+});
+
+//View all Clinic Histories
+router.get('/view', (req, res) => {
+    //Sorted in a Latest to Oldest Order
+    var now = new Date();
+    clinics.find({}).sort({date: 'descending'}).exec(function(err, docs) { 
+        res.send(docs) 
+    });
+    //console.log("Completed");
 });
 
 //Update the clinics table
@@ -39,6 +52,20 @@ router.get('/update', async (req, res) => {
     }
 
 });
+
+function formatDate(date) {
+    var d = new Date(date),
+        month = '' + (d.getMonth() + 1),
+        day = '' + d.getDate(),
+        year = d.getFullYear();
+
+    if (month.length < 2) 
+        month = '0' + month;
+    if (day.length < 2) 
+        day = '0' + day;
+
+    return [year, month, day].join('-');
+}
 
 
 module.exports = router;

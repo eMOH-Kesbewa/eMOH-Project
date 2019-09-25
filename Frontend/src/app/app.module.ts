@@ -25,6 +25,7 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
 import { ViewBabiesofAreaComponent } from './MOHComponents/view-babiesof-area/view-babiesof-area.component';
 import { ViewBabybyIDComponent } from './MOHComponents/view-babyby-id/view-babyby-id.component';
 import { ClinicNotificationsComponent } from './MOHComponents/clinic-notifications/clinic-notifications.component';
+import { ArraySortPipe } from './array-sort.pipe';
 
 
 
@@ -45,6 +46,8 @@ import { ClinicNotificationsComponent } from './MOHComponents/clinic-notificatio
   declarations: [
     AppComponent,
     AdminLayoutComponent,
+    ArraySortPipe,
+  
   
 
     
