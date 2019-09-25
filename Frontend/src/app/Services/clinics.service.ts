@@ -1,22 +1,22 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Family } from './Models/family';
+import { Clinic } from './Models/clinic';
+
 @Injectable({
   providedIn: 'root'
 })
-export class FamiliesService {
+export class ClinicsService {
 
   constructor(private http: HttpClient) { }
 
-  getfamilydata():Observable<Family>{
-    let uri = "http://localhost:3000/families/view";
-    return this.http.get<Family>(uri);
+  getClinicData():Observable<Clinic>{
+    let uri = "http://localhost:3000/clinics/view";
+    return this.http.get<Clinic>(uri);
   }
 
   _url= 'http://localhost:3000/add';
   register(userData){
     return this.http.post<any>(this._url , userData);
    }
-  
 }

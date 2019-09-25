@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FamiliesService } from 'app/Services/families.service';
-import { Family } from 'app/Services/family';
+import { Family } from 'app/Services/Models/family';
 
 @Component({
   selector: 'app-table-list',

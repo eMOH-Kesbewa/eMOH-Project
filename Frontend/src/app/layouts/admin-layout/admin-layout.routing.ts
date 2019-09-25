@@ -12,7 +12,7 @@ import { ViewApprovedFamiliesComponent } from 'app/MOHComponents/view-approved-f
 import { AddApprovedFamiliesComponent } from 'app/MOHComponents/add-approved-families/add-approved-families.component';
 import { ViewBabiesofAreaComponent } from 'app/MOHComponents/view-babiesof-area/view-babiesof-area.component';
 import { AddmotherbabyjoineddataComponent } from 'app/MOHComponents/addmotherbabyjoineddata/addmotherbabyjoineddata.component';
-
+import { ClinicNotificationsComponent } from 'app/MOHComponents/clinic-notifications/clinic-notifications.component';
 export const AdminLayoutRoutes: Routes = [
     // {
     //   path: '',
@@ -75,14 +75,15 @@ export const AdminLayoutRoutes: Routes = [
         ]
     },
     {
-         path: 'viewBabies',        
-         component: ViewBabiesofAreaComponent,
-         children: [
-            {
-                path: 'AddMotherBabyJoined',
-                component: AddmotherbabyjoineddataComponent
-            }
-        ]
-        
-        }
+        path: 'viewBabies',        
+        component: ViewBabiesofAreaComponent,
+        children: [
+           {
+               path: 'AddMotherBabyJoined',
+               component: AddmotherbabyjoineddataComponent
+           }
+       ]
+       
+       },
+    { path: 'viewClinics',       component: ClinicNotificationsComponent }
 ];

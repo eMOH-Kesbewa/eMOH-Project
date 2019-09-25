@@ -14,7 +14,8 @@ router.post('/add', (req, res) => {
 router.get('/view', (req, res) => {
     clinics.find((err, doc) => {
         res.send(doc)
-    })
+    });
+    console.log("Completed");
 });
 
 //Update the clinics table
