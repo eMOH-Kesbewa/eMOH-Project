@@ -77,56 +77,44 @@ class _LoginState extends State<Login> {
       //splashColor: Colors.blueAccent,
       onPressed: () {},
     );
-
-    final loginError = AlertDialog(
-      title: Text('Error!'),
-      content: SingleChildScrollView(
-        child: ListBody(
-          children: <Widget>[
-            Text('Invalid user name or password'),
-          ],
-        ),
-      ),
-    );
     return Scaffold(
       body: SingleChildScrollView(
-        child: _isError
-            ? Center(child: loginError)
-            : _isLoading
-                ? Center(child: CircularProgressIndicator())
-                : Column(
-                    children: <Widget>[
-                      Padding(
-                        padding: EdgeInsets.fromLTRB(0, 100, 0, 20),
-                        child: motherLogo,
-                      ),
-                      Padding(
-                        padding: EdgeInsets.fromLTRB(20, 0, 20, 20),
-                        child: Form(
-                          key: _formKey,
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: <Widget>[
-                              emailField,
-                              SizedBox(
-                                height: 20.0,
-                              ),
-                              pwField,
-                              SizedBox(
-                                height: 20.0,
-                              ),
-                              loginButton,
-                              SizedBox(
-                                height: 20.0,
-                              ),
-                              forgotPasswordText,
-                            ],
-                          ),
-                        ),
-                      )
-                    ],
+        child: _isError ? Center(child: loginError) : 
+         _isLoading
+            ? Center(child: CircularProgressIndicator())
+            : Column(
+                children: <Widget>[
+                  Padding(
+                    padding: EdgeInsets.fromLTRB(0, 100, 0, 20),
+                    child: motherLogo,
                   ),
+                  Padding(
+                    padding: EdgeInsets.fromLTRB(20, 0, 20, 20),
+                    child: Form(
+                      key: _formKey,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          emailField,
+                          SizedBox(
+                            height: 20.0,
+                          ),
+                          pwField,
+                          SizedBox(
+                            height: 20.0,
+                          ),
+                          loginButton,
+                          SizedBox(
+                            height: 20.0,
+                          ),
+                          forgotPasswordText,
+                        ],
+                      ),
+                    ),
+                  )
+                ],
+              ),
       ),
     );
   }
@@ -182,11 +170,21 @@ class _LoginState extends State<Login> {
       }
     } else {
       print('***');
-      /* setState(() {
+     /* setState(() {
         _isLoading = false;
       });*/
 
       //print(response.body);
     }
   }
+ final loginError = AlertDialog(
+            title: Text('Error!'),
+            content: SingleChildScrollView(
+              child: ListBody(
+                children: <Widget>[
+                  Text('Invalid user name or password'),
+                ],
+              ),
+            ),
+          );
 }
