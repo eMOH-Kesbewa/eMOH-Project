@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:mobileapp/pages/home.dart';
-import '../services/loginService.dart';
+
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:http/http.dart' as http;
 //import 'dart:io';
@@ -15,6 +15,7 @@ class Login extends StatefulWidget {
 
 class _LoginState extends State<Login> {
   bool _isLoading = false;
+  bool _isError = false;
   final _formKey = GlobalKey<FormState>();
   final TextEditingController emailController = new TextEditingController();
   final TextEditingController passwordController = new TextEditingController();
@@ -76,43 +77,56 @@ class _LoginState extends State<Login> {
       //splashColor: Colors.blueAccent,
       onPressed: () {},
     );
+
+    final loginError = AlertDialog(
+      title: Text('Error!'),
+      content: SingleChildScrollView(
+        child: ListBody(
+          children: <Widget>[
+            Text('Invalid user name or password'),
+          ],
+        ),
+      ),
+    );
     return Scaffold(
       body: SingleChildScrollView(
-        child: Center(
-          child: _isLoading ? CircularProgressIndicator():Column(
-            children: <Widget>[
-              Padding(
-                padding: EdgeInsets.fromLTRB(0, 100, 0, 20),
-                child: motherLogo,
-              ),
-              Padding(
-                padding: EdgeInsets.fromLTRB(20, 0, 20, 20),
-                child: Form(
-                  key: _formKey,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.center,
+        child: _isError
+            ? Center(child: loginError)
+            : _isLoading
+                ? Center(child: CircularProgressIndicator())
+                : Column(
                     children: <Widget>[
-                      emailField,
-                      SizedBox(
-                        height: 20.0,
+                      Padding(
+                        padding: EdgeInsets.fromLTRB(0, 100, 0, 20),
+                        child: motherLogo,
                       ),
-                      pwField,
-                      SizedBox(
-                        height: 20.0,
-                      ),
-                      loginButton,
-                      SizedBox(
-                        height: 20.0,
-                      ),
-                      forgotPasswordText,
+                      Padding(
+                        padding: EdgeInsets.fromLTRB(20, 0, 20, 20),
+                        child: Form(
+                          key: _formKey,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: <Widget>[
+                              emailField,
+                              SizedBox(
+                                height: 20.0,
+                              ),
+                              pwField,
+                              SizedBox(
+                                height: 20.0,
+                              ),
+                              loginButton,
+                              SizedBox(
+                                height: 20.0,
+                              ),
+                              forgotPasswordText,
+                            ],
+                          ),
+                        ),
+                      )
                     ],
                   ),
-                ),
-              )
-            ],
-          ),
-        ),
       ),
     );
   }
@@ -125,23 +139,54 @@ class _LoginState extends State<Login> {
     var response = await http.post(
         "https://protected-bayou-52277.herokuapp.com/users/login",
         body: data);
+    print("****status code****");
+    print(response.statusCode);
     if (response.statusCode == 200) {
       jsonResponse = json.decode(response.body);
-      print(jsonResponse);
+      //print(jsonResponse);
       if (jsonResponse != null) {
         setState(() {
           _isLoading = false;
         });
+        //String name = decoded['name'];
         // sharedPreferences.setString("token", jsonResponse['token']);
-        Navigator.of(context).pushAndRemoveUntil(
-            MaterialPageRoute(builder: (BuildContext context) => Home()),
-            (Route<dynamic> route) => false);
+        bool state = jsonResponse['state'];
+        print(state);
+        if (state == true) {
+          print('***validated***');
+          Navigator.of(context).pushAndRemoveUntil(
+              MaterialPageRoute(builder: (BuildContext context) => Home()),
+              (Route<dynamic> route) => false);
+        } else {
+          print('***else clause***');
+          setState(() {
+            print('#########');
+            _isError = true;
+          });
+          return AlertDialog(
+            title: Text('Error!'),
+            content: SingleChildScrollView(
+              child: ListBody(
+                children: <Widget>[
+                  Text('Invalid user name or password'),
+                ],
+              ),
+            ),
+          );
+          //alert dialog is not working
+          /*setState(() {
+            _isLoading = false;
+          });*/
+
+        }
       }
     } else {
-      setState(() {
+      print('***');
+      /* setState(() {
         _isLoading = false;
-      });
-      print(response.body);
+      });*/
+
+      //print(response.body);
     }
   }
 }
