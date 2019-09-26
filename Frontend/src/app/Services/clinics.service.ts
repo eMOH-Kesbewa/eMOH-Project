@@ -10,8 +10,8 @@ export class ClinicsService {
 
   constructor(private http: HttpClient) { }
 
-  getClinicData():Observable<Clinic>{
-    let uri = "http://localhost:3000/clinics/view";
+  getUpcomingClinicData():Observable<Clinic>{
+    let uri = "http://localhost:3000/clinics/viewUpComingClinics";
     return this.http.get<Clinic>(uri);
   }
 

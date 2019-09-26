@@ -16,6 +16,7 @@ import { AddApprovedFamiliesComponent } from 'app/MOHComponents/add-approved-fam
 import { ViewBabiesofAreaComponent } from 'app/MOHComponents/view-babiesof-area/view-babiesof-area.component';
 import { AddmotherbabyjoineddataComponent } from 'app/MOHComponents/addmotherbabyjoineddata/addmotherbabyjoineddata.component';
 import { ClinicNotificationsComponent } from 'app/MOHComponents/clinic-notifications/clinic-notifications.component';
+import { AddClinicComponent } from 'app/MOHComponents/add-clinic/add-clinic.component';
 
 import {
   MatButtonModule,
@@ -25,6 +26,7 @@ import {
   MatTooltipModule,
   MatSelectModule
 } from '@angular/material';
+import { ClinicRecordsComponent } from 'app/MOHComponents/clinic-records/clinic-records.component';
 
 
 
@@ -56,7 +58,9 @@ import {
     AddApprovedFamiliesComponent,
     ViewBabiesofAreaComponent,
     AddmotherbabyjoineddataComponent,
-    ClinicNotificationsComponent
+    ClinicNotificationsComponent,
+    ClinicRecordsComponent,
+    AddClinicComponent
   ]
 })
 

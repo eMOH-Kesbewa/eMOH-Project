@@ -19,7 +19,7 @@ export class ClinicNotificationsComponent implements OnInit {
   
   ngOnInit() {
     //this.ClinicsService.getfamilydata().subscribe(data => this.clinics = data);
-    this.clinicService.getClinicData().subscribe(data => this.clinics = data);
+    this.clinicService.getUpcomingClinicData().subscribe(data => this.clinics = data);
     
   }
 
@@ -28,7 +28,7 @@ export class ClinicNotificationsComponent implements OnInit {
     //if(this.router.url=='/viewApprovedFamilies') return true;
   }
 
-
+  
   
  
 
