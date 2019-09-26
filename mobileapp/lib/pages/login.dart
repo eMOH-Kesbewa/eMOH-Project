@@ -5,6 +5,7 @@ import 'package:mobileapp/pages/home.dart';
 
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:http/http.dart' as http;
+import 'package:toast/toast.dart';
 //import 'dart:io';
 //import 'package:flutter/services.dart';
 
@@ -32,8 +33,8 @@ class _LoginState extends State<Login> {
     final emailField = TextFormField(
       keyboardType: TextInputType.emailAddress,
       controller: emailController,
-      cursorColor: Colors.black12,
-      style: TextStyle(color: Colors.black),
+      cursorColor: Color(0xff5d1049),
+      style: TextStyle(color: Color(0xff5d1049)),
       decoration: InputDecoration(
         // icon: Icon(Icons.email, color: Colors.black),
         hintText: "Email",
@@ -64,9 +65,9 @@ class _LoginState extends State<Login> {
 
     final pwField = TextFormField(
       controller: passwordController,
-      cursorColor: Colors.black12,
+      cursorColor: Color(0xff5d1049),
       obscureText: _passwordVisible,
-      style: TextStyle(color: Colors.black),
+      style: TextStyle(color: Color(0xff5d1049)),
       decoration: InputDecoration(
         //icon: Icon(Icons.lock, color: Colors.black),
         suffixIcon: IconButton(
@@ -112,10 +113,11 @@ class _LoginState extends State<Login> {
       onPressed: () {},
     );
     return Scaffold(
+      backgroundColor: Color(0xfffffffa),
+      //backgroundColor: Color(0xfffecee9),
       body: SingleChildScrollView(
-        child: _isError
-            ? Center(child: loginError)
-            : _isLoading
+        child: //_isError ? Center(child: loginError):
+            _isLoading
                 ? Center(child: CircularProgressIndicator())
                 : Column(
                     children: <Widget>[
@@ -182,11 +184,13 @@ class _LoginState extends State<Login> {
               (Route<dynamic> route) => false);
         } else {
           print('***else clause***');
-          setState(() {
+          return Toast.show("Invalid email or password", context,
+              duration: Toast.LENGTH_LONG, gravity: Toast.CENTER);
+         /* setState(() {
             print('#########');
             _isError = true;
-          });
-          return AlertDialog(
+          });*/
+          /*return AlertDialog(
             title: Text('Error!'),
             content: SingleChildScrollView(
               child: ListBody(
@@ -195,7 +199,7 @@ class _LoginState extends State<Login> {
                 ],
               ),
             ),
-          );
+          );*/
           //alert dialog is not working
           /*setState(() {
             _isLoading = false;
