@@ -24,7 +24,7 @@ import {
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { ViewBabiesofAreaComponent } from './MOHComponents/view-babiesof-area/view-babiesof-area.component';
 import { ViewBabybyIDComponent } from './MOHComponents/view-babyby-id/view-babyby-id.component';
-
+import { ClinicNotificationsComponent } from './MOHComponents/clinic-notifications/clinic-notifications.component';
 
 @NgModule({
   imports: [
@@ -43,7 +43,11 @@ import { ViewBabybyIDComponent } from './MOHComponents/view-babyby-id/view-babyb
   declarations: [
     AppComponent,
     AdminLayoutComponent,
-    ViewBabybyIDComponent,
+   
+    
+  
+  
+
     
  
     
