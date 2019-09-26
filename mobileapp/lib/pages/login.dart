@@ -21,37 +21,66 @@ class _LoginState extends State<Login> {
   final TextEditingController passwordController = new TextEditingController();
   var email;
   var password;
+  bool _passwordVisible = true;
 
 //https://protected-bayou-52277.herokuapp.com/
   @override
   Widget build(BuildContext context) {
     final motherLogo = const ImageIcon(AssetImage("images/mother.png"),
-        size: 200.0, color: Colors.black);
+        size: 200.0, color: Color(0xff5d1049));
 
     final emailField = TextFormField(
+      keyboardType: TextInputType.emailAddress,
       controller: emailController,
-      cursorColor: Colors.white,
+      cursorColor: Colors.black12,
       style: TextStyle(color: Colors.black),
       decoration: InputDecoration(
-        icon: Icon(Icons.email, color: Colors.black),
+        // icon: Icon(Icons.email, color: Colors.black),
         hintText: "Email",
         border:
             UnderlineInputBorder(borderSide: BorderSide(color: Colors.white70)),
-        hintStyle: TextStyle(color: Colors.black),
+        hintStyle: TextStyle(color: Colors.black26),
       ),
     );
 
+    /* final pwField =  Container(
+            margin: EdgeInsets.only(left: 16.0),
+            child: TextFormField(
+              controller: passwordController,
+              decoration: InputDecoration(
+                  hintText: 'Password',
+                  filled: true,
+                  prefixIcon: Icon(
+                    Icons.account_box,
+                    size: 28.0,
+                  ),
+                  suffixIcon: IconButton(
+                      icon: Icon(Icons.remove),
+                      onPressed: () {
+                        debugPrint('222');
+                      })),
+            ),
+          );*/
+
     final pwField = TextFormField(
       controller: passwordController,
-      cursorColor: Colors.white,
-      obscureText: true,
+      cursorColor: Colors.black12,
+      obscureText: _passwordVisible,
       style: TextStyle(color: Colors.black),
       decoration: InputDecoration(
-        icon: Icon(Icons.lock, color: Colors.black),
+        //icon: Icon(Icons.lock, color: Colors.black),
+        suffixIcon: IconButton(
+            icon: Icon(Icons.remove_red_eye),
+            onPressed: () {
+              setState(() {
+                _passwordVisible = !_passwordVisible;
+              });
+            }),
+
         hintText: "Password",
         border:
             UnderlineInputBorder(borderSide: BorderSide(color: Colors.white70)),
-        hintStyle: TextStyle(color: Colors.black),
+        hintStyle: TextStyle(color: Colors.black26),
       ),
     );
 
@@ -59,9 +88,14 @@ class _LoginState extends State<Login> {
       width: 315.0,
       height: 48.0,
       child: new RaisedButton(
+        color: Color(0xffFEEAE6),
         shape: RoundedRectangleBorder(
             borderRadius: new BorderRadius.circular(10.0)),
-        child: new Text('Login'),
+        child: new Text(
+          'Login',
+          style:
+              TextStyle(fontWeight: FontWeight.bold, color: Color(0xff442C2E)),
+        ),
         onPressed: () {
           setState(() {
             _isLoading = true;
@@ -79,42 +113,43 @@ class _LoginState extends State<Login> {
     );
     return Scaffold(
       body: SingleChildScrollView(
-        child: _isError ? Center(child: loginError) : 
-         _isLoading
-            ? Center(child: CircularProgressIndicator())
-            : Column(
-                children: <Widget>[
-                  Padding(
-                    padding: EdgeInsets.fromLTRB(0, 100, 0, 20),
-                    child: motherLogo,
-                  ),
-                  Padding(
-                    padding: EdgeInsets.fromLTRB(20, 0, 20, 20),
-                    child: Form(
-                      key: _formKey,
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          emailField,
-                          SizedBox(
-                            height: 20.0,
-                          ),
-                          pwField,
-                          SizedBox(
-                            height: 20.0,
-                          ),
-                          loginButton,
-                          SizedBox(
-                            height: 20.0,
-                          ),
-                          forgotPasswordText,
-                        ],
+        child: _isError
+            ? Center(child: loginError)
+            : _isLoading
+                ? Center(child: CircularProgressIndicator())
+                : Column(
+                    children: <Widget>[
+                      Padding(
+                        padding: EdgeInsets.fromLTRB(0, 100, 0, 20),
+                        child: motherLogo,
                       ),
-                    ),
-                  )
-                ],
-              ),
+                      Padding(
+                        padding: EdgeInsets.fromLTRB(20, 0, 20, 20),
+                        child: Form(
+                          key: _formKey,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: <Widget>[
+                              emailField,
+                              SizedBox(
+                                height: 20.0,
+                              ),
+                              pwField,
+                              SizedBox(
+                                height: 20.0,
+                              ),
+                              loginButton,
+                              SizedBox(
+                                height: 20.0,
+                              ),
+                              forgotPasswordText,
+                            ],
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
       ),
     );
   }
@@ -170,21 +205,22 @@ class _LoginState extends State<Login> {
       }
     } else {
       print('***');
-     /* setState(() {
+      /* setState(() {
         _isLoading = false;
       });*/
 
       //print(response.body);
     }
   }
- final loginError = AlertDialog(
-            title: Text('Error!'),
-            content: SingleChildScrollView(
-              child: ListBody(
-                children: <Widget>[
-                  Text('Invalid user name or password'),
-                ],
-              ),
-            ),
-          );
+
+  final loginError = AlertDialog(
+    title: Text('Error!'),
+    content: SingleChildScrollView(
+      child: ListBody(
+        children: <Widget>[
+          Text('Invalid user name or password'),
+        ],
+      ),
+    ),
+  );
 }
