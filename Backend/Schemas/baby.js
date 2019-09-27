@@ -34,56 +34,91 @@ var baby = new Schema({
    "length_of_baby_at_birth": String,
    "weight_in_discharge_from_hospital": String,
    "K_vitamine": Boolean,
-   "breast_feeding": {
-      "breast_feeding_during_the_first_hour": Boolean,
-      "unstability": Boolean,
-      "connection": Boolean
-   },
+   "breast_feeding_breast_feeding_during_the_first_hour_yes": Boolean,
+   "breast_feeding_breast_feeding_during_the_first_hour_no": Boolean,
+   "breast_feeding_unstability_yes": Boolean,
+   "breast_feeding_unstability_no": Boolean,
+   "breast_feeding_connection_yes": Boolean,
+   "breast_feeding_connection_no": Boolean,
    "does_check_congenital_hypothyroidism": Boolean,
 
 
-   "premature_births": {
-      "status": String,
-      "date": Date
-   },
-   "low_birth_weight": {
-      "status": String,
-      "date": Date
-   },
-   "neonatal_abnomalities": {
-      "status": String,
-      "date": Date
-   },
-   "inherited_problems": String,
-   "congenital_hypothyroidism": String,
-   "server_illness_of_the_mother_after_delivery": {
-      "status": String,
-      "date": Date
-   },
-   "breastfeeding_at_first_six_months": {
-      "status": String,
-      "date": Date
-   },
-   "impairments_of_growth": {
-      "status": String,
-      "date": Date
-   },
-   "death_of_mother_or_father": {
-      "status": String,
-      "date": Date
-   },
-   "separation_or_depature_of_mother_or_father": {
-      "status": String,
-      "date": Date
-   },
-   "other": {
-      "status": String,
-      "date": Date
-   },
+   "premature_births_status": String,
+        "premature_births_date": Date,
+     
+        "low_birth_weight_status": String,
+        "low_birth_weight_date": Date,
+    
+        "neonatal_abnomalities_status": String,
+        "neonatal_abnomalities_date": Date,
+     
+     "inherited_problems_status": String,
+     "inherited_problems_date": Date,
+     "congenital_hypothyroidism_state": String,
+     "congenital_hypothyroidism_date": Date,
+     
+        "server_illness_of_the_mother_after_delivery_status": String,
+        "server_illness_of_the_mother_after_delivery_date": Date,
+     
+        "breastfeeding_at_first_six_months_status": String,
+        "breastfeeding_at_first_six_months_date": Date,
+    
+        "impairments_of_growth_status": String,
+        "impairments_of_growth_date": Date,
+     
+        "death_of_mother_or_father_status": String,
+        "death_of_mother_or_father_date": Date,
+    
+        "separation_or_depature_of_mother_or_father_status": String,
+        "separation_or_depature_of_mother_or_father_date": Date,
+     
+     
+        "_other_status": String,
+        "other_date": Date,
+
+
+   // "premature_births": {
+   //    "status": String,
+   //    "date": Date
+   // },
+   // "low_birth_weight": {
+   //    "status": String,
+   //    "date": Date
+   // },
+   // "neonatal_abnomalities": {
+   //    "status": String,
+   //    "date": Date
+   // },
+   // "inherited_problems": String,
+   // "congenital_hypothyroidism": String,
+   // "server_illness_of_the_mother_after_delivery": {
+   //    "status": String,
+   //    "date": Date
+   // },
+   // "breastfeeding_at_first_six_months": {
+   //    "status": String,
+   //    "date": Date
+   // },
+   // "impairments_of_growth": {
+   //    "status": String,
+   //    "date": Date
+   // },
+   // "death_of_mother_or_father": {
+   //    "status": String,
+   //    "date": Date
+   // },
+   // "separation_or_depature_of_mother_or_father": {
+   //    "status": String,
+   //    "date": Date
+   // },
+   // "other": {
+   //    "status": String,
+   //    "date": Date
+   // },
 
 
 
-   "date": Date,
+   "second_date": Date,
    "maturaty_of_baby_weeks": Number,
    "baby's_growth": {
       "SGA": Boolean,
@@ -91,118 +126,90 @@ var baby = new Schema({
       "LGA": Boolean
    },
    "blood_group_of_baby": String,
-   "peripheries_pink_and_warm": {
-      "noraml": String,
-      "abnormal": String
-   },
-   "hydration": {
-      "status": String,
-      "date": Date
-   },
-   "response_to_hnadling": {
-      "status": String,
-      "date": Date
-   },
-   "capillary_refilling_time": {
-      "status": String,
-      "date": Date
-   },
-   "pulse_rate_or_volume": {
-      "status": String,
-      "date": Date
-   },
-   "heart_murmurs": {
-      "status": String,
-      "date": Date
-   },
-   "femoral_pulse": {
-      "status": String,
-      "date": Date
-   },
-   "respiratory_rate": {
-      "status": String,
-      "date": Date
-   },
-   "grunting": {
-      "status": String,
-      "date": Date
-   },
-   "intercostal_or_subcostal_recession": {
-      "status": String,
-      "date": Date
-   },
-   "tone": {
-      "status": String,
-      "date": Date
-   },
-   "OFC": {
-      "status": String,
-      "date": Date
-   },
-   "fontamelle_or_suture_line": {
-      "status": String,
-      "date": Date
-   },
-   "eyes_or_red_reflex": {
-      "status": String,
-      "date": Date
-   },
-   "scalp": {
-      "status": String,
-      "date": Date
-   },
-   "mouth_lips": {
-      "status": String,
-      "date": Date
-   },
-   "palate": {
-      "status": String,
-      "date": Date
-   },
-   "ears": {
-      "status": String,
-      "date": Date
-   },
-   "abdomen": {
-      "status": String,
-      "date": Date
-   },
-   "umbilicus": {
-      "status": String,
-      "date": Date
-   },
-   "genitalia": {
-      "status": String,
-      "date": Date
-   },
-   "anus": {
-      "status": String,
-      "date": Date
-   },
-   "hips": {
-      "status": String,
-      "date": Date
-   },
-   "spine": {
-      "status": String,
-      "date": Date
-   },
-   "limbs": {
-      "status": String,
-      "date": Date
-   },
-   "dysmorphic_featurse": {
-      "status": String,
-      "date": Date
-   },
-   "superficial_infection_skin": {
-      "status": String,
-      "date": Date
-   },
-   "birth_injuries": {
-      "status": String,
-      "date": Date
-   },
+   "peripheries_pink_and_warm_noraml": String,
+   "peripheries_pink_and_warm_abnormal": String,
+
+   "hydration_normal": String,
+   "hydration_abnormal": String,
+
+   "response_to_hnadling_normal": String,
+   "response_to_hnadling_abnormal": String,
+
+ "capillary_refilling_time_normal": String,
+ "capillary_refilling_time_abnormal": String,
+
+ "pulse_rate_or_volume_normal": String,
+ "pulse_rate_or_volume_abnormal": String,
+
+ "heart_murmurs_normal": String,
+ "heart_murmurs_abnormal": String,
+
+ "femoral_pulse_normal": String,
+ "femoral_pulse_abnormal": String,
+
+ "respiratory_rate_normal": String,
+ "respiratory_rate_abnormal": String,
+
+ "grunting_normal": String,
+ "grunting_abnormal": String,
+
+ "intercostal_or_subcostal_recession_normal": String,
+ "intercostal_or_subcostal_recession_abnormal": String,
+
+ "tone_normal": String,
+ "tone_abnormal": String,
+
+ "OFC_normal": String,
+ "OFC_abnormal": String,
+
+ "fontamelle_or_suture_line_normal": String,
+ "fontamelle_or_suture_line_abnormal": String,
+
+ "eyes_or_red_reflex_normal": String,
+ "eyes_or_red_reflex_abnormal": String,
+
+ "scalp_normal": String,
+ "scalp_abnormal": String,
+
+ "mouth_lips_normal": String,
+ "mouth_lips_abnormal": String,
+
+ "palate_normal": String,
+ "palate_abnormal": String,
+
+ "ears_normal": String,
+ "ears_abnormal": String,
+
+ "abdomen_normal": String,
+ "abdomen_abnormal": String,
+
+ "umbilicus_normal": String,
+ "umbilicus_abnormal": String,
+
+ "genitalia_normal": String,
+ "genitalia_abnormal": String,
+
+ "anus_normal": String,
+ "anus_abnormal": String,
+
+ "hips_normal": String,
+ "hips_abnormal": String,
+
+ "spine_normal": String,
+ "spine_abnormal": String,
+
+ "limbs_normal": String,
+ "limbs_abnormal": String,
+
+ "dysmorphic_featurse_normal": String,
+ "dysmorphic_featurse_abnormal": String,
+
+ "superficial_infection_skin_normal": String,
+ "superficial_infection_skin_abnormal": String,
+
+ "birth_injuries_normal": String,
+ "birth_injuries_abnormal": String,
+
    "other_abnomalities": String,
    "action_taken": {
       "transfered_for_special_care": String,

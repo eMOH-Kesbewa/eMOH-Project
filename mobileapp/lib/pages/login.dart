@@ -31,6 +31,12 @@ class _LoginState extends State<Login> {
         size: 200.0, color: Color(0xff5d1049));
 
     final emailField = TextFormField(
+
+       /*validator: (input) {
+        if (input.isEmpty) {
+          return 'Please Enter The Name';
+        }
+      },*/
       keyboardType: TextInputType.emailAddress,
       controller: emailController,
       cursorColor: Color(0xff5d1049),
@@ -42,6 +48,7 @@ class _LoginState extends State<Login> {
             UnderlineInputBorder(borderSide: BorderSide(color: Colors.white70)),
         hintStyle: TextStyle(color: Colors.black26),
       ),
+      
     );
 
     /* final pwField =  Container(
