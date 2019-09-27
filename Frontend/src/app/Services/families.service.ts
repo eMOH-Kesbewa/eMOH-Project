@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Family } from './family';
+import { Family } from './Models/family';
 @Injectable({
   providedIn: 'root'
 })
@@ -16,7 +16,6 @@ export class FamiliesService {
 
   _url= 'http://localhost:3000/add';
   register(userData){
-   
     return this.http.post<any>(this._url , userData);
    }
   

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FamiliesService } from 'app/Services/families.service';
-import { Family } from 'app/Services/family';
+import { Family } from 'app/Services/Models/family';
 import { Router } from '@angular/router';
-import { RouterModule } from '@angular/router';
+
 @Component({
   selector: 'app-view-approved-families',
   templateUrl: './view-approved-families.component.html',

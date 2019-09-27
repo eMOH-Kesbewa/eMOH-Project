@@ -1,6 +1,8 @@
 import { Component, OnInit, ElementRef } from '@angular/core';
 import { ROUTES } from '../sidebar/sidebar.component';
 import {Location, LocationStrategy, PathLocationStrategy} from '@angular/common';
+import { ClinicsService } from 'app/Services/clinics.service';
+import { Clinic } from 'app/Services/Models/clinic';
 import { Router } from '@angular/router';
 
 @Component({
@@ -15,8 +17,9 @@ export class NavbarComponent implements OnInit {
     private toggleButton: any;
     private sidebarVisible: boolean;
     public nameOftheSearch;
+    clinics : Clinic;
 
-    constructor(location: Location,  private element: ElementRef, private router: Router) {
+    constructor(location: Location,  private element: ElementRef, private router: Router,private clinicService: ClinicsService) {
       this.location = location;
           this.sidebarVisible = false;
     }
@@ -34,7 +37,7 @@ export class NavbarComponent implements OnInit {
          }
      });
      //MYCode
-    
+     this.clinicService.getUpcomingClinicData().subscribe(data => this.clinics = data);
     }
 
     sidebarOpen() {
@@ -146,4 +149,6 @@ export class NavbarComponent implements OnInit {
         else return false;
         
     }
+
+    
 }

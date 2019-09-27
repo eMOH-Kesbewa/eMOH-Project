@@ -1,6 +1,11 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:mobileapp/pages/home.dart';
-import '../services/loginService.dart';
+
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:http/http.dart' as http;
+import 'package:toast/toast.dart';
 //import 'dart:io';
 //import 'package:flutter/services.dart';
 
@@ -11,56 +16,92 @@ class Login extends StatefulWidget {
 
 class _LoginState extends State<Login> {
   bool _isLoading = false;
+  bool _isError = false;
   final _formKey = GlobalKey<FormState>();
-  final _usernameController = TextEditingController();
-  final _passwordController = TextEditingController();
+  final TextEditingController emailController = new TextEditingController();
+  final TextEditingController passwordController = new TextEditingController();
   var email;
   var password;
+  bool _passwordVisible = true;
+
 //https://protected-bayou-52277.herokuapp.com/
   @override
   Widget build(BuildContext context) {
     final motherLogo = const ImageIcon(AssetImage("images/mother.png"),
-        size: 200.0, color: Colors.black);
+        size: 200.0, color: Color(0xff5d1049));
 
     final emailField = TextFormField(
-      validator: (input) {
-        if (input.isEmpty) {
-          return 'Please Enter Index Number';
-        }
-      },
-      obscureText: false,
-      //style: style,
+      keyboardType: TextInputType.emailAddress,
+      controller: emailController,
+      cursorColor: Color(0xff5d1049),
+      style: TextStyle(color: Color(0xff5d1049)),
       decoration: InputDecoration(
-        contentPadding: EdgeInsets.fromLTRB(10.0, 15.0, 20.0, 15.0),
-        hintText: "email",
+        // icon: Icon(Icons.email, color: Colors.black),
+        hintText: "Email",
+        border:
+            UnderlineInputBorder(borderSide: BorderSide(color: Colors.white70)),
+        hintStyle: TextStyle(color: Colors.black26),
       ),
-      onSaved: (input) => email = input,
     );
 
+    /* final pwField =  Container(
+            margin: EdgeInsets.only(left: 16.0),
+            child: TextFormField(
+              controller: passwordController,
+              decoration: InputDecoration(
+                  hintText: 'Password',
+                  filled: true,
+                  prefixIcon: Icon(
+                    Icons.account_box,
+                    size: 28.0,
+                  ),
+                  suffixIcon: IconButton(
+                      icon: Icon(Icons.remove),
+                      onPressed: () {
+                        debugPrint('222');
+                      })),
+            ),
+          );*/
+
     final pwField = TextFormField(
-      validator: (input) {
-        if (input.isEmpty) {
-          return 'Please Enter Password';
-        }
-      },
-      obscureText: true,
-      //style: style,
+      controller: passwordController,
+      cursorColor: Color(0xff5d1049),
+      obscureText: _passwordVisible,
+      style: TextStyle(color: Color(0xff5d1049)),
       decoration: InputDecoration(
-        contentPadding: EdgeInsets.fromLTRB(10.0, 15.0, 20.0, 15.0),
-        hintText: "password",
+        //icon: Icon(Icons.lock, color: Colors.black),
+        suffixIcon: IconButton(
+            icon: Icon(Icons.remove_red_eye),
+            onPressed: () {
+              setState(() {
+                _passwordVisible = !_passwordVisible;
+              });
+            }),
+
+        hintText: "Password",
+        border:
+            UnderlineInputBorder(borderSide: BorderSide(color: Colors.white70)),
+        hintStyle: TextStyle(color: Colors.black26),
       ),
-      onSaved: (input) => password = input,
     );
 
     final loginButton = Container(
       width: 315.0,
       height: 48.0,
       child: new RaisedButton(
+        color: Color(0xffFEEAE6),
         shape: RoundedRectangleBorder(
             borderRadius: new BorderRadius.circular(10.0)),
-        child: new Text('Login'),
-        onPressed: ()  {
-          checkDetails();
+        child: new Text(
+          'Login',
+          style:
+              TextStyle(fontWeight: FontWeight.bold, color: Color(0xff442C2E)),
+        ),
+        onPressed: () {
+          setState(() {
+            _isLoading = true;
+          });
+          signIn(emailController.text, passwordController.text);
         },
       ),
     );
@@ -72,99 +113,118 @@ class _LoginState extends State<Login> {
       onPressed: () {},
     );
     return Scaffold(
+      backgroundColor: Color(0xfffffffa),
+      //backgroundColor: Color(0xfffecee9),
       body: SingleChildScrollView(
-        child: Center(
-          child: Column(
-            children: <Widget>[
-              Padding(
-                padding: EdgeInsets.fromLTRB(0, 100, 0, 20),
-                child: motherLogo,
-              ),
-              Padding(
-                padding: EdgeInsets.fromLTRB(20, 0, 20, 20),
-                child: Form(
-                  key: _formKey,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.center,
+        child: //_isError ? Center(child: loginError):
+            _isLoading
+                ? Center(child: CircularProgressIndicator())
+                : Column(
                     children: <Widget>[
-                      emailField,
-                      SizedBox(
-                        height: 20.0,
+                      Padding(
+                        padding: EdgeInsets.fromLTRB(0, 100, 0, 20),
+                        child: motherLogo,
                       ),
-                      pwField,
-                      SizedBox(
-                        height: 20.0,
-                      ),
-                      loginButton,
-                      SizedBox(
-                        height: 20.0,
-                      ),
-                      forgotPasswordText,
+                      Padding(
+                        padding: EdgeInsets.fromLTRB(20, 0, 20, 20),
+                        child: Form(
+                          key: _formKey,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: <Widget>[
+                              emailField,
+                              SizedBox(
+                                height: 20.0,
+                              ),
+                              pwField,
+                              SizedBox(
+                                height: 20.0,
+                              ),
+                              loginButton,
+                              SizedBox(
+                                height: 20.0,
+                              ),
+                              forgotPasswordText,
+                            ],
+                          ),
+                        ),
+                      )
                     ],
                   ),
-                ),
-              )
-            ],
-          ),
-        ),
       ),
     );
   }
 
-  Future checkDetails() async {
-    setState(() {
-      _isLoading = true;
-      print('setst 1');
-    });
-    final users = await ApiService.getUserList();
-    print(users);
-    setState(() {
-      _isLoading = false;
-      print('setst 2');
-    });
-    if (users == null) {
-      showDialog(
-          context: context,
-          builder: (context) {
-            return AlertDialog(
-              title: Text('Error'),
-              content: Text("Check your internet connection"),
-              actions: <Widget>[
-                FlatButton(
-                  child: Text('Ok'),
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                )
-              ],
-            );
-          });
-      return;
-    } else {
-      final userWithUsernameExists =
-          users.any((u) => u['username'] == _usernameController.text);
-      if (userWithUsernameExists) {
-        Navigator.push(
-            context, MaterialPageRoute(builder: (context) => Home()));
-      } else {
-        showDialog(
-            context: context,
-            builder: (context) {
-              return AlertDialog(
-                title: Text('Incorrect username'),
-                content: Text('Try with a different username'),
-                actions: <Widget>[
-                  FlatButton(
-                    child: Text('Ok'),
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
-                  )
+  signIn(String email, pass) async {
+    // SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
+
+    Map data = {'username': email, 'password': pass};
+    var jsonResponse = null;
+    var response = await http.post(
+        "https://protected-bayou-52277.herokuapp.com/users/login",
+        body: data);
+    print("****status code****");
+    print(response.statusCode);
+    if (response.statusCode == 200) {
+      jsonResponse = json.decode(response.body);
+      //print(jsonResponse);
+      if (jsonResponse != null) {
+        setState(() {
+          _isLoading = false;
+        });
+        //String name = decoded['name'];
+        // sharedPreferences.setString("token", jsonResponse['token']);
+        bool state = jsonResponse['state'];
+        print(state);
+        if (state == true) {
+          print('***validated***');
+          Navigator.of(context).pushAndRemoveUntil(
+              MaterialPageRoute(builder: (BuildContext context) => Home()),
+              (Route<dynamic> route) => false);
+        } else {
+          print('***else clause***');
+          return Toast.show("Invalid email or password", context,
+              duration: Toast.LENGTH_LONG, gravity: Toast.CENTER);
+         /* setState(() {
+            print('#########');
+            _isError = true;
+          });*/
+          /*return AlertDialog(
+            title: Text('Error!'),
+            content: SingleChildScrollView(
+              child: ListBody(
+                children: <Widget>[
+                  Text('Invalid user name or password'),
                 ],
-              );
-            });
+              ),
+            ),
+          );*/
+          //alert dialog is not working
+          /*setState(() {
+            _isLoading = false;
+          });*/
+
+        }
       }
+    } else {
+      print('***');
+      /* setState(() {
+        _isLoading = false;
+      });*/
+
+      //print(response.body);
     }
   }
+
+  final loginError = AlertDialog(
+    title: Text('Error!'),
+    content: SingleChildScrollView(
+      child: ListBody(
+        children: <Widget>[
+          Text('Invalid user name or password'),
+        ],
+      ),
+    ),
+  );
 }

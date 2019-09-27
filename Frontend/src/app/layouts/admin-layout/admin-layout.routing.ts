@@ -12,6 +12,10 @@ import { ViewApprovedFamiliesComponent } from 'app/MOHComponents/view-approved-f
 import { AddApprovedFamiliesComponent } from 'app/MOHComponents/add-approved-families/add-approved-families.component';
 import { ViewBabiesofAreaComponent } from 'app/MOHComponents/view-babiesof-area/view-babiesof-area.component';
 import { AddmotherbabyjoineddataComponent } from 'app/MOHComponents/addmotherbabyjoineddata/addmotherbabyjoineddata.component';
+import { ClinicNotificationsComponent } from 'app/MOHComponents/clinic-notifications/clinic-notifications.component';
+import { ClinicRecordsComponent } from 'app/MOHComponents/clinic-records/clinic-records.component';
+import { AddClinicComponent } from 'app/MOHComponents/add-clinic/add-clinic.component';
+import { UpdateBabyBookComponent } from 'app/MOHComponents/update-baby-book/update-baby-book.component';
 
 export const AdminLayoutRoutes: Routes = [
     // {
@@ -75,14 +79,31 @@ export const AdminLayoutRoutes: Routes = [
         ]
     },
     {
-         path: 'viewBabies',        
-         component: ViewBabiesofAreaComponent,
-         children: [
+        path: 'viewBabies',        
+        component: ViewBabiesofAreaComponent,
+        children: [
+           {
+               path: 'AddMotherBabyJoined',
+               component: AddmotherbabyjoineddataComponent
+           },
+           {
+            path: 'UpdateBabyBook',
+            component: UpdateBabyBookComponent
+        }
+       ]
+       
+       },
+    { path: 'viewClinics',       
+     component: ClinicNotificationsComponent ,
+     children: [
             {
-                path: 'AddMotherBabyJoined',
-                component: AddmotherbabyjoineddataComponent
+                path: 'viewClinicRecords',
+                component: ClinicRecordsComponent
+            },
+            {
+                path: 'addClinic',
+                component:AddClinicComponent
             }
         ]
-        
-        }
-];
+    }
+]

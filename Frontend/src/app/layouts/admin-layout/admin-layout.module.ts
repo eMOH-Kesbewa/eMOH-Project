@@ -15,6 +15,9 @@ import { ViewApprovedFamiliesComponent } from 'app/MOHComponents/view-approved-f
 import { AddApprovedFamiliesComponent } from 'app/MOHComponents/add-approved-families/add-approved-families.component';
 import { ViewBabiesofAreaComponent } from 'app/MOHComponents/view-babiesof-area/view-babiesof-area.component';
 import { AddmotherbabyjoineddataComponent } from 'app/MOHComponents/addmotherbabyjoineddata/addmotherbabyjoineddata.component';
+import { ClinicNotificationsComponent } from 'app/MOHComponents/clinic-notifications/clinic-notifications.component';
+import { AddClinicComponent } from 'app/MOHComponents/add-clinic/add-clinic.component';
+
 import {
   MatButtonModule,
   MatInputModule,
@@ -22,9 +25,11 @@ import {
   MatFormFieldModule,
   MatTooltipModule,
   MatSelectModule,
-  MatRadioModule,
-  MatDatepickerModule,MatNativeDateModule
+
 } from '@angular/material';
+import { ClinicRecordsComponent } from 'app/MOHComponents/clinic-records/clinic-records.component';
+import { UpdateBabyBookComponent } from 'app/MOHComponents/update-baby-book/update-baby-book.component';
+
 
 
 
@@ -40,9 +45,8 @@ import {
     MatInputModule,
     MatSelectModule,
     MatTooltipModule,
-    MatRadioModule,
-    MatDatepickerModule,MatNativeDateModule
-  ],
+    
+    ],
   declarations: [
     DashboardComponent,
     UserProfileComponent,
@@ -55,7 +59,11 @@ import {
     ViewApprovedFamiliesComponent,
     AddApprovedFamiliesComponent,
     ViewBabiesofAreaComponent,
-    AddmotherbabyjoineddataComponent
+    AddmotherbabyjoineddataComponent,
+    ClinicNotificationsComponent,
+    ClinicRecordsComponent,
+    AddClinicComponent,
+    UpdateBabyBookComponent
   ]
 })
 
