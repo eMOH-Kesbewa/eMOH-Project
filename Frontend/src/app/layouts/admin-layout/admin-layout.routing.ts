@@ -15,6 +15,7 @@ import { AddmotherbabyjoineddataComponent } from 'app/MOHComponents/addmotherbab
 import { ClinicNotificationsComponent } from 'app/MOHComponents/clinic-notifications/clinic-notifications.component';
 import { ClinicRecordsComponent } from 'app/MOHComponents/clinic-records/clinic-records.component';
 import { AddClinicComponent } from 'app/MOHComponents/add-clinic/add-clinic.component';
+import { UpdateBabyBookComponent } from 'app/MOHComponents/update-baby-book/update-baby-book.component';
 
 export const AdminLayoutRoutes: Routes = [
     // {
@@ -84,7 +85,11 @@ export const AdminLayoutRoutes: Routes = [
            {
                path: 'AddMotherBabyJoined',
                component: AddmotherbabyjoineddataComponent
-           }
+           },
+           {
+            path: 'UpdateBabyBook',
+            component: UpdateBabyBookComponent
+        }
        ]
        
        },

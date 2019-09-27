@@ -1,45 +1,52 @@
-<div class="card">
-    <div class="card-header card-header-danger">
-        <h4 class="card-title">Edit Profile</h4>
-        <p class="card-category">Complete your profile</p>
-    </div>
-    <div class="card-body">
-        <form>
-            <div> &nbsp;&nbsp; </div>
-            <div> &nbsp;&nbsp; </div>
-            <div class="row">
-                <div class="col-md-6">
-                  <mat-form-field class="example-full-width">
-                    <input matInput placeholder="Clinic Title" type="text">
-                  </mat-form-field>
-                </div>
-                <div class="col-md-3">
-                  <mat-form-field class="example-full-width">
-                    <input matInput placeholder="Scheduled Date" type="date">
-                  </mat-form-field>
-                </div>
-                <div class="col-md-3">
+<div class="container">
+  <div class="card">
+      <div class="card-header card-header-danger">
+          <h4 class="card-title">Edit Profile</h4>
+          <p class="card-category">Complete your profile</p>
+      </div>
+      <div class="card-body">
+          <form [formGroup]="clinicForm" (ngSubmit)="submitClinicData()">
+              
+              <div> &nbsp;&nbsp; </div>
+              <div> &nbsp;&nbsp; </div>
+              <div class="row">
+                  <div class="col-md-6">
                     <mat-form-field class="example-full-width">
-                      <input matInput placeholder="Priority" type="text">
+                      <input matInput placeholder="Clinic Title" formControlName="clinic_title" type="text" required>
                     </mat-form-field>
                   </div>
-            </div>
+                  <div class="col-md-3">
+                    <mat-form-field class="example-full-width">
+                      <input matInput placeholder="Scheduled Date" formControlName="date" type="date" [min]="getToday()" required>
+                    </mat-form-field>
+                  </div>
+                  <div class="col-md-3">
+                      <mat-form-field  class="example-full-width">
+                          <mat-select placeholder="Priority" formControlName="clinic_priority" required>
+                            <mat-option value="High">High</mat-option>
+                            <mat-option value="Medium">Medium</mat-option>
+                            <mat-option value="Low">Low</mat-option>
+                          </mat-select>
+                        </mat-form-field>
+                    </div>
+              </div>
+              
             
-           
-            <div class="row">
-                <div class="col-md-12">
-                  <label>Description</label>
-                  <mat-form-field class="example-full-width">
-                     <textarea matInput placeholder="Enter Clinic Description"></textarea>
-                   </mat-form-field>
-                  <div> &nbsp;&nbsp; </div>
-                  <div> &nbsp;&nbsp; </div>
+              <div class="row">
+                  <div class="col-md-12">
+                    <label>Description</label>
+                    <mat-form-field class="example-full-width">
+                      <textarea matInput placeholder="Enter Clinic Description" formControlName="clinic_discription" required></textarea>
+                    </mat-form-field>
+                    <div> &nbsp;&nbsp; </div>
+                    <div> &nbsp;&nbsp; </div>
+                    
                   
-                 
-               </div>
-            </div>
-            <button mat-raised-button type="submit" class="btn btn-danger pull-right">Update Profile</button>
-            <div class="clearfix"></div>
-        </form>
-    </div>
+                </div>
+              </div>
+              <button mat-raised-button type="submit" class="btn btn-danger pull-right" [disabled]="clinicForm.invalid">Update Profile</button>
+              <div class="clearfix"></div>
+          </form>
+      </div>
+  </div>
 </div>
