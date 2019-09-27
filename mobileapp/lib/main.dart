@@ -13,7 +13,7 @@ void main() => runApp(MyApp());
 
 final ThemeData themeData = ThemeData(
   brightness: Brightness.light,
-  primarySwatch: Colors.lightBlue,
+  primarySwatch: Colors.purple,
 );
 
 class MyApp extends StatelessWidget {
