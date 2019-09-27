@@ -19,4 +19,10 @@ export class ClinicsService {
   register(userData){
     return this.http.post<any>(this._url , userData);
    }
+
+   __url= 'http://localhost:3000/clinics/add';
+  addClinic(clinicData){
+    return this.http.post<any>(this.__url , clinicData);
+   }
+   
 }

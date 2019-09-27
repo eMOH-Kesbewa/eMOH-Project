@@ -24,9 +24,11 @@ import {
   MatRippleModule,
   MatFormFieldModule,
   MatTooltipModule,
-  MatSelectModule
+  MatSelectModule,
+
 } from '@angular/material';
 import { ClinicRecordsComponent } from 'app/MOHComponents/clinic-records/clinic-records.component';
+import { UpdateBabyBookComponent } from 'app/MOHComponents/update-baby-book/update-baby-book.component';
 
 
 
@@ -44,7 +46,7 @@ import { ClinicRecordsComponent } from 'app/MOHComponents/clinic-records/clinic-
     MatSelectModule,
     MatTooltipModule,
     
-  ],
+    ],
   declarations: [
     DashboardComponent,
     UserProfileComponent,
@@ -60,7 +62,8 @@ import { ClinicRecordsComponent } from 'app/MOHComponents/clinic-records/clinic-
     AddmotherbabyjoineddataComponent,
     ClinicNotificationsComponent,
     ClinicRecordsComponent,
-    AddClinicComponent
+    AddClinicComponent,
+    UpdateBabyBookComponent
   ]
 })
 
