@@ -2,11 +2,14 @@ const mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var Notification = new Schema({
-    "clinic_no" : String,
-    "date" : Date,
-    "location" : String,
-    "Description" : String,
-},{ collection: 'Notification' });
+    "clinic_no": String,
+    "date": Date,
+    "location": String,
+    "clinic_title":String,
+    "Description": String
+}, {
+    collection: 'Notification'
+});
 
 var Notification = mongoose.model('Notification', Notification);
 
