@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup,Validators,FormControl} from '@angular/forms';
 import { ClinicsService } from 'app/Services/clinics.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-clinic',
@@ -11,7 +12,7 @@ export class AddClinicComponent implements OnInit {
 
   clinicForm: FormGroup;
   
-  constructor(private clinic : FormBuilder,private clinicService : ClinicsService) { }
+  constructor(private clinic : FormBuilder,private clinicService : ClinicsService,private router : Router) { }
 
     ngOnInit() {
       this.clinicForm = this.clinic.group({
@@ -29,8 +30,12 @@ export class AddClinicComponent implements OnInit {
       this.clinicService.addClinic(this.clinicForm.value)
         .subscribe(
           response=>console.log('Success!',response),
-          error=>console.error('Error',error)
+          error=>{
+            if(error) console.log("Failure") 
+            else console.log("Success No Errors")
+          }
         );
+        this.router.navigate(['viewClinics']);
     }
 
     getToday(): string {

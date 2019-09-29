@@ -1,9 +1,29 @@
+
 <div class="container">
+  <!--  <div class="col-md-3"></div>
+    <div class="col-md-7" style="margin-left:auto">
+      <div *ngIf="checksuccess()" class="alert alert-info">
+        <button mat-button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <i class="material-icons">close</i>
+        </button>
+        <span>
+             Your clinic date has been Scheduled
+        </span>
+      </div>
+      <div *ngIf="checksuccess()" class="alert alert-warning">
+          <button mat-button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <i class="material-icons">close</i>
+          </button>
+          <span>
+              <b> Error </b> Your Clinic date has not been Scheduled</span>
+        </div>
+    </div>-->
   <div class="card">
       <div class="card-header card-header-danger">
           <h4 class="card-title">Edit Profile</h4>
           <p class="card-category">Complete your profile</p>
       </div>
+      
       <div class="card-body">
           <form [formGroup]="clinicForm" (ngSubmit)="submitClinicData()">
               
@@ -38,15 +58,18 @@
                     <mat-form-field class="example-full-width">
                       <textarea matInput placeholder="Enter Clinic Description" formControlName="clinic_discription" required></textarea>
                     </mat-form-field>
-                    <div> &nbsp;&nbsp; </div>
-                    <div> &nbsp;&nbsp; </div>
-                    
-                  
-                </div>
               </div>
+
+              <div class="row">
+                      <div class="col-md-5"> &nbsp;&nbsp;</div>
+                        
+                      </div>
+                </div>
+             
               <button mat-raised-button type="submit" class="btn btn-danger pull-right" [disabled]="clinicForm.invalid">Update Profile</button>
               <div class="clearfix"></div>
           </form>
       </div>
   </div>
 </div>
+

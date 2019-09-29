@@ -12,11 +12,10 @@
         <div class="collapse navbar-collapse justify-content-end" id="navigation">
             
             <div *ngIf="Display()">
-                <form  #userForm="ngForm" class="navbar-form">
-                    {{ userForm.value|json }}
+                <form  #userForm="ngForm" (ngSubmit)="onSubmit()" class="navbar-form">
                     <div class="input-group no-border">
-                        <input type="text" value="" class="form-control" name="searchData" placeholder="{{nameOftheSearch}}... " ngModel >
-                        <button mat-raised-button type="submit" class="btn btn-white btn-round btn-just-icon">
+                        <input type="text" value="" class="form-control" name="searchData" placeholder="{{nameOftheSearch}}... " [(ngModel)]="searchEnterdData.data" required >
+                        <button mat-raised-button type="submit"  [disabled]="userForm.invalid" class="btn btn-white btn-round btn-just-icon">
                             <i class="material-icons">search</i>
                             <div class="ripple-container"></div>
                         </button>
