@@ -12,10 +12,10 @@ class familyProfile extends StatefulWidget {
 }
 
 class _familyProfileState extends State<familyProfile> {
- // Future<Family> family;
+  // Future<Family> family;
   @override
   Widget build(BuildContext context) {
-   // final Future<Family> familyProfileData = fetchFamily();
+    // final Future<Family> familyProfileData = fetchFamily();
     //print(familyProfileData);
     final div = Divider(
       height: 10.0,
@@ -46,7 +46,7 @@ class _familyProfileState extends State<familyProfile> {
             borderRadius: BorderRadius.all(Radius.circular(75.0)),
             boxShadow: [BoxShadow(blurRadius: 7.0, color: Colors.black)]));
 
-    final villageIdCard = Card(
+    /* final villageIdCard = Card(
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
@@ -81,91 +81,151 @@ class _familyProfileState extends State<familyProfile> {
           ),
         ],
       ),
-    );
+    );*/
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Family Profile'),
-        backgroundColor: Color(0xffb30089),
-        actions: <Widget>[
-          IconButton(
-            icon: Icon(
-              Icons.settings,
-              color: Colors.white,
-            ),
-            onPressed: () {},
-          ),
-        ],
-      ),
-      drawer: Drawer(
-        child: ListView(
-          // Important: Remove any padding from the ListView.
-          padding: EdgeInsets.zero,
-          children: <Widget>[
-            DrawerHeader(
-              child: Row(
-                children: <Widget>[
-                  profilePicDrawer,
-                  SizedBox(width: 5.0,),
-                  Text('useremail@example.com',textAlign: TextAlign.center,)
-                ],
-              ), //Text('Menu',style: TextStyle(color: Colors.white, fontSize: 25.0),),
-              decoration: BoxDecoration(
-                color: Color(0xffb30089),
+        appBar: AppBar(
+          title: Text('Family Profile'),
+          backgroundColor: Color(0xffb30089),
+          actions: <Widget>[
+            IconButton(
+              icon: Icon(
+                Icons.settings,
+                color: Colors.white,
               ),
-            ),
-            ListTile(
-              title: Text(
-                'Mother Details',
-                style: TextStyle(color: Color(0xff5d1049), fontSize: 15.0),
-              ),
-              leading: Icon(
-                Icons.pregnant_woman,
-                size: 30.0,
-                color: Color(0xfffd96a9),
-              ),
-              onTap: () {
-                // Update the state of the app.
-                // ...
-              },
-            ),
-            ListTile(
-              title: Text('Baby Details',
-                  style: TextStyle(color: Color(0xff5d1049), fontSize: 15.0)),
-              leading: Icon(
-                Icons.child_care,
-                size: 30.0,
-                color: Color(0xffc0c999),
-              ),
-              onTap: () {
-                // Update the state of the app.
-                // ...
-              },
-            ),
-            ListTile(
-              title: Text(
-                'Notifications',
-                style: TextStyle(color: Color(0xff5d1049)),
-              ),
-              leading: Icon(
-                Icons.notifications,
-                size: 30.0,
-                color: Color(0xfff62dae),
-              ),
-              onTap: () {
-                // Update the state of the app.
-                // ...
-              },
+              onPressed: () {},
             ),
           ],
         ),
-      ),
-      body:  Center(
-          child: FutureBuilder<String>(
+        drawer: Drawer(
+          child: ListView(
+            // Important: Remove any padding from the ListView.
+            padding: EdgeInsets.zero,
+            children: <Widget>[
+              DrawerHeader(
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: <Widget>[
+                    profilePicDrawer,
+                    SizedBox(width: 10.0),
+                    Flexible(
+                      child: Text(
+                        //TextOverflow.ellipsis.toString()
+                        'useremail@example.com',
+                        overflow: TextOverflow.ellipsis,
+                        maxLines: 1,
+                        //textAlign: TextAlign.center,
+                        style: TextStyle(color: Colors.white),
+                      ),
+                    ),
+                  ],
+                ), //Text('Menu',style: TextStyle(color: Colors.white, fontSize: 25.0),),
+                decoration: BoxDecoration(
+                  color: Color(0xffb30089),
+                ),
+              ),
+              ListTile(
+                title: Text(
+                  'Mother Details',
+                  style: TextStyle(color: Color(0xff5d1049), fontSize: 15.0),
+                ),
+                leading: Icon(
+                  Icons.pregnant_woman,
+                  size: 30.0,
+                  color: Color(0xfffd96a9),
+                ),
+                onTap: () {
+                  // Update the state of the app.
+                  // ...
+                },
+              ),
+              ListTile(
+                title: Text('Baby Details',
+                    style: TextStyle(color: Color(0xff5d1049), fontSize: 15.0)),
+                leading: Icon(
+                  Icons.child_care,
+                  size: 30.0,
+                  color: Color(0xffc0c999),
+                ),
+                onTap: () {
+                  // Update the state of the app.
+                  // ...
+                },
+              ),
+              ListTile(
+                title: Text(
+                  'Notifications',
+                  style: TextStyle(color: Color(0xff5d1049)),
+                ),
+                leading: Icon(
+                  Icons.notifications,
+                  size: 30.0,
+                  color: Color(0xfff62dae),
+                ),
+                onTap: () {
+                  // Update the state of the app.
+                  // ...
+                },
+              ),
+            ],
+          ),
+        ),
+        body: Center(
+          child: FutureBuilder<Family>(
             future: fetchFamily(),
             builder: (context, snapshot) {
               if (snapshot.hasData) {
-                return Text(snapshot.data.toString());
+                return SingleChildScrollView(
+                  child: Column(
+                    children: <Widget>[
+                      SizedBox(
+                        height: 20.0,
+                      ),
+                      Center(
+                        child: profilePic,
+                      ),
+                      SizedBox(
+                        height: 20.0,
+                      ),
+                      Card(
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: <Widget>[
+                            ListTile(
+                              leading: Icon(Icons.perm_identity),
+                              title: Text('Identity Number'),
+                              subtitle: Text(snapshot.data.idNumber),
+                            ),
+                            div,
+                            ListTile(
+                              leading: Icon(Icons.home),
+                              title: Text('Village ID'),
+                              subtitle: Text(snapshot.data.vilID),
+                            ),
+                            div,
+                            ListTile(
+                              leading: Icon(Icons.ac_unit),
+                              title: Text('Wife Name'),
+                              subtitle: Text(snapshot.data.wifeName),
+                            ),
+                            div,
+                            ListTile(
+                              leading: Icon(Icons.ac_unit),
+                              title: Text('Husband Name'),
+                              subtitle: Text(snapshot.data.husbandName),
+                            ),
+                            div,
+                            ListTile(
+                              leading: Icon(Icons.child_friendly),
+                              title: Text('Number of Children'),
+                              subtitle: Text(snapshot.data.childrenCount),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ); //Text(snapshot.data.childrenCount);
               } else if (snapshot.hasError) {
                 return Text("${snapshot.error}");
               }
@@ -174,7 +234,7 @@ class _familyProfileState extends State<familyProfile> {
               return CircularProgressIndicator();
             },
           ),
-      /*SingleChildScrollView(
+          /*SingleChildScrollView(
         child: Column(
           children: <Widget>[
             SizedBox(
@@ -190,8 +250,6 @@ class _familyProfileState extends State<familyProfile> {
           ],
         ),
       ),*/
-    ));
+        ));
   }
-
-
 }
