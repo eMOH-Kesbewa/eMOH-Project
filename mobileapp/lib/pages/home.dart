@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mobileapp/pages/familyProfile.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:mobileapp/services/familyProflieServices.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -70,8 +71,7 @@ class _HomeState extends State<Home> {
         ),
         //minWidth: MediaQuery.of(context).size.width / 2,
         //height: MediaQuery.of(context).size.width / 4,
-        onPressed: () => Navigator.push(
-            context, MaterialPageRoute(builder: (context) => familyProfile())),
+        onPressed: (){},
       ),
     );
     final babyDetailsButton  = Material(
@@ -101,8 +101,7 @@ class _HomeState extends State<Home> {
         ),
         //minWidth: MediaQuery.of(context).size.width / 2,
         //height: MediaQuery.of(context).size.width / 4,
-        onPressed: () => Navigator.push(
-            context, MaterialPageRoute(builder: (context) => familyProfile())),
+        onPressed: (){},
       ),
     );
 
@@ -133,8 +132,7 @@ class _HomeState extends State<Home> {
         ),
         //minWidth: MediaQuery.of(context).size.width / 2,
         //height: MediaQuery.of(context).size.width / 4,
-        onPressed: () => Navigator.push(
-            context, MaterialPageRoute(builder: (context) => familyProfile())),
+        onPressed: (){},
       ),
     );
 

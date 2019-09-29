@@ -6,7 +6,6 @@ import 'package:mobileapp/pages/home.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:http/http.dart' as http;
 import 'package:toast/toast.dart';
-import '../services/globals.dart' as globals;
 //import 'dart:io';
 //import 'package:flutter/services.dart';
 
@@ -176,9 +175,6 @@ class _LoginState extends State<Login> {
     print(response.statusCode);
     if (response.statusCode == 200) {
       jsonResponse = json.decode(response.body);
-      globals.globalEmail = emailController.text.toString();
-      print('global email');
-      print(globals.globalEmail);
       //print(jsonResponse);
       if (jsonResponse != null) {
         setState(() {
