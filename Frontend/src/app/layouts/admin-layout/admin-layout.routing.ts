@@ -16,6 +16,7 @@ import { ClinicNotificationsComponent } from 'app/MOHComponents/clinic-notificat
 import { ClinicRecordsComponent } from 'app/MOHComponents/clinic-records/clinic-records.component';
 import { AddClinicComponent } from 'app/MOHComponents/add-clinic/add-clinic.component';
 import { UpdateBabyBookComponent } from 'app/MOHComponents/update-baby-book/update-baby-book.component';
+import { ViewBabybyIDComponent } from 'app/MOHComponents/view-babyby-id/view-babyby-id.component';
 
 export const AdminLayoutRoutes: Routes = [
     // {
@@ -79,7 +80,7 @@ export const AdminLayoutRoutes: Routes = [
         ]
     },
     {
-        path: 'viewBabies',        
+        path: 'viewBabies',        //Msg has been added to show the success or failure msg to the user when they submit clinic form data
         component: ViewBabiesofAreaComponent,
         children: [
            {
@@ -87,9 +88,13 @@ export const AdminLayoutRoutes: Routes = [
                component: AddmotherbabyjoineddataComponent
            },
            {
-            path: 'UpdateBabyBook',
-            component: UpdateBabyBookComponent
-        }
+               path: 'UpdateBabyBook',
+               component: UpdateBabyBookComponent
+           },
+           {
+                path:'ViewMotherBabybyID/:babyId',
+                component:ViewBabybyIDComponent
+           }
        ]
        
        },
