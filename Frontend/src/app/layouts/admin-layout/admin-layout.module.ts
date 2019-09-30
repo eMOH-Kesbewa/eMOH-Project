@@ -25,6 +25,8 @@ import {
   MatFormFieldModule,
   MatTooltipModule,
   MatSelectModule,
+  MatRadioModule,
+  MatDatepickerModule,MatNativeDateModule
 
 } from '@angular/material';
 import { ClinicRecordsComponent } from 'app/MOHComponents/clinic-records/clinic-records.component';
@@ -45,6 +47,8 @@ import { UpdateBabyBookComponent } from 'app/MOHComponents/update-baby-book/upda
     MatInputModule,
     MatSelectModule,
     MatTooltipModule,
+    MatRadioModule,
+    MatDatepickerModule,MatNativeDateModule
     
     ],
   declarations: [
