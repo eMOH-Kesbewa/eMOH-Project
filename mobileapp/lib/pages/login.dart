@@ -6,6 +6,7 @@ import 'package:mobileapp/pages/home.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:http/http.dart' as http;
 import 'package:toast/toast.dart';
+import '../services/globals.dart' as globals;
 //import 'dart:io';
 //import 'package:flutter/services.dart';
 
@@ -31,6 +32,12 @@ class _LoginState extends State<Login> {
         size: 200.0, color: Color(0xff5d1049));
 
     final emailField = TextFormField(
+
+       /*validator: (input) {
+        if (input.isEmpty) {
+          return 'Please Enter The Name';
+        }
+      },*/
       keyboardType: TextInputType.emailAddress,
       controller: emailController,
       cursorColor: Color(0xff5d1049),
@@ -42,6 +49,7 @@ class _LoginState extends State<Login> {
             UnderlineInputBorder(borderSide: BorderSide(color: Colors.white70)),
         hintStyle: TextStyle(color: Colors.black26),
       ),
+      
     );
 
     /* final pwField =  Container(
@@ -168,6 +176,9 @@ class _LoginState extends State<Login> {
     print(response.statusCode);
     if (response.statusCode == 200) {
       jsonResponse = json.decode(response.body);
+      globals.globalEmail = emailController.text.toString();
+      print('global email');
+      print(globals.globalEmail);
       //print(jsonResponse);
       if (jsonResponse != null) {
         setState(() {
