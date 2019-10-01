@@ -17,42 +17,7 @@ class familyProfile extends StatefulWidget {
 }
 
 class _familyProfileState extends State<familyProfile> {
- /* int _selectedIndex = globals.selectedIndex;
-  static const TextStyle optionStyle =
-      TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
-  static const List<Widget> _widgetOptions = <Widget>[
-    Text(
-      'Index 0: Home',
-      style: optionStyle,
-    ),
-    Text(
-      'Index 1: Mother',
-      style: optionStyle,
-    ),
-    Text(
-      'Index 2: Baby',
-      style: optionStyle,
-    ),
-  ];
-
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-      if (index == 0) {
-        return Navigator.push(
-            context, MaterialPageRoute(builder: (context) => familyProfile()));
-      }
-      if(index == 1){
-               return Navigator.push(
-            context, MaterialPageRoute(builder: (context) => motherDetails()));
-      }
-      if(index == 2){
-               return Navigator.push(
-            context, MaterialPageRoute(builder: (context) => BabyDetails()));
-      }
-    });
-  }*/
-
+  Future <Family> family = fetchFamily();
   @override
   Widget build(BuildContext context) {
     final div = Divider(
@@ -98,82 +63,10 @@ class _familyProfileState extends State<familyProfile> {
           ),
         ],
       ),
-      /*drawer: Drawer(
-        child: ListView(
-          // Important: Remove any padding from the ListView.
-          padding: EdgeInsets.zero,
-          children: <Widget>[
-            DrawerHeader(
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.end,
-                children: <Widget>[
-                  profilePicDrawer,
-                  SizedBox(width: 10.0),
-                  Flexible(
-                    child: Text(
-                      //TextOverflow.ellipsis.toString()
-                      'useremail@example.com',
-                      overflow: TextOverflow.ellipsis,
-                      maxLines: 1,
-                      //textAlign: TextAlign.center,
-                      style: TextStyle(color: Colors.white),
-                    ),
-                  ),
-                ],
-              ), //Text('Menu',style: TextStyle(color: Colors.white, fontSize: 25.0),),
-              decoration: BoxDecoration(
-                color: Color(0xffb30089),
-              ),
-            ),
-            ListTile(
-              title: Text(
-                'Mother Details',
-                style: TextStyle(color: Color(0xff5d1049), fontSize: 15.0),
-              ),
-              leading: Icon(
-                Icons.pregnant_woman,
-                size: 30.0,
-                color: Color(0xfffd96a9),
-              ),
-              onTap: () {
-                // Update the state of the app.
-                // ...
-              },
-            ),
-            ListTile(
-              title: Text('Baby Details',
-                  style: TextStyle(color: Color(0xff5d1049), fontSize: 15.0)),
-              leading: Icon(
-                Icons.child_care,
-                size: 30.0,
-                color: Color(0xffc0c999),
-              ),
-              onTap: () {
-                // Update the state of the app.
-                // ...
-              },
-            ),
-            ListTile(
-              title: Text(
-                'Notifications',
-                style: TextStyle(color: Color(0xff5d1049)),
-              ),
-              leading: Icon(
-                Icons.notifications,
-                size: 30.0,
-                color: Color(0xfff62dae),
-              ),
-              onTap: () {
-                // Update the state of the app.
-                // ...
-              },
-            ),
-          ],
-        ),
-      ),*/
+      
       body: Center(
         child: FutureBuilder<Family>(
-          future: fetchFamily(),
+          future: family,
           builder: (context, snapshot) {
             if (snapshot.hasData) {
               return SingleChildScrollView(
@@ -236,25 +129,7 @@ class _familyProfileState extends State<familyProfile> {
           },
         ),
       ),
-      bottomNavigationBar: BottomNavigation(),/*BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            title: Text('Home'),
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.business),
-            title: Text('Mother'),
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.school),
-            title: Text('Baby'),
-          ),
-        ],
-        currentIndex: _selectedIndex,
-        selectedItemColor: Colors.amber[800],
-        onTap: _onItemTapped,
-      ),*/
+      bottomNavigationBar: BottomNavigation(),
     );
   }
 }
