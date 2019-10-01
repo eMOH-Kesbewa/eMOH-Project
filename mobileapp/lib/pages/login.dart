@@ -1,7 +1,9 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:mobileapp/pages/familyProfile.dart';
 import 'package:mobileapp/pages/home.dart';
+import 'package:mobileapp/services/familyProflieServices.dart';
 
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:http/http.dart' as http;
@@ -191,7 +193,7 @@ class _LoginState extends State<Login> {
         if (state == true) {
           print('***validated***');
           Navigator.of(context).pushAndRemoveUntil(
-              MaterialPageRoute(builder: (BuildContext context) => Home()),
+              MaterialPageRoute(builder: (BuildContext context) => familyProfile()),
               (Route<dynamic> route) => false);
         } else {
           print('***else clause***');
