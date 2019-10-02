@@ -1,7 +1,11 @@
 import { Component, OnInit, ElementRef } from '@angular/core';
 import { ROUTES } from '../sidebar/sidebar.component';
 import {Location, LocationStrategy, PathLocationStrategy} from '@angular/common';
+import { ClinicsService } from 'app/Services/clinics.service';
+import { Clinic } from 'app/Services/Models/clinic';
+import { searchdata } from 'app/Services/Models/searchdata';
 import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-navbar',
@@ -14,8 +18,10 @@ export class NavbarComponent implements OnInit {
       mobile_menu_visible: any = 0;
     private toggleButton: any;
     private sidebarVisible: boolean;
+    public nameOftheSearch;
+    clinics : Clinic;
 
-    constructor(location: Location,  private element: ElementRef, private router: Router) {
+    constructor(location: Location,  private element: ElementRef, private router: Router,private clinicService: ClinicsService) {
       this.location = location;
           this.sidebarVisible = false;
     }
@@ -32,6 +38,8 @@ export class NavbarComponent implements OnInit {
            this.mobile_menu_visible = 0;
          }
      });
+     //MYCode
+     this.clinicService.getUpcomingClinicData().subscribe(data => this.clinics = data);
     }
 
     sidebarOpen() {
@@ -110,6 +118,7 @@ export class NavbarComponent implements OnInit {
     };
 
     getTitle(){
+        /* 
       var titlee = this.location.prepareExternalUrl(this.location.path());
       if(titlee.charAt(0) === '#'){
           titlee = titlee.slice( 1 );
@@ -121,5 +130,35 @@ export class NavbarComponent implements OnInit {
           }
       }
       return 'Dashboard';
+    }*/
+    var routeurl = this.router.url;
+    var urlarray = routeurl.split("/");
+    var currentroute = urlarray[urlarray.length - 1];
+    if(currentroute == "viewApprovedFamilies") return "View Approved Families";
+    else if(currentroute == "AddApprovedFamilies") return "Add Approved Families";
+    else return currentroute.toString();
     }
+
+    Display(){
+       
+        var routeurl = this.router.url;
+        var urlarray = routeurl.split("/");
+        var currentroute = urlarray[urlarray.length - 1];
+        if(currentroute == "viewBabies"){
+            this.nameOftheSearch = "Search by Baby Id";
+            return true;
+        }
+        else return false;
+        
+    }
+
+    searchEnterdData = new searchdata('');
+
+    onSubmit(){
+        console.log(this.searchEnterdData.data);
+        console.log(this.router.url);
+        this.router.navigate([this.router.url,'ViewMotherBabybyID',this.searchEnterdData.data]);
+    }
+
+    
 }

@@ -11,6 +11,15 @@ import { IconsComponent } from '../../icons/icons.component';
 import { MapsComponent } from '../../maps/maps.component';
 import { NotificationsComponent } from '../../notifications/notifications.component';
 import { UpgradeComponent } from '../../upgrade/upgrade.component';
+import { ViewApprovedFamiliesComponent } from 'app/MOHComponents/view-approved-families/view-approved-families.component';
+import { AddApprovedFamiliesComponent } from 'app/MOHComponents/add-approved-families/add-approved-families.component';
+import { ViewBabiesofAreaComponent } from 'app/MOHComponents/view-babiesof-area/view-babiesof-area.component';
+import { AddmotherbabyjoineddataComponent } from 'app/MOHComponents/addmotherbabyjoineddata/addmotherbabyjoineddata.component';
+import { ClinicNotificationsComponent } from 'app/MOHComponents/clinic-notifications/clinic-notifications.component';
+import { AddClinicComponent } from 'app/MOHComponents/add-clinic/add-clinic.component';
+import { ClinicRecordsComponent } from 'app/MOHComponents/clinic-records/clinic-records.component';
+import { UpdateBabyBookComponent } from 'app/MOHComponents/update-baby-book/update-baby-book.component';
+import { ViewBabybyIDComponent } from 'app/MOHComponents/view-babyby-id/view-babyby-id.component';
 
 import {
   MatButtonModule,
@@ -18,8 +27,15 @@ import {
   MatRippleModule,
   MatFormFieldModule,
   MatTooltipModule,
-  MatSelectModule
+  MatSelectModule,
+  MatRadioModule,
+  MatDatepickerModule,MatNativeDateModule
+
 } from '@angular/material';
+
+
+
+
 @NgModule({
   imports: [
     CommonModule,
@@ -32,7 +48,10 @@ import {
     MatInputModule,
     MatSelectModule,
     MatTooltipModule,
-  ],
+    MatRadioModule,
+    MatDatepickerModule,MatNativeDateModule
+    
+    ],
   declarations: [
     DashboardComponent,
     UserProfileComponent,
@@ -42,6 +61,15 @@ import {
     MapsComponent,
     NotificationsComponent,
     UpgradeComponent,
+    ViewApprovedFamiliesComponent,
+    AddApprovedFamiliesComponent,
+    ViewBabiesofAreaComponent,
+    AddmotherbabyjoineddataComponent,
+    ClinicNotificationsComponent,
+    ClinicRecordsComponent,
+    AddClinicComponent,
+    UpdateBabyBookComponent,
+    ViewBabybyIDComponent
   ]
 })
 

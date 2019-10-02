@@ -14,49 +14,37 @@ var ApprovedFamilies = new Schema({
     "Job_status": String,
     "Education_level": String,
     "Number_of_living_children": String,
-    "Pregnancy_details": {
-        "Pregnancy": {
-            "First": String,
-            "Second": String,
-            "Third": String,
-            "Fourth": String,
-            "Fifth": String
-        },
-        "Result": {
-            "First": String,
-            "Second": String,
-            "Third": String,
-            "Fourth": String,
-            "Fifth": String
-        }
-    },
-    "Family_planning_methods": {
-        "First": {
-            "Method": String,
-            "Date": Date
-        },
-        "second": {
-            "Method": String,
-            "Date": Date
-        },
-        "third": {
-            "Method": String,
-            "Date": Date
-        },
-        "fourth": {
-            "Method": String,
-            "Date": Date
-        }
 
-    },
-    "Safe_for_rubella": String,
-    "Date_of_cervical_mucous_test": String,
-    "Other_details": String,
-    "number_of_young_children": Number
+    "Pregnancy_details__Pregnancy__First": String,
+    "Pregnancy_details__Pregnancy__Second": String,
+    "Pregnancy_details__Pregnancy__Third": String,
+    "Pregnancy_details__Pregnancy__Fourth": String,
+    "Pregnancy_details__Pregnancy__Fifth": String,
 
-}, {
-    collection: 'ApprovedFamilies'
-});
+    "Pregnancy_details__Result__First": String,
+    "Pregnancy_details__Result__Second": String,
+    "Pregnancy_details__Result__Third": String,
+    "Pregnancy_details__Result__Fourth": String,
+    "Pregnancy_details__Result__Fifth": String,
+  
+    "Family_planning_methods__First__Method": String,
+    "Family_planning_methods__First__Date": Date,
+
+    "Family_planning_methods__second__Method": String,
+    "Family_planning_methods__second__Date": Date,
+        
+    "Family_planning_methods__third__Method": String,
+    "Family_planning_methods__third__Date": Date,
+
+    "Family_planning_methods__fourth__Method": String,
+    "Family_planning_methods__fourth__Date": Date,
+
+    "Safeforrubella": String,
+    "Dateofcervicalmucoustest": String,
+    "Otherdetails": String,
+    "numberofyoungchildren": Number
+
+}, { collection: 'ApprovedFamilies' });
 
 var ApprovedFamily = mongoose.model('ApprovedFamily', ApprovedFamilies);
 

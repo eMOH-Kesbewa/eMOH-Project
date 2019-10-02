@@ -5,6 +5,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 
+
 const routes: Routes =[
   {
     path: '',
@@ -18,6 +19,7 @@ const routes: Routes =[
       loadChildren: './layouts/admin-layout/admin-layout.module#AdminLayoutModule'
     }]
   }
+  
 ];
 
 @NgModule({

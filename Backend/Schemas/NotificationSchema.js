@@ -5,7 +5,8 @@ var Notification = new Schema({
     "clinic_no": String,
     "date": Date,
     "location": String,
-    "Description": String,
+    "clinic_title":String,
+    "Description": String
 }, {
     collection: 'Notification'
 });

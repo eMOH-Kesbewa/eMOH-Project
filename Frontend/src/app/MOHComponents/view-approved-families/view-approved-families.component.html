@@ -1,0 +1,231 @@
+           
+
+<div class="main-content">
+        <router-outlet></router-outlet>
+  <div class="container-fluid">
+        <div class="row">
+                
+                <div class="col-md-4"></div>
+                <div class="col-md-5"><h3>View Approved Families of the Area</h3></div>
+                <div *ngIf="checkRoute()" class="col-md-3"> <a routerLink="AddApprovedFamilies" class="btn btn-danger btn-block">Add New Family</a></div>
+            </div>
+            
+        <div class="row">
+                <div class="col-lg-8 col-md-10 ml-auto mr-auto">
+                    
+                </div>
+            </div>
+      <div class="row">
+          <div class="col-md-12">
+              <div class="card">
+                  <div class="card-header card-header-danger">
+                      <h4 class="card-title ">Simple Table</h4>
+                      <p class="card-category"> Here is a subtitle for this table</p>
+                  </div>
+                  <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-hover table-bordered">
+                            
+                                <tbody>
+                                    <tr>
+                                    <td rowspan = 3><b>Village ID</b></td><td rowspan = 3><b>Approved Family Category</b></td><td rowspan = 3><b>NIC No</b></td><td rowspan = 3><b>Date</b></td><td rowspan = 3><b>Name Of Wife</b></td><td rowspan = 3><b>Name Of Husband</b></td><td rowspan = 3><b>Address</b></td> <td rowspan = 3><b>DOB</b></td> <td rowspan = 3><b>Age at the time of Marriage</b></td> <td rowspan = 3><b>Job Status</b></td> <td rowspan = 3><b>Education Level</b></td> <td rowspan = 3><b>Address</b></td> <td rowspan = 3><b>Number Of Living Children</b></td>  <td colspan = 8 align="center"><b>Pregnancy details</b> </td>  <td colspan = 8 align="center"><b>Family Planning Methods details </b></td><td rowspan=3><b>Safe For Rubella</b></td><td rowspan=3><b>Date of cervical mucoustest</b></td><td rowspan=3><b> Other Details</b></td><td rowspan="3"><b>Number Of Young Children </b></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td colspan=4 align="center"><b>Pregnancy</b></td>  <td colspan=4 align="center" ><b>Result</b></td>     <td colspan=2 align="center"><b>1</b></td>   <td colspan=2 align="center"><b>2</b></td> <td colspan=2 align="center"><b>3</b></td> <td colspan=2 align="center"><b>4</b></td> 
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td><b>1</b></td><td><b>2</b></td><td><b>3</b></td><td><b>4</b></td><td><b>1</b></td><td><b>2</b></td><td><b>3</b></td><td><b>4</b></td> <td><b>Method</b></td><td><b>Date</b></td>  <td><b>Method</b></td><td><b>Date</b></td> <td><b>Method</b></td><td><b>Date</b></td> <td><b>Method</b></td><td><b>Date</b></td>
+                                    </tr>
+
+                                    <tr *ngFor="let family of families">
+                                    <td>{{family.village_id}}</td>
+                                    <td>{{family.Approved_family_category}}</td>
+                                    <td>{{family.Identity_number}}</td>
+                                    <td>{{family.Date | date: 'yyyy/MM/dd' }}</td>
+                                    <td>{{family.Name_of_wife}}</td>
+                                    <td>{{family.Name_of_husband}}</td>
+                                    <td>{{family.Address}}</td>
+                                    <td>{{family.Date_of_birth | date: 'yyyy/MM/dd' }}</td>
+                                    <td>{{family.Age_at_the_time_of_marriage}}</td>
+                                    <td>{{family.Job_status}}</td>
+                                    <td>{{family.Education_level}}</td>
+                                    <td>{{family.Number_of_living_children}}</td>
+
+                                    <td>{{family.Pregnancy_details__Pregnancy__First}}</td>
+                                    <td>{{family.Pregnancy_details__Pregnancy__Second}}</td>
+                                    <td>{{family.Pregnancy_details__Pregnancy__Third}}</td>
+                                    <td>{{family.Pregnancy_details__Pregnancy__Fourth}}</td>
+                                    
+
+                                    <td>{{family.Pregnancy_details__Result__First}}</td>
+                                    <td>{{family.Pregnancy_details__Result__Second}}</td>
+                                    <td>{{family.Pregnancy_details__Result__Third}}</td>
+                                    <td>{{family.Pregnancy_details__Result__Fourth}}</td>
+
+                                    <td>{{family.Family_planning_methods__First__Method}}</td>
+                                    <td>{{family.Family_planning_methods__First__Date | date: 'yyyy/MM/dd' }}</td>
+
+                                    <td>{{family.Family_planning_methods__second__Method}}</td>
+                                    <td>{{family.Family_planning_methods__second__Date | date: 'yyyy/MM/dd' }}</td>
+
+                                    <td>{{family.Family_planning_methods__third__Method}}</td>
+                                    <td>{{family.Family_planning_methods__third__Date | date: 'yyyy/MM/dd' }}</td>
+
+                                    <td>{{family.Family_planning_methods__fourth__Method}}</td>
+                                    <td>{{family.Family_planning_methods__fourth__Date | date: 'yyyy/MM/dd' }}</td>
+
+                                    <td>{{family.Safeforrubella}}</td>
+                                    <td>{{family.Dateofcervicalmucoustest}}</td>
+                                    <td>{{family.Otherdetails}}</td>
+                                    <td>{{family.numberofyoungchildren}}</td>
+                                    
+                                    </tr>
+                            </tbody>
+                           
+                        </table>
+                  
+
+
+                  </div>
+          </div>
+      </div>
+      <div class="col-md-12">
+          <div class="card card-plain">
+              <div class="card-header card-header-danger">
+                  <h4 class="card-title mt-0"> Table on Plain Background</h4>
+                  <p class="card-category"> Here is a subtitle for this table
+              </div>
+              <div class="card-body">
+                  <div class="table-responsive">
+                      <table class="table table-hover">
+                          <thead class="">
+                              <th>
+                                  ID
+                              </th>
+                              <th>
+                                  Name
+                              </th>
+                              <th>
+                                  Country
+                              </th>
+                              <th>
+                                  City
+                              </th>
+                              <th>
+                                  Salary
+                              </th>
+                          </thead>
+                          <tbody>
+                              <tr>
+                                  <td>
+                                      1
+                                  </td>
+                                  <td>
+                                      Dakota Rice
+                                  </td>
+                                  <td>
+                                      Niger
+                                  </td>
+                                  <td>
+                                      Oud-Turnhout
+                                  </td>
+                                  <td>
+                                      $36,738
+                                  </td>
+                              </tr>
+                              <tr>
+                                  <td>
+                                      2
+                                  </td>
+                                  <td>
+                                      Minerva Hooper
+                                  </td>
+                                  <td>
+                                      Curaçao
+                                  </td>
+                                  <td>
+                                      Sinaai-Waas
+                                  </td>
+                                  <td>
+                                      $23,789
+                                  </td>
+                              </tr>
+                              <tr>
+                                  <td>
+                                      3
+                                  </td>
+                                  <td>
+                                      Sage Rodriguez
+                                  </td>
+                                  <td>
+                                      Netherlands
+                                  </td>
+                                  <td>
+                                      Baileux
+                                  </td>
+                                  <td>
+                                      $56,142
+                                  </td>
+                              </tr>
+                              <tr>
+                                  <td>
+                                      4
+                                  </td>
+                                  <td>
+                                      Philip Chaney
+                                  </td>
+                                  <td>
+                                      Korea, South
+                                  </td>
+                                  <td>
+                                      Overland Park
+                                  </td>
+                                  <td>
+                                      $38,735
+                                  </td>
+                              </tr>
+                              <tr>
+                                  <td>
+                                      5
+                                  </td>
+                                  <td>
+                                      Doris Greene
+                                  </td>
+                                  <td>
+                                      Malawi
+                                  </td>
+                                  <td>
+                                      Feldkirchen in Kärnten
+                                  </td>
+                                  <td>
+                                      $63,542
+                                  </td>
+                              </tr>
+                              <tr>
+                                  <td>
+                                      6
+                                  </td>
+                                  <td>
+                                      Mason Porter
+                                  </td>
+                                  <td>
+                                      Chile
+                                  </td>
+                                  <td>
+                                      Gloucester
+                                  </td>
+                                  <td>
+                                      $78,615
+                                  </td>
+                              </tr>
+                          </tbody>
+                      </table>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+</div>

@@ -9,7 +9,7 @@ import { AppRoutingModule } from './app.routing';
 import { ComponentsModule } from './components/components.module';
 
 import { AppComponent } from './app.component';
-
+import { HttpClientModule } from '@angular/common/http'
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { TableListComponent } from './table-list/table-list.component';
@@ -22,6 +22,10 @@ import {
   AgmCoreModule
 } from '@agm/core';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
+import { ViewBabiesofAreaComponent } from './MOHComponents/view-babiesof-area/view-babiesof-area.component';
+import { ViewBabybyIDComponent } from './MOHComponents/view-babyby-id/view-babyby-id.component';
+import { ClinicNotificationsComponent } from './MOHComponents/clinic-notifications/clinic-notifications.component';
+import { UpdateBabyBookComponent } from './MOHComponents/update-baby-book/update-baby-book.component';
 
 @NgModule({
   imports: [
@@ -29,6 +33,7 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
     FormsModule,
     ReactiveFormsModule,
     HttpModule,
+    HttpClientModule,
     ComponentsModule,
     RouterModule,
     AppRoutingModule,
@@ -39,6 +44,16 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
   declarations: [
     AppComponent,
     AdminLayoutComponent,
+    
+   
+    
+  
+  
+
+    
+ 
+    
+   
 
   ],
   providers: [],
