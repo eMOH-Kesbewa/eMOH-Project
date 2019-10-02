@@ -6,7 +6,9 @@ var mongoose = require('mongoose');
 router.post('/add', (req, res) => {
     console.log(req.body);
     var data = new ApprovedFamily(req.body);
-    data.save();
+    data.save((err,doc)=>{
+        res.status(200).send("Inserted successfully.");
+    });
     console.log("Completed");
 });
 
@@ -15,6 +17,7 @@ router.get('/view', (req, res) => {
     ApprovedFamily.find((err, doc) => {
         res.send(doc)
     })
+    
 });
 
 router.get('/update', async (req, res) => {

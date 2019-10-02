@@ -21,7 +21,12 @@ export class ViewApprovedFamiliesComponent implements OnInit {
 
   checkRoute(){
     //console.log(this.router.url);
-    if(this.router.url=='/viewApprovedFamilies') return true;
+    if(this.router.url=='/viewApprovedFamilies'||this.router.url=='/viewApprovedFamilies/AddApprovedFamilies') return true;
+  }
+
+  onClickMe(familyID){
+    console.log(familyID);
+    this.router.navigate([this.router.url,'ViewFamilesById',familyID])
   }
   
 }
