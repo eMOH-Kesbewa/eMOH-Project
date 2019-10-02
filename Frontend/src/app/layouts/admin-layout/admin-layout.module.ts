@@ -28,6 +28,8 @@ import {
   MatFormFieldModule,
   MatTooltipModule,
   MatSelectModule,
+  MatRadioModule,
+  MatDatepickerModule,MatNativeDateModule
 
 } from '@angular/material';
 import { ViewFamilybyIdComponent } from 'app/MOHComponents/view-familyby-id/view-familyby-id.component';
@@ -47,6 +49,8 @@ import { ViewFamilybyIdComponent } from 'app/MOHComponents/view-familyby-id/view
     MatInputModule,
     MatSelectModule,
     MatTooltipModule,
+    MatRadioModule,
+    MatDatepickerModule,MatNativeDateModule
     
     ],
   declarations: [

@@ -26,11 +26,26 @@ router.get('/update', async (req, res) => {
 
 });
 
+//add and view baby
+router.post('/add', (req, res) => {
+    console.log(req.body);
+    var data = new Baby(req.body);
+    data.save();
+    console.log("Completed");
+});
+
+router.get('/viewbaby', (req, res) => {
+    Baby.find((err, doc) => {
+        res.send(doc)
+    })
+});
+
 router.get('/view', (req, res) => {
     motherbabyjoined.find((err, doc) => {
         res.send(doc)
     })
 });
+
 
 router.get('/viewbyid/:id', (req, res) => {
     baby.find({ mother_id: req.params.id }, (err, doc) => {
