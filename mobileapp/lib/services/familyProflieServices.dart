@@ -12,11 +12,8 @@ Future<Family> fetchFamily() async {
       print('status code');
       print(response.statusCode);
       print(response.body);
-  // final json = jsonDecode(response.body);
   if (response.statusCode == 200) {
-    // If the call to the server was successful, parse the JSON.
-  //return (json.decode(response.body));
-    //print(Family.fromJson(json.decode(response.body)));
+
     return Family.fromJson(json.decode(response.body)[0]);
   } else {  
     // If that call was not successful, throw an error.

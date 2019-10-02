@@ -8,7 +8,7 @@ import 'globals.dart' as globals;
 Future<Family> fetchFamily() async {
   print('fetch family function');
   final response =
-      await http.get('https://protected-bayou-52277.herokuapp.com/families/viewbyid/${globals.globalEmail}');
+      await http.get('https://protected-bayou-52277.herokuapp.com/babies/viewbyid/${globals.globalEmail}');
       print('status code');
       print(response.statusCode);
       print(response.body);
