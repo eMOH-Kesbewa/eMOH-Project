@@ -44,13 +44,13 @@ router.get('/update', async (req, res) => {
 router.get('/viewbyid/:id', (req, res) => {
     ApprovedFamily.find({ Identity_number: req.params.id }, (err, doc) => {
 
-        if (!err) {
+        if (doc.length) {
             res.send(doc);
             console.log(doc);
         }
         else {
-            console.log('Error in Retriving Family :' + JSON.stringify(err, undefined, 2));
-
+            console.log('Cannot find the record');
+            res.status(500).send("Cannot find the record");
         }
     });
 
