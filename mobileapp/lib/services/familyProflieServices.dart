@@ -22,6 +22,7 @@ Future<Family> fetchFamily() async {
 }
 
 class Family {
+
   final String idNumber;
   final String vilID;
   final String wifeName;
@@ -36,7 +37,7 @@ class Family {
       vilID: json['village_id'],
       wifeName: json['Name_of_wife'],
       husbandName: json['Name_of_husband'],
-      childrenCount: json['Number_of_living_childern']
+      childrenCount: json['numberofyoungchildren'].toString(),
     );
   }
 }

@@ -17,7 +17,7 @@ class familyProfile extends StatefulWidget {
 }
 
 class _familyProfileState extends State<familyProfile> {
-  Future <Family> family = fetchFamily();
+  //Future <Family> family = fetchFamily();
   @override
   Widget build(BuildContext context) {
     final div = Divider(
@@ -66,8 +66,9 @@ class _familyProfileState extends State<familyProfile> {
       
       body: Center(
         child: FutureBuilder<Family>(
-          future: family,
+          future: fetchFamily(),
           builder: (context, snapshot) {
+           print(snapshot);
             if (snapshot.hasData) {
               return SingleChildScrollView(
                 child: Column(

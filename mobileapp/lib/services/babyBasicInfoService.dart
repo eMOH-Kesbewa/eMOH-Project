@@ -30,8 +30,9 @@ class Family {
   final String wifeName;
   final String husbandName;
   final String childrenCount;
+  final String email;
 
-  Family({this.idNumber, this.vilID, this.wifeName, this.husbandName,this.childrenCount});
+  Family({this.idNumber, this.vilID, this.wifeName, this.husbandName,this.childrenCount,this.email});
 
   factory Family.fromJson(Map<String, dynamic> json) {
     return Family(
@@ -39,7 +40,8 @@ class Family {
       vilID: json['village_id'],
       wifeName: json['Name_of_wife'],
       husbandName: json['Name_of_husband'],
-      childrenCount: json['Number_of_living_childern']
+      childrenCount: json['Number_of_living_childern'],
+      email: json['email']
     );
   }
 }
