@@ -16,7 +16,7 @@ router.post('/register', (req, res) => {
 
 
 //Update details in motherbabyjoined table
-router.get('/update/motherbabyjoined', async (req, res) => {
+router.put('/update/motherbabyjoined', async (req, res) => {
 
     try {
         const filter = req.query;
@@ -29,6 +29,7 @@ router.get('/update/motherbabyjoined', async (req, res) => {
             new: true,
             upsert: true 
         });
+        res.status(200).send("Updated successfully.");
         console.log(doc);
     } catch (error) {
         res.status(500).send(error);

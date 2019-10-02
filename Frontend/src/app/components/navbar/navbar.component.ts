@@ -147,6 +147,9 @@ export class NavbarComponent implements OnInit {
         if(currentroute == "viewBabies"){
             this.nameOftheSearch = "Search by Baby Id";
             return true;
+        }else if(currentroute == "viewApprovedFamilies"){
+            this.nameOftheSearch = "Search by Family Id";
+            return true;
         }
         else return false;
         
@@ -157,7 +160,11 @@ export class NavbarComponent implements OnInit {
     onSubmit(){
         console.log(this.searchEnterdData.data);
         console.log(this.router.url);
-        this.router.navigate([this.router.url,'ViewMotherBabybyID',this.searchEnterdData.data]);
+        if(this.router.url=="/viewBabies"){
+            this.router.navigate([this.router.url,'ViewMotherBabybyID',this.searchEnterdData.data])
+        }else if(this.router.url=="/viewApprovedFamilies") {
+            this.router.navigate([this.router.url,'ViewFamilesById',this.searchEnterdData.data])
+        }
     }
 
     

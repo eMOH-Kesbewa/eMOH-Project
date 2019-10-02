@@ -30,6 +30,7 @@ import {
   MatSelectModule,
 
 } from '@angular/material';
+import { ViewFamilybyIdComponent } from 'app/MOHComponents/view-familyby-id/view-familyby-id.component';
 
 
 
@@ -65,7 +66,8 @@ import {
     ClinicRecordsComponent,
     AddClinicComponent,
     UpdateBabyBookComponent,
-    ViewBabybyIDComponent
+    ViewBabybyIDComponent,
+    ViewFamilybyIdComponent
   ]
 })
 
