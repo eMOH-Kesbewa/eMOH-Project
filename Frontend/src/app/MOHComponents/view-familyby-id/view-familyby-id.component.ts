@@ -3,7 +3,8 @@ import { FamiliesService } from 'app/Services/families.service';
 import { ActivatedRoute } from '@angular/router';
 import { Family } from 'app/Services/Models/family';
 import { Router } from '@angular/router';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators,FormControl } from '@angular/forms';
+
 @Component({
   selector: 'app-view-familyby-id',
   templateUrl: './view-familyby-id.component.html',
@@ -15,9 +16,11 @@ export class ViewFamilybyIdComponent implements OnInit {
 
   families : Family;
   approvedFamilyForm: FormGroup;
-  
+  autoRenew : FormControl;
+  public familyId
+
   ngOnInit() {
-    let familyId = this.activeroute.snapshot.paramMap.get('familyId');
+    this.familyId = this.activeroute.snapshot.paramMap.get('familyId');
     this.approvedFamilyForm = this.formBuilder.group({
       village_id : [''],
       Approved_family_category: [''],
@@ -52,11 +55,11 @@ export class ViewFamilybyIdComponent implements OnInit {
       Safe_for_rubella: [''],
       Date_of_cervical_mucous_test: [''],
       Other_details: [''],
-      number_of_young_children: ['']
+      number_of_young_children: [''],
     });
     this.approvedFamilyForm.valueChanges.subscribe(console.log)
     
-    this.familyservice.getfamilydataById(familyId).subscribe(data => {
+    this.familyservice.getfamilydataById(this.familyId).subscribe(data => {
         console.log(data[0]['Date']);
         this.approvedFamilyForm.patchValue({
           village_id : [data[0]['village_id']],
@@ -95,6 +98,10 @@ export class ViewFamilybyIdComponent implements OnInit {
           number_of_young_children: [data[0]['number_of_young_children']]
         });
     });
+
+    this.autoRenew = new FormControl();
+    this.onChange();
+    
   }
 
   onSubmit() {
@@ -113,5 +120,24 @@ export class ViewFamilybyIdComponent implements OnInit {
         return isodate.substr(0,10)
       }
     }
+
+
+    onChange(){        //Enabling ReadOnly Attribute when toggle is off
+      this.onHidden()
+      if(this.autoRenew.value){
+        return "false"
+      }else{
+        return "true"
+      }
+    }
+
+    onHidden(){      //Hide the submit button when toggle is off and vice versa
+      if(this.autoRenew.value){
+        return true;
+      }else{
+        return false;
+      }
+    }
+
 
 }
