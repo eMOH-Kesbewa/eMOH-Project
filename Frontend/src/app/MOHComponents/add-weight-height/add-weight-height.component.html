@@ -1,0 +1,119 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header card-header-danger">
+                    <h4 class="card-title">Update Weight Height Table</h4>
+                    <p class="card-category">Complete profile</p>
+                </div>
+                <div class="card-body">
+                    <form [formGroup]="WeightHeightForm" [hidden]="success" (ngSubmit)="onSubmit()">
+                        
+                        <h3>Babies' And Children's Weight Height Form</h3>
+                        <div class="row">
+                          <div class="col-md-3">
+                              <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="Year" type="number" formControlName="year">
+                                  <div *ngIf="submitted && WeightHeightForm.controls.year.errors" class="error">
+                                      <div *ngIf="WeightHeightForm.controls.year.errors.required">This field is required</div>
+                                    </div>
+                                </mat-form-field>
+                          </div>
+                          <div class="col-md-3">
+                              <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="Month" type="text" formControlName="month">
+                                  <div *ngIf="submitted && WeightHeightForm.controls.month.errors" class="error">
+                                      <div *ngIf="WeightHeightForm.controls.month.errors.required">This field is required</div>
+                                    </div>
+                                </mat-form-field>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-md-3">
+                              <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="Baby ID" type="text" formControlName="baby_id">
+                                  <div *ngIf="submitted && WeightHeightForm.controls.baby_id.errors" class="error">
+                                      <div *ngIf="WeightHeightForm.controls.baby_id.errors.required">This field is required</div>
+                                    </div>
+                                </mat-form-field>
+                          </div>
+                          <div class="col-md-3">
+                              <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="Batch No" type="text" formControlName="batch_no">
+                                  <div *ngIf="submitted && WeightHeightForm.controls.batch_no.errors" class="error">
+                                      <div *ngIf="WeightHeightForm.controls.batch_no.errors.required">This field is required</div>
+                                    </div>
+                                </mat-form-field>
+                          </div>
+                          <div class="col-md-6">
+                              <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="Name Of Child" type="text" formControlName="name_of_child">
+                                  <div *ngIf="submitted && WeightHeightForm.controls.name_of_child.errors" class="error">
+                                      <div *ngIf="WeightHeightForm.controls.name_of_child.errors.required">This field is required</div>
+                                    </div>
+                                </mat-form-field>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-md-4">
+                              <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="Date Of Child" type="date" formControlName="Date_of_birth">
+                                  <div *ngIf="submitted && WeightHeightForm.controls.Date_of_birth.errors" class="error">
+                                      <div *ngIf="WeightHeightForm.controls.Date_of_birth.errors.required">This field is required</div>
+                                    </div>
+                                </mat-form-field>
+                          </div>
+                          <div class="col-md-4">
+                              <mat-form-field  class="example-full-width">
+                                  <mat-select placeholder="Sex" formControlName="sex" required>
+                                    <mat-option value="Female">Female</mat-option>
+                                    <mat-option value="Male">Male</mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                          </div>
+                          <div class="col-md-4">
+                              <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="Age Of Month Of Child" type="number" formControlName="age_of_month" min="0" max="60">
+                                  <div *ngIf="submitted && WeightHeightForm.controls.age_of_month.errors" class="error">
+                                      <div *ngIf="WeightHeightForm.controls.age_of_month.errors.required">This field is required</div>
+                                    </div>
+                                </mat-form-field>
+                        </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-md-5">
+                              <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="Weight" type="text" formControlName="weight_of_child">
+                                  <div *ngIf="submitted && WeightHeightForm.controls.weight_of_child.errors" class="error">
+                                      <div *ngIf="WeightHeightForm.controls.weight_of_child.errors.required">This field is required</div>
+                                    </div>
+                                </mat-form-field>
+                          </div>
+                          <div class="col-md-5">
+                              <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="Height" type="text" formControlName="height_of_child">
+                                  <div *ngIf="submitted && WeightHeightForm.controls.height_of_child.errors" class="error">
+                                      <div *ngIf="WeightHeightForm.controls.height_of_child.errors.required">This field is required</div>
+                                    </div>
+                                </mat-form-field>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-md-6">
+                              <label>Other</label>
+                              <mat-form-field class="example-full-width">
+                                <textarea matInput placeholder="" formControlName="other_details" ></textarea>
+                              </mat-form-field>
+                          </div>
+                        </div>
+                       <input type="submit" value="Submit details" class="btn btn-danger pull-right">
+
+                     </form>
+                     <div *ngIf="success"><h1>You submitted a record</h1></div>
+                 </div>
+              </div>
+         </div>
+      </div>
+  </div>
+  
+                

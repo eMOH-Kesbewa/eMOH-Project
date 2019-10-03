@@ -4736,22 +4736,28 @@
                                         <div class="tenth_page">
                                           <!--satrt tenth page-->
                                           <h3>For Doctors</h3>
-                                          <div class="row">
+                                          <!-- <div class="row">
                                             <div class="col-md-4">Date</div>
                                             <div class="col-md-8">Special Notes</div>
-                                          </div>
+                                          </div> -->
                                           <div class="row">
                                             <div class="col-md-4">
+                                              <label>Date</label>
                                                 <mat-form-field class="example-full-width">
                                                     <input matInput placeholder="" type= "date" formControlName="date_of_checked" >
                                                   </mat-form-field>
                                             </div>
-                                            <div class="col-md-8">
-                                                <mat-form-field class="example-full-width">
-                                                    <input matInput placeholder="" type= "text" formControlName="special_notice" >
-                                                  </mat-form-field>
-                                            </div>
                                           </div>
+                                          <div class="row">
+                                            <div class="col-md-8">
+                                              <label>Special Notice</label>
+                                              <mat-form-field class="example-full-width">
+                                                <textarea matInput placeholder="" formControlName="special_notice" required></textarea>
+                                              </mat-form-field>
+                                            </div>
+                                            </div>
+                                          <!-- <button mat-raised-button type="submit" class="btn btn-default pull-right" >Update Profile</button> -->
+                                          <button mat-raised-button type="submit" class="btn btn-danger pull-right" >View Other Notes</button>
                                           <div class="second_field">
                                             <!--start 2nd field-->
                                             <h3>For Mothers To Check Baby's Teeth</h3>
@@ -5251,10 +5257,44 @@
                                           </div>
                                           <!--end tenth page-->
                                         </div>
-                                       
+                                       <div class="eleven_page">
+                                         <!--start eleven page-->
+                                         <h3>For Hospital Admits</h3>
+                                         <div class="row">
+                                            <div class="col-md-3">
+                                                <mat-form-field class="example-full-width">
+                                                  <input matInput placeholder="Date" type= "date" formControlName="admit_date">
+                                                </mat-form-field>
+                                               </div>
+                                         </div>
+                                         <div class="row">
+                                         <div class="col-md-9">
+                                            <label>Reason For Admit</label>
+                                            <mat-form-field class="example-full-width">
+                                              <textarea matInput placeholder="" formControlName="reason_of_admit" required></textarea>
+                                            </mat-form-field>
+                                           </div>
+                                         </div>
+                                         <div class="row">
+                                           <div class="col-md-6">
+                                             <label>About Diseases</label>
+                                            <mat-form-field class="example-full-width">
+                                              <textarea matInput placeholder="" formControlName="about_disease" required></textarea>
+                                            </mat-form-field></div>
+                                           <div class="col-md-6">
+                                            <label>Refferals</label>
+                                            <mat-form-field class="example-full-width">
+                                              <textarea matInput placeholder="" formControlName="referalls" required></textarea>
+                                            </mat-form-field>
+                                           </div>
+                                         </div>
+                                         <!-- <button mat-raised-button type="submit" class="btn btn-default pull-right" >Update Profile</button> -->
+                                         <button mat-raised-button type="submit" class="btn btn-danger pull-right" >View Other Admits</button>
+                                         <!--end eleven page-->
+                                       </div>
                                                       
                                               
-        
+                      <br><br><br><br><br><br><br><br><br>
 
                       <input type="submit" value="Submit details" class="btn btn-danger pull-right">
                   </form>

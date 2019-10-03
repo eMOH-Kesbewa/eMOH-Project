@@ -691,6 +691,12 @@ export class UpdateBabyBookComponent implements OnInit {
       eighteen_status:[''],
       eighteen_date:[''],
 
+       //Hospital admits
+      admit_date:[''],
+      reason_of_admit:[''],
+      about_disease:[''],
+      referalls:[''],
+
  
       
     });
