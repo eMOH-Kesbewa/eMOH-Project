@@ -48,7 +48,7 @@ router.get('/view', (req, res) => {
 
 
 router.get('/viewbyid/:id', (req, res) => {
-    baby.find({ mother_id: req.params.id }, (err, doc) => {
+    Baby.find({ mother_id: req.params.id }, (err, doc) => {
         if (!err) {
             res.send(doc);
             console.log(doc);

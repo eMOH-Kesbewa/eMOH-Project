@@ -33,6 +33,7 @@ import {
   MatDatepickerModule,MatNativeDateModule
 
 } from '@angular/material';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { ViewFamilybyIdComponent } from 'app/MOHComponents/view-familyby-id/view-familyby-id.component';
 
 
@@ -51,7 +52,8 @@ import { ViewFamilybyIdComponent } from 'app/MOHComponents/view-familyby-id/view
     MatSelectModule,
     MatTooltipModule,
     MatRadioModule,
-    MatDatepickerModule,MatNativeDateModule
+    MatDatepickerModule,MatNativeDateModule,
+    MatSlideToggleModule
     
     ],
   declarations: [
