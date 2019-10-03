@@ -6,7 +6,9 @@ var mongoose = require('mongoose');
 router.post('/add', (req, res) => {
     console.log(req.body);
     var data = new ApprovedFamily(req.body);
-    data.save();
+    data.save((err,doc)=>{
+        res.status(200).send("Inserted successfully.");
+    });
     console.log("Completed");
 });
 
@@ -15,6 +17,7 @@ router.get('/view', (req, res) => {
     ApprovedFamily.find((err, doc) => {
         res.send(doc)
     })
+    
 });
 
 router.get('/update', async (req, res) => {
@@ -41,13 +44,13 @@ router.get('/update', async (req, res) => {
 router.get('/viewbyid/:id', (req, res) => {
     ApprovedFamily.find({ Identity_number: req.params.id }, (err, doc) => {
 
-        if (!err) {
+        if (doc.length) {
             res.send(doc);
             console.log(doc);
         }
         else {
-            console.log('Error in Retriving Family :' + JSON.stringify(err, undefined, 2));
-
+            console.log('Cannot find the record');
+            res.status(500).send("Cannot find the record");
         }
     });
 

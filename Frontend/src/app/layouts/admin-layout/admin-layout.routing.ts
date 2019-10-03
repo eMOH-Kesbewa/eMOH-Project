@@ -17,6 +17,7 @@ import { ClinicRecordsComponent } from 'app/MOHComponents/clinic-records/clinic-
 import { AddClinicComponent } from 'app/MOHComponents/add-clinic/add-clinic.component';
 import { UpdateBabyBookComponent } from 'app/MOHComponents/update-baby-book/update-baby-book.component';
 import { ViewBabybyIDComponent } from 'app/MOHComponents/view-babyby-id/view-babyby-id.component';
+import { ViewFamilybyIdComponent } from 'app/MOHComponents/view-familyby-id/view-familyby-id.component';
 
 export const AdminLayoutRoutes: Routes = [
     // {
@@ -76,7 +77,12 @@ export const AdminLayoutRoutes: Routes = [
             {
                 path: 'AddApprovedFamilies',
                 component: AddApprovedFamiliesComponent
+            },
+            {
+                path: 'ViewFamilesById/:familyId',
+                component: ViewFamilybyIdComponent
             }
+
         ]
     },
     {

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MotherbabyjoinedService } from 'app/Services/motherbabyjoined.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-addmotherbabyjoineddata',
@@ -12,7 +14,7 @@ export class AddmotherbabyjoineddataComponent implements OnInit {
   submitted = false;
   success = false;
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder,private MotherbabyjoinedService : MotherbabyjoinedService) { }
 
   ngOnInit() {
     this.addmotherbabyForm=this.fb.group({
@@ -56,16 +58,32 @@ export class AddmotherbabyjoineddataComponent implements OnInit {
     vitamin_a_mega_dose__at_year_twelve: [''],
     remarks: ['']
     })
+    this.addmotherbabyForm.valueChanges.subscribe(console.log)
   }
 
+  
+
   onSubmit(){
+    /*
     this.submitted=true;
 
     if(this.addmotherbabyForm.invalid){
       return;
     }
 
-    this.success=true;
+    this.success=true;*/
+
+    console.log(this.addmotherbabyForm.value);
+      this.MotherbabyjoinedService.addnewbaby(this.addmotherbabyForm.value)
+        .subscribe(
+          response=>console.log('Success!',response),
+          error=>{
+            if(error) console.log("Failure") 
+            else console.log("Success No Errors")
+          }
+        );
+       // this.router.navigate(['viewClinics']);
+    console.log(this.addmotherbabyForm.value);
   }
 
 }
