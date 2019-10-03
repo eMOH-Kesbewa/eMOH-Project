@@ -3,7 +3,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'globals.dart' as globals;
+import '../globals.dart' as globals;
 
 Future<Baby> fetchBaby() async {
   print('fetch Baby function');

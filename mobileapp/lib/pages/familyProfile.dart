@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
-import 'package:mobileapp/pages/babyBasicInfo.dart';
+import 'package:mobileapp/pages/babyInfo/babyBasicInfo.dart';
 import 'package:mobileapp/pages/babyDetails.dart';
 import 'package:mobileapp/pages/bottomNavigation.dart';
 import 'package:mobileapp/pages/motherDetails.dart';
