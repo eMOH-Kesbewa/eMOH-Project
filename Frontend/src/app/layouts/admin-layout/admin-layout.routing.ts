@@ -18,6 +18,7 @@ import { AddClinicComponent } from 'app/MOHComponents/add-clinic/add-clinic.comp
 import { UpdateBabyBookComponent } from 'app/MOHComponents/update-baby-book/update-baby-book.component';
 import { ViewBabybyIDComponent } from 'app/MOHComponents/view-babyby-id/view-babyby-id.component';
 import { ViewFamilybyIdComponent } from 'app/MOHComponents/view-familyby-id/view-familyby-id.component';
+import { AddWeightHeightComponent } from 'app/MOHComponents/add-weight-height/add-weight-height.component';
 
 export const AdminLayoutRoutes: Routes = [
     // {
@@ -100,6 +101,10 @@ export const AdminLayoutRoutes: Routes = [
            {
                 path:'ViewMotherBabybyID/:babyId',
                 component:ViewBabybyIDComponent
+           },
+           {
+               path:'AddWeightHeight',
+               component:AddWeightHeightComponent
            }
        ]
        

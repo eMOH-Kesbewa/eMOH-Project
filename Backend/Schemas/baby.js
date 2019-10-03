@@ -576,137 +576,143 @@ var baby = new Schema({
    "eighteen_status": String,
    "eighteen_date": Date,
    
+   //Hospital admits
+   "admit_date":Date,
+   "reason_of_admit":String,
+   "about_disease":String,
+   "referalls":String,
+
    //vaccine
-  
-         "b_c_g_date":Date,
-         "b_c_g_batch_no": String,
-         "b_c_g_effects_of_immunization": String,
-         "b_c_g_b_c_g_scar": Boolean,
+   "b_c_g_date":Date,
+   "b_c_g_batch_no": String,
+   "b_c_g_effects_of_immunization": String,
+   "b_c_g_b_c_g_scar": Boolean,
 
-         "b_c_g_second_dose_date":Date,
-         "b_c_g_second_dose_batch_no": String,
-         "b_c_g_second_dose_effects_of_immunization": String,
+   "b_c_g_second_dose_date":Date,
+   "b_c_g_second_dose_batch_no": String,
+   "b_c_g_second_dose_effects_of_immunization": String,
 
-         "pentavalent_one_date":Date,
-         "pentavalent_one_batch_no": String,
-         "pentavalent_one_effects_of_immunization": String,
+   "pentavalent_one_date":Date,
+   "pentavalent_one_batch_no": String,
+   "pentavalent_one_effects_of_immunization": String,
 
-         "opv_one_date":Date,
-         "opv_one_batch_no": String,
-         "opv_one_effects_of_immunization": String,
+   "opv_one_date":Date,
+   "opv_one_batch_no": String,
+   "opv_one_effects_of_immunization": String,
 
-         "pentavalent_two_date":Date,
-         "pentavalent_two_batch_no": String,
-         "pentavalent_two_effects_of_immunization": String,
+   "pentavalent_two_date":Date,
+   "pentavalent_two_batch_no": String,
+   "pentavalent_two_effects_of_immunization": String,
 
-         "opv_two_date":Date,
-         "opv_two_batch_no": String,
-         "opv_two_effects_of_immunization": String,
+   "opv_two_date":Date,
+   "opv_two_batch_no": String,
+   "opv_two_effects_of_immunization": String,
 
-         "pentavalent_three_date":Date,
-         "pentavalent_three_batch_no": String,
-         "pentavalent_three_effects_of_immunization": String,
+   "pentavalent_three_date":Date,
+   "pentavalent_three_batch_no": String,
+   "pentavalent_three_effects_of_immunization": String,
 
-         "opv_three_date":Date,
-         "opv_three_batch_no": String,
-         "opv_three_effects_of_immunization": String,
+   "opv_three_date":Date,
+   "opv_three_batch_no": String,
+   "opv_three_effects_of_immunization": String,
+   
+   "live_je_date":Date,
+   "live_je_batch_no": String,
+   "live_je_effects_of_immunization": String,
+
+   "measules_mumps_rubella_date":Date,
+   "measules_mumps_rubella_batch_no": String,
+   "measules_mumps_rubella_effects_of_immunization": String,
+
+   "dpt_date":Date,
+   "dpt_batch_no": String,
+   "dpt_effects_of_immunization": String,
+
+   "opv_four_date":Date,
+   "opv_four_batch_no": String,
+   "opv_four_effects_of_immunization": String,
+
+   "measules_rubella_two_date":Date,
+   "measules_rubella_two_batch_no": String,
+   "measules_rubella_two_effects_of_immunization": String,
+
+   "d_t_date":Date,
+   "d_t_batch_no": String,
+   "d_t_effects_of_immunization": String,
+
+   "opv_five_date":Date,
+   "opv_five_batch_no": String,
+   "opv_five_effects_of_immunization": String,
+
+   "adult_tatanus_diphtheria_date":Date,
+   "adult_tatanus_diphtheria_batch_no": String,
+   "adult_tatanus_diphtheria_effects_of_immunization": String,
+
+   "other_vaccine_date":Date,
+   "other_batch_no": String,
+   "other_effects_of_immunization": String,
+
+   "date_of_refferals": Date,
+   "reason_for_referrals": String,
+   "place_of_refferal": String,
+   "notes_on_back": String,
+   
+   //vitamine A
+   "A_vitamine_six_month_date": Date,
+   "A_vitamine_six_month_batch_no": String,
+
+
+   "A_vitamine_one_year_date": Date,
+   "A_vitamine_one_year_batch_no": String,
+   "A_vitamine_one_half_year_date": Date,
+   "A_vitamine_one_half_year_batch_no": String,
+   "A_vitamine_two_year_date": Date,
+   "A_vitamine_two_year_batch_no": String,
+
+   "A_vitamine_two_half_year_date": Date,
+   "A_vitamine_two_half_year_batch_no": String,
+
+   "A_vitamine_three_year_date": Date,
+   "A_vitamine_three_year_batch_no": String,
+
+   "A_vitamine_three_half_year_date": Date,
+   "A_vitamine_three_half_year_batch_no": String,
+
+   "A_vitamine_four_year_date": Date,
+   "A_vitamine_four_year_batch_no": String,
+
+   "A_vitamine_four_half_year_date": Date,
+   "A_vitamine_four_half_year_batch_no": String,
+
+   "A_vitamine_five_year_date": Date,
+   "A_vitamine_five_year_batch_no": String,
+
+   //warm treat
+   "warm_treat_one_year_date": Date,
+   "warm_treat_one_year_batch_no": String,
+   "warm_treat_one_half_year_date": Date,
+   "warm_treat_one_half_year_batch_no": String,
+   "warm_treat_two_year_date": Date,
+   "warm_treat_two_year_batch_no": String,
+
+   "warm_treat_two_half_year_date": Date,
+   "warm_treat_two_half_year_batch_no": String,
+
+   "warm_treat_three_year_date": Date,
+   "warm_treat_three_year_batch_no": String,
+
+   "warm_treat_three_half_year_date": Date,
+   "warm_treat_three_half_year_batch_no": String,
+
+   "warm_treat_four_year_date": Date,
+   "warm_treat_four_year_batch_no": String,
+
+   "warm_treat_four_half_year_date": Date,
+   "warm_treat_four_half_year_batch_no": String,
+
+   "warm_treat_five_year_date": Date,
+   "warm_treat_five_year_batch_no": String,
          
-         "live_je_date":Date,
-         "live_je_batch_no": String,
-         "live_je_effects_of_immunization": String,
-
-         "measules_mumps_rubella_date":Date,
-         "measules_mumps_rubella_batch_no": String,
-         "measules_mumps_rubella_effects_of_immunization": String,
-
-         "dpt_date":Date,
-         "dpt_batch_no": String,
-         "dpt_effects_of_immunization": String,
-
-         "opv_four_date":Date,
-         "opv_four_batch_no": String,
-         "opv_four_effects_of_immunization": String,
-
-         "measules_rubella_two_date":Date,
-         "measules_rubella_two_batch_no": String,
-         "measules_rubella_two_effects_of_immunization": String,
-      
-         "d_t_date":Date,
-         "d_t_batch_no": String,
-         "d_t_effects_of_immunization": String,
-
-         "opv_five_date":Date,
-         "opv_five_batch_no": String,
-         "opv_five_effects_of_immunization": String,
-
-         "adult_tatanus_diphtheria_date":Date,
-         "adult_tatanus_diphtheria_batch_no": String,
-         "adult_tatanus_diphtheria_effects_of_immunization": String,
-
-         "other_vaccine_date":Date,
-         "other_batch_no": String,
-         "other_effects_of_immunization": String,
-     
-         "date_of_refferals": Date,
-         "reason_for_referrals": String,
-         "place_of_refferal": String,
-         "notes_on_back": String,
-         
-         //vitamine A
-         "A_vitamine_six_month_date": Date,
-         "A_vitamine_six_month_batch_no": String,
-     
-      
-         "A_vitamine_one_year_date": Date,
-         "A_vitamine_one_year_batch_no": String,
-         "A_vitamine_one_half_year_date": Date,
-         "A_vitamine_one_half_year_batch_no": String,
-         "A_vitamine_two_year_date": Date,
-         "A_vitamine_two_year_batch_no": String,
-      
-         "A_vitamine_two_half_year_date": Date,
-         "A_vitamine_two_half_year_batch_no": String,
-     
-         "A_vitamine_three_year_date": Date,
-         "A_vitamine_three_year_batch_no": String,
-      
-         "A_vitamine_three_half_year_date": Date,
-         "A_vitamine_three_half_year_batch_no": String,
-      
-         "A_vitamine_four_year_date": Date,
-         "A_vitamine_four_year_batch_no": String,
-      
-         "A_vitamine_four_half_year_date": Date,
-         "A_vitamine_four_half_year_batch_no": String,
-      
-         "A_vitamine_five_year_date": Date,
-         "A_vitamine_five_year_batch_no": String,
-
-         //warm treat
-         "warm_treat_one_year_date": Date,
-         "warm_treat_one_year_batch_no": String,
-         "warm_treat_one_half_year_date": Date,
-         "warm_treat_one_half_year_batch_no": String,
-         "warm_treat_two_year_date": Date,
-         "warm_treat_two_year_batch_no": String,
-      
-         "warm_treat_two_half_year_date": Date,
-         "warm_treat_two_half_year_batch_no": String,
-     
-         "warm_treat_three_year_date": Date,
-         "warm_treat_three_year_batch_no": String,
-      
-         "warm_treat_three_half_year_date": Date,
-         "warm_treat_three_half_year_batch_no": String,
-      
-         "warm_treat_four_year_date": Date,
-         "warm_treat_four_year_batch_no": String,
-      
-         "warm_treat_four_half_year_date": Date,
-         "warm_treat_four_half_year_batch_no": String,
-      
-         "warm_treat_five_year_date": Date,
-         "warm_treat_five_year_batch_no": String,
 
    
 
