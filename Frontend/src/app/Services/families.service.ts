@@ -16,26 +16,23 @@ export class FamiliesService {
     return this.http.get<Family>(uri);
   }
 
-  
-  register(userData){
-    let _url= 'http://localhost:3000/add';
-    return this.http.post<any>(_url , userData);
+  register(userData,familyId){          //Update the approved family details
+    let _url= `http://localhost:3000/families/update/?Identity_number=${familyId}`;
+    console.log(userData)
+    return this.http.post<Family>(_url , userData);
+   }
+
+   
+    __url= "http://localhost:3000/families/add";
+   add(userData){                                   //Post the approved family details
+    console.log(userData)
+    return this.http.post<any>(this.__url,userData);
    }
   
-   getfamilydataById(familyId){
-    //console.log(`http://localhost:3000/families/viewbyid/${familyId}`);
+
+   getfamilydataById(familyId){             //Selecting a record by familyId
     let uri = `http://localhost:3000/families/viewbyid/${familyId}`;
     return this.http.get<Family>(uri)
-    /*this.http.get(uri).toPromise().then(data=>{
-      //console.log(data);
-
-      for(let key in data){
-        if(data.hasOwnProperty(key))
-          this.families.push(data[key]);
-      }
-    });
-    return this.families;*/
-
    }
 
 }
