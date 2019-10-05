@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mobileapp/services/babyService/babyBasicInfoService.dart';
+import 'package:mobileapp/services/style.dart';
 
 class BabyBasicInfo extends StatefulWidget {
   @override
@@ -40,63 +41,63 @@ class _BabyBasicInfoState extends State<BabyBasicInfo> {
                                   mainAxisSize: MainAxisSize.min,
                                   children: <Widget>[
                                     ListTile(
-                                      leading: Icon(Icons.perm_identity),
+                                      leading: detailIconBasicInfo,
                                       title: Text('Baby ID'),
                                       subtitle:
                                           Text(snapshot.data.id.toString()),
                                     ),
                                     div,
                                     ListTile(
-                                      leading: Icon(Icons.home),
+                                      leading: detailIconBasicInfo,
                                       title: Text('PHM Area'),
                                       subtitle: Text(
                                           snapshot.data.phmArea.toString()),
                                     ),
                                     div,
                                     ListTile(
-                                      leading: Icon(Icons.ac_unit),
+                                      leading: detailIconBasicInfo,
                                       title: Text('MOH Area'),
                                       subtitle: Text(
                                           snapshot.data.mohArea.toString()),
                                     ),
                                     div,
                                     ListTile(
-                                      leading: Icon(Icons.ac_unit),
+                                      leading: detailIconBasicInfo,
                                       title: Text('Name'),
                                       subtitle:
                                           Text(snapshot.data.name.toString()),
                                     ),
                                     div,
                                     ListTile(
-                                      leading: Icon(Icons.child_friendly),
+                                      leading: detailIconBasicInfo,
                                       title: Text('Birthday'),
                                       subtitle: Text(
                                           snapshot.data.birthday.toString()),
                                     ),
                                     div,
                                     ListTile(
-                                      leading: Icon(Icons.child_friendly),
+                                      leading: detailIconBasicInfo,
                                       title: Text('Registered Date'),
                                       subtitle: Text(
                                           snapshot.data.regDate.toString()),
                                     ),
                                     div,
                                     ListTile(
-                                      leading: Icon(Icons.child_friendly),
+                                      leading: detailIconBasicInfo,
                                       title: Text('Mother'),
                                       subtitle: Text(snapshot.data.nameOfMother
                                           .toString()),
                                     ),
                                     div,
                                     ListTile(
-                                      leading: Icon(Icons.child_friendly),
+                                      leading: detailIconBasicInfo,
                                       title: Text('Age of Mother'),
                                       subtitle: Text(
                                           snapshot.data.ageOfMother.toString()),
                                     ),
                                     div,
                                     ListTile(
-                                      leading: Icon(Icons.child_friendly),
+                                      leading: detailIconBasicInfo,
                                       title: Text('Address'),
                                       subtitle: Text(
                                           snapshot.data.address.toString()),
