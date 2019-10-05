@@ -20,6 +20,7 @@ import { ViewBabybyIDComponent } from 'app/MOHComponents/view-babyby-id/view-bab
 import { ViewFamilybyIdComponent } from 'app/MOHComponents/view-familyby-id/view-familyby-id.component';
 import { AddWeightHeightComponent } from 'app/MOHComponents/add-weight-height/add-weight-height.component';
 import { AddMotherComponent } from 'app/MOHComponents/add-mother/add-mother.component';
+import { ViewMothersComponent } from 'app/MOHComponents/view-mothers/view-mothers.component';
 
 export const AdminLayoutRoutes: Routes = [
     // {
@@ -128,5 +129,9 @@ export const AdminLayoutRoutes: Routes = [
             }
         ]
     },
+    {
+        path: 'viewMothers',
+        component:ViewMothersComponent
+    }
     
 ]

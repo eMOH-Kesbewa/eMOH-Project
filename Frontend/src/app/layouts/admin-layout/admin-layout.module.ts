@@ -36,6 +36,7 @@ import {
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { ViewFamilybyIdComponent } from 'app/MOHComponents/view-familyby-id/view-familyby-id.component';
 import { AddMotherComponent } from 'app/MOHComponents/add-mother/add-mother.component';
+import { ViewMothersComponent } from 'app/MOHComponents/view-mothers/view-mothers.component';
 
 
 
@@ -78,7 +79,8 @@ import { AddMotherComponent } from 'app/MOHComponents/add-mother/add-mother.comp
     ViewBabybyIDComponent,
     ViewFamilybyIdComponent,
     AddWeightHeightComponent,
-    AddMotherComponent
+    AddMotherComponent,
+    ViewMothersComponent
   ]
 })
 
