@@ -122,10 +122,12 @@ export class ViewFamilybyIdComponent implements OnInit {
     }
 
     dateconverter(isodate:String){ //Convert ISOFormat data to yyyy-MM-dd format
-      if(isodate.length == 0){
-        return 
-      }else{
-        return isodate.substr(0,10)
+      if(isodate){
+        if(isodate.length == 0){
+          return null
+        }else{
+          return isodate.substr(0,10)
+        }
       }
     }
 
@@ -147,5 +149,12 @@ export class ViewFamilybyIdComponent implements OnInit {
       }
     }
 
+    onClickMe(){
+      console.log(this.familyId);
+      this.router.navigate(["viewApprovedFamilies/",'AddMother',this.familyId])
+      
+    }
+
+   
 
 }

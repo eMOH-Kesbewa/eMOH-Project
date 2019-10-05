@@ -29,6 +29,7 @@ import { ClinicNotificationsComponent } from './MOHComponents/clinic-notificatio
 import { UpdateBabyBookComponent } from './MOHComponents/update-baby-book/update-baby-book.component';
 import { ViewFamilybyIdComponent } from './MOHComponents/view-familyby-id/view-familyby-id.component';
 import { AddWeightHeightComponent } from './MOHComponents/add-weight-height/add-weight-height.component';
+import { ViewMothersComponent } from './MOHComponents/view-mothers/view-mothers.component';
 
 @NgModule({
   imports: [
@@ -46,9 +47,7 @@ import { AddWeightHeightComponent } from './MOHComponents/add-weight-height/add-
   ],
   declarations: [
     AppComponent,
-    AdminLayoutComponent,
-    
-    
+    AdminLayoutComponent
     
    
     

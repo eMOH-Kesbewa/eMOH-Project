@@ -70,7 +70,11 @@ setTimeout(()=>{
         
             var data = await new clinics(req.body);
             console.log(req.body);
-            await data.save();
+            await data.save((err,docs)=>{
+                if(err) res.status(500).send("Error");
+                else res.status(200).send("Successful");
+                
+            });
             await console.log("Completed");
         });
 },1000);
