@@ -20,7 +20,7 @@ export class AddApprovedFamiliesComponent implements OnInit {
 
   ngOnInit() {
     this.approvedFamilyForm = this.formBuilder.group({
-      village_id : ['', Validators.required],
+      village_id : ['', Validators.required], 
       Approved_family_category: ['', Validators.required],
       Identity_number: ['', Validators.required],
       Date: ['', Validators.required],
