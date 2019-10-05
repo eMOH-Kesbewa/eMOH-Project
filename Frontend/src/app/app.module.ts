@@ -47,7 +47,7 @@ import { AddWeightHeightComponent } from './MOHComponents/add-weight-height/add-
   declarations: [
     AppComponent,
     AdminLayoutComponent,
-    
+
     
     
    

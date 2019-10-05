@@ -29,11 +29,7 @@ export class AddClinicComponent implements OnInit {
       console.log(this.clinicForm.value);
       this.clinicService.addClinic(this.clinicForm.value)
         .subscribe(
-          response=>console.log('Success!',response),
-          error=>{
-            if(error) console.log("Failure") 
-            else console.log("Success No Errors")
-          }
+          res=>console.log('Success!',res)
         );
         this.router.navigate(['viewClinics']);
     }
