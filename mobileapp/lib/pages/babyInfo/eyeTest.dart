@@ -304,9 +304,9 @@ class EyeTest extends StatefulWidget {
 
 class _EyeTestState extends State<EyeTest> {
   Future <Baby> baby = fetchBaby2();
-  bool switchVal = false;
+    bool switchVal = false;
   // bool lightCheck = false;
-  bool faceCheck = false;
+  bool faceCheck = true;
   // bool turnCheck = false;
   // bool theneyesCheck = false;
   // bool lookingCheck = false;
@@ -315,6 +315,17 @@ class _EyeTestState extends State<EyeTest> {
   // bool ringCheck = false;
   // bool askCheck = false;
   // bool talkCheck = false;
+  initState(){
+
+super.initState();
+  baby.then((it){ 
+    faceCheck = it.faceCheck;
+  });
+
+  print(faceCheck);
+}
+  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -358,7 +369,7 @@ class _EyeTestState extends State<EyeTest> {
                       onChanged: (bool newValue) {
                         setState(() {
                           snapshot.data.faceCheck = !snapshot.data.faceCheck;
-                          faceCheck = !snapshot.data.faceCheck;
+                          faceCheck = snapshot.data.faceCheck;
                         });
                       }),
                 ],
@@ -379,14 +390,31 @@ class _EyeTestState extends State<EyeTest> {
       ),
     );
   }
-
+//  updateDetails(String name)async{
+//     Map data = {'name_of_child': name};
+//     print('***face***');
+//     print(name);
+//     var response = await http.put(
+//         "https://protected-bayou-52277.herokuapp.com/babies/update/A0000101",
+//         body: data);
+//     print("****status");
+//     print(response.statusCode);
+//     if(response.statusCode == 200){
+//       print("Done");
+//     }
+//   }
+//}
   updateDetails(bool face)async{
-    Map data = {'does_the_child_look_good_on_your_face': face.toString()};
-    var jsonResponse = null;
-    var response = await http.post(
-        "https://protected-bayou-52277.herokuapp.com/babies/update",
+    //Map query = {'baby_id' : 'A0000101'};
+    Map data = {'baby_id':'A0000101','does_the_child_look_good_on_your_face': face.toString()};
+    //Map data = {'does_the_child_look_good_on_your_face': face.toString()};
+    print('***face***');
+    print(face.toString());
+    var response = await http.put(
+        "https://protected-bayou-52277.herokuapp.com/babies/update/",
         body: data);
     print("****status");
+    print(response.statusCode);
     if(response.statusCode == 200){
       print("Done");
     }
