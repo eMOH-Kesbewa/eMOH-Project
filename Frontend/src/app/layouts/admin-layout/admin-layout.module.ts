@@ -21,7 +21,7 @@ import { ClinicRecordsComponent } from 'app/MOHComponents/clinic-records/clinic-
 import { UpdateBabyBookComponent } from 'app/MOHComponents/update-baby-book/update-baby-book.component';
 import { ViewBabybyIDComponent } from 'app/MOHComponents/view-babyby-id/view-babyby-id.component';
 import { AddWeightHeightComponent } from 'app/MOHComponents/add-weight-height/add-weight-height.component';
-
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {
   MatButtonModule,
   MatInputModule,
@@ -35,6 +35,8 @@ import {
 } from '@angular/material';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { ViewFamilybyIdComponent } from 'app/MOHComponents/view-familyby-id/view-familyby-id.component';
+import { AddMotherComponent } from 'app/MOHComponents/add-mother/add-mother.component';
+import { ViewMothersComponent } from 'app/MOHComponents/view-mothers/view-mothers.component';
 
 
 
@@ -53,7 +55,8 @@ import { ViewFamilybyIdComponent } from 'app/MOHComponents/view-familyby-id/view
     MatTooltipModule,
     MatRadioModule,
     MatDatepickerModule,MatNativeDateModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    MatSnackBarModule
     
     ],
   declarations: [
@@ -75,7 +78,9 @@ import { ViewFamilybyIdComponent } from 'app/MOHComponents/view-familyby-id/view
     UpdateBabyBookComponent,
     ViewBabybyIDComponent,
     ViewFamilybyIdComponent,
-    AddWeightHeightComponent
+    AddWeightHeightComponent,
+    AddMotherComponent,
+    ViewMothersComponent
   ]
 })
 
