@@ -1,3 +1,287 @@
-<p>
-  add-mother works!
-</p>
+
+
+<div class="container-fluid">
+  <div class="row">
+      <div class="col-md-12">
+          <div class="card">
+              <div class="card-header card-header-info">
+                  <h4 class="card-title">Add baby details</h4>
+              </div>
+              <div class="card-body">   
+                <form [formGroup]="addMotherSchema" (ngSubmit)="onSubmit()" [hidden]="success">
+                                    
+                  <div class="row">
+                      <div class="col-md-2">
+                          <mat-form-field class="example-full-width">
+                              <input matInput placeholder="Mother ID" type="text" formControlName="mother_id">
+                              <div *ngIf="submit && addMotherSchema.controls.mother_id.errors" class="error">
+                                  <div *ngIf="addMotherSchema.controls.mother_id.errors.required">This field is required</div>
+                              </div>
+                          </mat-form-field>
+                      </div>
+                      <div class="col-md-3">
+                              <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="Registration Number" type="text"formControlName="registration_no">
+                                  <div *ngIf="submit && addMotherSchema.controls.registration_no.errors" class="error">
+                                      <div *ngIf="addMotherSchema.controls.registration_no.errors.required">This field is required</div>
+                                  </div>
+                              </mat-form-field>
+                      </div>
+                      <div class="col-md-3">
+                              <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="Registration Date" type="date" formControlName="registration_date">
+                                  <div *ngIf="submit && addMotherSchema.controls.registration_date.errors" class="error">
+                                      <div *ngIf="addMotherSchema.controls.registration_date.errors.required">This field is required</div>
+                                  </div>
+                              </mat-form-field>
+                      </div>
+                  </div>
+                  <div class="row">
+                      <div class="col-md-3">
+                              <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="Mother's Name" type="text" formControlName="mothers_name">
+                                  <div *ngIf="submit && addMotherSchema.controls.mothers_name.errors" class="error">
+                                      <div *ngIf="addMotherSchema.controls.mothers_name.errors.required">This field is required</div>
+                                  </div>
+                              </mat-form-field>
+                      </div>
+                      <div class="col-md-5">
+                              <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="Address" type="text" formControlName="address">
+                                  <div *ngIf="submit && addMotherSchema.controls.address.errors" class="error">
+                                      <div *ngIf="addMotherSchema.controls.address.errors.required">This field is required</div>
+                                  </div>
+                              </mat-form-field>
+                      </div>
+                      <div class="col-md-2">
+                              <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="Age" type="number" formControlName="age" min="0" max="45">
+                                  <div *ngIf="submit && addMotherSchema.controls.age.errors" class="error">
+                                      <div *ngIf="addMotherSchema.controls.age.errors.required">This field is required</div>
+                                  </div>
+                              </mat-form-field>
+                      </div>
+                  </div>
+                  <div class="row">
+                      <div class="col-md-3">
+                              <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="Number of Living Children" type="number" formControlName="no_of_living_children" min="0">
+                                  <div *ngIf="submit && addMotherSchema.controls.no_of_living_children.errors" class="error">
+                                      <div *ngIf="addMotherSchema.controls.no_of_living_children.errors.required">This field is required</div>
+                                  </div>
+                              </mat-form-field>
+                      </div>
+                      <div class="col-md-2">
+                              <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="Gravidity" type="number" formControlName="gravidity" min="0">
+                                  <div *ngIf="submit && addMotherSchema.controls.gravidity.errors" class="error">
+                                          <div *ngIf="addMotherSchema.controls.gravidity.errors.required">This field is required</div>
+                                        </div>
+                              </mat-form-field>
+                      </div>
+                      <div class="col-md-2">
+                              <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="POA" type="number" formControlName="POA" min="0">
+                              </mat-form-field>
+                      </div>
+                      <div class="col-md-2">
+                              <mat-form-field class="example-full-width">
+                                  
+                                  <input matInput placeholder="EDD" type="date" formControlName="EDD">
+                              </mat-form-field>
+                      </div>
+                  </div>
+                  <div class="row">
+                      <div class="col-md-3">
+                          <label>Protection Against Tetanus</label>
+                              <input formControlName="protection_against_tetanus" type="radio" value="true">
+                      </div>
+                      <div class="col-md-3">
+                          <label>Protection Against Rubella</label>
+                              <input formControlName="protection_against_rubella" type="radio" value="true">
+                      </div>
+                      <div class="col-md-3">
+                          <label>Risk Conditions</label>
+                              <input formControlName="risk_conditions" type="radio" value="true">
+                      </div>
+                  </div>
+                  <label>Blood sugar</label>
+                  <div class="row">
+                      <div class="col-md-3">
+                              <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="During the first twelve weeks" type="number" formControlName="blood_sugar__during_first_twelve_weeks" min="0">
+                              </mat-form-field>
+                      </div>
+                      <div class="col-md-5">
+                              <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="During Twenty four-fourty eight weeks" type="number" formControlName="blood_sugar__twentyfour_fourtyeight_weeks" min="0" >
+                              </mat-form-field>
+                      </div>
+                  </div>
+                  <label>Hemoglobin Level</label>
+                  <div class="row">
+                      
+                      <div class="col-md-3">
+                              <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="During first twelve weeks" type="number" formControlName="hemoglobin_level__first_twelve_weeks" min="0">
+                              </mat-form-field>
+                      </div>
+                      <div class="col-md-5">
+                              <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="During twenty six-twenty eight weeks" type="number" formControlName="hemoglobin_level__twentysix_twentyeight_weeks" min="0">
+                              </mat-form-field>
+                      </div>
+                  </div>
+                  <div class="row">
+                      <div class="col-md-3">
+                              <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="Blood Group" type="text" formControlName="blood_group">
+                              </mat-form-field>
+                      </div>
+                  </div>
+                  <label>VDRL Test</label>
+                  <div class="row">
+                      
+                      <div class="col-md-3">
+                              <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="Before twelve weeks" type="text" formControlName="vdrl_test__before_twelve_weeks">
+                              </mat-form-field>
+                      </div>
+                      <div class="col-md-3">
+                              <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="After twelve weeks" type="text" formControlName="vdrl_test__after_twelve_weeks">
+                              </mat-form-field>
+                      </div>
+                  </div>
+                  <div class="row">
+                      <div class="col-md-5">
+                              <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="HIV screening" type="text" formControlName="hiv_screening">
+                              </mat-form-field>
+                      </div>
+                  </div>
+                  <label>Mother's weight</label>
+                  <div class="row">
+                      
+                      <div class="col-md-3">
+                              <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="At first visit" type="number" formControlName="mothers_weight__weight_at_first_visit" min="0"> 
+                              </mat-form-field>
+                      </div>
+
+                      <div class="col-md-3">
+                              <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="poa-at first visit" type="number" formControlName="mothers_weight__poa_at_first_visit" min="0">
+                              </mat-form-field>
+                      </div>
+                      <div class="col-md-3">
+                              <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="At last visit" type="number" formControlName="mothers_weight__weight_at_last_visit" min="0">
+                              </mat-form-field>
+                      </div>
+                      <div class="col-md-3">
+                              <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="poa-at last visit" type="number" formControlName="mothers_weight__poa_at_last_visit" min="0">
+                              </mat-form-field>
+                      </div>
+                      <div class="col-md-3">
+                              <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="Gained-weight during pregnancy" type="number" formControlName="mothers_weight__gained_weight_during_pregnancy" min="0">
+                              </mat-form-field>
+                      </div>
+                  
+                  
+                      <div class="col-md-3">
+                              <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="BMI Before twelve weeks" type="number" formControlName="bmi_before_twelve_weeks" min="0">
+                              </mat-form-field>
+                      </div>
+                  </div>
+                  <label>Delivery Informations</label>
+                  <div class="row">
+                      
+                      <div class="col-md-2">
+                              <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="Date" type="date" formControlName="delivery_informations__date">
+                              </mat-form-field>
+                      </div>
+                      <div class="col-md-2">
+                              <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="Place" type="text" formControlName="delivery_informations__place">
+                              </mat-form-field>
+                      </div>
+                      <div class="col-md-2">
+                              <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="Outcome" type="text" formControlName="delivery_informations__outcome">
+                              </mat-form-field>
+                      </div>
+                      <div class="col-md-3">
+                              <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="Child's Gender" type="text"formControlName="delivery_informations__sex">
+                              </mat-form-field>
+                      </div>
+                      <div class="col-md-3">
+                              <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="Mode of delivery" type="text" formControlName="mode_of_delivery">
+                              </mat-form-field>
+                      </div>
+                      <div class="col-md-3">
+                              <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="Birth Weight" type="number" formControlName="birth_weight" min="0" min="0">
+                              </mat-form-field>
+                      </div>
+                  </div>
+                  <label>Oostpartum Visits</label>
+                  <div class="row">
+                      
+                      <div class="col-md-3">
+                              <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="Within first five days" type="text" formControlName="postpartum_visits__within_first_five_days">
+                              </mat-form-field>
+                      </div>
+                      <div class="col-md-3">
+                              <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="Six to ten days" type="text" formControlName="postpartum_visits__six_to_ten_days">
+                              </mat-form-field>
+                      </div>
+                      <div class="col-md-5">
+                              <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="Late first visit-eleven to thirteen days" type="text" formControlName="postpartum_visits__late_first_visit_eleven_thirteen_days">
+                              </mat-form-field>
+                      </div>
+                      <div class="col-md-3">
+                              <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="Fourteen-twentyone-days" type="text" formControlName="postpartum_visits__fourteen_twentyone_days">
+                              </mat-form-field>
+                      </div>
+                      <div class="col-md-3">
+                              <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="Arround fourty two days" type="text" formControlName="postpartum_visits__arround_fourtytwo_days">
+                              </mat-form-field>
+                      </div>
+                  </div>
+                  <div class="row">
+                      <div class="col-md-3">
+                              <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="Registration No in BI register" type="text" formControlName="registration_no_in_bi_register">
+                              </mat-form-field>
+                      </div>
+                      <div class="col-md-5">
+                          <mat-form-field class="example-full-width">
+                              <input matInput placeholder="Registration date in BI register" type="date" formControlName="registration_date_in_bi_register">
+                          </mat-form-field>
+                      </div>
+                      <div class="col-md-3">
+                              <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="Remarks" type="text" formControlName="remarks">
+                              </mat-form-field>
+                      </div>
+                  </div>
+                  <input type="submit" value="Submit Mother details" class="btn btn-danger pull-right">
+              </form>
+              <div *ngIf="success"><h5>You submitted a new baby record successfully</h5></div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
