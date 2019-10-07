@@ -348,35 +348,43 @@ class _EyeTestState extends State<EyeTest> {
             print('faceCheck');
             print(snapshot.data.faceCheck);
             return SingleChildScrollView(
-              child: Column(
-                children: <Widget>[
-                  Chip(
-                    avatar: CircleAvatar(
-                      backgroundColor: Colors.grey.shade800,
-                      //child: Text('From the First Month of Birth'),
+              child: Padding(
+                padding: EdgeInsets.all(8.0),
+                child: Column(
+                  children: <Widget>[
+                    Chip(
+                      avatar: CircleAvatar(
+                        backgroundColor: Colors.grey.shade800,
+                        //child: Text('From the First Month of Birth'),
+                      ),
+                      label: Text('From the First Month of Birth'),
                     ),
-                    label: Text('From the First Month of Birth'),
-                  ),
-                  SizedBox(
-                    height: 0.0,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: <Widget>[
-                      Text('Does the baby look at your face? '),
-                      Checkbox(
-                          activeColor: Colors.red,
-                          value: snapshot.data.faceCheck,
-                          onChanged: (bool newValue) {
-                            setState(() {
-                              snapshot.data.faceCheck = !snapshot.data.faceCheck;
-                              faceCheck = snapshot.data.faceCheck;
-                             // faceCheck = !faceCheck;
-                            });
-                          }),
-                    ],
-                  ),
-                ],
+                    SizedBox(
+                      height: 0.0,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: <Widget>[
+                        Text('Does the baby look at your face? '),
+                        Checkbox(
+                            activeColor: Colors.red,
+                            value: snapshot.data.faceCheck,
+                            onChanged: (bool newValue) {
+                              if (switchVal == true) {
+                                setState(() {
+                                  snapshot.data.faceCheck =
+                                      !snapshot.data.faceCheck;
+                                  faceCheck = snapshot.data.faceCheck;
+                                  // faceCheck = !faceCheck;
+                                });
+                              } else {
+                                return null;
+                              }
+                            }),
+                      ],
+                    ),
+                  ],
+                ),
               ),
             );
           },
