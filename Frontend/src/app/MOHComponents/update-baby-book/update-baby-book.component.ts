@@ -3,14 +3,14 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { registerLocaleData } from '@angular/common';
 
 import { BabiesService } from 'app/Services/babies.service';
-// import { FamiliesService } from 'app/Services/families.service';
+
 
 @Component({
   selector: 'app-update-baby-book',
   templateUrl: './update-baby-book.component.html',
   styleUrls: ['./update-baby-book.component.scss'],
    providers: [BabiesService]
-  // providers: [FamiliesService]
+  
 })
 export class UpdateBabyBookComponent implements OnInit {
 
@@ -711,6 +711,14 @@ export class UpdateBabyBookComponent implements OnInit {
     }
 
     this.success = true;
+    this.addbabyService.add(this.BabyForm.value)
+      .subscribe(
+        response=>console.log('Success!',response),
+        error=>{
+          if(error) console.log("Failure") 
+          else console.log("Success No Errors")
+        }
+    );
    // this.addbabyService.register(this.BabyForm.value);
 }
  

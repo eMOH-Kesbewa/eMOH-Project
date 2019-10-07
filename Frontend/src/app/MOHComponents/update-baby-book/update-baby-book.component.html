@@ -87,33 +87,29 @@
                                 <h5>Type Of Delivery</h5>
                                 <div class="row">
                                   <div class="col-md-3">
-                                      <mat-radio-group class = "tp-radio-group" formControlName = "method_of_delivery">
-                                          <mat-radio-button class = "tp-radio-button"  [value] = "season">
-                                             Normal Delivery
-                                          </mat-radio-button>
-                                       </mat-radio-group>
-                                  </div>
+                                      <label class="container">Normal Delivery
+                                          <input id="normal_delivery" type="radio"  formControlName="method_of_delivery" value="normal_delivery">
+                                          <span class="checkmark"></span>
+                                        </label>
+                                      </div>
                                   <div class="col-md-3">
-                                      <mat-radio-group class = "tp-radio-group" formControlName = "method_of_delivery">
-                                          <mat-radio-button class = "tp-radio-button"  [value] = "season">
-                                             Low Delivery
-                                          </mat-radio-button>
-                                       </mat-radio-group>
-                                  </div> 
+                                      <label class="container">Low Delivery
+                                          <input id="low_delivery" type="radio" formControlName="method_of_delivery" value="low_delivery">
+                                          <span class="checkmark"></span>
+                                        </label>
+                                   </div> 
                                   
                                   <div class="col-md-3">
-                                      <mat-radio-group class = "tp-radio-group" formControlName = "method_of_delivery">
-                                          <mat-radio-button class = "tp-radio-button"  [value] = "season">
-                                             Vaccume Delivery
-                                          </mat-radio-button>
-                                       </mat-radio-group>
+                                    <label class="container">Vaccume Delivery
+                                      <input id="vaccume_delivery" type="radio" formControlName="method_of_delivery" value="vaccume_delivery">
+                                      <span class="checkmark"></span>
+                                    </label>
                                   </div>
                                   <div class="col-md-3">
-                                      <mat-radio-group class = "tp-radio-group" formControlName = "method_of_delivery">
-                                          <mat-radio-button class = "tp-radio-button"  [value] = "season">
-                                             Seasrean Delivery
-                                          </mat-radio-button>
-                                       </mat-radio-group>
+                                    <label class="container">Seasarian Delivery
+                                      <input id="seasarian_delivery" type="radio" formControlName="method_of_delivery" value="seasarian_delivery">
+                                      <span class="checkmark"></span>
+                                    </label>
                                   </div>
                                 </div>
 
@@ -174,52 +170,46 @@
                                         <div class="row">
                                           <div class="col-md-6">Breast Feeding During First Hour</div>
                                           <div class="col-md-3">
-                                              <mat-radio-group class = "tp-radio-group" formControlName = "breast_feeding_breast_feeding_during_the_first_hour">
-                                                  <mat-radio-button class = "tp-radio-button"  [value] = "season">
-                                                    Yes
-                                                  </mat-radio-button>
-                                              </mat-radio-group>
-                                          </div>
+                                              <label class="container">Yes
+                                                  <input id="yes" type="radio" formControlName="breast_feeding_breast_feeding_during_the_first_hour" value="yes">
+                                                  <span class="checkmark"></span>
+                                                </label>
+                                         </div>
                                           <div class="col-md-3">
-                                              <mat-radio-group class = "tp-radio-group" formControlName = "breast_feeding_breast_feeding_during_the_first_hour">
-                                                  <mat-radio-button class = "tp-radio-button"  [value] = "season">
-                                                    No
-                                                  </mat-radio-button>
-                                              </mat-radio-group>
+                                              <label class="container">No
+                                                  <input id="no" type="radio" formControlName="breast_feeding_breast_feeding_during_the_first_hour" value="no">
+                                                  <span class="checkmark"></span>
+                                                </label>
                                           </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-md-6">Unstability</div>
                                             <div class="col-md-3">
-                                                <mat-radio-group class = "tp-radio-group" formControlName = "breast_feeding_unstability">
-                                                    <mat-radio-button class = "tp-radio-button"  [value] = "season">
-                                                      Yes
-                                                    </mat-radio-button>
-                                                </mat-radio-group>
+                                                <label class="container">Yes
+                                                    <input id="yes" type="radio" formControlName="breast_feeding_unstability" value="yes">
+                                                    <span class="checkmark"></span>
+                                                  </label>
                                             </div>
                                             <div class="col-md-3">
-                                                <mat-radio-group class = "tp-radio-group" formControlName = "breast_feeding_unstability">
-                                                    <mat-radio-button class = "tp-radio-button"  [value] = "season">
-                                                      No
-                                                    </mat-radio-button>
-                                                </mat-radio-group>
+                                                <label class="container">No
+                                                    <input id="no" type="radio" formControlName="breast_feeding_unstability" value="no">
+                                                    <span class="checkmark"></span>
+                                                  </label>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-md-6">Connection</div>
                                             <div class="col-md-3">
-                                                <mat-radio-group class = "tp-radio-group" formControlName = "breast_feeding_connection">
-                                                    <mat-radio-button class = "tp-radio-button"  [value] = "season">
-                                                      Yes
-                                                    </mat-radio-button>
-                                                </mat-radio-group>
+                                                <label class="container">Yes
+                                                    <input id="yes" type="radio" formControlName="breast_feeding_connection" value="yes">
+                                                    <span class="checkmark"></span>
+                                                  </label>
                                             </div>
                                             <div class="col-md-3">
-                                                <mat-radio-group class = "tp-radio-group" formControlName = "breast_feeding_connection">
-                                                    <mat-radio-button class = "tp-radio-button"  [value] = "season">
-                                                      No
-                                                    </mat-radio-button>
-                                                </mat-radio-group>
+                                                <label class="container">No
+                                                    <input id="no" type="radio" formControlName="breast_feeding_connection" value="no">
+                                                    <span class="checkmark"></span>
+                                                  </label>
                                             </div>
                                         </div>
                                       </div>
@@ -474,25 +464,22 @@
                                         <div class="row">
                                           <div class="col-md-6">Baby's Growth</div>
                                           <div class="col-md-2">
-                                              <mat-radio-group class = "tp-radio-group" formControlName = "baby_growth">
-                                                  <mat-radio-button class = "tp-radio-button"  [value] = "season">
-                                                     SGA
-                                                  </mat-radio-button>
-                                               </mat-radio-group>
+                                              <label class="container">SGA
+                                                  <input id="sga" type="radio" formControlName="baby_growth" value="sga">
+                                                  <span class="checkmark"></span>
+                                                </label>
                                           </div>
                                           <div class="col-md-2">
-                                              <mat-radio-group class = "tp-radio-group" formControlName = "baby_growth">
-                                                  <mat-radio-button class = "tp-radio-button"  [value] = "season">
-                                                     AGA
-                                                  </mat-radio-button>
-                                               </mat-radio-group>
+                                              <label class="container">AGA
+                                                  <input id="aga" type="radio" formControlName="baby_growth" value="aga">
+                                                  <span class="checkmark"></span>
+                                                </label>
                                           </div>
                                           <div class="col-md-2">
-                                              <mat-radio-group class = "tp-radio-group" formControlName = "baby_growth">
-                                                  <mat-radio-button class = "tp-radio-button"  [value] = "season">
-                                                     LGA
-                                                  </mat-radio-button>
-                                               </mat-radio-group>
+                                              <label class="container">LGA
+                                                  <input id="lga" type="radio" formControlName="baby_growth" value="lga">
+                                                  <span class="checkmark"></span>
+                                                </label>
                                           </div>
                                         </div>
                                       </div>
@@ -1205,18 +1192,16 @@
                                                                     <div class="row">
                                                                       <div class="col-md-4">Action Taken</div>
                                                                       <div class="col-md-4">
-                                                                          <mat-radio-group class = "tp-radio-group" formControlName = "action_taken">
-                                                                              <mat-radio-button class = "tp-radio-button"  [value] = "season">
-                                                                                 Transferred For Special Care
-                                                                              </mat-radio-button>
-                                                                           </mat-radio-group>
-                                                                      </div>
+                                                                          <label class="container"> Transferred For Special Care
+                                                                              <input id="transferred_for_special_care" type="radio" formControlName="action_taken" value="transferred_for_special_care">
+                                                                              <span class="checkmark"></span>
+                                                                            </label>
+                                                                         </div>
                                                                       <div class="col-md-4">
-                                                                          <mat-radio-group class = "tp-radio-group" formControlName = "action_taken">
-                                                                              <mat-radio-button class = "tp-radio-button"  [value] = "season">
-                                                                                 Discharged
-                                                                              </mat-radio-button>
-                                                                           </mat-radio-group>
+                                                                          <label class="container"> Discharged
+                                                                              <input id="discharge" type="radio" formControlName="action_taken" value="discharge">
+                                                                              <span class="checkmark"></span>
+                                                                            </label>
                                                                       </div>
                                                                     </div>
                                                                     <div class="row">
@@ -2388,26 +2373,18 @@
                                                                       <div class="col-md-8"><td>Does Child Eyes Toward The Light?</td></div>
                                                                       <div class="col-md-2">
                                                                           <td>
-                                                                              <div class="form-check">
-                                                                                  <label class="form-check-label">
-                                                                                      <input class="form-check-input" type="checkbox" value=""  checked formControlName="does_child_eyes_toward_the_light">
-                                                                                      <span class="form-check-sign">
-                                                                                       <span class="check"></span>
-                                                                                       </span>
-                                                                                   </label>
-                                                                               </div>
-                                                                            </td>
+                                                                              <label class="container"> 
+                                                                                  <input id="yes" type="radio" formControlName="does_child_eyes_toward_the_light" value="yes">
+                                                                                  <span class="checkmark"></span>
+                                                                                </label>
+                                                                              </td>
                                                                       </div>
                                                                       <div class="col-md-2">
                                                                           <td>
-                                                                              <div class="form-check">
-                                                                                  <label class="form-check-label">
-                                                                                      <input class="form-check-input" type="checkbox" value=""  checked formControlName="does_child_eyes_toward_the_light">
-                                                                                      <span class="form-check-sign">
-                                                                                       <span class="check"></span>
-                                                                                       </span>
-                                                                                   </label>
-                                                                               </div>
+                                                                              <label class="container"> 
+                                                                                  <input id="no" type="radio" formControlName="does_child_eyes_toward_the_light" value="no">
+                                                                                  <span class="checkmark"></span>
+                                                                                </label>
                                                                             </td>
                                                                       </div>
                                                                     </div>
@@ -2417,26 +2394,18 @@
                                                                           <div class="col-md-8"><td>Does The Child Look Good On Your Face?</td></div>
                                                                           <div class="col-md-2">
                                                                               <td>
-                                                                                  <div class="form-check">
-                                                                                      <label class="form-check-label">
-                                                                                          <input class="form-check-input" type="checkbox" value=""  checked formControlName="does_the_child_look_good_on_your_face">
-                                                                                          <span class="form-check-sign">
-                                                                                           <span class="check"></span>
-                                                                                           </span>
-                                                                                       </label>
-                                                                                   </div>
-                                                                                </td>
+                                                                                  <label class="container"> 
+                                                                                      <input id="yes" type="radio" formControlName="does_the_child_look_good_on_your_face" value="yes">
+                                                                                      <span class="checkmark"></span>
+                                                                                    </label>
+                                                                                  </td>
                                                                           </div>
                                                                           <div class="col-md-2">
                                                                               <td>
-                                                                                  <div class="form-check">
-                                                                                      <label class="form-check-label">
-                                                                                          <input class="form-check-input" type="checkbox" value=""  checked formControlName="does_the_child_look_good_on_your_face">
-                                                                                          <span class="form-check-sign">
-                                                                                           <span class="check"></span>
-                                                                                           </span>
-                                                                                       </label>
-                                                                                   </div>
+                                                                                  <label class="container"> 
+                                                                                      <input id="no" type="radio" formControlName="does_the_child_look_good_on_your_face" value="no">
+                                                                                      <span class="checkmark"></span>
+                                                                                    </label>
                                                                                 </td>
                                                                           </div>
                                                                         </div>
@@ -2455,26 +2424,18 @@
                                                                           <div class="col-md-8"><td>When You Turn Your Face To The Side Do You See The Child Smiling In Response?</td></div>
                                                                           <div class="col-md-2">
                                                                               <td>
-                                                                                  <div class="form-check">
-                                                                                      <label class="form-check-label">
-                                                                                          <input class="form-check-input" type="checkbox" value=""  checked formControlName="when_you_turn_your_face_to_the_side_do_you_see_the_child_smiling_in_response">
-                                                                                          <span class="form-check-sign">
-                                                                                           <span class="check"></span>
-                                                                                           </span>
-                                                                                       </label>
-                                                                                   </div>
-                                                                                </td>
+                                                                                  <label class="container"> 
+                                                                                      <input id="yes" type="radio" formControlName="when_you_turn_your_face_to_the_side_do_you_see_the_child_smiling_in_response" value="yes">
+                                                                                      <span class="checkmark"></span>
+                                                                                    </label>
+                                                                                  </td>
                                                                           </div>
                                                                           <div class="col-md-2">
                                                                               <td>
-                                                                                  <div class="form-check">
-                                                                                      <label class="form-check-label">
-                                                                                          <input class="form-check-input" type="checkbox" value=""  checked formControlName="when_you_turn_your_face_to_the_side_do_you_see_the_child_smiling_in_response">
-                                                                                          <span class="form-check-sign">
-                                                                                           <span class="check"></span>
-                                                                                           </span>
-                                                                                       </label>
-                                                                                   </div>
+                                                                                  <label class="container"> 
+                                                                                      <input id="no" type="radio" formControlName="when_you_turn_your_face_to_the_side_do_you_see_the_child_smiling_in_response" value="no">
+                                                                                      <span class="checkmark"></span>
+                                                                                    </label>
                                                                                 </td>
                                                                           </div>
                                                                         </div>
@@ -2484,26 +2445,18 @@
                                                                           <div class="col-md-8"><td>Then The Baby Eyes Move?</td></div>
                                                                           <div class="col-md-2">
                                                                               <td>
-                                                                                  <div class="form-check">
-                                                                                      <label class="form-check-label">
-                                                                                          <input class="form-check-input" type="checkbox" value=""  checked formControlName="then_the_baby_eyes_move">
-                                                                                          <span class="form-check-sign">
-                                                                                           <span class="check"></span>
-                                                                                           </span>
-                                                                                       </label>
-                                                                                   </div>
-                                                                                </td>
+                                                                                  <label class="container"> 
+                                                                                      <input id="yes" type="radio" formControlName="then_the_baby_eyes_move" value="yes">
+                                                                                      <span class="checkmark"></span>
+                                                                                    </label>
+                                                                                  </td>
                                                                           </div>
                                                                           <div class="col-md-2">
                                                                               <td>
-                                                                                  <div class="form-check">
-                                                                                      <label class="form-check-label">
-                                                                                          <input class="form-check-input" type="checkbox" value=""  checked formControlName="then_the_baby_eyes_move">
-                                                                                          <span class="form-check-sign">
-                                                                                           <span class="check"></span>
-                                                                                           </span>
-                                                                                       </label>
-                                                                                   </div>
+                                                                                  <label class="container"> 
+                                                                                      <input id="no" type="radio" formControlName="then_the_baby_eyes_move" value="no">
+                                                                                      <span class="checkmark"></span>
+                                                                                    </label>
                                                                                 </td>
                                                                           </div>
                                                                         </div>
@@ -2522,26 +2475,18 @@
                                                                           <div class="col-md-8"><td>Does The Child Look Arround?</td></div>
                                                                           <div class="col-md-2">
                                                                               <td>
-                                                                                  <div class="form-check">
-                                                                                      <label class="form-check-label">
-                                                                                          <input class="form-check-input" type="checkbox" value=""  checked formControlName="does_the_child_look_arround">
-                                                                                          <span class="form-check-sign">
-                                                                                           <span class="check"></span>
-                                                                                           </span>
-                                                                                       </label>
-                                                                                   </div>
-                                                                                </td>
+                                                                                  <label class="container"> 
+                                                                                      <input id="yes" type="radio" formControlName="does_the_child_look_arround" value="yes">
+                                                                                      <span class="checkmark"></span>
+                                                                                    </label>
+                                                                                  </td>
                                                                           </div>
                                                                           <div class="col-md-2">
                                                                               <td>
-                                                                                  <div class="form-check">
-                                                                                      <label class="form-check-label">
-                                                                                          <input class="form-check-input" type="checkbox" value=""  checked formControlName="does_the_child_look_arround">
-                                                                                          <span class="form-check-sign">
-                                                                                           <span class="check"></span>
-                                                                                           </span>
-                                                                                       </label>
-                                                                                   </div>
+                                                                                  <label class="container"> 
+                                                                                      <input id="no" type="radio" formControlName="does_the_child_look_arround" value="no">
+                                                                                      <span class="checkmark"></span>
+                                                                                    </label>
                                                                                 </td>
                                                                           </div>
                                                                         </div>
@@ -2551,26 +2496,18 @@
                                                                           <div class="col-md-8"><td>Is Child Streching Out His Hand And Tryimg To Touch Something?</td></div>
                                                                           <div class="col-md-2">
                                                                               <td>
-                                                                                  <div class="form-check">
-                                                                                      <label class="form-check-label">
-                                                                                          <input class="form-check-input" type="checkbox" value=""  checked formControlName="is_child_streching_out_his_hand_and_tryimg_to_touch_something">
-                                                                                          <span class="form-check-sign">
-                                                                                           <span class="check"></span>
-                                                                                           </span>
-                                                                                       </label>
-                                                                                   </div>
-                                                                                </td>
+                                                                                  <label class="container"> 
+                                                                                      <input id="yes" type="radio" formControlName="is_child_streching_out_his_hand_and_tryimg_to_touch_something" value="yes">
+                                                                                      <span class="checkmark"></span>
+                                                                                    </label>
+                                                                                  </td>
                                                                           </div>
                                                                           <div class="col-md-2">
                                                                               <td>
-                                                                                  <div class="form-check">
-                                                                                      <label class="form-check-label">
-                                                                                          <input class="form-check-input" type="checkbox" value=""  checked formControlName="is_child_streching_out_his_hand_and_tryimg_to_touch_something">
-                                                                                          <span class="form-check-sign">
-                                                                                           <span class="check"></span>
-                                                                                           </span>
-                                                                                       </label>
-                                                                                   </div>
+                                                                                  <label class="container"> 
+                                                                                      <input id="no" type="radio" formControlName="is_child_streching_out_his_hand_and_tryimg_to_touch_something" value="no">
+                                                                                      <span class="checkmark"></span>
+                                                                                    </label>
                                                                                 </td>
                                                                           </div>
                                                                         </div>
@@ -2580,26 +2517,18 @@
                                                                           <div class="col-md-8"><td>Do You Suspect That Your Child Has A Problem?</td></div>
                                                                           <div class="col-md-2">
                                                                               <td>
-                                                                                  <div class="form-check">
-                                                                                      <label class="form-check-label">
-                                                                                          <input class="form-check-input" type="checkbox" value=""  checked formControlName="do_you_suspect_that_your_child_has_a_problem">
-                                                                                          <span class="form-check-sign">
-                                                                                           <span class="check"></span>
-                                                                                           </span>
-                                                                                       </label>
-                                                                                   </div>
-                                                                                </td>
+                                                                                  <label class="container"> 
+                                                                                      <input id="yes" type="radio" formControlName="do_you_suspect_that_your_child_has_a_problem" value="yes">
+                                                                                      <span class="checkmark"></span>
+                                                                                    </label>
+                                                                                  </td>
                                                                           </div>
                                                                           <div class="col-md-2">
                                                                               <td>
-                                                                                  <div class="form-check">
-                                                                                      <label class="form-check-label">
-                                                                                          <input class="form-check-input" type="checkbox" value=""  checked formControlName="do_you_suspect_that_your_child_has_a_problem">
-                                                                                          <span class="form-check-sign">
-                                                                                           <span class="check"></span>
-                                                                                           </span>
-                                                                                       </label>
-                                                                                   </div>
+                                                                                  <label class="container"> 
+                                                                                      <input id="no" type="radio" formControlName="do_you_suspect_that_your_child_has_a_problem" value="no">
+                                                                                      <span class="checkmark"></span>
+                                                                                    </label>
                                                                                 </td>
                                                                           </div>
                                                                         </div>
@@ -2618,26 +2547,18 @@
                                                                           <div class="col-md-8"><td>Is It Possible For A Child To Pickup Small Things With A Thumb And Forefinger?</td></div>
                                                                           <div class="col-md-2">
                                                                               <td>
-                                                                                  <div class="form-check">
-                                                                                      <label class="form-check-label">
-                                                                                          <input class="form-check-input" type="checkbox" value=""  checked formControlName="is_it_possible_for_a_child_to_pickup_small_things_with_a_thumb_and_forefinger">
-                                                                                          <span class="form-check-sign">
-                                                                                           <span class="check"></span>
-                                                                                           </span>
-                                                                                       </label>
-                                                                                   </div>
-                                                                                </td>
+                                                                                  <label class="container"> 
+                                                                                      <input id="yes" type="radio" formControlName="is_it_possible_for_a_child_to_pickup_small_things_with_a_thumb_and_forefinger" value="yes">
+                                                                                      <span class="checkmark"></span>
+                                                                                    </label>
+                                                                                  </td>
                                                                           </div>
                                                                           <div class="col-md-2">
                                                                               <td>
-                                                                                  <div class="form-check">
-                                                                                      <label class="form-check-label">
-                                                                                          <input class="form-check-input" type="checkbox" value=""  checked formControlName="is_it_possible_for_a_child_to_pickup_small_things_with_a_thumb_and_forefinger">
-                                                                                          <span class="form-check-sign">
-                                                                                           <span class="check"></span>
-                                                                                           </span>
-                                                                                       </label>
-                                                                                   </div>
+                                                                                  <label class="container"> 
+                                                                                      <input id="no" type="radio" formControlName="is_it_possible_for_a_child_to_pickup_small_things_with_a_thumb_and_forefinger" value="no">
+                                                                                      <span class="checkmark"></span>
+                                                                                    </label>
                                                                                 </td>
                                                                           </div>
                                                                         </div>
@@ -2656,26 +2577,18 @@
                                                                           <div class="col-md-8"><td>Have Your Child Strech Out His Hand And Touch Them?</td></div>
                                                                           <div class="col-md-2">
                                                                               <td>
-                                                                                  <div class="form-check">
-                                                                                      <label class="form-check-label">
-                                                                                          <input class="form-check-input" type="checkbox" value=""  checked formControlName="have_your_child_strech_out_his_hand_and_touch_them">
-                                                                                          <span class="form-check-sign">
-                                                                                           <span class="check"></span>
-                                                                                           </span>
-                                                                                       </label>
-                                                                                   </div>
-                                                                                </td>
+                                                                                  <label class="container"> 
+                                                                                      <input id="yes" type="radio" formControlName="have_your_child_strech_out_his_hand_and_touch_them" value="yes">
+                                                                                      <span class="checkmark"></span>
+                                                                                    </label>
+                                                                                  </td>
                                                                           </div>
                                                                           <div class="col-md-2">
                                                                               <td>
-                                                                                  <div class="form-check">
-                                                                                      <label class="form-check-label">
-                                                                                          <input class="form-check-input" type="checkbox" value=""  checked formControlName="have_your_child_strech_out_his_hand_and_touch_them">
-                                                                                          <span class="form-check-sign">
-                                                                                           <span class="check"></span>
-                                                                                           </span>
-                                                                                       </label>
-                                                                                   </div>
+                                                                                  <label class="container"> 
+                                                                                      <input id="no" type="radio" formControlName="have_your_child_strech_out_his_hand_and_touch_them" value="no">
+                                                                                      <span class="checkmark"></span>
+                                                                                    </label>
                                                                                 </td>
                                                                           </div>
                                                                         </div>
@@ -2685,26 +2598,18 @@
                                                                           <div class="col-md-8"><td>If The Person Identifies Them The Child Will Recognize Them Before They Call Them?</td></div>
                                                                           <div class="col-md-2">
                                                                               <td>
-                                                                                  <div class="form-check">
-                                                                                      <label class="form-check-label">
-                                                                                          <input class="form-check-input" type="checkbox" value=""  checked formControlName="if_the_person_identifies_them_the_child_will_recognize_them_before_they_call_them">
-                                                                                          <span class="form-check-sign">
-                                                                                           <span class="check"></span>
-                                                                                           </span>
-                                                                                       </label>
-                                                                                   </div>
-                                                                                </td>
+                                                                                  <label class="container"> 
+                                                                                      <input id="yes" type="radio" formControlName="if_the_person_identifies_them_the_child_will_recognize_them_before_they_call_them" value="yes">
+                                                                                      <span class="checkmark"></span>
+                                                                                    </label>
+                                                                                  </td>
                                                                           </div>
                                                                           <div class="col-md-2">
                                                                               <td>
-                                                                                  <div class="form-check">
-                                                                                      <label class="form-check-label">
-                                                                                          <input class="form-check-input" type="checkbox" value=""  checked formControlName="if_the_person_identifies_them_the_child_will_recognize_them_before_they_call_them">
-                                                                                          <span class="form-check-sign">
-                                                                                           <span class="check"></span>
-                                                                                           </span>
-                                                                                       </label>
-                                                                                   </div>
+                                                                                  <label class="container"> 
+                                                                                      <input id="no" type="radio" formControlName="if_the_person_identifies_them_the_child_will_recognize_them_before_they_call_them" value="no">
+                                                                                      <span class="checkmark"></span>
+                                                                                    </label>
                                                                                 </td>
                                                                           </div>
                                                                         </div>
@@ -2743,26 +2648,18 @@
                                                                       <div class="col-md-8"><td>If Your Child Is Startled By A Sudden Loud Noise Does His Stutter Or Widden His Eyes?</td></div>
                                                                       <div class="col-md-2">
                                                                           <td>
-                                                                              <div class="form-check">
-                                                                                  <label class="form-check-label">
-                                                                                      <input class="form-check-input" type="checkbox" value=""  checked formControlName="if_your_child_is_startled_by_a_sudden_loud_noise_does_his_stutter_or_widden_his_eyes">
-                                                                                      <span class="form-check-sign">
-                                                                                       <span class="check"></span>
-                                                                                       </span>
-                                                                                   </label>
-                                                                               </div>
-                                                                            </td>
+                                                                              <label class="container"> 
+                                                                                  <input id="yes" type="radio" formControlName="if_your_child_is_startled_by_a_sudden_loud_noise_does_his_stutter_or_widden_his_eyes" value="yes">
+                                                                                  <span class="checkmark"></span>
+                                                                                </label>
+                                                                              </td>
                                                                       </div>
                                                                       <div class="col-md-2">
                                                                           <td>
-                                                                              <div class="form-check">
-                                                                                  <label class="form-check-label">
-                                                                                      <input class="form-check-input" type="checkbox" value=""  checked formControlName="if_your_child_is_startled_by_a_sudden_loud_noise_does_his_stutter_or_widden_his_eyes">
-                                                                                      <span class="form-check-sign">
-                                                                                       <span class="check"></span>
-                                                                                       </span>
-                                                                                   </label>
-                                                                               </div>
+                                                                              <label class="container"> 
+                                                                                  <input id="no" type="radio" formControlName="if_your_child_is_startled_by_a_sudden_loud_noise_does_his_stutter_or_widden_his_eyes" value="no">
+                                                                                  <span class="checkmark"></span>
+                                                                                </label>
                                                                             </td>
                                                                       </div>
                                                                     </div>
@@ -2782,26 +2679,18 @@
                                                                           <div class="col-md-8"><td>Does Your Child Detect Sudden Or Presistent Noises And Begin To Listen Quitely To Eve?</td></div>
                                                                           <div class="col-md-2">
                                                                               <td>
-                                                                                  <div class="form-check">
-                                                                                      <label class="form-check-label">
-                                                                                          <input class="form-check-input" type="checkbox" value=""  checked formControlName="does_your_child_detect_sudden_or_presistent_noises_and_begin_to_listen_quitely_to_eve">
-                                                                                          <span class="form-check-sign">
-                                                                                           <span class="check"></span>
-                                                                                           </span>
-                                                                                       </label>
-                                                                                   </div>
-                                                                                </td>
+                                                                                  <label class="container"> 
+                                                                                      <input id="yes" type="radio" formControlName="does_your_child_detect_sudden_or_presistent_noises_and_begin_to_listen_quitely_to_eve" value="yes">
+                                                                                      <span class="checkmark"></span>
+                                                                                    </label>
+                                                                                  </td>
                                                                           </div>
                                                                           <div class="col-md-2">
                                                                               <td>
-                                                                                  <div class="form-check">
-                                                                                      <label class="form-check-label">
-                                                                                          <input class="form-check-input" type="checkbox" value=""  checked formControlName="does_your_child_detect_sudden_or_presistent_noises_and_begin_to_listen_quitely_to_eve">
-                                                                                          <span class="form-check-sign">
-                                                                                           <span class="check"></span>
-                                                                                           </span>
-                                                                                       </label>
-                                                                                   </div>
+                                                                                  <label class="container"> 
+                                                                                      <input id="no" type="radio" formControlName="does_your_child_detect_sudden_or_presistent_noises_and_begin_to_listen_quitely_to_eve" value="no">
+                                                                                      <span class="checkmark"></span>
+                                                                                    </label>
                                                                                 </td>
                                                                           </div>
                                                                         </div>
@@ -2821,26 +2710,18 @@
                                                                           <div class="col-md-8"><td>If They Cant See Their Mother Do They Keep Silent Or Laugh When Their Voice Is Heard?</td></div>
                                                                           <div class="col-md-2">
                                                                               <td>
-                                                                                  <div class="form-check">
-                                                                                      <label class="form-check-label">
-                                                                                          <input class="form-check-input" type="checkbox" value=""  checked formControlName="if_they_cant_see_their_mother_do_they_keep_silent_or_laugh_when_their_voice_is_heard">
-                                                                                          <span class="form-check-sign">
-                                                                                           <span class="check"></span>
-                                                                                           </span>
-                                                                                       </label>
-                                                                                   </div>
-                                                                                </td>
+                                                                                  <label class="container"> 
+                                                                                      <input id="yes" type="radio" formControlName="if_they_cant_see_their_mother_do_they_keep_silent_or_laugh_when_their_voice_is_heard" value="yes">
+                                                                                      <span class="checkmark"></span>
+                                                                                    </label>
+                                                                                  </td>
                                                                           </div>
                                                                           <div class="col-md-2">
                                                                               <td>
-                                                                                  <div class="form-check">
-                                                                                      <label class="form-check-label">
-                                                                                          <input class="form-check-input" type="checkbox" value=""  checked formControlName="if_they_cant_see_their_mother_do_they_keep_silent_or_laugh_when_their_voice_is_heard">
-                                                                                          <span class="form-check-sign">
-                                                                                           <span class="check"></span>
-                                                                                           </span>
-                                                                                       </label>
-                                                                                   </div>
+                                                                                  <label class="container"> 
+                                                                                      <input id="no" type="radio" formControlName="if_they_cant_see_their_mother_do_they_keep_silent_or_laugh_when_their_voice_is_heard" value="no">
+                                                                                      <span class="checkmark"></span>
+                                                                                    </label>
                                                                                 </td>
                                                                           </div>
                                                                         </div>
@@ -2850,26 +2731,18 @@
                                                                           <div class="col-md-8"><td>When The Mother Speaks From The Side Or From The Back Does Child Turn His Head Or Eyes?</td></div>
                                                                           <div class="col-md-2">
                                                                               <td>
-                                                                                  <div class="form-check">
-                                                                                      <label class="form-check-label">
-                                                                                          <input class="form-check-input" type="checkbox" value=""  checked formControlName="when_the_mother_speaks_from_the_side_or_from_the_back_does_child_turn_his_head_or_eyes">
-                                                                                          <span class="form-check-sign">
-                                                                                           <span class="check"></span>
-                                                                                           </span>
-                                                                                       </label>
-                                                                                   </div>
-                                                                                </td>
+                                                                                  <label class="container"> 
+                                                                                      <input id="yes" type="radio" formControlName="when_the_mother_speaks_from_the_side_or_from_the_back_does_child_turn_his_head_or_eyes" value="yes">
+                                                                                      <span class="checkmark"></span>
+                                                                                    </label>
+                                                                                  </td>
                                                                           </div>
                                                                           <div class="col-md-2">
                                                                               <td>
-                                                                                  <div class="form-check">
-                                                                                      <label class="form-check-label">
-                                                                                          <input class="form-check-input" type="checkbox" value=""  checked formControlName="when_the_mother_speaks_from_the_side_or_from_the_back_does_child_turn_his_head_or_eyes">
-                                                                                          <span class="form-check-sign">
-                                                                                           <span class="check"></span>
-                                                                                           </span>
-                                                                                       </label>
-                                                                                   </div>
+                                                                                  <label class="container"> 
+                                                                                      <input id="no" type="radio" formControlName="when_the_mother_speaks_from_the_side_or_from_the_back_does_child_turn_his_head_or_eyes" value="no">
+                                                                                      <span class="checkmark"></span>
+                                                                                    </label>
                                                                                 </td>
                                                                           </div>
                                                                         </div>
@@ -2889,26 +2762,18 @@
                                                                           <div class="col-md-8"><td>Does Child Turn To The Mother Side Immediately After Speaking?</td></div>
                                                                           <div class="col-md-2">
                                                                               <td>
-                                                                                  <div class="form-check">
-                                                                                      <label class="form-check-label">
-                                                                                          <input class="form-check-input" type="checkbox" value=""  checked formControlName="does_child_turn_to_the_mother_side_immediately_after_speaking">
-                                                                                          <span class="form-check-sign">
-                                                                                           <span class="check"></span>
-                                                                                           </span>
-                                                                                       </label>
-                                                                                   </div>
-                                                                                </td>
+                                                                                  <label class="container"> 
+                                                                                      <input id="yes" type="radio" formControlName="does_child_turn_to_the_mother_side_immediately_after_speaking" value="yes">
+                                                                                      <span class="checkmark"></span>
+                                                                                    </label>
+                                                                                  </td>
                                                                           </div>
                                                                           <div class="col-md-2">
                                                                               <td>
-                                                                                  <div class="form-check">
-                                                                                      <label class="form-check-label">
-                                                                                          <input class="form-check-input" type="checkbox" value=""  checked formControlName="does_child_turn_to_the_mother_side_immediately_after_speaking">
-                                                                                          <span class="form-check-sign">
-                                                                                           <span class="check"></span>
-                                                                                           </span>
-                                                                                       </label>
-                                                                                   </div>
+                                                                                  <label class="container"> 
+                                                                                      <input id="no" type="radio" formControlName="does_child_turn_to_the_mother_side_immediately_after_speaking" value="no">
+                                                                                      <span class="checkmark"></span>
+                                                                                    </label>
                                                                                 </td>
                                                                           </div>
                                                                         </div>
@@ -2927,26 +2792,18 @@
                                                                           <div class="col-md-8"><td>Listen To The Familiar Sounds Does Child Hear Everyday?</td></div>
                                                                           <div class="col-md-2">
                                                                               <td>
-                                                                                  <div class="form-check">
-                                                                                      <label class="form-check-label">
-                                                                                          <input class="form-check-input" type="checkbox" value=""  checked formControlName="listen_to_the_familiar_sounds_does_child_hear_everyday">
-                                                                                          <span class="form-check-sign">
-                                                                                           <span class="check"></span>
-                                                                                           </span>
-                                                                                       </label>
-                                                                                   </div>
-                                                                                </td>
+                                                                                  <label class="container"> 
+                                                                                      <input id="yes" type="radio" formControlName="listen_to_the_familiar_sounds_does_child_hear_everyday" value="yes">
+                                                                                      <span class="checkmark"></span>
+                                                                                    </label>
+                                                                                  </td>
                                                                           </div>
                                                                           <div class="col-md-2">
                                                                               <td>
-                                                                                  <div class="form-check">
-                                                                                      <label class="form-check-label">
-                                                                                          <input class="form-check-input" type="checkbox" value=""  checked formControlName="listen_to_the_familiar_sounds_does_child_hear_everyday">
-                                                                                          <span class="form-check-sign">
-                                                                                           <span class="check"></span>
-                                                                                           </span>
-                                                                                       </label>
-                                                                                   </div>
+                                                                                  <label class="container"> 
+                                                                                      <input id="no" type="radio" formControlName="listen_to_the_familiar_sounds_does_child_hear_everyday" value="no">
+                                                                                      <span class="checkmark"></span>
+                                                                                    </label>
                                                                                 </td>
                                                                           </div>
                                                                         </div>
@@ -2956,26 +2813,18 @@
                                                                           <div class="col-md-8"><td>Does Find Out About Noises From An Unknown Location?</td></div>
                                                                           <div class="col-md-2">
                                                                               <td>
-                                                                                  <div class="form-check">
-                                                                                      <label class="form-check-label">
-                                                                                          <input class="form-check-input" type="checkbox" value=""  checked formControlName="does_find_out_about_noises_from_an_unknown_location">
-                                                                                          <span class="form-check-sign">
-                                                                                           <span class="check"></span>
-                                                                                           </span>
-                                                                                       </label>
-                                                                                   </div>
-                                                                                </td>
+                                                                                  <label class="container"> 
+                                                                                      <input id="yes" type="radio" formControlName="does_find_out_about_noises_from_an_unknown_location" value="yes">
+                                                                                      <span class="checkmark"></span>
+                                                                                    </label>
+                                                                                  </td>
                                                                           </div>
                                                                           <div class="col-md-2">
                                                                               <td>
-                                                                                  <div class="form-check">
-                                                                                      <label class="form-check-label">
-                                                                                          <input class="form-check-input" type="checkbox" value=""  checked formControlName="does_find_out_about_noises_from_an_unknown_location">
-                                                                                          <span class="form-check-sign">
-                                                                                           <span class="check"></span>
-                                                                                           </span>
-                                                                                       </label>
-                                                                                   </div>
+                                                                                  <label class="container"> 
+                                                                                      <input id="no" type="radio" formControlName="does_find_out_about_noises_from_an_unknown_location" value="no">
+                                                                                      <span class="checkmark"></span>
+                                                                                    </label>
                                                                                 </td>
                                                                           </div>
                                                                         </div>
@@ -2985,26 +2834,18 @@
                                                                           <div class="col-md-8"><td>Does Child Like It When Talking To A Loud Tune?</td></div>
                                                                           <div class="col-md-2">
                                                                               <td>
-                                                                                  <div class="form-check">
-                                                                                      <label class="form-check-label">
-                                                                                          <input class="form-check-input" type="checkbox" value=""  checked formControlName="does_child_like_it_when_talking_to_a_loud_tune">
-                                                                                          <span class="form-check-sign">
-                                                                                           <span class="check"></span>
-                                                                                           </span>
-                                                                                       </label>
-                                                                                   </div>
-                                                                                </td>
+                                                                                  <label class="container"> 
+                                                                                      <input id="yes" type="radio" formControlName="does_child_like_it_when_talking_to_a_loud_tune" value="yes">
+                                                                                      <span class="checkmark"></span>
+                                                                                    </label>
+                                                                                  </td>
                                                                           </div>
                                                                           <div class="col-md-2">
                                                                               <td>
-                                                                                  <div class="form-check">
-                                                                                      <label class="form-check-label">
-                                                                                          <input class="form-check-input" type="checkbox" value=""  checked formControlName="does_child_like_it_when_talking_to_a_loud_tune">
-                                                                                          <span class="form-check-sign">
-                                                                                           <span class="check"></span>
-                                                                                           </span>
-                                                                                       </label>
-                                                                                   </div>
+                                                                                  <label class="container"> 
+                                                                                      <input id="no" type="radio" formControlName="does_child_like_it_when_talking_to_a_loud_tune" value="no">
+                                                                                      <span class="checkmark"></span>
+                                                                                    </label>
                                                                                 </td>
                                                                           </div>
                                                                         </div>
@@ -3023,26 +2864,18 @@
                                                                           <div class="col-md-8"><td>Does He Respond To Other Familiar Sounds And His Name?</td></div>
                                                                           <div class="col-md-2">
                                                                               <td>
-                                                                                  <div class="form-check">
-                                                                                      <label class="form-check-label">
-                                                                                          <input class="form-check-input" type="checkbox" value=""  checked formControlName="does_he_respond_to_other_familiar_sounds_nd_his_name">
-                                                                                          <span class="form-check-sign">
-                                                                                           <span class="check"></span>
-                                                                                           </span>
-                                                                                       </label>
-                                                                                   </div>
-                                                                                </td>
+                                                                                  <label class="container"> 
+                                                                                      <input id="yes" type="radio" formControlName="does_he_respond_to_other_familiar_sounds_nd_his_name" value="yes">
+                                                                                      <span class="checkmark"></span>
+                                                                                    </label>
+                                                                                  </td>
                                                                           </div>
                                                                           <div class="col-md-2">
                                                                               <td>
-                                                                                  <div class="form-check">
-                                                                                      <label class="form-check-label">
-                                                                                          <input class="form-check-input" type="checkbox" value=""  checked formControlName="does_he_respond_to_other_familiar_sounds_nd_his_name">
-                                                                                          <span class="form-check-sign">
-                                                                                           <span class="check"></span>
-                                                                                           </span>
-                                                                                       </label>
-                                                                                   </div>
+                                                                                  <label class="container"> 
+                                                                                      <input id="no" type="radio" formControlName="does_he_respond_to_other_familiar_sounds_nd_his_name" value="no">
+                                                                                      <span class="checkmark"></span>
+                                                                                    </label>
                                                                                 </td>
                                                                           </div>
                                                                         </div>
@@ -3052,26 +2885,18 @@
                                                                           <div class="col-md-8"><td>Does He Respond To Words Even When They Do Not?</td></div>
                                                                           <div class="col-md-2">
                                                                               <td>
-                                                                                  <div class="form-check">
-                                                                                      <label class="form-check-label">
-                                                                                          <input class="form-check-input" type="checkbox" value=""  checked formControlName="does_he_respond_to_words_even_when_they_do_not">
-                                                                                          <span class="form-check-sign">
-                                                                                           <span class="check"></span>
-                                                                                           </span>
-                                                                                       </label>
-                                                                                   </div>
-                                                                                </td>
+                                                                                  <label class="container"> 
+                                                                                      <input id="yes" type="radio" formControlName="does_he_respond_to_words_even_when_they_do_not" value="yes">
+                                                                                      <span class="checkmark"></span>
+                                                                                    </label>
+                                                                                  </td>
                                                                           </div>
                                                                           <div class="col-md-2">
                                                                               <td>
-                                                                                  <div class="form-check">
-                                                                                      <label class="form-check-label">
-                                                                                          <input class="form-check-input" type="checkbox" value=""  checked formControlName="does_he_respond_to_words_even_when_they_do_not">
-                                                                                          <span class="form-check-sign">
-                                                                                           <span class="check"></span>
-                                                                                           </span>
-                                                                                       </label>
-                                                                                   </div>
+                                                                                  <label class="container"> 
+                                                                                      <input id="no" type="radio" formControlName="does_he_respond_to_words_even_when_they_do_not" value="no">
+                                                                                      <span class="checkmark"></span>
+                                                                                    </label>
                                                                                 </td>
                                                                           </div>
                                                                         </div>
@@ -4752,12 +4577,12 @@
                                             <div class="col-md-8">
                                               <label>Special Notice</label>
                                               <mat-form-field class="example-full-width">
-                                                <textarea matInput placeholder="" formControlName="special_notice" required></textarea>
+                                                <textarea matInput placeholder="" formControlName="special_notice" ></textarea>
                                               </mat-form-field>
                                             </div>
                                             </div>
                                           <!-- <button mat-raised-button type="submit" class="btn btn-default pull-right" >Update Profile</button> -->
-                                          <button mat-raised-button type="submit" class="btn btn-danger pull-right" >View Other Notes</button>
+                                          <!-- <button mat-raised-button type="submit" class="btn btn-danger pull-right" >View Other Notes</button> -->
                                           <div class="second_field">
                                             <!--start 2nd field-->
                                             <h3>For Mothers To Check Baby's Teeth</h3>
@@ -4782,24 +4607,16 @@
                                                 <div class="col-md-3">
                                                   <div class="row">
                                                     <div class="col-md-6">
-                                                        <div class="form-check">
-                                                            <label class="form-check-label">
-                                                                <input class="form-check-input" type="checkbox" value=""  checked formControlName="six_status">
-                                                                <span class="form-check-sign">
-                                                                 <span class="check"></span>
-                                                                 </span>
-                                                             </label>
-                                                         </div>
+                                                        <label class="container">
+                                                            <input id="yes" type="radio"  formControlName="six_status" value="yes">
+                                                            <span class="checkmark"></span>
+                                                          </label>
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <div class="form-check">
-                                                            <label class="form-check-label">
-                                                                <input class="form-check-input" type="checkbox" value=""  checked formControlName="six_status">
-                                                                <span class="form-check-sign">
-                                                                 <span class="check"></span>
-                                                                 </span>
-                                                             </label>
-                                                         </div>
+                                                        <label class="container">
+                                                            <input id="no" type="radio"  formControlName="six_status" value="no">
+                                                            <span class="checkmark"></span>
+                                                          </label>
                                                     </div>
                                                   </div>
                                                 </div>
@@ -4817,28 +4634,20 @@
                                                     </mat-form-field>
                                                   </div>
                                                   <div class="col-md-3">
-                                                    <div class="row">
-                                                      <div class="col-md-6">
-                                                          <div class="form-check">
-                                                              <label class="form-check-label">
-                                                                  <input class="form-check-input" type="checkbox" value=""  checked formControlName="seven_status">
-                                                                  <span class="form-check-sign">
-                                                                   <span class="check"></span>
-                                                                   </span>
-                                                               </label>
-                                                           </div>
-                                                      </div>
-                                                      <div class="col-md-6">
-                                                          <div class="form-check">
-                                                              <label class="form-check-label">
-                                                                  <input class="form-check-input" type="checkbox" value=""  checked formControlName="seven_status">
-                                                                  <span class="form-check-sign">
-                                                                   <span class="check"></span>
-                                                                   </span>
-                                                               </label>
-                                                           </div>
-                                                      </div>
-                                                    </div>
+                                                      <div class="row">
+                                                          <div class="col-md-6">
+                                                              <label class="container">
+                                                                  <input id="yes" type="radio"  formControlName="seven_status" value="yes">
+                                                                  <span class="checkmark"></span>
+                                                                </label>
+                                                          </div>
+                                                          <div class="col-md-6">
+                                                              <label class="container">
+                                                                  <input id="no" type="radio"  formControlName="seven_status" value="no">
+                                                                  <span class="checkmark"></span>
+                                                                </label>
+                                                          </div>
+                                                        </div>
                                                   </div>
                                                   <div class="col-md-3">
                                                       <mat-form-field class="example-full-width">
@@ -4854,28 +4663,20 @@
                                                       </mat-form-field>
                                                     </div>
                                                     <div class="col-md-3">
-                                                      <div class="row">
-                                                        <div class="col-md-6">
-                                                            <div class="form-check">
-                                                                <label class="form-check-label">
-                                                                    <input class="form-check-input" type="checkbox" value=""  checked formControlName="eight_status">
-                                                                    <span class="form-check-sign">
-                                                                     <span class="check"></span>
-                                                                     </span>
-                                                                 </label>
-                                                             </div>
-                                                        </div>
-                                                        <div class="col-md-6">
-                                                            <div class="form-check">
-                                                                <label class="form-check-label">
-                                                                    <input class="form-check-input" type="checkbox" value=""  checked formControlName="eight_status">
-                                                                    <span class="form-check-sign">
-                                                                     <span class="check"></span>
-                                                                     </span>
-                                                                 </label>
-                                                             </div>
-                                                        </div>
-                                                      </div>
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <label class="container">
+                                                                    <input id="yes" type="radio"  formControlName="eight_status" value="yes">
+                                                                    <span class="checkmark"></span>
+                                                                  </label>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <label class="container">
+                                                                    <input id="no" type="radio"  formControlName="eight_status" value="no">
+                                                                    <span class="checkmark"></span>
+                                                                  </label>
+                                                            </div>
+                                                          </div>
                                                     </div>
                                                     <div class="col-md-3">
                                                         <mat-form-field class="example-full-width">
@@ -4891,28 +4692,21 @@
                                                         </mat-form-field>
                                                       </div>
                                                       <div class="col-md-3">
-                                                        <div class="row">
-                                                          <div class="col-md-6">
-                                                              <div class="form-check">
-                                                                  <label class="form-check-label">
-                                                                      <input class="form-check-input" type="checkbox" value=""  checked formControlName="nine_status">
-                                                                      <span class="form-check-sign">
-                                                                       <span class="check"></span>
-                                                                       </span>
-                                                                   </label>
-                                                               </div>
-                                                          </div>
-                                                          <div class="col-md-6">
-                                                              <div class="form-check">
-                                                                  <label class="form-check-label">
-                                                                      <input class="form-check-input" type="checkbox" value=""  checked formControlName="nine_status">
-                                                                      <span class="form-check-sign">
-                                                                       <span class="check"></span>
-                                                                       </span>
-                                                                   </label>
-                                                               </div>
-                                                          </div>
-                                                        </div>
+                                                        
+                                                            <div class="row">
+                                                                <div class="col-md-6">
+                                                                    <label class="container">
+                                                                        <input id="yes" type="radio"  formControlName="nine_status" value="yes">
+                                                                        <span class="checkmark"></span>
+                                                                      </label>
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                    <label class="container">
+                                                                        <input id="no" type="radio"  formControlName="nine_status" value="no">
+                                                                        <span class="checkmark"></span>
+                                                                      </label>
+                                                                </div>
+                                                              </div>
                                                       </div>
                                                       <div class="col-md-3">
                                                           <mat-form-field class="example-full-width">
@@ -4928,28 +4722,20 @@
                                                           </mat-form-field>
                                                         </div>
                                                         <div class="col-md-3">
-                                                          <div class="row">
-                                                            <div class="col-md-6">
-                                                                <div class="form-check">
-                                                                    <label class="form-check-label">
-                                                                        <input class="form-check-input" type="checkbox" value=""  checked formControlName="ten_status">
-                                                                        <span class="form-check-sign">
-                                                                         <span class="check"></span>
-                                                                         </span>
-                                                                     </label>
-                                                                 </div>
-                                                            </div>
-                                                            <div class="col-md-6">
-                                                                <div class="form-check">
-                                                                    <label class="form-check-label">
-                                                                        <input class="form-check-input" type="checkbox" value=""  checked formControlName="ten_status">
-                                                                        <span class="form-check-sign">
-                                                                         <span class="check"></span>
-                                                                         </span>
-                                                                     </label>
-                                                                 </div>
-                                                            </div>
-                                                          </div>
+                                                            <div class="row">
+                                                                <div class="col-md-6">
+                                                                    <label class="container">
+                                                                        <input id="yes" type="radio"  formControlName="ten_status" value="yes">
+                                                                        <span class="checkmark"></span>
+                                                                      </label>
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                    <label class="container">
+                                                                        <input id="no" type="radio"  formControlName="ten_status" value="no">
+                                                                        <span class="checkmark"></span>
+                                                                      </label>
+                                                                </div>
+                                                              </div>
                                                         </div>
                                                         <div class="col-md-3">
                                                             <mat-form-field class="example-full-width">
@@ -4965,28 +4751,20 @@
                                                             </mat-form-field>
                                                           </div>
                                                           <div class="col-md-3">
-                                                            <div class="row">
-                                                              <div class="col-md-6">
-                                                                  <div class="form-check">
-                                                                      <label class="form-check-label">
-                                                                          <input class="form-check-input" type="checkbox" value=""  checked formControlName="eleven_status">
-                                                                          <span class="form-check-sign">
-                                                                           <span class="check"></span>
-                                                                           </span>
-                                                                       </label>
-                                                                   </div>
-                                                              </div>
-                                                              <div class="col-md-6">
-                                                                  <div class="form-check">
-                                                                      <label class="form-check-label">
-                                                                          <input class="form-check-input" type="checkbox" value=""  checked formControlName="eleven_status">
-                                                                          <span class="form-check-sign">
-                                                                           <span class="check"></span>
-                                                                           </span>
-                                                                       </label>
-                                                                   </div>
-                                                              </div>
-                                                            </div>
+                                                              <div class="row">
+                                                                  <div class="col-md-6">
+                                                                      <label class="container">
+                                                                          <input id="yes" type="radio"  formControlName="eleven_status" value="yes">
+                                                                          <span class="checkmark"></span>
+                                                                        </label>
+                                                                  </div>
+                                                                  <div class="col-md-6">
+                                                                      <label class="container">
+                                                                          <input id="no" type="radio"  formControlName="eleven_status" value="no">
+                                                                          <span class="checkmark"></span>
+                                                                        </label>
+                                                                  </div>
+                                                                </div>
                                                           </div>
                                                           <div class="col-md-3">
                                                               <mat-form-field class="example-full-width">
@@ -5002,28 +4780,20 @@
                                                               </mat-form-field>
                                                             </div>
                                                             <div class="col-md-3">
-                                                              <div class="row">
-                                                                <div class="col-md-6">
-                                                                    <div class="form-check">
-                                                                        <label class="form-check-label">
-                                                                            <input class="form-check-input" type="checkbox" value=""  checked formControlName="twelve_status">
-                                                                            <span class="form-check-sign">
-                                                                             <span class="check"></span>
-                                                                             </span>
-                                                                         </label>
-                                                                     </div>
-                                                                </div>
-                                                                <div class="col-md-6">
-                                                                    <div class="form-check">
-                                                                        <label class="form-check-label">
-                                                                            <input class="form-check-input" type="checkbox" value=""  checked formControlName="twelve_status">
-                                                                            <span class="form-check-sign">
-                                                                             <span class="check"></span>
-                                                                             </span>
-                                                                         </label>
-                                                                     </div>
-                                                                </div>
-                                                              </div>
+                                                                <div class="row">
+                                                                    <div class="col-md-6">
+                                                                        <label class="container">
+                                                                            <input id="yes" type="radio"  formControlName="twelve_status" value="yes">
+                                                                            <span class="checkmark"></span>
+                                                                          </label>
+                                                                    </div>
+                                                                    <div class="col-md-6">
+                                                                        <label class="container">
+                                                                            <input id="no" type="radio"  formControlName="twelve_status" value="no">
+                                                                            <span class="checkmark"></span>
+                                                                          </label>
+                                                                    </div>
+                                                                  </div>
                                                             </div>
                                                             <div class="col-md-3">
                                                                 <mat-form-field class="example-full-width">
@@ -5039,28 +4809,20 @@
                                                                 </mat-form-field>
                                                               </div>
                                                               <div class="col-md-3">
-                                                                <div class="row">
-                                                                  <div class="col-md-6">
-                                                                      <div class="form-check">
-                                                                          <label class="form-check-label">
-                                                                              <input class="form-check-input" type="checkbox" value=""  checked formControlName="thirteen_status">
-                                                                              <span class="form-check-sign">
-                                                                               <span class="check"></span>
-                                                                               </span>
-                                                                           </label>
-                                                                       </div>
-                                                                  </div>
-                                                                  <div class="col-md-6">
-                                                                      <div class="form-check">
-                                                                          <label class="form-check-label">
-                                                                              <input class="form-check-input" type="checkbox" value=""  checked formControlName="thirteen_status">
-                                                                              <span class="form-check-sign">
-                                                                               <span class="check"></span>
-                                                                               </span>
-                                                                           </label>
-                                                                       </div>
-                                                                  </div>
-                                                                </div>
+                                                                  <div class="row">
+                                                                      <div class="col-md-6">
+                                                                          <label class="container">
+                                                                              <input id="yes" type="radio"  formControlName="thirteen_status" value="yes">
+                                                                              <span class="checkmark"></span>
+                                                                            </label>
+                                                                      </div>
+                                                                      <div class="col-md-6">
+                                                                          <label class="container">
+                                                                              <input id="no" type="radio"  formControlName="thirteen_status" value="no">
+                                                                              <span class="checkmark"></span>
+                                                                            </label>
+                                                                      </div>
+                                                                    </div>
                                                               </div>
                                                               <div class="col-md-3">
                                                                   <mat-form-field class="example-full-width">
@@ -5076,28 +4838,20 @@
                                                                   </mat-form-field>
                                                                 </div>
                                                                 <div class="col-md-3">
-                                                                  <div class="row">
-                                                                    <div class="col-md-6">
-                                                                        <div class="form-check">
-                                                                            <label class="form-check-label">
-                                                                                <input class="form-check-input" type="checkbox" value=""  checked formControlName="fouteen_status">
-                                                                                <span class="form-check-sign">
-                                                                                 <span class="check"></span>
-                                                                                 </span>
-                                                                             </label>
-                                                                         </div>
-                                                                    </div>
-                                                                    <div class="col-md-6">
-                                                                        <div class="form-check">
-                                                                            <label class="form-check-label">
-                                                                                <input class="form-check-input" type="checkbox" value=""  checked formControlName="fouteen_status">
-                                                                                <span class="form-check-sign">
-                                                                                 <span class="check"></span>
-                                                                                 </span>
-                                                                             </label>
-                                                                         </div>
-                                                                    </div>
-                                                                  </div>
+                                                                    <div class="row">
+                                                                        <div class="col-md-6">
+                                                                            <label class="container">
+                                                                                <input id="yes" type="radio"  formControlName="fouteen_status" value="yes">
+                                                                                <span class="checkmark"></span>
+                                                                              </label>
+                                                                        </div>
+                                                                        <div class="col-md-6">
+                                                                            <label class="container">
+                                                                                <input id="no" type="radio"  formControlName="fouteen_status" value="no">
+                                                                                <span class="checkmark"></span>
+                                                                              </label>
+                                                                        </div>
+                                                                      </div>
                                                                 </div>
                                                                 <div class="col-md-3">
                                                                     <mat-form-field class="example-full-width">
@@ -5113,28 +4867,20 @@
                                                                     </mat-form-field>
                                                                   </div>
                                                                   <div class="col-md-3">
-                                                                    <div class="row">
-                                                                      <div class="col-md-6">
-                                                                          <div class="form-check">
-                                                                              <label class="form-check-label">
-                                                                                  <input class="form-check-input" type="checkbox" value=""  checked formControlName="fifteen_status">
-                                                                                  <span class="form-check-sign">
-                                                                                   <span class="check"></span>
-                                                                                   </span>
-                                                                               </label>
-                                                                           </div>
-                                                                      </div>
-                                                                      <div class="col-md-6">
-                                                                          <div class="form-check">
-                                                                              <label class="form-check-label">
-                                                                                  <input class="form-check-input" type="checkbox" value=""  checked formControlName="fifteen_status">
-                                                                                  <span class="form-check-sign">
-                                                                                   <span class="check"></span>
-                                                                                   </span>
-                                                                               </label>
-                                                                           </div>
-                                                                      </div>
-                                                                    </div>
+                                                                      <div class="row">
+                                                                          <div class="col-md-6">
+                                                                              <label class="container">
+                                                                                  <input id="yes" type="radio"  formControlName="fifteen_status" value="yes">
+                                                                                  <span class="checkmark"></span>
+                                                                                </label>
+                                                                          </div>
+                                                                          <div class="col-md-6">
+                                                                              <label class="container">
+                                                                                  <input id="no" type="radio"  formControlName="fifteen_status" value="no">
+                                                                                  <span class="checkmark"></span>
+                                                                                </label>
+                                                                          </div>
+                                                                        </div>
                                                                   </div>
                                                                   <div class="col-md-3">
                                                                       <mat-form-field class="example-full-width">
@@ -5150,28 +4896,20 @@
                                                                       </mat-form-field>
                                                                     </div>
                                                                     <div class="col-md-3">
-                                                                      <div class="row">
-                                                                        <div class="col-md-6">
-                                                                            <div class="form-check">
-                                                                                <label class="form-check-label">
-                                                                                    <input class="form-check-input" type="checkbox" value=""  checked formControlName="sixteen_status">
-                                                                                    <span class="form-check-sign">
-                                                                                     <span class="check"></span>
-                                                                                     </span>
-                                                                                 </label>
-                                                                             </div>
-                                                                        </div>
-                                                                        <div class="col-md-6">
-                                                                            <div class="form-check">
-                                                                                <label class="form-check-label">
-                                                                                    <input class="form-check-input" type="checkbox" value=""  checked formControlName="sixteen_status">
-                                                                                    <span class="form-check-sign">
-                                                                                     <span class="check"></span>
-                                                                                     </span>
-                                                                                 </label>
-                                                                             </div>
-                                                                        </div>
-                                                                      </div>
+                                                                        <div class="row">
+                                                                            <div class="col-md-6">
+                                                                                <label class="container">
+                                                                                    <input id="yes" type="radio"  formControlName="sixteen_status" value="yes">
+                                                                                    <span class="checkmark"></span>
+                                                                                  </label>
+                                                                            </div>
+                                                                            <div class="col-md-6">
+                                                                                <label class="container">
+                                                                                    <input id="no" type="radio"  formControlName="sixteen_status" value="no">
+                                                                                    <span class="checkmark"></span>
+                                                                                  </label>
+                                                                            </div>
+                                                                          </div>
                                                                     </div>
                                                                     <div class="col-md-3">
                                                                         <mat-form-field class="example-full-width">
@@ -5187,28 +4925,20 @@
                                                                         </mat-form-field>
                                                                       </div>
                                                                       <div class="col-md-3">
-                                                                        <div class="row">
-                                                                          <div class="col-md-6">
-                                                                              <div class="form-check">
-                                                                                  <label class="form-check-label">
-                                                                                      <input class="form-check-input" type="checkbox" value=""  checked formControlName="seventeen_status">
-                                                                                      <span class="form-check-sign">
-                                                                                       <span class="check"></span>
-                                                                                       </span>
-                                                                                   </label>
-                                                                               </div>
-                                                                          </div>
-                                                                          <div class="col-md-6">
-                                                                              <div class="form-check">
-                                                                                  <label class="form-check-label">
-                                                                                      <input class="form-check-input" type="checkbox" value=""  checked formControlName="seventeen_status">
-                                                                                      <span class="form-check-sign">
-                                                                                       <span class="check"></span>
-                                                                                       </span>
-                                                                                   </label>
-                                                                               </div>
-                                                                          </div>
-                                                                        </div>
+                                                                          <div class="row">
+                                                                              <div class="col-md-6">
+                                                                                  <label class="container">
+                                                                                      <input id="yes" type="radio"  formControlName="seventeen_status" value="yes">
+                                                                                      <span class="checkmark"></span>
+                                                                                    </label>
+                                                                              </div>
+                                                                              <div class="col-md-6">
+                                                                                  <label class="container">
+                                                                                      <input id="no" type="radio"  formControlName="seventeen_status" value="no">
+                                                                                      <span class="checkmark"></span>
+                                                                                    </label>
+                                                                              </div>
+                                                                            </div>
                                                                       </div>
                                                                       <div class="col-md-3">
                                                                           <mat-form-field class="example-full-width">
@@ -5224,28 +4954,20 @@
                                                                           </mat-form-field>
                                                                         </div>
                                                                         <div class="col-md-3">
-                                                                          <div class="row">
-                                                                            <div class="col-md-6">
-                                                                                <div class="form-check">
-                                                                                    <label class="form-check-label">
-                                                                                        <input class="form-check-input" type="checkbox" value=""  checked formControlName="eighteen_status">
-                                                                                        <span class="form-check-sign">
-                                                                                         <span class="check"></span>
-                                                                                         </span>
-                                                                                     </label>
-                                                                                 </div>
-                                                                            </div>
-                                                                            <div class="col-md-6">
-                                                                                <div class="form-check">
-                                                                                    <label class="form-check-label">
-                                                                                        <input class="form-check-input" type="checkbox" value=""  checked formControlName="eighteen_status">
-                                                                                        <span class="form-check-sign">
-                                                                                         <span class="check"></span>
-                                                                                         </span>
-                                                                                     </label>
-                                                                                 </div>
-                                                                            </div>
-                                                                          </div>
+                                                                            <div class="row">
+                                                                                <div class="col-md-6">
+                                                                                    <label class="container">
+                                                                                        <input id="yes" type="radio"  formControlName="eighteen_status" value="yes">
+                                                                                        <span class="checkmark"></span>
+                                                                                      </label>
+                                                                                </div>
+                                                                                <div class="col-md-6">
+                                                                                    <label class="container">
+                                                                                        <input id="no" type="radio"  formControlName="eighteen_status" value="no">
+                                                                                        <span class="checkmark"></span>
+                                                                                      </label>
+                                                                                </div>
+                                                                              </div>
                                                                         </div>
                                                                         <div class="col-md-3">
                                                                             <mat-form-field class="example-full-width">
@@ -5271,7 +4993,7 @@
                                          <div class="col-md-9">
                                             <label>Reason For Admit</label>
                                             <mat-form-field class="example-full-width">
-                                              <textarea matInput placeholder="" formControlName="reason_of_admit" required></textarea>
+                                              <textarea matInput placeholder="" formControlName="reason_of_admit" ></textarea>
                                             </mat-form-field>
                                            </div>
                                          </div>
@@ -5279,17 +5001,17 @@
                                            <div class="col-md-6">
                                              <label>About Diseases</label>
                                             <mat-form-field class="example-full-width">
-                                              <textarea matInput placeholder="" formControlName="about_disease" required></textarea>
+                                              <textarea matInput placeholder="" formControlName="about_disease" ></textarea>
                                             </mat-form-field></div>
                                            <div class="col-md-6">
                                             <label>Refferals</label>
                                             <mat-form-field class="example-full-width">
-                                              <textarea matInput placeholder="" formControlName="referalls" required></textarea>
+                                              <textarea matInput placeholder="" formControlName="referalls" ></textarea>
                                             </mat-form-field>
                                            </div>
                                          </div>
                                          <!-- <button mat-raised-button type="submit" class="btn btn-default pull-right" >Update Profile</button> -->
-                                         <button mat-raised-button type="submit" class="btn btn-danger pull-right" >View Other Admits</button>
+                                         <!-- <button mat-raised-button type="submit" class="btn btn-danger pull-right" >View Other Admits</button> -->
                                          <!--end eleven page-->
                                        </div>
                                                       

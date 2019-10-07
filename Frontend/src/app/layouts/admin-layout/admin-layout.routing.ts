@@ -131,7 +131,15 @@ export const AdminLayoutRoutes: Routes = [
     },
     {
         path: 'viewMothers',
-        component:ViewMothersComponent
+        component:ViewMothersComponent,
+        children: [
+            {
+                path: 'addMother',
+                component: AddMotherComponent
+            }
+
+
+        ]
     }
     
 ]
