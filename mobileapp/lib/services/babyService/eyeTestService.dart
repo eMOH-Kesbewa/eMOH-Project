@@ -5,19 +5,20 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import '../globals.dart' as globals;
 
-Future<Baby> fetchBaby2() async {
+Future<Baby> fetchBaby() async {
   print('fetch Baby function');
   //String _babyId = globals.BabyId + babyIndex;
   final response = await http.get(
       'https://protected-bayou-52277.herokuapp.com/babies/viewbyid/${globals.babyId}');
   print('status code');
   print(response.statusCode);
-  print(response.body);
+  print(globals.babyId);
   // final json = jsonDecode(response.body);
   if (response.statusCode == 200) {
     // If the call to the server was successful, parse the JSON.
     //return (json.decode(response.body));
     //print(Baby.fromJson(json.decode(response.body)));
+    
     return Baby.fromJson(json.decode(response.body)[0]);
   } else {
     // If that call was not successful, throw an error.
@@ -53,6 +54,7 @@ class Baby {
       });
 
   factory Baby.fromJson(Map<String, dynamic> json) {
+    
     
     return Baby(
       // // idNumber: json['Identity_number'],

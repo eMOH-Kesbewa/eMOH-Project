@@ -297,14 +297,15 @@ class _EyeTestState extends State<EyeTest> {
 import 'package:flutter/material.dart';
 import 'package:mobileapp/services/babyService/eyeTestService.dart';
 import 'package:http/http.dart' as http;
+
 class EyeTest extends StatefulWidget {
   @override
   _EyeTestState createState() => _EyeTestState();
 }
 
 class _EyeTestState extends State<EyeTest> {
-  Future <Baby> baby = fetchBaby2();
-    bool switchVal = false;
+  Future<Baby> baby = fetchBaby();
+  bool switchVal = false;
   // bool lightCheck = false;
   bool faceCheck = true;
   // bool turnCheck = false;
@@ -315,16 +316,14 @@ class _EyeTestState extends State<EyeTest> {
   // bool ringCheck = false;
   // bool askCheck = false;
   // bool talkCheck = false;
-  initState(){
+  initState() {
+    super.initState();
+    baby.then((it) {
+      faceCheck = it.faceCheck;
+    });
 
-super.initState();
-  baby.then((it){ 
-    faceCheck = it.faceCheck;
-  });
-
-  print(faceCheck);
-}
-  
+    print(faceCheck);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -345,51 +344,53 @@ super.initState();
       body: SingleChildScrollView(
         child: FutureBuilder<Baby>(
           future: baby,
-          builder: (context, snapshot){
+          builder: (context, snapshot) {
+            print('faceCheck');
+            print(snapshot.data.faceCheck);
             return SingleChildScrollView(
               child: Column(
                 children: <Widget>[
                   Chip(
-                avatar: CircleAvatar(
-                  backgroundColor: Colors.grey.shade800,
-                  //child: Text('From the First Month of Birth'),
-                ),
-                label: Text('From the First Month of Birth'),
-              ),
-              SizedBox(
-                height: 0.0,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: <Widget>[
-                  Text('Does the baby look at your face? '),
-                  Checkbox(
-                      activeColor: Colors.red,
-                      value: snapshot.data.faceCheck,
-                      onChanged: (bool newValue) {
-                        setState(() {
-                          snapshot.data.faceCheck = !snapshot.data.faceCheck;
-                          faceCheck = snapshot.data.faceCheck;
-                        });
-                      }),
-                ],
-                ),
-                
+                    avatar: CircleAvatar(
+                      backgroundColor: Colors.grey.shade800,
+                      //child: Text('From the First Month of Birth'),
+                    ),
+                    label: Text('From the First Month of Birth'),
+                  ),
+                  SizedBox(
+                    height: 0.0,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: <Widget>[
+                      Text('Does the baby look at your face? '),
+                      Checkbox(
+                          activeColor: Colors.red,
+                          value: snapshot.data.faceCheck,
+                          onChanged: (bool newValue) {
+                            setState(() {
+                              snapshot.data.faceCheck = !snapshot.data.faceCheck;
+                              faceCheck = snapshot.data.faceCheck;
+                             // faceCheck = !faceCheck;
+                            });
+                          }),
+                    ],
+                  ),
                 ],
               ),
             );
-              
           },
         ),
       ),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.done),
-        onPressed: (){
+        onPressed: () {
           updateDetails(faceCheck);
         },
       ),
     );
   }
+
 //  updateDetails(String name)async{
 //     Map data = {'name_of_child': name};
 //     print('***face***');
@@ -404,18 +405,20 @@ super.initState();
 //     }
 //   }
 //}
-  updateDetails(bool face)async{
+  updateDetails(bool face) async {
     //Map query = {'baby_id' : 'A0000101'};
-    Map data = {'baby_id':'A0000101','does_the_child_look_good_on_your_face': face.toString()};
+    Map data = {
+      'baby_id': 'A0000101',
+      'does_the_child_look_good_on_your_face': face.toString()
+    };
     //Map data = {'does_the_child_look_good_on_your_face': face.toString()};
     print('***face***');
     print(face.toString());
-    var response = await http.put(
-        "https://protected-bayou-52277.herokuapp.com/babies/update/",
-        body: data);
+    var response = await http
+        .put("https://protected-bayou-52277.herokuapp.com/babies/", body: data);
     print("****status");
     print(response.statusCode);
-    if(response.statusCode == 200){
+    if (response.statusCode == 200) {
       print("Done");
     }
   }
