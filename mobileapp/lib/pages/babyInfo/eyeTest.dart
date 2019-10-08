@@ -310,7 +310,7 @@ class _EyeTestState extends State<EyeTest> {
   Future<Baby> baby = fetchBaby();
   bool switchVal = false;
   bool lightCheck = false;
-  bool faceCheck = true;
+  bool faceCheck = false;
   bool turnCheck = false;
   bool theneyesCheck = false;
   bool lookingCheck = false;
@@ -319,14 +319,14 @@ class _EyeTestState extends State<EyeTest> {
   bool ringCheck = false;
   bool askCheck = false;
   bool talkCheck = false;
-  initState() {
-    super.initState();
-    baby.then((it) {
-      faceCheck = it.faceCheck;
-    });
+  // initState() {
+  //   super.initState();
+  //   baby.then((it) {
+  //     faceCheck = it.faceCheck;
+  //   });
 
-    print(faceCheck);
-  }
+  //   print(faceCheck);
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -618,20 +618,21 @@ class _EyeTestState extends State<EyeTest> {
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.done),
         onPressed: () {
-        updateDetails(
-              lightCheck,
-              faceCheck,
-              turnCheck,
-              theneyesCheck,
-              lookingCheck,
-              touchCheck,
-              squintCheck,
-              ringCheck,
-              askCheck,
-              talkCheck).then((res){
-                  Toast.show("Done", context,
-              duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
-               /* Fluttertoast.showToast(
+          updateDetails(
+                  lightCheck,
+                  faceCheck,
+                  turnCheck,
+                  theneyesCheck,
+                  lookingCheck,
+                  touchCheck,
+                  squintCheck,
+                  ringCheck,
+                  askCheck,
+                  talkCheck)
+              .then((res) {
+            Toast.show("Done", context,
+                duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
+            /* Fluttertoast.showToast(
           msg: "Done",
           toastLength: prefix0.Toast.LENGTH_LONG,
           gravity: ToastGravity.BOTTOM,
@@ -639,10 +640,10 @@ class _EyeTestState extends State<EyeTest> {
           backgroundColor: Colors.black54,
           textColor: Colors.white,
           fontSize: 16.0);*/
-              }).catchError((e){
-                Toast.show("An Error Has Occured", context,
-              duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
-               /* Fluttertoast.showToast(
+          }).catchError((e) {
+            Toast.show("An Error Has Occured", context,
+                duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
+            /* Fluttertoast.showToast(
           msg: "Done",
           toastLength: prefix0.Toast.LENGTH_LONG,
           gravity: ToastGravity.BOTTOM,
@@ -650,7 +651,7 @@ class _EyeTestState extends State<EyeTest> {
           backgroundColor: Colors.black54,
           textColor: Colors.white,
           fontSize: 16.0);*/
-              });
+          });
         },
       ),
     );

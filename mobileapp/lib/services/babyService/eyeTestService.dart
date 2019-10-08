@@ -118,7 +118,7 @@ Future updateDetails(
     print(lightCheck.toString());
     print(turnCheck.toString());
     var response = await http
-        .put("https://protected-bayou-52277.herokuapp.com/babies/", body: data);/*.then((result) {
+        .put("https://protected-bayou-52277.herokuapp.com/babies/eyetest", body: data);/*.then((result) {
            Fluttertoast.showToast(
           msg: "Done",
           toastLength: Toast.LENGTH_SHORT,
