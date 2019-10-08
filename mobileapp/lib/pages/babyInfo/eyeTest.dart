@@ -295,8 +295,11 @@ class _EyeTestState extends State<EyeTest> {
 }*/
 
 import 'package:flutter/material.dart';
+//import 'package:fluttertoast/fluttertoast.dart';
+//import 'package:fluttertoast/fluttertoast.dart' as prefix0;
 import 'package:mobileapp/services/babyService/eyeTestService.dart';
 import 'package:http/http.dart' as http;
+import 'package:toast/toast.dart';
 
 class EyeTest extends StatefulWidget {
   @override
@@ -345,274 +348,277 @@ class _EyeTestState extends State<EyeTest> {
         child: FutureBuilder<Baby>(
           future: baby,
           builder: (context, snapshot) {
-            //print('faceCheck');
-            // print(snapshot.data.faceCheck);
-            return SingleChildScrollView(
-              child: Padding(
-                padding: EdgeInsets.all(8.0),
-                child: Column(
-                  children: <Widget>[
-                    Chip(
-                      avatar: CircleAvatar(
-                        backgroundImage: AssetImage("images/mother.png"),
-                        backgroundColor: Colors.grey.shade800,
-                        //child: Text('From the First Month of Birth'),
+            if (snapshot.connectionState == ConnectionState.waiting)
+              return Center(child: CircularProgressIndicator());
+            else {
+              //print('faceCheck');
+              // print(snapshot.data.faceCheck);
+              return SingleChildScrollView(
+                child: Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: Column(
+                    children: <Widget>[
+                      Chip(
+                        avatar: CircleAvatar(
+                          backgroundImage: AssetImage("images/mother.png"),
+                          backgroundColor: Colors.grey.shade800,
+                          //child: Text('From the First Month of Birth'),
+                        ),
+                        label: Text('From the First Month of Birth'),
                       ),
-                      label: Text('From the First Month of Birth'),
-                    ),
-                    SizedBox(
-                      height: 0.0,
-                    ),
-                    Card(
+                      SizedBox(
+                        height: 0.0,
+                      ),
+                      Card(
+                          child: ListTile(
+                        title: Text('Does child eyes toward the light?'),
+                        trailing: Checkbox(
+                            activeColor: Colors.red,
+                            value: snapshot.data.lightCheck,
+                            onChanged: (bool newValue) {
+                              if (switchVal == true) {
+                                setState(() {
+                                  snapshot.data.lightCheck =
+                                      !snapshot.data.lightCheck;
+                                  lightCheck = snapshot.data.lightCheck;
+                                  // faceCheck = !faceCheck;
+                                });
+                              } else {
+                                return null;
+                              }
+                            }),
+                      )),
+                      Card(
+                          child: ListTile(
+                        title: Text('Does the baby look at your face?'),
+                        trailing: Checkbox(
+                            activeColor: Colors.red,
+                            value: snapshot.data.faceCheck,
+                            onChanged: (bool newValue) {
+                              if (switchVal == true) {
+                                setState(() {
+                                  snapshot.data.faceCheck =
+                                      !snapshot.data.faceCheck;
+                                  faceCheck = snapshot.data.faceCheck;
+                                  // faceCheck = !faceCheck;
+                                });
+                              } else {
+                                return null;
+                              }
+                            }),
+                      )),
+                      Chip(
+                        avatar: CircleAvatar(
+                          backgroundImage: AssetImage("images/mother.png"),
+                          backgroundColor: Colors.grey.shade800,
+                          //child: Text('From the First Month of Birth'),
+                        ),
+                        label: Text('When Two Months.'),
+                      ),
+                      Card(
+                          child: ListTile(
+                        title: Text(
+                            'When you turn your face to the side do you see the child smiling in response?'),
+                        trailing: Checkbox(
+                            activeColor: Colors.red,
+                            value: snapshot.data.turnCheck,
+                            onChanged: (bool newValue) {
+                              if (switchVal == true) {
+                                setState(() {
+                                  snapshot.data.turnCheck =
+                                      !snapshot.data.turnCheck;
+                                  turnCheck = snapshot.data.turnCheck;
+                                  // faceCheck = !faceCheck;
+                                });
+                              } else {
+                                return null;
+                              }
+                            }),
+                      )),
+                      Card(
                         child: ListTile(
-                      title: Text('Does child eyes toward the light?'),
-                      trailing: Checkbox(
-                          activeColor: Colors.red,
-                          value: snapshot.data.lightCheck,
-                          onChanged: (bool newValue) {
-                            if (switchVal == true) {
-                              setState(() {
-                                snapshot.data.lightCheck =
-                                    !snapshot.data.lightCheck;
-                                lightCheck = snapshot.data.lightCheck;
-                                // faceCheck = !faceCheck;
-                              });
-                            } else {
-                              return null;
-                            }
-                          }),
-                    )),
-                    Card(
+                          title: Text('Then the baby eyes move?'),
+                          trailing: Checkbox(
+                              activeColor: Colors.red,
+                              value: snapshot.data.theneyesCheck,
+                              onChanged: (bool newValue) {
+                                if (switchVal == true) {
+                                  setState(() {
+                                    snapshot.data.theneyesCheck =
+                                        !snapshot.data.theneyesCheck;
+                                    theneyesCheck = snapshot.data.theneyesCheck;
+                                    // faceCheck = !faceCheck;
+                                  });
+                                } else {
+                                  return null;
+                                }
+                              }),
+                        ),
+                      ),
+                      Chip(
+                        avatar: CircleAvatar(
+                          backgroundImage: AssetImage("images/mother.png"),
+                          backgroundColor: Colors.grey.shade800,
+                          //child: Text('From the First Month of Birth'),
+                        ),
+                        label: Text('When Six Months.'),
+                      ),
+                      Card(
                         child: ListTile(
-                      title: Text('Does the baby look at your face?'),
-                      trailing: Checkbox(
-                          activeColor: Colors.red,
-                          value: snapshot.data.faceCheck,
-                          onChanged: (bool newValue) {
-                            if (switchVal == true) {
-                              setState(() {
-                                snapshot.data.faceCheck =
-                                    !snapshot.data.faceCheck;
-                                faceCheck = snapshot.data.faceCheck;
-                                // faceCheck = !faceCheck;
-                              });
-                            } else {
-                              return null;
-                            }
-                          }),
-                    )),
-                    Chip(
-                      avatar: CircleAvatar(
-                        backgroundImage: AssetImage("images/mother.png"),
-                        backgroundColor: Colors.grey.shade800,
-                        //child: Text('From the First Month of Birth'),
+                          title: Text('Does the child look arround?'),
+                          trailing: Checkbox(
+                              activeColor: Colors.red,
+                              value: snapshot.data.lookingCheck,
+                              onChanged: (bool newValue) {
+                                if (switchVal == true) {
+                                  setState(() {
+                                    snapshot.data.lookingCheck =
+                                        !snapshot.data.lookingCheck;
+                                    lookingCheck = snapshot.data.lookingCheck;
+                                    // faceCheck = !faceCheck;
+                                  });
+                                } else {
+                                  return null;
+                                }
+                              }),
+                        ),
                       ),
-                      label: Text('When Two Months.'),
-                    ),
-                    Card(
+                      Card(
                         child: ListTile(
-                      title: Text(
-                          'When you turn your face to the side do you see the child smiling in response?'),
-                      trailing: Checkbox(
-                          activeColor: Colors.red,
-                          value: snapshot.data.turnCheck,
-                          onChanged: (bool newValue) {
-                            if (switchVal == true) {
-                              setState(() {
-                                snapshot.data.turnCheck =
-                                    !snapshot.data.turnCheck;
-                                turnCheck = snapshot.data.turnCheck;
-                                // faceCheck = !faceCheck;
-                              });
-                            } else {
-                              return null;
-                            }
-                          }),
-                    )),
-                    Card(
-                      child: ListTile(
-                        title: Text('Then the baby eyes move?'),
-                        trailing: Checkbox(
-                            activeColor: Colors.red,
-                            value: snapshot.data.theneyesCheck,
-                            onChanged: (bool newValue) {
-                              if (switchVal == true) {
-                                setState(() {
-                                  snapshot.data.theneyesCheck =
-                                      !snapshot.data.theneyesCheck;
-                                  theneyesCheck = snapshot.data.theneyesCheck;
-                                  // faceCheck = !faceCheck;
-                                });
-                              } else {
-                                return null;
-                              }
-                            }),
+                          title: Text(
+                              'Is child streching out his hand and trying to touch something?'),
+                          trailing: Checkbox(
+                              activeColor: Colors.red,
+                              value: snapshot.data.touchCheck,
+                              onChanged: (bool newValue) {
+                                if (switchVal == true) {
+                                  setState(() {
+                                    snapshot.data.touchCheck =
+                                        !snapshot.data.touchCheck;
+                                    touchCheck = snapshot.data.touchCheck;
+                                    // faceCheck = !faceCheck;
+                                  });
+                                } else {
+                                  return null;
+                                }
+                              }),
+                        ),
                       ),
-                    ),
-                    Chip(
-                      avatar: CircleAvatar(
-                        backgroundImage: AssetImage("images/mother.png"),
-                        backgroundColor: Colors.grey.shade800,
-                        //child: Text('From the First Month of Birth'),
+                      Card(
+                        child: ListTile(
+                          title: Text(
+                              'Do you suspect that your child has a problem?'),
+                          trailing: Checkbox(
+                              activeColor: Colors.red,
+                              value: snapshot.data.squintCheck,
+                              onChanged: (bool newValue) {
+                                if (switchVal == true) {
+                                  setState(() {
+                                    snapshot.data.squintCheck =
+                                        !snapshot.data.squintCheck;
+                                    squintCheck = snapshot.data.squintCheck;
+                                    // faceCheck = !faceCheck;
+                                  });
+                                } else {
+                                  return null;
+                                }
+                              }),
+                        ),
                       ),
-                      label: Text('When Six Months.'),
-                    ),
-                    Card(
-                      child: ListTile(
-                        title: Text('Does the child look arround?'),
-                        trailing: Checkbox(
-                            activeColor: Colors.red,
-                            value: snapshot.data.lookingCheck,
-                            onChanged: (bool newValue) {
-                              if (switchVal == true) {
-                                setState(() {
-                                  snapshot.data.lookingCheck =
-                                      !snapshot.data.lookingCheck;
-                                  lookingCheck = snapshot.data.lookingCheck;
-                                  // faceCheck = !faceCheck;
-                                });
-                              } else {
-                                return null;
-                              }
-                            }),
+                      Chip(
+                        avatar: CircleAvatar(
+                          backgroundImage: AssetImage("images/mother.png"),
+                          backgroundColor: Colors.grey.shade800,
+                          //child: Text('From the First Month of Birth'),
+                        ),
+                        label: Text('When Ten Months.'),
                       ),
-                    ),
-                    Card(
-                      child: ListTile(
-                        title: Text(
-                            'Is child streching out his hand and trying to touch something?'),
-                        trailing: Checkbox(
-                            activeColor: Colors.red,
-                            value: snapshot.data.touchCheck,
-                            onChanged: (bool newValue) {
-                              if (switchVal == true) {
-                                setState(() {
-                                  snapshot.data.touchCheck =
-                                      !snapshot.data.touchCheck;
-                                  touchCheck = snapshot.data.touchCheck;
-                                  // faceCheck = !faceCheck;
-                                });
-                              } else {
-                                return null;
-                              }
-                            }),
+                      Card(
+                        child: ListTile(
+                          title: Text(
+                              'Is it possible for a child to pickup small things with a thumb and forefinger?'),
+                          trailing: Checkbox(
+                              activeColor: Colors.red,
+                              value: snapshot.data.ringCheck,
+                              onChanged: (bool newValue) {
+                                if (switchVal == true) {
+                                  setState(() {
+                                    snapshot.data.ringCheck =
+                                        !snapshot.data.ringCheck;
+                                    ringCheck = snapshot.data.ringCheck;
+                                    // faceCheck = !faceCheck;
+                                  });
+                                } else {
+                                  return null;
+                                }
+                              }),
+                        ),
                       ),
-                    ),
-                    Card(
-                      child: ListTile(
-                        title: Text(
-                            'Do you suspect that your child has a problem?'),
-                        trailing: Checkbox(
-                            activeColor: Colors.red,
-                            value: snapshot.data.squintCheck,
-                            onChanged: (bool newValue) {
-                              if (switchVal == true) {
-                                setState(() {
-                                  snapshot.data.squintCheck =
-                                      !snapshot.data.squintCheck;
-                                  squintCheck = snapshot.data.squintCheck;
-                                  // faceCheck = !faceCheck;
-                                });
-                              } else {
-                                return null;
-                              }
-                            }),
+                      Chip(
+                        avatar: CircleAvatar(
+                          backgroundImage: AssetImage("images/mother.png"),
+                          backgroundColor: Colors.grey.shade800,
+                          //child: Text('From the First Month of Birth'),
+                        ),
+                        label: Text('When Twelve Months.'),
                       ),
-                    ),
-                    Chip(
-                      
-                      avatar: CircleAvatar(
-                        backgroundImage: AssetImage("images/mother.png"),
-                        backgroundColor: Colors.grey.shade800,
-                        //child: Text('From the First Month of Birth'),
+                      Card(
+                        child: ListTile(
+                          title: Text(
+                              'Does your child pointed various thing and ask for them?'),
+                          trailing: Checkbox(
+                              activeColor: Colors.red,
+                              value: snapshot.data.askCheck,
+                              onChanged: (bool newValue) {
+                                if (switchVal == true) {
+                                  setState(() {
+                                    snapshot.data.askCheck =
+                                        !snapshot.data.askCheck;
+                                    askCheck = snapshot.data.askCheck;
+                                    // faceCheck = !faceCheck;
+                                  });
+                                } else {
+                                  return null;
+                                }
+                              }),
+                        ),
                       ),
-                      label: Text('When Ten Months.'),
-                    ),
-                    Card(
-                      child: ListTile(
-                        title: Text(
-                            'Is it possible for a child to pickup small things with a thumb and forefinger?'),
-                        trailing: Checkbox(
-                            activeColor: Colors.red,
-                            value: snapshot.data.ringCheck,
-                            onChanged: (bool newValue) {
-                              if (switchVal == true) {
-                                setState(() {
-                                  snapshot.data.ringCheck =
-                                      !snapshot.data.ringCheck;
-                                  ringCheck = snapshot.data.ringCheck;
-                                  // faceCheck = !faceCheck;
-                                });
-                              } else {
-                                return null;
-                              }
-                            }),
+                      Card(
+                        child: ListTile(
+                          title: Text(
+                              'When the child sees known people, does the child recognize them before they talk to the child?'),
+                          trailing: Checkbox(
+                              activeColor: Colors.red,
+                              value: snapshot.data.talkCheck,
+                              onChanged: (bool newValue) {
+                                if (switchVal == true) {
+                                  setState(() {
+                                    snapshot.data.talkCheck =
+                                        !snapshot.data.talkCheck;
+                                    talkCheck = snapshot.data.talkCheck;
+                                    // faceCheck = !faceCheck;
+                                  });
+                                } else {
+                                  return null;
+                                }
+                              }),
+                        ),
                       ),
-                    ),
-                    Chip(
-                      avatar: CircleAvatar(
-                        backgroundImage: AssetImage("images/mother.png"),
-                        backgroundColor: Colors.grey.shade800,
-                        //child: Text('From the First Month of Birth'),
-                      ),
-                      label: Text('When Twelve Months.'),
-                    ),
-                    Card(
-                      child: ListTile(
-                        title: Text(
-                            'Does your child pointed various thing and ask for them?'),
-                        trailing: Checkbox(
-                            activeColor: Colors.red,
-                            value: snapshot.data.askCheck,
-                            onChanged: (bool newValue) {
-                              if (switchVal == true) {
-                                setState(() {
-                                  snapshot.data.askCheck =
-                                      !snapshot.data.askCheck;
-                                  askCheck = snapshot.data.askCheck;
-                                  // faceCheck = !faceCheck;
-                                });
-                              } else {
-                                return null;
-                              }
-                            }),
-                      ),
-                    ),
-                    Card(
-                      child: ListTile(
-                        title: Text(
-                            'When the child sees known people, does the child recognize them before they talk to the child?'),
-                        trailing: Checkbox(
-                            activeColor: Colors.red,
-                            value: snapshot.data.talkCheck,
-                            onChanged: (bool newValue) {
-                              if (switchVal == true) {
-                                setState(() {
-                                  snapshot.data.talkCheck =
-                                      !snapshot.data.talkCheck;
-                                  talkCheck = snapshot.data.talkCheck;
-                                  // faceCheck = !faceCheck;
-                                });
-                              } else {
-                                return null;
-                              }
-                            }),
-                      ),
-                    ),
-                    SizedBox(
-                      height: 70.0,
-                    )
-                  ],
+                      SizedBox(
+                        height: 70.0,
+                      )
+                    ],
+                  ),
                 ),
-              ),
-            );
+              );
+            }
           },
         ),
       ),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.done),
         onPressed: () {
-          updateDetails(
+        updateDetails(
               lightCheck,
               faceCheck,
               turnCheck,
@@ -622,7 +628,29 @@ class _EyeTestState extends State<EyeTest> {
               squintCheck,
               ringCheck,
               askCheck,
-              talkCheck);
+              talkCheck).then((res){
+                  Toast.show("Done", context,
+              duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
+               /* Fluttertoast.showToast(
+          msg: "Done",
+          toastLength: prefix0.Toast.LENGTH_LONG,
+          gravity: ToastGravity.BOTTOM,
+          timeInSecForIos: 1,
+          backgroundColor: Colors.black54,
+          textColor: Colors.white,
+          fontSize: 16.0);*/
+              }).catchError((e){
+                Toast.show("An Error Has Occured", context,
+              duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
+               /* Fluttertoast.showToast(
+          msg: "Done",
+          toastLength: prefix0.Toast.LENGTH_LONG,
+          gravity: ToastGravity.BOTTOM,
+          timeInSecForIos: 1,
+          backgroundColor: Colors.black54,
+          textColor: Colors.white,
+          fontSize: 16.0);*/
+              });
         },
       ),
     );
@@ -642,46 +670,5 @@ class _EyeTestState extends State<EyeTest> {
 //     }
 //   }
 //}
-  updateDetails(
-      bool lightCheck,
-      bool faceCheck,
-      bool turnCheck,
-      bool theneyesCheck,
-      bool lookingCheck,
-      bool touchCheck,
-      bool squintCheck,
-      bool ringCheck,
-      bool askCheck,
-      bool talkCheck) async {
-    //Map query = {'baby_id' : 'A0000101'};
-    Map data = {
-      'baby_id': 'A0000101',
-      'does_child_eyes_toward_the_light': lightCheck.toString(),
-      'does_the_child_look_good_on_your_face': faceCheck.toString(),
-      'when_you_turn_your_face_to_the_side_do_you_see_the_child_smiling_in_response':
-          turnCheck.toString(),
-      'then_the_baby_eyes_move': theneyesCheck.toString(),
-      'does_the_child_look_arround': lookingCheck.toString(),
-      'is_child_streching_out_his_hand_and_trying_to_touch_something':
-          touchCheck.toString(),
-      'do_you_suspect_that_your_child_has_a_problem': squintCheck.toString(),
-      'is_it_possible_for_a_child_to_pickup_small_things_with_a_thumb_and_forefinger':
-          ringCheck.toString(),
-      'if_the_person_identifies_them_the_child_will_recognize_them_before_they_call_them':
-          talkCheck.toString(),
-      'have_your_child_strech_out_his_hand_and_touch_them': askCheck.toString()
-    };
-    //Map data = {'does_the_child_look_good_on_your_face': face.toString()};
-    print('***face***');
-    print(faceCheck.toString());
-    print(lightCheck.toString());
-    print(turnCheck.toString());
-    var response = await http
-        .put("https://protected-bayou-52277.herokuapp.com/babies/", body: data);
-    print("****status");
-    print(response.statusCode);
-    if (response.statusCode == 200) {
-      print("Done");
-    }
-  }
+
 }

@@ -2,8 +2,11 @@ import 'dart:async';
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:http/http.dart' as http;
 import '../globals.dart' as globals;
+
+
 
 Future<Baby> fetchBaby() async {
   print('fetch Baby function');
@@ -25,6 +28,7 @@ Future<Baby> fetchBaby() async {
     throw Exception('Failed to load Baby');
   }
 }
+
 
 class Baby {
   //bool switchVal;
@@ -79,3 +83,65 @@ class Baby {
     );
   }
 }
+Future updateDetails(
+      bool lightCheck,
+      bool faceCheck,
+      bool turnCheck,
+      bool theneyesCheck,
+      bool lookingCheck,
+      bool touchCheck,
+      bool squintCheck,
+      bool ringCheck,
+      bool askCheck,
+      bool talkCheck) async {
+    //Map query = {'baby_id' : 'A0000101'};
+    Map data = {
+      'baby_id': 'A0000101',
+      'does_child_eyes_toward_the_light': lightCheck.toString(),
+      'does_the_child_look_good_on_your_face': faceCheck.toString(),
+      'when_you_turn_your_face_to_the_side_do_you_see_the_child_smiling_in_response':
+          turnCheck.toString(),
+      'then_the_baby_eyes_move': theneyesCheck.toString(),
+      'does_the_child_look_arround': lookingCheck.toString(),
+      'is_child_streching_out_his_hand_and_trying_to_touch_something':
+          touchCheck.toString(),
+      'do_you_suspect_that_your_child_has_a_problem': squintCheck.toString(),
+      'is_it_possible_for_a_child_to_pickup_small_things_with_a_thumb_and_forefinger':
+          ringCheck.toString(),
+      'if_the_person_identifies_them_the_child_will_recognize_them_before_they_call_them':
+          talkCheck.toString(),
+      'have_your_child_strech_out_his_hand_and_touch_them': askCheck.toString()
+    };
+    //Map data = {'does_the_child_look_good_on_your_face': face.toString()};
+    print('***face***');
+    print(faceCheck.toString());
+    print(lightCheck.toString());
+    print(turnCheck.toString());
+    var response = await http
+        .put("https://protected-bayou-52277.herokuapp.com/babies/", body: data);/*.then((result) {
+           Fluttertoast.showToast(
+          msg: "Done",
+          toastLength: Toast.LENGTH_SHORT,
+          gravity: ToastGravity.BOTTOM,
+          timeInSecForIos: 1,
+          backgroundColor: Colors.black54,
+          textColor: Colors.white,
+          fontSize: 16.0);
+        }).catchError((e){
+          Fluttertoast.showToast(
+          msg: "An Error Has Occured.",
+          toastLength: Toast.LENGTH_SHORT,
+          gravity: ToastGravity.BOTTOM,
+          timeInSecForIos: 1,
+          backgroundColor: Colors.black54,
+          textColor: Colors.white,
+          fontSize: 16.0);
+        });*/
+    print("****status");
+    print(response.statusCode);
+  
+    if (response.statusCode == 200) {
+      print("Done");
+      return 0;
+    }
+  }
