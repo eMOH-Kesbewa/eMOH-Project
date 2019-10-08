@@ -346,7 +346,7 @@ class _EyeTestState extends State<EyeTest> {
           future: baby,
           builder: (context, snapshot) {
             //print('faceCheck');
-           // print(snapshot.data.faceCheck);
+            // print(snapshot.data.faceCheck);
             return SingleChildScrollView(
               child: Padding(
                 padding: EdgeInsets.all(8.0),
@@ -354,6 +354,7 @@ class _EyeTestState extends State<EyeTest> {
                   children: <Widget>[
                     Chip(
                       avatar: CircleAvatar(
+                        backgroundImage: AssetImage("images/mother.png"),
                         backgroundColor: Colors.grey.shade800,
                         //child: Text('From the First Month of Birth'),
                       ),
@@ -362,118 +363,76 @@ class _EyeTestState extends State<EyeTest> {
                     SizedBox(
                       height: 0.0,
                     ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: <Widget>[
-                        Flexible(
-                          child: Text(
-                            'Does child eyes toward the light?',
-                            overflow: TextOverflow.ellipsis,
-                            maxLines: 3,
-                          ),
-                        ),
-                        SizedBox(
-                          width: 80.0,
-                        ),
-                        Checkbox(
-                            activeColor: Colors.red,
-                            value: snapshot.data.lightCheck,
-                            onChanged: (bool newValue) {
-                              if (switchVal == true) {
-                                setState(() {
-                                  snapshot.data.lightCheck =
-                                      !snapshot.data.lightCheck;
-                                  lightCheck = snapshot.data.lightCheck;
-                                  // faceCheck = !faceCheck;
-                                });
-                              } else {
-                                return null;
-                              }
-                            }),
-                      ],
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: <Widget>[
-                        Flexible(
-                          child: Text(
-                            'Does the baby look at your face?',
-                            overflow: TextOverflow.ellipsis,
-                            maxLines: 3,
-                          ),
-                        ),
-                        SizedBox(
-                          width: 80.0,
-                        ),
-                        Checkbox(
-                            activeColor: Colors.red,
-                            value: snapshot.data.faceCheck,
-                            onChanged: (bool newValue) {
-                              if (switchVal == true) {
-                                setState(() {
-                                  snapshot.data.faceCheck =
-                                      !snapshot.data.faceCheck;
-                                  faceCheck = snapshot.data.faceCheck;
-                                  // faceCheck = !faceCheck;
-                                });
-                              } else {
-                                return null;
-                              }
-                            }),
-                      ],
-                    ),
-
+                    Card(
+                        child: ListTile(
+                      title: Text('Does child eyes toward the light?'),
+                      trailing: Checkbox(
+                          activeColor: Colors.red,
+                          value: snapshot.data.lightCheck,
+                          onChanged: (bool newValue) {
+                            if (switchVal == true) {
+                              setState(() {
+                                snapshot.data.lightCheck =
+                                    !snapshot.data.lightCheck;
+                                lightCheck = snapshot.data.lightCheck;
+                                // faceCheck = !faceCheck;
+                              });
+                            } else {
+                              return null;
+                            }
+                          }),
+                    )),
+                    Card(
+                        child: ListTile(
+                      title: Text('Does the baby look at your face?'),
+                      trailing: Checkbox(
+                          activeColor: Colors.red,
+                          value: snapshot.data.faceCheck,
+                          onChanged: (bool newValue) {
+                            if (switchVal == true) {
+                              setState(() {
+                                snapshot.data.faceCheck =
+                                    !snapshot.data.faceCheck;
+                                faceCheck = snapshot.data.faceCheck;
+                                // faceCheck = !faceCheck;
+                              });
+                            } else {
+                              return null;
+                            }
+                          }),
+                    )),
                     Chip(
                       avatar: CircleAvatar(
+                        backgroundImage: AssetImage("images/mother.png"),
                         backgroundColor: Colors.grey.shade800,
                         //child: Text('From the First Month of Birth'),
                       ),
                       label: Text('When Two Months.'),
                     ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: <Widget>[
-                        Flexible(
-                          child: Text(
-                            'When you turn your face to the side do you see the child smiling in response?',
-                            overflow: TextOverflow.ellipsis,
-                            maxLines: 3,
-                          ),
-                        ),
-                        SizedBox(
-                          width: 80.0,
-                        ),
-                        Checkbox(
-                            activeColor: Colors.red,
-                            value: snapshot.data.turnCheck,
-                            onChanged: (bool newValue) {
-                              if (switchVal == true) {
-                                setState(() {
-                                  snapshot.data.turnCheck =
-                                      !snapshot.data.turnCheck;
-                                  turnCheck = snapshot.data.turnCheck;
-                                  // faceCheck = !faceCheck;
-                                });
-                              } else {
-                                return null;
-                              }
-                            }),
-                      ],
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: <Widget>[
-                        Flexible(
-                          child: Text(
-                            'Then the baby eyes move?',
-                            overflow: TextOverflow.ellipsis,
-                            maxLines: 3,
-                          ),
-                        ),
-                        SizedBox(
-                          width: 80.0,
-                        ),
-                        Checkbox(
+                    Card(
+                        child: ListTile(
+                      title: Text(
+                          'When you turn your face to the side do you see the child smiling in response?'),
+                      trailing: Checkbox(
+                          activeColor: Colors.red,
+                          value: snapshot.data.turnCheck,
+                          onChanged: (bool newValue) {
+                            if (switchVal == true) {
+                              setState(() {
+                                snapshot.data.turnCheck =
+                                    !snapshot.data.turnCheck;
+                                turnCheck = snapshot.data.turnCheck;
+                                // faceCheck = !faceCheck;
+                              });
+                            } else {
+                              return null;
+                            }
+                          }),
+                    )),
+                    Card(
+                      child: ListTile(
+                        title: Text('Then the baby eyes move?'),
+                        trailing: Checkbox(
                             activeColor: Colors.red,
                             value: snapshot.data.theneyesCheck,
                             onChanged: (bool newValue) {
@@ -488,29 +447,20 @@ class _EyeTestState extends State<EyeTest> {
                                 return null;
                               }
                             }),
-                      ],
+                      ),
                     ),
                     Chip(
                       avatar: CircleAvatar(
+                        backgroundImage: AssetImage("images/mother.png"),
                         backgroundColor: Colors.grey.shade800,
                         //child: Text('From the First Month of Birth'),
                       ),
                       label: Text('When Six Months.'),
                     ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: <Widget>[
-                        Flexible(
-                          child: Text(
-                            'Does the child look arround?',
-                            overflow: TextOverflow.ellipsis,
-                            maxLines: 3,
-                          ),
-                        ),
-                        SizedBox(
-                          width: 80.0,
-                        ),
-                        Checkbox(
+                    Card(
+                      child: ListTile(
+                        title: Text('Does the child look arround?'),
+                        trailing: Checkbox(
                             activeColor: Colors.red,
                             value: snapshot.data.lookingCheck,
                             onChanged: (bool newValue) {
@@ -525,22 +475,13 @@ class _EyeTestState extends State<EyeTest> {
                                 return null;
                               }
                             }),
-                      ],
+                      ),
                     ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: <Widget>[
-                        Flexible(
-                          child: Text(
-                            'Is child streching out his hand and trying to touch something?',
-                            overflow: TextOverflow.ellipsis,
-                            maxLines: 3,
-                          ),
-                        ),
-                        SizedBox(
-                          width: 80.0,
-                        ),
-                        Checkbox(
+                    Card(
+                      child: ListTile(
+                        title: Text(
+                            'Is child streching out his hand and trying to touch something?'),
+                        trailing: Checkbox(
                             activeColor: Colors.red,
                             value: snapshot.data.touchCheck,
                             onChanged: (bool newValue) {
@@ -555,22 +496,13 @@ class _EyeTestState extends State<EyeTest> {
                                 return null;
                               }
                             }),
-                      ],
+                      ),
                     ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: <Widget>[
-                        Flexible(
-                          child: Text(
-                            'Do you suspect that your child has a problem?',
-                            overflow: TextOverflow.ellipsis,
-                            maxLines: 3,
-                          ),
-                        ),
-                        SizedBox(
-                          width: 80.0,
-                        ),
-                        Checkbox(
+                    Card(
+                      child: ListTile(
+                        title: Text(
+                            'Do you suspect that your child has a problem?'),
+                        trailing: Checkbox(
                             activeColor: Colors.red,
                             value: snapshot.data.squintCheck,
                             onChanged: (bool newValue) {
@@ -585,29 +517,22 @@ class _EyeTestState extends State<EyeTest> {
                                 return null;
                               }
                             }),
-                      ],
+                      ),
                     ),
                     Chip(
+                      
                       avatar: CircleAvatar(
+                        backgroundImage: AssetImage("images/mother.png"),
                         backgroundColor: Colors.grey.shade800,
                         //child: Text('From the First Month of Birth'),
                       ),
                       label: Text('When Ten Months.'),
                     ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: <Widget>[
-                        Flexible(
-                          child: Text(
-                            'Is it possible for a child to pickup small things with a thumb and forefinger?',
-                            overflow: TextOverflow.ellipsis,
-                            maxLines: 3,
-                          ),
-                        ),
-                        SizedBox(
-                          width: 80.0,
-                        ),
-                        Checkbox(
+                    Card(
+                      child: ListTile(
+                        title: Text(
+                            'Is it possible for a child to pickup small things with a thumb and forefinger?'),
+                        trailing: Checkbox(
                             activeColor: Colors.red,
                             value: snapshot.data.ringCheck,
                             onChanged: (bool newValue) {
@@ -622,29 +547,21 @@ class _EyeTestState extends State<EyeTest> {
                                 return null;
                               }
                             }),
-                      ],
+                      ),
                     ),
                     Chip(
                       avatar: CircleAvatar(
+                        backgroundImage: AssetImage("images/mother.png"),
                         backgroundColor: Colors.grey.shade800,
                         //child: Text('From the First Month of Birth'),
                       ),
                       label: Text('When Twelve Months.'),
                     ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: <Widget>[
-                        Flexible(
-                          child: Text(
-                            'Does your child pointed various thing and ask for them?',
-                            overflow: TextOverflow.ellipsis,
-                            maxLines: 3,
-                          ),
-                        ),
-                        SizedBox(
-                          width: 80.0,
-                        ),
-                        Checkbox(
+                    Card(
+                      child: ListTile(
+                        title: Text(
+                            'Does your child pointed various thing and ask for them?'),
+                        trailing: Checkbox(
                             activeColor: Colors.red,
                             value: snapshot.data.askCheck,
                             onChanged: (bool newValue) {
@@ -659,22 +576,13 @@ class _EyeTestState extends State<EyeTest> {
                                 return null;
                               }
                             }),
-                      ],
+                      ),
                     ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: <Widget>[
-                        Flexible(
-                          child: Text(
-                            'When the child sees known people, does the child recognize them before they talk to the child?',
-                            overflow: TextOverflow.ellipsis,
-                            maxLines: 3,
-                          ),
-                        ),
-                        SizedBox(
-                          width: 80.0,
-                        ),
-                        Checkbox(
+                    Card(
+                      child: ListTile(
+                        title: Text(
+                            'When the child sees known people, does the child recognize them before they talk to the child?'),
+                        trailing: Checkbox(
                             activeColor: Colors.red,
                             value: snapshot.data.talkCheck,
                             onChanged: (bool newValue) {
@@ -689,8 +597,11 @@ class _EyeTestState extends State<EyeTest> {
                                 return null;
                               }
                             }),
-                      ],
+                      ),
                     ),
+                    SizedBox(
+                      height: 70.0,
+                    )
                   ],
                 ),
               ),
@@ -701,7 +612,17 @@ class _EyeTestState extends State<EyeTest> {
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.done),
         onPressed: () {
-          updateDetails(lightCheck,faceCheck,turnCheck,theneyesCheck,lookingCheck,touchCheck,squintCheck,ringCheck,askCheck,talkCheck);
+          updateDetails(
+              lightCheck,
+              faceCheck,
+              turnCheck,
+              theneyesCheck,
+              lookingCheck,
+              touchCheck,
+              squintCheck,
+              ringCheck,
+              askCheck,
+              talkCheck);
         },
       ),
     );
@@ -721,29 +642,34 @@ class _EyeTestState extends State<EyeTest> {
 //     }
 //   }
 //}
-  updateDetails(bool lightCheck,
-  bool faceCheck,
-  bool turnCheck,
-  bool theneyesCheck,
-  bool lookingCheck,
-  bool touchCheck,
-  bool squintCheck,
-  bool ringCheck,
-  bool askCheck,
-  bool talkCheck) async {
+  updateDetails(
+      bool lightCheck,
+      bool faceCheck,
+      bool turnCheck,
+      bool theneyesCheck,
+      bool lookingCheck,
+      bool touchCheck,
+      bool squintCheck,
+      bool ringCheck,
+      bool askCheck,
+      bool talkCheck) async {
     //Map query = {'baby_id' : 'A0000101'};
     Map data = {
       'baby_id': 'A0000101',
-      'does_child_eyes_toward_the_light' : lightCheck.toString(),
+      'does_child_eyes_toward_the_light': lightCheck.toString(),
       'does_the_child_look_good_on_your_face': faceCheck.toString(),
-      'when_you_turn_your_face_to_the_side_do_you_see_the_child_smiling_in_response' : turnCheck.toString(),
-      'then_the_baby_eyes_move' : theneyesCheck.toString(),
-      'does_the_child_look_arround' : lookingCheck.toString(),
-      'is_child_streching_out_his_hand_and_trying_to_touch_something': touchCheck.toString(),
-      'do_you_suspect_that_your_child_has_a_problem' : squintCheck.toString(),
-      'is_it_possible_for_a_child_to_pickup_small_things_with_a_thumb_and_forefinger' : ringCheck.toString(),
-      'if_the_person_identifies_them_the_child_will_recognize_them_before_they_call_them' : talkCheck.toString(),
-      'have_your_child_strech_out_his_hand_and_touch_them' : askCheck.toString()
+      'when_you_turn_your_face_to_the_side_do_you_see_the_child_smiling_in_response':
+          turnCheck.toString(),
+      'then_the_baby_eyes_move': theneyesCheck.toString(),
+      'does_the_child_look_arround': lookingCheck.toString(),
+      'is_child_streching_out_his_hand_and_trying_to_touch_something':
+          touchCheck.toString(),
+      'do_you_suspect_that_your_child_has_a_problem': squintCheck.toString(),
+      'is_it_possible_for_a_child_to_pickup_small_things_with_a_thumb_and_forefinger':
+          ringCheck.toString(),
+      'if_the_person_identifies_them_the_child_will_recognize_them_before_they_call_them':
+          talkCheck.toString(),
+      'have_your_child_strech_out_his_hand_and_touch_them': askCheck.toString()
     };
     //Map data = {'does_the_child_look_good_on_your_face': face.toString()};
     print('***face***');
