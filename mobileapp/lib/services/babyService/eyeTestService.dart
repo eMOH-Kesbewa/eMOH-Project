@@ -69,10 +69,11 @@ class Baby {
       turnCheck: json["when_you_turn_your_face_to_the_side_do_you_see_the_child_smiling_in_response"],
       theneyesCheck: json["then_the_baby_eyes_move"],
       lookingCheck: json["does_the_child_look_arround"],
-      askCheck: json["is_child_streching_out_his_hand_and_tryimg_to_touch_something"],
+      touchCheck: json["is_child_streching_out_his_hand_and_trying_to_touch_something"],
       squintCheck: json["do_you_suspect_that_your_child_has_a_problem"],
       ringCheck: json["is_it_possible_for_a_child_to_pickup_small_things_with_a_thumb_and_forefinger"],
       talkCheck: json["if_the_person_identifies_them_the_child_will_recognize_them_before_they_call_them"],
+      askCheck: json["have_your_child_strech_out_his_hand_and_touch_them"],
       // childrenCount:
       //     json["total_Number_of_children_alive_including_this_child"].toString(),
     );
