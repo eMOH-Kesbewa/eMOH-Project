@@ -14,11 +14,9 @@ Future<Baby> fetchBaby() async {
   print('status code');
   print(response.statusCode);
   print(globals.babyId);
+  print(response.body);
   // final json = jsonDecode(response.body);
   if (response.statusCode == 200) {
-    // If the call to the server was successful, parse the JSON.
-    //return (json.decode(response.body));
-    //print(Baby.fromJson(json.decode(response.body)));
 
     return Baby.fromJson(json.decode(response.body)[0]);
   } else {
@@ -33,13 +31,6 @@ class Baby {
   String bigSoundOcc, bigSoundCon, bigSoundOf;
   String ohhOcc, ohhCon, ohhOf;
   String smileOcc, smileCon, smileOf;
-
-  // String layingFaceDown2Occ, layingFaceDown2Con, layingFaceDown2Of;
-  // String ownHandOcc, ownHandCon, ownHandOf;
-  // String pointOcc, pointCon, pointOf; ///
-  // String grabOcc, grabCon, grabOf;
-  // String turnHeadOcc, turnHeadCon, turnHeadOf;
-  // String daaOcc, daaCon, daaOf;
 
   String raiseHeadOcc, raiseHeadCon, raiseHeadOf;
   String playFingersOcc, playFingersCon, playFingersOf;
@@ -95,26 +86,7 @@ class Baby {
       this.smileOcc,
       this.smileOf,
       ////
-      // this.layingFaceDown2Con,
-      // this.layingFaceDown2Occ,
-      // this.layingFaceDown2Of,
-      // this.ownHandCon,
-      // this.ownHandOcc,
-      // this.ownHandOf,
-      // this.pointCon,
-      // this.pointOcc,
-      // this.pointOf,
-      // this.turnHeadCon,
-      // this.turnHeadOcc,
-      // this.turnHeadOf,
-      // this.grabCon,
-      // this.grabOcc,
-      // this.grabOf,
-      // this.daaCon,
-      // this.daaOcc,
-      // this.daaOf,
-
-      ///
+     
       this.raiseHeadCon,
       this.raiseHeadOcc,
       this.raiseHeadOf,
@@ -221,44 +193,37 @@ class Baby {
 
   factory Baby.fromJson(Map<String, dynamic> json) {
     return Baby(
-        // // idNumber: json['Identity_number'],
-        // vilID: json['village_id'],
-        // wifeName: json['Name_of_wife'],
-        // husbandName: json['Name_of_husband'],
-        // childrenCount: json['Number_of_living_childern']
-
-        //switchVal: json["baby_id"],
 
         layingFaceDownOcc:
             json['lie_on_his_hips_and_head_up_age_at_the_time_of_occurence'],
         layingFaceDownCon:
             json['lie_on_his_hips_and_head_up_age_at_the_confirmed'],
         layingFaceDownOf:
-            json['lie_on_his_hips_and_head_up_age_at_the_officer'],
+            json['lie_on_his_hips_and_head_up_status_of_the_officer'], //lie_on_his_hips_and_head_up_status_of_the_officer
         movingObjectOcc: json[
             'something_keeps_moving_from_one_place_to_another_age_at_the_time_of_occurence'],
         movingObjectCon: json[
             'something_keeps_moving_from_one_place_to_another_age_at_the_time_of_confrimed'],
         movingObjectOf: json[
-            'something_keeps_moving_from_one_place_to_another_age_at_the_time_of_officer'],
+            'something_keeps_moving_from_one_place_to_another_status_of_the_time_of_officer'],
         bigSoundOcc: json[
             'stopping_or_increasing_action_responds_to_a_sudden_loud_noise_age_at_the_time_of_occurence'],
         bigSoundCon: json[
             'stopping_or_increasing_action_responds_to_a_sudden_loud_noise_age_at_the_time_of_confrimed'],
         bigSoundOf: json[
-            'stopping_or_increasing_action_responds_to_a_sudden_loud_noise_age_at_the_time_of_officer'],
+            'stopping_or_increasing_action_responds_to_a_sudden_loud_noise_status_of_the_time_of_officer'],
         ohhOcc: json[
             'sounds_like_a_e_in_response_to_stimulus_age_at_the_time_of_occurence'],
         ohhCon: json[
             'sounds_like_a_e_in_response_to_stimulus_age_at_the_time_of_confrimed'],
         ohhOf: json[
-            'sounds_like_a_e_in_response_to_stimulus_age_at_the_time_of_officer'],
+            'sounds_like_a_e_in_response_to_stimulus_status_of_the_time_of_officer'],
         smileOcc: json[
             'the_mother_recognize_and_smiles_age_at_the_time_of_occurence'],
         smileCon: json[
             'the_mother_recognize_and_smiles_age_at_the_time_of_confrimed'],
         smileOf:
-            json['the_mother_recognize_and_smiles_age_at_the_time_of_officer'],
+            json['the_mother_recognize_and_smiles_status_of_the_time_of_officer'],
 
 
         raiseHeadOcc: json[
@@ -266,55 +231,104 @@ class Baby {
         raiseHeadCon: json[
             'raise_the_head_chest_while_standing_up_age_at_the_time_of_confrimed'],
         raiseHeadOf: json[
-            'raise_the_head_chest_while_standing_up_age_at_the_time_of_officer'],
+            'raise_the_head_chest_while_standing_up_status_of_the_time_of_officer'],
         playFingersOcc: json['they_play_when_crossing_fingers_age_at_the_time_of_occurence'],
         playFingersCon: json['they_play_when_crossing_fingers_age_at_the_time_of_confrimed'],
-        playFingersOf: json['they_play_when_crossing_fingers_age_at_the_time_of_officer'],
+        playFingersOf: json['they_play_when_crossing_fingers_status_of_the_time_of_officer'],
 
         strechHandOcc: json['streching_his_hands_toward_something_he_hold_it_with_his_whole_hand_age_at_the_time_of_occurence'],
         strechHandCon: json['streching_his_hands_toward_something_he_hold_it_with_his_whole_hand_age_at_the_time_of_confrimed'],
-        strechHandOf: json['streching_his_hands_toward_something_he_hold_it_with_his_whole_hand_age_at_the_time_of_officer'],
+        strechHandOf: json['streching_his_hands_toward_something_he_hold_it_with_his_whole_hand_status_of_the_time_of_officer'],
         soundTurnOcc: json['when_heard_a_sound_he_turn_his_head_toward_that_age_at_the_time_of_occurence'],
         soundTurnCon: json['when_heard_a_sound_he_turn_his_head_toward_that_age_at_the_time_of_confrimed'],
-        soundTurnOf: json['when_heard_a_sound_he_turn_his_head_toward_that_age_at_the_time_of_officer'],
+        soundTurnOf: json['when_heard_a_sound_he_turn_his_head_toward_that_status_of_the_time_of_officer'],
         singleLetterSoundOcc: json['emits_single_letter_sounds_age_at_the_time_of_occurence'],
         singleLetterSoundCon: json['emits_single_letter_sounds_age_at_the_time_of_confrimed'],
-        singleLetterSoundOf: json['emits_single_letter_sounds_age_at_the_time_of_officer'],
+        singleLetterSoundOf: json['emits_single_letter_sounds_status_of_the_time_of_officer'],
         laughtLoudOcc: json['smiles_loudely_age_at_the_time_of_occurence'],
         laughtLoudCon: json['smiles_loudely_age_at_the_time_of_confrimed'],
-        laughtLoudOf: json['smiles_loudely_age_at_the_time_of_officer'],
+        laughtLoudOf: json['smiles_loudely_status_of_the_time_of_officer'],
 
         raiseHead2Occ: json['lie_your_hips_and_head_up_age_at_the_time_of_occurence'],
         raiseHead2Con: json['lie_your_hips_and_head_up_age_at_the_time_of_confrimed'],
-        raiseHead2Of: json['lie_your_hips_and_head_up_age_at_the_time_of_officer'],
+        raiseHead2Of: json['lie_your_hips_and_head_up_status_of_the_time_of_officer'],
         turnFaceUpDownOcc: json['turn_back_again_and_again_age_at_the_time_of_occurence'],
         turnFaceUpDownCon: json['turn_back_again_and_again_age_at_the_time_of_confrimed'],
-        turnFaceUpDownOf: json['turn_back_again_and_again_age_at_the_time_of_officer'],
+        turnFaceUpDownOf: json['turn_back_again_and_again_status_of_the_time_of_officer'],
         swithObjectsOcc: json['change_something_another_hand_to_other_hand_age_at_the_time_of_occurence'],
         swithObjectCon: json['change_something_another_hand_to_other_hand_age_at_the_time_of_confrimed'],
-        swithObjectOf: json['change_something_another_hand_to_other_hand_age_at_the_time_of_officer'],
+        swithObjectOf: json['change_something_another_hand_to_other_hand_status_of_the_time_of_officer'],
         makeSoundOcc: json['some_sounds_are_repeated_age_at_the_time_of_occurence'],
         makeSoundCon: json['some_sounds_are_repeated_age_at_the_time_of_confrimed'],
-        makeSoundOf: json['some_sounds_are_repeated_age_at_the_time_of_officer'],
+        makeSoundOf: json['some_sounds_are_repeated_status_of_the_time_of_officer'],
 
         sittingOcc: json['siting_without_help_age_at_the_time_of_occurence'],
         sittingCon: json['siting_without_help_age_at_the_time_of_confrimed'],
-        sittingOf: json['siting_without_help_age_at_the_time_of_officer'],
+        sittingOf: json['siting_without_help_status_of_the_time_of_officer'],
         holdingHimSelfOcc: json['holding_himself_alone_age_at_the_time_of_occurence'],
         holdingHimSelfCon: json['holding_himself_alone_age_at_the_time_of_confrimed'],
-        holdingHimSelfOf: json['holding_himself_alone_age_at_the_time_of_officer'],
+        holdingHimSelfOf: json['holding_himself_alone_status_of_the_time_of_officer'],
         thumbForeOcc: json['holding_small_things_using_thumb_And_forefinger_age_at_the_time_of_occurence'],
         thumbForeCon: json['holding_small_things_using_thumb_And_forefinger_age_at_the_time_of_confrimed'],
-        thumbForeOf: json['holding_small_things_using_thumb_And_forefinger_age_at_the_time_of_officer'],
+        thumbForeOf: json['holding_small_things_using_thumb_And_forefinger_status_of_the_time_of_officer'],
         followingVoiceOcc: json['following_voice_age_at_the_time_of_occurence'],
         followingVoiceCon: json['following_voice_age_at_the_time_of_confrimed'],
-        followingVoiceOf: json['following_voice_age_at_the_time_of_officer'],
+        followingVoiceOf: json['following_voice_status_of_the_time_of_officer'],
         proWordsOcc: json['pronounce_individual_words_makes_sounds_that_make_sense_age_at_the_time_of_occurence'],
         proWordsCon: json['pronounce_individual_words_makes_sounds_that_make_sense_age_at_the_time_of_confrimed'],
-        proWordsOf: json['pronounce_individual_words_makes_sounds_that_make_sense_age_at_the_time_of_officer'],
+        proWordsOf: json['pronounce_individual_words_makes_sounds_that_make_sense_status_of_the_time_of_officer'],
         understandOcc: json['understand_simple_instructions_age_at_the_time_of_occurence'],
         understandCon: json['understand_simple_instructions_age_at_the_time_of_confrimed'],
-        understandOf: json['understand_simple_instructions_age_at_the_time_of_officer']
+        understandOf: json['understand_simple_instructions_status_of_the_time_of_officer'],
+
+        walkingWithHelpOcc: json['walking_with_help_age_at_the_time_of_occurence'],
+        walkingWithHelpCon: json['walking_with_help_age_at_the_time_of_confrimed'],
+        walkingWithHelpOf: json['walking_with_help_status_of_the_time_of_officer'],
+        canSpeakOcc: json['they_can_speak_At_least_two_or_three_words_age_at_the_time_of_occurence'],
+        canSpeakCon: json['they_can_speak_of_least_two_or_three_words_age_at_the_time_of_confrimed'],
+        canSpeakOf: json['they_can_speak_At_least_two_or_three_words_status_of_the_time_of_officer'],
+        handPointOcc: json['hand_is_pointed_out_when_hearing_familiar_things_age_at_the_time_of_occurence'],
+        handPointCon: json['hand_is_pointed_out_when_hearing_familiar_things_age_at_the_time_of_confrimed'],
+        handPointOf: json['hand_is_pointed_out_when_hearing_familiar_things_status_of_the_time_of_officer'],
+        canRollOcc: json['they_can_roll_a_boll_age_at_the_time_of_occurence'],
+        canRollCon: json['they_can_roll_a_boll_age_at_the_time_of_confrimed'],
+        canRollOf: json['they_can_roll_a_boll_status_of_the_time_of_officer'],
+        canIdentifyOcc: json['can_identify_at_least_one_body_part_age_at_the_time_of_occurence'],
+        canIdentifyCon: json['can_identify_at_least_one_body_part_age_at_the_time_of_confrimed'],
+        canIdentifyOf: json['can_identify_at_least_one_body_part_status_of_the_time_of_officer'],
+
+        walkingWithoutHelpOcc: json['walking_without_help_age_at_the_time_of_occurence'],
+        walkingWithoutHelpCon: json['walking_without_help_age_at_the_time_of_confrimed'],
+        walkingWithoutHelpOf: json['walking_without_help_status_of_the_time_of_officer'],
+        canClimbOcc: json['can_climb_the_stair_with_help_age_at_the_time_of_occurence'],
+        canClimbCon: json['can_climb_the_stair_with_help_age_at_the_time_of_confrimed'],
+        canClimbOf: json['can_climb_the_stair_with_help_status_of_the_time_of_officer'],
+        makeTowerOcc: json['can_make_a_tower_using_building_blocks_age_at_the_time_of_occurenc'],
+        makeTowerCon: json['can_make_a_tower_using_building_blocks_age_at_the_time_of_confrimed'],
+        makeTowerOf: json['can_make_a_tower_using_building_blocks_status_of_the_time_of_officer'],
+        eatHimselfOcc: json['eat_himself_alone_age_at_the_time_of_occurence'],
+        eatHimselfCon: json['eat_himself_alone_age_at_the_time_of_confrimed'],
+        eatHimselfOf: json['eat_himself_alone_status_of_the_time_of_officer'],
+        canTalkTenOcc: json['can_talk_about_ten_words_can_talk_at_least_one_sentence_with_two_words_age_at_the_time_of_occurence'],
+        canTalkTenCon: json['can_talk_about_ten_words_can_talk_at_least_one_sentence_with_two_words_age_at_the_time_of_confrimed'],
+        canTalkTenOf: json['can_talk_about_ten_words_can_talk_at_least_one_sentence_with_two_words_status_of_the_time_of_officer'],
+        lipsShapeOcc: json['the_lips_are_sharpened_to_kiss_age_at_the_time_of_occurence'],
+        lipsShapCon: json['the_lips_are_sharpened_to_kiss_age_at_the_time_of_confrimed'],
+        lipsShapOf: json['the_lips_are_sharpened_to_kiss_status_of_the_time_of_officer'],
+
+        runWithoutFallingOcc: json['ability_to_run_without_falling_age_at_the_time_of_occurence'],
+        runWithoutFallingCon: json['ability_to_run_without_falling_age_at_the_time_of_confrimed'],
+        runWithoutFallingOf: json['ability_to_run_without_falling_status_of_the_time_of_officer'],
+        upDownStairOcc: json['ability_to_down_and_up_stair_age_at_the_time_of_occurence'],
+        upDownStairCon: json['ability_to_down_and_up_stair_age_at_the_time_of_confrimed'],
+        upDownStairOf: json['ability_to_down_and_up_stair_status_of_the_time_of_officer'],
+        canCopyOcc: json['can_copy_an_art_with_a_circle_age_at_the_time_of_occurence'],
+        canCopyCon: json['can_copy_an_art_with_a_circle_age_at_the_time_of_confrimed'],
+        canCopyOf: json['can_copy_an_art_with_a_circle_status_of_the_time_of_officer'],
+        canCreateOcc: json['can_create_a_sentence_with_three_or_more_words_age_at_the_time_of_occurence'],
+        canCreateCon: json['can_create_a_sentence_with_three_or_more_words_age_at_the_time_of_confrimed'],
+        canCreateOf: json['can_create_a_sentence_with_three_or_more_words_status_of_the_time_of_officer'],
+
 
 
         

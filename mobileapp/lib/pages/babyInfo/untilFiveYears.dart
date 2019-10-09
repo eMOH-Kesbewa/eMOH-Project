@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mobileapp/services/babyService/eyeTestService.dart';
+import 'package:mobileapp/services/babyService/childGrowthService.dart';
 
 class UntilFive extends StatefulWidget {
   @override
@@ -7,6 +7,7 @@ class UntilFive extends StatefulWidget {
 }
 
 class _UntilFiveState extends State<UntilFive> {
+  Future<Baby> baby = fetchBaby();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -14,8 +15,8 @@ class _UntilFiveState extends State<UntilFive> {
         title: Text('Growth of Child Until Five Years From Birth'),
       ),
       body: SingleChildScrollView(
-        child: FutureBuilder(
-            future: fetchBaby(),
+        child: FutureBuilder<Baby>(
+            future: baby,
             builder: (context, snapshot) {
               if (snapshot.connectionState == ConnectionState.waiting)
                 return Center(child: CircularProgressIndicator());
@@ -64,7 +65,7 @@ class _UntilFiveState extends State<UntilFive> {
                                     'Occured Age (Months)',
                                     style: TextStyle(fontSize: 15.0),
                                   ),
-                                  trailing: Text('http'),
+                                  trailing: Text(snapshot.data.layingFaceDownOcc.toString()),
                                 ),
                                 SizedBox(
                                   height: 20.0,
@@ -75,7 +76,7 @@ class _UntilFiveState extends State<UntilFive> {
                                     'Confrimed Age (Months)',
                                     style: TextStyle(fontSize: 15.0),
                                   ),
-                                  trailing: Text('http'),
+                                  trailing: Text(snapshot.data.layingFaceDownCon.toString()),
                                 ),
                                 SizedBox(
                                   height: 20.0,
@@ -86,12 +87,69 @@ class _UntilFiveState extends State<UntilFive> {
                                     'Designation of the officer who confrimed',
                                     style: TextStyle(fontSize: 15.0),
                                   ),
-                                  trailing: Text('http'),
+                                  trailing: Text(snapshot.data.layingFaceDownOf.toString()),
                                 ),
                               ],
                             ),
                           ),
-                        )
+                        ),
+                        Card(
+                        child: Padding(
+                          padding: EdgeInsets.all(8.0),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.stretch,
+                            children: <Widget>[
+                              Text(
+                                'While lying face downwards raise the head',
+                                style: TextStyle(
+                                    fontSize: 15.0,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                              SizedBox(
+                                height: 20.0,
+                              ),
+                              ListTile(
+                                leading: Icon(Icons.dashboard,
+                                    color: Color(0xff468c98)),
+                                title: Text(
+                                  'Occured Age (Months)',
+                                  style: TextStyle(fontSize: 15.0),
+                                ),
+                                trailing: Text(
+                                    snapshot.data.movingObjectOcc),
+                              ),
+                              SizedBox(
+                                height: 20.0,
+                              ),
+                              ListTile(
+                                leading: Icon(Icons.dashboard,
+                                    color: Color(0xff468c98)),
+                                title: Text(
+                                  'Confrimed Age (Months)',
+                                  style: TextStyle(fontSize: 15.0),
+                                ),
+                                trailing: Text(
+                                    snapshot.data.layingFaceDownCon.toString()),
+                              ),
+                              SizedBox(
+                                height: 20.0,
+                              ),
+                              ListTile(
+                                leading: Icon(
+                                  Icons.dashboard,
+                                  color: Color(0xff468c98),
+                                ),
+                                title: Text(
+                                  'Designation of the officer who confrimed',
+                                  style: TextStyle(fontSize: 15.0),
+                                ),
+                                trailing: Text(
+                                    snapshot.data.layingFaceDownOf.toString()),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
                         /*  Table(
                           defaultColumnWidth: IntrinsicColumnWidth(),
                           border: TableBorder.all(width: 1.0, color: Colors.black),
