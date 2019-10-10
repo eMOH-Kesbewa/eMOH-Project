@@ -16,4 +16,10 @@ export class MotherbabyjoinedService {
     console.log(userData);
     return this.http.put<motherbabyjoined>(_url , userData);
    }
+
+  getMotherBabyJoinedData():Observable<motherbabyjoined>{
+    let uri = "http://localhost:3000/mothers/view";
+    return this.http.get<motherbabyjoined>(uri);
+  }
+
 }

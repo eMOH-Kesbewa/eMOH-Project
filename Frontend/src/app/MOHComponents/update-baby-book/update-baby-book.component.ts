@@ -258,7 +258,7 @@ export class UpdateBabyBookComponent implements OnInit {
       //9th page
       date_of_refferals: [''],
       reason_for_referrals: [''],
-      place_of_refferal: [''],
+      place_for_referrals: [''],
       notes_on_back: [''],
       //vitamine
       A_vitamine_six_month_date:[''],
@@ -700,6 +700,8 @@ export class UpdateBabyBookComponent implements OnInit {
  
       
     });
+
+    this.BabyForm.valueChanges.subscribe(console.log);
   }
 
   onSubmit() {
