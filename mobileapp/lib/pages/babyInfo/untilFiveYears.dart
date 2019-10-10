@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mobileapp/services/babyService/childGrowthService.dart';
+import 'package:toast/toast.dart';
 
 class UntilFive extends StatefulWidget {
   @override
@@ -8,8 +9,36 @@ class UntilFive extends StatefulWidget {
 
 class _UntilFiveState extends State<UntilFive> {
   Future<Baby> baby = fetchBaby();
+  String _value = 'Select';
+  String dropdownValue = 'Select';
+  String layingFaceDownOcc;
   @override
   Widget build(BuildContext context) {
+    final selectMonth = DropdownButton<String>(
+      value: dropdownValue,
+      icon: Icon(Icons.arrow_downward),
+      iconSize: 24,
+      elevation: 16,
+      style: TextStyle(color: Colors.deepPurple),
+      underline: Container(
+        height: 2,
+        color: Colors.deepPurpleAccent,
+      ),
+      onChanged: (String newValue) {
+        setState(() {
+          dropdownValue = newValue;
+          layingFaceDownOcc = dropdownValue;
+        });
+      },
+      items: <String>['Select', '1.5', '2', '2.5', '3']
+          .map<DropdownMenuItem<String>>((String value) {
+        return DropdownMenuItem<String>(
+          value: value,
+          child: Text(value),
+        );
+      }).toList(),
+    );
+
     return Scaffold(
       appBar: AppBar(
         title: Text('Growth of Child Until Five Years From Birth'),
@@ -43,7 +72,6 @@ class _UntilFiveState extends State<UntilFive> {
                         SizedBox(
                           height: 0.0,
                         ),
-
                         Card(
                           child: Padding(
                             padding: EdgeInsets.all(8.0),
@@ -60,184 +88,65 @@ class _UntilFiveState extends State<UntilFive> {
                                   height: 20.0,
                                 ),
                                 ListTile(
-                                  leading: Icon(Icons.dashboard,color: Color(0xff468c98)),
+                                  leading: Icon(Icons.dashboard,
+                                      color: Color(0xff468c98)),
                                   title: Text(
                                     'Occured Age (Months)',
                                     style: TextStyle(fontSize: 15.0),
                                   ),
-                                  trailing: Text(snapshot.data.layingFaceDownOcc.toString()),
+                                  trailing:
+                                      selectMonth, //Text(snapshot.data.layingFaceDownOcc.toString()),
                                 ),
                                 SizedBox(
                                   height: 20.0,
                                 ),
                                 ListTile(
-                                  leading: Icon(Icons.dashboard,color: Color(0xff468c98)),
+                                  leading: Icon(Icons.dashboard,
+                                      color: Color(0xff468c98)),
                                   title: Text(
                                     'Confrimed Age (Months)',
                                     style: TextStyle(fontSize: 15.0),
                                   ),
-                                  trailing: Text(snapshot.data.layingFaceDownCon.toString()),
+                                  trailing: Text(snapshot.data.layingFaceDownCon
+                                      .toString()),
                                 ),
                                 SizedBox(
                                   height: 20.0,
                                 ),
                                 ListTile(
-                                  leading: Icon(Icons.dashboard,color: Color(0xff468c98),),
+                                  leading: Icon(
+                                    Icons.dashboard,
+                                    color: Color(0xff468c98),
+                                  ),
                                   title: Text(
                                     'Designation of the officer who confrimed',
                                     style: TextStyle(fontSize: 15.0),
                                   ),
-                                  trailing: Text(snapshot.data.layingFaceDownOf.toString()),
+                                  trailing: Text(snapshot.data.layingFaceDownOf
+                                      .toString()),
                                 ),
                               ],
                             ),
                           ),
                         ),
-                        Card(
-                        child: Padding(
-                          padding: EdgeInsets.all(8.0),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.stretch,
-                            children: <Widget>[
-                              Text(
-                                'While lying face downwards raise the head',
-                                style: TextStyle(
-                                    fontSize: 15.0,
-                                    fontWeight: FontWeight.bold),
-                              ),
-                              SizedBox(
-                                height: 20.0,
-                              ),
-                              ListTile(
-                                leading: Icon(Icons.dashboard,
-                                    color: Color(0xff468c98)),
-                                title: Text(
-                                  'Occured Age (Months)',
-                                  style: TextStyle(fontSize: 15.0),
-                                ),
-                                trailing: Text(
-                                    snapshot.data.movingObjectOcc),
-                              ),
-                              SizedBox(
-                                height: 20.0,
-                              ),
-                              ListTile(
-                                leading: Icon(Icons.dashboard,
-                                    color: Color(0xff468c98)),
-                                title: Text(
-                                  'Confrimed Age (Months)',
-                                  style: TextStyle(fontSize: 15.0),
-                                ),
-                                trailing: Text(
-                                    snapshot.data.layingFaceDownCon.toString()),
-                              ),
-                              SizedBox(
-                                height: 20.0,
-                              ),
-                              ListTile(
-                                leading: Icon(
-                                  Icons.dashboard,
-                                  color: Color(0xff468c98),
-                                ),
-                                title: Text(
-                                  'Designation of the officer who confrimed',
-                                  style: TextStyle(fontSize: 15.0),
-                                ),
-                                trailing: Text(
-                                    snapshot.data.layingFaceDownOf.toString()),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                        /*  Table(
-                          defaultColumnWidth: IntrinsicColumnWidth(),
-                          border: TableBorder.all(width: 1.0, color: Colors.black),
-                          //defaultColumnWidth: FractionColumnWidth(0.25),
-                          children:[
-                            TableRow(children: [
-                              TableCell(
-                                
-                                child: Padding(
-                                  padding: EdgeInsets.all(8.0),
-                                  child: Text('Age')),
-                              ),
-                              Container(
-                                width: ,
-                              )
-                              TableCell(
-                                child: Padding(
-                                  padding: EdgeInsets.all(8.0),
-                                  child: Text('Occured Age (Months)')),
-                              ),
-                              TableCell(
-                                child: Padding(
-                                  padding: EdgeInsets.all(8.0),
-                                  child: Text('Confrimed Age (Months')),
-                              ),
-                              TableCell(
-                                child: Padding(
-                                  padding: EdgeInsets.all(8.0),
-                                  child: Text('Designation of the officer who confrimed')),
-                              ),
-                            ]),
-                             TableRow(children: [
-                              TableCell(
-                              
-                                child: Padding(
-                                  padding: EdgeInsets.all(8.0),
-                                  child: Text('Ageeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee')),
-                              ),
-                              TableCell(
-                                child: Padding(
-                                  padding: EdgeInsets.all(8.0),
-                                  child: Text('Age When Happening')),
-                              ),
-                              TableCell(
-                                child: Padding(
-                                  padding: EdgeInsets.all(8.0),
-                                  child: Text('Age When Confrim')),
-                              ),
-                              TableCell(
-                                child: Padding(
-                                  padding: EdgeInsets.all(8.0),
-                                  child: Text('Confrimed Officer')),
-                              ),
-                            ]),
-                          ] 
-                        )*/
-                        // Card(
-                        //   child: InkWell(
-                        //     splashColor: Colors.blue.withAlpha(30),
-                        //     onTap: () {
-                        //       print('Card tapped.');
-                        //     },
-                        //     child: Container(
-                        //       width: MediaQuery.of(context).size.width,
-                        //       height: 100,
-                        //       child: Column(
-                        //         children: <Widget>[
-                        //           Text(
-                        //             'Lie on His Hips and Head Up Ageat The Time of Occurence',
-                        //             overflow: TextOverflow.ellipsis,
-                        //             maxLines: 3,
-                        //           ),
-                        //           Row(
-                        //             children: <Widget>[
-                        //               Text('dssa')
-                        //             ],
-                        //           )
-                        //         ],
-                        //       ),
-                        //     ),
-                        //   ),
-                        // ),
                       ],
                     ),
                   ),
                 );
               }
             }),
+      ),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.done),
+        onPressed: () {
+          updateDetails(layingFaceDownOcc).then((res) {
+            Toast.show("Done", context,
+                duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
+          }).catchError((e) {
+            Toast.show("An Error Has Occured", context,
+                duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
+          });
+        },
       ),
     );
   }

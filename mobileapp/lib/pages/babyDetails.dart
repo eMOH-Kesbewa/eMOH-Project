@@ -6,9 +6,7 @@ import 'package:mobileapp/pages/babyInfo/eyeTest.dart';
 import 'package:mobileapp/pages/babyInfo/hearTest.dart';
 import 'package:mobileapp/pages/babyInfo/untilFiveYears.dart';
 import 'package:mobileapp/pages/bottomNavigation.dart';
-import 'package:mobileapp/pages/familyProfile.dart';
-import 'package:mobileapp/pages/motherDetails.dart';
-//import 'package:mobileapp/pages/untilFiveYears.dart';
+
 import '../services/globals.dart' as globals;
 
 class BabyDetails extends StatefulWidget {
