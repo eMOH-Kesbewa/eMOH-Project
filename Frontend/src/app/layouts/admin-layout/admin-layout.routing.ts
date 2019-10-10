@@ -90,10 +90,10 @@ export const AdminLayoutRoutes: Routes = [
                 path: 'AddMother/:familyId',
                 component: AddMotherComponent
             },
-            {
-                path: "AddPregnancyForm",
-                component:PregnancyFormComponent
-            }
+            // {
+            //     path: "AddPregnancyForm",
+            //     component:PregnancyFormComponent
+            // }
 
 
         ]
@@ -144,7 +144,12 @@ export const AdminLayoutRoutes: Routes = [
             {
                 path: 'addMother',
                 component: AddMotherComponent
+            },
+            {
+                path: "AddPregnancyForm",
+                component:PregnancyFormComponent
             }
+            
 
 
         ]
