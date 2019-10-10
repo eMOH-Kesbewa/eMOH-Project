@@ -28,6 +28,8 @@ dependencies:
   cupertino_icons: ^0.1.2
   material_design_icons_flutter: 3.2.4495
   flutter_icons: ^0.3.1
+  font_awesome_flutter: ^8.5.0
+  logger: ^0.7.0+2
   
 
 dev_dependencies:
