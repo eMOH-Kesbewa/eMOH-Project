@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 import 'package:mobileapp/services/babyService/childGrowthService.dart';
+import 'package:mobileapp/widgets/growthCard.dart';
 import 'package:toast/toast.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:mobileapp/services/style.dart';
+import 'package:mobileapp/services/globals.dart' as globals;
 
 import 'package:logger/logger.dart';
 
@@ -580,6 +582,14 @@ class _UntilFiveState extends State<UntilFive> {
                   canCreateVis = false;
                 }
 
+                // layingFaceDownAct(String newvalue) {
+                //   setState(() {
+                //     dropdownValue = newvalue;
+                //     layingFaceDownOcc = dropdownValue;
+
+                //     // widget.layingFaceDownOcc = dropdownAgeue;
+                //   });
+                // };
                 //String dropdownValue = snapshot.data.layingFaceDownOcc.toString();
 
                 return SingleChildScrollView(
@@ -604,67 +614,73 @@ class _UntilFiveState extends State<UntilFive> {
                         SizedBox(
                           height: 0.0,
                         ),
-                        Card(
-                          child: Padding(
-                            padding: EdgeInsets.all(8.0),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.stretch,
-                              children: <Widget>[
-                                Text(
-                                  'While lying face downwards raise the head',
-                                  style: TextStyle(
-                                      fontSize: 15.0,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                                SizedBox(
-                                  height: 20.0,
-                                ),
-                                ListTile(
-                                    leading: growBulletIcon,
-                                    title: Text(
-                                      'Occured Age (Months)',
-                                      style: TextStyle(fontSize: 15.0),
-                                    ),
-                                    trailing: Text(layingFaceDownOcc
-                                        .toString()) //Text(snapshot.data.layingFaceDownOcc.toString()),
-                                    ),
-                                SizedBox(
-                                  height: 10.0,
-                                ),
-                                Visibility(
-                                  child: Center(
-                                    child: selectMonth,
-                                  ),
-                                  visible: layingFaceDownVis,
-                                ),
-                                SizedBox(
-                                  height: 10.0,
-                                ),
-                                ListTile(
-                                  leading: growBulletIcon,
-                                  title: Text(
-                                    'Confrimed Age (Months)',
-                                    style: TextStyle(fontSize: 15.0),
-                                  ),
-                                  trailing: Text(snapshot.data.layingFaceDownCon
-                                      .toString()),
-                                ),
-                                SizedBox(
-                                  height: 20.0,
-                                ),
-                                ListTile(
-                                  leading: growBulletIcon,
-                                  title: Text(
-                                    'Designation of the officer who confrimed',
-                                    style: TextStyle(fontSize: 15.0),
-                                  ),
-                                  trailing: Text(snapshot.data.layingFaceDownOf
-                                      .toString()),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
+                        growthCard(
+                            'While lying face downwards raise the head',
+                            snapshot.data.layingFaceDownOcc,
+                            snapshot.data.layingFaceDownCon,
+                            snapshot.data.layingFaceDownOf,
+                            layingFaceDownVis),
+                        // Card(
+                        //   child: Padding(
+                        //     padding: EdgeInsets.all(8.0),
+                        //     child: Column(
+                        //       crossAxisAlignment: CrossAxisAlignment.stretch,
+                        //       children: <Widget>[
+                        //         Text(
+                        //           'While lying face downwards raise the head',
+                        //           style: TextStyle(
+                        //               fontSize: 15.0,
+                        //               fontWeight: FontWeight.bold),
+                        //         ),
+                        //         SizedBox(
+                        //           height: 20.0,
+                        //         ),
+                        //         ListTile(
+                        //             leading: growBulletIcon,
+                        //             title: Text(
+                        //               'Occured Age (Months)',
+                        //               style: TextStyle(fontSize: 15.0),
+                        //             ),
+                        //             trailing: Text(layingFaceDownOcc
+                        //                 .toString()) //Text(snapshot.data.layingFaceDownOcc.toString()),
+                        //             ),
+                        //         SizedBox(
+                        //           height: 10.0,
+                        //         ),
+                        //         Visibility(
+                        //           child: Center(
+                        //             child: selectMonth,
+                        //           ),
+                        //           visible: layingFaceDownVis,
+                        //         ),
+                        //         SizedBox(
+                        //           height: 10.0,
+                        //         ),
+                        //         ListTile(
+                        //           leading: growBulletIcon,
+                        //           title: Text(
+                        //             'Confrimed Age (Months)',
+                        //             style: TextStyle(fontSize: 15.0),
+                        //           ),
+                        //           trailing: Text(snapshot.data.layingFaceDownCon
+                        //               .toString()),
+                        //         ),
+                        //         SizedBox(
+                        //           height: 20.0,
+                        //         ),
+                        //         ListTile(
+                        //           leading: growBulletIcon,
+                        //           title: Text(
+                        //             'Designation of the officer who confrimed',
+                        //             style: TextStyle(fontSize: 15.0),
+                        //           ),
+                        //           trailing: Text(snapshot.data.layingFaceDownOf
+                        //               .toString()),
+                        //         ),
+                        //       ],
+                        //     ),
+                        //   ),
+                        // ),
                       ],
                     ),
                   ),
@@ -675,14 +691,7 @@ class _UntilFiveState extends State<UntilFive> {
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.done),
         onPressed: () {
-          setState(() {
-           // layingFaceDownOcc = dropdownValue;
-           logger.wtf("What a terrible failure log");
-           print(layingFaceDownVis);
-            layingFaceDownVis = false;
-            print(layingFaceDownVis);
-          });
-          updateDetails(layingFaceDownOcc).then((res) {
+          updateDetails(globals.layingFaceDownOcc).then((res) {
             Toast.show("Done", context,
                 duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
           }).catchError((e) {
