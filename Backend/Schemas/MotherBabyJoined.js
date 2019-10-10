@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var Mother_baby = new Schema({
     "mother_id": String,
+    "baby_id":String,
     "child_name": String,
     "mothers_name": String,
     "address": String,
@@ -37,7 +38,7 @@ var Mother_baby = new Schema({
     "vitamin_a_mega_dose__at_first_year": Date,
     "vitamin_a_mega_dose__at_one_and_half_yr": Date,
     "vitamin_a_mega_dose__at_year_two": Date,
-    "vitamin_a_mega_dose__at_year_two_and_half": Date,
+    "vitamin_a_mega_dose__at_year_two _and_half": Date,
     "vitamin_a_mega_dose__at_year_three": Date,
     "vitamin_a_mega_dose__at_year_three": Date,
     "vitamin_a_mega_dose__at_year_four": Date,
