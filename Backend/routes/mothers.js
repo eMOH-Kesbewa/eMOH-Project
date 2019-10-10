@@ -134,5 +134,12 @@ router.get('/motherfordoc/viewbyid/:id', (req, res) => {
 
 });
 
+//view mother details
+router.get('/mother/view', (req, res)=>{
+    Mother.find((err, doc) => {
+        res.send(doc)
+    })
+});
+
 
 module.exports = router;

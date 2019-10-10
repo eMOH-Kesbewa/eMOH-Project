@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:mobileapp/pages/babyInfo/babyBasicInfo.dart';
 import 'package:mobileapp/pages/babyInfo/babyprotection.dart';
 import 'package:mobileapp/pages/babyInfo/eyeTest.dart';
+import 'package:mobileapp/pages/babyInfo/hearTest.dart';
 import 'package:mobileapp/pages/bottomNavigation.dart';
 import 'package:mobileapp/pages/familyProfile.dart';
 import 'package:mobileapp/pages/motherDetails.dart';
@@ -144,7 +145,37 @@ class _BabyDetailsState extends State<BabyDetails> {
             context, MaterialPageRoute(builder: (context) => EyeTest())),
       ),
     );
-
+final hearTestBtn = Material(
+      elevation: .0,
+      borderRadius: BorderRadius.circular(0.0),
+      color: Color(0xffb30089),
+      child: MaterialButton(
+        child: Column(
+          children: <Widget>[
+            SizedBox(
+              height: 40.0,
+            ),
+            Icon(
+              Icons.person,
+              color: Colors.white,
+              size: 70.0,
+            ),
+            SizedBox(
+              height: 20.0,
+            ),
+            Text(
+              'Hearing Test',
+              style:
+                  TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
+            ),
+          ],
+        ),
+        //minWidth: MediaQuery.of(context).size.width / 2,
+        //height: MediaQuery.of(context).size.width / 4,
+        onPressed: () => Navigator.push(
+            context, MaterialPageRoute(builder: (context) => HearTest())),
+      ),
+    );
     return Scaffold(
       appBar: AppBar(
         title: Text('Babies'),
@@ -169,11 +200,7 @@ class _BabyDetailsState extends State<BabyDetails> {
                 protectionBtn,
                 eyeTestBtn,
              
-                Container(
-                  padding: const EdgeInsets.all(8),
-                  child: const Text('Who scream'),
-                  color: Colors.green[400],
-                ),
+                hearTestBtn,
                 Container(
                   padding: const EdgeInsets.all(8),
                   child: const Text('Revolution is coming...'),

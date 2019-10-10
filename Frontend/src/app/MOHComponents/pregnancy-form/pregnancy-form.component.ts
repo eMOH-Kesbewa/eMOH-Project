@@ -496,6 +496,7 @@ export class PregnancyFormComponent implements OnInit {
 		day8child_suckling: [''],
     day8child_prebiotics: [''],
     
+    
     others_details:[''],
     mental_health_according_to_edingburo: [''],
 		new_born_baby_bcg: [''],

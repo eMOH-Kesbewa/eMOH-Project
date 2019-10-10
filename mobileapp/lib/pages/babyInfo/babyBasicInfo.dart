@@ -34,7 +34,7 @@ class _BabyBasicInfoState extends State<BabyBasicInfo> {
                       if (snapshot.hasData) {
                         return SingleChildScrollView(
                           child: Column(
-                            children: <Widget>[
+                              children: <Widget>[
                              
                               Card(
                                 child: Column(

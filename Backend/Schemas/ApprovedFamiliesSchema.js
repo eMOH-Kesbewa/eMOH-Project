@@ -13,7 +13,7 @@ var ApprovedFamilies = new Schema({
     "Age_at_the_time_of_marriage": Number,
     "Job_status": String,
     "Education_level": String,
-    "Number_of_living_children": String,
+    "Number_of_living_children": Number,
 
     "Pregnancy_details__Pregnancy__First": String,
     "Pregnancy_details__Pregnancy__Second": String,
