@@ -106,7 +106,7 @@ router.get('/viewbyid/:id', (req, res) => {
 
 //View the motherbabyjoined table by motherID
 router.get('/viewmotherbabyjoinedtable/viewbyid/:id', (req, res) => {
-    motherbabyjoined.find({ mother_id: req.params.id }, (err, doc) => {
+    motherbabyjoined.find({ baby_id: req.params.id }, (err, doc) => {
         if (!err) {
             res.send(doc);
             console.log(doc);

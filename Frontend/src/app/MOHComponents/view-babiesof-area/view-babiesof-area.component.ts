@@ -20,7 +20,8 @@ export class ViewBabiesofAreaComponent implements OnInit {
   }
 
   onClickMe(babyId){
-    console.log(babyId);
-    //this.router.navigate([this.router.url,'ViewFamilesById',familyID])
+    //console.log(babyId);
+    this.router.navigate([this.router.url,'ViewMotherBabybyID',babyId])
   }
+
 }
