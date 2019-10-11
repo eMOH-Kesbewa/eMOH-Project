@@ -31,6 +31,7 @@ import {
   MatTooltipModule,
   MatSelectModule,
   MatRadioModule,
+  MatExpansionModule,
   MatDatepickerModule,MatNativeDateModule
 
 } from '@angular/material';
@@ -57,7 +58,8 @@ import { ViewMothersComponent } from 'app/MOHComponents/view-mothers/view-mother
     MatRadioModule,
     MatDatepickerModule,MatNativeDateModule,
     MatSlideToggleModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatExpansionModule
     
     ],
   declarations: [
