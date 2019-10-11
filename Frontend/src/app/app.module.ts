@@ -30,6 +30,7 @@ import { UpdateBabyBookComponent } from './MOHComponents/update-baby-book/update
 import { ViewFamilybyIdComponent } from './MOHComponents/view-familyby-id/view-familyby-id.component';
 import { AddWeightHeightComponent } from './MOHComponents/add-weight-height/add-weight-height.component';
 import { ViewMothersComponent } from './MOHComponents/view-mothers/view-mothers.component';
+import { PregnancyFormComponent } from './MOHComponents/pregnancy-form/pregnancy-form.component';
 
 @NgModule({
   imports: [
@@ -47,7 +48,8 @@ import { ViewMothersComponent } from './MOHComponents/view-mothers/view-mothers.
   ],
   declarations: [
     AppComponent,
-    AdminLayoutComponent
+    AdminLayoutComponent,
+   
     
    
     

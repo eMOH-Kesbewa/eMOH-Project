@@ -41,7 +41,7 @@ class Baby {
 
   String raiseHead2Occ, raiseHead2Con, raiseHead2Of;
   String turnFaceUpDownOcc, turnFaceUpDownCon, turnFaceUpDownOf;
-  String swithObjectsOcc, swithObjectCon, swithObjectOf;
+  String switchObjectsOcc, switchObjectCon, switchObjectOf;
   String makeSoundOcc, makeSoundCon, makeSoundOf;
 
   String sittingOcc, sittingCon, sittingOf;
@@ -62,7 +62,7 @@ class Baby {
   String makeTowerOcc, makeTowerCon, makeTowerOf;
   String eatHimselfOcc, eatHimselfCon, eatHimselfOf;
   String canTalkTenOcc, canTalkTenCon, canTalkTenOf;
-  String lipsShapeOcc, lipsShapCon, lipsShapOf;
+  String lipsShapeOcc, lipsShapeCon, lipsShapeOf;
 
   String runWithoutFallingOcc, runWithoutFallingCon, runWithoutFallingOf;
   String upDownStairOcc, upDownStairCon, upDownStairOf;
@@ -70,7 +70,8 @@ class Baby {
   String canCreateOcc, canCreateCon, canCreateOf;
 
   Baby(
-      {this.layingFaceDownOcc,
+      {
+      this.layingFaceDownOcc,
       this.layingFaceDownCon,
       this.layingFaceDownOf,
       this.movingObjectCon,
@@ -113,9 +114,9 @@ class Baby {
       this.turnFaceUpDownCon,
       this.turnFaceUpDownOcc,
       this.turnFaceUpDownOf,
-      this.swithObjectCon,
-      this.swithObjectOf,
-      this.swithObjectsOcc,
+      this.switchObjectCon,
+      this.switchObjectOf,
+      this.switchObjectsOcc,
       this.makeSoundCon,
       this.makeSoundOcc,
       this.makeSoundOf,
@@ -173,9 +174,9 @@ class Baby {
       this.canTalkTenCon,
       this.canTalkTenOcc,
       this.canTalkTenOf,
-      this.lipsShapCon,
+      this.lipsShapeCon,
       this.lipsShapeOcc,
-      this.lipsShapOf,
+      this.lipsShapeOf,
 
       ///
       this.runWithoutFallingCon,
@@ -195,7 +196,7 @@ class Baby {
     return Baby(
 
         layingFaceDownOcc:
-            json['lie_on_his_hips_and_head_up_age_at_the_time_of_occurence'],
+            json['lie_your_hips_and_head_up_age_at_the_time_of_occurence'],
         layingFaceDownCon:
             json['lie_on_his_hips_and_head_up_age_at_the_confirmed'],
         layingFaceDownOf:
@@ -255,9 +256,9 @@ class Baby {
         turnFaceUpDownOcc: json['turn_back_again_and_again_age_at_the_time_of_occurence'],
         turnFaceUpDownCon: json['turn_back_again_and_again_age_at_the_time_of_confrimed'],
         turnFaceUpDownOf: json['turn_back_again_and_again_status_of_the_time_of_officer'],
-        swithObjectsOcc: json['change_something_another_hand_to_other_hand_age_at_the_time_of_occurence'],
-        swithObjectCon: json['change_something_another_hand_to_other_hand_age_at_the_time_of_confrimed'],
-        swithObjectOf: json['change_something_another_hand_to_other_hand_status_of_the_time_of_officer'],
+        switchObjectsOcc: json['change_something_another_hand_to_other_hand_age_at_the_time_of_occurence'],
+        switchObjectCon: json['change_something_another_hand_to_other_hand_age_at_the_time_of_confrimed'],
+        switchObjectOf: json['change_something_another_hand_to_other_hand_status_of_the_time_of_officer'],
         makeSoundOcc: json['some_sounds_are_repeated_age_at_the_time_of_occurence'],
         makeSoundCon: json['some_sounds_are_repeated_age_at_the_time_of_confrimed'],
         makeSoundOf: json['some_sounds_are_repeated_status_of_the_time_of_officer'],
@@ -313,8 +314,8 @@ class Baby {
         canTalkTenCon: json['can_talk_about_ten_words_can_talk_at_least_one_sentence_with_two_words_age_at_the_time_of_confrimed'],
         canTalkTenOf: json['can_talk_about_ten_words_can_talk_at_least_one_sentence_with_two_words_status_of_the_time_of_officer'],
         lipsShapeOcc: json['the_lips_are_sharpened_to_kiss_age_at_the_time_of_occurence'],
-        lipsShapCon: json['the_lips_are_sharpened_to_kiss_age_at_the_time_of_confrimed'],
-        lipsShapOf: json['the_lips_are_sharpened_to_kiss_status_of_the_time_of_officer'],
+        lipsShapeCon: json['the_lips_are_sharpened_to_kiss_age_at_the_time_of_confrimed'],
+        lipsShapeOf: json['the_lips_are_sharpened_to_kiss_status_of_the_time_of_officer'],
 
         runWithoutFallingOcc: json['ability_to_run_without_falling_age_at_the_time_of_occurence'],
         runWithoutFallingCon: json['ability_to_run_without_falling_age_at_the_time_of_confrimed'],
