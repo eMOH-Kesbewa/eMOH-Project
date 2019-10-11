@@ -58,293 +58,112 @@ class _UntilFiveState extends State<UntilFive> {
       canCopyVis,
       canCreateVis = false;
 
-  String layingFaceDownOcc,
-      movingObjectOcc,
-      bigSoundOcc,
-      ohhOcc,
-      smileOcc,
-      raiseHeadOcc,
-      playFingersOcc,
-      strechHandOcc,
-      soundTurnOcc,
-      singleLetterSoundOcc,
-      laughtLoudOcc,
-      raiseHead2Occ,
-      turnFaceUpDownOcc,
-      switchObjectOcc,
-      makeSoundOcc,
-      sittingOcc,
-      holdingHimSelfOcc,
-      thumbForeOcc,
-      followingVoiceOcc,
-      proWordsOcc,
-      understandOcc,
-      walkingWithHelpOcc,
-      canSpeakOcc,
-      handPointOcc,
-      canRollOcc,
-      canIdentifyOcc,
-      walkingWithoutHelpOcc,
-      canClimbOcc,
-      makeTowerOcc,
-      eatHimselfOcc,
-      canTalkTenOcc,
-      lipsShapeOcc,
-      runWithoutFallingOcc,
-      upDownStairOcc,
-      canCopyOcc,
-      canCreateOcc;
+  // String layingFaceDownOcc,
+  //     movingObjectOcc,
+  //     bigSoundOcc,
+  //     ohhOcc,
+  //     smileOcc,
+  //     raiseHeadOcc,
+  //     playFingersOcc,
+  //     strechHandOcc,
+  //     soundTurnOcc,
+  //     singleLetterSoundOcc,
+  //     laughtLoudOcc,
+  //     raiseHead2Occ,
+  //     turnFaceUpDownOcc,
+  //     switchObjectOcc,
+  //     makeSoundOcc,
+  //     sittingOcc,
+  //     holdingHimSelfOcc,
+  //     thumbForeOcc,
+  //     followingVoiceOcc,
+  //     proWordsOcc,
+  //     understandOcc,
+  //     walkingWithHelpOcc,
+  //     canSpeakOcc,
+  //     handPointOcc,
+  //     canRollOcc,
+  //     canIdentifyOcc,
+  //     walkingWithoutHelpOcc,
+  //     canClimbOcc,
+  //     makeTowerOcc,
+  //     eatHimselfOcc,
+  //     canTalkTenOcc,
+  //     lipsShapeOcc,
+  //     runWithoutFallingOcc,
+  //     upDownStairOcc,
+  //     canCopyOcc,
+  //     canCreateOcc;
 
-  initState() {
-    super.initState();
-    baby.then((it) {
-      layingFaceDownOcc = it.layingFaceDownOcc;
-      movingObjectOcc = it.movingObjectOcc;
-      bigSoundOcc = it.bigSoundOcc;
-      ohhOcc = it.ohhOcc;
-      smileOcc = it.smileOcc;
+  // initState() {
+  //   super.initState();
+  //   baby.then((it) {
+  //     layingFaceDownOcc = it.layingFaceDownOcc;
+  //     movingObjectOcc = it.movingObjectOcc;
+  //     bigSoundOcc = it.bigSoundOcc;
+  //     ohhOcc = it.ohhOcc;
+  //     smileOcc = it.smileOcc;
 
-      ///
-      raiseHeadOcc = it.raiseHeadOcc;
-      playFingersOcc = it.playFingersOcc;
-      strechHandOcc = it.strechHandOcc;
-      soundTurnOcc = it.soundTurnOcc;
-      singleLetterSoundOcc = it.singleLetterSoundOcc;
-      laughtLoudOcc = it.laughtLoudOcc;
+  //     ///
+  //     raiseHeadOcc = it.raiseHeadOcc;
+  //     playFingersOcc = it.playFingersOcc;
+  //     strechHandOcc = it.strechHandOcc;
+  //     soundTurnOcc = it.soundTurnOcc;
+  //     singleLetterSoundOcc = it.singleLetterSoundOcc;
+  //     laughtLoudOcc = it.laughtLoudOcc;
 
-      ///
-      raiseHead2Occ = it.raiseHead2Occ;
-      turnFaceUpDownOcc = it.turnFaceUpDownOcc;
-      switchObjectOcc = it.switchObjectsOcc;
-      makeSoundOcc = it.makeSoundOcc;
+  //     ///
+  //     raiseHead2Occ = it.raiseHead2Occ;
+  //     turnFaceUpDownOcc = it.turnFaceUpDownOcc;
+  //     switchObjectOcc = it.switchObjectsOcc;
+  //     makeSoundOcc = it.makeSoundOcc;
 
-      ///
-      sittingOcc = it.sittingOcc;
-      holdingHimSelfOcc = it.holdingHimSelfOcc;
-      thumbForeOcc = it.thumbForeOcc;
-      followingVoiceOcc = it.followingVoiceOcc;
-      proWordsOcc = it.proWordsOcc;
-      understandOcc = it.understandOcc;
+  //     ///
+  //     sittingOcc = it.sittingOcc;
+  //     holdingHimSelfOcc = it.holdingHimSelfOcc;
+  //     thumbForeOcc = it.thumbForeOcc;
+  //     followingVoiceOcc = it.followingVoiceOcc;
+  //     proWordsOcc = it.proWordsOcc;
+  //     understandOcc = it.understandOcc;
 
-      ///
-      walkingWithHelpOcc = it.walkingWithHelpOcc;
-      canSpeakOcc = canSpeakOcc;
-      handPointOcc = it.handPointOcc;
-      canRollOcc = it.canRollOcc;
-      canIdentifyOcc = it.canIdentifyOcc;
+  //     ///
+  //     walkingWithHelpOcc = it.walkingWithHelpOcc;
+  //     canSpeakOcc = canSpeakOcc;
+  //     handPointOcc = it.handPointOcc;
+  //     canRollOcc = it.canRollOcc;
+  //     canIdentifyOcc = it.canIdentifyOcc;
 
-      ///
-      walkingWithoutHelpOcc = it.walkingWithoutHelpOcc;
-      canClimbOcc = it.canClimbOcc;
-      makeTowerOcc = it.makeTowerOcc;
-      eatHimselfOcc = it.eatHimselfOcc;
-      canTalkTenOcc = it.canTalkTenOcc;
-      lipsShapeOcc = it.lipsShapeOcc;
+  //     ///
+  //     walkingWithoutHelpOcc = it.walkingWithoutHelpOcc;
+  //     canClimbOcc = it.canClimbOcc;
+  //     makeTowerOcc = it.makeTowerOcc;
+  //     eatHimselfOcc = it.eatHimselfOcc;
+  //     canTalkTenOcc = it.canTalkTenOcc;
+  //     lipsShapeOcc = it.lipsShapeOcc;
 
-      ///
-      runWithoutFallingOcc = it.runWithoutFallingOcc;
-      upDownStairOcc = it.upDownStairOcc;
-      canCopyOcc = it.canCopyOcc;
-      canCreateOcc = it.canCreateOcc;
+  //     ///
+  //     runWithoutFallingOcc = it.runWithoutFallingOcc;
+  //     upDownStairOcc = it.upDownStairOcc;
+  //     canCopyOcc = it.canCopyOcc;
+  //     canCreateOcc = it.canCreateOcc;
 
-      // bigNoise = it.bigNoise;
-      // vehicleNoise = it.vehicleNoise;
-      // guardianNoise = it.guardianNoise;
-      // turnToNoise = it.turnToNoise;
-      // turnToGuardianNoise = it.turnToGuardianNoise;
-      // dailyNoise = it.dailyNoise;
-      // hiddenNoise = it.hiddenNoise;
-      // rythmeicNoise = it.rythmeicNoise;
-      // respondNameNoice = it.respondNameNoice;
-      // byeNoise = it.byeNoise;
-    });
+  //     // bigNoise = it.bigNoise;
+  //     // vehicleNoise = it.vehicleNoise;
+  //     // guardianNoise = it.guardianNoise;
+  //     // turnToNoise = it.turnToNoise;
+  //     // turnToGuardianNoise = it.turnToGuardianNoise;
+  //     // dailyNoise = it.dailyNoise;
+  //     // hiddenNoise = it.hiddenNoise;
+  //     // rythmeicNoise = it.rythmeicNoise;
+  //     // respondNameNoice = it.respondNameNoice;
+  //     // byeNoise = it.byeNoise;
+  //   });
 
-    //print(bigNoise);
-  }
+  //   //print(bigNoise);
+  // }
 
   @override
   Widget build(BuildContext context) {
-    //need to include in builder
-    // if (layingFaceDownOcc == '0') {
-    //   layingFaceDownVis = true;
-    // } else {
-    //   layingFaceDownVis = false;
-    // }
-    // if (movingObjectOcc == '0') {
-    //   movingObjectVis = true;
-    // } else {
-    //   movingObjectVis = false;
-    // }
-    // if (bigSoundOcc == '0') {
-    //   bigSoundVis = true;
-    // } else {
-    //   bigSoundVis = false;
-    // }
-    // if (ohhOcc == '0') {
-    //   ohhVis = true;
-    // } else {
-    //   ohhVis = false;
-    // }
-    // if (smileOcc == '0') {
-    //   smileVis = true;
-    // } else {
-    //   smileVis = false;
-    // }
-    // if (raiseHeadOcc == '0') {
-    //   raiseHeadVis = true;
-    // } else {
-    //   raiseHeadVis = false;
-    // }
-    // if (playFingersOcc == '0') {
-    //   playFingersVis = true;
-    // } else {
-    //   playFingersVis = false;
-    // }
-    // if (strechHandOcc == '0') {
-    //   strechHandVis = true;
-    // } else {
-    //   strechHandVis = false;
-    // }
-    // if (soundTurnOcc == '0') {
-    //   soundTurnVis = true;
-    // } else {
-    //   soundTurnVis = false;
-    // }
-    // if (singleLetterSoundOcc == '0') {
-    //   singleLetterSoundVis = true;
-    // } else {
-    //   singleLetterSoundVis = false;
-    // }
-    // if (laughtLoudOcc == '0') {
-    //   laughtLoudVis = true;
-    // } else {
-    //   laughtLoudVis = false;
-    // }
-    // if (raiseHead2Occ == '0') {
-    //   raiseHead2Vis = true;
-    // } else {
-    //   raiseHead2Vis = false;
-    // }
-    // if (turnFaceUpDownOcc == '0') {
-    //   turnFaceUpDownVis = true;
-    // } else {
-    //   turnFaceUpDownVis = false;
-    // }
-    // if (switchObjectOcc == '0') {
-    //   switchObjectVis = true;
-    // } else {
-    //   switchObjectVis = false;
-    // }
-    // if (makeSoundOcc == '0') {
-    //   makeSoundVis = true;
-    // } else {
-    //   makeSoundVis = false;
-    // }
-    // if (sittingOcc == '0') {
-    //   sittingVis = true;
-    // } else {
-    //   sittingVis = false;
-    // }
-    // if (holdingHimSelfOcc == '0') {
-    //   holdingHimSelfVis = true;
-    // } else {
-    //   holdingHimSelfVis = false;
-    // }
-    // if (thumbForeOcc == '0') {
-    //   thumbForeVis = true;
-    // } else {
-    //   thumbForeVis = false;
-    // }
-    // if (followingVoiceOcc == '0') {
-    //   followingVoiceVis = true;
-    // } else {
-    //   followingVoiceVis = false;
-    // }
-    // if (proWordsOcc == '0') {
-    //   proWordsVis = true;
-    // } else {
-    //   proWordsVis = false;
-    // }
-    // if (understandOcc == '0') {
-    //   understandVis = true;
-    // } else {
-    //   understandVis = false;
-    // }
-    // if (walkingWithHelpOcc == '0') {
-    //   walkingWithHelpVis = true;
-    // } else {
-    //   walkingWithHelpVis = false;
-    // }
-    // if (canSpeakOcc == '0') {
-    //   canSpeakVis = true;
-    // } else {
-    //   canSpeakVis = false;
-    // }
-    // if (handPointOcc == '0') {
-    //   handPointVis = true;
-    // } else {
-    //   handPointVis = false;
-    // }
-    // if (canRollOcc == '0') {
-    //   canRollVis = true;
-    // } else {
-    //   canRollVis = false;
-    // }
-    // if (canIdentifyOcc == '0') {
-    //   canIdentifyVis = true;
-    // } else {
-    //   canIdentifyVis = false;
-    // }
-    // if (walkingWithoutHelpOcc == '0') {
-    //   walkingWithoutHelpVis = true;
-    // } else {
-    //   walkingWithoutHelpVis = false;
-    // }
-    // if (canClimbOcc == '0') {
-    //   canClimbVis = true;
-    // } else {
-    //   canClimbVis = false;
-    // }
-    // if (makeTowerOcc == '0') {
-    //   makeTowerVis = true;
-    // } else {
-    //   makeTowerVis = false;
-    // }
-    // if (eatHimselfOcc == '0') {
-    //   eatHimselfVis = true;
-    // } else {
-    //   eatHimselfVis = false;
-    // }
-    // if (canTalkTenOcc == '0') {
-    //   canTalkTenVis = true;
-    // } else {
-    //   canTalkTenVis = false;
-    // }
-    // if (lipsShapeOcc == '0') {
-    //   lipsShapeVis = true;
-    // } else {
-    //   lipsShapeVis = false;
-    // }
-    // if (runWithoutFallingOcc == '0') {
-    //   runWithoutFallingVis = true;
-    // } else {
-    //   runWithoutFallingVis = false;
-    // }
-    // if (upDownStairOcc == '0') {
-    //   upDownStairVis = true;
-    // } else {
-    //   upDownStairVis = false;
-    // }
-    // if (canCopyOcc == '0') {
-    //   canCopyVis = true;
-    // } else {
-    //   canCopyVis = false;
-    // }
-    // if (canCreateOcc == '0') {
-    //   canCreateVis = true;
-    // } else {
-    //   canCreateVis = false;
-    // }
     final selectMonth = DropdownButton<String>(
       value: dropdownValue,
       icon: Icon(Icons.arrow_downward),
@@ -358,7 +177,7 @@ class _UntilFiveState extends State<UntilFive> {
       onChanged: (String newValue) {
         setState(() {
           dropdownValue = newValue;
-          layingFaceDownOcc = dropdownValue;
+          globals.layingFaceDownOcc = dropdownValue;
         });
       },
       /*{
@@ -396,7 +215,7 @@ class _UntilFiveState extends State<UntilFive> {
       ),
       body: SingleChildScrollView(
         child: FutureBuilder<Baby>(
-            future: baby,
+            future: fetchBaby(),
             builder: (context, snapshot) {
               if (snapshot.connectionState == ConnectionState.waiting)
                 return Center(child: CircularProgressIndicator());
@@ -614,73 +433,12 @@ class _UntilFiveState extends State<UntilFive> {
                         SizedBox(
                           height: 0.0,
                         ),
-                        growthCard(
+                        GrowthCard(
                             'While lying face downwards raise the head',
                             snapshot.data.layingFaceDownOcc,
                             snapshot.data.layingFaceDownCon,
                             snapshot.data.layingFaceDownOf,
                             layingFaceDownVis),
-                        // Card(
-                        //   child: Padding(
-                        //     padding: EdgeInsets.all(8.0),
-                        //     child: Column(
-                        //       crossAxisAlignment: CrossAxisAlignment.stretch,
-                        //       children: <Widget>[
-                        //         Text(
-                        //           'While lying face downwards raise the head',
-                        //           style: TextStyle(
-                        //               fontSize: 15.0,
-                        //               fontWeight: FontWeight.bold),
-                        //         ),
-                        //         SizedBox(
-                        //           height: 20.0,
-                        //         ),
-                        //         ListTile(
-                        //             leading: growBulletIcon,
-                        //             title: Text(
-                        //               'Occured Age (Months)',
-                        //               style: TextStyle(fontSize: 15.0),
-                        //             ),
-                        //             trailing: Text(layingFaceDownOcc
-                        //                 .toString()) //Text(snapshot.data.layingFaceDownOcc.toString()),
-                        //             ),
-                        //         SizedBox(
-                        //           height: 10.0,
-                        //         ),
-                        //         Visibility(
-                        //           child: Center(
-                        //             child: selectMonth,
-                        //           ),
-                        //           visible: layingFaceDownVis,
-                        //         ),
-                        //         SizedBox(
-                        //           height: 10.0,
-                        //         ),
-                        //         ListTile(
-                        //           leading: growBulletIcon,
-                        //           title: Text(
-                        //             'Confrimed Age (Months)',
-                        //             style: TextStyle(fontSize: 15.0),
-                        //           ),
-                        //           trailing: Text(snapshot.data.layingFaceDownCon
-                        //               .toString()),
-                        //         ),
-                        //         SizedBox(
-                        //           height: 20.0,
-                        //         ),
-                        //         ListTile(
-                        //           leading: growBulletIcon,
-                        //           title: Text(
-                        //             'Designation of the officer who confrimed',
-                        //             style: TextStyle(fontSize: 15.0),
-                        //           ),
-                        //           trailing: Text(snapshot.data.layingFaceDownOf
-                        //               .toString()),
-                        //         ),
-                        //       ],
-                        //     ),
-                        //   ),
-                        // ),
                       ],
                     ),
                   ),
@@ -698,6 +456,10 @@ class _UntilFiveState extends State<UntilFive> {
             Toast.show("An Error Has Occured", context,
                 duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
           });
+          setState(() {});
+          // setState(() {
+          //   layingFaceDownVis = false;
+          // });
         },
       ),
     );

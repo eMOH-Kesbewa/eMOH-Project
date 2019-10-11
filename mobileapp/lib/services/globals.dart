@@ -6,3 +6,4 @@ String familyId = 'fam123';
 String babyId;
 
 String layingFaceDownOcc;
+bool layingFaceDownVis = false;

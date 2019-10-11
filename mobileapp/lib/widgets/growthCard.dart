@@ -3,10 +3,10 @@ import 'package:logger/logger.dart';
 import 'package:mobileapp/services/style.dart';
 import '../services/globals.dart' as globals;
 
-class growthCard extends StatefulWidget {
+class GrowthCard extends StatefulWidget {
   String title, occAge, conAge,officer;
   bool vis;
-  growthCard(
+  GrowthCard(
     this.title,
     this.occAge,
     this.conAge,
@@ -14,12 +14,12 @@ class growthCard extends StatefulWidget {
     this.vis,
   );
   @override
-  _growthCardState createState() => _growthCardState();
+  _GrowthCardState createState() => _GrowthCardState();
 }
 var logger = Logger();
 String dropdownValue = 'Select';
 String layingFaceDownOccVal;
-class _growthCardState extends State<growthCard> {
+class _GrowthCardState extends State<GrowthCard> {
   @override
   Widget build(BuildContext context) {
     return Card(
