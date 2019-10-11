@@ -304,7 +304,7 @@ class Baby {
         canClimbOcc: json['can_climb_the_stair_with_help_age_at_the_time_of_occurence'],
         canClimbCon: json['can_climb_the_stair_with_help_age_at_the_time_of_confrimed'],
         canClimbOf: json['can_climb_the_stair_with_help_status_of_the_time_of_officer'],
-        makeTowerOcc: json['can_make_a_tower_using_building_blocks_age_at_the_time_of_occurenc'],
+        makeTowerOcc: json['can_make_a_tower_using_building_blocks_age_at_the_time_of_occurence'],
         makeTowerCon: json['can_make_a_tower_using_building_blocks_age_at_the_time_of_confrimed'],
         makeTowerOf: json['can_make_a_tower_using_building_blocks_status_of_the_time_of_officer'],
         eatHimselfOcc: json['eat_himself_alone_age_at_the_time_of_occurence'],
@@ -339,7 +339,9 @@ class Baby {
 }
 
 Future updateDetails(
-  String layingFaceDownOcc,
+  //String layingFaceDownOcc,
+  String field,
+  String value,
     // bool lightCheck,
     // bool faceCheck,
     // bool turnCheck,
@@ -354,7 +356,8 @@ Future updateDetails(
   //Map query = {'baby_id' : 'A0000101'};
   Map data = {
     'baby_id': 'A0000101',
-    'lie_your_hips_and_head_up_age_at_the_time_of_occurence' : layingFaceDownOcc.toString(),
+    field : value,
+    
   };
   //Map data = {'does_the_child_look_good_on_your_face': face.toString()};
 
