@@ -25,6 +25,10 @@ String layingFaceDownOccVal;
 class _GrowthCardState extends State<GrowthCard> {
   @override
   Widget build(BuildContext context) {
+    final div = Divider(
+      height: 15.0,
+      color: Colors.grey[400],
+    );
     return Card(
       child: Padding(
         padding: EdgeInsets.all(8.0),
@@ -36,8 +40,9 @@ class _GrowthCardState extends State<GrowthCard> {
               style: TextStyle(fontSize: 15.0, fontWeight: FontWeight.bold),
             ),
             SizedBox(
-              height: 20.0,
+              height: 10.0,
             ),
+            div,
             ListTile(
               leading: growBulletIcon,
               title: Text(
