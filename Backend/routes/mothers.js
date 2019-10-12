@@ -16,7 +16,7 @@ router.post('/register', (req, res) => {
 
 
 //Update details in motherbabyjoined table
-router.get('/update/motherbabyjoined', async (req, res) => {
+router.put('/update/motherbabyjoined', async (req, res) => {
 
     try {
         const filter = req.query;
@@ -29,6 +29,7 @@ router.get('/update/motherbabyjoined', async (req, res) => {
             new: true,
             upsert: true 
         });
+        res.status(200).send("Updated successfully.");
         console.log(doc);
     } catch (error) {
         res.status(500).send(error);
@@ -105,7 +106,7 @@ router.get('/viewbyid/:id', (req, res) => {
 
 //View the motherbabyjoined table by motherID
 router.get('/viewmotherbabyjoinedtable/viewbyid/:id', (req, res) => {
-    motherbabyjoined.find({ mother_id: req.params.id }, (err, doc) => {
+    motherbabyjoined.find({ baby_id: req.params.id }, (err, doc) => {
         if (!err) {
             res.send(doc);
             console.log(doc);
@@ -131,6 +132,13 @@ router.get('/motherfordoc/viewbyid/:id', (req, res) => {
         }
     });
 
+});
+
+//view mother details
+router.get('/mother/view', (req, res)=>{
+    Mother.find((err, doc) => {
+        res.send(doc)
+    })
 });
 
 

@@ -32,6 +32,9 @@ class Family {
   Family({this.idNumber, this.vilID, this.wifeName, this.husbandName,this.childrenCount});
 
   factory Family.fromJson(Map<String, dynamic> json) {
+    globals.familyId = json['Identity_number'];
+    print('*********famid******');
+    print(globals.familyId);
     return Family(
       idNumber: json['Identity_number'],
       vilID: json['village_id'],

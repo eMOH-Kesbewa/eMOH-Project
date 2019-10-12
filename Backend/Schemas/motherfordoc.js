@@ -1,641 +1,527 @@
 const mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var mother_baby_fordoc = new Schema({
-	"mother_id": String,
-	"mothers_personal_details": {
-		"mothers_name": String,
-		"mothers_age": Number,
-		"husband_name": String,
-		"husband_age": Number,
-		"mothers_education_level": String,
-		"husbands_education_level": String,
-		"mothers_occupation": String,
-		"fathers_occupation": String,
-	},
+
 	"maiden_or_risked": Boolean,
 	"blood_group": String,
 	"identified_maternal_risks_diseases": String,
-	"registration_details": {
-		"registration_number": String,
-		"registration_date": Date,
-		"registered_place": String,
-		"registered_date_according_to_the_approved_family_document": Date,
-		"grama_niladari_division": String,
-		"phm_devision": String,
-		"phi_devision": String,
-		"address": String,
-		"telephone": String,
-		"distance_to_mothers_workplace(km)": Number,
-		"mothers_age_at_marriage": Number,
-	},
+	//Mother Details
+	"mother_id": String,
+	"mothers_name": String,
+	"mothers_age": Number,
+	"husband_name": String,
+	"husband_age": Number,
+	"mothers_education_level": String,
+	"husbands_education_level": String,
+	"mothers_occupation": String,
+	"fathers_occupation": String,
+	
+	//"registration_details"
+	"registration_number": String,
+	"registration_date": Date,
+	"registered_place": String,
+	"registered_date_according_to_the_approved_family_document": Date,
+	"grama_niladari_division": String,
+	"phm_devision": String,
+	"phi_devision": String,
+	"address": String,
+	"telephone": String,
+	"distance_to_mothers_workplace": Number,
+	"mothers_age_at_marriage": Number,
+	
 	"blood_relatives_marriage": Boolean,
 	"injected_for_rubella": Boolean,
 	"done_pre_pregnancy_test": Boolean,
 	"is_forlic_acid_given": Boolean,
 	"history_of_madasarubawaya": Boolean,
-	"pregnancy_history": {
-		"current_pregnancy_status": {
-			"which_pregnancy": Number,
-			"no_of_living_children": Number,
-			"age_of_the_youngest_child": {
-				"years": Number,
-				"months": Number
-			}
-		},
-		"last_menstrual_date": {
-			"date": Number,
-			"month": Number,
-			"year": Number
-		},
-		"expected_dilivery_date": {
-			"date": Number,
-			"month": Number,
-			"year": Number
-		},
-		"expected_dilivery_date_corrected_by_US": {
-			"date": Number,
-			"month": Number,
-			"year": Number
-		},
-		"expecting_time_period": {
-			"from": Date,
-			"to": Date
-		},
-		"weeks_into_pregnancy_when_registration": Number,
-		"have_used_any_family_organization_method": Boolean
-	},
-	"current_pregnancy_details": {
-		"between_20t025_ages": {
-			"yesORno": Boolean,
-			"details": String
-		},
-		"fifth_pregnanycy_or above_fifth": {
-			"yesORno": Boolean,
-			"details": String
-		},
-		"uterine_diseaces_or_high_blood_sugar": {
-			"yesORno": Boolean,
-			"details": String
-		},
-		"prenatal_vaginal_bleeding": {
-			"yesORno": Boolean,
-			"details": String
-		},
-		"abnormal_positioning": {
-			"yesORno": Boolean,
-			"details": String
-		},
-		"not_knowing_the_exact_delivery_date": {
-			"yesORno": Boolean,
-			"details": String
-		},
-		"other": String
-	},
-	"other_pregnancy_details": {
-		"g1": {
-			"result": String,
-			"delivery_details": String,
-			"delivered_place": String,
-			"bron_weight": Number,
-			"delivery_abnormalities": String,
-			"sex": String
-		},
-		"g2": {
-			"result": String,
-			"delivery_details": String,
-			"delivered_place": String,
-			"bron_weight": Number,
-			"delivery_abnormalities": String,
-			"sex": String
-		},
-		"g3": {
-			"result": String,
-			"delivery_details": String,
-			"delivered_place": String,
-			"bron_weight": Number,
-			"delivery_abnormalities": String,
-			"sex": String
-		},
-		"g4": {
-			"result": String,
-			"delivery_details": String,
-			"delivered_place": String,
-			"bron_weight": Number,
-			"delivery_abnormalities": String,
-			"sex": String
-		},
-		"g5": {
-			"result": String,
-			"delivery_details": String,
-			"delivered_place": String,
-			"bron_weight": Number,
-			"delivery_abnormalities": String,
-			"sex": String
-		},
-		"g6": {
-			"result": String,
-			"delivery_details": String,
-			"delivered_place": String,
-			"bron_weight": Number,
-			"delivery_abnormalities": String,
-			"sex": String
-		}
-	},
-	"other_risky_situations": {
-		"bmi_below20_or_above25": {
-			"yesORno": Boolean,
-			"details": String
-		},
-		"diabetes": {
-			"yesORno": Boolean,
-			"details": String
-		},
-		"malaria": {
-			"yesORno": Boolean,
-			"details": String
-		},
-		"heart_problems": {
-			"yesORno": Boolean,
-			"details": String
-		},
-		"other_details": String
-	},
-	"family_diseases_details": {
-		"diabetes": Boolean,
-		"high_blood_preasre": Boolean,
-		"blood_diseases": Boolean
-	},
+	
+	//pregnancy_history_current_pregnancy_status
+	"which_pregnancy": Number,
+	"no_of_living_children": Number,
+	"age_of_the_youngest_child": String,
+    "last_menstrual_date": Date,
+	"expected_dilivery_date":Date,
+	"expected_dilivery_date_corrected_by_US":Date,
+	"expecting_time_period_from": Date,
+	"expecting_time_period_to": Date,
+	"weeks_into_pregnancy_when_registration": String,
+	"have_used_any_family_organization_method": String,
+	
+	// "current_pregnancy_details"
+	"between_20t025_ages_yesORno": Boolean,
+	"between_20t025_ages_details": String,
+	"fifth_pregnanycy_or_yesORno": Boolean,
+	"fifth_pregnanycy_or_details": String,
+	"uterine_diseaces_or_high_blood_sugar_yesORno": Boolean,
+	"uterine_diseaces_or_high_blood_sugar_details": String,
+	"prenatal_vaginal_bleeding_yesORno": Boolean,
+	"prenatal_vaginal_bleeding_details": String,
+	"abnormal_positioning_yesORno": Boolean,
+	"abnormal_positioning_details": String,
+	"not_knowing_the_exact_delivery_date_yesORno": Boolean,
+	"not_knowing_the_exact_delivery_date_details": String,
+	"other_yesORno":Boolean,
+    "other_details":String,
+	// other_risky_situations
+	"bmi_below20_or_above25_yesORno": Boolean,
+	"bmi_below20_or_above25_details": String,
+	"diabetes_yesORno": Boolean,
+	"diabetes_details": String,
+	"malaria_yesORno": Boolean,
+	"malaria_details": String,
+	"heart_problems_yesORno": Boolean,
+	"heart_problems_details": String,
+	"other_risky_yesORno":Boolean,
+	"other_risky_details":String,
+	
+	//Previous Pregnancy Detials
+	"g1_result": String,
+	"g1_delivery_details": String,
+	"g1_delivered_place": String,
+	"g1_bron_weight": Number,
+	"g1_delivery_abnormalities": String,
+	"g1_sex": String,
+	"g2_result": String,
+	"g2_delivery_details": String,
+	"g2_delivered_place": String,
+	"g2_bron_weight": Number,
+	"g2_delivery_abnormalities": String,
+	"g2_sex": String,
+	"g3_result": String,
+	"g3_delivery_details": String,
+	"g3_delivered_place": String,
+	"g3_bron_weight": Number,
+	"g3_delivery_abnormalities": String,
+	"g3_sex": String,
+	"g4_result": String,
+	"g4_delivery_details": String,
+	"g4_delivered_place": String,
+	"g4_bron_weight": Number,
+	"g4_delivery_abnormalities": String,
+	"g4_sex": String,
+	"g5_result": String,
+	"g5_delivery_details": String,
+	"g5_delivered_place": String,
+	"g5_bron_weight": Number,
+	"g5_delivery_abnormalities": String,
+	"g5_sex": String,
 
-	"early_obstetric_details": {
-		"day1": {
-			"date": Date,
-			"pregnancy_weeks": Number,
-			"urine": String,
-			"natritional_needs_myths": String,
-			"embryo_height": Number,
-			"embryo_moves": Boolean,
-			"embryo_sounds": Boolean,
-			"temporiry_left_the_province": Boolean,
-			"is_it_informed": Boolean,
-			"in_an_emergency": {
-				"hospital": String,
-				"transport_method": String
-			}
-		},
-		"day2": {
-			"date": Date,
-			"pregnancy_weeks": Number,
-			"urine": String,
-			"natritional_needs_myths": String,
-			"embryo_height": Number,
-			"embryo_moves": Boolean,
-			"embryo_sounds": Boolean,
-			"temporiry_left_the_province": Boolean,
-			"is_it_informed": Boolean,
-			"in_an_emergency": {
-				"hospital": String,
-				"transport_method": String
-			}
-		},
-		"day3": {
-			"date": Date,
-			"pregnancy_weeks": Number,
-			"urine": String,
-			"natritional_needs_myths": String,
-			"embryo_height": Number,
-			"embryo_moves": Boolean,
-			"embryo_sounds": Boolean,
-			"temporiry_left_the_province": Boolean,
-			"is_it_informed": Boolean,
-			"in_an_emergency": {
-				"hospital": String,
-				"transport_method": String
-			}
-		},
-		"day4": {
-			"date": Date,
-			"pregnancy_weeks": Number,
-			"urine": String,
-			"natritional_needs_myths": String,
-			"embryo_height": Number,
-			"embryo_moves": Boolean,
-			"embryo_sounds": Boolean,
-			"temporiry_left_the_province": Boolean,
-			"is_it_informed": Boolean,
-			"in_an_emergency": {
-				"hospital": String,
-				"transport_method": String
-			}
-		}
+	//family_diseases_details
+	"diabetes_history_status": Boolean,
+	"diabetes_history_details": String,
+	"high_blood_preasre_history_status": Boolean,
+	"high_blood_preasre_history_details": String,
+	"blood_diseases_history_status": Boolean,
+	"blood_diseases_history_details": String,
+	"other_history_status": Boolean,
+	"other_diseases_history_details": String,
+	
+	//early_obstetric_details
+    "day1_date": Date,
+	"day1_pregnancy_weeks": Number,
+	"day1_urine": String,
+	"day1_natritional_needs_myths": String,
+	"day1_embryo_height": Number,
+	"day1_embryo_moves": Boolean,
+	"day1_embryo_sounds": Boolean,
+	"day1_informed_delivery_time": Boolean,
+	"day1_is_it_informed": Boolean,
+	
+	"day2_date": Date,
+	"day2_pregnancy_weeks": Number,
+	"day2_urine": String,
+	"day2_natritional_needs_myths": String,
+	"day2_embryo_height": Number,
+	"day2_embryo_moves": Boolean,
+	"day2_embryo_sounds": Boolean,
+	"day2_informed_delivery_time": Boolean,
+	"day2_is_it_informed": Boolean,
+	
 
-	},
+	"day3_date": Date,
+	"day3_pregnancy_weeks": Number,
+	"day3_urine": String,
+	"day3_natritional_needs_myths": String,
+	"day3_embryo_height": Number,
+	"day3_embryo_moves": Boolean,
+	"day3_embryo_sounds": Boolean,
+	"day3_informed_delivery_time": Boolean,
+	"day3_is_it_informed": Boolean,
+	
+	"day4_date": Date,
+	"day4_pregnancy_weeks": Number,
+	"day4_urine": String,
+	"day4_natritional_needs_myths": String,
+	"day4_embryo_height": Number,
+	"day4_embryo_moves": Boolean,
+	"day4_embryo_sounds": Boolean,
+	"day4_informed_delivery_time": Boolean,
+	"day4_is_it_informed": Boolean,
+		
+	//	other
+	"temporiry_left_the_province":Boolean,
+	"is_it_informed":Boolean,
+	"in_delivery_hospital": String,
+	"in_delivery_transport_method": String,
+	"in_an_emergency_hospital": String,
+	"in_an_emergency_transport_method": String,
+	
+
+	//clinic detials
+	"day1_clinical_day": Date,
+	"day1_weeks_into_pregnancy": String,
+	"day1_weight": Number,
+	"day1_urine_sugar":String,
+	"day1_urine_hemoglobin":String,
+	"day1_blood_pressure": Number,
+	"day1_position": String,
+	"day1_embry_moves": Boolean,
+	"day1_embry_sounds": Boolean,
+	"day1_iron_folate": String,
+	"day1_vitamin_c": String,
+	"day1_calsium_malaria_treatments": String,
+	"day1_threeposha": Number,
+	"day1_checked_by": String,
+
+	"day2_clinical_day": Date,
+	"day2_weeks_into_pregnancy": String,
+	"day2_weight": Number,
+	"day2_urine_sugar":String,
+	"day2_urine_hemoglobin":String,
+	"day2_blood_pressure":String,
+	"day2_position": String,
+	"day2_embry_moves": Boolean,
+	"day2_embry_sounds": Boolean,
+	"day2_iron_folate": String,
+	"day2_vitamin_c": String,
+	"day2_calsium_malaria_treatments": String,
+	"day2_threeposha": Number,
+	"day2_checked_by": String,
+
+	"day3_clinical_day": Date,
+	"day3_weeks_into_pregnancy": String,
+	"day3_weight": Number,
+	"day3_urine_sugar":String,
+	"day3_urine_hemoglobin":String,
+	"day3_blood_pressure":String,
+	"day3_position": String,
+	"day3_embry_moves": Boolean,
+	"day3_embry_sounds": Boolean,
+	"day3_iron_folate": String,
+	"day3_vitamin_c": String,
+	"day3_calsium_malaria_treatments": String,
+	"day3_threeposha": Number,
+	"day3_checked_by": String,
+
+	"day4_clinical_day": Date,
+	"day4_weeks_into_pregnancy": String,
+	"day4_weight": Number,
+	"day4_urine_sugar":String,
+	"day4_urine_hemoglobin":String,
+	"day4_blood_pressure":String,
+	"day4_position": String,
+	"day4_embry_moves": Boolean,
+	"day4_embry_sounds": Boolean,
+	"day4_iron_folate": String,
+	"day4_vitamin_c": String,
+	"day4_calsium_malaria_treatments": String,
+	"day4_threeposha": Number,
+	"day4_checked_by": String,
+
+	"day5_clinical_day": Date,
+	"day5_weeks_into_pregnancy": String,
+	"day5_weight": Number,
+	"day5_urine_sugar":String,
+	"day5_urine_hemoglobin":String,
+	"day5_blood_pressure":String,
+	"day5_position": String,
+	"day5_embry_moves": Boolean,
+	"day5_embry_sounds": Boolean,
+	"day5_iron_folate": String,
+	"day5_vitamin_c": String,
+	"day5_calsium_malaria_treatments": String,
+	"day5_threeposha": Number,
+	"day5_checked_by": String,
+
+	"day6_clinical_day": Date,
+	"day6_weeks_into_pregnancy": String,
+	"day6_weight": Number,
+	"day6_urine_sugar":String,
+	"day6_urine_hemoglobin":String,
+	"day6_blood_pressure":String,
+	"day6_position": String,
+	"day6_embry_moves": Boolean,
+	"day6_embry_sounds": Boolean,
+	"day6_iron_folate": String,
+	"day6_vitamin_c": String,
+	"day6_calsium_malaria_treatments": String,
+	"day6_threeposha": Number,
+	"day6_checked_by": String,
+
+	"day7_clinical_day": Date,
+	"day7_weeks_into_pregnancy": String,
+	"day7_weight": Number,
+	"day7_urine_sugar":String,
+	"day7_urine_hemoglobin":String,
+	"day7_blood_pressure":String,
+	"day7_position": String,
+	"day7_embry_moves": Boolean,
+	"day7_embry_sounds": Boolean,
+	"day7_iron_folate": String,
+	"day7_vitamin_c": String,
+	"day7_calsium_malaria_treatments": String,
+	"day7_threeposha": Number,
+	"day7_checked_by": String,
+
+	"day8_clinical_day": Date,
+	"day8_weeks_into_pregnancy": String,
+	"day8_weight": Number,
+	"day8_urine_sugar":String,
+	"day8_urine_hemoglobin":String,
+	"day8_blood_pressure":String,
+	"day8_position": String,
+	"day8_embry_moves": Boolean,
+	"day8_embry_sounds": Boolean,
+	"day8_iron_folate": String,
+	"day8_vitamin_c": String,
+	"day8_calsium_malaria_treatments": String,
+	"day8_threeposha": Number,
+	"day8_checked_by": String,
+
+	//other medical details
+	"date_of_issued_embry_moves_form":Date,
+	"worm_treatment_given_date": Date,
+	"tetanus_treatments_type": String,
+	"tetanus_treatments_given_date": Date,
+	"tetanus_treatments_type_number": String,
+
+	"height": Number,
+	"bmi": Number,
+	"vdrl_blood_sample_obtained_date": Date,
+	"vdrl_weeks_into_pregnancy_when_blood_sample_was_obtained": Number,
+	"vdrl_date_of_results": Date,
+	"vdrl_result": String,
+	"vdrl_date_of_referral_for_further_treatments": Date,
+
+	"was_blood_sample_taken_fot_pretest_for_hiv": Boolean,
+	"was_blood_sample_taken_fot_pretest_for_malaria": Boolean,
+	"breast_test": String,
+	"cardiac_examination_first_three_month": String,
+	"cardiac_examination_second_three_month": String,
+	"cardiac_examination_third_three_month": String,
+    "lungs": String,
+	"dental_test": String,
+	"dental_caries": String,
+	"participating_clinics": String,
+			
+			
+			
 	"clinical_details": {
-		"clinics": {
-			"day1": {
-				"clinical_day": Date,
-				"weeks_into_pregnancy": String,
-				"weight": Number,
-				"urine": {
-					"sugar": Number,
-					"hemoglobin": Number
-				},
-				"blood_pressure": Number,
-				"position": String,
-				"embryo_moves": Boolean,
-				"embryo_sounds": Boolean,
-				"iron_folate": String,
-				"vitamin_c": String,
-				"calsium_malaria_treatments": String,
-				"threeposha": Number,
-				"checked_by": String
-			},
-			"day2": {
-				"clinical_day": Date,
-				"weeks_into_pregnancy": String,
-				"weight": Number,
-				"urine": {
-					"sugar": Number,
-					"hemoglobin": Number
-				},
-				"blood_pressure": Number,
-				"position": String,
-				"embryo_moves": Boolean,
-				"embryo_sounds": Boolean,
-				"iron_folate": String,
-				"vitamin_c": String,
-				"calsium_malaria_treatments": String,
-				"threeposha": Number,
-				"checked_by": String
-			},
-			"day3": {
-				"clinical_day": Date,
-				"weeks_into_pregnancy": String,
-				"weight": Number,
-				"urine": {
-					"sugar": Number,
-					"hemoglobin": Number
-				},
-				"blood_pressure": Number,
-				"position": String,
-				"embryo_moves": Boolean,
-				"embryo_sounds": Boolean,
-				"iron_folate": String,
-				"vitamin_c": String,
-				"calsium_malaria_treatments": String,
-				"threeposha": Number,
-				"checked_by": String
-			},
-			"day4": {
-				"clinical_day": Date,
-				"weeks_into_pregnancy": String,
-				"weight": Number,
-				"urine": {
-					"sugar": Number,
-					"hemoglobin": Number
-				},
-				"blood_pressure": Number,
-				"position": String,
-				"embryo_moves": Boolean,
-				"embryo_sounds": Boolean,
-				"iron_folate": String,
-				"vitamin_c": String,
-				"calsium_malaria_treatments": String,
-				"threeposha": Number,
-				"checked_by": String
-			},
-			"day5": {
-				"clinical_day": Date,
-				"weeks_into_pregnancy": String,
-				"weight": Number,
-				"urine": {
-					"sugar": Number,
-					"hemoglobin": Number
-				},
-				"blood_pressure": Number,
-				"position": String,
-				"embryo_moves": Boolean,
-				"embryo_sounds": Boolean,
-				"iron_folate": String,
-				"vitamin_c": String,
-				"calsium_malaria_treatments": String,
-				"threeposha": Number,
-				"checked_by": String
-			},
-			"day6": {
-				"clinical_day": Date,
-				"weeks_into_pregnancy": String,
-				"weight": Number,
-				"urine": {
-					"sugar": Number,
-					"hemoglobin": Number
-				},
-				"blood_pressure": Number,
-				"position": String,
-				"embryo_moves": Boolean,
-				"embryo_sounds": Boolean,
-				"iron_folate": String,
-				"vitamin_c": String,
-				"calsium_malaria_treatments": String,
-				"threeposha": Number,
-				"checked_by": String
-			},
-			"day7": {
-				"clinical_day": Date,
-				"weeks_into_pregnancy": String,
-				"weight": Number,
-				"urine": {
-					"sugar": Number,
-					"hemoglobin": Number
-				},
-				"blood_pressure": Number,
-				"position": String,
-				"embryo_moves": Boolean,
-				"embryo_sounds": Boolean,
-				"iron_folate": String,
-				"vitamin_c": String,
-				"calsium_malaria_treatments": String,
-				"threeposha": Number,
-				"checked_by": String
-			},
-			"day8": {
-				"clinical_day": Date,
-				"weeks_into_pregnancy": String,
-				"weight": Number,
-				"urine": {
-					"sugar": Number,
-					"hemoglobin": Number
-				},
-				"blood_pressure": Number,
-				"position": String,
-				"embryo_moves": Boolean,
-				"embryo_sounds": Boolean,
-				"iron_folate": String,
-				"vitamin_c": String,
-				"calsium_malaria_treatments": String,
-				"threeposha": Number,
-				"checked_by": String
-			},
-
-			"worm_treatment_given_date": Date,
-			"tetanus_treatments": {
-				"type": String,
-				"given_date": Date,
-				"type_number": String
-			}
-		},
+		
 		"height": Number,
 		"bmi": Number,
-		"vdrl": {
-			"blood_sample_obtained_date": Date,
-			"weeks_into_pregnancy_when_blood_sample_was_obtained": Number,
-			"date_of_results": Date,
-			"result": String,
-			"date_of_referral_for_further_treatments": Date,
-		},
-		"was_blood_sample_taken_fot_pretest": {
-			"for_hiv": Boolean,
-			"for_malaria": Boolean
-		},
+		"vdrl_blood_sample_obtained_date": Date,
+		"vdrl_weeks_into_pregnancy_when_blood_sample_was_obtained": Number,
+		"vdrl_date_of_results": Date,
+		"vdrl_result": String,
+		"vdrl_date_of_referral_for_further_treatments": Date,
+		"was_blood_sample_taken_fot_pretest_for_hiv": Boolean,
+		"was_blood_sample_taken_fot_pretest_for_malaria": Boolean,
 		"breast_test": String,
-		"cardiac_examination": {
-			"first_three_month": String,
-			"second_three_month": String,
-			"third_three_month": String
-		},
-		"lungs": String,
+		"cardiac_examination_first_three_month": String,
+		"cardiac_examination_second_three_month": String,
+		"cardiac_examination_third_three_month": String,
+	    "lungs": String,
 		"dental_test": String,
 		"dental_caries": String,
 		"participating_clinics": String,
-	},
-	"after_delivery_details": {
+		"blood_sugar_week":String,
+		"blood_sugar_result":Number,
+		"hemoglobin_week":String,
+		"hemoglobin_result":Number,
+		"malaria_week":String,
+		"malaria_result":Number,//some field missing
+
+		//after delivery"
 		"vitamin_c_overdose": Date,
-		"rubella": Date,
+		"rubella_date": Date,
+		"rubella_type": String,
 		"day_mother_came_home": Date,
-		"child": {
-			"sex": String,
-			"birth_weight": Number,
-			"immatured": Boolean,
-			"abnormalities": Boolean,
-			"other_details": String
-		},
-		"maternal_deaths": {
-			"date": Date,
-			"reason": String,
-			"inversigated": Boolean
-		},
-		"post_travel_days": {
-			"day1": {
-				"date": Date,
-				"mother": {
-					"temperature": Number,
-					"paleness": Boolean,
-					"breast": String,
-					"filamemtous_blood": String,
-					"mental_changes": Boolean,
-					"diarrrhea": Boolean,
-					"vomiting": Boolean,
-					"breathing_difficulties": Boolean,
-					"visual_difficulties": Boolean,
-					"pain_in_kent": Boolean,
-					"prebiotics": String
-				},
-				"child": {
-					"abnormalities": Boolean,
-					"fever": Boolean,
-					"skin_color": String,
-					"infections_near_umbilicus": Boolean,
-					"suckling": String,
-					"prebiotics": String
-				},
-				"other_details": String
-			},
-			"day2": {
-				"date": Date,
-				"mother": {
-					"temperature": Number,
-					"paleness": Boolean,
-					"breast": String,
-					"filamemtous_blood": String,
-					"mental_changes": Boolean,
-					"diarrrhea": Boolean,
-					"vomiting": Boolean,
-					"breathing_difficulties": Boolean,
-					"visual_difficulties": Boolean,
-					"pain_in_kent": Boolean,
-					"prebiotics": String
-				},
-				"child": {
-					"abnormalities": Boolean,
-					"fever": Boolean,
-					"skin_color": String,
-					"infections_near_umbilicus": Boolean,
-					"suckling": String,
-					"prebiotics": String
-				},
-				"other_details": String
-			},
-			"day3": {
-				"date": Date,
-				"mother": {
-					"temperature": Number,
-					"paleness": Boolean,
-					"breast": String,
-					"filamemtous_blood": String,
-					"mental_changes": Boolean,
-					"diarrrhea": Boolean,
-					"vomiting": Boolean,
-					"breathing_difficulties": Boolean,
-					"visual_difficulties": Boolean,
-					"pain_in_kent": Boolean,
-					"prebiotics": String
-				},
-				"child": {
-					"abnormalities": Boolean,
-					"fever": Boolean,
-					"skin_color": String,
-					"infections_near_umbilicus": Boolean,
-					"suckling": String,
-					"prebiotics": String
-				},
-				"other_details": String
-			},
-			"day4": {
-				"date": Date,
-				"mother": {
-					"temperature": Number,
-					"paleness": Boolean,
-					"breast": String,
-					"filamemtous_blood": String,
-					"mental_changes": Boolean,
-					"diarrrhea": Boolean,
-					"vomiting": Boolean,
-					"breathing_difficulties": Boolean,
-					"visual_difficulties": Boolean,
-					"pain_in_kent": Boolean,
-					"prebiotics": String
-				},
-				"child": {
-					"abnormalities": Boolean,
-					"fever": Boolean,
-					"skin_color": String,
-					"infections_near_umbilicus": Boolean,
-					"suckling": String,
-					"prebiotics": String
-				},
-				"other_details": String
-			},
-			"day5": {
-				"date": Date,
-				"mother": {
-					"temperature": Number,
-					"paleness": Boolean,
-					"breast": String,
-					"filamemtous_blood": String,
-					"mental_changes": Boolean,
-					"diarrrhea": Boolean,
-					"vomiting": Boolean,
-					"breathing_difficulties": Boolean,
-					"visual_difficulties": Boolean,
-					"pain_in_kent": Boolean,
-					"prebiotics": String
-				},
-				"child": {
-					"abnormalities": Boolean,
-					"fever": Boolean,
-					"skin_color": String,
-					"infections_near_umbilicus": Boolean,
-					"suckling": String,
-					"prebiotics": String
-				},
-				"other_details": String
-			},
-			"day6": {
-				"date": Date,
-				"mother": {
-					"temperature": Number,
-					"paleness": Boolean,
-					"breast": String,
-					"filamemtous_blood": String,
-					"mental_changes": Boolean,
-					"diarrrhea": Boolean,
-					"vomiting": Boolean,
-					"breathing_difficulties": Boolean,
-					"visual_difficulties": Boolean,
-					"pain_in_kent": Boolean,
-					"prebiotics": String
-				},
-				"child": {
-					"abnormalities": Boolean,
-					"fever": Boolean,
-					"skin_color": String,
-					"infections_near_umbilicus": Boolean,
-					"suckling": String,
-					"prebiotics": String
-				},
-				"other_details": String
-			},
-			"day7": {
-				"date": Date,
-				"mother": {
-					"temperature": Number,
-					"paleness": Boolean,
-					"breast": String,
-					"filamemtous_blood": String,
-					"mental_changes": Boolean,
-					"diarrrhea": Boolean,
-					"vomiting": Boolean,
-					"breathing_difficulties": Boolean,
-					"visual_difficulties": Boolean,
-					"pain_in_kent": Boolean,
-					"prebiotics": String
-				},
-				"child": {
-					"abnormalities": Boolean,
-					"fever": Boolean,
-					"skin_color": String,
-					"infections_near_umbilicus": Boolean,
-					"suckling": String,
-					"prebiotics": String
-				},
-				"other_details": String
-			},
-			"day8": {
-				"date": Date,
-				"mother": {
-					"temperature": Number,
-					"paleness": Boolean,
-					"breast": String,
-					"filamemtous_blood": String,
-					"mental_changes": Boolean,
-					"diarrrhea": Boolean,
-					"vomiting": Boolean,
-					"breathing_difficulties": Boolean,
-					"visual_difficulties": Boolean,
-					"pain_in_kent": Boolean,
-					"prebiotics": String
-				},
-				"child": {
-					"abnormalities": Boolean,
-					"fever": Boolean,
-					"skin_color": String,
-					"infections_near_umbilicus": Boolean,
-					"suckling": String,
-					"prebiotics": String
-				},
-				"other_details": String
-			}
-		},
+		"child_sex": String,
+		"child_birth_weight": Number,
+		"child_immatured": Boolean,
+		"child_abnormalities": Boolean,
+		"child_other_details": String,
+		"unidentified_abnormalities":String,
+
+		"maternal_deathsdate": Date,
+		"maternal_deathsreason": String,
+		"maternal_deathsinversigated": Boolean,
+
+		//post travel days
+		"day1travel_date": Date,
+		"day1mother_temperature": Number,
+		"day1mother_paleness": Boolean,
+		"day1mother_breast": String,
+		"day1mother_filamemtous_blood": String,
+		"day1mother_mental_changes": Boolean,
+		"day1mother_diarrrhea": Boolean,
+		"day1mother_vomiting": Boolean,
+		"day1mother_breathing_difficulties": Boolean,
+		"day1mother_visual_difficulties": Boolean,
+		"day1mother_pain_in_kent": Boolean,
+		"day1mother_prebiotics": String,
+		"day1child_abnormalities": Boolean,
+		"day1child_fever": Boolean,
+		"day1child_skin_color": String,
+		"day1child_infections_near_umbilicus": Boolean,
+		"day1child_suckling": String,
+		"day1child_prebiotics": String,
+
+		"day2travel_date": Date,
+		"day2mother_temperature": Number,
+		"day2mother_paleness": Boolean,
+		"day2mother_breast": String,
+		"day2mother_filamemtous_blood": String,
+		"day2mother_mental_changes": Boolean,
+		"day2mother_diarrrhea": Boolean,
+		"day2mother_vomiting": Boolean,
+		"day2mother_breathing_difficulties": Boolean,
+		"day2mother_visual_difficulties": Boolean,
+		"day2mother_pain_in_kent": Boolean,
+		"day2mother_prebiotics": String,
+		"day2child_abnormalities": Boolean,
+		"day2child_fever": Boolean,
+		"day2child_skin_color": String,
+		"day2child_infections_near_umbilicus": Boolean,
+		"day2child_suckling": String,
+		"day2child_prebiotics": String,
+
+		"day3travel_date": Date,
+		"day3mother_temperature": Number,
+		"day3mother_paleness": Boolean,
+		"day3mother_breast": String,
+		"day3mother_filamemtous_blood": String,
+		"day3mother_mental_changes": Boolean,
+		"day3mother_diarrrhea": Boolean,
+		"day3mother_vomiting": Boolean,
+		"day3mother_breathing_difficulties": Boolean,
+		"day3mother_visual_difficulties": Boolean,
+		"day3mother_pain_in_kent": Boolean,
+		"day3mother_prebiotics": String,
+		"day3child_abnormalities": Boolean,
+		"day3child_fever": Boolean,
+		"day3child_skin_color": String,
+		"day3child_infections_near_umbilicus": Boolean,
+		"day3child_suckling": String,
+		"day3child_prebiotics": String,
+
+		"day4travel_date": Date,
+		"day4mother_temperature": Number,
+		"day4mother_paleness": Boolean,
+		"day4mother_breast": String,
+		"day4mother_filamemtous_blood": String,
+		"day4mother_mental_changes": Boolean,
+		"day4mother_diarrrhea": Boolean,
+		"day4mother_vomiting": Boolean,
+		"day4mother_breathing_difficulties": Boolean,
+		"day4mother_visual_difficulties": Boolean,
+		"day4mother_pain_in_kent": Boolean,
+		"day4mother_prebiotics": String,
+		"day4child_abnormalities": Boolean,
+		"day4child_fever": Boolean,
+		"day4child_skin_color": String,
+		"day4child_infections_near_umbilicus": Boolean,
+		"day4child_suckling": String,
+		"day4child_prebiotics": String,
+
+		"day5travel_date": Date,
+		"day5mother_temperature": Number,
+		"day5mother_paleness": Boolean,
+		"day5mother_breast": String,
+		"day5mother_filamemtous_blood": String,
+		"day5mother_mental_changes": Boolean,
+		"day5mother_diarrrhea": Boolean,
+		"day5mother_vomiting": Boolean,
+		"day5mother_breathing_difficulties": Boolean,
+		"day5mother_visual_difficulties": Boolean,
+		"day5mother_pain_in_kent": Boolean,
+		"day5mother_prebiotics": String,
+		"day5child_abnormalities": Boolean,
+		"day5child_fever": Boolean,
+		"day5child_skin_color": String,
+		"day5child_infections_near_umbilicus": Boolean,
+		"day5child_suckling": String,
+		"day5child_prebiotics": String,
+
+		"day6travel_date": Date,
+		"day6mother_temperature": Number,
+		"day6mother_paleness": Boolean,
+		"day6mother_breast": String,
+		"day6mother_filamemtous_blood": String,
+		"day6mother_mental_changes": Boolean,
+		"day6mother_diarrrhea": Boolean,
+		"day6mother_vomiting": Boolean,
+		"day6mother_breathing_difficulties": Boolean,
+		"day6mother_visual_difficulties": Boolean,
+		"day6mother_pain_in_kent": Boolean,
+		"day6mother_prebiotics": String,
+		"day6child_abnormalities": Boolean,
+		"day6child_fever": Boolean,
+		"day6child_skin_color": String,
+		"day6child_infections_near_umbilicus": Boolean,
+		"day6child_suckling": String,
+		"day6child_prebiotics": String,
+
+		"day7travel_date": Date,
+		"day7mother_temperature": Number,
+		"day7mother_paleness": Boolean,
+		"day7mother_breast": String,
+		"day7mother_filamemtous_blood": String,
+		"day7mother_mental_changes": Boolean,
+		"day7mother_diarrrhea": Boolean,
+		"day7mother_vomiting": Boolean,
+		"day7mother_breathing_difficulties": Boolean,
+		"day7mother_visual_difficulties": Boolean,
+		"day7mother_pain_in_kent": Boolean,
+		"day7mother_prebiotics": String,
+		"day7child_abnormalities": Boolean,
+		"day7child_fever": Boolean,
+		"day7child_skin_color": String,
+		"day7child_infections_near_umbilicus": Boolean,
+		"day7child_suckling": String,
+		"day7child_prebiotics": String,
+
+		"day8travel_date": Date,
+		"day8mother_temperature": Number,
+		"day8mother_paleness": Boolean,
+		"day8mother_breast": String,
+		"day8mother_filamemtous_blood": String,
+		"day8mother_mental_changes": Boolean,
+		"day8mother_diarrrhea": Boolean,
+		"day8mother_vomiting": Boolean,
+		"day8mother_breathing_difficulties": Boolean,
+		"day8mother_visual_difficulties": Boolean,
+		"day8mother_pain_in_kent": Boolean,
+		"day8mother_prebiotics": String,
+		"day8child_abnormalities": Boolean,
+		"day8child_fever": Boolean,
+		"day8child_skin_color": String,
+		"day8child_infections_near_umbilicus": Boolean,
+		"day8child_suckling": String,
+		"day8child_prebiotics": String,
+
+		"others_details":String,
 		"mental_health_according_to_edingburo": String,
-		"new_born_baby": {
-			"bcg": String,
-			"if_died": {
-				"when": String,
-				"reason": String,
-				"inversigated": Boolean
-			}
-		},
+		"new_born_baby_bcg": String,
+		"new_born_baby_if_died_when": String,
+		"new_born_baby_if_died_reason": String,
+		"new_born_baby_if_died_inversigated": Boolean,
 		"does_mother_comes_to_post_delivery_clinics": Boolean,
-		"accepted_family_organization_method": Boolean
+		"accepted_family_organization_method": Boolean,
+		"why_accepted_family_organization_method": String
+		
+			
 	}
 }, {
 	collection: 'mother_baby_fordoc'

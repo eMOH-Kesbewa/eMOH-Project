@@ -10,10 +10,6 @@ var baby = new Schema({
    "address": String,
    "total_Number_of_children_alive_including_this_child": Number,
    
-   // "method_of_delivery_normal_delivery": String,
-   // "method_of_delivery_low_delivery": String,
-   // "method_of_delivery_vaccume_delivery": String,
-   // "method_of_delivery_sesarean_delivery": String, 
    "method_of_delivery":String,
    "Number_of_apgas_1m": String,
    "Number_of_apgas_5m": String,
@@ -194,716 +190,529 @@ var baby = new Schema({
    "other_fourteen_twentytwo_days_status": String,
    "other_fourtytwo_days_status": String,
 
+   //for mother to check eyes
+   "does_child_eyes_toward_the_light": String,
+   "does_the_child_look_good_on_your_face": String,
+   "when_you_turn_your_face_to_the_side_do_you_see_the_child_smiling_in_response": String,
+   "then_the_baby_eyes_move": String,
+   "does_the_child_look_arround": String,
+   "is_child_streching_out_his_hand_and_tryimg_to_touch_something": String,
+   "do_you_suspect_that_your_child_has_a_problem": String,
+   "is_it_possible_for_a_child_to_pickup_small_things_with_a_thumb_and_forefinger": String,
+   "have_your_child_strech_out_his_hand_and_touch_them": String,
+   "if_the_person_identifies_them_the_child_will_recognize_them_before_they_call_them": String,
+
+   //to check baby hearing for mothers
+   "if_your_child_is_startled_by_a_sudden_loud_noise_does_his_stutter_or_widden_his_eyes": String,
+   "does_your_child_detect_sudden_or_presistent_noises_and_begin_to_listen_quitely_to_eve": String,
+   "if_they_cant_see_their_mother_do_they_keep_silent_or_laugh_when_their_voice_is_heard": String,
+   "when_the_mother_speaks_from_the_side_or_from_the_back_does_child_turn_his_head_or_eyes": String,
+   "does_child_turn_to_the_mother_side_immediately_after_speaking": String,
+   "listen_to_the_familiar_sounds_does_child_hear_everyday": String,
+   "does_find_out_about_noises_from_an_unknown_location": String,
+   "does_child_like_it_when_talking_to_a_loud_tune": String,
+   "does_he_respond_to_other_familiar_sounds_nd_his_name": String,
+   "does_he_respond_to_words_even_when_they_do_not": String,
+  
+   //child growth 6 weeks-3 months
+   "lie_on_his_hips_and_head_up_age_at_the_time_of_occurence": String,
+   "lie_on_his_hips_and_head_up_age_at_the_confirmed": String,
+   "lie_on_his_hips_and_head_up_status_of_the_officer": String,
+   "something_keeps_moving_from_one_place_to_another_age_at_the_time_of_occurence": String,
+   "something_keeps_moving_from_one_place_to_another_age_at_the_confirmed": String,
+   "something_keeps_moving_from_one_place_to_another_status_of_the_officer": String,
+   "stopping_or_increasing_action_responds_to_a_sudden_loud_noise_age_at_the_time_of_occurence": String,
+   "stopping_or_increasing_action_responds_to_a_sudden_loud_noise_age_at_the_confirmed": String,
+   "stopping_or_increasing_action_responds_to_a_sudden_loud_noise_status_of_the_officer": String,
+   "sounds_like_a_e_in_response_to_stimulus_age_at_the_time_of_occurence": String,
+   "sounds_like_a_e_in_response_to_stimulus_age_at_the_confirmed": String,
+   "sounds_like_a_e_in_response_to_stimulus_status_of_the_officer": String,
+   "the_mother_recognize_and_smiles_age_at_the_time_of_occurence": String,
+   "the_mother_recognize_and_smiles_age_at_the_confirmed": String,
+   "the_mother_recognize_and_smiles_status_of_the_officer": String, 
    
+   //child growth 3-6 months
+   "raise_the_head_chest_while_standing_up_age_at_the_time_of_occurence": String,
+   "raise_the_head_chest_while_standing_up_age_at_the_confirmed": String,
+   "raise_the_head_chest_while_standing_up_status_of_the_officer": String,
+   "they_play_when_crossing_fingers_age_at_the_time_of_occurence": String,
+   "they_play_when_crossing_fingers_age_at_the_confirmed": String,
+   "they_play_when_crossing_fingers_status_of_the_officer": String,
+   "streching_his_hands_toward_something_he_hold_it_with_his_whole_hand_age_at_the_time_of_occurence": String,
+   "streching_his_hands_toward_something_he_hold_it_with_his_whole_hand_age_at_the_confirmed": String,
+   "streching_his_hands_toward_something_he_hold_it_with_his_whole_hand_status_of_the_officer": String,
+   "when_heard_a_sound_he_turn_his_head_toward_that_age_at_the_time_of_occurence": String,
+   "when_heard_a_sound_he_turn_his_head_toward_that_age_at_the_confirmed": String,
+   "when_heard_a_sound_he_turn_his_head_toward_that_status_of_the_officer": String,
+   "emits_single_letter_sounds_age_at_the_time_of_occurence": String,
+   "emits_single_letter_sounds_age_at_the_confirmed": String,
+   "emits_single_letter_sounds_status_of_the_officer": String,
+   "smiles_loudely_age_at_the_time_of_occurence": String,
+   "smiles_loudely_age_at_the_confirmed": String,
+   "smiles_loudely_status_of_the_officer": String,    
+     
+   //child growth 6-9 month
+   "lie_your_hips_and_head_up_age_at_the_time_of_occurence": String,
+   "lie_your_hips_and_head_up_age_at_the_confirmed": String,
+   "lie_your_hips_and_head_up_status_of_the_officer": String,
+   "turn_back_again_and_again_age_at_the_time_of_occurence": String,
+   "turn_back_again_and_again_age_at_the_confirmed": String,
+   "turn_back_again_and_again_status_of_the_officer": String,
+   "change_something_another_hand_to_other_hand_age_at_the_time_of_occurence": String,
+   "change_something_another_hand_to_other_hand_age_at_the_confirmed": String,
+   "change_something_another_hand_to_other_hand_status_of_the_officer": String,
+   "some_sounds_are_repeated_age_at_the_time_of_occurence": String,
+   "some_sounds_are_repeated_age_at_the_confirmed": String,
+   "some_sounds_are_repeated_status_of_the_officer": String,
+    
+   //child growth 9-12 month
+   "siting_without_help_age_at_the_time_of_occurence": String,
+   "siting_without_help_age_at_the_confirmed": String,
+   "siting_without_help_status_of_the_officer": String,
+   "holding_himself_alone_age_at_the_time_of_occurence": String,
+   "holding_himself_alone_age_at_the_confirmed": String,
+   "holding_himself_alone_status_of_the_officer": String,
+   "holding_small_things_using_thumb_And_forefinger_age_at_the_time_of_occurence": String,
+   "holding_small_things_using_thumb_And_forefinger_age_at_the_confirmed": String,
+   "holding_small_things_using_thumb_And_forefinger_status_of_the_officer": String,
+   "following_voice_age_at_the_time_of_occurence": String,
+   "following_voice_age_at_the_confirmed": String,
+   "following_voice_status_of_the_officer": String,
+   "pronounce_individual_words_makes_sounds_that_make_sense_age_at_the_time_of_occurence": String,
+   "pronounce_individual_words_makes_sounds_that_make_sense_age_at_the_confirmed": String,
+   "pronounce_individual_words_makes_sounds_that_make_sense_status_of_the_officer": String,
+   "understand_simple_instructions_age_at_the_time_of_occurence": String,
+   "understand_simple_instructions_age_at_the_confirmed": String,
+   "understand_simple_instructions_status_of_the_officer": String,    
    
-   "first_month_from_birth": {
-      "does_child's_eyes_toward_the_light": Boolean,
-      "does_the_child_look_good_on_your_face": Boolean
+   //child growth 12-18 month
+   "walking_with_help_age_at_the_time_of_occurence": String,
+   "walking_with_help_age_at_the_confirmed": String,
+   "walking_with_help_status_of_the_officer": String,
+   "they_can_speak_At_least_two_or_three_words_age_at_the_time_of_occurence": String,
+   "they_can_speak_At_least_two_or_three_words_age_at_the_confirmed": String,
+   "they_can_speak_At_least_two_or_three_words_status_of_the_officer": String,
+   "hand_is_pointed_out_when_hearing_familiar_things_age_at_the_time_of_occurence": String,
+   "hand_is_pointed_out_when_hearing_familiar_things_age_at_the_confirmed": String,
+   "hand_is_pointed_out_when_hearing_familiar_things_status_of_the_officer": String,
+   "they_can_roll_a_boll_age_at_the_time_of_occurence": String,
+   "they_can_roll_a_boll_age_at_the_confirmed": String,
+   "they_can_roll_a_boll_status_of_the_officer": String,
+   "can_identify_at_least_one_body_part_age_at_the_time_of_occurence": String,
+   "can_identify_at_least_one_body_part_age_at_the_confirmed": String,
+   "can_identify_at_least_one_body_part_status_of_the_officer": String,
+    
+   //child growth 18 month-2 year
+   "walking_without_help_age_at_the_time_of_occurence": String,
+   "walking_without_help_age_at_the_confirmed": String,
+   "walking_without_helpstatus_of_the_officer": String,
+   "can_climb_the_stair_with_help_age_at_the_time_of_occurence": String,
+   "can_climb_the_stair_with_help_age_at_the_confirmed": String,
+   "can_climb_the_stair_with_help_status_of_the_officer": String,
+   "can_make_a_tower_using_building_blocks_age_at_the_time_of_occurence": String,
+   "can_make_a_tower_using_building_blocks_age_at_the_confirmed": String,
+   "can_make_a_tower_using_building_blocks_status_of_the_officer": String,
+   "eat_himself_alone_age_at_the_time_of_occurence": String,
+   "eat_himself_alone_age_at_the_confirmed": String,
+   "eat_himself_alone_status_of_the_officer": String,
+   "can_talk_about_ten_words_can_talk_at_least_one_sentence_with_two_words_age_at_the_time_of_occurence": String,
+   "can_talk_about_ten_words_can_talk_at_least_one_sentence_with_two_words_age_at_the_confirmed": String,
+   "can_talk_about_ten_words_can_talk_at_least_one_sentence_with_two_words_status_of_the_officer": String,
+   "the_lips_are_sharpened_to_kiss_age_at_the_time_of_occurence": String,
+   "the_lips_are_sharpened_to_kiss_age_at_the_confirmed": String,
+   "the_lips_are_sharpened_to_kiss_status_of_the_officer": String,
+   
+   //child growth 2-3 year
+   "ability_to_run_without_falling_age_at_the_time_of_occurence": String,
+   "ability_to_run_without_falling_age_at_the_confirmed": String,
+   "ability_to_run_without_falling_status_of_the_officer": String,
+   "ability_to_down_and_up_stair_age_at_the_time_of_occurence": String,
+   "ability_to_down_and_up_stair_age_at_the_confirmed": String,
+   "ability_to_down_and_up_stair_status_of_the_officer": String,
+   "can_copy_an_art_with_a_circle_age_at_the_time_of_occurence": String,
+   "can_copy_an_art_with_a_circle_age_at_the_confirmed": String,
+   "can_copy_an_art_with_a_circle_status_of_the_officer": String,
+   "can_create_a_sentence_with_three_or_more_words_age_at_the_time_of_occurence": String,
+   "can_create_a_sentence_with_three_or_more_words_age_at_the_confirmed": String,
+   "can_create_a_sentence_with_three_or_more_words_status_of_the_officer": String,
+     
+   //child health form 1st month
+   "one_month_date_of_clinics": Date,
+   "one_month_change_of_eye_size":String,
+   "one_month_squint": String,
+   "one_month_cataract": String,
+   "one_month_impairment_of_eye_movement": String,
+   "one_month_hearing_left": String,
+   "one_month_hearing_right": String,
+   "one_month_development_weight": String,
+   "one_month_development_height": String,
+   "one_month_heart_disease": String,
+   "one_month_lungs": String,
+   "one_month_hip_joint": String,
+   "one_month_inheited_problems": String,
+   "one_month_other_diseases": String,
+   "one_month_designation_of_officer": String,
 
-   },
-   "in_second_month": {
-      "when_you_turn_your_face_to_the_side_do_you_see_the_child_smiling_in_response": Boolean,
-      "then_the_baby's_eyes_move": Boolean
-   },
-   "in_sixth_month": {
-      "does_the_child_look_arround": Boolean,
-      "is_child_streching_out_his_hand_and_tryimg_to_touch_something": Boolean,
-      "do_you_suspect_that_your_child_has_a_problem": Boolean
-   },
-   "in_tenth_month": {
-      "is_it_possible_for_a_child_to_pickup_small_things_with_a_thumb_and_forefinger": Boolean
-   },
-   "in_tweleth_month": {
-      "have_your_child_strech_out_his_hand_and_touch_them": Boolean,
-      "if_the_person_identifies_them_the_child_will_recognize_them_before_they_call_them": Boolean
-   },
-   "in_the_few_moments_after_the_birth": {
-      "if_your_child_is_startled_by_a_sudden_loud_noise_does_his_stutter_or_widden_his_eyes": Boolean
-   },
-   "in_first_month": {
-      "does_your_child_detect_sudden_or_presistent_noises_and_begin_to_listen_quitely_to_eve": Boolean
-   },
-   "from_four_month": {
-      "if_they_can't_see_their_mother_do_they_keep_silent_or_laugh_when_their_voice_is_heard": Boolean,
-      "when_the_mother_speaks_from_the_side_or)from_the_back_does_child_turn_his_head_or_eyes": Boolean
-   },
-   "from_seven_month": {
-      "does_child_turn_to_the_mother_side_immediately_after_speaking": Boolean
-   },
-   "from_nine_month": {
-      "listen_to_the_familiar_sounds_does_child_hear_everyday": Boolean,
-      "does_find_out_about_noises_from_an_unknown_location": Boolean,
-      "does_child_like_it_when_talking_to_a_loud_tune": Boolean
-   },
-   "when_twelve_month": {
-      "does_he_respond_to_other_familiar_sounds_nd_his_name": Boolean,
-      "does_he_respond_to_words_even_when_they_do_not": Boolean
-   },
+   //child health form 2nd month
+   "two_month_date_of_clinics": Date,
+   "two_month_change_of_eye_size":String,
+   "two_month_squint": String,
+   "two_month_cataract": String,
+   "two_month_impairment_of_eye_movement": String,
+   "two_month_hearing_left": String,
+   "two_month_hearing_right": String,
+   "two_month_development_weight": String,
+   "two_month_development_height": String,
+   "two_month_heart_disease": String,
+   "two_month_lungs": String,
+   "two_month_hip_joint": String,
+   "two_month_inheited_problems": String,
+   "two_month_other_diseases": String,
+   "two_month_designation_of_officer": String,
+    
+   //child health form 4th month
+   "four_month_date_of_clinics": Date,
+   "four_month_change_of_eye_size":String,
+   "four_month_squint": String,
+   "four_month_cataract": String,
+   "four_month_impairment_of_eye_movement": String,
+   "four_month_hearing_left": String,
+   "four_month_hearing_right": String,
+   "four_month_development_weight": String,
+   "four_month_development_height": String,
+   "four_month_heart_disease": String,
+   "four_month_lungs": String,
+   "four_month_hip_joint": String,
+   "four_month_inheited_problems": String,
+   "four_month_other_diseases": String,
+   "four_month_designation_of_officer": String,
 
-   "from_six_months_to_three_months": {
-      "lie_on_his_hips_and_head_up": {
-         "age_at_the_time_of_occurence": Number,
-         "age_at_the_confirmed": Number,
-         "status_of_the_officer": String
-      },
-      "something_keeps_moving_from_one_place_to_another": {
-         "age_at_the_time_of_occurence": Number,
-         "age_at_the_confirmed": Number,
-         "status_of_the_officer": String
-      },
-      "stopping_or_increasing_action_responds_to_a_sudden_loud_noise": {
-         "age_at_the_time_of_occurence": Number,
-         "age_at_the_confirmed": Number,
-         "status_of_the_officer": String
-      },
-      "sounds_like_a_e_in_response_to_stimulus": {
-         "age_at_the_time_of_occurence": Number,
-         "age_at_the_confirmed": Number,
-         "status_of_the_officer": String
-      },
-      "the_mother_recognize_and_smiles": {
-         "age_at_the_time_of_occurence": Number,
-         "age_at_the_confirmed": Number,
-         "status_of_the_officer": String
-      }
-   },
-   "from_three_to_six_months": {
-      "raise_the_head_chest_while_standing_up": {
-         "age_at_the_time_of_occurence": Number,
-         "age_at_the_confirmed": Number,
-         "status_of_the_officer": String
-      },
-      "they_play_when_crossing_fingers": {
-         "age_at_the_time_of_occurence": Number,
-         "age_at_the_confirmed": Number,
-         "status_of_the_officer": String
-      },
-      "streching_his_hands_toward_something_he_hold_it_with_his_whole_hand": {
-         "age_at_the_time_of_occurence": Number,
-         "age_at_the_confirmed": Number,
-         "status_of_the_officer": String
-      },
-      "when_heard_a_sound_he_turn_his_head_toward_that": {
-         "age_at_the_time_of_occurence": Number,
-         "age_at_the_confirmed": Number,
-         "status_of_the_officer": String
-      },
-      "emits_single_letter_sounds": {
-         "age_at_the_time_of_occurence": Number,
-         "age_at_the_confirmed": Number,
-         "status_of_the_officer": String
-      },
-      "smiles_loudely": {
-         "age_at_the_time_of_occurence": Number,
-         "age_at_the_confirmed": Number,
-         "status_of_the_officer": String
-      }
-   },
-   "from_six_to_nine_months": {
-      "lie_your_hips_and_head_up": {
-         "age_at_the_time_of_occurence": Number,
-         "age_at_the_confirmed": Number,
-         "status_of_the_officer": String
-      },
-      "turn_back_again_and_again": {
-         "age_at_the_time_of_occurence": Number,
-         "age_at_the_confirmed": Number,
-         "status_of_the_officer": String
-      },
-      "change_something_another_hand_to_other_hand": {
-         "age_at_the_time_of_occurence": Number,
-         "age_at_the_confirmed": Number,
-         "status_of_the_officer": String
-      },
-      "some_sounds_are_repeated": {
-         "age_at_the_time_of_occurence": Number,
-         "age_at_the_confirmed": Number,
-         "status_of_the_officer": String
-      }
-   },
-   "from_nine_to_twelve_month": {
-      "siting_withou_help": {
-         "age_at_the_time_of_occurence": Number,
-         "age_at_the_confirmed": Number,
-         "status_of_the_officer": String
-      },
-      "holding_himself_alone": {
-         "age_at_the_time_of_occurence": Number,
-         "age_at_the_confirmed": Number,
-         "status_of_the_officer": String
-      },
-      "holding_small_things_using_thumb_And_forefinger": {
-         "age_at_the_time_of_occurence": Number,
-         "age_at_the_confirmed": Number,
-         "status_of_the_officer": String
-      },
-      "following_voice": {
-         "age_at_the_time_of_occurence": Number,
-         "age_at_the_confirmed": Number,
-         "status_of_the_officer": String
-      },
-      "pronounce_individual_words_makes_sounds_that_make_sense": {
-         "age_at_the_time_of_occurence": Number,
-         "age_at_the_confirmed": Number,
-         "status_of_the_officer": String
-      },
-      "understand_simple_instructions": {
-         "age_at_the_time_of_occurence": Number,
-         "age_at_the_confirmed": Number,
-         "status_of_the_officer": String
-      }
-   },
-   "from_twelve_to_eighteen": {
-      "walking_with_help": {
-         "age_at_the_time_of_occurence": Number,
-         "age_at_the_confirmed": Number,
-         "status_of_the_officer": String
-      },
-      "they_can_speak_At_least_two_or_three_words": {
-         "age_at_the_time_of_occurence": Number,
-         "age_at_the_confirmed": Number,
-         "status_of_the_officer": String
-      },
-      "hand_is_pointed_out_when_hearing_familiar_things": {
-         "age_at_the_time_of_occurence": Number,
-         "age_at_the_confirmed": Number,
-         "status_of_the_officer": String
-      },
-      "they_can_roll_a_boll": {
-         "age_at_the_time_of_occurence": Number,
-         "age_at_the_confirmed": Number,
-         "status_of_the_officer": String
-      },
-      "can_identify_at_least_one_body_part": {
-         "age_at_the_time_of_occurence": Number,
-         "age_at_the_confirmed": Number,
-         "status_of_the_officer": String
-      }
-   },
-   "from_eghiteen_month_to_two_years": {
-      "walking_without_help": {
-         "age_at_the_time_of_occurence": Number,
-         "age_at_the_confirmed": Number,
-         "status_of_the_officer": String
-      },
-      "can_climb_the_stair_with_help": {
-         "age_at_the_time_of_occurence": Number,
-         "age_at_the_confirmed": Number,
-         "status_of_the_officer": String
-      },
-      "can_make_a_tower_using_building_blocks": {
-         "age_at_the_time_of_occurence": Number,
-         "age_at_the_confirmed": Number,
-         "status_of_the_officer": String
-      },
-      "eat_himself_alone": {
-         "age_at_the_time_of_occurence": Number,
-         "age_at_the_confirmed": Number,
-         "status_of_the_officer": String
-      },
-      "can_talk_about_ten_words_can_talk_at_least_one_sentence_with_two_words": {
-         "age_at_the_time_of_occurence": Number,
-         "age_at_the_confirmed": Number,
-         "status_of_the_officer": String
-      },
-      "the_lips_are_sharpened_to_kiss": {
-         "age_at_the_time_of_occurence": Number,
-         "age_at_the_confirmed": Number,
-         "status_of_the_officer": String
-      }
-   },
-   "from_two_to_three_years": {
-      "ability_to_run_without_falling": {
-         "age_at_the_time_of_occurence": Number,
-         "age_at_the_confirmed": Number,
-         "status_of_the_officer": String
-      },
-      "ability_to_down_and_up_stair": {
-         "age_at_the_time_of_occurence": Number,
-         "age_at_the_confirmed": Number,
-         "status_of_the_officer": String
-      },
-      "can_copy_an_art_with_a_circle": {
-         "age_at_the_time_of_occurence": Number,
-         "age_at_the_confirmed": Number,
-         "status_of_the_officer": String
-      },
-      "can_create_a_sentence_with_three_or_more_words": {
-         "age_at_the_time_of_occurence": Number,
-         "age_at_the_confirmed": Number,
-         "status_of_the_officer": String
-      }
-   },
+   //child health form 6th month
+   "six_month_date_of_clinics": Date,
+   "six_month_change_of_eye_size":String,
+   "six_month_squint": String,
+   "six_month_cataract": String,
+   "six_month_impairment_of_eye_movement": String,
+   "six_month_hearing_left": String,
+   "six_month_hearing_right": String,
+   "six_month_development_weight": String,
+   "six_month_development_height": String,
+   "six_month_heart_disease": String,
+   "six_month_lungs": String,
+   "six_month_hip_joint": String,
+   "six_month_inheited_problems": String,
+   "six_month_other_diseases": String,
+   "six_month_designation_of_officer": String,
+   "six_month_dental_caries_white_brown_spots": String,
+   "six_month_dental_caries_dental_cavities": String,
 
-   "age_of_child": {
-      "one_month": {
-         "date_of_clinics": Date,
-         "squint": String,
-         "cataract": String,
-         "impairment_of_eye_movement": String,
-         "hearing": {
-            "left": Boolean,
-            "right": Boolean
-         },
-         "development": {
-            "weight": Number,
-            "height": Number
-         },
-         "heart_disease": String,
-         "lungs": String,
-         "hip_joint": String,
-         "inheited_problems": String,
-         "other_diseases": String,
-         "designation_of_officer": String
-      },
-      "two_month": {
-         "date_of_clinics": Date,
-         "squint": String,
-         "cataract": String,
-         "impairment_of_eye_movement": String,
-         "hearing": {
-            "left": Boolean,
-            "right": Boolean
-         },
-         "development": {
-            "weight": Number,
-            "height": Number
-         },
-         "heart_disease": String,
-         "lungs": String,
-         "hip_joint": String,
-         "inheited_problems": String,
-         "other_diseases": String,
-         "designation_of_officer": String
-      },
-      "three_month": {
-         "date_of_clinics": Date,
-         "squint": String,
-         "cataract": String,
-         "impairment_of_eye_movement": String,
-         "hearing": {
-            "left": Boolean,
-            "right": Boolean
-         },
-         "development": {
-            "weight": Number,
-            "height": Number
-         },
-         "heart_disease": String,
-         "lungs": String,
-         "hip_joint": String,
-         "inheited_problems": String,
-         "other_diseases": String,
-         "designation_of_officer": String
-      },
-      "four_month": {
-         "date_of_clinics": Date,
-         "squint": String,
-         "cataract": String,
-         "impairment_of_eye_movement": String,
-         "hearing": {
-            "left": Boolean,
-            "right": Boolean
-         },
-         "development": {
-            "weight": Number,
-            "height": Number
-         },
-         "heart_disease": String,
-         "lungs": String,
-         "hip_joint": String,
-         "inheited_problems": String,
-         "other_diseases": String,
-         "designation_of_officer": String
-      },
-      "six_month": {
-         "date_of_clinics": Date,
-         "squint": String,
-         "cataract": String,
-         "impairment_of_eye_movement": String,
-         "hearing": {
-            "left": Boolean,
-            "right": Boolean
-         },
-         "dental_caries": {
-            "white_brown_spots": String,
-            "dental_cavities": String
-         },
-         "development": {
-            "weight": Number,
-            "height": Number
-         },
-         "heart_disease": String,
-         "lungs": String,
-         "hip_joint": String,
-         "inheited_problems": String,
-         "other_diseases": String,
-         "designation_of_officer": String
-      },
-      "nine_month": {
-         "date_of_clinics": Date,
-         "squint": String,
-         "cataract": String,
-         "impairment_of_eye_movement": String,
-         "hearing": {
-            "left": Boolean,
-            "right": Boolean
-         },
-         "dental_caries": {
-            "white_brown_spots": String,
-            "dental_cavities": String
-         },
-         "development": {
-            "weight": Number,
-            "height": Number
-         },
-         "heart_disease": String,
-         "lungs": String,
-         "hip_joint": String,
-         "inheited_problems": String,
-         "other_diseases": String,
-         "designation_of_officer": String
-      },
-      "twelve_month": {
-         "date_of_clinics": Date,
-         "squint": String,
-         "cataract": String,
-         "impairment_of_eye_movement": String,
-         "hearing": {
-            "left": Boolean,
-            "right": Boolean
-         },
-         "dental_caries": {
-            "white_brown_spots": String,
-            "dental_cavities": String
-         },
-         "development": {
-            "weight": Number,
-            "height": Number
-         },
-         "heart_disease": String,
-         "lungs": String,
-         "hip_joint": String,
-         "inheited_problems": String,
-         "other_diseases": String,
-         "designation_of_officer": String
-      },
-      "eighteen_month": {
-         "date_of_clinics": Date,
-         "squint": String,
-         "cataract": String,
-         "impairment_of_eye_movement": String,
-         "hearing": {
-            "left": Boolean,
-            "right": Boolean
-         },
-         "dental_caries": {
-            "white_brown_spots": String,
-            "dental_cavities": String
-         },
-         "development": {
-            "weight": Number,
-            "height": Number
-         },
-         "heart_disease": String,
-         "lungs": String,
-         "hip_joint": String,
-         "inheited_problems": String,
-         "other_diseases": String,
-         "designation_of_officer": String
-      },
-      "three_years": {
-         "date_of_clinics": Date,
-         "squint": String,
-         "cataract": String,
-         "impairment_of_eye_movement": String,
-         "night_blindness": String,
-         "bito_spots": String,
-         "hearing": {
-            "left": Boolean,
-            "right": Boolean
-         },
-         "dental_caries": {
-            "white_brown_spots": String,
-            "dental_cavities": String
-         },
-         "development": {
-            "weight": Number,
-            "height": Number
-         },
-         "heart_disease": String,
-         "lungs": String,
-         "hip_joint": String,
-         "inheited_problems": String,
-         "other_diseases": String,
-         "designation_of_officer": String
-      },
-      "four_years": {
-         "date_of_clinics": Date,
-         "squint": String,
-         "cataract": String,
-         "impairment_of_eye_movement": String,
-         "night_blindness": String,
-         "bito_spots": String,
-         "hearing": {
-            "left": Boolean,
-            "right": Boolean
-         },
-         "dental_caries": {
-            "white_brown_spots": String,
-            "dental_cavities": String
-         },
-         "development": {
-            "weight": Number,
-            "height": Number
-         },
-         "heart_disease": String,
-         "lungs": String,
-         "hip_joint": String,
-         "inheited_problems": String,
-         "other_diseases": String,
-         "designation_of_officer": String
-      },
-      "five_years": {
-         "date_of_clinics": Date,
-         "squint": String,
-         "cataract": String,
-         "impairment_of_eye_movement": String,
-         "sight": {
-            "left": Boolean,
-            "right": Boolean
-         },
-         "night_blindness": String,
-         "bito_spots": String,
-         "hearing": {
-            "left": Boolean,
-            "right": Boolean
-         },
-         "dental_caries": {
-            "white_brown_spots": String,
-            "dental_cavities": String
-         },
-         "development": {
-            "weight": Number,
-            "height": Number
-         },
-         "heart_disease": String,
-         "lungs": String,
-         "hip_joint": String,
-         "inheited_problems": String,
-         "other_diseases": String,
-         "designation_of_officer": String
-      },
+   //child health form 9th month
+   "nine_month_date_of_clinics": Date,
+   "nine_month_change_of_eye_size":String,
+   "nine_month_squint": String,
+   "nine_month_cataract": String,
+   "nine_month_impairment_of_eye_movement": String,
+   "nine_month_hearing_left": String,
+   "nine_month_hearing_right": String,
+   "nine_month_development_weight": String,
+   "nine_month_development_height": String,
+   "nine_month_heart_disease": String,
+   "nine_month_lungs": String,
+   "nine_month_hip_joint": String,
+   "nine_month_inheited_problems": String,
+   "nine_month_other_diseases": String,
+   "nine_month_designation_of_officer": String,
+   "nine_month_dental_caries_white_brown_spots": String,
+   "nine_month_dental_caries_dental_cavities": String,
 
-   },
+   //child health form 12th month
+   "twelve_month_date_of_clinics": Date,
+   "twelve_month_change_of_eye_size":String,
+   "twelve_month_squint": String,
+   "twelve_month_cataract": String,
+   "twelve_month_impairment_of_eye_movement": String,
+   "twelve_month_hearing_left": String,
+   "twelve_month_hearing_right": String,
+   "twelve_month_development_weight": String,
+   "twelve_month_development_height": String,
+   "twelve_month_heart_disease": String,
+   "twelve_month_lungs": String,
+   "twelve_month_hip_joint": String,
+   "twelve_month_inheited_problems": String,
+   "twelve_month_other_diseases": String,
+   "twelve_month_designation_of_officer": String,
+   "twelve_month_dental_caries_white_brown_spots": String,
+   "twelve_month_dental_caries_dental_cavities": String,
 
+   //child health form 18th month
+   "eighteen_month_date_of_clinics": Date,
+   "eighteen_month_change_of_eye_size":String,
+   "eighteen_month_squint": String,
+   "eighteen_month_cataract": String,
+   "eighteen_month_impairment_of_eye_movement": String,
+   "eighteen_month_hearing_left": String,
+   "eighteen_month_hearing_right": String,
+   "eighteen_month_development_weight": String,
+   "eighteen_month_development_height": String,
+   "eighteen_month_heart_disease": String,
+   "eighteen_month_lungs": String,
+   "eighteen_month_hip_joint": String,
+   "eighteen_month_inheited_problems": String,
+   "eighteen_month_other_diseases": String,
+   "eighteen_month_designation_of_officer": String,
+   "eighteen_month_dental_caries_white_brown_spots": String,
+   "eighteen_month_dental_caries_dental_cavities": String,
+      
+   //child health form 3rd year
+   "three_year_date_of_clinics": Date,
+   "three_year_change_of_eye_size":String,
+   "three_year_squint": String,
+   "three_year_cataract": String,
+   "three_year_impairment_of_eye_movement": String,
+   "three_year_night_blindness": String,
+   "three_year_bito_spots": String,
+   "three_year_hearing_left": String,
+   "three_year_hearing_right": String,
+   "three_year_development_weight": String,
+   "three_year_development_height": String,
+   "three_year_heart_disease": String,
+   "three_year_lungs": String,
+   "three_year_hip_joint": String,
+   "three_year_inheited_problems": String,
+   "three_year_other_diseases": String,
+   "three_year_designation_of_officer": String,
+   "three_year_dental_caries_white_brown_spots": String,
+   "three_year_dental_caries_dental_cavities": String,
+   
+   //child health form 4th year
+   "four_year_date_of_clinics": Date,
+   "four_year_change_of_eye_size":String,
+   "four_year_squint": String,
+   "four_year_cataract": String,
+   "four_year_impairment_of_eye_movement": String,
+   "four_year_night_blindness": String,
+   "four_year_bito_spots": String,
+   "four_year_hearing_left": String,
+   "four_year_hearing_right": String,
+   "four_year_development_weight": String,
+   "four_year_development_height": String,
+   "four_year_heart_disease": String,
+   "four_year_lungs": String,
+   "four_year_hip_joint": String,
+   "four_year_inheited_problems": String,
+   "four_year_other_diseases": String,
+   "four_year_designation_of_officer": String,
+   "four_year_dental_caries_white_brown_spots": String,
+   "four_year_dental_caries_dental_cavities": String,
+
+   //child health form 5th year
+   "five_year_date_of_clinics": Date,
+   "five_year_change_of_eye_size":String,
+   "five_year_squint": String,
+   "five_year_cataract": String,
+   "five_year_impairment_of_eye_movement": String,
+   "five_year_sight_left": String,
+   "five_year_sight_right": String,
+   "five_year_night_blindness": String,
+   "five_year_bito_spots": String,
+   "five_year_hearing_left": String,
+   "five_year_hearing_right": String,
+   "five_year_development_weight": String,
+   "five_year_development_height": String,
+   "five_year_heart_disease": String,
+   "five_year_lungs": String,
+   "five_year_hip_joint": String,
+   "five_year_inheited_problems": String,
+   "five_year_other_diseases": String,
+   "five_year_designation_of_officer": String,
+   "five_year_dental_caries_white_brown_spots": String,
+   "five_year_dental_caries_dental_cavities": String,
+
+
+    //Doctors Notes
    "date_of_checked": Date,
    "special_notice": String,
 
 
 
-   "age_of_child": {
-      "six": {
-         "Number_of_teeth": Number,
-         "status": String,
-         "date": Date
-      },
-      "seven": {
-         "Number_of_teeth": Number,
-         "status": String,
-         "date": Date
-      },
-      "eight": {
-         "Number_of_teeth": Number,
-         "status": String,
-         "date": Date
-      },
-      "nine": {
-         "Number_of_teeth": Number,
-         "status": String,
-         "date": Date
-      },
-      "ten": {
-         "Number_of_teeth": Number,
-         "status": String,
-         "date": Date
-      },
-      "eleven": {
-         "Number_of_teeth": Number,
-         "status": String,
-         "date": Date
-      },
-      "twelve": {
-         "Number_of_teeth": Number,
-         "status": String,
-         "date": Date
-      },
-      "thirteen": {
-         "Number_of_teeth": Number,
-         "status": String,
-         "date": Date
-      },
-      "fourteen": {
-         "Number_of_teeth": Number,
-         "status": String,
-         "date": Date
-      },
-      "fifteen": {
-         "Number_of_teeth": Number,
-         "status": String,
-         "date": Date
-      },
-      "sixteen": {
-         "Number_of_teeth": Number,
-         "status": String,
-         "date": Date
-      },
-      "seventeen": {
-         "Number_of_teeth": Number,
-         "status": String,
-         "date": Date
-      },
-      "eighteen": {
-         "Number_of_teeth": Number,
-         "status": String,
-         "date": Date
-      }
-   },
-
-
-
+  //To check teeth for mothers
+   "six_Number_of_teeth": Number,
+   "six_status": String,
+   "six_date": Date,
+   "seven_Number_of_teeth": Number,
+   "seven_status": String,
+   "seven_date": Date,
+   "eight_Number_of_teeth": Number,
+   "eight_status": String,
+   "eight_date": Date,
+   "nine_Number_of_teeth": Number,
+   "nine_status": String,
+   "nine_date": Date,
+   "ten_Number_of_teeth": Number,
+   "ten_status": String,
+   "ten_date": Date,
+   "eleven_Number_of_teeth": Number,
+   "eleven_status": String,
+   "eleven_date": Date,
+   "twelve_Number_of_teeth": Number,
+   "twelve_status": String,
+   "twelve_date": Date,
+   "thirteen_Number_of_teeth": Number,
+   "thirteen_status": String,
+   "thirteen_date": Date,
+   "fouteen_Number_of_teeth": Number,
+   "fouteen_status": String,
+   "fouteen_date": Date,
+   "fifteen_Number_of_teeth": Number,
+   "fifteen_status": String,
+   "fifteen_date": Date,
+   "sixteen_Number_of_teeth": Number,
+   "sixteen_status": String,
+   "sixteen_date": Date,
+   "seventeen_Number_of_teeth": Number,
+   "seventeen_status": String,
+   "seventeen_date": Date,
+   "eighteen_Number_of_teeth": Number,
+   "eighteen_status": String,
+   "eighteen_date": Date,
+   
+   //Hospital admits
+   "admit_date":Date,
+   "reason_of_admit":String,
+   "about_disease":String,
+   "referalls":String,
 
    //vaccine
-  
-         "b_c_g_date":Date,
-         "b_c_g_batch_no": String,
-         "b_c_g_effects_of_immunization": String,
-         "b_c_g_b_c_g_scar": Boolean,
+   "b_c_g_date":Date,
+   "b_c_g_batch_no": String,
+   "b_c_g_effects_of_immunization": String,
+   "b_c_g_b_c_g_scar": Boolean,
 
-         "b_c_g_second_dose_date":Date,
-         "b_c_g_second_dose_batch_no": String,
-         "b_c_g_second_dose_effects_of_immunization": String,
+   "b_c_g_second_dose_date":Date,
+   "b_c_g_second_dose_batch_no": String,
+   "b_c_g_second_dose_effects_of_immunization": String,
 
-         "pentavalent_one_date":Date,
-         "pentavalent_one_batch_no": String,
-         "pentavalent_one_effects_of_immunization": String,
+   "pentavalent_one_date":Date,
+   "pentavalent_one_batch_no": String,
+   "pentavalent_one_effects_of_immunization": String,
 
-         "opv_one_date":Date,
-         "opv_one_batch_no": String,
-         "opv_one_effects_of_immunization": String,
+   "opv_one_date":Date,
+   "opv_one_batch_no": String,
+   "opv_one_effects_of_immunization": String,
 
-         "pentavalent_two_date":Date,
-         "pentavalent_two_batch_no": String,
-         "pentavalent_two_effects_of_immunization": String,
+   "pentavalent_two_date":Date,
+   "pentavalent_two_batch_no": String,
+   "pentavalent_two_effects_of_immunization": String,
 
-         "opv_two_date":Date,
-         "opv_two_batch_no": String,
-         "opv_two_effects_of_immunization": String,
+   "opv_two_date":Date,
+   "opv_two_batch_no": String,
+   "opv_two_effects_of_immunization": String,
 
-         "pentavalent_three_date":Date,
-         "pentavalent_three_batch_no": String,
-         "pentavalent_three_effects_of_immunization": String,
+   "pentavalent_three_date":Date,
+   "pentavalent_three_batch_no": String,
+   "pentavalent_three_effects_of_immunization": String,
 
-         "opv_three_date":Date,
-         "opv_three_batch_no": String,
-         "opv_three_effects_of_immunization": String,
+   "opv_three_date":Date,
+   "opv_three_batch_no": String,
+   "opv_three_effects_of_immunization": String,
+   
+   "live_je_date":Date,
+   "live_je_batch_no": String,
+   "live_je_effects_of_immunization": String,
+
+   "measules_mumps_rubella_date":Date,
+   "measules_mumps_rubella_batch_no": String,
+   "measules_mumps_rubella_effects_of_immunization": String,
+
+   "dpt_date":Date,
+   "dpt_batch_no": String,
+   "dpt_effects_of_immunization": String,
+
+   "opv_four_date":Date,
+   "opv_four_batch_no": String,
+   "opv_four_effects_of_immunization": String,
+
+   "measules_rubella_two_date":Date,
+   "measules_rubella_two_batch_no": String,
+   "measules_rubella_two_effects_of_immunization": String,
+
+   "d_t_date":Date,
+   "d_t_batch_no": String,
+   "d_t_effects_of_immunization": String,
+
+   "opv_five_date":Date,
+   "opv_five_batch_no": String,
+   "opv_five_effects_of_immunization": String,
+
+   "adult_tatanus_diphtheria_date":Date,
+   "adult_tatanus_diphtheria_batch_no": String,
+   "adult_tatanus_diphtheria_effects_of_immunization": String,
+
+   "other_vaccine_date":Date,
+   "other_batch_no": String,
+   "other_effects_of_immunization": String,
+
+   "date_of_refferals": Date,
+   "reason_for_referrals": String,
+   "place_of_refferal": String,
+   "notes_on_back": String,
+   
+   //vitamine A
+   "A_vitamine_six_month_date": Date,
+   "A_vitamine_six_month_batch_no": String,
+
+
+   "A_vitamine_one_year_date": Date,
+   "A_vitamine_one_year_batch_no": String,
+   "A_vitamine_one_half_year_date": Date,
+   "A_vitamine_one_half_year_batch_no": String,
+   "A_vitamine_two_year_date": Date,
+   "A_vitamine_two_year_batch_no": String,
+
+   "A_vitamine_two_half_year_date": Date,
+   "A_vitamine_two_half_year_batch_no": String,
+
+   "A_vitamine_three_year_date": Date,
+   "A_vitamine_three_year_batch_no": String,
+
+   "A_vitamine_three_half_year_date": Date,
+   "A_vitamine_three_half_year_batch_no": String,
+
+   "A_vitamine_four_year_date": Date,
+   "A_vitamine_four_year_batch_no": String,
+
+   "A_vitamine_four_half_year_date": Date,
+   "A_vitamine_four_half_year_batch_no": String,
+
+   "A_vitamine_five_year_date": Date,
+   "A_vitamine_five_year_batch_no": String,
+
+   //warm treat
+   "warm_treat_one_year_date": Date,
+   "warm_treat_one_year_batch_no": String,
+   "warm_treat_one_half_year_date": Date,
+   "warm_treat_one_half_year_batch_no": String,
+   "warm_treat_two_year_date": Date,
+   "warm_treat_two_year_batch_no": String,
+
+   "warm_treat_two_half_year_date": Date,
+   "warm_treat_two_half_year_batch_no": String,
+
+   "warm_treat_three_year_date": Date,
+   "warm_treat_three_year_batch_no": String,
+
+   "warm_treat_three_half_year_date": Date,
+   "warm_treat_three_half_year_batch_no": String,
+
+   "warm_treat_four_year_date": Date,
+   "warm_treat_four_year_batch_no": String,
+
+   "warm_treat_four_half_year_date": Date,
+   "warm_treat_four_half_year_batch_no": String,
+
+   "warm_treat_five_year_date": Date,
+   "warm_treat_five_year_batch_no": String,
          
-         "live_je_date":Date,
-         "live_je_batch_no": String,
-         "live_je_effects_of_immunization": String,
-
-         "measules_mumps_rubella_date":Date,
-         "measules_mumps_rubella_batch_no": String,
-         "measules_mumps_rubella_effects_of_immunization": String,
-
-         "dpt_date":Date,
-         "dpt_batch_no": String,
-         "dpt_effects_of_immunization": String,
-
-         "opv_four_date":Date,
-         "opv_four_batch_no": String,
-         "opv_four_effects_of_immunization": String,
-
-         "measules_rubella_two_date":Date,
-         "measules_rubella_two_batch_no": String,
-         "measules_rubella_two_effects_of_immunization": String,
-      
-         "d_t_date":Date,
-         "d_t_batch_no": String,
-         "d_t_effects_of_immunization": String,
-
-         "opv_five_date":Date,
-         "opv_five_batch_no": String,
-         "opv_five_effects_of_immunization": String,
-
-         "adult_tatanus_diphtheria_date":Date,
-         "adult_tatanus_diphtheria_batch_no": String,
-         "adult_tatanus_diphtheria_effects_of_immunization": String,
-
-         "other_vaccine_date":Date,
-         "other_batch_no": String,
-         "other_effects_of_immunization": String,
-     
-         "date_of_refferals": Date,
-         "reason_for_referrals": String,
-         "place_of_refferal": String,
-         "notes_on_back": String,
-         
-         //vitamine A
-         "A_vitamine_six_month_date": Date,
-         "A_vitamine_six_month_batch_no": String,
-     
-      
-         "A_vitamine_one_year_date": Date,
-         "A_vitamine_one_year_batch_no": String,
-         "A_vitamine_one_half_year_date": Date,
-         "A_vitamine_one_half_year_batch_no": String,
-         "A_vitamine_two_year_date": Date,
-         "A_vitamine_two_year_batch_no": String,
-      
-         "A_vitamine_two_half_year_date": Date,
-         "A_vitamine_two_half_year_batch_no": String,
-     
-         "A_vitamine_three_year_date": Date,
-         "A_vitamine_three_year_batch_no": String,
-      
-         "A_vitamine_three_half_year_date": Date,
-         "A_vitamine_three_half_year_batch_no": String,
-      
-         "A_vitamine_four_year_date": Date,
-         "A_vitamine_four_year_batch_no": String,
-      
-         "A_vitamine_four_half_year_date": Date,
-         "A_vitamine_four_half_year_batch_no": String,
-      
-         "A_vitamine_five_year_date": Date,
-         "A_vitamine_five_year_batch_no": String,
-
-         //warm treat
-         "warm_treat_one_year_date": Date,
-         "warm_treat_one_year_batch_no": String,
-         "warm_treat_one_half_year_date": Date,
-         "warm_treat_one_half_year_batch_no": String,
-         "warm_treat_two_year_date": Date,
-         "warm_treat_two_year_batch_no": String,
-      
-         "warm_treat_two_half_year_date": Date,
-         "warm_treat_two_half_year_batch_no": String,
-     
-         "warm_treat_three_year_date": Date,
-         "warm_treat_three_year_batch_no": String,
-      
-         "warm_treat_three_half_year_date": Date,
-         "warm_treat_three_half_year_batch_no": String,
-      
-         "warm_treat_four_year_date": Date,
-         "warm_treat_four_year_batch_no": String,
-      
-         "warm_treat_four_half_year_date": Date,
-         "warm_treat_four_half_year_batch_no": String,
-      
-         "warm_treat_five_year_date": Date,
-         "warm_treat_five_year_batch_no": String,
 
    
 

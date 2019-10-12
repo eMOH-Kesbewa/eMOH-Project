@@ -27,10 +27,14 @@ router.get('/update', async (req, res) => {
 });
 
 //add and view baby
+
 router.post('/add', (req, res) => {
+    console.log("baby");
     console.log(req.body);
     var data = new Baby(req.body);
-    data.save();
+    data.save((err,doc)=>{
+        res.status(200).send("Inserted successfully.");
+    });
     console.log("Completed");
 });
 
@@ -48,7 +52,7 @@ router.get('/view', (req, res) => {
 
 
 router.get('/viewbyid/:id', (req, res) => {
-    baby.find({ mother_id: req.params.id }, (err, doc) => {
+    Baby.find({ mother_id: req.params.id }, (err, doc) => {
         if (!err) {
             res.send(doc);
             console.log(doc);
@@ -74,6 +78,16 @@ router.get('/viewwieghtandheight/:id', (req, res) => {
         }
     });
 
+});
+//add weight and height
+router.post('/addweight', (req, res) => {
+    console.log("weight");
+    console.log(req.body);
+    var data = new weight_height(req.body);
+    data.save((err,doc)=>{
+        res.status(200).send("Inserted successfully.");
+    });
+    console.log("Completed");
 });
 
 //Update weight and height table of a baby

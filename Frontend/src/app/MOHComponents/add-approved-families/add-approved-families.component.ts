@@ -66,7 +66,14 @@ export class AddApprovedFamiliesComponent implements OnInit {
     }
 
     this.success = true;
-    this.addfamilyService.register(this.approvedFamilyForm.value);
+    this.addfamilyService.add(this.approvedFamilyForm.value)
+      .subscribe(
+        response=>console.log('Success!',response),
+        error=>{
+          if(error) console.log("Failure") 
+          else console.log("Success No Errors")
+        }
+    );
 }
 
 }

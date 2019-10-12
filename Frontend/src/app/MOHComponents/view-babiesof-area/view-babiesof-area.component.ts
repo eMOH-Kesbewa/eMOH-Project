@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { MotherbabyjoinedService } from 'app/Services/motherbabyjoined.service';
+import { motherbabyjoined } from 'app/Services/Models/motherbabyjoined';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-view-babiesof-area',
@@ -7,9 +10,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ViewBabiesofAreaComponent implements OnInit {
 
-  constructor() { }
+  constructor(private motherbabyjoinedservice : MotherbabyjoinedService,private router: Router) { }
 
+  motherbabyjoineddatas : motherbabyjoined;
+  
+  
   ngOnInit() {
+    this.motherbabyjoinedservice.getMotherBabyJoinedData().subscribe(data => this.motherbabyjoineddatas = data);
+  }
+
+  onClickMe(babyId){
+    //console.log(babyId);
+    this.router.navigate([this.router.url,'ViewMotherBabybyID',babyId])
   }
 
 }

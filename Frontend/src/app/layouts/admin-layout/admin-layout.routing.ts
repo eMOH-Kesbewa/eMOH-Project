@@ -17,6 +17,11 @@ import { ClinicRecordsComponent } from 'app/MOHComponents/clinic-records/clinic-
 import { AddClinicComponent } from 'app/MOHComponents/add-clinic/add-clinic.component';
 import { UpdateBabyBookComponent } from 'app/MOHComponents/update-baby-book/update-baby-book.component';
 import { ViewBabybyIDComponent } from 'app/MOHComponents/view-babyby-id/view-babyby-id.component';
+import { ViewFamilybyIdComponent } from 'app/MOHComponents/view-familyby-id/view-familyby-id.component';
+import { AddWeightHeightComponent } from 'app/MOHComponents/add-weight-height/add-weight-height.component';
+import { AddMotherComponent } from 'app/MOHComponents/add-mother/add-mother.component';
+import { ViewMothersComponent } from 'app/MOHComponents/view-mothers/view-mothers.component';
+import { PregnancyFormComponent } from 'app/MOHComponents/pregnancy-form/pregnancy-form.component';
 
 export const AdminLayoutRoutes: Routes = [
     // {
@@ -76,7 +81,21 @@ export const AdminLayoutRoutes: Routes = [
             {
                 path: 'AddApprovedFamilies',
                 component: AddApprovedFamiliesComponent
-            }
+            },
+            {
+                path: 'ViewFamilesById/:familyId',
+                component: ViewFamilybyIdComponent
+            },
+            { 
+                path: 'AddMother/:familyId',
+                component: AddMotherComponent
+            },
+            // {
+            //     path: "AddPregnancyForm",
+            //     component:PregnancyFormComponent
+            // }
+
+
         ]
     },
     {
@@ -94,6 +113,10 @@ export const AdminLayoutRoutes: Routes = [
            {
                 path:'ViewMotherBabybyID/:babyId',
                 component:ViewBabybyIDComponent
+           },
+           {
+               path:'AddWeightHeight',
+               component:AddWeightHeightComponent
            }
        ]
        
@@ -110,5 +133,27 @@ export const AdminLayoutRoutes: Routes = [
                 component:AddClinicComponent
             }
         ]
+    },
+    {
+        path: 'viewMothers',
+        component:ViewMothersComponent,
+
+        
+
+        children: [
+            {
+                path: 'addMother',
+                component: AddMotherComponent
+            },
+            {
+                path: "AddPregnancyForm",
+                component:PregnancyFormComponent
+            }
+            
+
+
+        ]
+
     }
+    
 ]

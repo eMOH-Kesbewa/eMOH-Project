@@ -9,15 +9,29 @@ import { map } from "rxjs/operators";
 })
 export class BabiesService {
   
-  uri = 'http://localhost:3000/babies/add';
-  headers = new HttpHeaders().set('Content-Type','application/json')
+  // uri = 'http://localhost:3000/babies/add';
+  // headers = new HttpHeaders().set('Content-Type','application/json')
+  babies : any = []
 
   constructor(private http: HttpClient) { }
 
-  addBaby(data):Observable<any>{
-    let url = `${this.uri}/add`;
-    return this.http.post(url,data).pipe(map((res)=>res));
-  }
+  __url= "http://localhost:3000/babies/add";
+   add(userData){                                   //Post the baby details
+    console.log(userData)
+    return this.http.post<any>(this.__url,userData);
+   }
+   register(userData,babyId){          //Update the baby details
+    let _url= `http://localhost:3000/babies/update/?Identity_number=${babyId}`;
+    console.log(userData)
+    return this.http.post<Baby>(_url , userData);
+   }
+
+   __url1= "http://localhost:3000/babies/addweight";
+   addweight(userData){                                   //Post the weight details
+    console.log(userData)
+    return this.http.post<any>(this.__url1,userData);
+   }
+  
   
   // addBaby(baby_id, name_of_child, date_of_registered){
   //    const obj={

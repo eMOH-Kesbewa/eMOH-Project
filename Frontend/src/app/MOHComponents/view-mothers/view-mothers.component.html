@@ -1,0 +1,132 @@
+<div class="main-content">
+  <router-outlet></router-outlet>
+  <div class="row">
+    <div class="col-md-3" ><a routerLink="addMother" class="btn btn-info btn-block">Add New Mother</a></div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header card-header-info">
+                <h4 class="card-title "><h3>View Mother details</h3></h4>
+                <h5 class="card-category">Click to view the individual Records</h5>
+            </div>
+            <div class="card-body">
+              <div class="table-responsive">
+                  <table class="table table-hover table-bordered">
+                      
+                          <tbody>
+                              <tr>
+                              <td rowspan = 2><b>Mother ID</b></td>
+                              <td rowspan = 2><b>Registration Number</b></td>
+                              <td rowspan = 2><b>Date of Registration</b></td>
+                              <td rowspan = 2><b>Name of the Pregnant Mother</b></td>
+                              <td rowspan = 2><b>Address</b></td>
+                              <td rowspan = 2><b>Age</b></td>
+                              <td rowspan = 2><b>No. of Living Children</b></td> 
+                              <td rowspan = 2 ><b>Gravidity</b> </td>  
+                              <td rowspan = 2 ><b>POA</b> </td>
+                              <td rowspan = 2 ><b>EDD</b> </td>  
+                              <td rowspan = 2 ><b>Protection Against Tetanus</b> </td> 
+                              <td rowspan = 2 ><b>Protection Against Rubella</b> </td> 
+                              <td colspan=2 align="center">Risked Conditions</td>
+                              <td colspan=2 align="center" ><b>Blood Sugar Level</b> </td> 
+                              <td colspan=2 align="center" ><b>Hemoglobin Level</b> </td> 
+                              <td rowspan = 2 ><b>Blood Group</b> </td> 
+                              <td colspan=2 align="center" ><b>VDRL Test</b> </td> 
+                              <td rowspan = 2 ><b>HIV Screening</b> </td>  
+                              <td colspan=5 align="center" ><b>Maternal Weight</b> </td> 
+                              <td rowspan = 2 ><b>BMI Before 12 weeks</b> </td> 
+                              <td colspan=4 align="center" ><b>Delivery Informations </b> </td> 
+                              <td rowspan = 2 ><b>Mode of Delivery</b> </td> 
+                              <td rowspan = 2 ><b>Birth Weight</b> </td> 
+                              <td colspan=5 align="center" ><b>Postpartum Visits</b> </td> 
+                              <td colspan=2 align="center" ><b>According to BI Register</b> </td>
+                              <td rowspan = 2><b>Remarks</b></td>
+                              </tr>
+
+                              <tr>  
+                                <td><b>Low</b></td>
+                                <td><b>High</b></td>
+                                <td><b>first 12 weeks</b></td>
+                                <td><b>24-28 weeks</b></td>
+                                <td><b>first 12 weeks</b></td>
+                                <td><b>26-28 weeks</b></td>
+                                <td><b>Before 12 Weeks </b></td>
+                                <td><b>After 12 Weeks</b></td>
+                                <td><b>Wt. at First Visit</b></td>
+                                <td><b>POA at First Visit</b></td>
+                                <td><b>Wt. at Last Visit</b></td>
+                                <td><b>POA at Last Visit</b></td>
+                                <td><b>Weight Gained During Pregnancy</b></td>
+                                <td><b>Date</b></td>
+                                <td><b>Place</b></td>
+                                <td><b>Outcomde</b></td>
+                                <td><b>Male/Female</b></td>
+                                <td><b>Within First 5 days</b></td>
+                                <td><b>6-10 Days</b></td>
+                                <td><b>Late First Visits</b></td>
+                                <td><b>14-21 Days</b></td>
+                                <td><b>Around 42 Days</b></td>
+                                <td><b>Number</b></td>
+                                <td><b>Date</b></td>
+                              </tr>
+                              <tr *ngFor="let mother of mother">
+                                <td>{{mother.mother_id}}</td>
+                                <td>{{mother.registration_no}}</td>
+                                <td>{{mother.registration_date | date: 'yyyy/MM/dd'}}</td>
+                                <td>{{mother.mothers_name}}</td>
+                                <td>{{mother.address}}</td>
+                                <td>{{mother.age}}</td>
+                                <td>{{mother.no_of_living_children}}</td>
+                                <td>{{mother.gravidity}}</td>
+                                <td>{{mother.POA}}</td>
+                                <td>{{mother.EDD | date: 'yyyy/MM/dd'}}</td>
+                                <td><div *ngIf="mother.protection_against_tetanus"><i _ngcontent-rwm-c19="" class="material-icons icon-image-preview">done</i></div> <div *ngIf="!mother.protection_against_tetanus">Not Injected</div></td>
+                                <td><div *ngIf="mother.protection_against_rubella"><i _ngcontent-rwm-c19="" class="material-icons icon-image-preview">done</i></div> <div *ngIf="!mother.protection_against_rubella">Not Injected</div></td>
+                                <td><div  *ngIf="!mother.risk_conditions"><i _ngcontent-rwm-c19="" class="material-icons icon-image-preview">done</i></div></td>
+                                <td><div  *ngIf="mother.risk_conditions"><i _ngcontent-rwm-c19="" class="material-icons icon-image-preview">done</i></div></td>
+                                <td>{{mother.blood_sugar__during_first_twelve_weeks}}</td>
+                                <td>{{mother.blood_sugar__twentyfour_fourtyeight_weeks}}</td>
+                                <td>{{mother.hemoglobin_level__first_twelve_weeks}}</td>
+                                <td>{{mother.hemoglobin_level__twentysix_twentyeight_weeks}}</td>
+                                <td>{{mother.blood_group}}</td>
+                                <td>{{mother.vdrl_test__before_twelve_weeks}}</td>
+                                <td>{{mother.vdrl_test__after_twelve_weeks}}</td>
+                                <td>{{mother.hiv_screening}}</td>
+                                <td>{{mother.mothers_weight__weight_at_first_visit}}</td>
+                                <td>{{mother.mothers_weight__poa_at_first_visit}}</td>
+                                <td>{{mother.mothers_weight__weight_at_last_visit}}</td>
+                                <td>{{mother.mothers_weight__poa_at_last_visit}}</td>
+                                <td>{{mother.mothers_weight__gained_weight_during_pregnancy}}</td>
+                                <td>{{mother.bmi_before_twelve_weeks}}</td>
+                                <td>{{mother.delivery_informations__date | date: 'yyyy/MM/dd'}}</td>
+                                <td>{{mother.delivery_informations__place}}</td>
+                                <td>{{mother.delivery_informations__outcome}}</td>
+                                <td>{{mother.delivery_informations__sex}}</td>
+                                <td>{{mother.mode_of_delivery}}</td>
+                                <td>{{mother.birth_weight}}</td>
+                                <td>{{mother.postpartum_visits__within_first_five_days}}</td>
+                                <td>{{mother.postpartum_visits__six_to_ten_days}}</td>
+                                <td>{{mother.postpartum_visits__late_first_visit_eleven_thirteen_days}}</td>
+                                <td>{{mother.postpartum_visits__fourteen_twentyone_days}}</td>
+                                <td>{{mother.postpartum_visits__arround_fourtytwo_days}}</td>
+                                <td>{{mother.registration_no_in_bi_register}}</td>
+                                <td>{{mother.registration_date_in_bi_register | date: 'yyyy/MM/dd'}}</td>
+                                <td>{{mother.remarks}}</td>
+                              </tr>
+                      </tbody>
+                     
+                  </table>
+            
+
+
+            </div>
+    </div>
+</div>
+<div class="col-md-12"></div>
+    <div class="card card-plain">
+      
+        </div>
+    </div>
+</div>
+</div>

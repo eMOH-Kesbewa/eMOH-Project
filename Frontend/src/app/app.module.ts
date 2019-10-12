@@ -5,6 +5,7 @@ import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 
 
+
 import { AppRoutingModule } from './app.routing';
 import { ComponentsModule } from './components/components.module';
 
@@ -26,6 +27,10 @@ import { ViewBabiesofAreaComponent } from './MOHComponents/view-babiesof-area/vi
 import { ViewBabybyIDComponent } from './MOHComponents/view-babyby-id/view-babyby-id.component';
 import { ClinicNotificationsComponent } from './MOHComponents/clinic-notifications/clinic-notifications.component';
 import { UpdateBabyBookComponent } from './MOHComponents/update-baby-book/update-baby-book.component';
+import { ViewFamilybyIdComponent } from './MOHComponents/view-familyby-id/view-familyby-id.component';
+import { AddWeightHeightComponent } from './MOHComponents/add-weight-height/add-weight-height.component';
+import { ViewMothersComponent } from './MOHComponents/view-mothers/view-mothers.component';
+import { PregnancyFormComponent } from './MOHComponents/pregnancy-form/pregnancy-form.component';
 
 @NgModule({
   imports: [
@@ -44,6 +49,7 @@ import { UpdateBabyBookComponent } from './MOHComponents/update-baby-book/update
   declarations: [
     AppComponent,
     AdminLayoutComponent,
+   
     
    
     
