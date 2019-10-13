@@ -1,0 +1,185 @@
+<div class="main-content">
+  <router-outlet></router-outlet>
+  <!-- <div class="row">
+    <div class="col-md-3" ><a routerLink="addMother" class="btn btn-info btn-block">Add New Mother</a></div>
+  </div> -->
+  <div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header card-header-info">
+                <h4 class="card-title "><h3>View Children Weight Height Table</h3></h4>
+                <h5 class="card-category">Click to view the individual Records</h5>
+            </div>
+            <div class="card-body">
+              <div class="table-responsive">
+                  <table class="table table-hover table-bordered">
+                    <tbody>
+                      <tr>
+                        <td rowspan = 2><b>Batch No</b></td>
+                        <td rowspan = 2><b>Baby ID</b></td>
+                        <td rowspan = 2><b>Baby Name</b></td>
+                        <td rowspan = 2><b>Sex</b></td>
+                        <td rowspan = 2><b>Date Of Birth</b></td>
+                        <td colspan=2 align="center">At Birth</td>
+                        <td colspan=12 align="center">Age Of Child(Month) 1 Year</td>
+                        <td colspan=12 align="center">Age Of Child(Month) 2 Year</td>
+                        <td colspan=12 align="center">Age Of Child(Month) 3 Year</td>
+                        <td colspan=12 align="center">Age Of Child(Month) 4 Year</td>
+                        <td colspan=12 align="center">Age Of Child(Month) 5 Year</td>
+                        <td rowspan = 4><b>Other</b></td>
+                      </tr>
+
+                      <tr>
+                          <td><b>Weight</b></td>
+                          <td><b>Length</b></td>
+                          <td><b>1</b></td>
+                          <td><b>2</b></td>
+                          <td><b>3</b></td>
+                          <td><b>4</b></td>
+                          <td><b>5</b></td>
+                          <td><b>6</b></td>
+                          <td><b>7</b></td>
+                          <td><b>8</b></td>
+                          <td><b>9</b></td>
+                          <td><b>10</b></td>
+                          <td><b>11</b></td>
+                          <td><b>12</b></td>
+                          <td><b>1</b></td>
+                          <td><b>2</b></td>
+                          <td><b>3</b></td>
+                          <td><b>4</b></td>
+                          <td><b>5</b></td>
+                          <td><b>6</b></td>
+                          <td><b>7</b></td>
+                          <td><b>8</b></td>
+                          <td><b>9</b></td>
+                          <td><b>10</b></td>
+                          <td><b>11</b></td>
+                          <td><b>12</b></td>
+                          <td><b>1</b></td>
+                          <td><b>2</b></td>
+                          <td><b>3</b></td>
+                          <td><b>4</b></td>
+                          <td><b>5</b></td>
+                          <td><b>6</b></td>
+                          <td><b>7</b></td>
+                          <td><b>8</b></td>
+                          <td><b>9</b></td>
+                          <td><b>10</b></td>
+                          <td><b>11</b></td>
+                          <td><b>12</b></td>
+                          <td><b>1</b></td>
+                          <td><b>2</b></td>
+                          <td><b>3</b></td>
+                          <td><b>4</b></td>
+                          <td><b>5</b></td>
+                          <td><b>6</b></td>
+                          <td><b>7</b></td>
+                          <td><b>8</b></td>
+                          <td><b>9</b></td>
+                          <td><b>10</b></td>
+                          <td><b>11</b></td>
+                          <td><b>12</b></td>
+                          <td><b>1</b></td>
+                          <td><b>2</b></td>
+                          <td><b>3</b></td>
+                          <td><b>4</b></td>
+                          <td><b>5</b></td>
+                          <td><b>6</b></td>
+                          <td><b>7</b></td>
+                          <td><b>8</b></td>
+                          <td><b>9</b></td>
+                          <td><b>10</b></td>
+                          <td><b>11</b></td>
+                          <td><b>12</b></td>
+                      </tr>
+
+                      <tr *ngFor="let weight of baby">
+                          <td>{{weight.baby_id}}</td>
+                          <td>{{weight.batch_no}}</td>
+                          <td>{{weight.name_of_child}}</td>
+                          <td>{{weight.sex}}</td>
+                          <td>{{weight.Date_of_birth | date: 'yyyy/MM/dd'}}</td>
+                          <td>{{weight.weight_of_birth}}</td>
+                          <td>{{weight.height_of_birth}}</td>
+                          
+                          <td>{{weight.first_yearone}}</td>
+                          <td>{{weight.first_yeartwo}}</td>
+                          <td>{{weight.first_yearthree}}</td>
+                          <td>{{weight.first_yearfour}}</td>
+                          <td>{{weight.first_yearfive}}</td>
+                          <td>{{weight.first_yearsix}}</td>
+                          <td>{{weight.first_yearseven}}</td>
+                          <td>{{weight.first_yeareight}}</td>
+                          <td>{{weight.first_yearnine}}</td>
+                          <td>{{weight.first_yearten}}</td>
+                          <td>{{weight.first_yeareleven}}</td>
+                          <td>{{weight.first_yeartwelve}}</td>
+
+                          <td>{{weight.sec_yearone}}</td>
+                          <td>{{weight.sec_yeartwo}}</td>
+                          <td>{{weight.sec_yearthree}}</td>
+                          <td>{{weight.sec_yearfour}}</td>
+                          <td>{{weight.sec_yearfive}}</td>
+                          <td>{{weight.sec_yearsix}}</td>
+                          <td>{{weight.sec_yearseven}}</td>
+                          <td>{{weight.sec_yeareight}}</td>
+                          <td>{{weight.sec_yearnine}}</td>
+                          <td>{{weight.sec_yearten}}</td>
+                          <td>{{weight.sec_yeareleven}}</td>
+                          <td>{{weight.sec_yeartwelve}}</td>
+
+                          <td>{{weight.third_yearone}}</td>
+                          <td>{{weight.third_yeartwo}}</td>
+                          <td>{{weight.third_yearthree}}</td>
+                          <td>{{weight.third_yearfour}}</td>
+                          <td>{{weight.third_yearfive}}</td>
+                          <td>{{weight.third_yearsix}}</td>
+                          <td>{{weight.third_yearseven}}</td>
+                          <td>{{weight.third_yeareight}}</td>
+                          <td>{{weight.third_yearnine}}</td>
+                          <td>{{weight.third_yearten}}</td>
+                          <td>{{weight.third_yeareleven}}</td>
+                          <td>{{weight.third_yeartwelve}}</td>
+
+                          <td>{{weight.four_yearone}}</td>
+                          <td>{{weight.four_yeartwo}}</td>
+                          <td>{{weight.four_yearthree}}</td>
+                          <td>{{weight.four_yearfour}}</td>
+                          <td>{{weight.four_yearfive}}</td>
+                          <td>{{weight.four_yearsix}}</td>
+                          <td>{{weight.four_yearseven}}</td>
+                          <td>{{weight.four_yeareight}}</td>
+                          <td>{{weight.four_yearnine}}</td>
+                          <td>{{weight.four_yearten}}</td>
+                          <td>{{weight.four_yeareleven}}</td>
+                          <td>{{weight.four_yeartwelve}}</td>
+
+                          <td>{{weight.five_yearone}}</td>
+                          <td>{{weight.five_yeartwo}}</td>
+                          <td>{{weight.five_yearthree}}</td>
+                          <td>{{weight.five_yearfour}}</td>
+                          <td>{{weight.five_yearfive}}</td>
+                          <td>{{weight.five_yearsix}}</td>
+                          <td>{{weight.five_yearseven}}</td>
+                          <td>{{weight.five_yeareight}}</td>
+                          <td>{{weight.five_yearnine}}</td>
+                          <td>{{weight.five_yearten}}</td>
+                          <td>{{weight.five_yeareleven}}</td>
+                          <td>{{weight.five_yeartwelve}}</td>
+                      </tr>
+                    </tbody>
+                    </table>
+            
+
+
+                </div>
+          </div>
+         </div>
+      <div class="col-md-12"></div>
+          <div class="card card-plain">
+            
+              </div>
+      </div>
+    </div>
+  </div>
