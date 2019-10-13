@@ -70,7 +70,7 @@
                                 <td><b>Number</b></td>
                                 <td><b>Date</b></td>
                               </tr>
-                              <tr *ngFor="let mother of mother">
+                              <tr *ngFor="let mother of mother" (click)="onClickMe(mother.mother_id)" style="cursor:pointer">
                                 <td>{{mother.mother_id}}</td>
                                 <td>{{mother.registration_no}}</td>
                                 <td>{{mother.registration_date | date: 'yyyy/MM/dd'}}</td>

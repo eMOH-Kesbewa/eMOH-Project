@@ -79,6 +79,14 @@ router.get('/viewwieghtandheight/:id', (req, res) => {
     });
 
 });
+
+//view weight height  details all the children
+router.get('/weight/view', (req, res)=>{
+    weight_height.find((err, doc) => {
+        res.send(doc)
+    })
+});
+
 //add weight and height
 router.post('/addweight', (req, res) => {
     console.log("weight");
