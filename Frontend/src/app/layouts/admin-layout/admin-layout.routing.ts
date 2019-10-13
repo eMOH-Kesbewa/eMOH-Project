@@ -107,7 +107,7 @@ export const AdminLayoutRoutes: Routes = [
                component: AddmotherbabyjoineddataComponent
            },
            {
-               path: 'UpdateBabyBook',
+               path: 'UpdateBabyBook/:babyId',
                component: UpdateBabyBookComponent
            },
            {
