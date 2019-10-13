@@ -10,7 +10,6 @@ export class MotherbabyjoinedService {
 
   constructor(private http: HttpClient) { }
 
-  
   addnewbaby(userData){
     let _url= 'http://localhost:3000/mothers/update/motherbabyjoined/?mother_id=976650806v';
     console.log(userData);
@@ -22,4 +21,14 @@ export class MotherbabyjoinedService {
     return this.http.get<motherbabyjoined>(uri);
   }
 
+  getmotherbabyjoineddataById(babyId){             //Selecting a record by familyId
+    let uri = `http://localhost:3000/mothers/viewmotherbabyjoinedtable/viewbyid/${babyId}`
+    return this.http.get<motherbabyjoined>(uri)
+   }
+
+   register(userData,babyId){          //Update the approved family details
+    let url = `http://localhost:3000/mothers/update/motherbabyjoined?baby_id=${babyId}`;
+    console.log(userData)
+    return this.http.put<motherbabyjoined>(url , userData);
+   }
 }

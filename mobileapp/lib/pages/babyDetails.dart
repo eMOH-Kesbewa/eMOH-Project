@@ -3,8 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:mobileapp/pages/babyInfo/babyBasicInfo.dart';
 import 'package:mobileapp/pages/babyInfo/babyprotection.dart';
 import 'package:mobileapp/pages/babyInfo/eyeTest.dart';
+import 'package:mobileapp/pages/babyInfo/growingView.dart';
 import 'package:mobileapp/pages/babyInfo/hearTest.dart';
-import 'package:mobileapp/pages/babyInfo/untilFiveYears.dart';
+//import 'package:mobileapp/pages/babyInfo/untilFiveYears.dart';
+import 'package:mobileapp/pages/babyInfo/untilFiveYearsStep.dart';
 import 'package:mobileapp/pages/bottomNavigation.dart';
 
 import '../services/globals.dart' as globals;
@@ -204,9 +206,9 @@ class _BabyDetailsState extends State<BabyDetails> {
         //minWidth: MediaQuery.of(context).size.width / 2,
         //height: MediaQuery.of(context).size.width / 4,
         onPressed: () => Navigator.push(
-            context, MaterialPageRoute(builder: (context) => UntilFive())),
+            context, MaterialPageRoute(builder: (context) => GrowingView()),
       ),
-    );
+    ));
     return Scaffold(
       appBar: AppBar(
         title: Text('Babies'),

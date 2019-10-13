@@ -1,28 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:logger/logger.dart';
-import 'package:mobileapp/services/babyService/childGrowthService.dart';
 import 'package:mobileapp/services/style.dart';
-import 'package:toast/toast.dart';
-import '../services/globals.dart' as globals;
 
-class GrowthCard extends StatefulWidget {
-  String title, occAge, conAge,officer,funText;
-  bool vis;
-  GrowthCard(
-    this.title,
-    this.occAge,
-    this.conAge,
-    this.officer,
-    this.vis,
-    this.funText,
-  );
+class HelthCard extends StatefulWidget {
+  String dateRange,title;
   @override
-  _GrowthCardState createState() => _GrowthCardState();
+  _HelthCardState createState() => _HelthCardState();
 }
-var logger = Logger();
-String dropdownValue = 'Select';
-String layingFaceDownOccVal;
-class _GrowthCardState extends State<GrowthCard> {
+
+class _HelthCardState extends State<HelthCard> {
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -39,13 +24,15 @@ class _GrowthCardState extends State<GrowthCard> {
               height: 20.0,
             ),
             ListTile(
-              leading: growBulletIcon,
-              title: Text(
-                'Occured Age (Months)',
+              leading: Text(
+                'From 1-5 Days',
                 style: TextStyle(fontSize: 15.0),
               ),
-              trailing: Text(widget
-                  .occAge), //Text(snapshot.data.layingFaceDownOcc.toString()),
+              title: Column(
+                
+              ),
+            
+              trailing: Text(''), //Text(snapshot.data.layingFaceDownOcc.toString()),
             ),
             SizedBox(
               height: 10.0,
