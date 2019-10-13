@@ -23,6 +23,7 @@ import { AddMotherComponent } from 'app/MOHComponents/add-mother/add-mother.comp
 import { ViewMothersComponent } from 'app/MOHComponents/view-mothers/view-mothers.component';
 import { PregnancyFormComponent } from 'app/MOHComponents/pregnancy-form/pregnancy-form.component';
 import { ViewWeightTableComponent } from 'app/MOHComponents/view-weight-table/view-weight-table.component';
+import { ViewMotherByIDComponent } from 'app/MOHComponents/view-mother-by-id/view-mother-by-id.component';
 
 export const AdminLayoutRoutes: Routes = [
     // {
@@ -153,8 +154,11 @@ export const AdminLayoutRoutes: Routes = [
             {
                 path: "AddPregnancyForm",
                 component:PregnancyFormComponent
+            },
+            {
+                path: 'viewMother/:motherId',
+                component: ViewMotherByIDComponent
             }
-            
 
 
         ]
