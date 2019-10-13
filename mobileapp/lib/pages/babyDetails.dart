@@ -5,9 +5,12 @@ import 'package:mobileapp/pages/babyInfo/babyprotection.dart';
 import 'package:mobileapp/pages/babyInfo/eyeTest.dart';
 import 'package:mobileapp/pages/babyInfo/growingView.dart';
 import 'package:mobileapp/pages/babyInfo/hearTest.dart';
+import 'package:mobileapp/pages/babyInfo/immunization.dart';
+import 'package:mobileapp/pages/babyInfo/immunizationRef.dart';
 import 'package:mobileapp/pages/babyInfo/newBornBayHealthChart.dart';
 //import 'package:mobileapp/pages/babyInfo/untilFiveYears.dart';
 import 'package:mobileapp/pages/babyInfo/untilFiveYearsStep.dart';
+import 'package:mobileapp/pages/babyInfo/vitaminA.dart';
 import 'package:mobileapp/pages/bottomNavigation.dart';
 
 import '../services/globals.dart' as globals;
@@ -247,6 +250,114 @@ class _BabyDetailsState extends State<BabyDetails> {
             MaterialPageRoute(builder: (context) => HelthChart()),
           ),
         ));
+    final immunizationbtn = Material(
+        elevation: .0,
+        borderRadius: BorderRadius.circular(0.0),
+        color: Color(0xffb30089),
+        child: MaterialButton(
+          child: Column(
+            children: <Widget>[
+              SizedBox(
+                height: 40.0,
+              ),
+              Icon(
+                Icons.person,
+                color: Colors.white,
+                size: 70.0,
+              ),
+              SizedBox(
+                height: 15.0,
+              ),
+              Flexible(
+                child: Text(
+                  'Growth Until Five Years',
+                  overflow: TextOverflow.ellipsis,
+                  maxLines: 3,
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold, color: Colors.white),
+                ),
+              ),
+            ],
+          ),
+          //minWidth: MediaQuery.of(context).size.width / 2,
+          //height: MediaQuery.of(context).size.width / 4,
+          onPressed: () => Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => Immunization()),
+          ),
+        ));
+    final immunizationRefbtn = Material(
+        elevation: .0,
+        borderRadius: BorderRadius.circular(0.0),
+        color: Color(0xffb30089),
+        child: MaterialButton(
+          child: Column(
+            children: <Widget>[
+              SizedBox(
+                height: 40.0,
+              ),
+              Icon(
+                Icons.person,
+                color: Colors.white,
+                size: 70.0,
+              ),
+              SizedBox(
+                height: 15.0,
+              ),
+              Flexible(
+                child: Text(
+                  'Growth Until Five Years',
+                  overflow: TextOverflow.ellipsis,
+                  maxLines: 3,
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold, color: Colors.white),
+                ),
+              ),
+            ],
+          ),
+          //minWidth: MediaQuery.of(context).size.width / 2,
+          //height: MediaQuery.of(context).size.width / 4,
+          onPressed: () => Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => ImmunizationRef()),
+          ),
+        ));
+    final vitaminAbtn = Material(
+        elevation: .0,
+        borderRadius: BorderRadius.circular(0.0),
+        color: Color(0xffb30089),
+        child: MaterialButton(
+          child: Column(
+            children: <Widget>[
+              SizedBox(
+                height: 40.0,
+              ),
+              Icon(
+                Icons.person,
+                color: Colors.white,
+                size: 70.0,
+              ),
+              SizedBox(
+                height: 15.0,
+              ),
+              Flexible(
+                child: Text(
+                  'Growth Until Five Years',
+                  overflow: TextOverflow.ellipsis,
+                  maxLines: 3,
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold, color: Colors.white),
+                ),
+              ),
+            ],
+          ),
+          //minWidth: MediaQuery.of(context).size.width / 2,
+          //height: MediaQuery.of(context).size.width / 4,
+          onPressed: () => Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => VitaminA()),
+          ),
+        ));
     return Scaffold(
       appBar: AppBar(
         title: Text('Babies'),
@@ -273,11 +384,9 @@ class _BabyDetailsState extends State<BabyDetails> {
                 hearTestBtn,
                 untilFiveYearsBtn,
                 helthChartbtn,
-                Container(
-                  padding: const EdgeInsets.all(8),
-                  child: const Text('Revolution, they...'),
-                  color: Colors.green[600],
-                ),
+                immunizationbtn,
+                immunizationRefbtn,
+                vitaminAbtn,
               ],
             ),
           ),
