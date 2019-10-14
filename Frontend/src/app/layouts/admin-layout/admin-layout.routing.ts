@@ -157,13 +157,12 @@ export const AdminLayoutRoutes: Routes = [
                 component:PregnancyFormComponent
             },
             {
-<<<<<<< HEAD
                 path:"ViewPregnantMothers",
                 component:ViewPregnantMothersComponent
-=======
+            },
+            {
                 path: 'viewMother/:motherId',
                 component: ViewMotherByIDComponent
->>>>>>> 0d1fd493431196fe6854693285de63cbf0f96e08
             }
 
 
