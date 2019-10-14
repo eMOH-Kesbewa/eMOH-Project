@@ -16,7 +16,7 @@ router.get('/update', async (req, res) => {
 
         let doc = await Baby.findOneAndUpdate(filter, update, {
             new: true,
-            upsert: false // Make this update into an upsert
+            upsert: true // Make this update into an upsert
         });
         console.log(doc);
     } catch (error) {
@@ -79,6 +79,14 @@ router.get('/viewwieghtandheight/:id', (req, res) => {
     });
 
 });
+
+//view weight height  details all the children
+router.get('/weight/view', (req, res)=>{
+    weight_height.find((err, doc) => {
+        res.send(doc)
+    })
+});
+
 //add weight and height
 router.post('/addweight', (req, res) => {
     console.log("weight");

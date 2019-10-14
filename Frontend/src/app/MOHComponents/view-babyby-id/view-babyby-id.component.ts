@@ -164,6 +164,12 @@ export class ViewBabybyIDComponent implements OnInit {
       
     }
 
+    goToBabyBook(){
+      console.log(this.babyId);
+      this.router.navigate(["viewBabies/",'UpdateBabyBook',this.babyId])
+      
+    }
+
    
 
 }

@@ -21,4 +21,17 @@ export class MotherService {
    console.log(userData)
    return this.http.post<any>(this.__url,userData);
   }
+
+  getmothersdataById(motherId){             
+    let uri = `http://localhost:3000/mothers/viewbyid/${motherId}`;
+    return this.http.get<Mother>(uri)
+   }
+
+
+   //update
+   register(userData,motherId){        
+    let _url= `http://localhost:3000/mothers/update/?Identity_number=${motherId}`;
+    console.log(userData)
+    return this.http.post<Mother>(_url , userData);
+   }
 }
