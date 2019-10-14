@@ -141,5 +141,12 @@ router.get('/mother/view', (req, res)=>{
     })
 });
 
+router.put('/update/:id', function(req, res, next) {
+    Mother.findByIdAndUpdate(req.params.id, req.body, function (err, post) {
+       if (err) return next(err);
+       res.json(post);
+    });
+ });
+
 
 module.exports = router;

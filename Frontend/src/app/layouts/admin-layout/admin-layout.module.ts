@@ -20,6 +20,7 @@ import { AddClinicComponent } from 'app/MOHComponents/add-clinic/add-clinic.comp
 import { ClinicRecordsComponent } from 'app/MOHComponents/clinic-records/clinic-records.component';
 import { UpdateBabyBookComponent } from 'app/MOHComponents/update-baby-book/update-baby-book.component';
 import { ViewBabybyIDComponent } from 'app/MOHComponents/view-babyby-id/view-babyby-id.component';
+import { ViewMotherByIDComponent } from 'app/MOHComponents/view-mother-by-id/view-mother-by-id.component';
 import { AddWeightHeightComponent } from 'app/MOHComponents/add-weight-height/add-weight-height.component';
 import { PregnancyFormComponent } from 'app/MOHComponents/pregnancy-form/pregnancy-form.component';
 import { ViewPregnantMothersComponent } from 'app/MOHComponents/view-pregnant-mothers/view-pregnant-mothers.component';
@@ -82,6 +83,7 @@ import { ViewMothersComponent } from 'app/MOHComponents/view-mothers/view-mother
     AddClinicComponent,
     UpdateBabyBookComponent,
     ViewBabybyIDComponent,
+    ViewMotherByIDComponent,
     ViewFamilybyIdComponent,
     AddWeightHeightComponent,
     AddMotherComponent,

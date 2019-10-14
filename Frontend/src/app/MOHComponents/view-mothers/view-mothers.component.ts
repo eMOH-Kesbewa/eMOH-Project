@@ -18,6 +18,9 @@ export class ViewMothersComponent implements OnInit {
     this.motherService.getdata().subscribe(data=> this.mother=data);
   }
 
-  
+  onClickMe(motherID){
+    console.log(motherID);
+    this.router.navigate([this.router.url,'viewMother',motherID])
+  }
 
 }

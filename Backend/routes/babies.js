@@ -16,7 +16,7 @@ router.get('/update', async (req, res) => {
 
         let doc = await Baby.findOneAndUpdate(filter, update, {
             new: true,
-            upsert: false // Make this update into an upsert
+            upsert: true // Make this update into an upsert
         });
         console.log(doc);
     } catch (error) {
