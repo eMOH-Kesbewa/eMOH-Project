@@ -30,7 +30,7 @@ export class PregnancyFormComponent implements OnInit {
 		phm_devision: ['',Validators.required],
 		phi_devision: ['',Validators.required],
 		//mother details
-    mother_id:['',Validators.required],
+    // mother_id:['',Validators.required],
     mothers_name:['',Validators.required],
     mothers_age:['',Validators.required],
     husband_name:[''],

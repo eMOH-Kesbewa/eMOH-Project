@@ -33,6 +33,7 @@ import { ViewMothersComponent } from './MOHComponents/view-mothers/view-mothers.
 import { PregnancyFormComponent } from './MOHComponents/pregnancy-form/pregnancy-form.component';
 
 import { ViewWeightTableComponent } from './MOHComponents/view-weight-table/view-weight-table.component';
+import { ViewPregnantMothersComponent } from './MOHComponents/view-pregnant-mothers/view-pregnant-mothers.component';
 
 @NgModule({
   imports: [
@@ -51,6 +52,7 @@ import { ViewWeightTableComponent } from './MOHComponents/view-weight-table/view
   declarations: [
     AppComponent,
     AdminLayoutComponent,
+    
     
    
     
