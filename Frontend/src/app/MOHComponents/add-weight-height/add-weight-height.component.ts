@@ -93,6 +93,18 @@ export class AddWeightHeightComponent implements OnInit {
       five_yeareleven: [''],
       five_yeartwelve: [''],
 
+      //height
+      oneyeardate:[''],
+      twoyeardate:[''],
+      threeyeardate:[''],
+      foueyeardate:[''],
+      fiveyeardate:[''],
+      oneyearheight:[''],
+      twoyearheight:[''],
+      threeyearheight:[''],
+      foueyearheight:[''],
+      fiveyearheight:['']
+
     });
 
     
