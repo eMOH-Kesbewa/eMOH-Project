@@ -39,7 +39,7 @@ router.put('/update/motherbabyjoined', async (req, res) => {
 });
 
 //Update details in mother table
-router.get('/update/mother', async (req, res) => {
+router.put('/update/mother', async (req, res) => {
 
     try {
         const filter = req.query;
