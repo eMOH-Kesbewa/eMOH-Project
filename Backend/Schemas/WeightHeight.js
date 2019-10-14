@@ -75,6 +75,17 @@ var weight_height = new Schema({
 	"five_yeareleven": Number,
 	"five_yeartwelve": Number,
 	
+	//height
+	"oneyeardate":Date,
+	"twoyeardate":Date,
+	"threeyeardate":Date,
+	"foueyeardate":Date,
+	"fiveyeardate":Date,
+	"oneyearheight":Number,
+	"twoyearheight":Number,
+	"threeyearheight":Number,
+	"foueyearheight":Number,
+	"fiveyearheight":Number
 	
 	
 }, {

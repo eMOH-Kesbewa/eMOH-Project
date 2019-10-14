@@ -32,6 +32,9 @@ import { AddWeightHeightComponent } from './MOHComponents/add-weight-height/add-
 import { ViewMothersComponent } from './MOHComponents/view-mothers/view-mothers.component';
 import { PregnancyFormComponent } from './MOHComponents/pregnancy-form/pregnancy-form.component';
 
+import { ViewWeightTableComponent } from './MOHComponents/view-weight-table/view-weight-table.component';
+import { ViewPregnantMothersComponent } from './MOHComponents/view-pregnant-mothers/view-pregnant-mothers.component';
+
 @NgModule({
   imports: [
     BrowserAnimationsModule,
@@ -49,6 +52,8 @@ import { PregnancyFormComponent } from './MOHComponents/pregnancy-form/pregnancy
   declarations: [
     AppComponent,
     AdminLayoutComponent,
+    
+    
    
     
    

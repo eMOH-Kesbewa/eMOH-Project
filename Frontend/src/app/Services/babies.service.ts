@@ -26,11 +26,7 @@ export class BabiesService {
     return this.http.post<Baby>(_url , userData);
    }
 
-   __url1= "http://localhost:3000/babies/addweight";
-   addweight(userData){                                   //Post the weight details
-    console.log(userData)
-    return this.http.post<any>(this.__url1,userData);
-   }
+   _
   
   
   // addBaby(baby_id, name_of_child, date_of_registered){

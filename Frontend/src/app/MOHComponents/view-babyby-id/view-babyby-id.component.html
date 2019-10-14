@@ -1,14 +1,17 @@
 
   <div class="container-fluid">
     <div class="row">
-        <div class="col-md-8"></div>
+        <div class="col-md-6"></div>
         <div class="col-md-2">
             <mat-slide-toggle  [formControl]="autoRenew" (change)="onChange()">Edit details</mat-slide-toggle>
         </div>
+        <div class="col-md-4">
+            <button  (click)="goToBabyBook()" class="btn btn-info btn-block">View Baby Book   <i class="material-icons">menu_book</i></button>
+         </div>
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header card-header-danger">
-                    <h4 class="card-title">Add Mother and Baby details</h4>
+                <div class="card-header card-header-info">
+                    <h4 class="card-title"> Mother and Baby details</h4>
                 </div>
                 <div class="card-body">   
                     <form [formGroup]="addmotherbabyForm" (ngSubmit)="onSubmit()" [hidden]="success">
@@ -272,7 +275,7 @@
                                 </div>
                         </div>
                         <div *ngIf="onHidden()">
-                            <input type="submit" value="Submit baby details" class="btn btn-danger pull-right">
+                            <input type="submit" value="Submit baby details" class="btn btn-info pull-right">
                         </div>
                     </form>
                     <div *ngIf="success"><h5>You submitted a new baby record successfully</h5></div>

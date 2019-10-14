@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { BabiesService } from 'app/Services/babies.service';
+import { WeightService } from 'app/Services/weight.service';
 
 @Component({
   selector: 'app-add-weight-height',
@@ -13,7 +13,7 @@ export class AddWeightHeightComponent implements OnInit {
   submitted = false;
   success = false;
 
-  constructor(private formBuilder: FormBuilder, private addbabyService: BabiesService) { }
+  constructor(private formBuilder: FormBuilder, private addweightService: WeightService) { }
 
   ngOnInit() {
 
@@ -93,6 +93,18 @@ export class AddWeightHeightComponent implements OnInit {
       five_yeareleven: [''],
       five_yeartwelve: [''],
 
+      //height
+      oneyeardate:[''],
+      twoyeardate:[''],
+      threeyeardate:[''],
+      foueyeardate:[''],
+      fiveyeardate:[''],
+      oneyearheight:[''],
+      twoyearheight:[''],
+      threeyearheight:[''],
+      foueyearheight:[''],
+      fiveyearheight:['']
+
     });
 
     
@@ -108,7 +120,7 @@ export class AddWeightHeightComponent implements OnInit {
     }
 
     this.success = true;
-    this.addbabyService.add(this.WeightHeightForm.value)
+    this.addweightService.add(this.WeightHeightForm.value)
       .subscribe(
         response=>console.log('Success!',response),
         error=>{

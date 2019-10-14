@@ -22,6 +22,9 @@ import { AddWeightHeightComponent } from 'app/MOHComponents/add-weight-height/ad
 import { AddMotherComponent } from 'app/MOHComponents/add-mother/add-mother.component';
 import { ViewMothersComponent } from 'app/MOHComponents/view-mothers/view-mothers.component';
 import { PregnancyFormComponent } from 'app/MOHComponents/pregnancy-form/pregnancy-form.component';
+import { ViewPregnantMothersComponent } from 'app/MOHComponents/view-pregnant-mothers/view-pregnant-mothers.component';
+import { ViewWeightTableComponent } from 'app/MOHComponents/view-weight-table/view-weight-table.component';
+import { ViewMotherByIDComponent } from 'app/MOHComponents/view-mother-by-id/view-mother-by-id.component';
 
 export const AdminLayoutRoutes: Routes = [
     // {
@@ -107,7 +110,7 @@ export const AdminLayoutRoutes: Routes = [
                component: AddmotherbabyjoineddataComponent
            },
            {
-               path: 'UpdateBabyBook',
+               path: 'UpdateBabyBook/:babyId',
                component: UpdateBabyBookComponent
            },
            {
@@ -117,6 +120,10 @@ export const AdminLayoutRoutes: Routes = [
            {
                path:'AddWeightHeight',
                component:AddWeightHeightComponent
+           },
+           {
+               path:'ViewWeightTable',
+               component:ViewWeightTableComponent
            }
        ]
        
@@ -148,8 +155,15 @@ export const AdminLayoutRoutes: Routes = [
             {
                 path: "AddPregnancyForm",
                 component:PregnancyFormComponent
+            },
+            {
+                path:"ViewPregnantMothers",
+                component:ViewPregnantMothersComponent
+            },
+            {
+                path: 'viewMother/:motherId',
+                component: ViewMotherByIDComponent
             }
-            
 
 
         ]
