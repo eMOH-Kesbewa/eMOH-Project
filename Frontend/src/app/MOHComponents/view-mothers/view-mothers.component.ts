@@ -20,7 +20,8 @@ export class ViewMothersComponent implements OnInit {
 
   onClickMe(motherID){
     console.log(motherID);
-    this.router.navigate([this.router.url,'viewMother',motherID])
+    console.log(this.router.url);
+    this.router.navigate([this.router.url,'viewMotherbyId',motherID])
   }
 
 }
