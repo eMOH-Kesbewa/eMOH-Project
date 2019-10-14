@@ -3,6 +3,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:mobileapp/widgets/growthCard.dart';
 import '../globals.dart' as globals;
 
 Future<Baby> fetchBaby() async {
@@ -142,6 +143,7 @@ class Baby {
       this.bcgScar});
 
   factory Baby.fromJson(Map<String, dynamic> json) {
+    logger.wtf(json['measules_mumps_rubella_effects_of_immunization"']);
     return Baby(
       // // idNumber: json['Identity_number'],
       // vilID: json['village_id'],
@@ -153,77 +155,58 @@ class Baby {
       //     json["total_Number_of_children_alive_including_this_child"].toString(),
 
       bcgDate1: json['b_c_g_date'],
-
       bcgBatchNo1: json["b_c_g_batch_no"],
-
       bcgEffects1: json["b_c_g_effects_of_immunization"],
       bcgScar: json["b_c_g_b_c_g_scar"],
-
       bcgDate2: json["b_c_g_second_dose_date"],
       bcgBatchNo2: json["b_c_g_second_dose_batch_no"],
       bcgEffects2: json["b_c_g_second_dose_effects_of_immunization"],
-
       pentDate1: json["pentavalent_one_date"],
       pentBatchNo1: json["pentavalent_one_batch_no"],
       pentEffects1: json["pentavalent_one_effects_of_immunization"],
-
       opvDate1: json["opv_one_date"],
       opvBatchNo1: json["opv_one_batch_no"],
       opvEffects1: json["opv_one_effects_of_immunization"],
-
       pentDate2: json["pentavalent_two_date"],
       pentBatchNo2: json["pentavalent_two_batch_no"],
       pentEffects2: json["pentavalent_two_effects_of_immunization"],
-
       opvDate2: json["opv_two_date"],
       opvBatchNo2: json["opv_two_batch_no"],
       opvEffects2: json["opv_two_effects_of_immunization"],
-
       pentDate3: json["pentavalent_three_date"],
       pentBatchNo3: json["pentavalent_three_batch_no"],
       pentEffects3: json["pentavalent_three_effects_of_immunization"],
-
       opvDate3: json["opv_three_date"],
       opvBatchNo3: json["opv_three_batch_no"],
       opvEffects3: json["opv_three_effects_of_immunization"],
-
       jeDate1: json["live_je_date"],
       jeBatchNo1: json["live_je_batch_no"],
       jeEffects1: json["live_je_effects_of_immunization"],
-
       rubDate1: json["measules_mumps_rubella_date"],
       rubBatchNo1: json["measules_mumps_rubella_batch_no"],
       rubEffects1: json["measules_mumps_rubella_effects_of_immunization"],
-
       dptDate1: json["dpt_date"],
       dptBatchNo1: json["dpt_batch_no"],
       dptEffects1: json["dpt_effects_of_immunization"],
-
       opvDate4: json["opv_four_date"],
       opvBatchNo4: json["opv_four_batch_no"],
       opvEffects4: json["opv_four_effects_of_immunization"],
-
       rubDate2: json["measules_rubella_two_date"],
       rubBatchNo2: json["measules_rubella_two_batch_no"],
       rubEffects2: json["measules_rubella_two_effects_of_immunization"],
-
       dtDate1: json["d_t_date"],
       dtBatchNo1: json["d_t_batch_no"],
       dtEffects1: json["d_t_effects_of_immunization"],
-
       opvDate5: json["opv_five_date"],
       opvBatchNo5: json["opv_five_batch_no"],
       opvEffects5: json["opv_five_effects_of_immunization"],
-
       adultDipDate1: json["adult_tatanus_diphtheria_date"],
       adultDipBatchNo1: json["adult_tatanus_diphtheria_batch_no"],
       adultDipEffects1:
           json["adult_tatanus_diphtheria_effects_of_immunization"],
-
       otherVacDate1: json["other_vaccine_date"],
       otherVacBatchNo1: json["other_batch_no"],
       otherVacEffects1: json["other_effects_of_immunization"],
-
       refDate: json["date_of_refferals"],
       reasonRef: json["reason_for_referrals"],
       palceRef: json["place_of_refferal"],

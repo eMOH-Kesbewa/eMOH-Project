@@ -234,7 +234,7 @@ class _BabyDetailsState extends State<BabyDetails> {
               ),
               Flexible(
                 child: Text(
-                  'Growth Until Five Years',
+                  'Health Chart',
                   overflow: TextOverflow.ellipsis,
                   maxLines: 3,
                   style: TextStyle(
@@ -270,7 +270,7 @@ class _BabyDetailsState extends State<BabyDetails> {
               ),
               Flexible(
                 child: Text(
-                  'Growth Until Five Years',
+                  'Immunization',
                   overflow: TextOverflow.ellipsis,
                   maxLines: 3,
                   style: TextStyle(
@@ -306,7 +306,7 @@ class _BabyDetailsState extends State<BabyDetails> {
               ),
               Flexible(
                 child: Text(
-                  'Growth Until Five Years',
+                  'Immunization Refferance',
                   overflow: TextOverflow.ellipsis,
                   maxLines: 3,
                   style: TextStyle(
@@ -342,7 +342,7 @@ class _BabyDetailsState extends State<BabyDetails> {
               ),
               Flexible(
                 child: Text(
-                  'Growth Until Five Years',
+                  'Vitamin A',
                   overflow: TextOverflow.ellipsis,
                   maxLines: 3,
                   style: TextStyle(
