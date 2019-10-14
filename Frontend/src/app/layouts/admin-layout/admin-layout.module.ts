@@ -22,6 +22,7 @@ import { UpdateBabyBookComponent } from 'app/MOHComponents/update-baby-book/upda
 import { ViewBabybyIDComponent } from 'app/MOHComponents/view-babyby-id/view-babyby-id.component';
 import { AddWeightHeightComponent } from 'app/MOHComponents/add-weight-height/add-weight-height.component';
 import { PregnancyFormComponent } from 'app/MOHComponents/pregnancy-form/pregnancy-form.component';
+import { ViewPregnantMothersComponent } from 'app/MOHComponents/view-pregnant-mothers/view-pregnant-mothers.component';
 import { ViewWeightTableComponent } from 'app/MOHComponents/view-weight-table/view-weight-table.component';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {
@@ -86,7 +87,8 @@ import { ViewMothersComponent } from 'app/MOHComponents/view-mothers/view-mother
     AddMotherComponent,
     ViewMothersComponent,
     PregnancyFormComponent,
-    ViewWeightTableComponent
+    ViewWeightTableComponent,
+    ViewPregnantMothersComponent
   ]
 })
 

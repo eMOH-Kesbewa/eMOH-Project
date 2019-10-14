@@ -47,12 +47,12 @@
                                 </mat-form-field>
                           </div>
                           <div class="col-md-4">
-                              <mat-form-field  class="example-full-width">
-                                  <mat-select placeholder="Sex" formControlName="sex" required>
-                                    <mat-option value="Female">Female</mat-option>
-                                    <mat-option value="Male">Male</mat-option>
-                                    </mat-select>
-                                </mat-form-field>
+                            <mat-form-field class="example-full-width">
+                                <input matInput placeholder="Sex" type="text" formControlName="sex">
+                                <div *ngIf="submitted && WeightHeightForm.controls.sex.errors" class="error">
+                                    <div *ngIf="WeightHeightForm.controls.sex.errors.required">This field is required</div>
+                                  </div>
+                              </mat-form-field>
                           </div>
                           
                         </div>
@@ -85,7 +85,7 @@
                        
                         <div class="wight_field">
                             <!--start field-->
-                            <h4>Weight Table</h4>
+                            <h3>Weight Table</h3>
                             <div class="row">
                                 <div class="col-md-2"></div>
                                 <div class="col-md-2">First Year</div>
@@ -435,6 +435,78 @@
                                 </div>
                             </div>
                             <!--end field-->
+                        </div>
+                        <div class="height_field">
+                            <!--start height field-->
+                            <h3>Height Table</h3>
+                            <div class="row">
+                                <div class="col-md-2"></div>
+                                <div class="col-md-2">First Year</div>
+                                <div class="col-md-2">Second Year</div>
+                                <div class="col-md-2">Third Year</div>
+                                <div class="col-md-2">Fourth Year</div>
+                                <div class="col-md-2">Fifth Year</div>
+                                
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2">Date</div>
+                                <div class="col-md-2">
+                                     <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="" type= "date" formControlName="oneyeardate">
+                                      </mat-form-field>
+                                </div>
+                                <div class="col-md-2">
+                                     <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="" type= "date" formControlName="twoyeardate">
+                                      </mat-form-field>
+                                </div>
+                                <div class="col-md-2">
+                                     <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="" type= "date" formControlName="threeyeardate">
+                                      </mat-form-field>
+                                </div>
+                                <div class="col-md-2">
+                                     <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="" type= "date" formControlName="foueyeardate">
+                                      </mat-form-field>
+                                </div>
+                                <div class="col-md-2">
+                                     <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="" type= "date" formControlName="fiveyeardate">
+                                      </mat-form-field>
+                                </div>
+
+                            </div>
+                            
+                            <div class="row">
+                                    <div class="col-md-2">Height Or Length</div>
+                                    <div class="col-md-2">
+                                         <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="" type= "number" formControlName="oneyearheight">
+                                          </mat-form-field>
+                                    </div>
+                                    <div class="col-md-2">
+                                         <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="" type= "number" formControlName="twoyearheight">
+                                          </mat-form-field>
+                                    </div>
+                                    <div class="col-md-2">
+                                         <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="" type= "number" formControlName="threeyearheight">
+                                          </mat-form-field>
+                                    </div>
+                                    <div class="col-md-2">
+                                         <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="" type= "number" formControlName="foueyearheight">
+                                          </mat-form-field>
+                                    </div>
+                                    <div class="col-md-2">
+                                         <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="" type= "number" formControlName="fiveyearheight">
+                                          </mat-form-field>
+                                    </div>
+                            </div>
+                            <!--end height field-->
                         </div>
                        <input type="submit" value="Submit details" class="btn btn-danger pull-right">
 

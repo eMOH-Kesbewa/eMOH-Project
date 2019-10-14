@@ -6,7 +6,7 @@ var mother_baby_fordoc = new Schema({
 	"blood_group": String,
 	"identified_maternal_risks_diseases": String,
 	//Mother Details
-	"mother_id": String,
+	// "mother_id": String,
 	"mothers_name": String,
 	"mothers_age": Number,
 	"husband_name": String,
