@@ -11,6 +11,7 @@ import 'package:mobileapp/pages/babyInfo/newBornBayHealthChart.dart';
 //import 'package:mobileapp/pages/babyInfo/untilFiveYears.dart';
 import 'package:mobileapp/pages/babyInfo/untilFiveYearsStep.dart';
 import 'package:mobileapp/pages/babyInfo/vitaminA.dart';
+import 'package:mobileapp/pages/babyInfo/worm.dart';
 import 'package:mobileapp/pages/bottomNavigation.dart';
 
 import '../services/globals.dart' as globals;
@@ -358,6 +359,42 @@ class _BabyDetailsState extends State<BabyDetails> {
             MaterialPageRoute(builder: (context) => VitaminA()),
           ),
         ));
+    final wormbtn = Material(
+        elevation: .0,
+        borderRadius: BorderRadius.circular(0.0),
+        color: Color(0xffb30089),
+        child: MaterialButton(
+          child: Column(
+            children: <Widget>[
+              SizedBox(
+                height: 40.0,
+              ),
+              Icon(
+                Icons.person,
+                color: Colors.white,
+                size: 70.0,
+              ),
+              SizedBox(
+                height: 15.0,
+              ),
+              Flexible(
+                child: Text(
+                  'Worm Treatments',
+                  overflow: TextOverflow.ellipsis,
+                  maxLines: 3,
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold, color: Colors.white),
+                ),
+              ),
+            ],
+          ),
+          //minWidth: MediaQuery.of(context).size.width / 2,
+          //height: MediaQuery.of(context).size.width / 4,
+          onPressed: () => Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => WormTreat()),
+          ),
+        ));
     return Scaffold(
       appBar: AppBar(
         title: Text('Babies'),
@@ -387,6 +424,7 @@ class _BabyDetailsState extends State<BabyDetails> {
                 immunizationbtn,
                 immunizationRefbtn,
                 vitaminAbtn,
+                wormbtn,
               ],
             ),
           ),

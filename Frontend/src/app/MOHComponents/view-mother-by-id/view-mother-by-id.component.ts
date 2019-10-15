@@ -19,13 +19,17 @@ export class ViewMotherByIDComponent implements OnInit {
   hide=true;
   success=false;
   
+
+
   mothers : Mother;
-  addMotherSchema: FormGroup;
+  addMotherForm: FormGroup;
+  autoRenew : FormControl;
   public motherId
+
 
   ngOnInit() {
     this.motherId = this.activeroute.snapshot.paramMap.get('motherId');
-    this.addMotherSchema = this.formBuilder.group({
+    this.addMotherForm = this.formBuilder.group({
       mother_id: [''],
       registration_no: [''],
       registration_date: [''],
@@ -37,8 +41,8 @@ export class ViewMotherByIDComponent implements OnInit {
       POA: [''],
       EDD: [''],
       protection_against_tetanus: [''],
-      protection_against_rubella: [''],
-      risk_conditions: [''],
+      protection_against_rubella:  [''],
+      risk_conditions:  [''],
       blood_sugar__during_first_twelve_weeks: [''],
       blood_sugar__twentyfour_fourtyeight_weeks: [''],
       hemoglobin_level__first_twelve_weeks: [''],
@@ -53,30 +57,29 @@ export class ViewMotherByIDComponent implements OnInit {
       mothers_weight__weight_at_last_visit: [''],
       mothers_weight__poa_at_last_visit: [''],
       mothers_weight__gained_weight_during_pregnancy: [''],
-
+  
       bmi_before_twelve_weeks: [''],
-
+  
       delivery_informations__date: [''],
       delivery_informations__place: [''],
       delivery_informations__outcome: [''],
       delivery_informations__sex: [''],
       mode_of_delivery: [''],
-
+  
       birth_weight: [''],
-
+  
       postpartum_visits__within_first_five_days: [''],
       postpartum_visits__six_to_ten_days: [''],
       postpartum_visits__late_first_visit_eleven_thirteen_days: [''],
       postpartum_visits__fourteen_twentyone_days: [''],
       postpartum_visits__arround_fourtytwo_days: [''],
-
+  
       registration_no_in_bi_register: [''],
       registration_date_in_bi_register: [''],
       remarks: ['']
     });
     this.motherService.getmothersdataById(this.motherId).subscribe(data => {
-      console.log(data[0]['Date']);
-      this.addMotherSchema.patchValue({
+      this.addMotherForm.patchValue({
       mother_id: data[0] ['mother_id'],
       registration_no: data[0] ['registration_no'],
       registration_date:this.dateconverter (data[0] ['registration_date']),
@@ -102,7 +105,7 @@ export class ViewMotherByIDComponent implements OnInit {
       mothers_weight__weight_at_first_visit: data[0]['mothers_weight__weight_at_first_visit'],
       mothers_weight__poa_at_first_visit: data[0]['mothers_weight__poa_at_first_visit'],
       mothers_weight__weight_at_last_visit: data[0]['mothers_weight__weight_at_last_visit'],
-      mothers_weight__poa_at_last_visit: ['mothers_weight__poa_at_last_visit'],
+      mothers_weight__poa_at_last_visit: data[0]['mothers_weight__poa_at_last_visit'],
       mothers_weight__gained_weight_during_pregnancy: data[0]['mothers_weight__gained_weight_during_pregnancy'],
 
       bmi_before_twelve_weeks: data[0]['bmi_before_twelve_weeks'],
@@ -126,17 +129,20 @@ export class ViewMotherByIDComponent implements OnInit {
       remarks: data[0]['remarks']
       });
   });
+  this.addMotherForm.valueChanges.subscribe(console.log)
+  this.autoRenew = new FormControl();
+  this.onChange();
 
   }
 
   onSubmit() {
  
-    if (this.addMotherSchema.invalid) {
+    if (this.addMotherForm.invalid) {
         return;
     }
 
     this.success=true;
-    this.motherService.register(this.addMotherSchema.value,this.motherId)
+    this.motherService.register(this.addMotherForm.value,this.motherId)
       .subscribe(
         response=>console.log('Success!',response),
         error=>{
@@ -146,11 +152,24 @@ export class ViewMotherByIDComponent implements OnInit {
     
     }
   
-  
-  onChange(){
-    if(this.hide) this.hide=false;
-    else this.hide=true;
-  }
+
+    onChange(){        //Enabling ReadOnly Attribute when toggle is off
+      this.onHidden()
+      if(this.autoRenew.value){
+        return "false"
+      }else{
+        return "true"
+      }
+    }
+
+    onHidden(){      //Hide the submit button when toggle is off and vice versa
+      if(this.autoRenew.value){
+        return true;
+      }else{
+        return false;
+      }
+    }
+
   
   dateconverter(isodate:String){ //Convert ISOFormat data to yyyy-MM-dd format
     if(isodate){

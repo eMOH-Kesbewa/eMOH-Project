@@ -78,12 +78,11 @@ class Baby {
       otherVacDate1,
       otherVacBatchNo1,
       otherVacEffects1,
-      refDate,
-      reasonRef,
-      palceRef,
-      notes;
-
-  final bool bcgScar;
+      //refDate,
+     // reasonRef,
+      //palceRef,
+      //notes,
+      bcgScar;
   Baby(
       {this.bcgDate1,
       this.bcgBatchNo1,
@@ -136,34 +135,39 @@ class Baby {
       this.otherVacDate1,
       this.otherVacBatchNo1,
       this.otherVacEffects1,
-      this.refDate,
-      this.reasonRef,
-      this.palceRef,
-      this.notes,
+      // this.refDate,
+      // this.reasonRef,
+      // this.palceRef,
+      // this.notes,
       this.bcgScar});
 
   factory Baby.fromJson(Map<String, dynamic> json) {
-    logger.wtf(json['measules_mumps_rubella_effects_of_immunization"']);
+    //logger.wtf(json["measules_mumps_rubella_effects_of_immunization"]);
+    logger.i(
+      json["b_c_g_b_c_g_scar"],
+    );
+    //logger.v(json["b_c_g_b_c_g_scar"]);
+   // logger.e(json['b_c_g_batch_no']);
     return Baby(
-      // // idNumber: json['Identity_number'],
-      // vilID: json['village_id'],
-      // wifeName: json['Name_of_wife'],
-      // husbandName: json['Name_of_husband'],
-      // childrenCount: json['Number_of_living_childern']
+      // // idNumber: json["Identity_number"],
+      // vilID: json["village_id"],
+      // wifeName: json["Name_of_wife"],
+      // husbandName: json["Name_of_husband"],
+      // childrenCount: json["Number_of_living_childern"]
 
       // childrenCount:
       //     json["total_Number_of_children_alive_including_this_child"].toString(),
 
-      bcgDate1: json['b_c_g_date'],
+      bcgDate1: json["b_c_g_date"],
       bcgBatchNo1: json["b_c_g_batch_no"],
       bcgEffects1: json["b_c_g_effects_of_immunization"],
-      bcgScar: json["b_c_g_b_c_g_scar"],
-      bcgDate2: json["b_c_g_second_dose_date"],
+     bcgScar: json["b_c_g_b_c_g_scar"].toString(),
+       bcgDate2: json["b_c_g_second_dose_date"],
       bcgBatchNo2: json["b_c_g_second_dose_batch_no"],
-      bcgEffects2: json["b_c_g_second_dose_effects_of_immunization"],
-      pentDate1: json["pentavalent_one_date"],
-      pentBatchNo1: json["pentavalent_one_batch_no"],
-      pentEffects1: json["pentavalent_one_effects_of_immunization"],
+       bcgEffects2: json["b_c_g_second_dose_effects_of_immunization"],
+       pentDate1: json["pentavalent_one_date"],
+       pentBatchNo1: json["pentavalent_one_batch_no"],
+       pentEffects1: json["pentavalent_one_effects_of_immunization"],
       opvDate1: json["opv_one_date"],
       opvBatchNo1: json["opv_one_batch_no"],
       opvEffects1: json["opv_one_effects_of_immunization"],
@@ -207,10 +211,10 @@ class Baby {
       otherVacDate1: json["other_vaccine_date"],
       otherVacBatchNo1: json["other_batch_no"],
       otherVacEffects1: json["other_effects_of_immunization"],
-      refDate: json["date_of_refferals"],
-      reasonRef: json["reason_for_referrals"],
-      palceRef: json["place_of_refferal"],
-      notes: json["notes_on_back"],
+      // refDate: json["date_of_refferals"],
+      // reasonRef: json["reason_for_referrals"],
+      // palceRef: json["place_of_refferal"],
+      // notes: json["notes_on_back"],
     );
   }
 }
