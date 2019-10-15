@@ -42,6 +42,7 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { ViewFamilybyIdComponent } from 'app/MOHComponents/view-familyby-id/view-familyby-id.component';
 import { AddMotherComponent } from 'app/MOHComponents/add-mother/add-mother.component';
 import { ViewMothersComponent } from 'app/MOHComponents/view-mothers/view-mothers.component';
+import { WeightHeightGraphbyIdComponent } from 'app/Graphs/weight-height-graphby-id/weight-height-graphby-id.component';
 
 
 
@@ -90,7 +91,8 @@ import { ViewMothersComponent } from 'app/MOHComponents/view-mothers/view-mother
     ViewMothersComponent,
     PregnancyFormComponent,
     ViewWeightTableComponent,
-    ViewPregnantMothersComponent
+    ViewPregnantMothersComponent,
+    WeightHeightGraphbyIdComponent
   ]
 })
 

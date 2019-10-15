@@ -53,7 +53,7 @@ import { WeightHeightGraphbyIdComponent } from './Graphs/weight-height-graphby-i
   declarations: [
     AppComponent,
     AdminLayoutComponent,
-    WeightHeightGraphbyIdComponent,
+  
     
     
    

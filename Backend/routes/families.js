@@ -4,7 +4,6 @@ var ApprovedFamily = require('../Schemas/ApprovedFamiliesSchema');
 var mongoose = require('mongoose');
 
 router.post('/add', (req, res) => {
-    console.log("sahan");
     console.log(req.body);
     var data = new ApprovedFamily(req.body);
     data.save((err,doc)=>{
@@ -21,8 +20,7 @@ router.get('/view', (req, res) => {
     
 });
 
-router.post('/update', async (req, res) => {
-    console.log("Randika")
+router.put('/update', async (req, res) => {
     try {
         const filter = req.query;
         const update = req.body;
@@ -34,6 +32,7 @@ router.post('/update', async (req, res) => {
             new: true,
             upsert: true // Make this update into an upsert
         });
+        res.status(201).send(doc)
         //console.log(doc);
     } catch (error) {
         res.status(500).send(error);
