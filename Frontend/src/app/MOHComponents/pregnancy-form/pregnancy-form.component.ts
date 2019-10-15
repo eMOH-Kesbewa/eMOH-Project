@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MotherfordocService } from 'app/Services/motherfordoc.service'
 
 @Component({
   selector: 'app-pregnancy-form',
@@ -12,7 +13,7 @@ export class PregnancyFormComponent implements OnInit {
   submitted = false;
   success = false;
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder , private addMotherForDoc : MotherfordocService) { }
 
   ngOnInit() {
 
@@ -525,6 +526,14 @@ export class PregnancyFormComponent implements OnInit {
     }
 
     this.success = true;
+    this.addMotherForDoc.add(this.PregnancyForm.value)
+      .subscribe(
+        response=>console.log('Success!',response),
+        error=>{
+          if(error) console.log("Failure") 
+          else console.log("Success No Errors")
+        }
+    );
   }
 
 }

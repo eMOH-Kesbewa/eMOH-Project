@@ -83,5 +83,5 @@ export class Weight{
 	twoyearheight:Number;
 	threeyearheight:Number;
 	foueyearheight:Number;
-	fiveyearheight:Number
+	fiveyearheight:Number;
 }
