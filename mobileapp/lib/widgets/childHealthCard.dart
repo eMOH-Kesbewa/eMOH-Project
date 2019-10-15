@@ -20,7 +20,9 @@ class ChildHealthCard extends StatefulWidget {
       dentalSpots,
       deantalCavities,
       nightBlind,
-      bitoSpots;
+      bitoSpots,
+      sightL,
+      sightR;
   @override
   _ChildHealthCardState createState() => _ChildHealthCardState();
 }
@@ -67,6 +69,25 @@ class _ChildHealthCardState extends State<ChildHealthCard> {
         ListTile(
           leading: growBulletIcon,
           title: Text(
+            'Left Eye Sight',
+            style: TextStyle(fontSize: 15.0),
+          ),
+          trailing: Text(widget
+              .sightL), //Text(snapshot.data.layingFaceDownOcc.toString()),
+        ),
+        ListTile(
+          leading: growBulletIcon,
+          title: Text(
+            'Right Eye Sight',
+            style: TextStyle(fontSize: 15.0),
+          ),
+          trailing: Text(widget
+              .sightR), //Text(snapshot.data.layingFaceDownOcc.toString()),
+        ),
+
+        ListTile(
+          leading: growBulletIcon,
+          title: Text(
             'Hearing Left Ear',
             style: TextStyle(fontSize: 15.0),
           ),
@@ -82,15 +103,15 @@ class _ChildHealthCardState extends State<ChildHealthCard> {
           trailing: Text(widget
               .hearingR), //Text(snapshot.data.layingFaceDownOcc.toString()),
         ),
-        ListTile(
-          leading: growBulletIcon,
-          title: Text(
-            'Hearing Right Ear',
-            style: TextStyle(fontSize: 15.0),
-          ),
-          trailing: Text(widget
-              .hearingR), //Text(snapshot.data.layingFaceDownOcc.toString()),
-        ),
+        // ListTile(
+        //   leading: growBulletIcon,
+        //   title: Text(
+        //     'Hearing Right Ear',
+        //     style: TextStyle(fontSize: 15.0),
+        //   ),
+        //   trailing: Text(widget
+        //       .hearingR), //Text(snapshot.data.layingFaceDownOcc.toString()),
+        // ),
         ListTile(
           leading: growBulletIcon,
           title: Text(
