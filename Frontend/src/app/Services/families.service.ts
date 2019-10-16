@@ -19,7 +19,7 @@ export class FamiliesService {
   register(userData,familyId){          //Update the approved family details
     let _url= `http://localhost:3000/families/update/?Identity_number=${familyId}`;
     console.log(userData)
-    return this.http.post<Family>(_url , userData);
+    return this.http.put<Family>(_url , userData, {observe: 'response'})
    }
 
    

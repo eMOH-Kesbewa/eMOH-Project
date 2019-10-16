@@ -54,7 +54,7 @@ import { ViewWeightByIdComponent } from './MOHComponents/view-weight-by-id/view-
   declarations: [
     AppComponent,
     AdminLayoutComponent,
-    WeightHeightGraphbyIdComponent,
+  
     
     
     
