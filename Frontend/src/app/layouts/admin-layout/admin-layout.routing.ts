@@ -25,12 +25,9 @@ import { PregnancyFormComponent } from 'app/MOHComponents/pregnancy-form/pregnan
 import { ViewPregnantMothersComponent } from 'app/MOHComponents/view-pregnant-mothers/view-pregnant-mothers.component';
 import { ViewWeightTableComponent } from 'app/MOHComponents/view-weight-table/view-weight-table.component';
 import { ViewMotherByIDComponent } from 'app/MOHComponents/view-mother-by-id/view-mother-by-id.component';
-<<<<<<< HEAD
-import { ViewWeightByIdComponent } from 'app/MOHComponents/view-weight-by-id/view-weight-by-id.component';
 import { from } from 'rxjs';
-=======
 import { WeightHeightGraphbyIdComponent } from 'app/Graphs/weight-height-graphby-id/weight-height-graphby-id.component';
->>>>>>> f2d8df4a7d2ac7fcc784c832d44994ff33db5e56
+import { ViewWeightByIdComponent } from 'app/MOHComponents/view-weight-by-id/view-weight-by-id.component';
 
 export const AdminLayoutRoutes: Routes = [
     // {
