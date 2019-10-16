@@ -25,6 +25,9 @@ import { PregnancyFormComponent } from 'app/MOHComponents/pregnancy-form/pregnan
 import { ViewPregnantMothersComponent } from 'app/MOHComponents/view-pregnant-mothers/view-pregnant-mothers.component';
 import { ViewWeightTableComponent } from 'app/MOHComponents/view-weight-table/view-weight-table.component';
 import { ViewMotherByIDComponent } from 'app/MOHComponents/view-mother-by-id/view-mother-by-id.component';
+import { from } from 'rxjs';
+import { WeightHeightGraphbyIdComponent } from 'app/Graphs/weight-height-graphby-id/weight-height-graphby-id.component';
+import { ViewWeightByIdComponent } from 'app/MOHComponents/view-weight-by-id/view-weight-by-id.component';
 
 export const AdminLayoutRoutes: Routes = [
     // {
@@ -93,10 +96,7 @@ export const AdminLayoutRoutes: Routes = [
                 path: 'AddMother/:familyId',
                 component: AddMotherComponent
             },
-            // {
-            //     path: "AddPregnancyForm",
-            //     component:PregnancyFormComponent
-            // }
+            
 
 
         ]
@@ -120,11 +120,8 @@ export const AdminLayoutRoutes: Routes = [
            {
                path:'AddWeightHeight',
                component:AddWeightHeightComponent
-           },
-           {
-               path:'ViewWeightTable',
-               component:ViewWeightTableComponent
            }
+           
        ]
        
        },
@@ -144,9 +141,6 @@ export const AdminLayoutRoutes: Routes = [
     {
         path: 'viewMothers',
         component:ViewMothersComponent,
-
-        
-
         children: [
             {
                 path: 'addMother',
@@ -157,17 +151,40 @@ export const AdminLayoutRoutes: Routes = [
                 component:PregnancyFormComponent
             },
             {
-                path:"ViewPregnantMothers",
-                component:ViewPregnantMothersComponent
+                path: 'viewMotherbyId/:motherId',
+                component: ViewMotherByIDComponent
             },
             {
-                path: 'viewMother/:motherId',
-                component: ViewMotherByIDComponent
+                path:'ViewPregnantMother',
+                component:ViewPregnantMothersComponent
             }
 
 
         ]
 
+    },
+    
+    {
+         path:'ViewWeightTable',
+        component:ViewWeightTableComponent,
+        children: [
+            {
+                path:'AddWeightHeight',
+               component:AddWeightHeightComponent
+            },
+            {
+                path:'viewWeightbyId/:babyId',
+                component:ViewWeightByIdComponent
+            }
+
+
+        ]
+
+    },
+    {
+        path:'WeightHeightGraph',
+        component:  WeightHeightGraphbyIdComponent
     }
+
     
 ]

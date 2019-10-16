@@ -23,7 +23,7 @@ export class BabiesService {
    register(userData,babyId){          //Update the baby details
     let _url= `http://localhost:3000/babies/update/?Identity_number=${babyId}`;
     console.log(userData)
-    return this.http.post<Baby>(_url , userData);
+    return this.http.post<Baby>(_url , userData,{observe: 'response'});
    }
 
    _

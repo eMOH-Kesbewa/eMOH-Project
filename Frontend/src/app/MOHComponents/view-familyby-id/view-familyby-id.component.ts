@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Family } from 'app/Services/Models/family';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators,FormControl } from '@angular/forms';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-view-familyby-id',
@@ -12,12 +13,13 @@ import { FormBuilder, FormGroup, Validators,FormControl } from '@angular/forms';
 })
 export class ViewFamilybyIdComponent implements OnInit {
 
-  constructor(private familyservice : FamiliesService,private router: Router,private activeroute: ActivatedRoute,private formBuilder: FormBuilder) { }
+  constructor(private familyservice : FamiliesService,private router: Router,private activeroute: ActivatedRoute,private formBuilder: FormBuilder,private _snackBar: MatSnackBar) { }
 
   families : Family;
   approvedFamilyForm: FormGroup;
   autoRenew : FormControl;
-  public familyId
+  public familyId;
+  durationInSeconds = 5;
 
   ngOnInit() {
     this.familyId = this.activeroute.snapshot.paramMap.get('familyId');
@@ -105,20 +107,30 @@ export class ViewFamilybyIdComponent implements OnInit {
     
   }
 
-  onSubmit() {
- 
-    if (this.approvedFamilyForm.invalid) {
-        return;
+    onSubmit() {
+  
+      if (this.approvedFamilyForm.invalid) {
+          return;
+      }
+      
+      this.familyservice.register(this.approvedFamilyForm.value,this.familyId)
+        .subscribe(
+          response=>{
+            if(response.status==201){
+              this.openSnackBar("Updated Successfully");
+              this.router.navigate(["viewApprovedFamilies/"])
+            }else{
+              this.openSnackBar("Update is Unsuccessfull, Pls enter it again!");
+              this.router.navigate([this.router.url,'ViewFamilesById',this.familyId])
+            }
+          } 
+        )
+      
+          
     }
-    
-    this.familyservice.register(this.approvedFamilyForm.value,this.familyId)
-      .subscribe(
-        response=>console.log('Success!',response),
-        error=>{
-          if(error) console.log("Failure") 
-          else console.log("Success No Errors")
-        })
-    
+
+    openSnackBar(msg) {
+      this._snackBar.open(msg,"OK")
     }
 
     dateconverter(isodate:String){ //Convert ISOFormat data to yyyy-MM-dd format

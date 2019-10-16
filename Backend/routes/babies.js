@@ -87,6 +87,7 @@ router.get('/weight/view', (req, res)=>{
     })
 });
 
+
 //add weight and height
 router.post('/addweight', (req, res) => {
     console.log("weight");

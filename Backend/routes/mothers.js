@@ -39,7 +39,7 @@ router.put('/update/motherbabyjoined', async (req, res) => {
 });
 
 //Update details in mother table
-router.get('/update/mother', async (req, res) => {
+router.put('/update/mother', async (req, res) => {
 
     try {
         const filter = req.query;
@@ -52,6 +52,7 @@ router.get('/update/mother', async (req, res) => {
             new: true,
             upsert: false 
         });
+        res.status(201).send(doc)
         console.log(doc);
     } catch (error) {
         res.status(500).send(error);
@@ -81,6 +82,23 @@ router.get('/update/motherfordoc', async (req, res) => {
     }
 
 });
+//add details in motherfordoc table
+router.post('/addmotherfordoc', (req, res) => {
+    console.log("form");
+    console.log(req.body);
+    var data = new motherfordoc(req.body);
+    data.save((err,doc)=>{
+        res.status(200).send("Inserted successfully.");
+    });
+    console.log("Completed");
+});
+//view motherfor doc table
+router.get('/motherfordoc/view', (req, res) => {
+    motherfordoc.find((err, doc) => {
+        res.send(doc)
+    })
+});
+
 
 //View all the mothers in the area by viewing the whole motherbabyjoined table
 router.get('/view', (req, res) => {

@@ -25,6 +25,7 @@ import { AddWeightHeightComponent } from 'app/MOHComponents/add-weight-height/ad
 import { PregnancyFormComponent } from 'app/MOHComponents/pregnancy-form/pregnancy-form.component';
 import { ViewPregnantMothersComponent } from 'app/MOHComponents/view-pregnant-mothers/view-pregnant-mothers.component';
 import { ViewWeightTableComponent } from 'app/MOHComponents/view-weight-table/view-weight-table.component';
+import { ViewWeightByIdComponent } from 'app/MOHComponents/view-weight-by-id/view-weight-by-id.component';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {
   MatButtonModule,
@@ -42,6 +43,10 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { ViewFamilybyIdComponent } from 'app/MOHComponents/view-familyby-id/view-familyby-id.component';
 import { AddMotherComponent } from 'app/MOHComponents/add-mother/add-mother.component';
 import { ViewMothersComponent } from 'app/MOHComponents/view-mothers/view-mothers.component';
+import { from } from 'rxjs';
+
+import { WeightHeightGraphbyIdComponent } from 'app/Graphs/weight-height-graphby-id/weight-height-graphby-id.component';
+
 
 
 
@@ -90,7 +95,11 @@ import { ViewMothersComponent } from 'app/MOHComponents/view-mothers/view-mother
     ViewMothersComponent,
     PregnancyFormComponent,
     ViewWeightTableComponent,
-    ViewPregnantMothersComponent
+    ViewPregnantMothersComponent,
+
+    ViewWeightByIdComponent,
+
+    WeightHeightGraphbyIdComponent
   ]
 })
 

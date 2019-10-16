@@ -19,7 +19,8 @@ export const ROUTES: RouteInfo[] = [
     { path: '/viewApprovedFamilies', title: 'Approved Families',  icon:'people_outline', class: '' },
     { path: '/viewBabies', title: 'Babies',  icon:'child_care', class: '' },
     { path: '/viewClinics', title: 'Clinics',  icon:'home_work', class: '' },
-    { path: '/viewMothers', title: 'Mothers',  icon:'pregnant_woman', class: '' }
+    { path: '/viewMothers', title: 'Mothers',  icon:'pregnant_woman', class: '' },
+    { path:'/ViewWeightTable',title: 'Weight Height', icon:'content_paste',class:''}
 ];
 
 @Component({
