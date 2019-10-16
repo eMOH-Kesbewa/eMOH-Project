@@ -81,6 +81,17 @@ router.get('/update/motherfordoc', async (req, res) => {
     }
 
 });
+//add details in motherfordoc table
+router.post('/addmotherfordoc', (req, res) => {
+    console.log("form");
+    console.log(req.body);
+    var data = new motherfordoc(req.body);
+    data.save((err,doc)=>{
+        res.status(200).send("Inserted successfully.");
+    });
+    console.log("Completed");
+});
+
 
 //View all the mothers in the area by viewing the whole motherbabyjoined table
 router.get('/view', (req, res) => {
