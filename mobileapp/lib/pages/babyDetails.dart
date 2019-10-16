@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 //import 'package:mobileapp/pages/babyInfo/basicInfo.dart';
 import 'package:mobileapp/pages/babyInfo/babyBasicInfo.dart';
 import 'package:mobileapp/pages/babyInfo/babyprotection.dart';
-import 'package:mobileapp/pages/babyInfo/childHealthView.dart';
+import 'package:mobileapp/pages/babyInfo/childHEalthView.dart';
 import 'package:mobileapp/pages/babyInfo/eyeTest.dart';
 import 'package:mobileapp/pages/babyInfo/growingView.dart';
 import 'package:mobileapp/pages/babyInfo/hearTest.dart';
