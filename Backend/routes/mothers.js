@@ -52,6 +52,7 @@ router.put('/update/mother', async (req, res) => {
             new: true,
             upsert: false 
         });
+        res.status(201).send(doc)
         console.log(doc);
     } catch (error) {
         res.status(500).send(error);
@@ -90,6 +91,12 @@ router.post('/addmotherfordoc', (req, res) => {
         res.status(200).send("Inserted successfully.");
     });
     console.log("Completed");
+});
+//view motherfor doc table
+router.get('/motherfordoc/view', (req, res) => {
+    motherfordoc.find((err, doc) => {
+        res.send(doc)
+    })
 });
 
 

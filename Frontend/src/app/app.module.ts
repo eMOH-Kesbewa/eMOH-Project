@@ -35,6 +35,7 @@ import { PregnancyFormComponent } from './MOHComponents/pregnancy-form/pregnancy
 import { ViewWeightTableComponent } from './MOHComponents/view-weight-table/view-weight-table.component';
 import { ViewPregnantMothersComponent } from './MOHComponents/view-pregnant-mothers/view-pregnant-mothers.component';
 import { WeightHeightGraphbyIdComponent } from './Graphs/weight-height-graphby-id/weight-height-graphby-id.component';
+import { ViewWeightByIdComponent } from './MOHComponents/view-weight-by-id/view-weight-by-id.component';
 
 @NgModule({
   imports: [
@@ -54,6 +55,7 @@ import { WeightHeightGraphbyIdComponent } from './Graphs/weight-height-graphby-i
     AppComponent,
     AdminLayoutComponent,
   
+    
     
     
    

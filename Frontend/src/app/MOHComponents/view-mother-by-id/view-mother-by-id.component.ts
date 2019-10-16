@@ -5,6 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Mother } from 'app/Services/Models/mother';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators,FormControl } from '@angular/forms';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-view-mother-by-id',
@@ -13,7 +14,7 @@ import { FormBuilder, FormGroup, Validators,FormControl } from '@angular/forms';
 })
 export class ViewMotherByIDComponent implements OnInit {
 
-  constructor(private motherService: MotherService, private router: Router, private activeroute: ActivatedRoute, private formBuilder: FormBuilder) { }
+  constructor(private motherService: MotherService, private router: Router, private activeroute: ActivatedRoute, private formBuilder: FormBuilder, private _snackBar: MatSnackBar) { }
 
   
   hide=true;
@@ -144,12 +145,20 @@ export class ViewMotherByIDComponent implements OnInit {
     this.success=true;
     this.motherService.register(this.addMotherForm.value,this.motherId)
       .subscribe(
-        response=>console.log('Success!',response),
-        error=>{
-          if(error) console.log("Failure") 
-          else console.log("Success No Errors")
-        })
-    
+        response=>{
+          if(response.status==201){
+            this.openSnackBar("Updated Successfully");
+            this.router.navigate(["viewMothers/"])
+          }else{
+            this.openSnackBar("Update is Unsuccessfull, Pls enter it again!");
+            this.router.navigate([this.router.url,'viewMotherbyId',this.motherId])
+          }
+        } 
+      )
+    }
+
+    openSnackBar(msg) {
+      this._snackBar.open(msg,"OK")
     }
   
 
