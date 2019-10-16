@@ -18,4 +18,9 @@ export class ViewWeightTableComponent implements OnInit {
     this.weightService.getdata().subscribe(data=> this.weight=data);
   }
 
+  onClickMe(babyID){
+    console.log(babyID);
+    console.log(this.router.url);
+    this.router.navigate([this.router.url,'viewWeightbyId',babyID])
+  }
 }

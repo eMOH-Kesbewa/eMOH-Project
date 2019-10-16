@@ -1,8 +1,8 @@
 <div class="main-content">
   <router-outlet></router-outlet>
-  <!-- <div class="row">
-    <div class="col-md-3" ><a routerLink="addMother" class="btn btn-info btn-block">Add New Mother</a></div>
-  </div> -->
+  <div class="row">
+    <div class="col-md-3" ><a routerLink="AddWeightHeight" class="btn btn-info btn-block">Add New Weight Height Form</a></div>
+  </div>
   <div class="row">
     <div class="col-md-12">
         <div class="card">
@@ -109,7 +109,7 @@
                           <td><b>Length</b></td>
                       </tr>
 
-                      <tr *ngFor="let weight of weight">
+                      <tr *ngFor="let weight of weight" (click)="onClickMe(weight.baby_id)" style="cursor:pointer">
                           <td>{{weight.baby_id}}</td>
                           <td>{{weight.batch_no}}</td>
                           <td>{{weight.name_of_child}}</td>

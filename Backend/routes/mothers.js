@@ -91,6 +91,12 @@ router.post('/addmotherfordoc', (req, res) => {
     });
     console.log("Completed");
 });
+//view motherfor doc table
+router.get('/motherfordoc/view', (req, res) => {
+    motherfordoc.find((err, doc) => {
+        res.send(doc)
+    })
+});
 
 
 //View all the mothers in the area by viewing the whole motherbabyjoined table
