@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { MotherbabyjoinedService } from 'app/Services/motherbabyjoined.service';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { motherbabyjoined } from 'app/Services/Models/motherbabyjoined';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-view-babyby-id',
@@ -11,7 +12,7 @@ import { motherbabyjoined } from 'app/Services/Models/motherbabyjoined';
 })
 export class ViewBabybyIDComponent implements OnInit {
 
-  constructor(private motherbabyjoinedservice : MotherbabyjoinedService,private router: Router,private activeroute: ActivatedRoute,private formBuilder: FormBuilder) { }
+  constructor(private motherbabyjoinedservice : MotherbabyjoinedService,private router: Router,private activeroute: ActivatedRoute,private formBuilder: FormBuilder, private _snackBar: MatSnackBar) { }
 
   motherbabyjoineddata : motherbabyjoined;
   addmotherbabyForm: FormGroup;
@@ -114,20 +115,29 @@ export class ViewBabybyIDComponent implements OnInit {
     
   }
 
-  onSubmit() {
+   onSubmit() {
  
     if (this.addmotherbabyForm.invalid) {
         return;
     }
     
     this.motherbabyjoinedservice.register(this.addmotherbabyForm.value,this.babyId)
-      .subscribe(
-        response=>console.log('Success!',response),
-        error=>{
-          if(error) console.log("Failure") 
-          else console.log("Success No Errors")
-        })
+    .subscribe(
+       response=>{
+        if(response.status==201){
+           this.openSnackBar("Updated Successfully");
+           this.router.navigate(["viewMothers/"])
+        }else{
+          this.openSnackBar("Update is Unsuccessfull, Pls enter it again!");
+          this.router.navigate([this.router.url,'viewMotherbyId',this.babyId])
+        }
+      } 
+    )
     
+    }
+
+    openSnackBar(msg) {
+      this._snackBar.open(msg,"OK")
     }
 
     dateconverter(isodate:String){ //Convert ISOFormat data to yyyy-MM-dd format

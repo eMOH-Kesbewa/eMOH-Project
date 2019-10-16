@@ -52,6 +52,7 @@ router.put('/update/mother', async (req, res) => {
             new: true,
             upsert: false 
         });
+        res.status(201).send(doc)
         console.log(doc);
     } catch (error) {
         res.status(500).send(error);
