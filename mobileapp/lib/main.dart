@@ -12,7 +12,7 @@ import 'package:teamapp/Pages/viewSheet.dart';*/
 void main() => runApp(MyApp());
 
 final ThemeData themeData = ThemeData(
-  brightness: Brightness.dark,
+  brightness: Brightness.light,
   primarySwatch: Colors.brown,
 );
 

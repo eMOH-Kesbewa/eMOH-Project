@@ -12,6 +12,7 @@ class _ChildHealthViewState extends State<ChildHealthView> {
   Widget build(BuildContext context) {
     //  Future baby = fetchBaby();
     //Choice index;
+
     return FutureBuilder<Baby>(
       future: fetchBaby(),
       builder: (context, snapshot) {
@@ -216,27 +217,6 @@ class _ChildHealthViewState extends State<ChildHealthView> {
                 dentalSpots: snapshot.data.dentalSpots5y,
                 dentalCavities: snapshot.data.dentalCavities5y,
                 count: 1),
-
-            // Choice.fourToThree(
-            //     title: '3 Years',
-            //     date: snapshot.data.date3y,
-            //     eye: snapshot.data.eye3y,
-            //     squint: snapshot.data.squint3y,
-            //     cataract: snapshot.data.cataract3y,
-            //     nightBlind: snapshot.data.nightBlind3y,
-            //     bitoSpots: snapshot.data.bitoSpots3y,
-            //     hearingL: snapshot.data.heart3y,
-            //     hearingR: snapshot.data.hearingR3y,
-            //     weight: snapshot.data.weight3y,
-            //     height: snapshot.data.height3y,
-            //     heart: snapshot.data.heart3y,
-            //     lungs: snapshot.data.lungs3y,
-            //     hipJoint: snapshot.data.hipJoint3y,
-            //     inhProblems: snapshot.data.inhProblems3y,
-            //     otherDiseases: snapshot.data.otherDiseases3y,
-            //     officer: snapshot.data.officer3y,
-            //     dentalSpots: snapshot.data.dentalSpots4y,
-            //     dentalCavities: snapshot.data.dentalCavities3y),
           ];
           return DefaultTabController(
             length: choices.length,
