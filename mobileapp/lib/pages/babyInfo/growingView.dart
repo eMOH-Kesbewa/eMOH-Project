@@ -64,7 +64,10 @@ class _GrowingViewState extends State<GrowingView> {
       future: fetchBaby(),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
-          return Center(child: CircularProgressIndicator());
+          return Scaffold(
+            appBar: AppBar(title: Text('Baby Growth'),),
+            body: Center(child: CircularProgressIndicator(),),
+          );
         } else {
           if (snapshot.data.layingFaceDownOcc == '0') {
             layingFaceDownVis = true;
