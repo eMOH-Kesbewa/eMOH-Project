@@ -21,4 +21,9 @@ export class WeightService {
    console.log(userData)
    return this.http.post<any>(this.__url,userData);
   }
+
+  getbabyweightById(babyId){             
+    let uri = `http://localhost:3000/babies/viewwieghtandheight/${babyId}`;
+    return this.http.get<Weight>(uri)
+   }
 }

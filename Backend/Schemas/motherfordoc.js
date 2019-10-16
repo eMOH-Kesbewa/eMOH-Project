@@ -316,7 +316,7 @@ var mother_baby_fordoc = new Schema({
 			
 			
 			
-	"clinical_details": {
+	// "clinical_details": 
 		
 		"height": Number,
 		"bmi": Number,
@@ -522,7 +522,7 @@ var mother_baby_fordoc = new Schema({
 		"why_accepted_family_organization_method": String
 		
 			
-	}
+	
 }, {
 	collection: 'mother_baby_fordoc'
 });

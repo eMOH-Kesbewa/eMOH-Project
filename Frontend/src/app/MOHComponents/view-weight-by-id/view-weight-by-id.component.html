@@ -1,0 +1,526 @@
+<div class="container-fluid">
+  <div class="row">
+        <div class="col-md-8"></div>
+        <div class="col-md-2">
+            <mat-slide-toggle  [formControl]="autoRenew" (change)="onChange()">Edit details</mat-slide-toggle>
+        </div>
+        <!-- <div class="col-md-2">
+           <button  (click)="onClickMe()" class="btn btn-info btn-block">Change As Mother</button>
+        </div> -->
+        <div class="col-md-12">
+      <div class="col-md-12">
+          <div class="card">
+              <div class="card-header card-header-info">
+                  <h4 class="card-title">View Weight Height Details Of Baby</h4>
+              </div>
+              <div class="card-body">   
+                <form [formGroup]="addWeightForm" (ngSubmit)="onSubmit()" [hidden]="success">
+
+                    <div class="row">
+                        <div class="col-md-3">
+                            <mat-form-field class="example-full-width">
+                                <input matInput placeholder="Baby ID" type="text"  readonly="{{onChange()}}" formControlName="baby_id">
+                                <div *ngIf="submitted && WeightHeightForm.controls.baby_id.errors" class="error">
+                                    <div *ngIf="WeightHeightForm.controls.baby_id.errors.required">This field is required</div>
+                                  </div>
+                              </mat-form-field>
+                        </div>
+                        <div class="col-md-3">
+                            <mat-form-field class="example-full-width">
+                                <input matInput placeholder="Batch No" type="text" readonly="{{onChange()}}" formControlName="batch_no">
+                                <div *ngIf="submitted && WeightHeightForm.controls.batch_no.errors" class="error">
+                                    <div *ngIf="WeightHeightForm.controls.batch_no.errors.required">This field is required</div>
+                                  </div>
+                              </mat-form-field>
+                        </div>
+                        <div class="col-md-6">
+                            <mat-form-field class="example-full-width">
+                                <input matInput placeholder="Name Of Child" type="text" readonly="{{onChange()}}" formControlName="name_of_child">
+                                <div *ngIf="submitted && WeightHeightForm.controls.name_of_child.errors" class="error">
+                                    <div *ngIf="WeightHeightForm.controls.name_of_child.errors.required">This field is required</div>
+                                  </div>
+                              </mat-form-field>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-4">
+                            <mat-form-field class="example-full-width">
+                                <input matInput placeholder="Date Of Child" type="date" readonly="{{onChange()}}" formControlName="Date_of_birth">
+                                <div *ngIf="submitted && WeightHeightForm.controls.Date_of_birth.errors" class="error">
+                                    <div *ngIf="WeightHeightForm.controls.Date_of_birth.errors.required">This field is required</div>
+                                  </div>
+                              </mat-form-field>
+                        </div>
+                        <div class="col-md-4">
+                          <mat-form-field class="example-full-width">
+                              <input matInput placeholder="Sex" type="text" readonly="{{onChange()}}" formControlName="sex">
+                              <div *ngIf="submitted && WeightHeightForm.controls.sex.errors" class="error">
+                                  <div *ngIf="WeightHeightForm.controls.sex.errors.required">This field is required</div>
+                                </div>
+                            </mat-form-field>
+                        </div>
+                        
+                      </div>
+                     
+                      <div class="row">
+                        <div class="col-md-4">At Birth</div>
+                        <div class="col-md-4">
+                          <mat-form-field class="example-full-width">
+                              <input matInput placeholder="Weight" type="number" readonly="{{onChange()}}" formControlName="weight_of_birth">
+                              <div *ngIf="submitted && WeightHeightForm.controls.weight_of_birth.errors" class="error">
+                                  <div *ngIf="WeightHeightForm.controls.weight_of_birth.errors.required">This field is required</div>
+                                </div>
+                            </mat-form-field>
+                        </div>
+                        <div class="col-md-4">
+                          <mat-form-field class="example-full-width">
+                              <input matInput placeholder="Height" type="number" readonly="{{onChange()}}" formControlName="height_of_birth">
+                              <div *ngIf="submitted && WeightHeightForm.controls.height_of_birth.errors" class="error">
+                                  <div *ngIf="WeightHeightForm.controls.height_of_birth.errors.required">This field is required</div>
+                                </div>
+                            </mat-form-field>
+                        </div>
+                        <div class="col-md-6">
+                          <label>Other Details</label>
+                          <mat-form-field class="example-full-width">
+                            <textarea matInput placeholder="" readonly="{{onChange()}}" formControlName="other_details" ></textarea>
+                          </mat-form-field>
+                        </div>
+                      </div>
+                     
+                      <div class="wight_field">
+                          <!--start field-->
+                          <h3>Weight Table</h3>
+                          <div class="row">
+                              <div class="col-md-2"></div>
+                              <div class="col-md-2">First Year</div>
+                              <div class="col-md-2">Second Year</div>
+                              <div class="col-md-2">Third Year</div>
+                              <div class="col-md-2">Fourth Year</div>
+                              <div class="col-md-2">Fifth Year</div>
+                          </div>
+                          <div class="row">
+                              <div class="col-md-2">Age Of Month</div>
+                              <div class="col-md-10">Weight From kg</div>
+                          </div>
+                          <div class="row">
+                              <div class="col-md-2">First Month</div>
+                              <div class="col-md-2">
+                                  <mat-form-field class="example-full-width">
+                                      <input matInput placeholder="" type= "number" readonly="{{onChange()}}" formControlName="first_yearone">
+                                    </mat-form-field>
+                              </div>
+                              <div class="col-md-2">
+                                  <mat-form-field class="example-full-width">
+                                      <input matInput placeholder="" type= "number" readonly="{{onChange()}}" formControlName="sec_yearone">
+                                    </mat-form-field>
+                              </div>
+                              <div class="col-md-2">
+                                  <mat-form-field class="example-full-width">
+                                      <input matInput placeholder="" type= "number" readonly="{{onChange()}}" formControlName="third_yearone">
+                                    </mat-form-field>
+                              </div>
+                              <div class="col-md-2">
+                                  <mat-form-field class="example-full-width">
+                                      <input matInput placeholder="" type= "number" readonly="{{onChange()}}" formControlName="four_yearone">
+                                    </mat-form-field>
+                              </div>
+                              <div class="col-md-2">
+                                  <mat-form-field class="example-full-width">
+                                      <input matInput placeholder="" type= "number" readonly="{{onChange()}}" formControlName="five_yearone">
+                                    </mat-form-field>
+                              </div>
+                          </div>
+                          <div class="row">
+                              <div class="col-md-2">Second Month</div>
+                              <div class="col-md-2">
+                                  <mat-form-field class="example-full-width">
+                                      <input matInput placeholder="" type= "number" readonly="{{onChange()}}" formControlName="first_yeartwo">
+                                    </mat-form-field>
+                              </div>
+                              <div class="col-md-2">
+                                  <mat-form-field class="example-full-width">
+                                      <input matInput placeholder="" type= "number" readonly="{{onChange()}}" formControlName="sec_yeartwo">
+                                    </mat-form-field>
+                              </div>
+                              <div class="col-md-2">
+                                  <mat-form-field class="example-full-width">
+                                      <input matInput placeholder="" type= "number" readonly="{{onChange()}}" formControlName="third_yeartwo">
+                                    </mat-form-field>
+                              </div>
+                              <div class="col-md-2">
+                                  <mat-form-field class="example-full-width">
+                                      <input matInput placeholder="" type= "number" readonly="{{onChange()}}" formControlName="four_yeartwo">
+                                    </mat-form-field>
+                              </div>
+                              <div class="col-md-2">
+                                  <mat-form-field class="example-full-width">
+                                      <input matInput placeholder="" type= "number" readonly="{{onChange()}}" formControlName="five_yeartwo">
+                                    </mat-form-field>
+                              </div>
+                          </div>
+                          <div class="row">
+                              <div class="col-md-2">Third Month</div>
+                              <div class="col-md-2">
+                                  <mat-form-field class="example-full-width">
+                                      <input matInput placeholder="" type= "number" readonly="{{onChange()}}" formControlName="first_yearthree">
+                                    </mat-form-field>
+                              </div>
+                              <div class="col-md-2">
+                                  <mat-form-field class="example-full-width">
+                                      <input matInput placeholder="" type= "number" readonly="{{onChange()}}" formControlName="sec_yearthree">
+                                    </mat-form-field>
+                              </div>
+                              <div class="col-md-2">
+                                  <mat-form-field class="example-full-width">
+                                      <input matInput placeholder="" type= "number" readonly="{{onChange()}}" formControlName="third_yearthree">
+                                    </mat-form-field>
+                              </div>
+                              <div class="col-md-2">
+                                  <mat-form-field class="example-full-width">
+                                      <input matInput placeholder="" type= "number" readonly="{{onChange()}}" formControlName="four_yearthree">
+                                    </mat-form-field>
+                              </div>
+                              <div class="col-md-2">
+                                  <mat-form-field class="example-full-width">
+                                      <input matInput placeholder="" type= "number" readonly="{{onChange()}}" formControlName="five_yearthree">
+                                    </mat-form-field>
+                              </div>
+                          </div>
+                          <div class="row">
+                              <div class="col-md-2">Fourth Month</div>
+                              <div class="col-md-2">
+                                  <mat-form-field class="example-full-width">
+                                      <input matInput placeholder="" type= "number" readonly="{{onChange()}}" formControlName="first_yearfour">
+                                    </mat-form-field>
+                              </div>
+                              <div class="col-md-2">
+                                  <mat-form-field class="example-full-width">
+                                      <input matInput placeholder="" type= "number" readonly="{{onChange()}}" formControlName="sec_yearfour">
+                                    </mat-form-field>
+                              </div>
+                              <div class="col-md-2">
+                                  <mat-form-field class="example-full-width">
+                                      <input matInput placeholder="" type= "number" readonly="{{onChange()}}" formControlName="third_yearfour">
+                                    </mat-form-field>
+                              </div>
+                              <div class="col-md-2">
+                                  <mat-form-field class="example-full-width">
+                                      <input matInput placeholder="" type= "number" readonly="{{onChange()}}" formControlName="four_yearfour">
+                                    </mat-form-field>
+                              </div>
+                              <div class="col-md-2">
+                                  <mat-form-field class="example-full-width">
+                                      <input matInput placeholder="" type= "number" readonly="{{onChange()}}" formControlName="five_yearfour">
+                                    </mat-form-field>
+                              </div>
+                          </div>
+                          <div class="row">
+                              <div class="col-md-2">Fifth Month</div>
+                              <div class="col-md-2">
+                                  <mat-form-field class="example-full-width">
+                                      <input matInput placeholder="" type= "number" readonly="{{onChange()}}" formControlName="first_yearfive">
+                                    </mat-form-field>
+                              </div>
+                              <div class="col-md-2">
+                                  <mat-form-field class="example-full-width">
+                                      <input matInput placeholder="" type= "number" readonly="{{onChange()}}" formControlName="sec_yearfive">
+                                    </mat-form-field>
+                              </div>
+                              <div class="col-md-2">
+                                  <mat-form-field class="example-full-width">
+                                      <input matInput placeholder="" type= "number" readonly="{{onChange()}}" formControlName="third_yearfive">
+                                    </mat-form-field>
+                              </div>
+                              <div class="col-md-2">
+                                  <mat-form-field class="example-full-width">
+                                      <input matInput placeholder="" type= "number" readonly="{{onChange()}}" formControlName="four_yearfive">
+                                    </mat-form-field>
+                              </div>
+                              <div class="col-md-2">
+                                  <mat-form-field class="example-full-width">
+                                      <input matInput placeholder="" type= "number" readonly="{{onChange()}}" formControlName="five_yearfive">
+                                    </mat-form-field>
+                              </div>
+                          </div>
+                          <div class="row">
+                              <div class="col-md-2">Sixth Month</div>
+                              <div class="col-md-2">
+                                  <mat-form-field class="example-full-width">
+                                      <input matInput placeholder="" type= "number" readonly="{{onChange()}}" formControlName="first_yearsix">
+                                    </mat-form-field>
+                              </div>
+                              <div class="col-md-2">
+                                  <mat-form-field class="example-full-width">
+                                      <input matInput placeholder="" type= "number" readonly="{{onChange()}}" formControlName="sec_yearsix">
+                                    </mat-form-field>
+                              </div>
+                              <div class="col-md-2">
+                                  <mat-form-field class="example-full-width">
+                                      <input matInput placeholder="" type= "number" readonly="{{onChange()}}" formControlName="third_yearsix">
+                                    </mat-form-field>
+                              </div>
+                              <div class="col-md-2">
+                                  <mat-form-field class="example-full-width">
+                                      <input matInput placeholder="" type= "number" readonly="{{onChange()}}" formControlName="four_yearsix">
+                                    </mat-form-field>
+                              </div>
+                              <div class="col-md-2">
+                                  <mat-form-field class="example-full-width">
+                                      <input matInput placeholder="" type= "number" readonly="{{onChange()}}" formControlName="five_yearsix">
+                                    </mat-form-field>
+                              </div>
+                          </div>
+                          <div class="row">
+                              <div class="col-md-2">Seventh Month</div>
+                              <div class="col-md-2">
+                                  <mat-form-field class="example-full-width">
+                                      <input matInput placeholder="" type= "number" readonly="{{onChange()}}" formControlName="first_yearseven">
+                                    </mat-form-field>
+                              </div>
+                              <div class="col-md-2">
+                                  <mat-form-field class="example-full-width">
+                                      <input matInput placeholder="" type= "number" readonly="{{onChange()}}" formControlName="sec_yearseven">
+                                    </mat-form-field>
+                              </div>
+                              <div class="col-md-2">
+                                  <mat-form-field class="example-full-width">
+                                      <input matInput placeholder="" type= "number" readonly="{{onChange()}}" formControlName="third_yearseven">
+                                    </mat-form-field>
+                              </div>
+                              <div class="col-md-2">
+                                  <mat-form-field class="example-full-width">
+                                      <input matInput placeholder="" type= "number" readonly="{{onChange()}}" formControlName="four_yearseven">
+                                    </mat-form-field>
+                              </div>
+                              <div class="col-md-2">
+                                  <mat-form-field class="example-full-width">
+                                      <input matInput placeholder="" type= "number" readonly="{{onChange()}}" formControlName="five_yearseven">
+                                    </mat-form-field>
+                              </div>
+                          </div>
+                          <div class="row">
+                              <div class="col-md-2">Eighth Month</div>
+                              <div class="col-md-2">
+                                  <mat-form-field class="example-full-width">
+                                      <input matInput placeholder="" type= "number" readonly="{{onChange()}}" formControlName="first_yeareight">
+                                    </mat-form-field>
+                              </div>
+                              <div class="col-md-2">
+                                  <mat-form-field class="example-full-width">
+                                      <input matInput placeholder="" type= "number" readonly="{{onChange()}}" formControlName="sec_yeareight">
+                                    </mat-form-field>
+                              </div>
+                              <div class="col-md-2">
+                                  <mat-form-field class="example-full-width">
+                                      <input matInput placeholder="" type= "number" readonly="{{onChange()}}" formControlName="third_yeareight">
+                                    </mat-form-field>
+                              </div>
+                              <div class="col-md-2">
+                                  <mat-form-field class="example-full-width">
+                                      <input matInput placeholder="" type= "number" readonly="{{onChange()}}" formControlName="four_yeareight">
+                                    </mat-form-field>
+                              </div>
+                              <div class="col-md-2">
+                                  <mat-form-field class="example-full-width">
+                                      <input matInput placeholder="" type= "number" readonly="{{onChange()}}" formControlName="five_yeareight">
+                                    </mat-form-field>
+                              </div>
+                          </div>
+                          <div class="row">
+                              <div class="col-md-2">Nineth Month</div>
+                              <div class="col-md-2">
+                                  <mat-form-field class="example-full-width">
+                                      <input matInput placeholder="" type= "number" readonly="{{onChange()}}" formControlName="first_yearnine">
+                                    </mat-form-field>
+                              </div>
+                              <div class="col-md-2">
+                                  <mat-form-field class="example-full-width">
+                                      <input matInput placeholder="" type= "number" readonly="{{onChange()}}" formControlName="sec_yearnine">
+                                    </mat-form-field>
+                              </div>
+                              <div class="col-md-2">
+                                  <mat-form-field class="example-full-width">
+                                      <input matInput placeholder="" type= "number" readonly="{{onChange()}}" formControlName="third_yearnine">
+                                    </mat-form-field>
+                              </div>
+                              <div class="col-md-2">
+                                  <mat-form-field class="example-full-width">
+                                      <input matInput placeholder="" type= "number" readonly="{{onChange()}}" formControlName="four_yearnine">
+                                    </mat-form-field>
+                              </div>
+                              <div class="col-md-2">
+                                  <mat-form-field class="example-full-width">
+                                      <input matInput placeholder="" type= "number" readonly="{{onChange()}}" formControlName="five_yearnine">
+                                    </mat-form-field>
+                              </div>
+                          </div>
+                          <div class="row">
+                              <div class="col-md-2">Tenth Month</div>
+                              <div class="col-md-2">
+                                  <mat-form-field class="example-full-width">
+                                      <input matInput placeholder="" type= "number" readonly="{{onChange()}}" formControlName="first_yearten">
+                                    </mat-form-field>
+                              </div>
+                              <div class="col-md-2">
+                                  <mat-form-field class="example-full-width">
+                                      <input matInput placeholder="" type= "number" readonly="{{onChange()}}" formControlName="sec_yearten">
+                                    </mat-form-field>
+                              </div>
+                              <div class="col-md-2">
+                                  <mat-form-field class="example-full-width">
+                                      <input matInput placeholder="" type= "number" readonly="{{onChange()}}" formControlName="third_yearten">
+                                    </mat-form-field>
+                              </div>
+                              <div class="col-md-2">
+                                  <mat-form-field class="example-full-width">
+                                      <input matInput placeholder="" type= "number" readonly="{{onChange()}}" formControlName="four_yearten">
+                                    </mat-form-field>
+                              </div>
+                              <div class="col-md-2">
+                                  <mat-form-field class="example-full-width">
+                                      <input matInput placeholder="" type= "number" readonly="{{onChange()}}" formControlName="five_yearten">
+                                    </mat-form-field>
+                              </div>
+                          </div>
+                          <div class="row">
+                              <div class="col-md-2">Eleventh Month</div>
+                              <div class="col-md-2">
+                                  <mat-form-field class="example-full-width">
+                                      <input matInput placeholder="" type= "number" readonly="{{onChange()}}" formControlName="first_yeareleven">
+                                    </mat-form-field>
+                              </div>
+                              <div class="col-md-2">
+                                  <mat-form-field class="example-full-width">
+                                      <input matInput placeholder="" type= "number" readonly="{{onChange()}}" formControlName="sec_yeareleven">
+                                    </mat-form-field>
+                              </div>
+                              <div class="col-md-2">
+                                  <mat-form-field class="example-full-width">
+                                      <input matInput placeholder="" type= "number" readonly="{{onChange()}}" formControlName="third_yeareleven">
+                                    </mat-form-field>
+                              </div>
+                              <div class="col-md-2">
+                                  <mat-form-field class="example-full-width">
+                                      <input matInput placeholder="" type= "number" readonly="{{onChange()}}" formControlName="four_yeareleven">
+                                    </mat-form-field>
+                              </div>
+                              <div class="col-md-2">
+                                  <mat-form-field class="example-full-width">
+                                      <input matInput placeholder="" type= "number" readonly="{{onChange()}}" formControlName="five_yeareleven">
+                                    </mat-form-field>
+                              </div>
+                          </div>
+                          <div class="row">
+                              <div class="col-md-2">Twelveth Month</div>
+                              <div class="col-md-2">
+                                  <mat-form-field class="example-full-width">
+                                      <input matInput placeholder="" type= "number" readonly="{{onChange()}}" formControlName="first_yeartwelve">
+                                    </mat-form-field>
+                              </div>
+                              <div class="col-md-2">
+                                  <mat-form-field class="example-full-width">
+                                      <input matInput placeholder="" type= "number" readonly="{{onChange()}}" formControlName="sec_yeartwelve">
+                                    </mat-form-field>
+                              </div>
+                              <div class="col-md-2">
+                                  <mat-form-field class="example-full-width">
+                                      <input matInput placeholder="" type= "number" readonly="{{onChange()}}" formControlName="third_yeartwelve">
+                                    </mat-form-field>
+                              </div>
+                              <div class="col-md-2">
+                                  <mat-form-field class="example-full-width">
+                                      <input matInput placeholder="" type= "number" readonly="{{onChange()}}" formControlName="four_yeartwelve">
+                                    </mat-form-field>
+                              </div>
+                              <div class="col-md-2">
+                                  <mat-form-field class="example-full-width">
+                                      <input matInput placeholder="" type= "number" readonly="{{onChange()}}" formControlName="five_yeartwelve">
+                                    </mat-form-field>
+                              </div>
+                          </div>
+                          <!--end field-->
+                      </div>
+                      <div class="height_field">
+                          <!--start height field-->
+                          <h3>Height Table</h3>
+                          <div class="row">
+                              <div class="col-md-2"></div>
+                              <div class="col-md-2">First Year</div>
+                              <div class="col-md-2">Second Year</div>
+                              <div class="col-md-2">Third Year</div>
+                              <div class="col-md-2">Fourth Year</div>
+                              <div class="col-md-2">Fifth Year</div>
+                              
+                          </div>
+                          <div class="row">
+                              <div class="col-md-2">Date</div>
+                              <div class="col-md-2">
+                                   <mat-form-field class="example-full-width">
+                                      <input matInput placeholder="" type= "date" readonly="{{onChange()}}" formControlName="oneyeardate">
+                                    </mat-form-field>
+                              </div>
+                              <div class="col-md-2">
+                                   <mat-form-field class="example-full-width">
+                                      <input matInput placeholder="" type= "date" readonly="{{onChange()}}" formControlName="twoyeardate">
+                                    </mat-form-field>
+                              </div>
+                              <div class="col-md-2">
+                                   <mat-form-field class="example-full-width">
+                                      <input matInput placeholder="" type= "date" readonly="{{onChange()}}" formControlName="threeyeardate">
+                                    </mat-form-field>
+                              </div>
+                              <div class="col-md-2">
+                                   <mat-form-field class="example-full-width">
+                                      <input matInput placeholder="" type= "date" readonly="{{onChange()}}" formControlName="foueyeardate">
+                                    </mat-form-field>
+                              </div>
+                              <div class="col-md-2">
+                                   <mat-form-field class="example-full-width">
+                                      <input matInput placeholder="" type= "date" readonly="{{onChange()}}" formControlName="fiveyeardate">
+                                    </mat-form-field>
+                              </div>
+
+                          </div>
+                          
+                          <div class="row">
+                                  <div class="col-md-2">Height Or Length</div>
+                                  <div class="col-md-2">
+                                       <mat-form-field class="example-full-width">
+                                          <input matInput placeholder="" type= "number" readonly="{{onChange()}}" formControlName="oneyearheight">
+                                        </mat-form-field>
+                                  </div>
+                                  <div class="col-md-2">
+                                       <mat-form-field class="example-full-width">
+                                          <input matInput placeholder="" type= "number" readonly="{{onChange()}}" formControlName="twoyearheight">
+                                        </mat-form-field>
+                                  </div>
+                                  <div class="col-md-2">
+                                       <mat-form-field class="example-full-width">
+                                          <input matInput placeholder="" type= "number" readonly="{{onChange()}}" formControlName="threeyearheight">
+                                        </mat-form-field>
+                                  </div>
+                                  <div class="col-md-2">
+                                       <mat-form-field class="example-full-width">
+                                          <input matInput placeholder="" type= "number" readonly="{{onChange()}}" formControlName="foueyearheight">
+                                        </mat-form-field>
+                                  </div>
+                                  <div class="col-md-2">
+                                       <mat-form-field class="example-full-width">
+                                          <input matInput placeholder="" type= "number" readonly="{{onChange()}}" formControlName="fiveyearheight">
+                                        </mat-form-field>
+                                  </div>
+                          </div>
+                          <!--end height field-->
+                      </div>
+                      <div *ngIf="onHidden()">
+                          <input type="submit" value="Update" class="btn btn-info pull-right">
+                      </div>
+                    
+              </form>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+<div class="row"></div>
