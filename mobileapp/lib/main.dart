@@ -12,8 +12,8 @@ import 'package:teamapp/Pages/viewSheet.dart';*/
 void main() => runApp(MyApp());
 
 final ThemeData themeData = ThemeData(
-  brightness: Brightness.light,
-  primarySwatch: Colors.purple,
+  brightness: Brightness.dark,
+  primarySwatch: Colors.brown,
 );
 
 class MyApp extends StatelessWidget {
