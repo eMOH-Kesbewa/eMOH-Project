@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:logger/logger.dart';
+import 'package:mobileapp/services/style.dart';
 
 class TeethCard extends StatefulWidget {
   TeethCard(this.date, this.teethCount, this.status);
@@ -10,6 +11,9 @@ class TeethCard extends StatefulWidget {
 
 var logger = Logger();
 DateTime _date = DateTime.now();
+String teethCount, teethStatus;
+bool goodRadio, badRadio;
+final _formKey = GlobalKey<FormState>();
 initState() {
   String strDate = _date.toString().substring(0, 10);
   return strDate;
@@ -18,10 +22,6 @@ initState() {
 String today = initState();
 
 class _TeethCardState extends State<TeethCard> {
-  String teethCount, teethStatus;
-  bool goodRadio, badRadio;
-  final _formKey = GlobalKey<FormState>();
-
   Future<Null> _selectDate(BuildContext context) async {
     final DateTime picked = await showDatePicker(
       context: context,
@@ -60,143 +60,109 @@ class _TeethCardState extends State<TeethCard> {
     return Card(
       child: Column(
         children: <Widget>[
-          Text('6th Month'),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              Row(
-                children: <Widget>[
-                  Text('Teeth Count'),
-                  SizedBox(
-                    width: 50.0,
+          Visibility(
+            visible: true,
+            child: Column(
+              children: <Widget>[
+                ListTile(
+                  leading: growBulletIcon,
+                  title: Text('Date'),
+                  trailing: Text(widget.date.substring(0, 10)),
+                ),
+                ListTile(
+                  leading: growBulletIcon,
+                  title: Text('Teeth Count'),
+                  trailing: Text(widget.teethCount),
+                ),
+                ListTile(
+                  leading: growBulletIcon,
+                  title: Text('Status of teeth'),
+                  trailing: Text(widget.status),
+                ),
+              ],
+            ),
+          ),
+          Visibility(
+            visible: true,
+            child: Column(
+              children: <Widget>[
+                Container(
+                  width: 100.0,
+                  child: TextField(
+                    decoration: InputDecoration(hintText: 'Teeth Count'),
                   ),
-                  Text(widget.teethCount),
-                ],
-              ),
-              Row(
-                children: <Widget>[
-                  Text('Date'),
-                  SizedBox(
-                    width: 50.0,
-                  ),
-                  Text(widget.date),
-                ],
-              ),
-              Row(
-                children: <Widget>[
-                  Text('Status of Teeth'),
-                  SizedBox(
-                    width: 50.0,
-                  ),
-                  Text(widget.status),
-                  Visibility(
-                    visible: true,
-                    child: Column(
-                      children: <Widget>[
-                        SizedBox(
-                          child: Row(
-                            children: <Widget>[
-                              SizedBox(
-                                width: 400.0,
-                                child: TextFormField(
-                                  validator: (String value) {
-                                    int _val = int.parse(value);
-                                    if (_val < 32) {
-                                      return "Impossible Count"; //Control comes here when I check using the Debugger.
-                                    } //if(value.isEmpty) closes here....
-                                  },
-                                  //autovalidate: true,
-                                  decoration: const InputDecoration(
-                                    icon: Icon(Icons.person),
-                                    hintText: 'Teeth Count',
-                                    labelText: 'Name *',
-                                  ),
+                  // child: TextFormField(
+                  //   /*validator: (String value) {
+                  //     int _val = int.parse(value);
+                  //     if (_val < 32) {
+                  //       return "Impossible Count"; //Control comes here when I check using the Debugger.
+                  //     } //if(value.isEmpty) closes here....
+                  //   },*/
+                  //   //autovalidate: true,
+                  //   decoration: const InputDecoration(
+                  //     hintText: 'Teeth Count',
+                  //   ),
 
-                                  onSaved: (input) => teethCount = input,
-                                ),
-                              ),
-                              //SizedBox(width: 50.0),
-                            ],
+                  //   onSaved: (input) => teethCount = input,
+                  // ),
+                ),
+                SizedBox(
+                  height: 20.0,
+                ),
+                Container(
+                  child: pickedDate,
+                  width: 100.0,
+                ),
+                pickDateButton,
+                Row(
+                  children: <Widget>[
+                    SizedBox(
+                      child: Container(
+                        width: 100.0,
+                        child: ListTile(
+                          leading: Text('Bad'),
+                          trailing: Radio(
+                            value: badRadio,
+                            onChanged: (bool) {
+                              setState(() {
+                                badRadio = !badRadio;
+                                if (badRadio) {
+                                  teethStatus = 'Bad';
+                                }
+                              });
+                            },
                           ),
                         ),
-                        Row(
-                          children: <Widget>[
-                            ListTile(
-                              leading: Text('Good'),
-                              title: Expanded(
-                                child: Radio(
-                                  value: goodRadio,
-                                  onChanged: (bool) {
-                                    setState(() {
-                                      goodRadio = !goodRadio;
-                                      if (goodRadio) {
-                                        teethStatus = 'Good';
-                                      }
-                                    });
-                                  },
-                                ),
-                              ),
-                            ),
-                            SizedBox(
-                              width: 50.0,
-                            ),
-                            ListTile(
-                              leading: Text('Bad'),
-                              title: Expanded(
-                                child: Radio(
-                                  value: goodRadio,
-                                  onChanged: (bool) {
-                                    setState(() {
-                                      badRadio = !badRadio;
-                                      if (badRadio) {
-                                        teethStatus = 'Bad';
-                                      }
-                                    });
-                                  },
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                        FlatButton(
-                          child: Text('Set'),
-                          onPressed: () {},
-                        )
-                      ],
-                    ),
-                  ),
-                ],
-              )
-              /* Visibility(
-                  visible: true,
-                  child: Row(
-                    children: <Widget>[
-                      TextFormField(
-                        validator: (String value) {
-                          int _val = int.parse(value);
-                          if (_val < 32) {
-                            return "Impossible Count"; //Control comes here when I check using the Debugger.
-                          } //if(value.isEmpty) closes here....
-                        },
-                        //autovalidate: true,
-                        decoration: const InputDecoration(
-                          icon: Icon(Icons.person),
-                          hintText: 'Teeth Count',
-                          labelText: 'Name *',
-                        ),
-
-                        onSaved: (input) => teethCount = input,
                       ),
-                      SizedBox(width: 50.0),
-                      FlatButton(
-                        child: Text('Set'),
-                        onPressed: () {},
-                      )
-                    ],
-                  ),
-                ),*/
-            ],
-          ),
+                    ),
+                    SizedBox(
+                      child: Container(
+                        width: 100.0,
+                        child: ListTile(
+                          leading: Text('Good'),
+                          trailing: Radio(
+                            value: goodRadio,
+                            onChanged: (bool) {
+                              setState(() {
+                                goodRadio = !goodRadio;
+                                if (goodRadio) {
+                                  teethStatus = 'Good';
+                                }
+                              });
+                            },
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                FlatButton(
+                  child: Text('Submit'),
+                  onPressed: () {},
+                )
+              ],
+            ),
+          )
         ],
       ),
     );
