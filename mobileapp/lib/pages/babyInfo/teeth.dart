@@ -10,6 +10,7 @@ class Teeth extends StatefulWidget {
 }
 
 var logger = Logger();
+bool formVis,listVis;
 
 class _TeethState extends State<Teeth> {
 Future<Baby> baby;
@@ -27,10 +28,17 @@ Future<Baby> baby;
       body: FutureBuilder<Baby>(
         future: baby,
         builder: (context, snapshot) {
-          logger.w('hello');
-          logger.wtf(snapshot.data.noOfTeeth6mo);
-          logger.v(snapshot.data.status6mo);
+          // logger.w('hello');
+          // logger.wtf(snapshot.data.noOfTeeth6mo);
+          // logger.v(snapshot.data.status6mo);
           logger.i(snapshot.data.date6mo);
+          if(snapshot.data.date6mo == null){
+            formVis = true;
+            listVis = false;
+          }else{
+            listVis = true;
+            formVis = false;
+          }
           if (snapshot.connectionState == ConnectionState.waiting) {
             return Center(
               child: CircularProgressIndicator(),
@@ -41,7 +49,7 @@ Future<Baby> baby;
               children: <Widget>[
                // Container(width: 100.0, child: TextField()),
                 TeethCard(snapshot.data.date6mo, snapshot.data.noOfTeeth6mo,
-                    snapshot.data.status6mo),
+                    snapshot.data.status6mo,formVis,listVis),
               ],
             ),
           );

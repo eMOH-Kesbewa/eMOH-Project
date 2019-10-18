@@ -3,8 +3,9 @@ import 'package:logger/logger.dart';
 import 'package:mobileapp/services/style.dart';
 
 class TeethCard extends StatefulWidget {
-  TeethCard(this.date, this.teethCount, this.status);
+  TeethCard(this.date, this.teethCount, this.status,this.formVis,this.listVis);
   String teethCount, date, status;
+  bool formVis,listVis;
 
   @override
   _TeethCardState createState() => _TeethCardState();
@@ -23,6 +24,7 @@ initState() {
 String today = initState();
 
 class _TeethCardState extends State<TeethCard> {
+  bool _isRadioSelected = false;
   Future<Null> _selectDate(BuildContext context) async {
     final DateTime picked = await showDatePicker(
       context: context,
@@ -62,7 +64,7 @@ class _TeethCardState extends State<TeethCard> {
       child: Column(
         children: <Widget>[
           Visibility(
-            visible: false,
+            visible: widget.listVis,
             child: Column(
               children: <Widget>[
                 ListTile(
@@ -84,7 +86,7 @@ class _TeethCardState extends State<TeethCard> {
             ),
           ),
           Visibility(
-            visible: true,
+            visible: widget.formVis,
             child: Column(
               children: <Widget>[
                 Container(
@@ -98,7 +100,7 @@ class _TeethCardState extends State<TeethCard> {
                         return "Impossible Count"; //Control comes here when I check using the Debugger.
                       } //if(value.isEmpty) closes here....
                     },
-                    
+
                     //autovalidate: true,
                     decoration: const InputDecoration(
                       hintText: 'Teeth Count',
@@ -122,11 +124,20 @@ class _TeethCardState extends State<TeethCard> {
                         width: 200.0,
                         child: RadioListTile(
                           title: Text('Good'),
-                          value: goodRadio,
-                          onChanged: (bool x) {
+                          value: true,
+                          groupValue: _isRadioSelected,
+                          onChanged: (bool value) {
                             setState(() {
                               logger.wtf(goodRadio);
-                              goodRadio = !goodRadio;
+                              //_isRadioSelected = newValue;
+                              //goodRadio = !goodRadio;
+                              _isRadioSelected = value;
+                              teethStatus = 'good';
+                                logger.v(teethStatus);
+                              if (_isRadioSelected) {
+                                // teethStatus = 'good';
+                                // logger.v(teethStatus);
+                              }
                             });
                           },
                         ),
@@ -150,14 +161,19 @@ class _TeethCardState extends State<TeethCard> {
                       child: Container(
                         width: 100.0,
                         child: ListTile(
-                          leading: Text('Good'),
+                          leading: Text('Bad'),
                           trailing: Radio(
-                            value: goodRadio,
-                            onChanged: (bool) {
+                            value: false,
+                            groupValue: _isRadioSelected,
+                            onChanged: (bool value) {
                               setState(() {
-                                goodRadio = !goodRadio;
-                                if (goodRadio) {
-                                  teethStatus = 'Good';
+                                //badRadio = !badRadio;
+                                _isRadioSelected = value;
+                                teethStatus = 'bad';
+                                logger.v(teethStatus);
+                                if (_isRadioSelected) {
+                                  // teethStatus = 'bad';
+                                  // logger.v(teethStatus);
                                 }
                               });
                             },
