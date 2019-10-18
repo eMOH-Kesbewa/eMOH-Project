@@ -5,6 +5,7 @@ import 'package:mobileapp/services/style.dart';
 class TeethCard extends StatefulWidget {
   TeethCard(this.date, this.teethCount, this.status);
   String teethCount, date, status;
+
   @override
   _TeethCardState createState() => _TeethCardState();
 }
@@ -12,8 +13,8 @@ class TeethCard extends StatefulWidget {
 var logger = Logger();
 DateTime _date = DateTime.now();
 String teethCount, teethStatus;
-bool goodRadio, badRadio;
-final _formKey = GlobalKey<FormState>();
+bool goodRadio = false, badRadio = false;
+
 initState() {
   String strDate = _date.toString().substring(0, 10);
   return strDate;
@@ -61,7 +62,7 @@ class _TeethCardState extends State<TeethCard> {
       child: Column(
         children: <Widget>[
           Visibility(
-            visible: true,
+            visible: false,
             child: Column(
               children: <Widget>[
                 ListTile(
@@ -88,23 +89,23 @@ class _TeethCardState extends State<TeethCard> {
               children: <Widget>[
                 Container(
                   width: 100.0,
-                  child: TextField(
-                    decoration: InputDecoration(hintText: 'Teeth Count'),
-                  ),
-                  // child: TextFormField(
-                  //   /*validator: (String value) {
-                  //     int _val = int.parse(value);
-                  //     if (_val < 32) {
-                  //       return "Impossible Count"; //Control comes here when I check using the Debugger.
-                  //     } //if(value.isEmpty) closes here....
-                  //   },*/
-                  //   //autovalidate: true,
-                  //   decoration: const InputDecoration(
-                  //     hintText: 'Teeth Count',
-                  //   ),
+                  //child: TextField(),
+                  child: TextFormField(
+//key: _formKey,
+                    validator: (String value) {
+                      int _val = int.parse(value);
+                      if (_val < 32) {
+                        return "Impossible Count"; //Control comes here when I check using the Debugger.
+                      } //if(value.isEmpty) closes here....
+                    },
+                    
+                    //autovalidate: true,
+                    decoration: const InputDecoration(
+                      hintText: 'Teeth Count',
+                    ),
 
-                  //   onSaved: (input) => teethCount = input,
-                  // ),
+                    onSaved: (input) => teethCount = input,
+                  ),
                 ),
                 SizedBox(
                   height: 20.0,
@@ -118,21 +119,31 @@ class _TeethCardState extends State<TeethCard> {
                   children: <Widget>[
                     SizedBox(
                       child: Container(
-                        width: 100.0,
-                        child: ListTile(
-                          leading: Text('Bad'),
-                          trailing: Radio(
-                            value: badRadio,
-                            onChanged: (bool) {
-                              setState(() {
-                                badRadio = !badRadio;
-                                if (badRadio) {
-                                  teethStatus = 'Bad';
-                                }
-                              });
-                            },
-                          ),
+                        width: 200.0,
+                        child: RadioListTile(
+                          title: Text('Good'),
+                          value: goodRadio,
+                          onChanged: (bool x) {
+                            setState(() {
+                              logger.wtf(goodRadio);
+                              goodRadio = !goodRadio;
+                            });
+                          },
                         ),
+                        // child: ListTile(
+                        //   leading: Text('Bad'),
+                        //   trailing: Radio(
+                        //     value: false,
+                        //     onChanged: (bool) {
+                        //       setState(() {
+                        //         badRadio = !badRadio;
+                        //         if (badRadio) {
+                        //           teethStatus = 'Bad';
+                        //         }
+                        //       });
+                        //     },
+                        //   ),
+                        // ),
                       ),
                     ),
                     SizedBox(
