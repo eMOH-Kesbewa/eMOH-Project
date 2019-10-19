@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:logger/logger.dart';
+import 'package:mobileapp/services/babyService/teethService.dart';
 import 'package:mobileapp/services/style.dart';
+import 'package:toast/toast.dart';
 
 class TeethCard extends StatefulWidget {
-  TeethCard(this.date, this.teethCount, this.status,this.formVis,this.listVis);
-  String teethCount, date, status;
-  bool formVis,listVis;
+  TeethCard(this.date,this.teethCount, this.status, this.formVis, this.listVis,
+      this.dateField, this.countField, this.statusField);
+  String teethCount, date, status, field;
+  String statusField, dateField, countField;
+  bool formVis, listVis;
 
   @override
   _TeethCardState createState() => _TeethCardState();
@@ -39,6 +43,7 @@ class _TeethCardState extends State<TeethCard> {
 
         today = _date.toString().substring(0, 10);
         print("Date Selected: ${today}");
+        logger.w(today);
       });
     }
   }
@@ -94,6 +99,7 @@ class _TeethCardState extends State<TeethCard> {
                   //child: TextField(),
                   child: TextFormField(
 //key: _formKey,
+
                     validator: (String value) {
                       int _val = int.parse(value);
                       if (_val < 32) {
@@ -133,7 +139,7 @@ class _TeethCardState extends State<TeethCard> {
                               //goodRadio = !goodRadio;
                               _isRadioSelected = value;
                               teethStatus = 'good';
-                                logger.v(teethStatus);
+                              logger.v(teethStatus);
                               if (_isRadioSelected) {
                                 // teethStatus = 'good';
                                 // logger.v(teethStatus);
@@ -184,8 +190,27 @@ class _TeethCardState extends State<TeethCard> {
                   ],
                 ),
                 FlatButton(
-                  child: Text('Submit'),
-                  onPressed: () {},
+                  child: Text('Set'),
+                  color: Colors.grey[200],
+                  onPressed: () {
+                    logger.wtf('occAge');
+                    // print(widget.occAge);
+                    updateDetails(
+                            teethCount,
+                            today,
+                            teethStatus,
+                            widget.dateField,
+                            widget.countField,
+                            widget.statusField)
+                        .then((res) {
+                      Toast.show("Done", context,
+                          duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
+                    }).catchError((e) {
+                      Toast.show("An Error Has Occured", context,
+                          duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
+                    });
+                    setState(() {});
+                  },
                 )
               ],
             ),

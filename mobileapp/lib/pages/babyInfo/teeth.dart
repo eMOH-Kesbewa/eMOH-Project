@@ -28,11 +28,12 @@ Future<Baby> baby;
       body: FutureBuilder<Baby>(
         future: baby,
         builder: (context, snapshot) {
+          
           // logger.w('hello');
           // logger.wtf(snapshot.data.noOfTeeth6mo);
           // logger.v(snapshot.data.status6mo);
-          logger.i(snapshot.data.date6mo);
-          if(snapshot.data.date6mo == null){
+          logger.i(snapshot.data.status6mo);
+          if(snapshot.data.status6mo == "httpdata"){
             formVis = true;
             listVis = false;
           }else{
@@ -49,7 +50,7 @@ Future<Baby> baby;
               children: <Widget>[
                // Container(width: 100.0, child: TextField()),
                 TeethCard(snapshot.data.date6mo, snapshot.data.noOfTeeth6mo,
-                    snapshot.data.status6mo,formVis,listVis),
+                    snapshot.data.status6mo,formVis,listVis,"six_date","six_Number_of_teeth","six_status"),
               ],
             ),
           );

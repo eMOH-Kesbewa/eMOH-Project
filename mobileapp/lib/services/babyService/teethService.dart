@@ -3,6 +3,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:mobileapp/widgets/growthCard.dart';
 import '../globals.dart' as globals;
 
 Future<Baby> fetchBaby() async {
@@ -158,5 +159,44 @@ class Baby {
       // childrenCount:
       //     json["total_Number_of_children_alive_including_this_child"].toString(),
     );
+  }
+}
+
+Future updateDetails(
+  //String layingFaceDownOcc,
+  String count,
+  String date,
+  String status,
+  String dateField,
+  String countField,
+  String statusField,
+) async {
+  //Map query = {'baby_id' : 'A0000101'};
+  Map data = {
+    'baby_id': 'A0000101',
+    countField: count,
+    statusField: status,
+    dateField: date,
+    //"six_date": date,
+  };
+  logger.wtf(data);
+  //Map data = {'does_the_child_look_good_on_your_face': face.toString()};
+logger.d(globals.babyId);
+  var response = await http
+      .put(
+          "https://protected-bayou-52277.herokuapp.com/babies/update/${globals.babyId}",
+          body: data)
+      .then((res) {
+    logger.i('done');
+  }).catchError((e) {
+    logger.e(e);
+  });
+  print("****status");
+  print(response.statusCode);
+  logger.v(response.statusCode);
+
+  if (response.statusCode == 200) {
+    print("Done");
+    return 0;
   }
 }
