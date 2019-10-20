@@ -50,7 +50,7 @@ Future<Baby> baby;
               children: <Widget>[
                // Container(width: 100.0, child: TextField()),
                 TeethCard(snapshot.data.date6mo, snapshot.data.noOfTeeth6mo,
-                    snapshot.data.status6mo,formVis,listVis,"six_date","six_Number_of_teeth","six_status"),
+                    snapshot.data.status6mo,formVis,listVis,"six_date","six_Number_of_teeth","six_status" ),
               ],
             ),
           );
