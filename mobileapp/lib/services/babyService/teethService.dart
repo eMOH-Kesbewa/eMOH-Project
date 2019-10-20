@@ -183,8 +183,7 @@ Future updateDetails(
   };
   logger.wtf(data);
   //Map data = {'does_the_child_look_good_on_your_face': face.toString()};
-logger.d(globals.babyId);
-logger.v("https://protected-bayou-52277.herokuapp.com/babies/update/${globals.babyId}");
+
   var response = await http
       .put(
           "https://protected-bayou-52277.herokuapp.com/babies/update/${globals.babyId}",
