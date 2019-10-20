@@ -10,6 +10,7 @@ import 'package:mobileapp/pages/babyInfo/hearTest.dart';
 import 'package:mobileapp/pages/babyInfo/immunization.dart';
 import 'package:mobileapp/pages/babyInfo/immunizationRef.dart';
 import 'package:mobileapp/pages/babyInfo/newBornBayHealthChart.dart';
+import 'package:mobileapp/pages/babyInfo/teeth.dart';
 //import 'package:mobileapp/pages/babyInfo/untilFiveYears.dart';
 import 'package:mobileapp/pages/babyInfo/untilFiveYearsStep.dart';
 import 'package:mobileapp/pages/babyInfo/vitaminA.dart';
@@ -470,6 +471,42 @@ class _BabyDetailsState extends State<BabyDetails> {
             MaterialPageRoute(builder: (context) => DoctorNotes()),
           ),
         ));
+        final teethbtn = Material(
+        elevation: .0,
+        borderRadius: BorderRadius.circular(0.0),
+        color: Color(0xffb30089),
+        child: MaterialButton(
+          child: Column(
+            children: <Widget>[
+              SizedBox(
+                height: 40.0,
+              ),
+              Icon(
+                Icons.person,
+                color: Colors.white,
+                size: 70.0,
+              ),
+              SizedBox(
+                height: 15.0,
+              ),
+              Flexible(
+                child: Text(
+                  'Teeths',
+                  overflow: TextOverflow.ellipsis,
+                  maxLines: 3,
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold, color: Colors.white),
+                ),
+              ),
+            ],
+          ),
+          //minWidth: MediaQuery.of(context).size.width / 2,
+          //height: MediaQuery.of(context).size.width / 4,
+          onPressed: () => Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => Teeth()),
+          ),
+        ));
     return Scaffold(
       appBar: AppBar(
         title: Text('Babies'),
@@ -502,6 +539,7 @@ class _BabyDetailsState extends State<BabyDetails> {
                 wormbtn,
                 childHealthbtn,
                 doctorNotesbtn,
+                teethbtn,
               ],
             ),
           ),
