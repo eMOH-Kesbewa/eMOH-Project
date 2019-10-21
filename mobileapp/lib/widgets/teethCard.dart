@@ -18,8 +18,7 @@ class TeethCard extends StatefulWidget {
 var logger = Logger();
 DateTime _date = DateTime.now();
 String teethCount, teethStatus;
-bool goodRadio = true, badRadio = true;
-final teethCountController = TextEditingController();
+bool goodRadio = false, badRadio = false;
 
 initState() {
   String strDate = _date.toString().substring(0, 10);
@@ -30,7 +29,8 @@ String today = initState();
 
 class _TeethCardState extends State<TeethCard> {
   bool _isRadioSelected = false;
-
+  final teethCountController = TextEditingController();
+  final _formKey = GlobalKey<FormState>();
   Future<Null> _selectDate(BuildContext context) async {
     final DateTime picked = await showDatePicker(
       context: context,
@@ -50,7 +50,6 @@ class _TeethCardState extends State<TeethCard> {
     }
   }
 
-  final _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     final pickDateButton = IconButton(
@@ -103,9 +102,8 @@ class _TeethCardState extends State<TeethCard> {
                   child: Form(
                     key: _formKey,
                     child: TextFormField(
-//key: _formKey,
-                      controller: teethCountController,
                       keyboardType: TextInputType.number,
+                      controller: teethCountController,
                       validator: (input) {
                         // int _val = int.parse(teethCountController.text.toString());
                         if (input.isEmpty) {
@@ -123,7 +121,7 @@ class _TeethCardState extends State<TeethCard> {
                         hintText: 'Teeth Count',
                       ),
 
-                      onSaved: (input) => teethCountController.text,
+                      //onSaved: (input) => teethCountController.text,
                     ),
                   ),
                 ),
@@ -146,13 +144,33 @@ class _TeethCardState extends State<TeethCard> {
                           groupValue: _isRadioSelected,
                           onChanged: (bool value) {
                             setState(() {
-                              //_isRadioSelected = goodRadio;
+                              logger.wtf(goodRadio);
+                              //_isRadioSelected = newValue;
+                              //goodRadio = !goodRadio;
                               _isRadioSelected = value;
                               teethStatus = 'good';
                               logger.v(teethStatus);
+                              if (_isRadioSelected) {
+                                // teethStatus = 'good';
+                                // logger.v(teethStatus);
+                              }
                             });
                           },
                         ),
+                        // child: ListTile(
+                        //   leading: Text('Bad'),
+                        //   trailing: Radio(
+                        //     value: false,
+                        //     onChanged: (bool) {
+                        //       setState(() {
+                        //         badRadio = !badRadio;
+                        //         if (badRadio) {
+                        //           teethStatus = 'Bad';
+                        //         }
+                        //       });
+                        //     },
+                        //   ),
+                        // ),
                       ),
                     ),
                     SizedBox(
@@ -161,16 +179,18 @@ class _TeethCardState extends State<TeethCard> {
                         child: ListTile(
                           leading: Text('Bad'),
                           trailing: Radio(
-                            value: true,
+                            value: false,
                             groupValue: _isRadioSelected,
                             onChanged: (bool value) {
                               setState(() {
                                 //badRadio = !badRadio;
-                                // _isRadioSelected = badRadio;
                                 _isRadioSelected = value;
                                 teethStatus = 'bad';
                                 logger.v(teethStatus);
-                              
+                                if (_isRadioSelected) {
+                                  // teethStatus = 'bad';
+                                  // logger.v(teethStatus);
+                                }
                               });
                             },
                           ),
@@ -186,6 +206,7 @@ class _TeethCardState extends State<TeethCard> {
                     logger.wtf(teethCountController.text.toString());
                     // print(widget.occAge);
                     if (_formKey.currentState.validate()) {
+                      logger.wtf(teethCountController.text.toString());
                       updateDetails(
                               teethCountController.text.toString(),
                               today,
