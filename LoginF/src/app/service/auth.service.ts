@@ -6,6 +6,8 @@ import { map } from "rxjs/operators";
   providedIn: 'root'
 })
 export class AuthService {
+
+  url = "http://localhost:3000/user/login";
   user:any;
   constructor(
     private http:HttpClient
@@ -17,7 +19,8 @@ export class AuthService {
     
     headers.append("Content-Type",'application/json');
     
-    return this.http.post("http://localhost:5000/user/login",user).pipe(map((res)=>res));
+    // return this.http.post("http://localhost:3000/user/login",user).pipe(map((res)=>res));
+    return this.http.post<any>(this.url,user)
 
   }
 
