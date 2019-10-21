@@ -69,6 +69,7 @@ export class AddMotherComponent implements OnInit {
     });
   }
   onSubmit(){
+    
     this.submit=true;
 
     if(this.addMotherSchema.invalid){
