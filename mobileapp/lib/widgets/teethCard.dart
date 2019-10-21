@@ -30,6 +30,7 @@ String today = initState();
 
 class _TeethCardState extends State<TeethCard> {
   bool _isRadioSelected = false;
+
   Future<Null> _selectDate(BuildContext context) async {
     final DateTime picked = await showDatePicker(
       context: context,
@@ -110,7 +111,7 @@ class _TeethCardState extends State<TeethCard> {
                         if (input.isEmpty) {
                           return "Enter teeth count";
                         }
-                        if(int.parse(input) > 32){
+                        if (int.parse(input) > 32) {
                           return "Invalid Count";
                         }
 
@@ -141,35 +142,17 @@ class _TeethCardState extends State<TeethCard> {
                         width: 200.0,
                         child: RadioListTile(
                           title: Text('Good'),
-                          value: goodRadio,
+                          value: true,
                           groupValue: _isRadioSelected,
                           onChanged: (bool value) {
                             setState(() {
-                              _isRadioSelected = goodRadio;
+                              //_isRadioSelected = goodRadio;
                               _isRadioSelected = value;
                               teethStatus = 'good';
                               logger.v(teethStatus);
-                              if (_isRadioSelected) {
-                                // teethStatus = 'good';
-                                // logger.v(teethStatus);
-                              }
                             });
                           },
                         ),
-                        // child: ListTile(
-                        //   leading: Text('Bad'),
-                        //   trailing: Radio(
-                        //     value: false,
-                        //     onChanged: (bool) {
-                        //       setState(() {
-                        //         badRadio = !badRadio;
-                        //         if (badRadio) {
-                        //           teethStatus = 'Bad';
-                        //         }
-                        //       });
-                        //     },
-                        //   ),
-                        // ),
                       ),
                     ),
                     SizedBox(
@@ -178,19 +161,16 @@ class _TeethCardState extends State<TeethCard> {
                         child: ListTile(
                           leading: Text('Bad'),
                           trailing: Radio(
-                            value: badRadio,
+                            value: true,
                             groupValue: _isRadioSelected,
                             onChanged: (bool value) {
                               setState(() {
                                 //badRadio = !badRadio;
-                                _isRadioSelected = badRadio;
+                                // _isRadioSelected = badRadio;
                                 _isRadioSelected = value;
                                 teethStatus = 'bad';
                                 logger.v(teethStatus);
-                                if (_isRadioSelected) {
-                                  // teethStatus = 'bad';
-                                  // logger.v(teethStatus);
-                                }
+                              
                               });
                             },
                           ),
@@ -222,12 +202,10 @@ class _TeethCardState extends State<TeethCard> {
                             duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
                       });
                       setState(() {});
-                    }
-                    else{
+                    } else {
                       Toast.show("Enter valid data", context,
-                            duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
+                          duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
                     }
-                    
                   },
                 )
               ],
