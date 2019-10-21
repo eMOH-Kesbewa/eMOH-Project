@@ -13,7 +13,7 @@ export class PregnancyFormComponent implements OnInit {
   submitted = false;
   success = false;
 
-  constructor(private formBuilder: FormBuilder , private addMotherForDoc : MotherfordocService) { }
+  constructor(private formBuilder: FormBuilder , private motherfordocService : MotherfordocService) { }
 
   ngOnInit() {
 
@@ -526,7 +526,7 @@ export class PregnancyFormComponent implements OnInit {
     }
 
     this.success = true;
-    this.addMotherForDoc.add(this.PregnancyForm.value)
+    this.motherfordocService.add(this.PregnancyForm.value)
       .subscribe(
         response=>console.log('Success!',response),
         error=>{

@@ -20,4 +20,5 @@ export class MotherfordocService {
    console.log(userData)
    return this.http.post<any>(this.__url,userData);
   }
+  
 }
