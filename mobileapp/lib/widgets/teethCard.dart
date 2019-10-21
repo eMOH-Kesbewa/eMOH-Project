@@ -49,6 +49,7 @@ class _TeethCardState extends State<TeethCard> {
     }
   }
 
+  final _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     final pickDateButton = IconButton(
@@ -98,22 +99,31 @@ class _TeethCardState extends State<TeethCard> {
                 Container(
                   width: 100.0,
                   //child: TextField(),
-                  child: TextFormField(
+                  child: Form(
+                    key: _formKey,
+                    child: TextFormField(
 //key: _formKey,
-                    controller: teethCountController,
-                    validator: (String value) {
-                      int _val = int.parse(value);
-                      if (_val < 32) {
-                        return "Impossible Count"; //Control comes here when I check using the Debugger.
-                      } //if(value.isEmpty) closes here....
-                    },
+                      controller: teethCountController,
+                      keyboardType: TextInputType.number,
+                      validator: (input) {
+                        // int _val = int.parse(teethCountController.text.toString());
+                        if (input.isEmpty) {
+                          return "Enter teeth count";
+                        }
+                        if(int.parse(input) > 32){
+                          return "Invalid Count";
+                        }
 
-                    //autovalidate: true,
-                    decoration: const InputDecoration(
-                      hintText: 'Teeth Count',
+                        return null;
+                      },
+
+                      //autovalidate: true,
+                      decoration: const InputDecoration(
+                        hintText: 'Teeth Count',
+                      ),
+
+                      onSaved: (input) => teethCountController.text,
                     ),
-
-                    onSaved: (input) => teethCountController.text,
                   ),
                 ),
                 SizedBox(
@@ -195,22 +205,29 @@ class _TeethCardState extends State<TeethCard> {
                   onPressed: () {
                     logger.wtf(teethCountController.text.toString());
                     // print(widget.occAge);
-                    updateDetails(
-                            teethCountController.text.toString(),
-                            today,
-                            teethStatus,
-                            widget.dateField,
-                            widget.countField,
-                            widget.statusField)
-                        .then((res) {
-                      Toast.show("Done", context,
-                          duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
-                    }).catchError((e) {
-                      logger.d(e);
-                      Toast.show("An Error Has Occured", context,
-                          duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
-                    });
-                    setState(() {});
+                    if (_formKey.currentState.validate()) {
+                      updateDetails(
+                              teethCountController.text.toString(),
+                              today,
+                              teethStatus,
+                              widget.dateField,
+                              widget.countField,
+                              widget.statusField)
+                          .then((res) {
+                        Toast.show("Done", context,
+                            duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
+                      }).catchError((e) {
+                        logger.d(e);
+                        Toast.show("An Error Has Occured", context,
+                            duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
+                      });
+                      setState(() {});
+                    }
+                    else{
+                      Toast.show("Enter valid data", context,
+                            duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
+                    }
+                    
                   },
                 )
               ],

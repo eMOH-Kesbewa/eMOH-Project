@@ -28,6 +28,9 @@ Future<Baby> baby;
       body: FutureBuilder<Baby>(
         future: baby,
         builder: (context, snapshot) {
+          if(snapshot.connectionState == ConnectionState.waiting){
+            return Center(child: CircularProgressIndicator(),); 
+          }
           
           // logger.w('hello');
           // logger.wtf(snapshot.data.noOfTeeth6mo);
@@ -40,11 +43,7 @@ Future<Baby> baby;
             listVis = true;
             formVis = false;
           }
-          if (snapshot.connectionState == ConnectionState.waiting) {
-            return Center(
-              child: CircularProgressIndicator(),
-            );
-          }
+       
           return SingleChildScrollView(
             child: Column(
               children: <Widget>[
