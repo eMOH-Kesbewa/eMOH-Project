@@ -7,6 +7,7 @@ router.use('/babies',require('./babies.js'));
 router.use('/families',require('./families'));
 router.use('/clinics',require('./clinics'));
 router.use('/mothers',require('./mothers'));
+router.use('/reports',require('./reports'))
 //  const user = router.use('/users',require('./users'));
 //  app.use('/user',user);
 
