@@ -5,7 +5,7 @@ import 'package:mobileapp/services/style.dart';
 import 'package:toast/toast.dart';
 
 class TeethCard extends StatefulWidget {
-  TeethCard(this.date,this.teethCount, this.status, this.formVis, this.listVis,
+  TeethCard(this.date, this.teethCount, this.status, this.formVis, this.listVis,
       this.dateField, this.countField, this.statusField);
   String teethCount, date, status, field;
   String statusField, dateField, countField;
@@ -29,6 +29,8 @@ String today = initState();
 
 class _TeethCardState extends State<TeethCard> {
   bool _isRadioSelected = false;
+  final teethCountController = TextEditingController();
+  final _formKey = GlobalKey<FormState>();
   Future<Null> _selectDate(BuildContext context) async {
     final DateTime picked = await showDatePicker(
       context: context,
@@ -97,22 +99,30 @@ class _TeethCardState extends State<TeethCard> {
                 Container(
                   width: 100.0,
                   //child: TextField(),
-                  child: TextFormField(
-//key: _formKey,
+                  child: Form(
+                    key: _formKey,
+                    child: TextFormField(
+                      keyboardType: TextInputType.number,
+                      controller: teethCountController,
+                      validator: (input) {
+                        // int _val = int.parse(teethCountController.text.toString());
+                        if (input.isEmpty) {
+                          return "Enter teeth count";
+                        }
+                        if (int.parse(input) > 32) {
+                          return "Invalid Count";
+                        }
 
-                    validator: (String value) {
-                      int _val = int.parse(value);
-                      if (_val < 32) {
-                        return "Impossible Count"; //Control comes here when I check using the Debugger.
-                      } //if(value.isEmpty) closes here....
-                    },
+                        return null;
+                      },
 
-                    //autovalidate: true,
-                    decoration: const InputDecoration(
-                      hintText: 'Teeth Count',
+                      //autovalidate: true,
+                      decoration: const InputDecoration(
+                        hintText: 'Teeth Count',
+                      ),
+
+                      //onSaved: (input) => teethCountController.text,
                     ),
-
-                    onSaved: (input) => teethCount = input,
                   ),
                 ),
                 SizedBox(
@@ -193,24 +203,30 @@ class _TeethCardState extends State<TeethCard> {
                   child: Text('Set'),
                   color: Colors.grey[200],
                   onPressed: () {
-                    logger.wtf('occAge');
+                    logger.wtf(teethCountController.text.toString());
                     // print(widget.occAge);
-                    updateDetails(
-                            teethCount,
-                            today,
-                            teethStatus,
-                            widget.dateField,
-                            widget.countField,
-                            widget.statusField)
-                        .then((res) {
-                      Toast.show("Done", context,
+                    if (_formKey.currentState.validate()) {
+                      logger.wtf(teethCountController.text.toString());
+                      updateDetails(
+                              teethCountController.text.toString(),
+                              today,
+                              teethStatus,
+                              widget.dateField,
+                              widget.countField,
+                              widget.statusField)
+                          .then((res) {
+                        Toast.show("Done", context,
+                            duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
+                      }).catchError((e) {
+                        logger.d(e);
+                        Toast.show("An Error Has Occured", context,
+                            duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
+                      });
+                      setState(() {});
+                    } else {
+                      Toast.show("Enter valid data", context,
                           duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
-                    }).catchError((e) {
-                      logger.d(e);
-                      Toast.show("An Error Has Occured", context,
-                          duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
-                    });
-                    setState(() {});
+                    }
                   },
                 )
               ],
