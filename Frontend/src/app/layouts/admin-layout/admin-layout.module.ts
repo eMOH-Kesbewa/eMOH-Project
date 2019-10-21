@@ -99,7 +99,7 @@ import { WeightHeightGraphbyIdComponent } from 'app/Graphs/weight-height-graphby
 
     ViewWeightByIdComponent,
 
-    WeightHeightGraphbyIdComponent
+   WeightHeightGraphbyIdComponent
   ]
 })
 

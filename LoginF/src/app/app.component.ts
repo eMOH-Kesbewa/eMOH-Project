@@ -23,7 +23,7 @@ export class AppComponent implements OnInit{
   title = 'LoginF';
   
   logindata(){
-    console.log("correct");
+    // console.log("correct");
     const user = {
       username:this.username,
       password:this.password
@@ -31,7 +31,7 @@ export class AppComponent implements OnInit{
     console.log(user);
     this.authService.logindata(user).subscribe(res=>{
       console.log(res);
-     if(res.state){
+    if(res.success){
       this.flashMessages.show("you are login successfully" , {cssClass: 'alert-success',timeout:5000});
      }else{
       this.flashMessages.show("error be found" , {cssClass: 'alert-success',timeout:5000});
@@ -39,6 +39,7 @@ export class AppComponent implements OnInit{
      
 
     })
+   
   }
 
 }
