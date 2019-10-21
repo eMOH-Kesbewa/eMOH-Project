@@ -195,8 +195,8 @@ Future updateDetails(
   });
 
 
-  if (response.statusCode == 200) {
-    print("Done");
-    return 0;
-  }
+  // if (response.statusCode == 200) {
+  //   print("Done");
+  //   return 0;
+  // }
 }
