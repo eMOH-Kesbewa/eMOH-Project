@@ -5,7 +5,7 @@ import 'package:mobileapp/services/style.dart';
 import 'package:toast/toast.dart';
 
 class TeethCard extends StatefulWidget {
-  TeethCard(this.date,this.teethCount, this.status, this.formVis, this.listVis,
+  TeethCard(this.date, this.teethCount, this.status, this.formVis, this.listVis,
       this.dateField, this.countField, this.statusField);
   String teethCount, date, status, field;
   String statusField, dateField, countField;
@@ -18,7 +18,8 @@ class TeethCard extends StatefulWidget {
 var logger = Logger();
 DateTime _date = DateTime.now();
 String teethCount, teethStatus;
-bool goodRadio = false, badRadio = false;
+bool goodRadio = true, badRadio = true;
+final teethCountController = TextEditingController();
 
 initState() {
   String strDate = _date.toString().substring(0, 10);
@@ -99,7 +100,7 @@ class _TeethCardState extends State<TeethCard> {
                   //child: TextField(),
                   child: TextFormField(
 //key: _formKey,
-
+                    controller: teethCountController,
                     validator: (String value) {
                       int _val = int.parse(value);
                       if (_val < 32) {
@@ -112,7 +113,7 @@ class _TeethCardState extends State<TeethCard> {
                       hintText: 'Teeth Count',
                     ),
 
-                    onSaved: (input) => teethCount = input,
+                    onSaved: (input) => teethCountController.text,
                   ),
                 ),
                 SizedBox(
@@ -130,13 +131,11 @@ class _TeethCardState extends State<TeethCard> {
                         width: 200.0,
                         child: RadioListTile(
                           title: Text('Good'),
-                          value: true,
+                          value: goodRadio,
                           groupValue: _isRadioSelected,
                           onChanged: (bool value) {
                             setState(() {
-                              logger.wtf(goodRadio);
-                              //_isRadioSelected = newValue;
-                              //goodRadio = !goodRadio;
+                              _isRadioSelected = goodRadio;
                               _isRadioSelected = value;
                               teethStatus = 'good';
                               logger.v(teethStatus);
@@ -169,11 +168,12 @@ class _TeethCardState extends State<TeethCard> {
                         child: ListTile(
                           leading: Text('Bad'),
                           trailing: Radio(
-                            value: false,
+                            value: badRadio,
                             groupValue: _isRadioSelected,
                             onChanged: (bool value) {
                               setState(() {
                                 //badRadio = !badRadio;
+                                _isRadioSelected = badRadio;
                                 _isRadioSelected = value;
                                 teethStatus = 'bad';
                                 logger.v(teethStatus);
@@ -193,10 +193,10 @@ class _TeethCardState extends State<TeethCard> {
                   child: Text('Set'),
                   color: Colors.grey[200],
                   onPressed: () {
-                    logger.wtf('occAge');
+                    logger.wtf(teethCountController.text.toString());
                     // print(widget.occAge);
                     updateDetails(
-                            teethCount,
+                            teethCountController.text.toString(),
                             today,
                             teethStatus,
                             widget.dateField,

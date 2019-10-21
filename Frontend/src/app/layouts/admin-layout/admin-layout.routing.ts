@@ -173,18 +173,19 @@ export const AdminLayoutRoutes: Routes = [
                component:AddWeightHeightComponent
             },
             {
-                path:'viewWeightbyId/:babyId',
+                path:'viewWeightbyId/:babyID',
                 component:ViewWeightByIdComponent
+            },
+            {
+                path:'WeightHeightGraph/:babyID',
+                component:  WeightHeightGraphbyIdComponent
             }
 
 
         ]
 
     },
-    {
-        path:'WeightHeightGraph',
-        component:  WeightHeightGraphbyIdComponent
-    }
+    
 
     
 ]
