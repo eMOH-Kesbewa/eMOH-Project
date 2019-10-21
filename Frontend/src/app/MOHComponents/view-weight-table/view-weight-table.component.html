@@ -15,8 +15,8 @@
                   <table class="table table-hover table-bordered">
                     <tbody>
                       <tr>
-                        <td rowspan = 2><b>Batch No</b></td>
                         <td rowspan = 2><b>Baby ID</b></td>
+                        <td rowspan = 2><b>Batch No</b></td>
                         <td rowspan = 2><b>Baby Name</b></td>
                         <td rowspan = 2><b>Sex</b></td>
                         <td rowspan = 2><b>Date Of Birth</b></td>
@@ -109,7 +109,7 @@
                           <td><b>Length</b></td>
                       </tr>
 
-                      <tr *ngFor="let weight of weight" (click)="onClickMe(weight.baby_id)" style="cursor:pointer">
+                      <tr *ngFor="let weight of weights" (click)="onClickMe(weight.baby_id)" style="cursor:pointer">
                           <td>{{weight.baby_id}}</td>
                           <td>{{weight.batch_no}}</td>
                           <td>{{weight.name_of_child}}</td>

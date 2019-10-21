@@ -206,6 +206,7 @@ class _TeethCardState extends State<TeethCard> {
                       Toast.show("Done", context,
                           duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
                     }).catchError((e) {
+                      logger.d(e);
                       Toast.show("An Error Has Occured", context,
                           duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
                     });
