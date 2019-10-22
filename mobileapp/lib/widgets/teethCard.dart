@@ -6,10 +6,12 @@ import 'package:toast/toast.dart';
 
 class TeethCard extends StatefulWidget {
   TeethCard(this.date, this.teethCount, this.status, this.formVis, this.listVis,
-      this.dateField, this.countField, this.statusField);
+      this.dateField, this.countField, this.statusField,
+      {this.callback});
   String teethCount, date, status, field;
   String statusField, dateField, countField;
   bool formVis, listVis;
+  VoidCallback callback;
 
   @override
   _TeethCardState createState() => _TeethCardState();
@@ -203,6 +205,7 @@ class _TeethCardState extends State<TeethCard> {
                   child: Text('Set'),
                   color: Colors.grey[200],
                   onPressed: () {
+                    // widget.callback();
                     logger.wtf(teethCountController.text.toString());
                     // print(widget.occAge);
                     if (_formKey.currentState.validate()) {
@@ -222,7 +225,15 @@ class _TeethCardState extends State<TeethCard> {
                         Toast.show("An Error Has Occured", context,
                             duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
                       });
-                      setState(() {});
+                      setState(() {
+                        widget.teethCount =
+                            teethCountController.text.toString();
+                        widget.status = teethStatus;
+
+                        // widget.status =
+                        widget.formVis = false;
+                        widget.listVis = true;
+                      });
                     } else {
                       Toast.show("Enter valid data", context,
                           duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
