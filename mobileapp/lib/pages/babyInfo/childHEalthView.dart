@@ -17,8 +17,9 @@ class _ChildHealthViewState extends State<ChildHealthView> {
       future: fetchBaby(),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
-          return Center(
-            child: CircularProgressIndicator(),
+          return Scaffold(
+            appBar: AppBar(title: Text('Child Health')),
+            body: Center(child: CircularProgressIndicator()),
           );
         } else {
           List<Choice> choices = <Choice>[
@@ -39,7 +40,6 @@ class _ChildHealthViewState extends State<ChildHealthView> {
                 otherDiseases: snapshot.data.otherDiseases1mo,
                 officer: snapshot.data.officer6mo,
                 count: 4),
-
             Choice.onemotoFour(
                 title: '2 Months',
                 date: snapshot.data.date2mo.substring(0, 10),
@@ -57,7 +57,6 @@ class _ChildHealthViewState extends State<ChildHealthView> {
                 otherDiseases: snapshot.data.otherDiseases2mo,
                 officer: snapshot.data.officer6mo,
                 count: 4),
-
             Choice.onemotoFour(
                 title: '4 Months',
                 date: snapshot.data.date4mo.substring(0, 10),
@@ -193,7 +192,6 @@ class _ChildHealthViewState extends State<ChildHealthView> {
                 dentalSpots: snapshot.data.dentalSpots4y,
                 dentalCavities: snapshot.data.dentalCavities4y,
                 count: 2),
-
             Choice(
                 title: '5 Years',
                 date: snapshot.data.date5y.substring(0, 10),
@@ -219,31 +217,30 @@ class _ChildHealthViewState extends State<ChildHealthView> {
                 count: 1),
           ];
           return DefaultTabController(
-            length: choices.length,
-            child: Scaffold(
-              appBar: AppBar(
-                title: Text('Child Health'),
-                bottom: TabBar(
-                  isScrollable: true,
-                  tabs: choices.map((Choice choice) {
-                    //index = choice;
-                    return Tab(
-                      text: choice.title,
-                      icon: Icon(choice.icon),
+              length: choices.length,
+              child: Scaffold(
+                appBar: AppBar(
+                  title: Text('Child Health'),
+                  bottom: TabBar(
+                    isScrollable: true,
+                    tabs: choices.map((Choice choice) {
+                      //index = choice;
+                      return Tab(
+                        text: choice.title,
+                        icon: Icon(choice.icon),
+                      );
+                    }).toList(),
+                  ),
+                ),
+                body: TabBarView(
+                  children: choices.map((Choice choice) {
+                    return Padding(
+                      padding: const EdgeInsets.all(16.0),
+                      child: ChoiceCard(choice: choice),
                     );
                   }).toList(),
                 ),
-              ),
-              body: TabBarView(
-                children: choices.map((Choice choice) {
-                  return Padding(
-                    padding: const EdgeInsets.all(16.0),
-                    child: ChoiceCard(choice: choice),
-                  );
-                }).toList(),
-              ),
-            ),
-          );
+              ));
         }
       },
     );

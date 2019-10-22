@@ -22,10 +22,10 @@ export class ViewWeightByIdComponent implements OnInit {
   weights : Weight;
   addWeightForm: FormGroup;
   autoRenew : FormControl;
-  public babyId
+  babyId
 
   ngOnInit() {
-    this.babyId = this.activeroute.snapshot.paramMap.get('babyId');
+    this.babyId = this.activeroute.snapshot.paramMap.get('babyID');
     this.addWeightForm = this.formBuilder.group({
 
       baby_id:[''],
@@ -256,6 +256,12 @@ export class ViewWeightByIdComponent implements OnInit {
         return isodate.substr(0,10)
       }
     }
+  }
+  onClickMe(){
+    let babyID = this.babyId
+    console.log(this.babyId)
+    console.log(this.router.url)
+    this.router.navigate(['ViewWeightTable','WeightHeightGraph',babyID])
   }
 
 }

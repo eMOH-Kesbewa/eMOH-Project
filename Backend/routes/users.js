@@ -44,16 +44,32 @@ router.post("/login",function(req,res){
     const password = req.body.password;
 
     User.findByUsername(username,function(err,user){
-        if(err) throw err;
+        
+        if(err){
+            return res.send({
+                success:false,
+                message:'Error,Please try again'
+            });
+            
+        }
         
         if(!user){
+            return res.send({
+                success:false,
+                message:'Error,no user found'
+            });
             res.json({state:false,msg:"no user found"});
         }
 
        User.passwordCheck(password,user.password,function(err,match){
         
-        if(err) {
-            throw err;
+        if(!match) {
+
+            console.log("Login error");
+            return res.send({
+                success:false,
+                message:"error,invalid password"
+            });
         
         }
         
@@ -64,7 +80,7 @@ router.post("/login",function(req,res){
              const token = jwt.sign(user.toJSON(), 'your_jwt_secret',{expiresIn:604800 });
             res.json(
                 {
-                    state:true,
+                    success:true,
                     token:"JWT " + token,
                     user:{
                         id:user._id,
@@ -126,6 +142,7 @@ router.get('/resetpassword', async (req, res) => {
                 console.log("error");
             }
             if(user){
+                
                 res.json({state:true,msg:"data inserted"});
                 console.log("correct inserted");
             }
