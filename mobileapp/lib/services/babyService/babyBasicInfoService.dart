@@ -10,9 +10,7 @@ Future<Baby> fetchBaby() async {
   //String _babyId = globals.BabyId + babyIndex;
   final response = await http.get(
       'https://protected-bayou-52277.herokuapp.com/babies/viewbyid/${globals.babyId}');
-  print('status code');
-  print(response.statusCode);
-  print(response.body);
+ 
   // final json = jsonDecode(response.body);
   if (response.statusCode == 200) {
     // If the call to the server was successful, parse the JSON.

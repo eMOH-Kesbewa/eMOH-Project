@@ -19,7 +19,7 @@ class TeethCard extends StatefulWidget {
 
 var logger = Logger();
 DateTime _date = DateTime.now();
-String teethCount, teethStatus;
+String teethCount, teethStatus = "good";
 bool goodRadio = false, badRadio = false;
 
 initState() {
@@ -142,7 +142,7 @@ class _TeethCardState extends State<TeethCard> {
                         width: 200.0,
                         child: RadioListTile(
                           title: Text('Good'),
-                          value: true,
+                          value: false,
                           groupValue: _isRadioSelected,
                           onChanged: (bool value) {
                             setState(() {
@@ -181,7 +181,7 @@ class _TeethCardState extends State<TeethCard> {
                         child: ListTile(
                           leading: Text('Bad'),
                           trailing: Radio(
-                            value: false,
+                            value: true,
                             groupValue: _isRadioSelected,
                             onChanged: (bool value) {
                               setState(() {
@@ -229,7 +229,7 @@ class _TeethCardState extends State<TeethCard> {
                         widget.teethCount =
                             teethCountController.text.toString();
                         widget.status = teethStatus;
-
+                        widget.date = today.substring(0, 10);
                         // widget.status =
                         widget.formVis = false;
                         widget.listVis = true;

@@ -67,7 +67,7 @@ class _TeethState extends State<Teeth> {
           if (snapshot.data.status6mo == "httpdata") {
             formVis6mo = true;
             listVis6mo = false;
-            } else {
+          } else {
             listVis6mo = true;
             formVis6mo = false;
           }
@@ -374,18 +374,15 @@ class _TeethState extends State<Teeth> {
                   label: Text('Eighteen Months of Birth'),
                 ),
                 TeethCard(
-                    snapshot.data.date18mo,
-                    snapshot.data.noOfTeeth18mo,
-                    snapshot.data.status18mo,
-                    formVis18mo,
-                    listVis18mo,
-                    "eighteen_date",
-                    "eighteen_Number_of_teeth",
-                    "eighteen_status",
-                    callback: () {
-                      logger.d('call back');
-                      fetchBaby();
-                    },),
+                  snapshot.data.date18mo,
+                  snapshot.data.noOfTeeth18mo,
+                  snapshot.data.status18mo,
+                  formVis18mo,
+                  listVis18mo,
+                  "eighteen_date",
+                  "eighteen_Number_of_teeth",
+                  "eighteen_status",
+                ),
               ],
             ),
           );
