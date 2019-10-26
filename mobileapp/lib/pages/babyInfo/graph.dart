@@ -202,7 +202,6 @@ class _ChartState extends State<Chart> {
       Sales(24, 14.9, null, 0.0),
     ];
     var linesalesdata7 = [
-      dfd
       Sales(0, 4.8, null, 0.0),
       Sales(1, 6.1, null, 0.0),
       Sales(2, 7.4, null, 0.0),
