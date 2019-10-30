@@ -53,18 +53,19 @@ module.exports.findByUsername = function(username,callback){
 };
 
 module.exports.passwordCheck = function(textpassword,hashpassword,callback){
+    console.log("check");
     
-    bcrypt.compare(textpassword,hashpassword,function(err,res){
+    bcrypt.compare(textpassword,hashpassword,function(err,match){
         
-        console.log(res);    
-        if(res==false){
+        console.log(match);    
+        if(match==false){
              console.log("login error");
         } 
         if(err) {
          throw err;  
         }
-        if(res){
-        callback(null,res);
+        if(match){
+        callback(null,match);
          
         
         }

@@ -118,17 +118,20 @@ router.get('/viewbybabyid/:id', (req, res) => {
 //View the weight and height table of a baby
 router.get('/viewwieghtandheight/:id', (req, res) => {
     weight_height.find({ baby_id: req.params.id }, (err, doc) => {
-        if (!err) {
+        if (doc.length) {
             res.send(doc);
             console.log(doc);
+            res.status(201)
         }
         else {
-            console.log('Error in Retriving Mother Details :' + JSON.stringify(err, undefined, 2));
-
+            console.log('Error in Retriving Weight Height Details :' + JSON.stringify(err, undefined, 2));
+            res.status(500).send(err)
         }
     });
 
 });
+
+
 
 //view weight height  details all the children
 router.get('/weight/view', (req, res)=>{

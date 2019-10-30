@@ -12,15 +12,13 @@ export class ViewWeightTableComponent implements OnInit {
 
   constructor(private weightService: WeightService, private router: Router) { }
 
-  weight: Weight;
+  weights: Weight;
 
   ngOnInit() {
-    this.weightService.getdata().subscribe(data=> this.weight=data);
+    this.weightService.getdata().subscribe(data=> this.weights=data);
   }
 
   onClickMe(babyID){
-    console.log(babyID);
-    console.log(this.router.url);
     this.router.navigate([this.router.url,'viewWeightbyId',babyID])
   }
 }

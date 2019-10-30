@@ -10,7 +10,7 @@ Future<Baby> fetchBaby() async {
   //String _babyId = globals.BabyId + babyIndex;
   final response = await http.get(
       'https://protected-bayou-52277.herokuapp.com/babies/viewbyid/${globals.babyId}');
- 
+
   // final json = jsonDecode(response.body);
   if (response.statusCode == 200) {
     // If the call to the server was successful, parse the JSON.
@@ -24,31 +24,31 @@ Future<Baby> fetchBaby() async {
 }
 
 class Baby {
-  final String name;
-  final String id;
-  final String birthday;
-  final String regDate;
-  final String nameOfMother;
-  final String ageOfMother;
-  final String address;
-  //final String childrenCount;
-  final String phmArea;
-  final String mohArea;
+  final int x1;
+  final int y1;
+  final int x2;
+  final int y2;
+  final int x3;
+  final int y3;
+  final int x4;
+  final int y4;
+  final int x5;
+  final int y5;
+  final int x6;
+  final int y6;
+  final int x7;
+  final int y7;
+  final int x8;
+  final int y8;
+  final int x9;
+  final int y9;
+  final int x10;
+  final int y10;
 
-  Baby(
-      {this.id,
-      this.mohArea,
-      this.phmArea,
-      this.name,
-      this.address,
-      this.ageOfMother,
-      this.birthday,
-      //this.childrenCount,
-      this.nameOfMother,
-      this.regDate});
+  Baby(this.x1, this.y1, this.x2, this.y2, this.x3, this.y3, this.x4, this.y4, this.x5, this.y5, this.x6, this.y6, this.x7, this.y7, this.x8, this.y8, this.x9, this.y9, this.x10, this.y10
+     });
 
   factory Baby.fromJson(Map<String, dynamic> json) {
-    
     return Baby(
       // // idNumber: json['Identity_number'],
       // vilID: json['village_id'],
