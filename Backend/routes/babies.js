@@ -3,6 +3,7 @@ var router = express.Router();
 var Baby = require('../Schemas/baby');
 var motherbabyjoined = require('../Schemas/MotherBabyJoined');
 var weight_height = require('../Schemas/WeightHeight');
+var babyBook= require('../Schemas/baby');
 var mongoose = require('mongoose');
 
 router.get('/update', async (req, res) => {
@@ -26,12 +27,46 @@ router.get('/update', async (req, res) => {
 
 });
 
+//update baby book by id
+router.put('/update/babybook', async (req, res) => {
+
+    try {
+        const filter = req.query;
+        const update = req.body;
+
+        mongoose.set('useFindAndModify', false);
+        await Baby.countDocuments(filter); // 0
+
+        let doc = await Baby.findOneAndUpdate(filter, update, {
+            new: true,
+            upsert: false 
+        });
+        res.status(201).send(doc)
+        console.log(doc);
+    } catch (error) {
+        res.status(500).send(error);
+        console.log(error);
+    }
+
+});
+
 //add and view baby
 
 router.post('/add', (req, res) => {
     console.log("baby");
     console.log(req.body);
     var data = new Baby(req.body);
+    data.save((err,doc)=>{
+        res.status(200).send("Inserted successfully.");
+    });
+    console.log("Completed");
+});
+
+//add baby book
+router.post('/addbook', (req, res) => {
+    console.log("baby");
+    console.log(req.body);
+    var data = new babyBook(req.body);
     data.save((err,doc)=>{
         res.status(200).send("Inserted successfully.");
     });
@@ -53,6 +88,21 @@ router.get('/view', (req, res) => {
 
 router.get('/viewbyid/:id', (req, res) => {
     Baby.find({ mother_id: req.params.id }, (err, doc) => {
+        if (!err) {
+            res.send(doc);
+            console.log(doc);
+        }
+        else {
+            console.log('Error in Retriving Mother Details :' + JSON.stringify(err, undefined, 2));
+
+        }
+    });
+
+});
+
+//view by baby id
+router.get('/viewbybabyid/:id', (req, res) => {
+    Baby.find({ baby_id: req.params.id }, (err, doc) => {
         if (!err) {
             res.send(doc);
             console.log(doc);
@@ -120,5 +170,7 @@ router.get('/update', async (req, res) => {
     }
 
 });
+
+
 
 module.exports = router;
