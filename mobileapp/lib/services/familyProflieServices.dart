@@ -8,6 +8,8 @@ import 'globals.dart' as globals;
 
 var logger = Logger();
 
+
+
 Future<Family> fetchFamily() async {
   print('fetch family function');
 
@@ -16,7 +18,8 @@ Future<Family> fetchFamily() async {
   //   logger.wtf(res.body);
   // });
 
-  globals.getGlobals();
+//asyncprogramming
+  var x = await globals.getGlobals();
   logger.e(globals.globalEmail);
   final response = await http.get(
       'https://protected-bayou-52277.herokuapp.com/families/viewbyid/${globals.globalEmail}');
