@@ -106,12 +106,14 @@ class _LoginState extends State<Login> {
               TextStyle(fontWeight: FontWeight.bold, color: Color(0xff442C2E)),
         ),
         onPressed: () async {
-            //after the login REST api call && response code ==200
-            SharedPreferences prefs = await SharedPreferences.getInstance();
-            prefs.setString('email', emailController.text);
-            Navigator.pushReplacement(context,
-                MaterialPageRoute(builder: (BuildContext ctx) => FamilyProfile()));
-          },
+          //after the login REST api call && response code ==200
+          // SharedPreferences prefs = await SharedPreferences.getInstance();
+          // prefs.setString('email', emailController.text);
+          signIn(emailController.text.toString(),
+              passwordController.text.toString());
+          // Navigator.pushReplacement(context,
+          //     MaterialPageRoute(builder: (BuildContext ctx) => FamilyProfile()));
+        },
       ),
     );
     final forgotPasswordText = FlatButton(
@@ -187,10 +189,18 @@ class _LoginState extends State<Login> {
         print(state);
         if (state == true) {
           print('***validated***');
-          Navigator.of(context).pushAndRemoveUntil(
+          SharedPreferences prefs = await SharedPreferences.getInstance();
+          prefs.setString('email', emailController.text);
+
+          Navigator.pushReplacement(
+              context,
               MaterialPageRoute(
-                  builder: (BuildContext context) => FamilyProfile()),
-              (Route<dynamic> route) => false);
+                  builder: (BuildContext ctx) => FamilyProfile()));
+          // Navigator.of(context).pushAndRemoveUntil(
+
+          //     MaterialPageRoute(
+          //         builder: (BuildContext context) => FamilyProfile()),
+          //     (Route<dynamic> route) => false);
         } else {
           print('***else clause***');
           return Toast.show("Invalid email or password", context,
@@ -237,4 +247,3 @@ class _LoginState extends State<Login> {
     ),
   );
 }
-
