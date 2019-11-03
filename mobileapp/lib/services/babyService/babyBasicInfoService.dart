@@ -3,11 +3,15 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:logger/logger.dart';
 import '../globals.dart' as globals;
+
+var logger = Logger();
 
 Future<Baby> fetchBaby() async {
   print('fetch Baby function');
   //String _babyId = globals.BabyId + babyIndex;
+
   final response = await http.get(
       'https://protected-bayou-52277.herokuapp.com/babies/viewbyid/${globals.babyId}');
  
