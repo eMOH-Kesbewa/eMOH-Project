@@ -18,7 +18,7 @@
       <div class="row">
           <div class="col-md-12">
               <div class="card">
-                  <div class="card-header card-header-info">
+                  <div class="card-header">
                       <h4 class="card-title "><h3>View Approved Families of the Area</h3></h4>
                       <h5 class="card-category">Click to view the individual Records</h5>
                   </div>
@@ -26,18 +26,20 @@
                     <div class="table-responsive">
                         <table class="table table-hover table-bordered">
                             
-                                <tbody>
+                              
                                     <tr>
-                                    <td rowspan = 3><b>Village ID</b></td><td rowspan = 3><b>Approved Family Category</b></td><td rowspan = 3><b>Family ID</b></td><td rowspan = 3><b>Date</b></td><td rowspan = 3><b>Name Of Wife</b></td><td rowspan = 3><b>Name Of Husband</b></td><td rowspan = 3><b>Address</b></td> <td rowspan = 3><b>DOB</b></td> <td rowspan = 3><b>Age at the time of Marriage</b></td> <td rowspan = 3><b>Job Status</b></td> <td rowspan = 3><b>Education Level</b></td> <td rowspan = 3><b>Address</b></td> <td rowspan = 3><b>Number Of Living Children</b></td>  <td colspan = 8 align="center"><b>Pregnancy details</b> </td>  <td colspan = 8 align="center"><b>Family Planning Methods details </b></td><td rowspan=3><b>Safe For Rubella</b></td><td rowspan=3><b>Date of cervical mucoustest</b></td><td rowspan=3><b> Other Details</b></td><td rowspan="3"><b>Number Of Young Children </b></td>
+                                    <th rowspan = 3><b>Village ID</b></th><th rowspan = 3><b>Approved Family Category</b></th><th rowspan = 3><b>Family ID</b></th><th rowspan = 3><b>Date</b></th><th rowspan = 3><b>Name Of Wife</b></th><th rowspan = 3><b>Name Of Husband</b></th><th rowspan = 3><b>Address</b></th> <th rowspan = 3><b>DOB</b></th> <th rowspan = 3><b>Age at the time of Marriage</b></th> <th rowspan = 3><b>Job Status</b></th> <th rowspan = 3><b>Education Level</b></th> <th rowspan = 3><b>Address</b></th> <th rowspan = 3><b>Number Of Living Children</b></th>  <th colspan = 8 align="center"><b>Pregnancy details</b> </th>  <th colspan = 8 align="center"><b>Family Planning Methods details </b></th><th rowspan=3><b>Safe For Rubella</b></th><th rowspan=3><b>Date of cervical mucoustest</b></th><th rowspan=3><b> Other Details</b></th><th rowspan="3"><b>Number Of Young Children </b></th>
                                     </tr>
 
                                     <tr>  
-                                        <td colspan=4 align="center"><b>Pregnancy</b></td>  <td colspan=4 align="center" ><b>Result</b></td>     <td colspan=2 align="center"><b>1</b></td>   <td colspan=2 align="center"><b>2</b></td> <td colspan=2 align="center"><b>3</b></td> <td colspan=2 align="center"><b>4</b></td> 
+                                        <th colspan=4 align="center"><b>Pregnancy</b></th>  <th colspan=4 align="center" ><b>Result</b></th>     <th colspan=2 align="center"><b>1</b></th>   <th colspan=2 align="center"><b>2</b></th> <th colspan=2 align="center"><b>3</b></th> <th colspan=2 align="center"><b>4</b></th> 
                                     </tr>
                                     
                                     <tr>
-                                        <td><b>1</b></td><td><b>2</b></td><td><b>3</b></td><td><b>4</b></td><td><b>1</b></td><td><b>2</b></td><td><b>3</b></td><td><b>4</b></td> <td><b>Method</b></td><td><b>Date</b></td>  <td><b>Method</b></td><td><b>Date</b></td> <td><b>Method</b></td><td><b>Date</b></td> <td><b>Method</b></td><td><b>Date</b></td>
+                                        <th><b>1</b></th><th><b>2</b></th><th><b>3</b></th><th><b>4</b></th><th><b>1</b></th><th><b>2</b></th><th><b>3</b></th><th><b>4</b></th> <th><b>Method</b></th><th><b>Date</b></th>  <th><b>Method</b></th><th><b>Date</b></th> <th><b>Method</b></th><th><b>Date</b></th> <th><b>Method</b></th><th><b>Date</b></th>
                                     </tr>
+                               
+                                <tbody>
 
                                     <tr *ngFor="let family of families" (click)="onClickMe(family.Identity_number)" style="cursor:pointer">
                                     <td>{{family.village_id}}</td>
