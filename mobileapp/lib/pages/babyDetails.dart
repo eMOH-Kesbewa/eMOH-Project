@@ -62,8 +62,8 @@ class _BabyDetailsState extends State<BabyDetails> {
 
     final basicInfoBtn = Material(
       elevation: .0,
-      borderRadius: BorderRadius.circular(0.0),
-      color: Color(0xffb30089),
+      borderRadius: BorderRadius.circular(10.0),
+      color: Color(0xff2660a4),
       child: MaterialButton(
         child: Column(
           children: <Widget>[
@@ -93,8 +93,8 @@ class _BabyDetailsState extends State<BabyDetails> {
     );
     final protectionBtn = Material(
       elevation: .0,
-      borderRadius: BorderRadius.circular(0.0),
-      color: Color(0xffb30089),
+      borderRadius: BorderRadius.circular(10.0),
+      color: Color(0xff51a3a3),
       child: MaterialButton(
         child: Column(
           children: <Widget>[
@@ -124,8 +124,10 @@ class _BabyDetailsState extends State<BabyDetails> {
     );
     final eyeTestBtn = Material(
       elevation: .0,
-      borderRadius: BorderRadius.circular(0.0),
-      color: Color(0xffb30089),
+      borderRadius: BorderRadius.circular(10.0),
+      
+      color: Color(0xff8acb88),
+      //color: Color(0xff593c8f),
       child: MaterialButton(
         child: Column(
           children: <Widget>[
@@ -155,8 +157,8 @@ class _BabyDetailsState extends State<BabyDetails> {
     );
     final hearTestBtn = Material(
       elevation: .0,
-      borderRadius: BorderRadius.circular(0.0),
-      color: Color(0xffb30089),
+      borderRadius: BorderRadius.circular(10.0),
+      color: Color(0xff228cdb),
       child: MaterialButton(
         child: Column(
           children: <Widget>[
@@ -186,8 +188,8 @@ class _BabyDetailsState extends State<BabyDetails> {
     );
     final untilFiveYearsBtn = Material(
         elevation: .0,
-        borderRadius: BorderRadius.circular(0.0),
-        color: Color(0xffb30089),
+        borderRadius: BorderRadius.circular(10.0),
+        color: Color(0xff593c8f),
         child: MaterialButton(
           child: Column(
             children: <Widget>[
@@ -222,8 +224,8 @@ class _BabyDetailsState extends State<BabyDetails> {
         ));
     final helthChartbtn = Material(
         elevation: .0,
-        borderRadius: BorderRadius.circular(0.0),
-        color: Color(0xffb30089),
+        borderRadius: BorderRadius.circular(10.0),
+        color: Color(0xffeccf68),
         child: MaterialButton(
           child: Column(
             children: <Widget>[
@@ -258,8 +260,8 @@ class _BabyDetailsState extends State<BabyDetails> {
         ));
     final immunizationbtn = Material(
         elevation: .0,
-        borderRadius: BorderRadius.circular(0.0),
-        color: Color(0xffb30089),
+        borderRadius: BorderRadius.circular(10.0),
+        color: Color(0xfff46f79),
         child: MaterialButton(
           child: Column(
             children: <Widget>[
@@ -294,8 +296,8 @@ class _BabyDetailsState extends State<BabyDetails> {
         ));
     final immunizationRefbtn = Material(
         elevation: .0,
-        borderRadius: BorderRadius.circular(0.0),
-        color: Color(0xffb30089),
+        borderRadius: BorderRadius.circular(10.0),
+        color: Color(0xff963564),
         child: MaterialButton(
           child: Column(
             children: <Widget>[
@@ -330,8 +332,8 @@ class _BabyDetailsState extends State<BabyDetails> {
         ));
     final vitaminAbtn = Material(
         elevation: .0,
-        borderRadius: BorderRadius.circular(0.0),
-        color: Color(0xffb30089),
+        borderRadius: BorderRadius.circular(10.0),
+        color: Color(0xff68c8c8),
         child: MaterialButton(
           child: Column(
             children: <Widget>[
@@ -366,8 +368,8 @@ class _BabyDetailsState extends State<BabyDetails> {
         ));
     final wormbtn = Material(
         elevation: .0,
-        borderRadius: BorderRadius.circular(0.0),
-        color: Color(0xffb30089),
+        borderRadius: BorderRadius.circular(10.0),
+        color: Color(0xffca8766),
         child: MaterialButton(
           child: Column(
             children: <Widget>[
@@ -402,8 +404,8 @@ class _BabyDetailsState extends State<BabyDetails> {
         ));
         final childHealthbtn = Material(
         elevation: .0,
-        borderRadius: BorderRadius.circular(0.0),
-        color: Color(0xffb30089),
+        borderRadius: BorderRadius.circular(10.0),
+        color: Color(0xffc3e989),
         child: MaterialButton(
           child: Column(
             children: <Widget>[
@@ -437,9 +439,9 @@ class _BabyDetailsState extends State<BabyDetails> {
           ),
         ));
         final doctorNotesbtn = Material(
-        elevation: .0,
-        borderRadius: BorderRadius.circular(0.0),
-        color: Color(0xffb30089),
+        elevation: 0.0,
+      borderRadius: BorderRadius.circular(10.0),
+      color: Color(0xffe87554),
         child: MaterialButton(
           child: Column(
             children: <Widget>[
@@ -474,8 +476,8 @@ class _BabyDetailsState extends State<BabyDetails> {
         ));
         final teethbtn = Material(
         elevation: .0,
-        borderRadius: BorderRadius.circular(0.0),
-        color: Color(0xffb30089),
+        borderRadius: BorderRadius.circular(10.0),
+        color: Color(0xffe0e0ce),
         child: MaterialButton(
           child: Column(
             children: <Widget>[
@@ -509,9 +511,9 @@ class _BabyDetailsState extends State<BabyDetails> {
           ),
         ));
         final chartbtn = Material(
-        elevation: .0,
-        borderRadius: BorderRadius.circular(0.0),
-        color: Color(0xffb30089),
+        elevation: 0.0,
+        borderRadius: BorderRadius.circular(10.0),
+        color: Color(0xff7c606b),
         child: MaterialButton(
           child: Column(
             children: <Widget>[

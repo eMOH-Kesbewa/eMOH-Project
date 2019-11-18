@@ -60,12 +60,11 @@ class _HearTestState extends State<HearTest> {
         child: FutureBuilder<Baby>(
             future: baby,
             builder: (context, snapshot) {
-              print('fetch baby');
-              print(snapshot.data.bigNoise);
-              if (snapshot.connectionState == ConnectionState.waiting)
-                return Center(
-                    child: Flexible(child: CircularProgressIndicator()));
-              else {
+              // print('fetch baby');
+              // print(snapshot.data.bigNoise);
+              if (snapshot.connectionState == ConnectionState.waiting) {
+                return Center(child: CircularProgressIndicator(),);
+              } else {
                 return SingleChildScrollView(
                   child: Padding(
                     padding: EdgeInsets.all(8.0),

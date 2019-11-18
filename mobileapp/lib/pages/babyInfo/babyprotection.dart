@@ -31,8 +31,11 @@ class _BabyProtectionState extends State<BabyProtection> {
               children: <Widget>[
                 Center(
                   child: FutureBuilder<Baby>(
-                    future: baby,
+                    future: fetchBaby(),
                     builder: (context, snapshot) {
+                      if (snapshot.connectionState == ConnectionState.waiting) {
+                        return Center(child: CircularProgressIndicator(),);
+                      }
                       print('${baby}');
                       // print(snapsh.ot.data.childrenCount);
 
@@ -145,7 +148,7 @@ class _BabyProtectionState extends State<BabyProtection> {
                                   mainAxisSize: MainAxisSize.min,
                                   children: <Widget>[
                                     ListTile(
-                                      leading: detailIconBabyProtection,
+                                      leading: growBulletIcon,
                                       title: Text('Method of Delivery'),
                                       subtitle: Text(snapshot
                                           .data.deliveryMethod
@@ -153,35 +156,35 @@ class _BabyProtectionState extends State<BabyProtection> {
                                     ),
                                     div,
                                     ListTile(
-                                        leading: detailIconBabyProtection,
+                                        leading: growBulletIcon,
                                         title: Text('Apgar value 1m'),
                                         subtitle: Text(
                                           snapshot.data.apgar1m.toString(),
                                         )),
                                     div,
                                     ListTile(
-                                      leading: detailIconBabyProtection,
+                                      leading: growBulletIcon,
                                       title: Text('Apgar value 5m'),
                                       subtitle: Text(
                                           snapshot.data.apgar5m.toString()),
                                     ),
                                     div,
                                     ListTile(
-                                      leading: detailIconBabyProtection,
+                                      leading: growBulletIcon,
                                       title: Text('Apgar value 10m'),
                                       subtitle: Text(
                                           snapshot.data.apgar10m.toString()),
                                     ),
                                     div,
                                     ListTile(
-                                      leading: detailIconBabyProtection,
+                                      leading: growBulletIcon,
                                       title: Text('Birth Weight'),
                                       subtitle: Text(
                                           snapshot.data.birthWeight.toString()),
                                     ),
                                     div,
                                     ListTile(
-                                      leading: detailIconBabyProtection,
+                                      leading: growBulletIcon,
                                       title:
                                           Text('Gridle Circumference at Birth'),
                                       subtitle: Text(snapshot
@@ -190,7 +193,7 @@ class _BabyProtectionState extends State<BabyProtection> {
                                     ),
                                     div,
                                     ListTile(
-                                      leading: detailIconBabyProtection,
+                                      leading: growBulletIcon,
                                       title:
                                           Text('Length of the Baby at Birth'),
                                       subtitle:
@@ -198,7 +201,7 @@ class _BabyProtectionState extends State<BabyProtection> {
                                     ),
                                     div,
                                     ListTile(
-                                      leading: detailIconBabyProtection,
+                                      leading: growBulletIcon,
                                       title: Text(
                                           'Weight When Discharging From the Hospital'),
                                       subtitle: Text(snapshot
@@ -207,14 +210,14 @@ class _BabyProtectionState extends State<BabyProtection> {
                                     ),
                                     div,
                                     ListTile(
-                                      leading: detailIconBabyProtection,
+                                      leading: growBulletIcon,
                                       title: Text('Had Vitamin K?'),
                                       subtitle: Text(
                                           snapshot.data.vitaminK.toString()),
                                     ),
                                     div,
                                     ListTile(
-                                      leading: detailIconBabyProtection,
+                                      leading: growBulletIcon,
                                       title: Text(
                                           'Breast Feeding Breast Feeding During the First Hour'),
                                       subtitle: Text(snapshot
@@ -223,7 +226,7 @@ class _BabyProtectionState extends State<BabyProtection> {
                                     ),
                                     div,
                                     ListTile(
-                                      leading: detailIconBabyProtection,
+                                      leading: growBulletIcon,
                                       title: Text('Breast Feeding Unstability'),
                                       subtitle: Text(snapshot
                                           .data.breastFeedingUnstability
@@ -231,7 +234,7 @@ class _BabyProtectionState extends State<BabyProtection> {
                                     ),
                                     div,
                                     ListTile(
-                                      leading: detailIconBabyProtection,
+                                      leading: growBulletIcon,
                                       title: Text('Breast Feeding Connection'),
                                       subtitle: Text(snapshot
                                           .data.breastFeedingConnection
@@ -239,7 +242,7 @@ class _BabyProtectionState extends State<BabyProtection> {
                                     ),
                                     div,
                                     ListTile(
-                                      leading: detailIconBabyProtection,
+                                      leading: growBulletIcon,
                                       title: Text(
                                           'Does Check Congenital Hypothyroidism'),
                                       subtitle: Text(snapshot

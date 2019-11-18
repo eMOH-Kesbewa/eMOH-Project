@@ -58,7 +58,7 @@ class _FamilyProfileState extends State<FamilyProfile> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Family Profile'),
-        backgroundColor: Color(0xffb30089),
+       // backgroundColor: Color(0xffb30089),
         actions: <Widget>[
           IconButton(
             icon: Icon(

@@ -1,35 +1,66 @@
 import 'package:flutter/material.dart';
 import 'package:charts_flutter/flutter.dart' as charts;
-import 'package:mobileapp/services/babyService/immunizationRefService.dart';
+import 'package:logger/logger.dart';
+import 'package:mobileapp/services/babyService/chartService.dart';
+import 'package:mobileapp/services/familyProflieServices.dart';
 
 class Chart extends StatefulWidget {
-  final Widget child;
+//  final Widget child;
 
-  Chart({Key key, this.child}) : super(key: key);
+  Chart(
+      {Key key,
+      this.x1,
+      this.y1,
+      this.x2,
+      this.y2,
+      this.x3,
+      this.y3,
+      this.x4,
+      this.y4,
+      this.x5,
+      this.y5,
+      this.x6,
+      this.y6,
+      this.x7,
+      this.y7,
+      this.x8,
+      this.y8,
+      this.x9,
+      this.y9,
+      this.x10,
+      this.y10})
+      : super(key: key);
+
+  double x1;
+  double y1;
+  double x2;
+  double y2;
+  double x3;
+  double y3;
+  double x4;
+  double y4;
+  double x5;
+  double y5;
+  double x6;
+  double y6;
+  double x7;
+  double y7;
+  double x8;
+  double y8;
+  double x9;
+  double y9;
+  double x10;
+  double y10;
   @override
   _ChartState createState() => _ChartState();
 }
 
+var logger = Logger();
+
 class _ChartState extends State<Chart> {
   List<charts.Series<Sales, double>> _seriesLineData;
-
+  var dataChart = List<Sales>();
   _generateData() {
-    var data1 = [
-      new Pollution(1980, 'USA', 30),
-      new Pollution(1980, 'Asia', 40),
-      new Pollution(1980, 'Europe', 10),
-    ];
-    var data2 = [
-      new Pollution(1985, 'USA', 100),
-      new Pollution(1980, 'Asia', 150),
-      new Pollution(1985, 'Europe', 80),
-    ];
-    var data3 = [
-      new Pollution(1985, 'USA', 200),
-      new Pollution(1980, 'Asia', 300),
-      new Pollution(1985, 'Europe', 180),
-    ];
-
     // var linesalesdata = [
     //   new Sales(0, 10),
     //   new Sales(1, 56),
@@ -38,6 +69,8 @@ class _ChartState extends State<Chart> {
     //   new Sales(4, 61),
     //   new Sales(5, 70),
     // ];
+
+    //  logger.wtf(widget.x1);
     var linesalesdata1 = [
       Sales(0, 2, null, 0.0),
       Sales(1, 2.7, null, 0.0),
@@ -228,7 +261,63 @@ class _ChartState extends State<Chart> {
       Sales(23, 16.7, null, 0.0),
       Sales(24, 17, null, 0.0),
     ];
-    
+
+    // double x1 = widget.x1;
+    // double y1 = widget.y1;
+
+    // double x2;
+    // double y2;
+    // double x3;
+    // double y3;
+    // double x4;
+    // double y4;
+    // double x5;
+    // double y5;
+    // double x6;
+    // double y6;
+    // double x7;
+    // double y7;
+    // double x8;
+    // double y8;
+    // double x9;
+    // double y9;
+    // double x10;
+    // double y10;
+    FutureBuilder<Baby>(
+      future: fetchBaby(),
+      builder: (context, snapshot) {
+        logger.i(snapshot.data.x10);
+        dataChart = [
+          //Sales(24, 17, null, 0.0),`
+
+          Sales(snapshot.data.x1, snapshot.data.y1, null, 0.0),
+          Sales(snapshot.data.x2, snapshot.data.y2, null, 0.0),
+          Sales(snapshot.data.x3, snapshot.data.y3, null, 0.0),
+          Sales(snapshot.data.x4, snapshot.data.y4, null, 0.0),
+          Sales(snapshot.data.x5, snapshot.data.y5, null, 0.0),
+          Sales(snapshot.data.x6, snapshot.data.y6, null, 0.0),
+          Sales(snapshot.data.x7, snapshot.data.y7, null, 0.0),
+          Sales(snapshot.data.x8, snapshot.data.y8, null, 0.0),
+          Sales(snapshot.data.x9, snapshot.data.y9, null, 0.0),
+          Sales(snapshot.data.x10, snapshot.data.y10, null, 0.0),
+        ];
+      },
+    );
+
+    // var dataChart = [
+    //   //Sales(24, 17, null, 0.0),
+    //   Sales(widget.x1, widget.y1, null, 0.0),
+    //   Sales(widget.x2, widget.y2, null, 0.0),
+    //   Sales(widget.x3, widget.y3, null, 0.0),
+    //   Sales(widget.x4, widget.y4, null, 0.0),
+    //   Sales(widget.x5, widget.y5, null, 0.0),
+    //   Sales(widget.x6, widget.y6, null, 0.0),
+    //   Sales(widget.x7, widget.y7, null, 0.0),
+    //   Sales(widget.x8, widget.y8, null, 0.0),
+    //   Sales(widget.x9, widget.y9, null, 0.0),
+    //   Sales(widget.x10, widget.y10, null, 0.0),
+    // ];
+
     // var linesalesdata2 = [
     //   Sales(0, 20),
     //   Sales(1, 24),
@@ -331,7 +420,7 @@ class _ChartState extends State<Chart> {
       charts.Series(
         // colorFn: (__, _) => charts.ColorUtil.fromDartColor(Color(0xff109618)),
         id: 'A',
-        data: linesalesdata7,
+        data: linesalesdata6,
         //colorFn: (_, __) => charts.MaterialPalette.red.shadeDefault,
         colorFn: (_, __) => charts.MaterialPalette.purple.shadeDefault,
         strokeWidthPxFn: (Sales sales, _) => sales.strokeWidthPx,
@@ -359,6 +448,33 @@ class _ChartState extends State<Chart> {
         measureFn: (Sales sales, _) => sales.salesval,
       ),
     );
+
+    _seriesLineData.add(
+      charts.Series(
+        // colorFn: (__, _) => charts.ColorUtil.fromDartColor(Color(0xff109618)),
+        id: 'A',
+        data: dataChart,
+        //colorFn: (_, __) => charts.MaterialPalette.red.shadeDefault,
+        colorFn: (_, __) => charts.MaterialPalette.purple.shadeDefault,
+        strokeWidthPxFn: (Sales sales, _) => sales.strokeWidthPx,
+
+        areaColorFn: (_, __) =>
+            charts.MaterialPalette.blue.shadeDefault.lighter,
+
+        domainFn: (Sales sales, _) => sales.yearval,
+        measureFn: (Sales sales, _) => sales.salesval,
+      ),
+    );
+
+    // _seriesLineData.add(charts.Series(
+    //   id: 'Sales',
+    //   colorFn: (_, __) => charts.MaterialPalette.blue.shadeDefault,
+    //   strokeWidthPxFn: (Sales sales, _) => sales.strokeWidthPx,
+    //   domainFn: (Sales sales, _) => sales.yearval,
+    //   measureFn: (Sales sales, _) => sales.salesval,
+    //   data: data,
+    // ));
+
     // _seriesLineData.add(
     //   charts.Series(
     //     colorFn: (__, _) => charts.ColorUtil.fromDartColor(Color(0xffff9900)),
@@ -456,8 +572,8 @@ class _ChartState extends State<Chart> {
 
 class Pollution {
   String place;
-  int year;
-  int quantity;
+  double year;
+  double quantity;
 
   Pollution(this.year, this.place, this.quantity);
 }
@@ -466,7 +582,7 @@ class Sales {
   double yearval;
   double salesval;
   final double strokeWidthPx;
-  final List<int> dashPattern;
+  final List<double> dashPattern;
 
   Sales(this.yearval, this.salesval, this.dashPattern, this.strokeWidthPx);
 }
