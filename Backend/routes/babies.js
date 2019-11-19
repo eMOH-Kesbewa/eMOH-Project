@@ -174,6 +174,29 @@ router.get('/update', async (req, res) => {
 
 });
 
+//update weight height table
+router.put('/update/heightweight', async (req, res) => {
+
+    try {
+        const filter = req.query;
+        const update = req.body;
+
+        mongoose.set('useFindAndModify', false);
+        await weight_height.countDocuments(filter); // 0
+
+        let doc = await weight_height.findOneAndUpdate(filter, update, {
+            new: true,
+            upsert: true 
+        });
+        res.status(200).send("Updated successfully.");
+        console.log(doc);
+    } catch (error) {
+        res.status(500).send(error);
+        console.log(error);
+    }
+
+});
+
 
 
 module.exports = router;

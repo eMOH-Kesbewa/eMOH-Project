@@ -11,31 +11,8 @@ import { ComponentsModule } from './components/components.module';
 
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http'
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { UserProfileComponent } from './user-profile/user-profile.component';
-import { TableListComponent } from './table-list/table-list.component';
-import { TypographyComponent } from './typography/typography.component';
-import { IconsComponent } from './icons/icons.component';
-import { MapsComponent } from './maps/maps.component';
-import { NotificationsComponent } from './notifications/notifications.component';
-import { UpgradeComponent } from './upgrade/upgrade.component';
-import {
-  AgmCoreModule
-} from '@agm/core';
-import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
-import { ViewBabiesofAreaComponent } from './MOHComponents/view-babiesof-area/view-babiesof-area.component';
-import { ViewBabybyIDComponent } from './MOHComponents/view-babyby-id/view-babyby-id.component';
-import { ClinicNotificationsComponent } from './MOHComponents/clinic-notifications/clinic-notifications.component';
-import { UpdateBabyBookComponent } from './MOHComponents/update-baby-book/update-baby-book.component';
-import { ViewFamilybyIdComponent } from './MOHComponents/view-familyby-id/view-familyby-id.component';
-import { AddWeightHeightComponent } from './MOHComponents/add-weight-height/add-weight-height.component';
-import { ViewMothersComponent } from './MOHComponents/view-mothers/view-mothers.component';
-import { PregnancyFormComponent } from './MOHComponents/pregnancy-form/pregnancy-form.component';
 
-import { ViewWeightTableComponent } from './MOHComponents/view-weight-table/view-weight-table.component';
-import { ViewPregnantMothersComponent } from './MOHComponents/view-pregnant-mothers/view-pregnant-mothers.component';
-// import { WeightHeightGraphbyIdComponent } from './Graphs/weight-height-graphby-id/weight-height-graphby-id.component';
-import { ViewWeightByIdComponent } from './MOHComponents/view-weight-by-id/view-weight-by-id.component';
+import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 
 @NgModule({
   imports: [
@@ -47,28 +24,12 @@ import { ViewWeightByIdComponent } from './MOHComponents/view-weight-by-id/view-
     ComponentsModule,
     RouterModule,
     AppRoutingModule,
-    AgmCoreModule.forRoot({
-      apiKey: 'YOUR_GOOGLE_MAPS_API_KEY'
-    })
   ],
   declarations: [
     AppComponent,
     AdminLayoutComponent,
   
-    
-    
-    
-   
-    
-   
-    
-  
-  
 
-    
- 
-    
-   
 
   ],
   providers: [],
