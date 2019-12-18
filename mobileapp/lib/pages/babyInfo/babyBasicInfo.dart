@@ -28,14 +28,20 @@ class _BabyBasicInfoState extends State<BabyBasicInfo> {
                   child: FutureBuilder<Baby>(
                     future: fetchBaby(),
                     builder: (context, snapshot) {
-                      print('snapdata');
-                     // print(snapshot.data.childrenCount);
-
+                      // print('snapdata');
+                      // print(snapshot.data.childrenCount);
+                      if (snapshot.connectionState == ConnectionState.none) {
+                        return Center(
+                          child: Text('Please Check Your Internet Connection'),
+                        );
+                      }
+                      if (snapshot.connectionState == ConnectionState.waiting) {
+                        return Center(child: CircularProgressIndicator());
+                      }
                       if (snapshot.hasData) {
                         return SingleChildScrollView(
                           child: Column(
-                              children: <Widget>[
-                             
+                            children: <Widget>[
                               Card(
                                 child: Column(
                                   mainAxisSize: MainAxisSize.min,

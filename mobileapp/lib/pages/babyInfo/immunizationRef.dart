@@ -21,6 +21,9 @@ class _ImmunizationRefState extends State<ImmunizationRef> {
               child: FutureBuilder<Baby>(
           future: fetchBaby(),
           builder: (context, snapshot) {
+            if (snapshot.connectionState == ConnectionState.waiting) {
+              return Center(child: CircularProgressIndicator(),);
+            }
             int loop = snapshot.data.date.length.toInt();
             //logger.wtf(snapshot.data.backRef.length);
             //logger.d(snapshot.data.backRef[0]);

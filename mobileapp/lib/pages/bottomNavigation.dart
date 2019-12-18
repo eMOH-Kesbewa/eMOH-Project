@@ -33,7 +33,7 @@ static const List<Widget> _widgetOptions = <Widget>[
       globals.selectedIndex = index;
       if (index == 0) {
         return Navigator.push(
-            context, MaterialPageRoute(builder: (context) => familyProfile()));
+            context, MaterialPageRoute(builder: (context) => FamilyProfile()));
       }
       if (index == 1) {
         return Navigator.push(

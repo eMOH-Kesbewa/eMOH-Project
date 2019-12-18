@@ -5,18 +5,22 @@ import 'package:flutter_icons/flutter_icons.dart';
 import 'package:mobileapp/pages/babyInfo/babyBasicInfo.dart';
 import 'package:mobileapp/pages/babyDetails.dart';
 import 'package:mobileapp/pages/bottomNavigation.dart';
+import 'package:mobileapp/pages/login.dart';
 import 'package:mobileapp/pages/motherDetails.dart';
 import 'package:mobileapp/services/familyProflieServices.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import '../services/globals.dart' as globals;
 
-class familyProfile extends StatefulWidget {
-  //familyProfile(Future<Family> fetchFamily);
+
+
+class FamilyProfile extends StatefulWidget {
+  //FamilyProfile(Future<Family> fetchFamily);
 
   @override
-  _familyProfileState createState() => _familyProfileState();
+  _FamilyProfileState createState() => _FamilyProfileState();
 }
 
-class _familyProfileState extends State<familyProfile> {
+class _FamilyProfileState extends State<FamilyProfile> {
   //Future <Family> family = fetchFamily();
   @override
   Widget build(BuildContext context) {
@@ -49,26 +53,32 @@ class _familyProfileState extends State<familyProfile> {
             borderRadius: BorderRadius.all(Radius.circular(75.0)),
             boxShadow: [BoxShadow(blurRadius: 7.0, color: Colors.black)]));
 
+    Future family = fetchFamily();
+
     return Scaffold(
       appBar: AppBar(
         title: Text('Family Profile'),
-        backgroundColor: Color(0xffb30089),
+       // backgroundColor: Color(0xffb30089),
         actions: <Widget>[
           IconButton(
             icon: Icon(
               Icons.settings,
               color: Colors.white,
             ),
-            onPressed: () {},
+            onPressed: () async {
+              SharedPreferences prefs = await SharedPreferences.getInstance();
+              prefs.remove('email');
+              Navigator.pushReplacement(context,
+                  MaterialPageRoute(builder: (BuildContext ctx) => Login()));
+            },
           ),
         ],
       ),
-      
       body: Center(
         child: FutureBuilder<Family>(
-          future: fetchFamily(),
+          future: family,
           builder: (context, snapshot) {
-           print(snapshot);
+            print(snapshot);
             if (snapshot.hasData) {
               return SingleChildScrollView(
                 child: Column(

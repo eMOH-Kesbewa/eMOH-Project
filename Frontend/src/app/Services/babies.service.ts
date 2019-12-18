@@ -20,13 +20,20 @@ export class BabiesService {
     console.log(userData)
     return this.http.post<any>(this.__url,userData);
    }
-   register(userData,babyId){          //Update the baby details
-    let _url= `http://localhost:3000/babies/update/?Identity_number=${babyId}`;
-    console.log(userData)
-    return this.http.post<Baby>(_url , userData,{observe: 'response'});
-   }
 
-   _
+   
+
+   register(userData,babyId){        
+    let _url = `http://localhost:3000/babies/update/babybook?baby_id=${babyId}`
+    console.log(userData)
+    return this.http.put<Baby>(_url , userData,{observe: 'response'});
+   }
+   
+
+   getbabydata(babyId){             
+    let uri = `http://localhost:3000/babies/viewbybabyid/${babyId}`;
+    return this.http.get<Baby>(uri)
+   }
   
   
   // addBaby(baby_id, name_of_child, date_of_registered){
