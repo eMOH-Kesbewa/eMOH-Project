@@ -30,8 +30,7 @@ class Clinic {
 
   factory Clinic.fromJson(Map<String, dynamic> json) {
     globals.familyId = json['Identity_number'];
-    print('*********famid******');
-    print(globals.familyId);
+    
     return Clinic(
       title: json['clinic_title'],
       discription: json['clinic_discription'],

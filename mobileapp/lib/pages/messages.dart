@@ -15,7 +15,6 @@ class Messages extends StatefulWidget {
 }
 
 class _MessagesState extends State<Messages> {
- 
   List<Clinic> clinics = <Clinic>[];
 
   @override
@@ -36,24 +35,26 @@ class _MessagesState extends State<Messages> {
                 );
               }
               //loop variable is used to get the msg list length
-              logger.i('future builder');
-              logger.w(snapshot.data);
 
               int loop = snapshot.data.length;
-              for (var i = 0; i < loop; i++) {
+              //only ten m=nitifications will be loaded.
+              for (var i = 0; i < 10; i++) {
                 // String clinic_id = snapshot.data.clinicId[i];
                 // String clinic_name = snapshot.data.clinicName[i];
                 // String clinic_discription = snapshot.data.clinicDiscription[i];
                 // String date = snapshot.data.date[i];
-                Clinic clinic = Clinic(date: snapshot.data[i]['date'],discription: snapshot.data[i]['clinic_discription'],title: snapshot.data[i]['clinic_title'],priority: snapshot.data[i]['clinic_priority']);
-              // logger.d(clinic.date);
+                Clinic clinic = Clinic(
+                    date: snapshot.data[i]['date'],
+                    discription: snapshot.data[i]['clinic_discription'],
+                    title: snapshot.data[i]['clinic_title'],
+                    priority: snapshot.data[i]['clinic_priority']);
+                // logger.d(clinic.date);
                 globals.msgList.add(ListTile(
                   onTap: () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) =>
-                            NotificationView(clinic: clinic),
+                        builder: (context) => NotificationView(clinic: clinic),
                       ),
                     );
                   },
