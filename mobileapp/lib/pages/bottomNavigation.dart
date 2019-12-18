@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:mobileapp/pages/familyProfile.dart';
 import 'package:mobileapp/pages/babyDetails.dart';
+import 'package:mobileapp/pages/messages.dart';
 import 'package:mobileapp/pages/motherDetails.dart';
 import 'package:mobileapp/services/globals.dart' as globals;
 
@@ -37,7 +38,7 @@ static const List<Widget> _widgetOptions = <Widget>[
       }
       if (index == 1) {
         return Navigator.push(
-            context, MaterialPageRoute(builder: (context) => motherDetails()));
+            context, MaterialPageRoute(builder: (context) => Messages()));
       }
       if (index == 2) {
         return Navigator.push(

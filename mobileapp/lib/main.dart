@@ -5,6 +5,7 @@ import 'package:mobileapp/pages/login.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 //import 'globals.dart' as globals;
 import 'package:mobileapp/services/globals.dart'as globals;
+import 'package:mobileapp/widgets/notificationViewCard.dart';
 /*import 'package:teamapp/Pages/addNewMember.dart';
 import 'package:teamapp/Pages/check.dart';
 import 'package:teamapp/Pages/createSheet.dart';
