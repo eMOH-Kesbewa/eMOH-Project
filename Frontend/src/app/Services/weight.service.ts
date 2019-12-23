@@ -25,5 +25,18 @@ export class WeightService {
   getbabyweightById(babyId){             
     let uri = `http://localhost:3000/babies/viewwieghtandheight/${babyId}`;
     return this.http.get<Weight>(uri,{observe: 'response'})
+   } 
+
+   getbabyweightdata(babyId){             
+    let uri = `http://localhost:3000/babies/viewwieghtandheight/${babyId}`;
+    return this.http.get<Weight>(uri)
+   }
+
+   register(userData,babyId){        
+    let _url = `http://localhost:3000/babies/update/heightweight?baby_id=${babyId}`
+    console.log(userData)
+    return this.http.put<Weight>(_url , userData,{observe: 'response'});
    }
 }
+
+

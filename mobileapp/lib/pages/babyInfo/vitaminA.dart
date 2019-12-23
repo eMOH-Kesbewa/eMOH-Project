@@ -27,6 +27,9 @@ class _VitaminAState extends State<VitaminA> {
       body: FutureBuilder<Baby>(
         future: fetchBaby(),
         builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return Center(child: CircularProgressIndicator(),);
+          }
           return SingleChildScrollView(
               child: Padding(
             padding: EdgeInsets.all(8.0),

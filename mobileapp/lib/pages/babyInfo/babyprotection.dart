@@ -1,3 +1,5 @@
+//warnings need an update after database filled with data
+
 import 'package:flutter/material.dart';
 import 'package:mobileapp/services/babyService/babyProtectionServeice.dart';
 import 'package:mobileapp/services/style.dart';
@@ -8,7 +10,7 @@ class BabyProtection extends StatefulWidget {
 }
 
 class _BabyProtectionState extends State<BabyProtection> {
-  static Future <Baby> baby = fetchBaby();
+  static Future<Baby> baby = fetchBaby();
   // Baby newBaby;
   var reasons = new List<Widget>();
   var result = new List<Widget>();
@@ -29,12 +31,115 @@ class _BabyProtectionState extends State<BabyProtection> {
               children: <Widget>[
                 Center(
                   child: FutureBuilder<Baby>(
-                    future: baby,
+                    future: fetchBaby(),
                     builder: (context, snapshot) {
+                      if (snapshot.connectionState == ConnectionState.waiting) {
+                        return Center(child: CircularProgressIndicator(),);
+                      }
                       print('${baby}');
                       // print(snapsh.ot.data.childrenCount);
 
                       if (snapshot.hasData) {
+                        if (snapshot.data.prematureBirthsStatus == "Normal") {
+                          reasons.add(
+                            new ListTile(
+                              leading: warningIcon,
+                              title: Text("Premature Birth"),
+                            ),
+                          );
+                        }
+                        if (snapshot.data.lowBirthWeightStatus == "Normal") {
+                          reasons.add(
+                            new ListTile(
+                              leading: warningIcon,
+                              title: Text("Low Birth Weight"),
+                            ),
+                          );
+                        }
+                        if (snapshot.data.neonatalAbnomalitiesStatus ==
+                            "Normal") {
+                          reasons.add(
+                            new ListTile(
+                              leading: warningIcon,
+                              title: Text('Neonatal Abnomalities'),
+                            ),
+                          );
+                        }
+                        if (snapshot.data.inheritedProblemsStatus == "Normal") {
+                          reasons.add(
+                            new ListTile(
+                              leading: warningIcon,
+                              title: Text('Inherited Problems'),
+                            ),
+                          );
+                        }
+                        if (snapshot.data.congenitalHypothyroidismState ==
+                            "Normal") {
+                          reasons.add(
+                            new ListTile(
+                              leading: warningIcon,
+                              title: Text('congenitalHypothyroidism'),
+                            ),
+                          );
+                        }
+                        if (snapshot.data
+                                .serverIllnessOfTheMotherAfterDeliveryStatus ==
+                            "Normal") {
+                          reasons.add(
+                            new ListTile(
+                              leading: warningIcon,
+                              title:
+                                  Text('serverIllnessOfTheMotherAfterDelivery'),
+                            ),
+                          );
+                        }
+                        if (snapshot.data.breastfeedingAtFirstSixMonthsStatus ==
+                            "Normal") {
+                          reasons.add(
+                            new ListTile(
+                              leading: warningIcon,
+                              title: Text('breastfeedingAtFirstSixMonths'),
+                            ),
+                          );
+                        }
+                        if (snapshot.data.impairmentsOfGrowthStatus ==
+                            "Normal") {
+                          reasons.add(
+                            new ListTile(
+                              leading: warningIcon,
+                              title: Text('Impairments Of Growth'),
+                            ),
+                          );
+                        }
+                        if (snapshot.data.deathOfMotherOrFatherStatus ==
+                            "Normal") {
+                          reasons.add(
+                            new ListTile(
+                              leading: warningIcon,
+                              title: Text('death Of Mother Or Father'),
+                            ),
+                          );
+                        }
+                        if (snapshot.data
+                                .separationOrDepatureOfMotherOrFatherStatus ==
+                            "Normal") {
+                          reasons.add(
+                            new ListTile(
+                              leading: warningIcon,
+                              title: Text(
+                                  "Separation or Depature of Mother or Father"),
+                            ),
+                          );
+                        }
+                        if (snapshot.data.otherStatus == "Normal") {
+                          reasons.add(
+                            new ListTile(
+                              leading: warningIcon,
+                              title: Text("Other"),
+                            ),
+                          );
+                        }
+
                         return SingleChildScrollView(
                           child: Column(
                             children: <Widget>[
@@ -43,7 +148,7 @@ class _BabyProtectionState extends State<BabyProtection> {
                                   mainAxisSize: MainAxisSize.min,
                                   children: <Widget>[
                                     ListTile(
-                                      leading: detailIconBabyProtection,
+                                      leading: growBulletIcon,
                                       title: Text('Method of Delivery'),
                                       subtitle: Text(snapshot
                                           .data.deliveryMethod
@@ -51,35 +156,35 @@ class _BabyProtectionState extends State<BabyProtection> {
                                     ),
                                     div,
                                     ListTile(
-                                        leading: detailIconBabyProtection,
+                                        leading: growBulletIcon,
                                         title: Text('Apgar value 1m'),
                                         subtitle: Text(
                                           snapshot.data.apgar1m.toString(),
                                         )),
                                     div,
                                     ListTile(
-                                      leading: detailIconBabyProtection,
+                                      leading: growBulletIcon,
                                       title: Text('Apgar value 5m'),
                                       subtitle: Text(
                                           snapshot.data.apgar5m.toString()),
                                     ),
                                     div,
                                     ListTile(
-                                      leading: detailIconBabyProtection,
+                                      leading: growBulletIcon,
                                       title: Text('Apgar value 10m'),
                                       subtitle: Text(
                                           snapshot.data.apgar10m.toString()),
                                     ),
                                     div,
                                     ListTile(
-                                      leading: detailIconBabyProtection,
+                                      leading: growBulletIcon,
                                       title: Text('Birth Weight'),
                                       subtitle: Text(
                                           snapshot.data.birthWeight.toString()),
                                     ),
                                     div,
                                     ListTile(
-                                      leading: detailIconBabyProtection,
+                                      leading: growBulletIcon,
                                       title:
                                           Text('Gridle Circumference at Birth'),
                                       subtitle: Text(snapshot
@@ -88,7 +193,7 @@ class _BabyProtectionState extends State<BabyProtection> {
                                     ),
                                     div,
                                     ListTile(
-                                      leading: detailIconBabyProtection,
+                                      leading: growBulletIcon,
                                       title:
                                           Text('Length of the Baby at Birth'),
                                       subtitle:
@@ -96,7 +201,7 @@ class _BabyProtectionState extends State<BabyProtection> {
                                     ),
                                     div,
                                     ListTile(
-                                      leading: detailIconBabyProtection,
+                                      leading: growBulletIcon,
                                       title: Text(
                                           'Weight When Discharging From the Hospital'),
                                       subtitle: Text(snapshot
@@ -105,14 +210,14 @@ class _BabyProtectionState extends State<BabyProtection> {
                                     ),
                                     div,
                                     ListTile(
-                                      leading: detailIconBabyProtection,
+                                      leading: growBulletIcon,
                                       title: Text('Had Vitamin K?'),
                                       subtitle: Text(
                                           snapshot.data.vitaminK.toString()),
                                     ),
                                     div,
                                     ListTile(
-                                      leading: detailIconBabyProtection,
+                                      leading: growBulletIcon,
                                       title: Text(
                                           'Breast Feeding Breast Feeding During the First Hour'),
                                       subtitle: Text(snapshot
@@ -121,7 +226,7 @@ class _BabyProtectionState extends State<BabyProtection> {
                                     ),
                                     div,
                                     ListTile(
-                                      leading: detailIconBabyProtection,
+                                      leading: growBulletIcon,
                                       title: Text('Breast Feeding Unstability'),
                                       subtitle: Text(snapshot
                                           .data.breastFeedingUnstability
@@ -129,7 +234,7 @@ class _BabyProtectionState extends State<BabyProtection> {
                                     ),
                                     div,
                                     ListTile(
-                                      leading: detailIconBabyProtection,
+                                      leading: growBulletIcon,
                                       title: Text('Breast Feeding Connection'),
                                       subtitle: Text(snapshot
                                           .data.breastFeedingConnection
@@ -137,7 +242,7 @@ class _BabyProtectionState extends State<BabyProtection> {
                                     ),
                                     div,
                                     ListTile(
-                                      leading: detailIconBabyProtection,
+                                      leading: growBulletIcon,
                                       title: Text(
                                           'Does Check Congenital Hypothyroidism'),
                                       subtitle: Text(snapshot
@@ -145,15 +250,8 @@ class _BabyProtectionState extends State<BabyProtection> {
                                           .toString()),
                                     ),
                                     div,
-                                  
                                     Column(
-                                      children: <Widget>[
-                                        
-                                        buildReason(snapshot.data.prematureBirthsStatus,snapshot.data.lowBirthWeightStatus,snapshot.data.neonatalAbnomalitiesStatus,snapshot.data.inheritedProblemsStatus,snapshot.data.congenitalHypothyroidismState,snapshot.data.serverIllnessOfTheMotherAfterDeliveryStatus,snapshot.data.breastfeedingAtFirstSixMonthsStatus,snapshot.data.impairmentsOfGrowthStatus,snapshot.data.deathOfMotherOrFatherStatus,snapshot.data.separationOrDepatureOfMotherOrFatherStatus,snapshot.data.otherStatus)[1],
-                                        //result[0],
-                                        //result[1],
-                                      
-                                      ],
+                                      children: reasons,
                                     )
                                   ],
                                 ),
@@ -169,7 +267,6 @@ class _BabyProtectionState extends State<BabyProtection> {
                       return Center(child: CircularProgressIndicator());
                     },
                   ),
-
                 ),
                 // Center(
                 //   child: FutureBuilder (
@@ -177,8 +274,6 @@ class _BabyProtectionState extends State<BabyProtection> {
                 //   ),
                 // )
               ],
-
-              
             ),
           ),
         ) /*Column(
@@ -189,96 +284,106 @@ class _BabyProtectionState extends State<BabyProtection> {
         );
   }
 
-  buildReason (String prematureBirthsStatus,String lowBirthWeightStatus,String neonatalAbnomalitiesStatus,String inheritedProblemsStatus,String congenitalHypothyroidismState,String serverIllnessOfTheMotherAfterDeliveryStatus,String breastfeedingAtFirstSixMonthsStatus,String impairmentsOfGrowthStatus,String deathOfMotherOrFatherStatus,String separationOrDepatureOfMotherOrFatherStatus,String otherStatus) {
-    if (prematureBirthsStatus == "Normal") {
-      reasons.add(
-        new ListTile(
-          leading: warningIcon,
-          title: Text("Premature Birth"),
-        ),
-      );
-    }
-    if (lowBirthWeightStatus == "Normal") {
-      reasons.add(
-        new ListTile(
-          leading: warningIcon,
-          title: Text("Low Birth Weight"),
-        ),
-      );
-    }
-    if (neonatalAbnomalitiesStatus == "Normal") {
-      reasons.add(
-        new ListTile(
-          leading: warningIcon,
-          title: Text(prematureBirthsStatus),
-        ),
-      );
-    }
-    if (inheritedProblemsStatus == "Normal") {
-      reasons.add(
-        new ListTile(
-          leading: warningIcon,
-          title: Text(prematureBirthsStatus),
-        ),
-      );
-    }
-    if (congenitalHypothyroidismState == "Normal") {
-      reasons.add(
-        new ListTile(
-          leading: warningIcon,
-          title: Text(prematureBirthsStatus),
-        ),
-      );
-    }
-    if (serverIllnessOfTheMotherAfterDeliveryStatus == "Normal") {
-      reasons.add(
-        new ListTile(
-          leading: warningIcon,
-          title: Text(prematureBirthsStatus),
-        ),
-      );
-    }
-    if (breastfeedingAtFirstSixMonthsStatus == "Normal") {
-      reasons.add(
-        new ListTile(
-          leading: warningIcon,
-          title: Text(prematureBirthsStatus),
-        ),
-      );
-    }
-    if (impairmentsOfGrowthStatus == "Normal") {
-      reasons.add(
-        new ListTile(
-          leading: warningIcon,
-          title: Text(prematureBirthsStatus),
-        ),
-      );
-    }
-    if (deathOfMotherOrFatherStatus == "Normal") {
-      reasons.add(
-        new ListTile(
-          leading: warningIcon,
-          title: Text(prematureBirthsStatus),
-        ),
-      );
-    }
-    if (separationOrDepatureOfMotherOrFatherStatus == "Normal") {
-      reasons.add(
-        new ListTile(
-          leading: warningIcon,
-          title: Text("Separation or Depature of Mother or Father"),
-        ),
-      );
-    }
-    if (otherStatus == "Normal") {
-      reasons.add(
-        new ListTile(
-          leading: warningIcon,
-          title: Text("Other"),
-        ),
-      );
-    }
-    print(reasons);
-    return reasons;
-  }
+  // buildReason(
+  //     String prematureBirthsStatus,
+  //     String lowBirthWeightStatus,
+  //     String neonatalAbnomalitiesStatus,
+  //     String inheritedProblemsStatus,
+  //     String congenitalHypothyroidismState,
+  //     String serverIllnessOfTheMotherAfterDeliveryStatus,
+  //     String breastfeedingAtFirstSixMonthsStatus,
+  //     String impairmentsOfGrowthStatus,
+  //     String deathOfMotherOrFatherStatus,
+  //     String separationOrDepatureOfMotherOrFatherStatus,
+  //     String otherStatus) {
+  //   if (prematureBirthsStatus == "Normal") {
+  //     reasons.add(
+  //       new ListTile(
+  //         leading: warningIcon,
+  //         title: Text("Premature Birth"),
+  //       ),
+  //     );
+  //   }
+  //   if (lowBirthWeightStatus == "Normal") {
+  //     reasons.add(
+  //       new ListTile(
+  //         leading: warningIcon,
+  //         title: Text("Low Birth Weight"),
+  //       ),
+  //     );
+  //   }
+  //   if (neonatalAbnomalitiesStatus == "Normal") {
+  //     reasons.add(
+  //       new ListTile(
+  //         leading: warningIcon,
+  //         title: Text(prematureBirthsStatus),
+  //       ),
+  //     );
+  //   }
+  //   if (inheritedProblemsStatus == "Normal") {
+  //     reasons.add(
+  //       new ListTile(
+  //         leading: warningIcon,
+  //         title: Text(prematureBirthsStatus),
+  //       ),
+  //     );
+  //   }
+  //   if (congenitalHypothyroidismState == "Normal") {
+  //     reasons.add(
+  //       new ListTile(
+  //         leading: warningIcon,
+  //         title: Text(prematureBirthsStatus),
+  //       ),
+  //     );
+  //   }
+  //   if (serverIllnessOfTheMotherAfterDeliveryStatus == "Normal") {
+  //     reasons.add(
+  //       new ListTile(
+  //         leading: warningIcon,
+  //         title: Text(prematureBirthsStatus),
+  //       ),
+  //     );
+  //   }
+  //   if (breastfeedingAtFirstSixMonthsStatus == "Normal") {
+  //     reasons.add(
+  //       new ListTile(
+  //         leading: warningIcon,
+  //         title: Text(prematureBirthsStatus),
+  //       ),
+  //     );
+  //   }
+  //   if (impairmentsOfGrowthStatus == "Normal") {
+  //     reasons.add(
+  //       new ListTile(
+  //         leading: warningIcon,
+  //         title: Text(prematureBirthsStatus),
+  //       ),
+  //     );
+  //   }
+  //   if (deathOfMotherOrFatherStatus == "Normal") {
+  //     reasons.add(
+  //       new ListTile(
+  //         leading: warningIcon,
+  //         title: Text(prematureBirthsStatus),
+  //       ),
+  //     );
+  //   }
+  //   if (separationOrDepatureOfMotherOrFatherStatus == "Normal") {
+  //     reasons.add(
+  //       new ListTile(
+  //         leading: warningIcon,
+  //         title: Text("Separation or Depature of Mother or Father"),
+  //       ),
+  //     );
+  //   }
+  //   if (otherStatus == "Normal") {
+  //     reasons.add(
+  //       new ListTile(
+  //         leading: warningIcon,
+  //         title: Text("Other"),
+  //       ),
+  //     );
+  //   }
+  // print(reasons);
+  // return reasons;
 }

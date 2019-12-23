@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:mobileapp/pages/babyInfo/teeth.dart';
 import 'package:mobileapp/pages/familyProfile.dart';
 import 'package:mobileapp/pages/home.dart';
 import 'package:mobileapp/services/familyProflieServices.dart';
@@ -9,8 +10,6 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:http/http.dart' as http;
 import 'package:toast/toast.dart';
 import '../services/globals.dart' as globals;
-//import 'dart:io';
-//import 'package:flutter/services.dart';
 
 class Login extends StatefulWidget {
   @override
@@ -27,49 +26,23 @@ class _LoginState extends State<Login> {
   var password;
   bool _passwordVisible = true;
 
-//https://protected-bayou-52277.herokuapp.com/
   @override
   Widget build(BuildContext context) {
     final motherLogo = const ImageIcon(AssetImage("images/mother.png"),
         size: 200.0, color: Color(0xff5d1049));
 
     final emailField = TextFormField(
-      /*validator: (input) {
-        if (input.isEmpty) {
-          return 'Please Enter The Name';
-        }
-      },*/
       keyboardType: TextInputType.emailAddress,
       controller: emailController,
       cursorColor: Color(0xff5d1049),
       style: TextStyle(color: Color(0xff5d1049)),
       decoration: InputDecoration(
-        // icon: Icon(Icons.email, color: Colors.black),
         hintText: "Email",
         border:
             UnderlineInputBorder(borderSide: BorderSide(color: Colors.white70)),
         hintStyle: TextStyle(color: Colors.black26),
       ),
     );
-
-    /* final pwField =  Container(
-            margin: EdgeInsets.only(left: 16.0),
-            child: TextFormField(
-              controller: passwordController,
-              decoration: InputDecoration(
-                  hintText: 'Password',
-                  filled: true,
-                  prefixIcon: Icon(
-                    Icons.account_box,
-                    size: 28.0,
-                  ),
-                  suffixIcon: IconButton(
-                      icon: Icon(Icons.remove),
-                      onPressed: () {
-                        debugPrint('222');
-                      })),
-            ),
-          );*/
 
     final pwField = TextFormField(
       controller: passwordController,
@@ -105,14 +78,11 @@ class _LoginState extends State<Login> {
           style:
               TextStyle(fontWeight: FontWeight.bold, color: Color(0xff442C2E)),
         ),
-        onPressed: () async {
-          //after the login REST api call && response code ==200
-          // SharedPreferences prefs = await SharedPreferences.getInstance();
-          // prefs.setString('email', emailController.text);
-          signIn(emailController.text.toString(),
-              passwordController.text.toString());
-          // Navigator.pushReplacement(context,
-          //     MaterialPageRoute(builder: (BuildContext ctx) => FamilyProfile()));
+        onPressed: () {
+          setState(() {
+            _isLoading = true;
+          });
+          signIn(emailController.text, passwordController.text);
         },
       ),
     );
@@ -174,7 +144,11 @@ class _LoginState extends State<Login> {
     var jsonResponse = null;
     var response = await http.post(
         "https://protected-bayou-52277.herokuapp.com/users/login",
-        body: data);
+        body: data).then((res){
+        //  logger.wtf(jsonDecode(res.body));
+          
+        });
+     
     if (response.statusCode == 200) {
       jsonResponse = json.decode(response.body);
       globals.globalEmail = emailController.text.toString();
@@ -189,50 +163,18 @@ class _LoginState extends State<Login> {
         print(state);
         if (state == true) {
           print('***validated***');
-          SharedPreferences prefs = await SharedPreferences.getInstance();
-          prefs.setString('email', emailController.text);
-
-          Navigator.pushReplacement(
-              context,
+          Navigator.of(context).pushAndRemoveUntil(
               MaterialPageRoute(
-                  builder: (BuildContext ctx) => FamilyProfile()));
-          // Navigator.of(context).pushAndRemoveUntil(
-
-          //     MaterialPageRoute(
-          //         builder: (BuildContext context) => FamilyProfile()),
-          //     (Route<dynamic> route) => false);
+                  builder: (BuildContext context) => FamilyProfile()),
+              (Route<dynamic> route) => false);
         } else {
           print('***else clause***');
           return Toast.show("Invalid email or password", context,
               duration: Toast.LENGTH_LONG, gravity: Toast.CENTER);
-          /* setState(() {
-            print('#########');
-            _isError = true;
-          });*/
-          /*return AlertDialog(
-            title: Text('Error!'),
-            content: SingleChildScrollView(
-              child: ListBody(
-                children: <Widget>[
-                  Text('Invalid user name or password'),
-                ],
-              ),
-            ),
-          );*/
-          //alert dialog is not working
-          /*setState(() {
-            _isLoading = false;
-          });*/
-
         }
       }
     } else {
       print('***');
-      /* setState(() {
-        _isLoading = false;
-      });*/
-
-      //print(response.body);
     }
   }
 
@@ -246,4 +188,6 @@ class _LoginState extends State<Login> {
       ),
     ),
   );
+
+  
 }

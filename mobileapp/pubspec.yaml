@@ -30,6 +30,7 @@ dependencies:
   flutter_icons: ^0.3.1
   font_awesome_flutter: ^8.5.0
   logger: ^0.7.0+2
+  charts_flutter: ^0.8.1
   
 
 dev_dependencies:

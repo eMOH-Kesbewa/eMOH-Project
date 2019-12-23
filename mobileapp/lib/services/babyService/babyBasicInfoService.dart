@@ -3,16 +3,18 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:logger/logger.dart';
 import '../globals.dart' as globals;
+
+var logger = Logger();
 
 Future<Baby> fetchBaby() async {
   print('fetch Baby function');
   //String _babyId = globals.BabyId + babyIndex;
+
   final response = await http.get(
       'https://protected-bayou-52277.herokuapp.com/babies/viewbyid/${globals.babyId}');
-  print('status code');
-  print(response.statusCode);
-  print(response.body);
+ 
   // final json = jsonDecode(response.body);
   if (response.statusCode == 200) {
     // If the call to the server was successful, parse the JSON.
