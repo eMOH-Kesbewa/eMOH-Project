@@ -1,7 +1,7 @@
 import { Routes } from '@angular/router';
 
 import { DashboardComponent } from '../../dashboard/dashboard.component';
-import { ViewApprovedFamiliesComponent } from 'app/MOHComponents/view-approved-families/view-approved-families.component';
+//import { ViewApprovedFamiliesComponent } from 'app/MOHComponents/view-approved-families/view-approved-families.component';
 import { AddApprovedFamiliesComponent } from 'app/MOHComponents/add-approved-families/add-approved-families.component';
 import { ViewBabiesofAreaComponent } from 'app/MOHComponents/view-babiesof-area/view-babiesof-area.component';
 import { AddmotherbabyjoineddataComponent } from 'app/MOHComponents/addmotherbabyjoineddata/addmotherbabyjoineddata.component';
@@ -24,50 +24,8 @@ import { WeightHeightGraphbyIdComponent } from 'app/Graphs/weight-height-graphby
 import { ViewWeightByIdComponent } from 'app/MOHComponents/view-weight-by-id/view-weight-by-id.component';
 
 export const AdminLayoutRoutes: Routes = [
-    // {
-    //   path: '',
-    //   children: [ {
-    //     path: 'dashboard',
-    //     component: DashboardComponent
-    // }]}, {
-    // path: '',
-    // children: [ {
-    //   path: 'userprofile',
-    //   component: UserProfileComponent
-    // }]
-    // }, {
-    //   path: '',
-    //   children: [ {
-    //     path: 'icons',
-    //     component: IconsComponent
-    //     }]
-    // }, {
-    //     path: '',
-    //     children: [ {
-    //         path: 'notifications',
-    //         component: NotificationsComponent
-    //     }]
-    // }, {
-    //     path: '',
-    //     children: [ {
-    //         path: 'maps',
-    //         component: MapsComponent
-    //     }]
-    // }, {
-    //     path: '',
-    //     children: [ {
-    //         path: 'typography',
-    //         component: TypographyComponent
-    //     }]
-    // }, {
-    //     path: '',
-    //     children: [ {
-    //         path: 'upgrade',
-    //         component: UpgradeComponent
-    //     }]
-    // }
     { path: 'dashboard',      component: DashboardComponent },
-    {
+   /* {
         path: 'viewApprovedFamilies',
         component: ViewApprovedFamiliesComponent,
         children: [
@@ -87,8 +45,8 @@ export const AdminLayoutRoutes: Routes = [
 
 
         ]
-    },
-    {
+    },*/
+    /*{
         path: 'viewBabies',        //Msg has been added to show the success or failure msg to the user when they submit clinic form data
         component: ViewBabiesofAreaComponent,
         children: [
@@ -171,7 +129,7 @@ export const AdminLayoutRoutes: Routes = [
 
         ]
 
-    },
+    },*/
     
 
     
