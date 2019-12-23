@@ -1,5 +1,6 @@
 library mobileapp.globals;
 
+import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 String globalEmail;
@@ -10,9 +11,12 @@ Future getGlobals() async {
   globalEmail = prefs.getString('email');
 }
 
+ List<ListTile> msgList = <ListTile>[];
+
 int selectedIndex = 0;
 String familyId = 'fam123';
 String babyId;
+String msgDiscription,msgTitle,msgDate;
 
 String layingFaceDownOcc,
     movingObjectOcc,
