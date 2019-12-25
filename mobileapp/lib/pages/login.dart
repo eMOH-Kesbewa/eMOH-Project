@@ -1,8 +1,9 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:mobileapp/pages/bottomNavigation.dart';
 import 'package:mobileapp/pages/familyProfile.dart';
-import 'package:mobileapp/pages/home.dart';
+
 import 'package:mobileapp/services/familyProflieServices.dart';
 
 import 'package:shared_preferences/shared_preferences.dart';
@@ -195,7 +196,7 @@ class _LoginState extends State<Login> {
           Navigator.pushReplacement(
               context,
               MaterialPageRoute(
-                  builder: (BuildContext ctx) => FamilyProfile()));
+                  builder: (BuildContext ctx) => BottomNavigation()));
           // Navigator.of(context).pushAndRemoveUntil(
 
           //     MaterialPageRoute(
