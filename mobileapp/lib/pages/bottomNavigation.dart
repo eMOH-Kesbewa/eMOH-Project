@@ -160,12 +160,12 @@ class _BottomNavigationState extends State<BottomNavigation> {
             title: Text('Home'),
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.business),
-            title: Text('Business'),
+            icon: Icon(Icons.data_usage),
+            title: Text('Schedule'),
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.school),
-            title: Text('School'),
+            icon: Icon(Icons.child_care),
+            title: Text('Baby'),
           ),
         ],
         currentIndex: _selectedIndex,

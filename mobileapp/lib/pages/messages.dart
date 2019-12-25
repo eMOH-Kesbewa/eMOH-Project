@@ -20,8 +20,11 @@ class _MessagesState extends State<Messages> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: SingleChildScrollView(
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Clinic Schedule'),
+      ),
+      body: Container(
         child: FutureBuilder(
             future: fetchClinic(),
             builder: (context, snapshot) {
@@ -33,12 +36,10 @@ class _MessagesState extends State<Messages> {
               //loop variable is used to get the msg list length
               logger.i('future builder');
               // logger.w(snapshot.data);
-              
+
               int loop = snapshot.data.length;
               var clinics = markNewClinic();
               for (var i = 0; i < loop; i++) {
-
-                
                 Clinic clinic = Clinic(
                     date: snapshot.data[i]['date'],
                     discription: snapshot.data[i]['clinic_discription'],
@@ -92,12 +93,11 @@ class _MessagesState extends State<Messages> {
     //           //loop variable is used to get the msg list length
     //           logger.i('future builder');
     //           // logger.w(snapshot.data);
-              
+
     //           int loop = snapshot.data.length;
     //           var clinics = markNewClinic();
     //           for (var i = 0; i < loop; i++) {
 
-                
     //             Clinic clinic = Clinic(
     //                 date: snapshot.data[i]['date'],
     //                 discription: snapshot.data[i]['clinic_discription'],
@@ -135,12 +135,9 @@ class _MessagesState extends State<Messages> {
     //);
   }
 
-  Future markNewClinic()async{
+  Future markNewClinic() async {
     final prefs = await SharedPreferences.getInstance();
     final clinicListFromSP = prefs.getStringList('clinics');
     return clinicListFromSP;
   }
 }
-
-
-
