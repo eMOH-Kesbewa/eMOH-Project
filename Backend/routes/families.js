@@ -56,4 +56,37 @@ router.get('/viewbyid/:id', (req, res) => {
 
 });
 
+
+router.get('/searchbyid/:searchData', (req, res) => {
+    searchData = req.params.searchData;
+    console.log(searchData)
+    if (searchData == '0') {
+        ApprovedFamily.find((err, doc) => {
+            res.send(doc)
+        })
+    } else {
+        ApprovedFamily.find({
+            $or:[
+                    {
+                        Identity_number: new RegExp(searchData, 'i')
+                    },
+                    {
+                        Name_of_wife:new RegExp(searchData, 'i')
+                    }
+                ]
+        }, (err, doc) => {
+            if (doc.length) {
+                res.send(doc);
+                console.log(doc);
+            } else {
+                console.log('Cannot find the record');
+                res.send(doc);
+            }
+        });
+    }
+});
+
+
+
+
 module.exports = router;
