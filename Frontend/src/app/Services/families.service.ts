@@ -35,4 +35,9 @@ export class FamiliesService {
     return this.http.get<Family>(uri)
    }
 
+   searchfamilydataById(familyId){             //Selecting a record by familyId
+    let uri = `http://localhost:3000/families/searchbyid/${familyId}`;
+    return this.http.get<Family>(uri,{observe: 'response'})
+   }
+
 }
