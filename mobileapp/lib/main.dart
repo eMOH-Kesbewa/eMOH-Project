@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:logger/logger.dart';
+import 'package:mobileapp/pages/bottomNavigation.dart';
 import 'package:mobileapp/pages/familyProfile.dart';
 import 'package:mobileapp/pages/login.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -26,7 +27,7 @@ Future<void> main() async {
   //   getKeys('email');
   //   logger.i();
   // });
-  runApp(MaterialApp(home: email == null ? Login() : FamilyProfile()));
+  runApp(MaterialApp(home: email == null ? Login() : BottomNavigation()));
 }
 
 final ThemeData themeData = ThemeData(
@@ -41,6 +42,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: themeData,
       home: Login(),
+      
     );
   }
 }

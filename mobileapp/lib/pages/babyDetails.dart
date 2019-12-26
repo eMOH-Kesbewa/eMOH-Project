@@ -76,12 +76,13 @@ class _BabyDetailsState extends State<BabyDetails> {
               size: 70.0,
             ),
             SizedBox(
-              height: 20.0,
+              height: 0.0,
             ),
             Text(
               'Basic Information',
               style:
                   TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
+              textAlign: TextAlign.center,
             ),
           ],
         ),
@@ -107,12 +108,13 @@ class _BabyDetailsState extends State<BabyDetails> {
               size: 70.0,
             ),
             SizedBox(
-              height: 20.0,
+              height: 0.0,
             ),
             Text(
               'Protection of Baby',
               style:
                   TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
+              textAlign: TextAlign.center,
             ),
           ],
         ),
@@ -125,7 +127,7 @@ class _BabyDetailsState extends State<BabyDetails> {
     final eyeTestBtn = Material(
       elevation: .0,
       borderRadius: BorderRadius.circular(10.0),
-      
+
       color: Color(0xff8acb88),
       //color: Color(0xff593c8f),
       child: MaterialButton(
@@ -140,12 +142,13 @@ class _BabyDetailsState extends State<BabyDetails> {
               size: 70.0,
             ),
             SizedBox(
-              height: 20.0,
+              height: 0.0,
             ),
             Text(
               'Eye Test',
               style:
                   TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
+              textAlign: TextAlign.center,
             ),
           ],
         ),
@@ -171,12 +174,13 @@ class _BabyDetailsState extends State<BabyDetails> {
               size: 70.0,
             ),
             SizedBox(
-              height: 20.0,
+              height: 0.0,
             ),
             Text(
               'Hearing Test',
               style:
                   TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
+              textAlign: TextAlign.center,
             ),
           ],
         ),
@@ -202,7 +206,7 @@ class _BabyDetailsState extends State<BabyDetails> {
                 size: 70.0,
               ),
               SizedBox(
-                height: 15.0,
+                height: 0.0,
               ),
               Flexible(
                 child: Text(
@@ -211,6 +215,7 @@ class _BabyDetailsState extends State<BabyDetails> {
                   maxLines: 3,
                   style: TextStyle(
                       fontWeight: FontWeight.bold, color: Colors.white),
+                  textAlign: TextAlign.center,
                 ),
               ),
             ],
@@ -238,7 +243,7 @@ class _BabyDetailsState extends State<BabyDetails> {
                 size: 70.0,
               ),
               SizedBox(
-                height: 15.0,
+                height: 0.0,
               ),
               Flexible(
                 child: Text(
@@ -247,6 +252,7 @@ class _BabyDetailsState extends State<BabyDetails> {
                   maxLines: 3,
                   style: TextStyle(
                       fontWeight: FontWeight.bold, color: Colors.white),
+                  textAlign: TextAlign.center,
                 ),
               ),
             ],
@@ -274,7 +280,7 @@ class _BabyDetailsState extends State<BabyDetails> {
                 size: 70.0,
               ),
               SizedBox(
-                height: 15.0,
+                height: 0.0,
               ),
               Flexible(
                 child: Text(
@@ -283,6 +289,7 @@ class _BabyDetailsState extends State<BabyDetails> {
                   maxLines: 3,
                   style: TextStyle(
                       fontWeight: FontWeight.bold, color: Colors.white),
+                  textAlign: TextAlign.center,
                 ),
               ),
             ],
@@ -310,7 +317,7 @@ class _BabyDetailsState extends State<BabyDetails> {
                 size: 70.0,
               ),
               SizedBox(
-                height: 15.0,
+                height: 0.0,
               ),
               Flexible(
                 child: Text(
@@ -319,6 +326,7 @@ class _BabyDetailsState extends State<BabyDetails> {
                   maxLines: 3,
                   style: TextStyle(
                       fontWeight: FontWeight.bold, color: Colors.white),
+                  textAlign: TextAlign.center,
                 ),
               ),
             ],
@@ -346,7 +354,7 @@ class _BabyDetailsState extends State<BabyDetails> {
                 size: 70.0,
               ),
               SizedBox(
-                height: 15.0,
+                height: 0.0,
               ),
               Flexible(
                 child: Text(
@@ -355,6 +363,7 @@ class _BabyDetailsState extends State<BabyDetails> {
                   maxLines: 3,
                   style: TextStyle(
                       fontWeight: FontWeight.bold, color: Colors.white),
+                  textAlign: TextAlign.center,
                 ),
               ),
             ],
@@ -382,7 +391,7 @@ class _BabyDetailsState extends State<BabyDetails> {
                 size: 70.0,
               ),
               SizedBox(
-                height: 15.0,
+                height: 0.0,
               ),
               Flexible(
                 child: Text(
@@ -391,6 +400,7 @@ class _BabyDetailsState extends State<BabyDetails> {
                   maxLines: 3,
                   style: TextStyle(
                       fontWeight: FontWeight.bold, color: Colors.white),
+                  textAlign: TextAlign.center,
                 ),
               ),
             ],
@@ -402,7 +412,7 @@ class _BabyDetailsState extends State<BabyDetails> {
             MaterialPageRoute(builder: (context) => WormTreat()),
           ),
         ));
-        final childHealthbtn = Material(
+    final childHealthbtn = Material(
         elevation: .0,
         borderRadius: BorderRadius.circular(10.0),
         color: Color(0xffc3e989),
@@ -418,7 +428,7 @@ class _BabyDetailsState extends State<BabyDetails> {
                 size: 70.0,
               ),
               SizedBox(
-                height: 15.0,
+                height: 0.0,
               ),
               Flexible(
                 child: Text(
@@ -427,6 +437,7 @@ class _BabyDetailsState extends State<BabyDetails> {
                   maxLines: 3,
                   style: TextStyle(
                       fontWeight: FontWeight.bold, color: Colors.white),
+                  textAlign: TextAlign.center,
                 ),
               ),
             ],
@@ -438,10 +449,10 @@ class _BabyDetailsState extends State<BabyDetails> {
             MaterialPageRoute(builder: (context) => ChildHealthView()),
           ),
         ));
-        final doctorNotesbtn = Material(
+    final doctorNotesbtn = Material(
         elevation: 0.0,
-      borderRadius: BorderRadius.circular(10.0),
-      color: Color(0xffe87554),
+        borderRadius: BorderRadius.circular(10.0),
+        color: Color(0xffe87554),
         child: MaterialButton(
           child: Column(
             children: <Widget>[
@@ -454,7 +465,7 @@ class _BabyDetailsState extends State<BabyDetails> {
                 size: 70.0,
               ),
               SizedBox(
-                height: 15.0,
+                height: 0.0,
               ),
               Flexible(
                 child: Text(
@@ -463,6 +474,7 @@ class _BabyDetailsState extends State<BabyDetails> {
                   maxLines: 3,
                   style: TextStyle(
                       fontWeight: FontWeight.bold, color: Colors.white),
+                  textAlign: TextAlign.center,
                 ),
               ),
             ],
@@ -474,7 +486,7 @@ class _BabyDetailsState extends State<BabyDetails> {
             MaterialPageRoute(builder: (context) => DoctorNotes()),
           ),
         ));
-        final teethbtn = Material(
+    final teethbtn = Material(
         elevation: .0,
         borderRadius: BorderRadius.circular(10.0),
         color: Color(0xffe0e0ce),
@@ -490,7 +502,7 @@ class _BabyDetailsState extends State<BabyDetails> {
                 size: 70.0,
               ),
               SizedBox(
-                height: 15.0,
+                height: 0.0,
               ),
               Flexible(
                 child: Text(
@@ -499,6 +511,7 @@ class _BabyDetailsState extends State<BabyDetails> {
                   maxLines: 3,
                   style: TextStyle(
                       fontWeight: FontWeight.bold, color: Colors.white),
+                  textAlign: TextAlign.center,
                 ),
               ),
             ],
@@ -510,7 +523,7 @@ class _BabyDetailsState extends State<BabyDetails> {
             MaterialPageRoute(builder: (context) => Teeth()),
           ),
         ));
-        final chartbtn = Material(
+    final chartbtn = Material(
         elevation: 0.0,
         borderRadius: BorderRadius.circular(10.0),
         color: Color(0xff7c606b),
@@ -526,7 +539,7 @@ class _BabyDetailsState extends State<BabyDetails> {
                 size: 70.0,
               ),
               SizedBox(
-                height: 15.0,
+                height: 0.0,
               ),
               Flexible(
                 child: Text(
@@ -535,6 +548,7 @@ class _BabyDetailsState extends State<BabyDetails> {
                   maxLines: 3,
                   style: TextStyle(
                       fontWeight: FontWeight.bold, color: Colors.white),
+                  textAlign: TextAlign.center,
                 ),
               ),
             ],
@@ -546,6 +560,7 @@ class _BabyDetailsState extends State<BabyDetails> {
             MaterialPageRoute(builder: (context) => Chart()),
           ),
         ));
+
     return Scaffold(
       appBar: AppBar(
         title: Text('Babies'),
@@ -556,36 +571,81 @@ class _BabyDetailsState extends State<BabyDetails> {
           ),
         ],
       ),
-      body: CustomScrollView(
-        primary: false,
-        slivers: <Widget>[
-          SliverPadding(
-            padding: const EdgeInsets.all(20),
-            sliver: SliverGrid.count(
-              crossAxisSpacing: 10,
-              mainAxisSpacing: 10,
-              crossAxisCount: 2,
-              children: <Widget>[
-                basicInfoBtn,
-                protectionBtn,
-                eyeTestBtn,
-                hearTestBtn,
-                untilFiveYearsBtn,
-                helthChartbtn,
-                immunizationbtn,
-                immunizationRefbtn,
-                vitaminAbtn,
-                wormbtn,
-                childHealthbtn,
-                doctorNotesbtn,
-                teethbtn,
-                chartbtn,
-              ],
-            ),
+      body: Container(
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(8, 10, 8, 0),
+          child: CustomScrollView(
+            primary: false,
+            slivers: <Widget>[
+              SliverPadding(
+                padding: const EdgeInsets.all(20),
+                sliver: SliverGrid.count(
+                  crossAxisSpacing: 10,
+                  mainAxisSpacing: 10,
+                  crossAxisCount: 2,
+                  children: <Widget>[
+                    basicInfoBtn,
+                    protectionBtn,
+                    eyeTestBtn,
+                    hearTestBtn,
+                    untilFiveYearsBtn,
+                    helthChartbtn,
+                    immunizationbtn,
+                    immunizationRefbtn,
+                    vitaminAbtn,
+                    wormbtn,
+                    childHealthbtn,
+                    doctorNotesbtn,
+                    teethbtn,
+                    chartbtn,
+                  ],
+                ),
+              ),
+            ],
           ),
-        ],
+        ),
       ),
-      bottomNavigationBar: BottomNavigation(),
     );
+    // return Scaffold(
+    //   appBar: AppBar(
+    //     title: Text('Babies'),
+    //     actions: <Widget>[
+    //       Padding(
+    //         padding: EdgeInsets.fromLTRB(5, 5, 15, 5),
+    //         child: selectBaby,
+    //       ),
+    //     ],
+    //   ),
+    //   body: CustomScrollView(
+    //     primary: false,
+    //     slivers: <Widget>[
+    //       SliverPadding(
+    //         padding: const EdgeInsets.all(20),
+    //         sliver: SliverGrid.count(
+    //           crossAxisSpacing: 10,
+    //           mainAxisSpacing: 10,
+    //           crossAxisCount: 2,
+    //           children: <Widget>[
+    //             basicInfoBtn,
+    //             protectionBtn,
+    //             eyeTestBtn,
+    //             hearTestBtn,
+    //             untilFiveYearsBtn,
+    //             helthChartbtn,
+    //             immunizationbtn,
+    //             immunizationRefbtn,
+    //             vitaminAbtn,
+    //             wormbtn,
+    //             childHealthbtn,
+    //             doctorNotesbtn,
+    //             teethbtn,
+    //             chartbtn,
+    //           ],
+    //         ),
+    //       ),
+    //     ],
+    //   ),
+    // bottomNavigationBar: BottomNavigation(),
+    //);
   }
 }
