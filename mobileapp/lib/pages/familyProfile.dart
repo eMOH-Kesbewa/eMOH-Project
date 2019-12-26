@@ -54,93 +54,163 @@ class _FamilyProfileState extends State<FamilyProfile> {
             boxShadow: [BoxShadow(blurRadius: 7.0, color: Colors.black)]));
 
     Future family = fetchFamily();
-
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Family Profile'),
-       // backgroundColor: Color(0xffb30089),
-        actions: <Widget>[
-          IconButton(
-            icon: Icon(
-              Icons.settings,
-              color: Colors.white,
-            ),
-            onPressed: () async {
-              SharedPreferences prefs = await SharedPreferences.getInstance();
-              prefs.remove('email');
-              Navigator.pushReplacement(context,
-                  MaterialPageRoute(builder: (BuildContext ctx) => Login()));
+      appBar: AppBar(title: Text('Family Profile'),),
+          body: Container(
+        child: Center(
+          child: FutureBuilder<Family>(
+            future: family,
+            builder: (context, snapshot) {
+              print(snapshot);
+              if (snapshot.hasData) {
+                return SingleChildScrollView(
+                  child: Column(
+                    children: <Widget>[
+                      SizedBox(
+                        height: 20.0,
+                      ),
+                      Center(
+                        child: profilePic,
+                      ),
+                      SizedBox(
+                        height: 20.0,
+                      ),
+                      Card(
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: <Widget>[
+                            ListTile(
+                              leading: Icon(Icons.perm_identity),
+                              title: Text('Identity Number'),
+                              subtitle: Text(snapshot.data.idNumber),
+                            ),
+                            div,
+                            ListTile(
+                              leading: Icon(Icons.home),
+                              title: Text('Village ID'),
+                              subtitle: Text(snapshot.data.vilID),
+                            ),
+                            div,
+                            ListTile(
+                              leading: Icon(Icons.ac_unit),
+                              title: Text('Wife Name'),
+                              subtitle: Text(snapshot.data.wifeName),
+                            ),
+                            div,
+                            ListTile(
+                              leading: Icon(Icons.ac_unit),
+                              title: Text('Husband Name'),
+                              subtitle: Text(snapshot.data.husbandName),
+                            ),
+                            div,
+                            ListTile(
+                              leading: Icon(Icons.child_friendly),
+                              title: Text('Number of Children'),
+                              subtitle: Text(snapshot.data.childrenCount),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ); //Text(snapshot.data.childrenCount);
+              } else if (snapshot.hasError) {
+                return Text("${snapshot.error}");
+              }
+
+              // By default, show a loading spinner.
+              return CircularProgressIndicator();
             },
           ),
-        ],
-      ),
-      body: Center(
-        child: FutureBuilder<Family>(
-          future: family,
-          builder: (context, snapshot) {
-            print(snapshot);
-            if (snapshot.hasData) {
-              return SingleChildScrollView(
-                child: Column(
-                  children: <Widget>[
-                    SizedBox(
-                      height: 20.0,
-                    ),
-                    Center(
-                      child: profilePic,
-                    ),
-                    SizedBox(
-                      height: 20.0,
-                    ),
-                    Card(
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        children: <Widget>[
-                          ListTile(
-                            leading: Icon(Icons.perm_identity),
-                            title: Text('Identity Number'),
-                            subtitle: Text(snapshot.data.idNumber),
-                          ),
-                          div,
-                          ListTile(
-                            leading: Icon(Icons.home),
-                            title: Text('Village ID'),
-                            subtitle: Text(snapshot.data.vilID),
-                          ),
-                          div,
-                          ListTile(
-                            leading: Icon(Icons.ac_unit),
-                            title: Text('Wife Name'),
-                            subtitle: Text(snapshot.data.wifeName),
-                          ),
-                          div,
-                          ListTile(
-                            leading: Icon(Icons.ac_unit),
-                            title: Text('Husband Name'),
-                            subtitle: Text(snapshot.data.husbandName),
-                          ),
-                          div,
-                          ListTile(
-                            leading: Icon(Icons.child_friendly),
-                            title: Text('Number of Children'),
-                            subtitle: Text(snapshot.data.childrenCount),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-              ); //Text(snapshot.data.childrenCount);
-            } else if (snapshot.hasError) {
-              return Text("${snapshot.error}");
-            }
-
-            // By default, show a loading spinner.
-            return CircularProgressIndicator();
-          },
         ),
       ),
-      bottomNavigationBar: BottomNavigation(),
     );
+    // return Scaffold(
+    //   appBar: AppBar(
+    //     title: Text('Family Profile'),
+    //    // backgroundColor: Color(0xffb30089),
+    //     actions: <Widget>[
+    //       IconButton(
+    //         icon: Icon(
+    //           Icons.settings,
+    //           color: Colors.white,
+    //         ),
+    //         onPressed: () async {
+    //           SharedPreferences prefs = await SharedPreferences.getInstance();
+    //           prefs.remove('email');
+    //           Navigator.pushReplacement(context,
+    //               MaterialPageRoute(builder: (BuildContext ctx) => Login()));
+    //         },
+    //       ),
+    //     ],
+    //   ),
+    //   body: Center(
+    //     child: FutureBuilder<Family>(
+    //       future: family,
+    //       builder: (context, snapshot) {
+    //         print(snapshot);
+    //         if (snapshot.hasData) {
+    //           return SingleChildScrollView(
+    //             child: Column(
+    //               children: <Widget>[
+    //                 SizedBox(
+    //                   height: 20.0,
+    //                 ),
+    //                 Center(
+    //                   child: profilePic,
+    //                 ),
+    //                 SizedBox(
+    //                   height: 20.0,
+    //                 ),
+    //                 Card(
+    //                   child: Column(
+    //                     mainAxisSize: MainAxisSize.min,
+    //                     children: <Widget>[
+    //                       ListTile(
+    //                         leading: Icon(Icons.perm_identity),
+    //                         title: Text('Identity Number'),
+    //                         subtitle: Text(snapshot.data.idNumber),
+    //                       ),
+    //                       div,
+    //                       ListTile(
+    //                         leading: Icon(Icons.home),
+    //                         title: Text('Village ID'),
+    //                         subtitle: Text(snapshot.data.vilID),
+    //                       ),
+    //                       div,
+    //                       ListTile(
+    //                         leading: Icon(Icons.ac_unit),
+    //                         title: Text('Wife Name'),
+    //                         subtitle: Text(snapshot.data.wifeName),
+    //                       ),
+    //                       div,
+    //                       ListTile(
+    //                         leading: Icon(Icons.ac_unit),
+    //                         title: Text('Husband Name'),
+    //                         subtitle: Text(snapshot.data.husbandName),
+    //                       ),
+    //                       div,
+    //                       ListTile(
+    //                         leading: Icon(Icons.child_friendly),
+    //                         title: Text('Number of Children'),
+    //                         subtitle: Text(snapshot.data.childrenCount),
+    //                       ),
+    //                     ],
+    //                   ),
+    //                 ),
+    //               ],
+    //             ),
+    //           ); //Text(snapshot.data.childrenCount);
+    //         } else if (snapshot.hasError) {
+    //           return Text("${snapshot.error}");
+    //         }
+
+    //         // By default, show a loading spinner.
+    //         return CircularProgressIndicator();
+    //       },
+    //     ),
+    //   ),
+      //bottomNavigationBar: BottomNavigation(),
+    //);
   }
 }

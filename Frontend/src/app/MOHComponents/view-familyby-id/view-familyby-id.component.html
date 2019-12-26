@@ -11,12 +11,19 @@
         <div class="col-md-12">
           
             <div class="card">
-                <div class="card-header card-header-info">
-                    <h4 class="card-title">Add approved families</h4>
-                    <p class="card-category">Complete profile</p>
-                </div>
+               <h3>Update Eligible Familes</h3>
                 <div class="card-body">
                     <form [formGroup]="approvedFamilyForm" [hidden]="success" (ngSubmit)="onSubmit()">
+                      <mat-accordion>
+                        <mat-expansion-panel>
+                          <mat-expansion-panel-header>
+                            <mat-panel-title>
+                              <h5>Family Details</h5>
+                            </mat-panel-title>
+                            <mat-panel-description>
+                              Click to View/Edit
+                            </mat-panel-description>
+                          </mat-expansion-panel-header>
                         <div class="row">
                             <div class="col-md-3">
                                 <mat-form-field class="example-full-width">
@@ -90,7 +97,17 @@
                           </mat-form-field>
                         </div>
                       </div>
-                      <h5>Pregnancy details</h5>
+                        </mat-expansion-panel>
+                      
+                        <mat-expansion-panel>
+                          <mat-expansion-panel-header>
+                            <mat-panel-title>
+                              <h5>Pregnancy Details</h5>
+                            </mat-panel-title>
+                            <mat-panel-description>
+                              Click to View/Edit
+                            </mat-panel-description>
+                          </mat-expansion-panel-header>
                       <h5>  Pregnancy</h5>
                       <div class="row">
                           <div class="col-md-2">
@@ -147,8 +164,20 @@
                               </mat-form-field>
                           </div>
                       </div>
-                      <h5>Family planing methods</h5>
-                      <h5>Frist</h5>
+                      </mat-expansion-panel>
+                      
+                      
+                     
+                        <mat-expansion-panel>
+                          <mat-expansion-panel-header>
+                            <mat-panel-title>
+                              <h5>Family planing methods</h5>
+                            </mat-panel-title>
+                            <mat-panel-description>
+                              Click to View/Edit
+                            </mat-panel-description>
+                          </mat-expansion-panel-header>
+                      <h5>First</h5>
                       <div class="row">
                         <div class="col-md-5">
                           <mat-form-field class="example-full-width">
@@ -161,6 +190,7 @@
                         </mat-form-field>
                     </div>
                       </div>
+                    
 
                       <h5>Second</h5>
                       <div class="row">
@@ -203,6 +233,17 @@
                         </mat-form-field>
                     </div>
                       </div>
+                    </mat-expansion-panel>
+                  
+                  <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                      <mat-panel-title>
+                        <h5>Other Details</h5>
+                      </mat-panel-title>
+                      <mat-panel-description>
+                        Click to View/Edit
+                      </mat-panel-description>
+                    </mat-expansion-panel-header>
                       <div class="row">
                           <div class="col-md-2">
                               <mat-form-field class="example-full-width">
@@ -225,6 +266,8 @@
                               </mat-form-field>
                           </div>
                       </div>
+                      </mat-expansion-panel>  
+                      </mat-accordion>
                       <div *ngIf="onHidden()">
                         <input type="submit" value="Submit details" class="btn btn-danger pull-right">
                       </div>
