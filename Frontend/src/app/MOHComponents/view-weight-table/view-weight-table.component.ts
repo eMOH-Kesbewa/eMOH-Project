@@ -13,6 +13,7 @@ export class ViewWeightTableComponent implements OnInit {
   constructor(private weightService: WeightService, private router: Router) { }
 
   weights: Weight;
+  showTable : Boolean = false;
 
   ngOnInit() {
     this.weightService.getdata().subscribe(data=> this.weights=data);
@@ -21,4 +22,20 @@ export class ViewWeightTableComponent implements OnInit {
   onClickMe(babyID){
     this.router.navigate([this.router.url,'viewWeightbyId',babyID])
   }
+
+  onKey(event: any){
+    console.log(event.target.value)
+    this.weightService.searchweightdataById(event.target.value).subscribe(
+      data=>{
+        
+        this.weights = data.body;
+        if(!event.target.value){
+          this.showTable = false
+          
+        }else{
+          this.showTable = true;
+        }
+      }
+    )
+}
 }

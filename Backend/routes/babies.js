@@ -197,6 +197,67 @@ router.put('/update/heightweight', async (req, res) => {
 
 });
 
+//search motherbabyjoined data by id or name
+router.get('/searchbyid/:searchData', (req, res) => {
+    searchData = req.params.searchData;
+    console.log(searchData)
+    if (searchData == '0') {
+        motherbabyjoined.find((err, doc) => {
+            res.send(doc)
+        })
+    } else {
+        motherbabyjoined.find({
+            $or:[
+                    {
+                        mother_id: new RegExp(searchData, 'i')
+                    },
+                    {
+                        child_name:new RegExp(searchData, 'i')
+                    },
+                    {
+                        mothers_name:new RegExp(searchData, 'i')
+                    }
+                ]
+        }, (err, doc) => {
+            if (doc.length) {
+                res.send(doc);
+                console.log(doc);
+            } else {
+                console.log('Cannot find the record');
+                res.send(doc);
+            }
+        });
+    }
+});
+
+router.get('/searchweightbyid/:searchData', (req, res) => {
+    searchData = req.params.searchData;
+    console.log(searchData)
+    if (searchData == '0') {
+        weight_height.find((err, doc) => {
+            res.send(doc)
+        })
+    } else {
+        weight_height.find({
+            $or:[
+                    {
+                        baby_id: new RegExp(searchData, 'i')
+                    },
+                    {
+                        name_of_child:new RegExp(searchData, 'i')
+                    }
+                ]
+        }, (err, doc) => {
+            if (doc.length) {
+                res.send(doc);
+                console.log(doc);
+            } else {
+                console.log('Cannot find the record');
+                res.send(doc);
+            }
+        });
+    }
+});
 
 
 module.exports = router;
