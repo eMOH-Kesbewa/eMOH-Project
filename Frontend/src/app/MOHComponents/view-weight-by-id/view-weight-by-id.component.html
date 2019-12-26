@@ -25,15 +25,8 @@
                                   </div>
                               </mat-form-field>
                         </div>
-                        <div class="col-md-3">
-                            <mat-form-field class="example-full-width">
-                                <input matInput placeholder="Batch No" type="text" readonly="{{onChange()}}" formControlName="batch_no">
-                                <div *ngIf="submitted && WeightHeightForm.controls.batch_no.errors" class="error">
-                                    <div *ngIf="WeightHeightForm.controls.batch_no.errors.required">This field is required</div>
-                                  </div>
-                              </mat-form-field>
-                        </div>
-                        <div class="col-md-6">
+                    
+                        <div class="col-md-4">
                             <mat-form-field class="example-full-width">
                                 <input matInput placeholder="Name Of Child" type="text" readonly="{{onChange()}}" formControlName="name_of_child">
                                 <div *ngIf="submitted && WeightHeightForm.controls.name_of_child.errors" class="error">
@@ -41,7 +34,24 @@
                                   </div>
                               </mat-form-field>
                         </div>
+                        <div class="col-md-4">
+                            <mat-form-field class="example-full-width">
+                                <input matInput placeholder="Sex" type="text" readonly="{{onChange()}}" formControlName="sex">
+                                <div *ngIf="submitted && WeightHeightForm.controls.sex.errors" class="error">
+                                    <div *ngIf="WeightHeightForm.controls.sex.errors.required">This field is required</div>
+                                  </div>
+                              </mat-form-field>
+                          </div>
                       </div>
+                      <mat-expansion-panel>
+                        <mat-expansion-panel-header>
+                          <mat-panel-title>
+                            <h5>Birth Details</h5>
+                          </mat-panel-title>
+                          <mat-panel-description>
+                            Click to View/Edit
+                          </mat-panel-description>
+                        </mat-expansion-panel-header>
                       <div class="row">
                         <div class="col-md-4">
                             <mat-form-field class="example-full-width">
@@ -51,15 +61,15 @@
                                   </div>
                               </mat-form-field>
                         </div>
-                        <div class="col-md-4">
-                          <mat-form-field class="example-full-width">
-                              <input matInput placeholder="Sex" type="text" readonly="{{onChange()}}" formControlName="sex">
-                              <div *ngIf="submitted && WeightHeightForm.controls.sex.errors" class="error">
-                                  <div *ngIf="WeightHeightForm.controls.sex.errors.required">This field is required</div>
-                                </div>
-                            </mat-form-field>
-                        </div>
                         
+                        <div class="col-md-3">
+                            <mat-form-field class="example-full-width">
+                                <input matInput placeholder="Batch No" type="text" readonly="{{onChange()}}" formControlName="batch_no">
+                                <div *ngIf="submitted && WeightHeightForm.controls.batch_no.errors" class="error">
+                                    <div *ngIf="WeightHeightForm.controls.batch_no.errors.required">This field is required</div>
+                                  </div>
+                              </mat-form-field>
+                        </div>
                       </div>
                      
                       <div class="row">
@@ -87,10 +97,19 @@
                           </mat-form-field>
                         </div>
                       </div>
-                     
+                      </mat-expansion-panel>
+                      <mat-expansion-panel>
+                        <mat-expansion-panel-header>
+                          <mat-panel-title>
+                            <h5>Weight Table</h5>
+                          </mat-panel-title>
+                          <mat-panel-description>
+                            Click to View/Edit
+                          </mat-panel-description>
+                        </mat-expansion-panel-header>
                       <div class="wight_field">
                           <!--start field-->
-                          <h3>Weight Table</h3>
+                          
                           <div class="row">
                               <div class="col-md-2"></div>
                               <div class="col-md-2">First Year</div>
@@ -441,9 +460,19 @@
                           </div>
                           <!--end field-->
                       </div>
+                      </mat-expansion-panel>
+                      <mat-expansion-panel>
+                        <mat-expansion-panel-header>
+                          <mat-panel-title>
+                            <h5>Height Table</h5>
+                          </mat-panel-title>
+                          <mat-panel-description>
+                            Click to View/Edit
+                          </mat-panel-description>
+                        </mat-expansion-panel-header>
                       <div class="height_field">
                           <!--start height field-->
-                          <h3>Height Table</h3>
+                          
                           <div class="row">
                               <div class="col-md-2"></div>
                               <div class="col-md-2">First Year</div>
@@ -513,6 +542,7 @@
                           </div>
                           <!--end height field-->
                       </div>
+                      </mat-expansion-panel>
                       <div *ngIf="onHidden()">
                           <input type="submit" value="Update" class="btn btn-info pull-right">
                       </div>

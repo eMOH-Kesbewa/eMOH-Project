@@ -14,7 +14,7 @@ class _motherDetailsState extends State<motherDetails> {
         title: Text('Mother Details'),
         backgroundColor: Color(0xfffd96a9),
       ),
-      bottomNavigationBar: BottomNavigation(),
+     // bottomNavigationBar: BottomNavigation(),
     );
   }
 }
