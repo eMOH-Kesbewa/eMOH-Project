@@ -22,11 +22,12 @@ import { WeightHeightGraphbyIdComponent } from "app/Graphs/weight-height-graphby
 import { ViewWeightTableComponent } from "./view-weight-table.component";
 import { AddWeightHeightComponent } from "../add-weight-height/add-weight-height.component";
 import { ViewWeightByIdComponent } from "../view-weight-by-id/view-weight-by-id.component";
+import { PhmDailyReportsComponent } from "../phm-daily-reports/phm-daily-reports.component";
 
 
 
 @NgModule({
-    declarations:[ViewWeightTableComponent,AddWeightHeightComponent,ViewWeightByIdComponent,WeightHeightGraphbyIdComponent],
+    declarations:[ViewWeightTableComponent,AddWeightHeightComponent,ViewWeightByIdComponent,WeightHeightGraphbyIdComponent,PhmDailyReportsComponent],
     imports:[
         WeightHeightsR,
         CommonModule,
