@@ -34,7 +34,8 @@ dependencies:
   sqflite: any
   path_provider: any
   intl: any
-  
+  image_picker: any
+  image: ^2.1.10
 
 dev_dependencies:
   flutter_test:
