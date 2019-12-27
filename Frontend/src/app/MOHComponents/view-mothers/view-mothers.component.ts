@@ -13,6 +13,7 @@ export class ViewMothersComponent implements OnInit {
   constructor(private motherService: MotherService, private router: Router) { }
 
   mother: Mother;
+  showTable : Boolean = false;
 
   ngOnInit() {
     this.motherService.getdata().subscribe(data=> this.mother=data);
@@ -23,5 +24,21 @@ export class ViewMothersComponent implements OnInit {
     console.log(this.router.url);
     this.router.navigate([this.router.url,'viewMotherbyId',motherID])
   }
+
+  onKey(event: any){
+    console.log(event.target.value)
+    this.motherService.searchmotherdataById(event.target.value).subscribe(
+      data=>{
+        
+        this.mother = data.body;
+        if(!event.target.value){
+          this.showTable = false
+          
+        }else{
+          this.showTable = true;
+        }
+      }
+    )
+}
 
 }

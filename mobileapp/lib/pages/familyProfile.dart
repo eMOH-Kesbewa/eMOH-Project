@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
+import 'package:mobileapp/pages/Settings.dart';
 import 'package:mobileapp/pages/babyInfo/babyBasicInfo.dart';
 import 'package:mobileapp/pages/babyDetails.dart';
 import 'package:mobileapp/pages/bottomNavigation.dart';
@@ -10,8 +11,6 @@ import 'package:mobileapp/pages/motherDetails.dart';
 import 'package:mobileapp/services/familyProflieServices.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../services/globals.dart' as globals;
-
-
 
 class FamilyProfile extends StatefulWidget {
   //FamilyProfile(Future<Family> fetchFamily);
@@ -55,8 +54,22 @@ class _FamilyProfileState extends State<FamilyProfile> {
 
     Future family = fetchFamily();
     return Scaffold(
-      appBar: AppBar(title: Text('Family Profile'),),
-          body: Container(
+      appBar: AppBar(
+        title: Text('Family Profile'),
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(Icons.settings),
+            onPressed: () => Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => Settings()),
+            ),
+          ),
+          IconButton(
+            icon: Icon(Icons.undo),
+          )
+        ],
+      ),
+      body: Container(
         child: Center(
           child: FutureBuilder<Family>(
             future: family,
@@ -210,7 +223,7 @@ class _FamilyProfileState extends State<FamilyProfile> {
     //       },
     //     ),
     //   ),
-      //bottomNavigationBar: BottomNavigation(),
+    //bottomNavigationBar: BottomNavigation(),
     //);
   }
 }

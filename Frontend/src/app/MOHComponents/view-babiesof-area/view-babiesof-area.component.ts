@@ -13,7 +13,7 @@ export class ViewBabiesofAreaComponent implements OnInit {
   constructor(private motherbabyjoinedservice : MotherbabyjoinedService,private router: Router) { }
 
   motherbabyjoineddatas : motherbabyjoined;
-  
+  showTable : Boolean = false;
   
   ngOnInit() {
     this.motherbabyjoinedservice.getMotherBabyJoinedData().subscribe(data => this.motherbabyjoineddatas = data);
@@ -23,5 +23,21 @@ export class ViewBabiesofAreaComponent implements OnInit {
     //console.log(babyId);
     this.router.navigate([this.router.url,'ViewMotherBabybyID',babyId])
   }
+
+  onKey(event: any){
+    console.log(event.target.value)
+    this.motherbabyjoinedservice.searchbabydataById(event.target.value).subscribe(
+      data=>{
+        
+        this.motherbabyjoineddatas = data.body;
+        if(!event.target.value){
+          this.showTable = false
+          
+        }else{
+          this.showTable = true;
+        }
+      }
+    )
+}
 
 }

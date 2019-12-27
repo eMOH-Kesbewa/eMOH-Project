@@ -166,5 +166,39 @@ router.put('/update/:id', function(req, res, next) {
     });
  });
 
+ //search by mother nic, id or name
+ router.get('/searchbyid/:searchData', (req, res) => {
+    searchData = req.params.searchData;
+    console.log(searchData)
+    if (searchData == '0') {
+        Mother.find((err, doc) => {
+            res.send(doc)
+        })
+    } else {
+        Mother.find({
+            $or:[
+                    {
+                        mother_id: new RegExp(searchData, 'i')
+                    },
+                    {
+                        registration_no:new RegExp(searchData, 'i')
+                    },
+                    {
+                        mothers_name:new RegExp(searchData, 'i')
+                    }
+                ]
+        }, (err, doc) => {
+            if (doc.length) {
+                res.send(doc);
+                console.log(doc);
+            } else {
+                console.log('Cannot find the record');
+                res.send(doc);
+            }
+        });
+    }
+});
+
+
 
 module.exports = router;

@@ -4,6 +4,7 @@ import { ViewWeightTableComponent } from './view-weight-table.component';
 import { AddWeightHeightComponent } from '../add-weight-height/add-weight-height.component';
 import { ViewWeightByIdComponent } from '../view-weight-by-id/view-weight-by-id.component';
 import { WeightHeightGraphbyIdComponent } from 'app/Graphs/weight-height-graphby-id/weight-height-graphby-id.component';
+import { PhmDailyReportsComponent } from '../phm-daily-reports/phm-daily-reports.component';
 
 
 
@@ -23,6 +24,10 @@ export const WeightHeightRoutes: Routes = [
             {
                 path:'WeightHeightGraph/:babyID',
                 component:  WeightHeightGraphbyIdComponent
+            },
+            {
+                path:'phmReports',
+                component:  PhmDailyReportsComponent
             }
 
 
