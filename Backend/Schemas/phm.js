@@ -22,7 +22,7 @@ var phm = new Schema({
     "No_of_new_registered_family":Number,
     "No_of_removed_family_from_form":Number,
     "No_of_house_walking":Number,
-    "No_of_new_married_couple":Number,
+    //"No_of_new_married_couple":Number,
 
     // 02. Mother protections
 
