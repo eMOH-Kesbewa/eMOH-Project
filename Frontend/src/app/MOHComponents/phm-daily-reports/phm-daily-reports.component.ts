@@ -108,6 +108,103 @@ export class PhmDailyReportsComponent implements OnInit {
       No_of_mothers_for_dental_treatement:[''],
       No_of_mothers_identify_dental_problems:[''],
       
+      // 04. MOTHER PROTECTIONS
+
+      No_of_mothers_identify_health_problems_pregnancy_time:[''],
+      Blood_presure_before:[''],
+      Blood_presure_prgnancy:[''],
+      Sugar_before:[''],
+      Sugar_pregnancy:[''],
+      Nirakthiya:[''],
+      Rakthapathya:[''],
+      Aduma:[''],
+      Heart_diseases:[''],
+      Akma_diseases:[''],
+      Mental_problems:[''],
+      Sexual_problems:[''],
+      Thairoid_diseases:[''],
+      Urinary_tract_infections:[''],
+      Other:[''],
+
+      // 05. RESULT OF PREGNANCY
+      No_of_live_birth_first_permamnt:[''],
+      No_of_live_birth_second_permamnt:[''],
+      no_of_live_birth_notpermamnt:[''],
+
+      // FOUR PAGE
+
+      More_than_two_kg_first_one_birth:[''],
+      More_than_two_kg_second_one_birth:[''],
+      less_than_two_kg_first_one_birth:[''],
+      Less_than_two_kg_second_one_birth:[''],
+      More_than_two_kg_first_more_birth:[''],
+      More_than_two_kg_second_more_birth:[''],
+      less_than_two_kg_first_more_birth:[''],
+      Less_than_two_kg_second_more_birth:[''],
+      More_than_two_kg_one_birth:[''],
+      less_than_two_kg_one_birth:[''],
+      More_than_two_kg_more_birth:[''],
+      less_than_two_kg_more_birth:[''],
+      No_of_abortions:[''],
+      No_of_death_birth:[''],
+      No_of_mother_death:[''],
+
+      // 06. AFTER DELIVERY
+      No_of_after_dekivary_mothers:[''],
+      New_first_five_days:[''],
+      Old_first_five_days:[''],
+      New_between_six_ten_days:[''],
+      Old_between_six_ten_days:[''],
+      Between_elevn_thirteen_days:[''],
+      New_between_fouteen_twentyone_days:[''],
+      Old_between_fouteen_twentyone_days:[''],
+      Near_fourtytwo_days:[''],
+      no_of_after_delivery_mothers_get_vitamine_A:[''],
+      No_of_mothers_have_after_delivery_problems:[''],
+
+      Hemorrhagic:[''],
+      diseses_reproductivE_system:[''],
+      Urinary_tract:[''],
+      Vitapiya_infection:[''],
+      Vitapiya_broken:[''],
+      Vaginal_infection:[''],
+      Sesariyan_cut:[''],
+      Mental_problem_after:[''],
+      Depression:[''],
+      Nipples_erruptions:[''],
+      milk_tightning_breat:[''],
+
+      // FIVE PAGE
+      Breast_infection:[''],
+      High_blood_presure:[''],
+      Heart:[''],
+      Blood_sugar:[''],
+      
+      // 07.CHILD PROTECTION
+      No_of_child:[''],
+      No_of_registered_child:[''],
+      No_of_removed_child:[''],
+      New_house_walking_after_fourtytwo_days:[''],
+      Old_house_walking_after_fourtytwo_days:[''],
+      Join_to_the_clinic_first_month:[''],
+      Join_to_the_clinic_after_month:[''],
+      Join_to_the_clinic_old:[''],
+      No_of_child_measured_weight_at_clinic:[''],
+      No_of_child_measured_weight_at_weight_clinic:[''],
+      Low_weight_child:[''],
+      More_low_weight_child:[''],
+      High_weight_child:[''],
+      give_vitamine_A_six_month:[''],
+      give_vitamine_A_twelve_month:[''],
+      No_of_child_death_between_one_seven_days:[''],
+      No_of_child_death_between_eight_twentyeight_days:[''],
+      No_of_child_death_at_birth:[''],
+      Total_child_death:[''],
+      Nishpuranaya:[''],
+      New_infections:[''],
+      Birth_infections:[''],
+      Premature:[''],
+      Other_num:['']
     });
   }
 

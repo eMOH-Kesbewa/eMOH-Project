@@ -134,6 +134,7 @@ var phm = new Schema({
     "More_than_two_kg_second_more_birth":Number,
     "less_than_two_kg_first_more_birth":Number,
     "Less_than_two_kg_second_more_birth":Number,
+
     "More_than_two_kg_one_birth":Number,
     "less_than_two_kg_one_birth":Number,
     "More_than_two_kg_more_birth":Number,
@@ -172,8 +173,12 @@ var phm = new Schema({
     "High_blood_presure":Number,
     "Heart":Number,
     "Blood_sugar":Number,
-    "Other_detial":String,
-    "Other_no":Number,
+    // "Other_detial1":String,
+    // "Other1_no":Number,
+    // "Other_detial2":String,
+    // "Other2_no":Number,
+    // "Other_detial3":String,
+    // "Other3_no":Number,
 
     // 07.CHILD PROTECTION
     "No_of_child":Number,
@@ -199,7 +204,6 @@ var phm = new Schema({
     "New_infections":Number,
     "Birth_infections":Number,
     "Premature":Number,
-    "Other_info":String,
     "Other_num":Number,
 
     // 08.  Year 1-5 CHILD PROTECTION
