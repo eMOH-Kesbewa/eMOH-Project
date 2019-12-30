@@ -1,7 +1,8 @@
 const mongoose = require('mongoose');
 var Schema = mongoose.Schema;
-var phm = new Schema({
+var Phms = new Schema({
 
+    
     // 1 st page
     "MOH_division": String,
     "date_of_today" : Date,
@@ -245,7 +246,6 @@ var phm = new Schema({
     "Infections":Number,
     "Diarrhea":Number,
     "Respiratory":Number,
-    "Other_inform":String,
     "Other_numb":Number,
     "No_of_aefi_child":Number,
 
@@ -316,8 +316,8 @@ var phm = new Schema({
     "Fail_family_plan_one":Number,
     "Fail_family_plan_two_detai":String,
     "Fail_family_plan_two":Number,
-    "Fail_family_plan_three_detail":String,
-    "Fail_family_plan_three":Number,
+    // "Fail_family_plan_three_detail":String,
+    // "Fail_family_plan_three":Number,
 
     "No_of_high_infections":Number,
     "No_of_house_walking_new_famiy_planners":Number,
@@ -345,12 +345,11 @@ var phm = new Schema({
     "Nurse":Number,
     "Mo_nurse":Number,
     "Phm":Number,
-    "date":Date
+    // "date":Date
 
 
-}, {
-    collection: 'Phms'
-});
-var phm = mongoose.model('phm', phm);
+}, 
+   { collection: 'Phms'});
+var Phm = mongoose.model('Phm', Phms);
 
-module.exports = phm;
+module.exports = Phm;

@@ -204,7 +204,146 @@ export class PhmDailyReportsComponent implements OnInit {
       New_infections:[''],
       Birth_infections:[''],
       Premature:[''],
-      Other_num:['']
+      Other_num:[''],
+
+      // 08.  Year 1-5 CHILD PROTECTION
+      No_of_child_between_one_five:[''],
+      No_of_nursary_child:[''],
+      New_house_walking_for_small_child:[''],
+      Old_house_walking_for_small_child:[''],
+      New_house_walking_for_nursary_child:[''],
+      Old_house_walking_for_nursary_child:[''],
+
+      // SIX PAGE
+      No_of_small_child_measure_weight_at_clinic:[''],
+      No_of_small_child_measure_weight_at_weight_clinic:[''],
+      No_of_small_child_low_weight:[''],
+      No_of_small_child_more_low_weight:[''],
+      No_of_small_child_high_weight:[''],
+      No_of_nurasry_child_measure_weight_at_clinic:[''],
+      No_of_nursaryl_child_measure_weight_at_weight_clinic:[''],
+      No_of_nursary_child_low_weight:[''],
+      No_of_nursary_child_more_low_weight:[''],
+      No_of_nursary_child_high_weight:[''],
+
+      no_of_child_give_vitamine_A_18_month:[''],
+      no_of_child_give_vitamine_A_2_yr:[''],
+      no_of_child_give_vitamine_A_3_yr:[''],
+      no_of_child_give_vitamine_A_4_yr:[''],
+      no_of_child_give_warm_18_month:[''],
+      no_of_child_give_warm_2_yr:[''],
+      no_of_child_give_warm_3_yr:[''],
+      No_of_child_give_warm_4_yr:[''],
+
+      No_of_coming_clinic_new_1_2_yr:[''],
+      no_of_coming_clinic_old_1_2_yr:[''],
+      no_of_coming_clinic_new_2_5_yr:[''],
+      No_of_coming_clinic_old_2_5_yr:[''],
+
+      No_of_small_child_death:[''],
+      Accident:[''],
+      Infections:[''],
+      Diarrhea:[''],
+      Respiratory:[''],
+      Other_numb:[''],
+      No_of_aefi_child:[''],
+
+      // 09. Child and newyoungers
+      No_of_new_youngers:[''],
+      No_of_new_registered_new_youngers:[''],
+      No_of_removed_new_youngers:[''],
+      No_of_house_walking_new_youngers:[''],
+      No_of_problems:[''],
+      No_of_enter_phm:[''],
+      No_of_referes:[''],
+      No_of_death_between_5_10_yr:[''],
+      no_of_death_between_10_19_yr:[''],
+
+      // SEVEN PAGE
+      // FAMILY PLANNING
+
+      No_of_couples_start_month_tablet:[''],
+      New_identified_tablet:[''],
+      Removed_tablet:[''],
+      No_of_packet:[''],
+
+      No_of_couples_start_month_injection:[''],
+      New_identified_injection:[''],
+      Removed_injection:[''],
+
+      No_of_couples_start_month_uterus:[''],
+      New_identified_uterus:[''],
+      Removed_uterus:[''],
+
+      No_of_couples_start_month_hormona:[''],
+      New_identified_hormona:[''],
+      Removed_hormona:[''],
+
+      No_of_couples_start_month_condom:[''],
+      New_identified_condom:[''],
+      Removed_condom:[''],
+
+      No_of_couples_start_month_lady:[''],
+      New_identified_lady:[''],
+      Removed_lady:[''],
+
+      No_of_couples_start_month_man:[''],
+      New_identified_man:[''],
+      Removed_man:[''],
+
+      Total_couples_using_new_family_palning:[''],
+
+      No_of_couples_start_month_old:[''],
+      New_identified_old:[''],
+      accept_new_old:[''],
+      Removed_old:[''],
+
+      No_of_couples_start_month_not_use:[''],
+      New_identified_not_use:[''],
+      accept_use:[''],
+      Removed_not_use:[''],
+
+      // EIGHT PAGE
+
+      No_of_couples_start_month_madasaru:[''],
+      New_identified_madasaru:[''],
+      prganant_that_month_madasaru:[''],
+      Removed_madasaru:[''],
+      Reffer_madasaru:[''],
+
+      Fail_family_plan_one_detail:[''],
+      Fail_family_plan_one:[''],
+      Fail_family_plan_two_detai:[''],
+      Fail_family_plan_two:[''],
+      // Fail_family_plan_three_detail:String,
+      // Fail_family_plan_three:[''],
+
+      No_of_high_infections:[''],
+      No_of_house_walking_new_famiy_planners:[''],
+
+      // 11.Sexual society
+      No_of_arresements_man:[''],
+      No_of_arresements_woman:[''],
+      No_of_arresements_mental_new:[''],
+      No_of_arresements_mental_old:[''],
+      No_of_reffers:[''],
+
+      // 12. OTHER
+      About_nutritions:[''],
+      No_of_clinics_married:[''],
+      No_of_suawanari_clinic:[''],
+      house_wlking_suawanari_clinic:[''],
+      No_of_clinic_joined:[''],
+      No_of_special_clinics:[''],
+      No_of_school_clinic:[''],
+
+      // 13.VISITING
+      Officer:[''],
+      Health_officer:[''],
+      Deputy_officer:[''],
+      Nurse:[''],
+      Mo_nurse:[''],
+      Phm:[''],
     });
   }
 

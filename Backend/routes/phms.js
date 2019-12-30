@@ -1,8 +1,8 @@
 var express = require('express');
 var router = express.Router();
 var Phm = require('../Schemas/phm');
-//var Phm = require('../Schemas/ApprovedFamiliesSchema')
 var mongoose = require('mongoose');
+
 
 //add daily data
 router.post('/add', (req, res) => {
@@ -13,3 +13,12 @@ router.post('/add', (req, res) => {
     });
     console.log("Completed");
 });
+
+router.get('/view', (req, res) => {
+    Phm.find((err, doc) => {
+        res.send(doc)
+    })
+    
+});
+
+module.exports = router ;

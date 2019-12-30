@@ -12,7 +12,7 @@ export class PhmdailyupdateService {
   
   constructor(private http: HttpClient) { }
 
-  __url= "http://localhost:3000/families/add";
+  __url= "http://localhost:3000/phms/add";
    add(userData){                                   //Post the approved family details
     console.log(userData)
     return this.http.post<any>(this.__url,userData);
