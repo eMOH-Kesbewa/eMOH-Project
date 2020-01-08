@@ -37,6 +37,11 @@ export class WeightService {
     console.log(userData)
     return this.http.put<Weight>(_url , userData,{observe: 'response'});
    }
+
+   searchweightdataById(babyId){             //Selecting a record by motherId
+    let uri = `http://localhost:3000/babies/searchweightbyid/${babyId}`;
+    return this.http.get<Weight>(uri,{observe: 'response'})
+   }
 }
 
 

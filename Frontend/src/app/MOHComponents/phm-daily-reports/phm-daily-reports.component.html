@@ -1,0 +1,1759 @@
+<div class="container-fluid">
+  <div class="row">
+      <div class="col-md-12">
+          <div class="card">
+              <div class="card-header card-header-info">
+                  <h4 class="card-title">Daily Update Form</h4>
+                  <p class="card-category">Complete profile</p>
+              </div>
+              <div class="card-body">
+                  <form [formGroup]="phmForm" [hidden]="success" (ngSubmit)="onSubmit()">
+                    <div class="1st_page">
+                      <!--start 1st page-->
+                      <div class="1st_field">
+                        <!--start 1st field-->
+                        <div class="row">
+                          <div class="col-md-3">
+                            <mat-form-field class="example-full-width">
+                              <input matInput placeholder="MOH sub division" type="text" formControlName="MOH_division">
+                              <div *ngIf="submitted && phmForm.controls.MOH_division.errors" class="error">
+                                  <div *ngIf="phmForm.controls.MOH_division.errors.required">This field is required</div>
+                                </div>
+                            </mat-form-field>
+                          </div>
+                          <div class="col-md-3">
+                            <mat-form-field class="example-full-width">
+                              <input matInput placeholder="Date Of Today" type="date" formControlName="date_of_today">
+                              <div *ngIf="submitted && phmForm.controls.date_of_today.errors" class="error">
+                                  <div *ngIf="phmForm.controls.date_of_today.errors.required">This field is required</div>
+                                </div>
+                            </mat-form-field>
+                          </div>
+                          <div class="col-md-3">
+                            <mat-form-field class="example-full-width">
+                              <input matInput placeholder="Batch No" type="text" formControlName="Batch_no">
+                              <div *ngIf="submitted && phmForm.controls.Batch_no.errors" class="error">
+                                  <div *ngIf="phmForm.controls.Batch_no.errors.required">This field is required</div>
+                                </div>
+                            </mat-form-field>
+                          </div>
+                          <div class="col-md-3">
+                            <mat-form-field class="example-full-width">
+                              <input matInput placeholder="MOH division" type="text" formControlName="Division">
+                              <div *ngIf="submitted && phmForm.controls.Division.errors" class="error">
+                                  <div *ngIf="phmForm.controls.Division.errors.required">This field is required</div>
+                                </div>
+                            </mat-form-field>
+                          </div>
+                          <div class="col-md-8">
+                            <div class="row">
+                              <div class="col-md-4"></div>
+                              <div class="col-md-2">Urban</div>
+                              <div class="col-md-2">Rural</div>
+                              <div class="col-md-2">Other</div>
+                            </div>
+                            <div class="row">
+                              <div class="col-md-4">Population of MOH sub division</div>
+                              <div class="col-md-2">
+                                <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="" type= "number" formControlName="Moh_population_urban">
+                                </mat-form-field>
+                              </div>
+                              <div class="col-md-2">
+                                <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="" type= "number" formControlName="Moh_population_rural">
+                                </mat-form-field>
+                              </div>
+                              <div class="col-md-2">
+                                <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="" type= "number" formControlName="Moh_population_other">
+                                </mat-form-field>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <h4>Important Things In MOH Division</h4>
+                        <div class="row">
+                          <div class="col-md-4"></div>
+                          <div class="col-md-2">Birth</div>
+                          <div class="col-md-2">Baby death</div>
+                          <div class="col-md-2">Mother death</div>
+                          <div class="col-md-2">Child death</div>
+                        </div>
+                        <div class="row">
+                          <div class="col-md-4">Total For Year</div>
+                          <div class="col-md-2">
+                            <mat-form-field class="example-full-width">
+                              <input matInput placeholder="" type= "number" formControlName="Number_of_birth_for_year">
+                            </mat-form-field>
+                          </div>
+                          <div class="col-md-2">
+                            <mat-form-field class="example-full-width">
+                              <input matInput placeholder="" type= "number" formControlName="Number_of_baby_death_for_year">
+                            </mat-form-field>
+                          </div>
+                          <div class="col-md-2">
+                            <mat-form-field class="example-full-width">
+                              <input matInput placeholder="" type= "number" formControlName="Number_of_mother_death_for_year">
+                            </mat-form-field>
+                          </div>
+                          <div class="col-md-2">
+                            <mat-form-field class="example-full-width">
+                              <input matInput placeholder="" type= "number" formControlName="Number_of_child_death_for_year">
+                            </mat-form-field>
+                          </div>
+                        </div>
+                        <!--end 1st field-->
+                      </div>
+                      <div class="second_field">
+                        <!--start second field-->
+                        <h4>01. Details About Approved Families</h4>
+                        <div class="row">
+                          <div class="col-md-6">
+                            <mat-form-field class="example-full-width">
+                              <input matInput placeholder="Number of approved families in arae start month" type= "number" formControlName="No_of_approved_families_start_of_month">
+                            </mat-form-field>
+                          </div>
+                          <div class="col-md-6">
+                            <mat-form-field class="example-full-width">
+                              <input matInput placeholder="Number of new registered families" type= "number" formControlName="No_of_new_registered_family">
+                            </mat-form-field>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-md-6">
+                            <mat-form-field class="example-full-width">
+                              <input matInput placeholder="Number of removed families from form" type= "number" formControlName="No_of_removed_family_from_form">
+                            </mat-form-field>
+                          </div>
+                          <div class="col-md-6">
+                            <mat-form-field class="example-full-width">
+                              <input matInput placeholder="Number of house visiting" type= "number" formControlName="No_of_house_walking">
+                            </mat-form-field>
+                          </div>
+                        </div>
+                        <!--end second field-->
+                      </div>
+                      <div class="third_field">
+                        <!--start third field-->
+                        <h4>02.Mother Protection In Registration </h4>
+                        <div class="row">
+                          <div class="col-md-6">Number of pregnant mothers</div>
+                          <div class="col-md-3">
+                            <mat-form-field class="example-full-width">
+                              <input matInput placeholder="low risk" type= "number" formControlName="No_of_low_risk_mothers">
+                            </mat-form-field>
+                          </div>
+                          <div class="col-md-3">
+                            <mat-form-field class="example-full-width">
+                              <input matInput placeholder="high risk" type= "number" formControlName="No_of_hish_risk_mothers">
+                            </mat-form-field>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-md-3">Number of registered mothers</div>
+                          <div class="col-md-3">
+                            <mat-form-field class="example-full-width">
+                              <input matInput placeholder="before 8 weeks" type= "number" formControlName="Registered_mothers_before_eight_weeks">
+                            </mat-form-field>
+                          </div>
+                          <div class="col-md-3">
+                            <mat-form-field class="example-full-width">
+                              <input matInput placeholder="8-12 weeks" type= "number" formControlName="Registered_mothers_between_eight_twelve_weeks">
+                            </mat-form-field>
+                          </div>
+                          <div class="col-md-3">
+                            <mat-form-field class="example-full-width">
+                              <input matInput placeholder="after 12 weeks" type= "number" formControlName="Registered_mothers_after_twelve_weeks">
+                            </mat-form-field>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-md-2">Age</div>
+                          <div class="col-md-2">
+                            <mat-form-field class="example-full-width">
+                              <input matInput placeholder="<16" type= "number" formControlName="Low_sixteen_age_in_registration">
+                            </mat-form-field>
+                          </div>
+                          <div class="col-md-2">
+                            <mat-form-field class="example-full-width">
+                              <input matInput placeholder="16-17" type= "number" formControlName="between_sixteen_seventeen_age_in_registration">
+                            </mat-form-field>
+                          </div>
+                          <div class="col-md-2">
+                            <mat-form-field class="example-full-width">
+                              <input matInput placeholder="18-19" type= "number" formControlName="between_eighteen_nineteen_age_in_registration">
+                            </mat-form-field>
+                          </div>
+                          <div class="col-md-2">
+                            <mat-form-field class="example-full-width">
+                              <input matInput placeholder="20-35" type= "number" formControlName="between_twenty_thirtyfive_age_in_registration">
+                            </mat-form-field>
+                          </div>
+                          <div class="col-md-2">
+                            <mat-form-field class="example-full-width">
+                              <input matInput placeholder=">35" type= "number" formControlName="high_thirtyfive_age_in_registration">
+                            </mat-form-field>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-md-4">Mothers with 1st Pregnancy</div>
+                          <div class="col-md-4">
+                            <mat-form-field class="example-full-width">
+                              <input matInput placeholder="number of registered" type= "number" formControlName="No_of_registered_at_first_pregnant">
+                            </mat-form-field>
+                          </div>
+                          <div class="col-md-4">
+                            <mat-form-field class="example-full-width">
+                              <input matInput placeholder="number of before pregnancy test" type= "number" formControlName="no_of_before_preganancy_checked_at_first_pregnant">
+                            </mat-form-field>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-md-4"></div>
+                          <div class="col-md-4">
+                            <mat-form-field class="example-full-width">
+                              <input matInput placeholder="number of couples come to two clinics" type= "number" formControlName="no_of_couples_for_two_clinics_at_first_pregnant">
+                            </mat-form-field>
+                          </div>
+                          <div class="col-md-4">
+                            <mat-form-field class="example-full-width">
+                              <input matInput placeholder="number of quasing marraige" type= "number" formControlName="no_of_couples_quasin_marraige_at_first_pregnant">
+                            </mat-form-field>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-md-4">5 or more than times pregnancy</div>
+                          <div class="col-md-4">
+                            <mat-form-field class="example-full-width">
+                              <input matInput placeholder="number of registered mothers" type= "number" formControlName="No_of_registered_more_than_equal_five_pregnancy">
+                            </mat-form-field>
+                          </div>
+                          <div class="col-md-4">
+                            <mat-form-field class="example-full-width">
+                              <input matInput placeholder="number of mothers have 3 or more than living children" type= "number" formControlName="No_of_mothers_have_three_or_more_than_living_children_more_than_equal_five_pregnancy">
+                            </mat-form-field>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-md-6">
+                            <mat-form-field class="example-full-width">
+                              <input matInput placeholder="number of mothers with rubella protection" type= "number" formControlName="No_of_registered_mothers_with_rubella">
+                            </mat-form-field>
+                          </div>
+                          <div class="col-md-6">
+                            <mat-form-field class="example-full-width">
+                              <input matInput placeholder="number of mothers get folic acid" type= "number" formControlName="No_of_registered_mothers_getting_folic_acid">
+                            </mat-form-field>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-md-6">number of house visiting for mothers</div>
+                          <div class="col-md-3">
+                            <mat-form-field class="example-full-width">
+                              <input matInput placeholder="new" type= "number" formControlName="No_of_new_house_walking">
+                            </mat-form-field>
+                          </div>
+                          <div class="col-md-3">
+                            <mat-form-field class="example-full-width">
+                              <input matInput placeholder="old" type= "number" formControlName="No_of_old_house_walking">
+                            </mat-form-field>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-md-6">participation for clinics in pregnant mothers</div>
+                          <div class="col-md-3">
+                            <mat-form-field class="example-full-width">
+                              <input matInput placeholder="new" type= "number" formControlName="No_of_coming_clinics_new_mothers">
+                            </mat-form-field>
+                          </div>
+                          <div class="col-md-3">
+                            <mat-form-field class="example-full-width">
+                              <input matInput placeholder="old" type= "number" formControlName="No_of_coming_clinics_old_mothers">
+                            </mat-form-field>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-md-5">Number of pregnant mothers come out</div>
+                          <div class="col-md-3">registered</div>
+                          <div class="col-md-2">
+                            <mat-form-field class="example-full-width">
+                              <input matInput placeholder="permanant" type= "number" formControlName="No_of_out_of_registered_permanant_mothers">
+                            </mat-form-field>
+                          </div>
+                          <div class="col-md-2">
+                            <mat-form-field class="example-full-width">
+                              <input matInput placeholder="notpermanant" type= "number" formControlName="No_of_out_of_registered_not_permanant_mothers">
+                            </mat-form-field>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-md-5"></div>
+                          <div class="col-md-3">not registered</div>
+                          <div class="col-md-2">
+                            <mat-form-field class="example-full-width">
+                              <input matInput placeholder="permanant" type= "number" formControlName="No_of_out_of_notregistered_permanant_mothers">
+                            </mat-form-field>
+                          </div>
+                          <div class="col-md-2">
+                            <mat-form-field class="example-full-width">
+                              <input matInput placeholder="notpermanant" type= "number" formControlName="No_of_out_of_notregistered_notpermanant_mothers">
+                            </mat-form-field>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-md-6">Number of mothers removed from division</div>
+                          <div class="col-md-3">
+                            <mat-form-field class="example-full-width">
+                              <input matInput placeholder="permanant" type= "number" formControlName="No_of_permanant_mothers_removed_from_village">
+                            </mat-form-field>
+                          </div>
+                          <div class="col-md-3">
+                            <mat-form-field class="example-full-width">
+                              <input matInput placeholder="notpermanant" type= "number" formControlName="No_of_notpermanant_mothers_removed_from_village">
+                            </mat-form-field>
+                          </div>
+                        </div>
+                        <!--end third field-->
+                      </div>
+                      <!--end 1st page-->
+                    </div>
+                    <div class="third_section">
+                      <!--start third section-->
+                      <h4>03. Mother Protection At Delivery </h4>
+                      <div class="row">
+                        <div class="col-md-6">Total number of deliveries from permanant mothers</div>
+                        <div class="col-md-3">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="from after visiting" type= "number" formControlName="No_of_delivery_permant_mothers_after_walking">
+                          </mat-form-field>
+                        </div>
+                        <div class="col-md-3">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="from hearing" type= "number" formControlName="No_of_delivery_permant_mothers_hearing">
+                          </mat-form-field>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-6">Number of deliveries from come out notpermanant mothers</div>
+                        <div class="col-md-3">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="registered" type= "number" formControlName="No_of_out_of_registered_mothers_before_delivery">
+                          </mat-form-field>
+                        </div>
+                        <div class="col-md-3">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="notregistered" type= "number" formControlName="No_of_out_of_not_registered_mothers_before_delivery">
+                          </mat-form-field>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-6">Number of deliveries from come out mothers who come to permanant after delivery</div>
+                        <div class="col-md-3">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="registered" type= "number" formControlName="No_of_out_of_registered_mothers_after_delivery">
+                          </mat-form-field>
+                        </div>
+                        <div class="col-md-3">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="notregistered" type= "number" formControlName="No_of_out_of_not_registered_mothers_after_delivery">
+                          </mat-form-field>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-6">Delivery</div>
+                        <div class="col-md-3">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="yoni delivery" type= "number" formControlName="Yoni_delivery">
+                          </mat-form-field>
+                        </div>
+                        <div class="col-md-3">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="sesar delivery" type= "number" formControlName="Sesar_delivary">
+                          </mat-form-field>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-3">Home delivery</div>
+                        <div class="col-md-3">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="from phm" type= "number" formControlName="Home_delivary_from_phm">
+                          </mat-form-field>
+                        </div>
+                        <div class="col-md-3">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="from other traineer" type= "number" formControlName="Home_delivary_from_other_traineer">
+                          </mat-form-field>
+                        </div>
+                        <div class="col-md-3">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="from nottrainee person" type= "number" formControlName="Home_delivary_from_not_traineer">
+                          </mat-form-field>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-6">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Number of mothers get pitagasma protection in delivery" type= "number" formControlName="No_of_mothers_get_piatagasma_protection_in_delivary">
+                          </mat-form-field>
+                        </div>
+                        <div class="col-md-6">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Number of mothers checked blood group in delivery" type= "number" formControlName="no_of_mothers_check_blood_group_in_delivary">
+                          </mat-form-field>
+                        </div>
+                      </div>
+                      <h5>Number of mothers checked blood test in delivery</h5>
+                      <div class="row">
+                        <div class="col-md-3">VDRL</div>
+                        <div class="col-md-3"> 
+                          <mat-form-field class="example-full-width"> 
+                            <input matInput placeholder="Before 12 weeks" type= "number" formControlName="No_of_mothers_vdrl_test_before_twelve_weeks">
+                          </mat-form-field>
+                        </div>
+                        <div class="col-md-3">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="After 12 weeks" type= "number" formControlName="No_of_mothers_vdrl_test_after_twelve_weeks">
+                          </mat-form-field>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-6">Hemoglobin</div>
+                      </div>
+                        <div class="row">
+                          <div class="col-md-3">Before 12 weeks</div>
+                          <div class="col-md-2">
+                            <mat-form-field class="example-full-width">
+                              <input matInput placeholder="<7g/dl" type= "number" formControlName="No_of_mothers_hemoglobin_test_before_twelve_weeks_one">
+                            </mat-form-field>
+                          </div>
+                          <div class="col-md-2">
+                            <mat-form-field class="example-full-width">
+                              <input matInput placeholder="7-10.9g/dl" type= "number" formControlName="No_of_mothers_hemoglobin_test_before_twelve_weeks_two">
+                            </mat-form-field>
+                          </div>
+                          <div class="col-md-2">
+                            <mat-form-field class="example-full-width">
+                              <input matInput placeholder=">=11g/dl" type= "number" formControlName="No_of_mothers_hemoglobin_test_before_twelve_weeks_three">
+                            </mat-form-field>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-md-3">26-28 weeks</div>
+                          <div class="col-md-2">
+                            <mat-form-field class="example-full-width">
+                              <input matInput placeholder="<7g/dl" type= "number" formControlName="No_of_mothers_hemoglobin_test_twentysix_twentyeight_weeks_one">
+                            </mat-form-field>
+                          </div>
+                          <div class="col-md-2">
+                            <mat-form-field class="example-full-width">
+                              <input matInput placeholder="7-10.9g/dl" type= "number" formControlName="No_of_mothers_hemoglobin_test_twentysix_twentyeight_weeks_two">
+                            </mat-form-field>
+                          </div>
+                          <div class="col-md-2">
+                            <mat-form-field class="example-full-width">
+                              <input matInput placeholder=">=11g/dl" type= "number" formControlName="No_of_mothers_hemoglobin_test_twentysix_twentyeight_weeks_three">
+                            </mat-form-field>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-md-6">Blood sugar test</div>
+                        </div>
+                        <div class="row">
+                          <div class="col-md-3">Before 12 weeks</div>
+                          <div class="col-md-3">
+                            <mat-form-field class="example-full-width">
+                              <input matInput placeholder="Normal" type= "number" formControlName="No_of_mothers_sugar_test_before_twelve_weeks_normal">
+                            </mat-form-field>
+                          </div>
+                          <div class="col-md-3">
+                            <mat-form-field class="example-full-width">
+                              <input matInput placeholder="Abnormal" type= "number" formControlName="No_of_mothers_sugar_test_before_twelve_weeks_abnormal">
+                            </mat-form-field>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-md-3">26-28 weeks</div>
+                          <div class="col-md-3">
+                            <mat-form-field class="example-full-width">
+                              <input matInput placeholder="Normal" type= "number" formControlName="No_of_mothers_hemoglobin_test_twentyfour_twentyeight_weeks_normal">
+                            </mat-form-field>
+                          </div>
+                          <div class="col-md-3">
+                            <mat-form-field class="example-full-width">
+                              <input matInput placeholder="Abnormal" type= "number" formControlName="No_of_mothers_hemoglobin_test_twentyfour_twentyeight_weeks_abnormal">
+                            </mat-form-field>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-md-6">
+                            <mat-form-field class="example-full-width">
+                              <input matInput placeholder="Number of mothers do HIV test" type= "number" formControlName="No_of_mothers_do_hiv_check">
+                            </mat-form-field>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-md-4">Number of couples paricipation for clinics</div>
+                          <div class="col-md-2">
+                            <mat-form-field class="example-full-width">
+                              <input matInput placeholder="For one clinic" type= "number" formControlName="no_of_couples_join_one_clinic">
+                            </mat-form-field>
+                          </div>
+                          <div class="col-md-2">
+                            <mat-form-field class="example-full-width">
+                              <input matInput placeholder="For two clinics" type= "number" formControlName="No_of_couples_join_two_clinic">
+                            </mat-form-field>
+                          </div>
+                          <div class="col-md-2">
+                            <mat-form-field class="example-full-width">
+                              <input matInput placeholder="For three clinics" type= "number" formControlName="no_of_couples_join_three_clinic">
+                            </mat-form-field>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-md-6">
+                            <mat-form-field class="example-full-width">
+                              <input matInput placeholder="Number of mothers join child development clinics" type= "number" formControlName="No_of_mothers_join_child_development_clinic">
+                            </mat-form-field>
+                          </div>
+                        </div>
+                        <div class="row">
+                        <div class="col-md-5">Number of mothers participation for government clinics</div>
+                        <div class="col-md-2">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="<=3 clinics" type= "number" formControlName="No_of_mothers_less_than_three_clinics">
+                          </mat-form-field>
+                        </div>
+                        <div class="col-md-2">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="4-7 clinics" type= "number" formControlName="No_of_mothers_between_four_seven_clinics">
+                          </mat-form-field>
+                        </div>
+                        <div class="col-md-2">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder=">=8 clinics" type= "number" formControlName="No_of_mothers_more_than_eight_clinics">
+                          </mat-form-field>
+                        </div>
+                      </div>
+                        <div class="row">
+                          <div class="col-md-6">
+                            <mat-form-field class="example-full-width">
+                              <input matInput placeholder="Number of mothers good for VDRL test" type= "number" formControlName="No_of_mothers_good_for_vdrl">
+                            </mat-form-field>
+                          </div>
+                          <div class="col-md-6">
+                            <mat-form-field class="example-full-width">
+                              <input matInput placeholder="Number of mothers face to denatal treatment" type= "number" formControlName="No_of_mothers_for_dental_treatement">
+                            </mat-form-field>
+                          </div>
+                          <div class="col-md-6">
+                            <mat-form-field class="example-full-width">
+                              <input matInput placeholder="Number of mothers face to dental problems" type= "number" formControlName="No_of_mothers_identify_dental_problems">
+                            </mat-form-field>
+                          </div>
+                        </div>
+                      <!--end third section-->
+                    </div>
+                    <div class="fourth_section">
+                      <!--start 4 section-->
+                      <h4>04. Mother Protection(1st After Delivery Visit)</h4>
+                      <div class="row">
+                        <div class="col-md-6">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Number of mothers identify health problems at pregnancy time" type= "number" formControlName="No_of_mothers_identify_health_problems_pregnancy_time">
+                          </mat-form-field>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-4">High blood presure</div>
+                        <div class="col-md-4">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Before" type= "number" formControlName="Blood_presure_before">
+                          </mat-form-field>
+                        </div>
+                        <div class="col-md-4">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="After pregnancy" type= "number" formControlName="Blood_presure_prgnancy">
+                          </mat-form-field>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-4">Blood sugar</div>
+                        <div class="col-md-4">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Before" type= "number" formControlName="Sugar_before">
+                          </mat-form-field>
+                        </div>
+                        <div class="col-md-4">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="After pregnancy" type= "number" formControlName="Sugar_pregnancy">
+                          </mat-form-field>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-3">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Nirakthiya" type= "number" formControlName="Nirakthiya">
+                          </mat-form-field>
+                        </div>
+                        <div class="col-md-3">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Rakthapathya" type= "number" formControlName="Rakthapathya">
+                          </mat-form-field>
+                        </div>
+                        <div class="col-md-3">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Aduma" type= "number" formControlName="Aduma">
+                          </mat-form-field>
+                        </div>
+                        <div class="col-md-3">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Heart diseases" type= "number" formControlName="Heart_diseases">
+                          </mat-form-field>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-3">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Akma diseases" type= "number" formControlName="Akma_diseases">
+                          </mat-form-field>
+                        </div>
+                        <div class="col-md-3">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Mental problems" type= "number" formControlName="Mental_problems">
+                          </mat-form-field>
+                        </div>
+                        <div class="col-md-3">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Sexual problems" type= "number" formControlName="Sexual_problems">
+                          </mat-form-field>
+                        </div>
+                        <div class="col-md-3">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Thairoid diseases" type= "number" formControlName="Thairoid_diseases">
+                          </mat-form-field>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-3">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Urinary tract infections" type= "number" formControlName="Urinary_tract_infections">
+                          </mat-form-field>
+                        </div>
+                        <div class="col-md-3">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Other" type= "number" formControlName="Other">
+                          </mat-form-field>
+                        </div>
+                      </div>
+                      <!--end 4th section-->
+                    </div>
+                    <div class="fifth_section">
+                      <!--start 5 section-->
+                      <h4>05. Result Of Pregnancy</h4>
+                      <div class="row">
+                        <div class="col-md-5">Number of live births</div>
+                        <div class="col-md-3">Permanant</div>
+                        <div class="col-md-2">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="1st time" type= "number" formControlName="No_of_live_birth_first_permamnt">
+                          </mat-form-field>
+                        </div>
+                        <div class="col-md-2">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="2nd time" type= "number" formControlName="No_of_live_birth_second_permamnt">
+                          </mat-form-field>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-5"></div>
+                        <div class="col-md-3">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Notpermanant" type= "number" formControlName="no_of_live_birth_notpermamnt">
+                          </mat-form-field>
+                        </div>
+                        </div>
+                        <h5>Permanant</h5>
+                        <div class="row">
+                          <div class="col-md-3">One child birth</div>
+                          <div class="col-md-3">More than or equal 2500g</div>
+                          <div class="col-md-3">
+                            <mat-form-field class="example-full-width">
+                              <input matInput placeholder="1st time" type= "number" formControlName="More_than_two_kg_first_one_birth">
+                            </mat-form-field>
+                          </div>
+                          <div class="col-md-3">
+                            <mat-form-field class="example-full-width">
+                              <input matInput placeholder="2nd time" type= "number" formControlName="More_than_two_kg_second_one_birth">
+                            </mat-form-field>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-md-3"></div>
+                          <div class="col-md-3">Less than 2500g</div>
+                          <div class="col-md-3">
+                            <mat-form-field class="example-full-width">
+                              <input matInput placeholder="1st time" type= "number" formControlName="less_than_two_kg_first_one_birth">
+                            </mat-form-field>
+                          </div>
+                          <div class="col-md-3">
+                            <mat-form-field class="example-full-width">
+                              <input matInput placeholder="2nd time" type= "number" formControlName="Less_than_two_kg_second_one_birth">
+                            </mat-form-field>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-md-3">More child birth</div>
+                          <div class="col-md-3">More than or equal 2500g</div>
+                          <div class="col-md-3">
+                            <mat-form-field class="example-full-width">
+                              <input matInput placeholder="1st time" type= "number" formControlName="More_than_two_kg_first_more_birth">
+                            </mat-form-field>
+                          </div>
+                          <div class="col-md-3">
+                            <mat-form-field class="example-full-width">
+                              <input matInput placeholder="2nd time" type= "number" formControlName="More_than_two_kg_second_more_birth">
+                            </mat-form-field>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-md-3"></div>
+                          <div class="col-md-3">Less than 2500g</div>
+                          <div class="col-md-3">
+                            <mat-form-field class="example-full-width">
+                              <input matInput placeholder="1st time" type= "number" formControlName="less_than_two_kg_first_more_birth">
+                            </mat-form-field>
+                          </div>
+                          <div class="col-md-3">
+                            <mat-form-field class="example-full-width">
+                              <input matInput placeholder="2nd time" type= "number" formControlName="Less_than_two_kg_second_more_birth">
+                            </mat-form-field>
+                          </div>
+                        </div>
+                        <h5>Notpermanant</h5>
+                        <div class="row">
+                          <div class="col-md-3">One child birth</div>
+                          <div class="col-md-3">
+                            <mat-form-field class="example-full-width">
+                              <input matInput placeholder="More than or equal 2500g" type= "number" formControlName="More_than_two_kg_one_birth">
+                            </mat-form-field>
+                          </div>
+                          <div class="col-md-3">
+                            <mat-form-field class="example-full-width">
+                              <input matInput placeholder="Less than 2500g" type= "number" formControlName="less_than_two_kg_one_birth">
+                            </mat-form-field>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-md-3">More child birth</div>
+                          <div class="col-md-3">
+                            <mat-form-field class="example-full-width">
+                              <input matInput placeholder="More than or equal 2500g" type= "number" formControlName="More_than_two_kg_more_birth">
+                            </mat-form-field>
+                          </div>
+                          <div class="col-md-3">
+                            <mat-form-field class="example-full-width">
+                              <input matInput placeholder="Less than 2500g" type= "number" formControlName="less_than_two_kg_more_birth">
+                            </mat-form-field>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-md-4">
+                            <mat-form-field class="example-full-width">
+                              <input matInput placeholder="Number of abortions" type= "number" formControlName="No_of_abortions">
+                            </mat-form-field>
+                          </div>
+                          <div class="col-md-4">
+                            <mat-form-field class="example-full-width">
+                              <input matInput placeholder="Number of death birth" type= "number" formControlName="No_of_death_birth">
+                            </mat-form-field>
+                          </div>
+                          <div class="col-md-4">
+                            <mat-form-field class="example-full-width">
+                              <input matInput placeholder="Number of mother death" type= "number" formControlName="No_of_mother_death">
+                            </mat-form-field>
+                          </div>
+                        </div>
+                      <!--end 5 section-->
+                    </div>
+                    <div class="sixth section">
+                      <!--start sixth section-->
+                      <h4>06. After Delivery Protection</h4>
+                      <div class="row">
+                        <div class="col-md-6">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Number of after delivery mothers" type= "number" formControlName="No_of_after_dekivary_mothers">
+                          </mat-form-field>
+                        </div>
+                      </div>
+                      <h5>After delivery visits by PHM</h5>
+                      <div class="row">
+                        <div class="col-md-4">In first 5 days</div>
+                        <div class="col-md-2">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="New" type= "number" formControlName="New_first_five_days">
+                          </mat-form-field>
+                        </div>
+                        <div class="col-md-2">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Old" type= "number" formControlName="Old_first_five_days">
+                          </mat-form-field>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-4">In 6-10 days</div>
+                        <div class="col-md-2">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="New" type= "number" formControlName="New_between_six_ten_days">
+                          </mat-form-field>
+                        </div>
+                        <div class="col-md-2">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Old" type= "number" formControlName="Old_between_six_ten_days">
+                          </mat-form-field>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-6">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="11-13 days" type= "number" formControlName="Between_elevn_thirteen_days">
+                          </mat-form-field>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-4">In 14-21 days</div>
+                        <div class="col-md-2">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="New" type= "number" formControlName="New_between_fouteen_twentyone_days">
+                          </mat-form-field>
+                        </div>
+                        <div class="col-md-2">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Old" type= "number" formControlName="Old_between_fouteen_twentyone_days">
+                          </mat-form-field>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-6">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Near 42 days" type= "number" formControlName="Near_fourtytwo_days">
+                          </mat-form-field>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-6">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Number of after delivery mothers get vitamine A" type= "number" formControlName="no_of_after_delivery_mothers_get_vitamine_A">
+                          </mat-form-field>
+                        </div>
+                        <div class="col-md-6">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Number of mothers have after delivery problems" type= "number" formControlName="No_of_mothers_have_after_delivery_problems">
+                          </mat-form-field>
+                        </div>
+                      </div>
+                      <h5>Abnormalities</h5>
+                      <div class="row">
+                        <div class="col-md-3">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Hemorrhagic" type= "number" formControlName="Hemorrhagic">
+                          </mat-form-field>
+                        </div>
+                        <div class="col-md-3">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Diseases reproductive system" type= "number" formControlName="diseses_reproductivE_system">
+                          </mat-form-field>
+                        </div>
+                        <div class="col-md-3">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Urinary tract" type= "number" formControlName="Urinary_tract">
+                          </mat-form-field>
+                        </div>
+                        <div class="col-md-3">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Vitapiya infections" type= "number" formControlName="Vitapiya_infection">
+                          </mat-form-field>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-3">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Vitapiya broken" type= "number" formControlName="Vitapiya_broken">
+                          </mat-form-field>
+                        </div>
+                        <div class="col-md-3">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Vaginal infections" type= "number" formControlName="Vaginal_infection">
+                          </mat-form-field>
+                        </div>
+                        <div class="col-md-3">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Seaserian cut" type= "number" formControlName="Sesariyan_cut">
+                          </mat-form-field>
+                        </div>
+                        <div class="col-md-3">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="After delivery mental problems" type= "number" formControlName="Mental_problem_after">
+                          </mat-form-field>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-3">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Depression" type= "number" formControlName="Depression">
+                          </mat-form-field>
+                        </div>
+                        <div class="col-md-3">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Nipples erruptions" type= "number" formControlName="Nipples_erruptions">
+                          </mat-form-field>
+                        </div>
+                        <div class="col-md-3">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Milk tightning breat" type= "number" formControlName="milk_tightning_breat">
+                          </mat-form-field>
+                        </div>
+                        <div class="col-md-3">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Breast infections" type= "number" formControlName="Breast_infection">
+                          </mat-form-field>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-3">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="High blood presure" type= "number" formControlName="High_blood_presure">
+                          </mat-form-field>
+                        </div>
+                        <div class="col-md-3">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Heart problems" type= "number" formControlName="Heart">
+                          </mat-form-field>
+                        </div>
+                        <div class="col-md-3">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Blood sugar" type= "number" formControlName="Blood_sugar">
+                          </mat-form-field>
+                        </div>
+                        </div>
+                      <!-- end sixth section-->
+                    </div>
+                    <div class="seventh_section">
+                      <!--start 7 section-->
+                      <h4>07. Child Protection</h4>
+                      <div class="row">
+                        <div class="col-md-6">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Number of children" type= "number" formControlName="No_of_child">
+                          </mat-form-field>
+                        </div>
+                        <div class="col-md-6">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Number of registered children" type= "number" formControlName="No_of_registered_child">
+                          </mat-form-field>
+                        </div>
+                        <div class="col-md-6">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Number of removed children" type= "number" formControlName="No_of_removed_child">
+                          </mat-form-field>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-6">After 42 days house visiting for children</div>
+                        <div class="col-md-2">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="New" type= "number" formControlName="New_house_walking_after_fourtytwo_days">
+                          </mat-form-field>
+                        </div>
+                        <div class="col-md-2"><mat-form-field class="example-full-width">
+                          <input matInput placeholder="Old" type= "number" formControlName="Old_house_walking_after_fourtytwo_days">
+                        </mat-form-field></div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-4">Coming to children clinics</div>
+                        <div class="col-md-2">New</div>
+                        <div class="col-md-2">
+                         <mat-form-field class="example-full-width">
+                            <input matInput placeholder="1st month" type= "number" formControlName="Join_to_the_clinic_first_month">
+                          </mat-form-field>
+                        </div>
+                        <div class="col-md-2">
+                         <mat-form-field class="example-full-width">
+                            <input matInput placeholder="After 1st month" type= "number" formControlName="Join_to_the_clinic_after_month">
+                          </mat-form-field>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-4"></div>
+                        <div class="col-md-2">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Old" type= "number" formControlName="Join_to_the_clinic_old">
+                          </mat-form-field>
+                        </div>
+                       </div>
+                       <div class="row">
+                         <div class="col-md-4">Number of children measure weight</div>
+                         <div class="col-md-4">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="At clinic" type= "number" formControlName="No_of_child_measured_weight_at_clinic">
+                          </mat-form-field>
+                         </div>
+                         <div class="col-md-4">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="At measured weight center" type= "number" formControlName="No_of_child_measured_weight_at_weight_clinic">
+                          </mat-form-field>
+                         </div>
+                       </div>
+                       <div class="row">
+                         <div class="col-md-4">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Number of low weight children" type= "number" formControlName="Low_weight_child">
+                          </mat-form-field>
+                         </div>
+                         <div class="col-md-4">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Number of more low weight children" type= "number" formControlName="More_low_weight_child">
+                          </mat-form-field>
+                         </div>
+                         <div class="col-md-4">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Number of high weight children" type= "number" formControlName="High_weight_child">
+                          </mat-form-field>
+                         </div>
+                       </div>
+                       <div class="row">
+                         <div class="col-md-6">Number of children get Vitmine A</div>
+                         <div class="col-md-2">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="At 6 months" type= "number" formControlName="give_vitamine_A_six_month">
+                          </mat-form-field>
+                         </div>
+                         <div class="col-md-2">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="At 12 months" type= "number" formControlName="give_vitamine_A_twelve_month">
+                          </mat-form-field>
+                         </div>
+                       </div>
+                       <div class="row">
+                         <div class="col-md-3">Number of children deaths</div>
+                         <div class="col-md-3">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="1-7 days" type= "number" formControlName="No_of_child_death_between_one_seven_days">
+                          </mat-form-field>
+                         </div>
+                         <div class="col-md-3">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="8-28 days" type= "number" formControlName="No_of_child_death_between_eight_twentyeight_days">
+                          </mat-form-field>
+                         </div>
+                         <div class="col-md-3">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="After 28 days" type= "number" formControlName="No_of_child_death_at_birth">
+                          </mat-form-field>
+                         </div>
+                       </div>
+                       <div class="row">
+                         <div class="col-md-6">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Total number of children deaths" type= "number" formControlName="Total_child_death">
+                          </mat-form-field>
+                         </div>
+                       </div>
+                       <h5>Reasons for children deaths</h5>
+                       <div class="row">
+                         <div class="col-md-3">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Nishpuranaya" type= "number" formControlName="Nishpuranaya">
+                          </mat-form-field>
+                         </div>
+                         <div class="col-md-3">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="New infections" type= "number" formControlName="New_infections">
+                          </mat-form-field>
+                         </div>
+                         <div class="col-md-3">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Birth infections" type= "number" formControlName="Birth_infections">
+                          </mat-form-field>
+                         </div>
+                         <div class="col-md-3">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Premature" type= "number" formControlName="Premature">
+                          </mat-form-field>
+                         </div>
+                         <div class="col-md-3">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Other" type= "number" formControlName="Other_num">
+                          </mat-form-field>
+                         </div>
+                       </div>
+                      <!--end 7 section-->
+                    </div>
+                    <div class="8th_section">
+                      <!--start 8 section-->
+                      <h4>08. Child Protection(1-5 years) </h4>
+                      <div class="row">
+                        <div class="col-md-6">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Number of children age between 1-2 yers" type= "number" formControlName="No_of_child_between_one_five">
+                          </mat-form-field>
+                        </div>
+                        <div class="col-md-6">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Number of children age between 2-5 yers" type= "number" formControlName="No_of_nursary_child">
+                          </mat-form-field>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-6">Number of house visiting for small children</div>
+                        <div class="col-md-3">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="New" type= "number" formControlName="New_house_walking_for_small_child">
+                          </mat-form-field>
+                        </div>
+                        <div class="col-md-3">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Old" type= "number" formControlName="Old_house_walking_for_small_child">
+                          </mat-form-field>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-6">Number of house visiting for nursary children</div>
+                        <div class="col-md-3">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="New" type= "number" formControlName="New_house_walking_for_nursary_child">
+                          </mat-form-field>
+                        </div>
+                        <div class="col-md-3">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Old" type= "number" formControlName="Old_house_walking_for_nursary_child">
+                          </mat-form-field>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-6">Number of children(1-2yr) measure weight</div>
+                        <div class="col-md-3">
+                         <mat-form-field class="example-full-width">
+                           <input matInput placeholder="At clinic" type= "number" formControlName="No_of_small_child_measure_weight_at_clinic">
+                         </mat-form-field>
+                        </div>
+                        <div class="col-md-3">
+                         <mat-form-field class="example-full-width">
+                           <input matInput placeholder="At measured weight center" type= "number" formControlName="No_of_small_child_measure_weight_at_weight_clinic">
+                         </mat-form-field>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-3">Weight of small children</div>
+                        <div class="col-md-3">
+                         <mat-form-field class="example-full-width">
+                           <input matInput placeholder="Low weight" type= "number" formControlName="No_of_small_child_low_weight">
+                         </mat-form-field>
+                        </div>
+                        <div class="col-md-3">
+                         <mat-form-field class="example-full-width">
+                           <input matInput placeholder="More low weight" type= "number" formControlName="No_of_small_child_more_low_weight">
+                         </mat-form-field>
+                        </div>
+                        <div class="col-md-3">
+                         <mat-form-field class="example-full-width">
+                           <input matInput placeholder="High weight" type= "number" formControlName="No_of_small_child_high_weight">
+                         </mat-form-field>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-6">Number of children(2-5yr) measure weight</div>
+                        <div class="col-md-3">
+                         <mat-form-field class="example-full-width">
+                           <input matInput placeholder="At clinic" type= "number" formControlName="No_of_nurasry_child_measure_weight_at_clinic">
+                         </mat-form-field>
+                        </div>
+                        <div class="col-md-3">
+                         <mat-form-field class="example-full-width">
+                           <input matInput placeholder="At measured weight center" type= "number" formControlName="No_of_nursaryl_child_measure_weight_at_weight_clinic">
+                         </mat-form-field>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-3">Weight of nursary children</div>
+                        <div class="col-md-3">
+                         <mat-form-field class="example-full-width">
+                           <input matInput placeholder="Low weight" type= "number" formControlName="No_of_nursary_child_low_weight">
+                         </mat-form-field>
+                        </div>
+                        <div class="col-md-3">
+                         <mat-form-field class="example-full-width">
+                           <input matInput placeholder="More low weight" type= "number" formControlName="No_of_nursary_child_more_low_weight">
+                         </mat-form-field>
+                        </div>
+                        <div class="col-md-3">
+                         <mat-form-field class="example-full-width">
+                           <input matInput placeholder="High weight" type= "number" formControlName="No_of_nursary_child_high_weight">
+                         </mat-form-field>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-4">Number of children give vitamine A</div>
+                        <div class="col-md-2">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="18 months" type= "number" formControlName="no_of_child_give_vitamine_A_18_month">
+                          </mat-form-field>
+                        </div>
+                        <div class="col-md-2">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="2 years" type= "number" formControlName="no_of_child_give_vitamine_A_2_yr">
+                          </mat-form-field>
+                        </div>
+                        <div class="col-md-2">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="3 years" type= "number" formControlName="no_of_child_give_vitamine_A_3_yr">
+                          </mat-form-field>
+                        </div>
+                        <div class="col-md-2">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="4 years" type= "number" formControlName="no_of_child_give_vitamine_A_4_yr">
+                          </mat-form-field>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-4">Number of children give warm treatment</div>
+                        <div class="col-md-2">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="18 months" type= "number" formControlName="no_of_child_give_warm_18_month">
+                          </mat-form-field>
+                        </div>
+                        <div class="col-md-2">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="2 years" type= "number" formControlName="no_of_child_give_warm_2_yr">
+                          </mat-form-field>
+                        </div>
+                        <div class="col-md-2">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="3 years" type= "number" formControlName="no_of_child_give_warm_3_yr">
+                          </mat-form-field>
+                        </div>
+                        <div class="col-md-2">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="4 years" type= "number" formControlName="No_of_child_give_warm_4_yr">
+                          </mat-form-field>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-3">Coming to clinics</div>
+                        <div class="col-md-3">1-2 years</div>
+                        <div class="col-md-3">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="New" type= "number" formControlName="No_of_coming_clinic_new_1_2_yr">
+                          </mat-form-field>
+                        </div>
+                        <div class="col-md-3">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Old" type= "number" formControlName="no_of_coming_clinic_old_1_2_yr">
+                          </mat-form-field>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-3"></div>
+                        <div class="col-md-3">2-5 years</div>
+                        <div class="col-md-3">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="New" type= "number" formControlName="no_of_coming_clinic_new_2_5_yr">
+                          </mat-form-field>
+                        </div>
+                        <div class="col-md-3">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Old" type= "number" formControlName="No_of_coming_clinic_old_2_5_yr">
+                          </mat-form-field>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-6">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Number of children deaths(1-5 years)" type= "number" formControlName="No_of_small_child_death">
+                          </mat-form-field>
+                        </div>
+                      </div>
+                      <h5>Reasons for children deaths</h5>
+                      <div class="row">
+                        <div class="col-md-3">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Accident" type= "number" formControlName="Accident">
+                          </mat-form-field>
+                        </div>
+                        <div class="col-md-3">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Infections" type= "number" formControlName="Infections">
+                          </mat-form-field>
+                        </div>
+                        <div class="col-md-3">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Diarrhea" type= "number" formControlName="Diarrhea">
+                          </mat-form-field>
+                        </div>
+                        <div class="col-md-3">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Respiratory" type= "number" formControlName="Respiratory">
+                          </mat-form-field>
+                        </div>
+                        <div class="col-md-3">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Other" type= "number" formControlName="Other_numb">
+                          </mat-form-field>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-6">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Number of AEFI children" type= "number" formControlName="No_of_aefi_child">
+                          </mat-form-field>
+                        </div>
+                      </div>
+                      <!--end 8 section-->
+                    </div>
+                    <div class="9th_section">
+                      <!--start 9 section-->
+                      <h4>09. Child Protection(5-10 years and 10-19 years)</h4>
+                      <div class="row">
+                        <div class="col-md-6">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Number of new youngers" type= "number" formControlName="No_of_new_youngers">
+                          </mat-form-field>
+                        </div>
+                        <div class="col-md-6">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Number of new registered youngers" type= "number" formControlName="No_of_new_registered_new_youngers">
+                          </mat-form-field>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-6">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Number of removed new youngers" type= "number" formControlName="No_of_removed_new_youngers">
+                          </mat-form-field>
+                        </div>
+                        <div class="col-md-6">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Number of house visiting for new youngers" type= "number" formControlName="No_of_house_walking_new_youngers">
+                          </mat-form-field>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-6">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Number of problems" type= "number" formControlName="No_of_problems">
+                          </mat-form-field>
+                        </div>
+                        <div class="col-md-6">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Number of problems that PHM enter" type= "number" formControlName="No_of_enter_phm">
+                          </mat-form-field>
+                        </div>
+                        <div class="col-md-6">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Number of problems that PHM refer" type= "number" formControlName="No_of_referes">
+                          </mat-form-field>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-3">Number of new youngers' deaths</div>
+                        <div class="col-md-3">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="5-10 years" type= "number" formControlName="No_of_death_between_5_10_yr">
+                          </mat-form-field>
+                        </div>
+                        <div class="col-md-3">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="10-19 years" type= "number" formControlName="no_of_death_between_10_19_yr">
+                          </mat-form-field>
+                        </div>
+                      </div>
+                      <!--end 9 section-->
+                    </div>
+                    <div class="10th_section">
+                      <!--start 10 section-->
+                      <h4>10. Family Planning</h4>
+                      <h5>Tablets</h5>
+                      <div class="row">
+                        <div class="col-md-4">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Number of couples at start month" type= "number" formControlName="No_of_couples_start_month_tablet">
+                          </mat-form-field>
+                        </div>
+                        <div class="col-md-4">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Number of new identified couples" type= "number" formControlName="New_identified_tablet">
+                          </mat-form-field>
+                        </div>
+                        <div class="col-md-4">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Number of removed couples" type= "number" formControlName="Removed_tablet">
+                          </mat-form-field>
+                        </div>
+                        <div class="col-md-4">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Number of packets" type= "number" formControlName="No_of_packet">
+                          </mat-form-field>
+                        </div>
+                      </div>
+                      <h5>Injections</h5>
+                      <div class="row">
+                        <div class="col-md-4">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Number of couples at start month" type= "number" formControlName="No_of_couples_start_month_injection">
+                          </mat-form-field>
+                        </div>
+                        <div class="col-md-4">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Number of new identified couples" type= "number" formControlName="New_identified_injection">
+                          </mat-form-field>
+                        </div>
+                        <div class="col-md-4">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Number of removed couples" type= "number" formControlName="Removed_injection">
+                          </mat-form-field>
+                        </div>
+                        </div>
+                        <h5>Uterus</h5>
+                        <div class="row">
+                        <div class="col-md-4">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Number of couples at start month" type= "number" formControlName="No_of_couples_start_month_uterus">
+                          </mat-form-field>
+                        </div>
+                        <div class="col-md-4">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Number of new identified couples" type= "number" formControlName="New_identified_uterus">
+                          </mat-form-field>
+                        </div>
+                        <div class="col-md-4">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Number of removed couples" type= "number" formControlName="Removed_uterus">
+                          </mat-form-field>
+                        </div>
+                        </div>
+                        <h5>Hormona</h5>
+                        <div class="row">
+                        <div class="col-md-4">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Number of couples at start month" type= "number" formControlName="No_of_couples_start_month_hormona">
+                          </mat-form-field>
+                        </div>
+                        <div class="col-md-4">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Number of new identified couples" type= "number" formControlName="New_identified_hormona">
+                          </mat-form-field>
+                        </div>
+                        <div class="col-md-4">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Number of removed couples" type= "number" formControlName="Removed_hormona">
+                          </mat-form-field>
+                        </div>
+                        </div>
+                        <h5>Condom</h5>
+                        <div class="row">
+                        <div class="col-md-4">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Number of couples at start month" type= "number" formControlName="No_of_couples_start_month_condom">
+                          </mat-form-field>
+                        </div>
+                        <div class="col-md-4">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Number of new identified couples" type= "number" formControlName="New_identified_condom">
+                          </mat-form-field>
+                        </div>
+                        <div class="col-md-4">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Number of removed couples" type= "number" formControlName="Removed_condom">
+                          </mat-form-field>
+                        </div>
+                        </div>
+                        <h5>Lady</h5>
+                        <div class="row">
+                        <div class="col-md-4">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Number of couples at start month" type= "number" formControlName="No_of_couples_start_month_lady">
+                          </mat-form-field>
+                        </div>
+                        <div class="col-md-4">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Number of new identified couples" type= "number" formControlName="New_identified_lady">
+                          </mat-form-field>
+                        </div>
+                        <div class="col-md-4">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Number of removed couples" type= "number" formControlName="Removed_lady">
+                          </mat-form-field>
+                        </div>
+                        </div>
+                        <h5>Man</h5>
+                        <div class="row">
+                        <div class="col-md-4">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Number of couples at start month" type= "number" formControlName="No_of_couples_start_month_man">
+                          </mat-form-field>
+                        </div>
+                        <div class="col-md-4">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Number of new identified couples" type= "number" formControlName="New_identified_man">
+                          </mat-form-field>
+                        </div>
+                        <div class="col-md-4">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Number of removed couples" type= "number" formControlName="Removed_man">
+                          </mat-form-field>
+                        </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-md-6">
+                            <mat-form-field class="example-full-width">
+                              <input matInput placeholder="Total number of couples using new family planning method" type= "number" formControlName="Total_couples_using_new_family_palning">
+                            </mat-form-field>
+                          </div>
+                        </div>
+                        <h5>Couples are using old family planning</h5>
+                        <div class="row">
+                          <div class="col-md-4">
+                            <mat-form-field class="example-full-width">
+                              <input matInput placeholder="Number of couples at start month" type= "number" formControlName="No_of_couples_start_month_old">
+                            </mat-form-field>
+                          </div>
+                          <div class="col-md-4">
+                            <mat-form-field class="example-full-width">
+                              <input matInput placeholder="Number of new identified couples" type= "number" formControlName="New_identified_old">
+                            </mat-form-field>
+                          </div>
+                          <div class="col-md-4">
+                            <mat-form-field class="example-full-width">
+                              <input matInput placeholder="Number of removed couples" type= "number" formControlName="Removed_old">
+                            </mat-form-field>
+                          </div>
+                          <div class="col-md-4">
+                            <mat-form-field class="example-full-width">
+                              <input matInput placeholder="Number of couples accepted new methods" type= "number" formControlName="accept_new_old">
+                            </mat-form-field>
+                          </div>
+                          </div>
+                        <h5>Couples are notusing family planning</h5>
+                        <div class="row">
+                          <div class="col-md-4">
+                            <mat-form-field class="example-full-width">
+                              <input matInput placeholder="Number of couples at start month" type= "number" formControlName="No_of_couples_start_month_not_use">
+                            </mat-form-field>
+                          </div>
+                          <div class="col-md-4">
+                            <mat-form-field class="example-full-width">
+                              <input matInput placeholder="Number of new identified couples" type= "number" formControlName="New_identified_not_use">
+                            </mat-form-field>
+                          </div>
+                          <div class="col-md-4">
+                            <mat-form-field class="example-full-width">
+                              <input matInput placeholder="Number of removed couples" type= "number" formControlName="Removed_not_use">
+                            </mat-form-field>
+                          </div>
+                          <div class="col-md-4">
+                            <mat-form-field class="example-full-width">
+                              <input matInput placeholder="Number of couples accepted use methods" type= "number" formControlName="accept_use">
+                            </mat-form-field>
+                          </div>
+                          </div>
+                          <h5>Couples are in madasrubawa</h5>
+                          <div class="row">
+                          <div class="col-md-4">
+                            <mat-form-field class="example-full-width">
+                              <input matInput placeholder="Number of couples at start month" type= "number" formControlName="No_of_couples_start_month_madasaru">
+                            </mat-form-field>
+                          </div>
+                          <div class="col-md-4">
+                            <mat-form-field class="example-full-width">
+                              <input matInput placeholder="Number of new identified couples" type= "number" formControlName="New_identified_madasaru">
+                            </mat-form-field>
+                          </div>
+                          <div class="col-md-4">
+                            <mat-form-field class="example-full-width">
+                              <input matInput placeholder="Number of mothers pregnant that month" type= "number" formControlName="prganant_that_month_madasaru">
+                            </mat-form-field>
+                          </div>
+                          <div class="col-md-4">
+                            <mat-form-field class="example-full-width">
+                              <input matInput placeholder="Number of removed couples" type= "number" formControlName="Removed_madasaru">
+                            </mat-form-field>
+                          </div>
+                          <div class="col-md-4">
+                            <mat-form-field class="example-full-width">
+                              <input matInput placeholder="Number of couples reffers" type= "number" formControlName="Reffer_madasaru">
+                            </mat-form-field>
+                          </div>
+                          </div>
+                          <h5>Couples who failed family planning methods</h5>
+                          <div class="row">
+                            <div class="col-md-6">
+                              <mat-form-field class="example-full-width">
+                                <input matInput placeholder="Type of method" type= "text" formControlName="Fail_family_plan_one_detail">
+                              </mat-form-field>
+                            </div>
+                            <div class="col-md-3">
+                              <mat-form-field class="example-full-width">
+                                <input matInput placeholder="Number" type= "number" formControlName="Fail_family_plan_one">
+                              </mat-form-field>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-md-6">
+                              <mat-form-field class="example-full-width">
+                                <input matInput placeholder="Type of method" type= "text" formControlName="Fail_family_plan_two_detai">
+                              </mat-form-field>
+                            </div>
+                            <div class="col-md-3">
+                              <mat-form-field class="example-full-width">
+                                <input matInput placeholder="Number" type= "number" formControlName="Fail_family_plan_two">
+                              </mat-form-field>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-md-6">
+                              <mat-form-field class="example-full-width">
+                                <input matInput placeholder="Number of high infections" type= "number" formControlName="No_of_high_infections">
+                              </mat-form-field>
+                            </div>
+                            <div class="col-md-6">
+                              <mat-form-field class="example-full-width">
+                                <input matInput placeholder="Number of house visiting for new family planning users" type= "number" formControlName="No_of_house_walking_new_famiy_planners">
+                              </mat-form-field>
+                            </div>
+                          </div>
+                      <!--end 10 section-->
+                    </div>
+                    <div class="11th_section">
+                      <!--start 11th section-->
+                      <h4>11. Men And Women Health</h4>
+                      <div class="row">
+                        <div class="col-md-6">Newly identified men and women with arresements</div>
+                        <div class="col-md-2">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Men" type= "number" formControlName="No_of_arresements_man">
+                          </mat-form-field>
+                        </div>
+                        <div class="col-md-2">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Women" type= "number" formControlName="No_of_arresements_woman">
+                          </mat-form-field>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-6">Mental situation of men and women with arresements</div>
+                        <div class="col-md-2">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="New" type= "number" formControlName="No_of_arresements_mental_new">
+                          </mat-form-field>
+                        </div>
+                        <div class="col-md-2">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Old" type= "number" formControlName="No_of_arresements_mental_old">
+                          </mat-form-field>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-6">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Number of reffers" type= "number" formControlName="No_of_reffers">
+                          </mat-form-field>
+                        </div>
+                      </div>
+                      <!--end 11th section-->
+                    </div>
+                    <div class="12th_section">
+                      <!--start 12 section-->
+                      <h4>12. Others</h4>
+                      <div class="row">
+                        <div class="col-md-6">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="About nutritions" type= "number" formControlName="About_nutritions">
+                          </mat-form-field>
+                        </div>
+                        <div class="col-md-6">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Number of clinics for married couples" type= "number" formControlName="No_of_clinics_married">
+                          </mat-form-field>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-6">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Number of suwanari clinics" type= "number" formControlName="No_of_suawanari_clinic">
+                          </mat-form-field>
+                        </div>
+                        <div class="col-md-6">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Number of home visiting for cuples who join suwanari clinics" type= "number" formControlName="house_wlking_suawanari_clinic">
+                          </mat-form-field>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-6">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Number of clinics you joined" type= "number" formControlName="No_of_clinic_joined">
+                          </mat-form-field>
+                        </div>
+                        <div class="col-md-6">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Number of special clinics" type= "number" formControlName="No_of_special_clinics">
+                          </mat-form-field>
+                        </div>
+                        <div class="col-md-6">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Number of school clinics" type= "number" formControlName="No_of_school_clinic">
+                          </mat-form-field>
+                        </div>
+                      </div>
+                      <!--end 12 section-->
+                    </div>
+                    <div class="13th_section">
+                      <!--strt 13 section-->
+                      <h4>13. Coming for checking</h4>
+                      <div class="row">
+                        <div class="col-md-4">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Officer" type= "number" formControlName="Officer">
+                          </mat-form-field>
+                        </div>
+                        <div class="col-md-4">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Health officer" type= "number" formControlName="Health_officer">
+                          </mat-form-field>
+                        </div>
+                        <div class="col-md-4">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Deputy officer" type= "number" formControlName="Deputy_officer">
+                          </mat-form-field>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-4">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Nurse" type= "number" formControlName="Nurse">
+                          </mat-form-field>
+                        </div>
+                        <div class="col-md-4">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Mo nurse" type= "number" formControlName="Mo_nurse">
+                          </mat-form-field>
+                        </div>
+                        <div class="col-md-4">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Phm" type= "number" formControlName="Phm">
+                          </mat-form-field>
+                        </div>
+                      </div>
+                      <!--end 13 section-->
+                    </div>
+                      
+                 <input type="submit" value="Submit details" class="btn btn-danger pull-right">
+                    
+                    </form>
+                      <div *ngIf="success"><h1>You submitted a record</h1></div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+

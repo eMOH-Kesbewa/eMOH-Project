@@ -31,4 +31,9 @@ export class MotherbabyjoinedService {
     console.log(userData)
     return this.http.put<motherbabyjoined>(url , userData,{observe: 'response'});
    }
+
+   searchbabydataById(babyId){             //Selecting a record by motherId
+    let uri = `http://localhost:3000/babies/searchbyid/${babyId}`;
+    return this.http.get<motherbabyjoined>(uri,{observe: 'response'})
+   }
 }
