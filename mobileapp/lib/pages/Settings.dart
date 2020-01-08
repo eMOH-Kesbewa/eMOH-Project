@@ -52,6 +52,7 @@ class _SettingsState extends State<Settings> {
   //Future <Family> family = fetchFamily();
 
   File _image;
+  String curLan; //current language
 
   @override
   Widget build(BuildContext context) {
@@ -105,47 +106,47 @@ class _SettingsState extends State<Settings> {
               ));
 
     Future family = fetchFamily();
+    curLan = AppLocalizations.of(context).tr('selectedlanguage');
     return EasyLocalizationProvider(
       data: data,
       child: Scaffold(
         appBar: AppBar(
-         // title: Text('Settings'),
-         title: Text(AppLocalizations.of(context).tr('title')),
+          // title: Text('Settings'),
+          title: Text(AppLocalizations.of(context).tr('title')),
           actions: <Widget>[
+            FlatButton(
+              child: Text(
+                'Save',
+                style: TextStyle(color: Colors.white),
+              ),
+              onPressed: () {
+                //save Function
+              },
+            ),
             // FlatButton(
             //   child: Text(
-            //     'Save',
+            //     'Sinhala',
             //     style: TextStyle(color: Colors.white),
             //   ),
             //   onPressed: () {
-            //     //save Function
+            //     this.setState(() {
+            //       data.changeLocale(Locale("si", "SL"));
+            //       print(Localizations.localeOf(context).languageCode);
+            //     });
             //   },
             // ),
-            FlatButton(
-              child: Text(
-                'Sinhala',
-                style: TextStyle(color: Colors.white),
-              ),
-              onPressed: () {
-                this.setState(() {
-                  data.changeLocale(Locale("si", "SL"));
-                  print(Localizations.localeOf(context).languageCode);
-                });
-              },
-            ),
-            FlatButton(
-              child: Text(
-                'English',
-                style: TextStyle(color: Colors.white),
-              ),
-              onPressed: () {
-                this.setState(() {
-                  data.changeLocale(Locale("en", "US"));
-                  print(Localizations.localeOf(context).languageCode);
-                });
-              },
-            ),
-
+            // FlatButton(
+            //   child: Text(
+            //     'English',
+            //     style: TextStyle(color: Colors.white),
+            //   ),
+            //   onPressed: () {
+            //     this.setState(() {
+            //       data.changeLocale(Locale("en", "US"));
+            //       print(Localizations.localeOf(context).languageCode);
+            //     });
+            //   },
+            // ),
           ],
         ),
         body: Container(
@@ -227,14 +228,28 @@ class _SettingsState extends State<Settings> {
                             subtitle: Text(AppLocalizations.of(context)
                                 .tr('selectedlanguage')),
                             trailing: OutlineButton(
-                              child: Text('Change Language'),
+                              child: curLan == "English"
+                                  ? Text('සිංහල')
+                                  : Text('English'),
                               onPressed: () {
                                 //data.changeLocale(Locale('si','SL'));
-                                this.setState(() {
-                                  data.changeLocale(Locale("si", "SL"));
-                                  print(Localizations.localeOf(context)
-                                      .languageCode);
-                                });
+                                if (curLan == "English") {
+                                  this.setState(() {
+                                    data.changeLocale(Locale("si", "SL"));
+                                    print(Localizations.localeOf(context)
+                                        .languageCode);
+                                    curLan = 'සිංහල';
+                                    logger.v(curLan);
+                                  });
+                                } else {
+                                  this.setState(() {
+                                    data.changeLocale(Locale("en", "US"));
+                                    print(Localizations.localeOf(context)
+                                        .languageCode);
+                                    curLan = 'English';
+                                    logger.v(curLan);
+                                  });
+                                }
                               },
                             ),
                           )
