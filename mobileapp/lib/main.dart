@@ -29,29 +29,37 @@ var logger = Logger();
   //   getKeys('email');
   //   logger.i();
   // });
-  runApp(EasyLocalization(
-      child: MaterialApp(home: email == null ? Login() : BottomNavigation())));
+  runApp(MaterialApp(home: email == null ? Login() : BottomNavigation()));
 }*/
 
 //uncomment above main() function to login with SP.
 
 void main() => runApp(EasyLocalization(child: MyApp()));
 
+var email;
 final ThemeData themeData = ThemeData(
   brightness: Brightness.light,
   primarySwatch: Colors.brown,
 );
+Future getemail() async {
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+  email = prefs.getString('email');
+}
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var data = EasyLocalizationProvider.of(context).data;
+    getemail();
     return EasyLocalizationProvider(
       data: data,
       child: MaterialApp(
         title: 'Flutter Demo',
         theme: themeData,
-        home: Login(),
+        // home: MaterialApp(home: email == null ? Login() : BottomNavigation()),
+        // home: email == null ? Login() : BottomNavigation()));
+        //home: Login(),
+        home: email == null ? Login() : BottomNavigation(),
         localizationsDelegates: [
           GlobalMaterialLocalizations.delegate,
           GlobalWidgetsLocalizations.delegate,

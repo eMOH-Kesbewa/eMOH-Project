@@ -15,8 +15,6 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../services/globals.dart' as globals;
 //import '../BabyBookSinhala.json' as text;
 
-
-
 var logger = Logger();
 
 var text;
@@ -32,9 +30,6 @@ class _FamilyProfileState extends State<FamilyProfile> {
   //Future <Family> family = fetchFamily();
   @override
   Widget build(BuildContext context) {
-
-   
-
     final div = Divider(
       height: 10.0,
       color: Colors.grey[300],
@@ -66,9 +61,9 @@ class _FamilyProfileState extends State<FamilyProfile> {
 
     Future family = fetchFamily();
     Future readFile() async {
-      String data =
-          await DefaultAssetBundle.of(context).loadString("text/BabyBookSinhala.json");
-          text = data;
+      String data = await DefaultAssetBundle.of(context)
+          .loadString("text/BabyBookSinhala.json");
+      text = data;
     }
 
     return Scaffold(
@@ -83,7 +78,13 @@ class _FamilyProfileState extends State<FamilyProfile> {
             ),
           ),
           IconButton(
-            icon: Icon(Icons.undo),
+            icon: Icon(Icons.undo),color: Colors.white,
+            onPressed: () async {
+              SharedPreferences prefs = await SharedPreferences.getInstance();
+              prefs.remove('email');
+              Navigator.pushReplacement(context,
+                  MaterialPageRoute(builder: (BuildContext ctx) => Login()));
+            },
           )
         ],
       ),
@@ -92,8 +93,6 @@ class _FamilyProfileState extends State<FamilyProfile> {
           child: FutureBuilder<Family>(
             future: family,
             builder: (context, snapshot) {
-           
-              
               var data = readFile();
               logger.wtf(data);
               if (snapshot.hasData) {
