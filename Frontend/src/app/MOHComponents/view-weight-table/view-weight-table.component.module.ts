@@ -23,6 +23,9 @@ import { ViewWeightTableComponent } from "./view-weight-table.component";
 import { AddWeightHeightComponent } from "../add-weight-height/add-weight-height.component";
 import { ViewWeightByIdComponent } from "../view-weight-by-id/view-weight-by-id.component";
 import { PhmDailyReportsComponent } from "../phm-daily-reports/phm-daily-reports.component";
+import { TranslateModule, TranslateLoader } from "@ngx-translate/core";
+import { HttpLoaderFactory } from "app/app.module";
+import { HttpClient } from "@angular/common/http";
 
 
 
@@ -44,6 +47,13 @@ import { PhmDailyReportsComponent } from "../phm-daily-reports/phm-daily-reports
         MatSlideToggleModule,
         MatSnackBarModule,
         MatExpansionModule,
+        TranslateModule.forChild({
+          loader: {
+            provide: TranslateLoader,
+            useFactory: HttpLoaderFactory,
+            deps: [HttpClient]
+          }
+        })
     ]
 
 })

@@ -3,13 +3,29 @@
         <div class="navbar-wrapper">
           <a class="navbar-brand" href="javascript:void(0)">{{getTitle()}}</a>
         </div>
+       
+      
+
+
         <button mat-raised-button class="navbar-toggler" type="button" (click)="sidebarToggle()">
             <span class="sr-only">Toggle navigation</span>
             <span class="navbar-toggler-icon icon-bar"></span>
             <span class="navbar-toggler-icon icon-bar"></span>
             <span class="navbar-toggler-icon icon-bar"></span>
         </button>
+
+    
         <div class="collapse navbar-collapse justify-content-end" id="navigation">
+            <mat-form-field>
+                <mat-label>Language</mat-label>
+                <select matNativeControl [(ngModel)]="lang" (ngModelChange)="changeLanguage($event)">
+                  <option value="en">English</option>
+                  <option value="sn">සිංහල</option>
+               
+                </select>
+                
+              </mat-form-field>
+              
             
             <div *ngIf="Display()">
                 <form  #userForm="ngForm" (ngSubmit)="onSubmit()" class="navbar-form">

@@ -3,6 +3,8 @@ const bcrypt = require('bcryptjs');
 const schema = mongoose.Schema;
 const useraccount =  require('../Schemas/useraccountSchema');
 
+// const passwordResetToken = require('../Schemas/resetpwd');
+
 // const userSchema = new schema({
 //     userid:{type:String,required:true},
 //     username:{type:String,required:true},
@@ -71,3 +73,19 @@ module.exports.passwordCheck = function(textpassword,hashpassword,callback){
         }
     });
 };
+
+//
+// module.exports.ResetPassword = function(req,res){
+//     if(!req.body.username){
+//         return res
+//         .status(500)
+//         .json({message: 'Email is reuired'});
+//     }
+//     const user = User.findOne({
+//         username : req.body.username
+//     });
+//     if(!user){
+//         return res.status(500).json({messgae: 'Email does not exist'});
+//     }
+
+// }

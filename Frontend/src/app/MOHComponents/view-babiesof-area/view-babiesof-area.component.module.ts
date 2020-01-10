@@ -23,6 +23,9 @@ import { AddmotherbabyjoineddataComponent } from "../addmotherbabyjoineddata/add
 import { UpdateBabyBookComponent } from "../update-baby-book/update-baby-book.component";
 import { ViewBabybyIDComponent } from "../view-babyby-id/view-babyby-id.component";
 import { AddWeightHeightComponent } from "../add-weight-height/add-weight-height.component";
+import { TranslateModule, TranslateLoader } from "@ngx-translate/core";
+import { HttpLoaderFactory } from "app/app.module";
+import { HttpClient } from "@angular/common/http";
 
 @NgModule({
     declarations:[ViewBabiesofAreaComponent,AddmotherbabyjoineddataComponent,UpdateBabyBookComponent,ViewBabybyIDComponent],
@@ -42,6 +45,13 @@ import { AddWeightHeightComponent } from "../add-weight-height/add-weight-height
         MatSlideToggleModule,
         MatSnackBarModule,
         MatExpansionModule,
+        TranslateModule.forChild({
+          loader: {
+            provide: TranslateLoader,
+            useFactory: HttpLoaderFactory,
+            deps: [HttpClient]
+          }
+        })
     ],
     
 

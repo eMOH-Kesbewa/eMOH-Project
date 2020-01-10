@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { MotherfordocService } from 'app/Services/motherfordoc.service';
-import { WeightService } from 'app/Services/weight.service';
-import {Pregnantmother} from 'app/Services/Models/pregnantmother';
-import { Weight } from 'app/Services/Models/weight';
+import { Pdoc } from 'app/Services/Models/pdoc';
+import { PdocService } from 'app/Services/pdoc.service';
 
 
 @Component({
@@ -13,13 +11,18 @@ import { Weight } from 'app/Services/Models/weight';
 })
 export class ViewPregnantMothersComponent implements OnInit {
 
-  constructor(private motherfordocService: MotherfordocService,private router: Router) { }
+  constructor(private pdocService: PdocService,private router: Router) { }
  
-   pregnantmother =  Pregnantmother;
-  // weight: Weight;
+   pdoc : Pdoc;
+   showTable : Boolean = false;
   ngOnInit() {
-    //  this.motherfordocService.getdata().subscribe(data=> this.pregnantmother=data);
-    // this.weightService.getdata().subscribe(data=> this.weight=data);
+    this.pdocService.getdata().subscribe(data=>this.pdoc = data);
+    
   }
+  // onClickMe(motherID){
+  //   console.log(motherID);
+  //   console.log(this.router.url);
+  //   this.router.navigate([this.router.url,'viewMotherbyId',motherID])
+  // }
 
 }
