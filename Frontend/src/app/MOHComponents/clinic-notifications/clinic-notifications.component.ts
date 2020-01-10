@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ClinicsService } from 'app/Services/clinics.service';
 import { Clinic } from 'app/Services/Models/clinic';
 import { Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-clinic-notifications',
@@ -11,7 +12,7 @@ import { Router } from '@angular/router';
 export class ClinicNotificationsComponent implements OnInit {
 
 
-  constructor(private clinicService: ClinicsService, private router: Router) { }
+  constructor(private clinicService: ClinicsService, private router: Router,private translate: TranslateService) { }
 
   clinics : Clinic;
  

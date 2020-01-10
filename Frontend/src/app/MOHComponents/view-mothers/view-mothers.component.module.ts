@@ -23,6 +23,9 @@ import { AddMotherComponent } from "../add-mother/add-mother.component";
 import { PregnancyFormComponent } from "../pregnancy-form/pregnancy-form.component";
 import { ViewMothersComponent } from "./view-mothers.component";
 import { ViewMotherByIDComponent } from "../view-mother-by-id/view-mother-by-id.component";
+import { TranslateModule, TranslateLoader } from "@ngx-translate/core";
+import { HttpLoaderFactory } from "app/app.module";
+import { HttpClient } from "@angular/common/http";
 
 
 @NgModule({
@@ -43,6 +46,13 @@ import { ViewMotherByIDComponent } from "../view-mother-by-id/view-mother-by-id.
         MatSlideToggleModule,
         MatSnackBarModule,
         MatExpansionModule,
+        TranslateModule.forChild({
+          loader: {
+            provide: TranslateLoader,
+            useFactory: HttpLoaderFactory,
+            deps: [HttpClient]
+          }
+        })
     ]
 
 })

@@ -22,6 +22,9 @@ import { ApprovedFamilies } from "./view-approved-families.component.routing";
 import { ViewFamilybyIdComponent } from "../view-familyby-id/view-familyby-id.component";
 import { AddMotherComponent } from "../add-mother/add-mother.component";
 import { PregnantMothers } from "../view-mothers/view-mothers.component.module";
+import { TranslateModule, TranslateLoader } from "@ngx-translate/core";
+import { HttpLoaderFactory } from "app/app.module";
+import { HttpClient } from "@angular/common/http";
 @NgModule({
     declarations:[ViewApprovedFamiliesComponent,AddApprovedFamiliesComponent,ViewFamilybyIdComponent,AddMotherComponent],
     imports:[
@@ -39,7 +42,14 @@ import { PregnantMothers } from "../view-mothers/view-mothers.component.module";
         MatDatepickerModule,MatNativeDateModule,
         MatSlideToggleModule,
         MatSnackBarModule,
-        MatExpansionModule
+        MatExpansionModule,
+        TranslateModule.forChild({
+          loader: {
+            provide: TranslateLoader,
+            useFactory: HttpLoaderFactory,
+            deps: [HttpClient]
+          }
+        })
 
     ],
     
