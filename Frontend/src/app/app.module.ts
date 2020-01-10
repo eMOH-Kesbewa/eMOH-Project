@@ -14,6 +14,7 @@ import { HttpClientModule } from '@angular/common/http'
 
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 
+
 @NgModule({
   imports: [
     BrowserAnimationsModule,
@@ -28,6 +29,7 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
   declarations: [
     AppComponent,
     AdminLayoutComponent,
+    
     
   
   
