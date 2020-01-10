@@ -1,7 +1,9 @@
 import 'dart:convert';
+import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
+import 'package:logger/logger.dart';
 import 'package:mobileapp/pages/Settings.dart';
 import 'package:mobileapp/pages/babyInfo/babyBasicInfo.dart';
 import 'package:mobileapp/pages/babyDetails.dart';
@@ -11,6 +13,11 @@ import 'package:mobileapp/pages/motherDetails.dart';
 import 'package:mobileapp/services/familyProflieServices.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../services/globals.dart' as globals;
+//import '../BabyBookSinhala.json' as text;
+
+var logger = Logger();
+
+var text;
 
 class FamilyProfile extends StatefulWidget {
   //FamilyProfile(Future<Family> fetchFamily);
@@ -53,6 +60,12 @@ class _FamilyProfileState extends State<FamilyProfile> {
             boxShadow: [BoxShadow(blurRadius: 7.0, color: Colors.black)]));
 
     Future family = fetchFamily();
+    Future readFile() async {
+      String data = await DefaultAssetBundle.of(context)
+          .loadString("text/BabyBookSinhala.json");
+      text = data;
+    }
+
     return Scaffold(
       appBar: AppBar(
         title: Text('Family Profile'),
@@ -65,7 +78,13 @@ class _FamilyProfileState extends State<FamilyProfile> {
             ),
           ),
           IconButton(
-            icon: Icon(Icons.undo),
+            icon: Icon(Icons.undo),color: Colors.white,
+            onPressed: () async {
+              SharedPreferences prefs = await SharedPreferences.getInstance();
+              prefs.remove('email');
+              Navigator.pushReplacement(context,
+                  MaterialPageRoute(builder: (BuildContext ctx) => Login()));
+            },
           )
         ],
       ),
@@ -74,7 +93,8 @@ class _FamilyProfileState extends State<FamilyProfile> {
           child: FutureBuilder<Family>(
             future: family,
             builder: (context, snapshot) {
-              print(snapshot);
+              var data = readFile();
+              logger.wtf(data);
               if (snapshot.hasData) {
                 return SingleChildScrollView(
                   child: Column(
@@ -94,12 +114,13 @@ class _FamilyProfileState extends State<FamilyProfile> {
                           children: <Widget>[
                             ListTile(
                               leading: Icon(Icons.perm_identity),
-                              title: Text('Identity Number'),
+                              title: Text("Identity Card Number"),
                               subtitle: Text(snapshot.data.idNumber),
                             ),
                             div,
                             ListTile(
                               leading: Icon(Icons.home),
+                              // title: Text(.idNo),
                               title: Text('Village ID'),
                               subtitle: Text(snapshot.data.vilID),
                             ),

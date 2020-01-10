@@ -28,6 +28,16 @@ class _LoginState extends State<Login> {
   var password;
   bool _passwordVisible = true;
 
+  // @override
+  // void initState() async {
+  //   super.initState();
+  //   SharedPreferences pref = await SharedPreferences.getInstance();
+  //   if (pref.getString("email") != null) {
+  //     Navigator.push(
+  //         context, MaterialPageRoute(builder: (context) => BottomNavigation()));
+  //   }
+  // }
+
 //https://protected-bayou-52277.herokuapp.com/
   @override
   Widget build(BuildContext context) {
@@ -124,6 +134,7 @@ class _LoginState extends State<Login> {
       //splashColor: Colors.blueAccent,
       onPressed: () {},
     );
+
     return Scaffold(
       backgroundColor: Color(0xfffffffa),
       //backgroundColor: Color(0xfffecee9),

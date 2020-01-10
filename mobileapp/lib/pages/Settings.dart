@@ -1,6 +1,9 @@
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:easy_localization/easy_localization.dart';
+//import 'package:easy_localization/easy_localization_provider.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/material.dart' as prefix0;
 import 'package:flutter_icons/flutter_icons.dart';
@@ -24,13 +27,36 @@ class Settings extends StatefulWidget {
   _SettingsState createState() => _SettingsState();
 }
 
+class Item {
+  Item({
+    this.expandedValue,
+    this.headerValue,
+    this.isExpanded = false,
+  });
+
+  String expandedValue;
+  String headerValue;
+  bool isExpanded;
+}
+
+List<Item> generateItems(int numberOfItems) {
+  return List.generate(numberOfItems, (int index) {
+    return Item(
+      headerValue: 'Panel $index',
+      expandedValue: 'This is item number $index',
+    );
+  });
+}
+
 class _SettingsState extends State<Settings> {
   //Future <Family> family = fetchFamily();
 
   File _image;
+  String curLan; //current language
 
   @override
   Widget build(BuildContext context) {
+    var data = EasyLocalizationProvider.of(context).data;
     final div = Divider(
       height: 10.0,
       color: Colors.grey[300],
@@ -79,51 +105,51 @@ class _SettingsState extends State<Settings> {
                     ]),
               ));
 
-//                     new Container(
-//   child: new OverflowBox(
-//     minWidth: 0.0,
-//     minHeight: 0.0,
-//     maxWidth: double.infinity,
-//     child: new Image(
-//       image: new AssetImage('assets/images/bubbles.jpg'),
-//       fit: BoxFit.cover))
-// ),
-
-    // child: Container(
-    //     width: 150.0,
-    //     height: 150.0,
-    //     child: _image == null
-    //         ? Image.asset("images/mother.png")
-    //         : Image.file(_image),
-    //     decoration: BoxDecoration(
-    //         color: Colors.white,
-    //         // image: _image == null
-    //         //     ? DecorationImage(image: AssetImage("images/mother.png"))
-    //         //     : Image.file(_image),
-    //         //image: DecorationImage(image: AssetImage("images/mother.png")),
-
-    //         /*  image: DecorationImage(
-    //           //image: NetworkImage(snapshot.data["Profilepic"]),
-
-    //           fit: BoxFit.cover),*/
-    //         borderRadius: BorderRadius.all(Radius.circular(75.0)),
-    //         boxShadow: [BoxShadow(blurRadius: 7.0, color: Colors.black)])),
-
     Future family = fetchFamily();
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Settings'),
-        actions: <Widget>[
-          FlatButton(
-            child: Text('Save',style:TextStyle(color: Colors.white),),
-            onPressed: () {
-              //save Function
-            },
-          )
-        ],
-      ),
-      body: Container(
-        child: Center(
+    curLan = AppLocalizations.of(context).tr('selectedlanguage');
+    return EasyLocalizationProvider(
+      data: data,
+      child: Scaffold(
+        appBar: AppBar(
+          // title: Text('Settings'),
+          title: Text(AppLocalizations.of(context).tr('title')),
+          actions: <Widget>[
+            FlatButton(
+              child: Text(
+                'Save',
+                style: TextStyle(color: Colors.white),
+              ),
+              onPressed: () {
+                //save Function
+              },
+            ),
+            // FlatButton(
+            //   child: Text(
+            //     'Sinhala',
+            //     style: TextStyle(color: Colors.white),
+            //   ),
+            //   onPressed: () {
+            //     this.setState(() {
+            //       data.changeLocale(Locale("si", "SL"));
+            //       print(Localizations.localeOf(context).languageCode);
+            //     });
+            //   },
+            // ),
+            // FlatButton(
+            //   child: Text(
+            //     'English',
+            //     style: TextStyle(color: Colors.white),
+            //   ),
+            //   onPressed: () {
+            //     this.setState(() {
+            //       data.changeLocale(Locale("en", "US"));
+            //       print(Localizations.localeOf(context).languageCode);
+            //     });
+            //   },
+            // ),
+          ],
+        ),
+        body: Container(
           child: FutureBuilder<Family>(
             future: family,
             builder: (context, snapshot) {
@@ -132,51 +158,103 @@ class _SettingsState extends State<Settings> {
                 return SingleChildScrollView(
                   child: Column(
                     children: <Widget>[
-                      SizedBox(
-                        height: 20.0,
+                      ExpansionTile(
+                        initiallyExpanded: false,
+                        title: Text('Edit Profile'),
+                        children: <Widget>[
+                          Center(
+                            child: profilePic,
+                          ),
+                          SizedBox(
+                            height: 20.0,
+                          ),
+                          Card(
+                            child: Column(
+                              mainAxisSize: MainAxisSize.min,
+                              children: <Widget>[
+                                ListTile(
+                                  leading: Icon(Icons.perm_identity),
+                                  title: Text('Identity Number'),
+                                  subtitle: Text(snapshot.data.idNumber),
+                                ),
+                                div,
+                                ListTile(
+                                  leading: Icon(Icons.home),
+                                  title: Text('Village ID'),
+                                  subtitle: Text(snapshot.data.vilID),
+                                ),
+                                div,
+                                ListTile(
+                                  leading: Icon(Icons.ac_unit),
+                                  title: Text('Wife Name'),
+                                  subtitle: Text(snapshot.data.wifeName),
+                                ),
+                                div,
+                                ListTile(
+                                  leading: Icon(Icons.ac_unit),
+                                  title: Text('Husband Name'),
+                                  subtitle: Text(snapshot.data.husbandName),
+                                ),
+                                div,
+                                ListTile(
+                                  leading: Icon(Icons.child_friendly),
+                                  title: Text('Number of Children'),
+                                  subtitle: Text(snapshot.data.childrenCount),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
                       ),
-                      Center(
-                        child: profilePic,
+                      ExpansionTile(
+                        initiallyExpanded: false,
+                        title: Text('Change Email/Password'),
+                        children: <Widget>[
+                          ListTile(
+                              title: Text('Email'),
+                              subtitle: Text('http email')),
+                          ListTile(
+                            title: Text('Password'),
+                            subtitle: Text('**********'),
+                          )
+                        ],
                       ),
-                      SizedBox(
-                        height: 20.0,
-                      ),
-                      Card(
-                        child: Column(
-                          mainAxisSize: MainAxisSize.min,
-                          children: <Widget>[
-                            ListTile(
-                              leading: Icon(Icons.perm_identity),
-                              title: Text('Identity Number'),
-                              subtitle: Text(snapshot.data.idNumber),
+                      ExpansionTile(
+                        initiallyExpanded: false,
+                        title: Text('Change Language'),
+                        children: <Widget>[
+                          ListTile(
+                            title: Text('Current Language'),
+                            subtitle: Text(AppLocalizations.of(context)
+                                .tr('selectedlanguage')),
+                            trailing: OutlineButton(
+                              child: curLan == "English"
+                                  ? Text('සිංහල')
+                                  : Text('English'),
+                              onPressed: () {
+                                //data.changeLocale(Locale('si','SL'));
+                                if (curLan == "English") {
+                                  this.setState(() {
+                                    data.changeLocale(Locale("si", "SL"));
+                                    print(Localizations.localeOf(context)
+                                        .languageCode);
+                                    curLan = 'සිංහල';
+                                    logger.v(curLan);
+                                  });
+                                } else {
+                                  this.setState(() {
+                                    data.changeLocale(Locale("en", "US"));
+                                    print(Localizations.localeOf(context)
+                                        .languageCode);
+                                    curLan = 'English';
+                                    logger.v(curLan);
+                                  });
+                                }
+                              },
                             ),
-                            div,
-                            ListTile(
-                              leading: Icon(Icons.home),
-                              title: Text('Village ID'),
-                              subtitle: Text(snapshot.data.vilID),
-                            ),
-                            div,
-                            ListTile(
-                              leading: Icon(Icons.ac_unit),
-                              title: Text('Wife Name'),
-                              subtitle: Text(snapshot.data.wifeName),
-                            ),
-                            div,
-                            ListTile(
-                              leading: Icon(Icons.ac_unit),
-                              title: Text('Husband Name'),
-                              subtitle: Text(snapshot.data.husbandName),
-                            ),
-                            div,
-                            ListTile(
-                              leading: Icon(Icons.child_friendly),
-                              title: Text('Number of Children'),
-                              subtitle: Text(snapshot.data.childrenCount),
-                            ),
-                          ],
-                        ),
-                      ),
+                          )
+                        ],
+                      )
                     ],
                   ),
                 ); //Text(snapshot.data.childrenCount);
@@ -185,7 +263,7 @@ class _SettingsState extends State<Settings> {
               }
 
               // By default, show a loading spinner.
-              return CircularProgressIndicator();
+              return Center(child: CircularProgressIndicator());
             },
           ),
         ),

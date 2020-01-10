@@ -36,6 +36,7 @@ dependencies:
   intl: any
   image_picker: any
   image: ^2.1.10
+  easy_localization: ^1.3.1
 
 dev_dependencies:
   flutter_test:
@@ -55,6 +56,8 @@ flutter:
 
   assets:
     - images/mother.png
+    - assets/si-SL.json
+    - assets/en-US.json
 
   # To add assets to your application, add an assets section, like this:
   # assets:
