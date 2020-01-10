@@ -19,6 +19,7 @@ import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 
 
 
+
 @NgModule({
   imports: [
     BrowserAnimationsModule,
@@ -40,6 +41,7 @@ import {TranslateHttpLoader} from '@ngx-translate/http-loader';
   declarations: [
     AppComponent,
     AdminLayoutComponent,
+    
     
   
   
