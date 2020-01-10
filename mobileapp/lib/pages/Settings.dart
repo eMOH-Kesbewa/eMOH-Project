@@ -239,7 +239,7 @@ class _SettingsState extends State<Settings> {
                                     print(Localizations.localeOf(context)
                                         .languageCode);
                                     curLan = 'සිංහල';
-                                    logger.v(curLan);
+                                   // logger.v(curLan);
                                   });
                                 } else {
                                   this.setState(() {
@@ -247,7 +247,7 @@ class _SettingsState extends State<Settings> {
                                     print(Localizations.localeOf(context)
                                         .languageCode);
                                     curLan = 'English';
-                                    logger.v(curLan);
+                                    //logger.v(curLan);
                                   });
                                 }
                               },
