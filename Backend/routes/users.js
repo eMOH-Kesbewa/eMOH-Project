@@ -155,3 +155,9 @@ router.get('/resetpassword', async (req, res) => {
     }
 
 });
+
+
+//
+// router.post('/req-reset-password', User.ResetPassword);
+// router.post('/new-password', User.NewPassword);
+// router.post('/valid-password-token', User.ValidPasswordToken);
