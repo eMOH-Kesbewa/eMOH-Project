@@ -1,10 +1,4 @@
-{
-  "clinic.view_clinic_records": "සායන වාර්තා බලන්න",
-  "clinic.upcoming_clinics": "ඉදිරියේදී එන සායන",
-  "clinic.schedule_a_clinic":"සායනය සැලසුම් කරන්න",
-  "clinic.enter_clinic_data":"සායන දත්ත ඇතුළත් කරන්න",
-  "family.view_approved_families_of_the_area":"යෝග්‍යතා පවුල් බලන්න",
-
+//Approved family forms
     "family.village_id": "යෝග්‍යතා පවුල් කාණ්ඩය",
     "family.Approved_family_category": "යෝග්‍යතා පවුල් කාණ්ඩය",
     "family.Identity_number": "හැඳින්වීමේ අංකය",
@@ -42,5 +36,3 @@
     "family.Dateofcervicalmucoustest": "ගැබ් ගෙල ස්‍රාවී පටල ගත් දිනය ",
     "family.Otherdetails": "වෙනත් කරුණු ",
     "family.numberofyoungchildren": "නව යොවුන් දරුවන් අවු 10-19 අතර"
-
-}
