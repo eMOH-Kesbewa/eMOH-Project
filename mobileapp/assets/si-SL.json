@@ -1,5 +1,12 @@
 {
     "idNo" : "හැදුනුම්පත් අංකය",
+    "address" : "ලිපිනය",
+    "mothername" : "බිරිඳගේ නම",
+    "fathername" : "සැමියාගේ නම",
+    "nooflivingchildren" : "ජීවත්ව සිටින ළමුන් ගණන",
+
     "selectedlanguage" : "සිංහල",
     "title" : "සැකසුම්"
+
+    
 }
