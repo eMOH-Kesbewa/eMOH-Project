@@ -18,8 +18,7 @@
                                           </div>
                                     </mat-form-field>
                             </div>
-                        </div>
-                        <div class="row">
+                        
                             <div class="col-md-3">
                                 <mat-form-field class="example-full-width">
                                     <input matInput placeholder="Child's Name" type= "text" formControlName="child_name">
@@ -28,6 +27,17 @@
                                       </div>
                                 </mat-form-field>
                             </div>
+                        </div>
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                              <mat-panel-title>
+                                <h5>Registration Details</h5>
+                              </mat-panel-title>
+                              <mat-panel-description>
+                                Click to View/Edit
+                              </mat-panel-description>
+                            </mat-expansion-panel-header>
+                        <div class="row">
                             <div class="col-md-3">
                                 <mat-form-field class="example-full-width">
                                     <input matInput placeholder="Mother's Nmae" type= "text" formControlName="mothers_name">
@@ -91,7 +101,16 @@
                                         </mat-form-field>
                                 </div>
                         </div>
-                        <label>Immunization</label>
+                    </mat-expansion-panel>
+                    <mat-expansion-panel>
+                        <mat-expansion-panel-header>
+                          <mat-panel-title>
+                            <h5>Immunization Details</h5>
+                          </mat-panel-title>
+                          <mat-panel-description>
+                            Click to View/Edit
+                          </mat-panel-description>
+                        </mat-expansion-panel-header>
                         <div class="row">
                                 <div class="col-md-2">
                                         <mat-form-field class="example-full-width">
@@ -130,7 +149,16 @@
                                         </mat-form-field>
                                 </div>
                         </div>
-                        <label>Polio opv</label>
+                    </mat-expansion-panel>
+                    <mat-expansion-panel>
+                        <mat-expansion-panel-header>
+                          <mat-panel-title>
+                            <h5>Polio opv/fipv</h5>
+                          </mat-panel-title>
+                          <mat-panel-description>
+                            Click to View/Edit
+                          </mat-panel-description>
+                        </mat-expansion-panel-header>
                         <div class="row">
                                 <div class="col-md-3">
                                         <mat-form-field class="example-full-width">
@@ -160,46 +188,17 @@
                                         </mat-form-field>
                                 </div>
                         </div>
-                        <div class="row">
-                                <div class="col-md-3">
-                                        <mat-form-field class="example-full-width">
-                                            <input matInput placeholder="Japanese Encephalitis" type= "date" formControlName="immunization__japanese_encephalitis">
-                                        </mat-form-field>
-                                </div>
-                                <div class="col-md-3">
-                                        <mat-form-field class="example-full-width">
-                                            <input matInput placeholder="Measles Mumps Rubella mmr-1" type= "date" formControlName="immunization__measles_mumps_rubella_mmr_1">
-                                        </mat-form-field>
-                                </div>
-                                <div class="col-md-3">
-                                        <mat-form-field class="example-full-width">
-                                            <input matInput placeholder="Diptheria Pertusis Tetanus-4" type= "date" formControlName="immunization__diptheria_pertusis_tetanus_4">
-                                        </mat-form-field>
-                                </div>
-                        </div>
-                        <div class="row">
-                                <div class="col-md-3">
-                                        <mat-form-field class="example-full-width">
-                                            <input matInput placeholder="Polio-4" type= "date" formControlName="immunization__polio_4">
-                                        </mat-form-field>
-                                </div>
-                                <div class="col-md-3">
-                                        <mat-form-field class="example-full-width">
-                                            <input matInput placeholder="Measles Mumps Rubella mmr-2" type= "date" formControlName="immunization__measles_mumps_rubella_mmr_2">
-                                        </mat-form-field>
-                                </div>
-                                <div class="col-md-3">
-                                        <mat-form-field class="example-full-width">
-                                            <input matInput placeholder="Diptheria Tetanus-5" type= "date" formControlName="immunization__diptheria_tetanus_5">
-                                        </mat-form-field>
-                                </div>
-                                <div class="col-md-3">
-                                        <mat-form-field class="example-full-width">
-                                            <input matInput placeholder="Diptheria Tetanus-6" type= "date" formControlName="immunization__diptheria_tetanus_6">
-                                        </mat-form-field>
-                                </div>
-                        </div>
-                        <label>Vitamin-A Megadose</label>
+                       
+                    </mat-expansion-panel>
+                    <mat-expansion-panel>
+                        <mat-expansion-panel-header>
+                          <mat-panel-title>
+                            <h5>Vitamin-A Megadose</h5>
+                          </mat-panel-title>
+                          <mat-panel-description>
+                            Click to View/Edit
+                          </mat-panel-description>
+                        </mat-expansion-panel-header>
                         <div class="row">
                                 <div class="col-md-3">
                                         <mat-form-field class="example-full-width">
@@ -266,6 +265,55 @@
                                         </mat-form-field>
                                 </div>
                         </div>
+                    </mat-expansion-panel>
+                    <mat-expansion-panel>
+                        <mat-expansion-panel-header>
+                          <mat-panel-title>
+                            <h5>Other Vaccines</h5>
+                          </mat-panel-title>
+                          <mat-panel-description>
+                            Click to View/Edit
+                          </mat-panel-description>
+                        </mat-expansion-panel-header>
+                        <div class="row">
+                            <div class="col-md-3">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="Japanese Encephalitis" type= "date" formControlName="immunization__japanese_encephalitis">
+                                    </mat-form-field>
+                            </div>
+                            <div class="col-md-3">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="Measles Mumps Rubella mmr-1" type= "date" formControlName="immunization__measles_mumps_rubella_mmr_1">
+                                    </mat-form-field>
+                            </div>
+                            <div class="col-md-3">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="Diptheria Pertusis Tetanus-4" type= "date" formControlName="immunization__diptheria_pertusis_tetanus_4">
+                                    </mat-form-field>
+                            </div>
+                    </div>
+                    <div class="row">
+                            <div class="col-md-3">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="Polio-4" type= "date" formControlName="immunization__polio_4">
+                                    </mat-form-field>
+                            </div>
+                            <div class="col-md-3">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="Measles Mumps Rubella mmr-2" type= "date" formControlName="immunization__measles_mumps_rubella_mmr_2">
+                                    </mat-form-field>
+                            </div>
+                            <div class="col-md-3">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="Diptheria Tetanus-5" type= "date" formControlName="immunization__diptheria_tetanus_5">
+                                    </mat-form-field>
+                            </div>
+                            <div class="col-md-3">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="Diptheria Tetanus-6" type= "date" formControlName="immunization__diptheria_tetanus_6">
+                                    </mat-form-field>
+                            </div>
+                    </div>
                         <div class="row">
                                 <div class="col-md-3">
                                         <mat-form-field class="example-full-width">
@@ -273,6 +321,7 @@
                                         </mat-form-field>
                                 </div>
                         </div>
+                    </mat-expansion-panel>
                         <input type="submit" value="Submit baby details" class="btn btn-info pull-right">
                     </form>
                     <div *ngIf="success"><h5>You submitted a new baby record successfully</h5></div>
