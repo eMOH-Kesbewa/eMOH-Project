@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { map } from "rxjs/operators";
-
+import { Observable  } from "rxjs";
+const BASEURL = 'http://localhost:3000';
 @Injectable({
   providedIn: 'root'
 })
@@ -22,6 +22,10 @@ export class AuthService {
     // return this.http.post("http://localhost:3000/user/login",user).pipe(map((res)=>res));
     return this.http.post<any>(this.url,user)
 
+  }
+  
+  requestReset(body): Observable<any> {
+    return this.http.post(`${BASEURL}/req-reset-password`, body);
   }
 
 }
