@@ -108,6 +108,16 @@ Future fetchChart() async {
   }
 }
 
+fileOperation(){
+  logger.d('file operation');
+  File f = new File('/home/pathum/Documents/eMOH-Project/mobileapp/lib/services/chartdata');
+  logger.d('file operation2');
+    f.writeAsStringSync('hello file');
+    logger.d('file operation3');
+    logger.wtf(f.readAsStringSync());
+    logger.d('file operation4');
+}
+
 class Baby {
   final double x1;
   final double y1;
@@ -162,6 +172,8 @@ class Baby {
     logger.e(json['x1']);
     logger.d(chart.x1);
 
+    
+    
     for (var i = 1; i < 24; i++) {
       data.add(json['x${i}']);
     }
@@ -170,10 +182,12 @@ class Baby {
       data.remove(null);
     }
 
-    FileUtils.saveToFile(data.toString());
-    FileUtils.readFromFile().then((content) {
-      logger.e(content);
-    });
+    fileOperation();
+    // FileUtils.saveToFile(data.toString());
+    
+    // FileUtils.readFromFile().then((content) {
+    //   logger.e(content);
+    // });
     logger.v(chart.data);
 
     return Baby(

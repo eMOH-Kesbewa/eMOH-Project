@@ -7,6 +7,8 @@ import 'package:mobileapp/widgets/growthCard.dart';
 import 'package:mobileapp/widgets/sixWToThreeM.dart';
 import 'package:toast/toast.dart';
 import 'package:mobileapp/services/globals.dart' as globals;
+import 'package:easy_localization/easy_localization.dart';
+import 'package:easy_localization/easy_localization_provider.dart';
 
 class GrowingView extends StatefulWidget {
   @override
@@ -22,6 +24,7 @@ class _GrowingViewState extends State<GrowingView> {
   @override
   Widget build(BuildContext context) {
     Choice index;
+    var data = EasyLocalizationProvider.of(context).data;
 
     bool layingFaceDownVis,
         movingObjectVis,
@@ -64,9 +67,16 @@ class _GrowingViewState extends State<GrowingView> {
       future: fetchBaby(),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
-          return Scaffold(
-            appBar: AppBar(title: Text('Baby Growth'),),
-            body: Center(child: CircularProgressIndicator(),),
+          return EasyLocalizationProvider(
+            data: data,
+            child: Scaffold(
+              appBar: AppBar(
+                title: Text('Baby Growth'),
+              ),
+              body: Center(
+                child: CircularProgressIndicator(),
+              ),
+            ),
           );
         } else {
           if (snapshot.data.layingFaceDownOcc == '0') {
@@ -254,37 +264,37 @@ class _GrowingViewState extends State<GrowingView> {
             Choice(
                 '01',
                 Icons.book,
-                'From six weeks to three months',
+                AppLocalizations.of(context).tr('fromsixweeks'),
                 GrowthCard(
-                    'While lying face downwards raise the head',
+                    AppLocalizations.of(context).tr('fromsixweekstxt1'),
                     snapshot.data.layingFaceDownOcc.toString(),
                     snapshot.data.layingFaceDownCon.toString(),
                     snapshot.data.layingFaceDownOf.toString(),
                     layingFaceDownVis,
                     'lie_your_hips_and_head_up_age_at_the_time_of_occurence'),
                 GrowthCard(
-                    'Look at a object moving from one place to another continuously.',
+                    AppLocalizations.of(context).tr('fromsixweekstxt2'),
                     snapshot.data.movingObjectOcc.toString(),
                     snapshot.data.movingObjectCon.toString(),
                     snapshot.data.movingObjectOf.toString(),
                     movingObjectVis,
                     'something_keeps_moving_from_one_place_to_another_age_at_the_time_of_occurence'),
                 GrowthCard(
-                    'Respond to a sudden big sound by stopping the current activity or by increasing the activity.',
+                    AppLocalizations.of(context).tr('fromsixweekstxt3'),
                     snapshot.data.bigSoundOcc.toString(),
                     snapshot.data.bigSoundCon.toString(),
                     snapshot.data.bigSoundOf.toString(),
                     bigSoundVis,
                     'stopping_or_increasing_action_responds_to_a_sudden_loud_noise_age_at_the_time_of_occurence'),
                 GrowthCard(
-                    'As a response to some stimulations make sounds like "ahh","ohh"and "ehh"',
+                    AppLocalizations.of(context).tr('fromsixweekstxt4'),
                     snapshot.data.ohhOcc.toString(),
                     snapshot.data.ohhCon.toString(),
                     snapshot.data.ohhOf.toString(),
                     ohhVis,
                     'sounds_like_a_e_in_response_to_stimulus_age_at_the_time_of_occurence'),
                 GrowthCard(
-                    'Recognize the mother and smile.',
+                    AppLocalizations.of(context).tr('fromsixweekstxt5'),
                     snapshot.data.smileOcc.toString(),
                     snapshot.data.smileCon.toString(),
                     snapshot.data.smileOf.toString(),
@@ -294,44 +304,44 @@ class _GrowingViewState extends State<GrowingView> {
             Choice.six(
                 '02',
                 Icons.book,
-                'From three to six months',
+                AppLocalizations.of(context).tr('fromthreesixmonths'),
                 GrowthCard(
-                    'While lying face downwards, raise the head and the chest.',
+                    AppLocalizations.of(context).tr('fromthreesixmonthstxt1'),
                     snapshot.data.raiseHeadOcc.toString(),
                     snapshot.data.raiseHeadCon.toString(),
                     snapshot.data.raiseHeadOf.toString(),
                     raiseHeadVis,
                     'raise_the_head_chest_while_standing_up_age_at_the_time_of_occurence'),
                 GrowthCard(
-                    'Play with his/her own hands while entangling the fingers.',
+                    AppLocalizations.of(context).tr('fromthreesixmonthstxt2'),
                     snapshot.data.playFingersOcc.toString(),
                     snapshot.data.playFingersCon.toString(),
                     snapshot.data.playFingersOf.toString(),
                     playFingersVis,
                     'they_play_when_crossing_fingers_age_at_the_time_of_occurence'),
                 GrowthCard(
-                    'Point the hand at certain objects and grab them by the whole palm.',
+                    AppLocalizations.of(context).tr('fromthreesixmonthstxt3'),
                     snapshot.data.strechHandOcc.toString(),
                     snapshot.data.strechHandCon.toString(),
                     snapshot.data.strechHandOf.toString(),
                     strechHandVis,
                     'streching_his_hands_toward_something_he_hold_it_with_his_whole_hand_age_at_the_time_of_occurence'),
                 GrowthCard(
-                    'When a sound was heard,turn the head to that direction.',
+                    AppLocalizations.of(context).tr('fromthreesixmonthstxt4'),
                     snapshot.data.soundTurnOcc.toString(),
                     snapshot.data.soundTurnCon.toString(),
                     snapshot.data.soundTurnOf.toString(),
                     soundTurnVis,
                     'when_heard_a_sound_he_turn_his_head_toward_that_age_at_the_time_of_occurence'),
                 GrowthCard(
-                    'Release one character sounds like "gaa","daa","taa" and "baa".',
+                    AppLocalizations.of(context).tr('fromthreesixmonthstxt5'),
                     snapshot.data.singleLetterSoundOcc.toString(),
                     snapshot.data.singleLetterSoundCon.toString(),
                     snapshot.data.singleLetterSoundOf.toString(),
                     singleLetterSoundVis,
                     'emits_single_letter_sounds_age_at_the_time_of_occurence'),
                 GrowthCard(
-                    'laugh loudly.',
+                    AppLocalizations.of(context).tr('fromthreesixmonthstxt6'),
                     snapshot.data.laughtLoudOcc.toString(),
                     snapshot.data.laughtLoudCon.toString(),
                     snapshot.data.laughtLoudOf.toString(),
@@ -341,9 +351,9 @@ class _GrowingViewState extends State<GrowingView> {
             Choice.four(
                 '03',
                 Icons.book,
-                'From six to nine months',
+                AppLocalizations.of(context).tr('formsixtoninemonths'),
                 GrowthCard(
-                    'While lying down face up raise the head.',
+                    AppLocalizations.of(context).tr('formsixtoninemonthstxt1'),
                     snapshot.data.raiseHead2Occ.toString(),
                     snapshot.data.raiseHead2Con.toString(),
                     snapshot.data.raiseHead2Of.toString(),
@@ -531,7 +541,7 @@ class _GrowingViewState extends State<GrowingView> {
                     canCopyVis,
                     'can_copy_an_art_with_a_circle_age_at_the_time_of_occurence'),
                 GrowthCard(
-                    'Have the ability to build up a sentence using 3 or more words. ',
+                    'Have the ability to build up a sentence using 3 or more words.',
                     snapshot.data.canCreateOcc.toString(),
                     snapshot.data.canCreateCon.toString(),
                     snapshot.data.canCreateOf.toString(),
