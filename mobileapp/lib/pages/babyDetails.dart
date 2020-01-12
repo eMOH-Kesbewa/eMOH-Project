@@ -11,6 +11,7 @@ import 'package:mobileapp/pages/babyInfo/hearTest.dart';
 import 'package:mobileapp/pages/babyInfo/immunization.dart';
 import 'package:mobileapp/pages/babyInfo/immunizationRef.dart';
 import 'package:mobileapp/pages/babyInfo/newBornBayHealthChart.dart';
+import 'package:mobileapp/pages/babyInfo/plot.dart';
 import 'package:mobileapp/pages/babyInfo/teeth.dart';
 //import 'package:mobileapp/pages/babyInfo/untilFiveYears.dart';
 import 'package:mobileapp/pages/babyInfo/untilFiveYearsStep.dart';
@@ -557,7 +558,7 @@ class _BabyDetailsState extends State<BabyDetails> {
           //height: MediaQuery.of(context).size.width / 4,
           onPressed: () => Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => Chart()),
+            MaterialPageRoute(builder: (context) => GraphHome()),
           ),
         ));
 

@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:logger/logger.dart';
 import 'package:mobileapp/pages/bottomNavigation.dart';
 import 'package:mobileapp/pages/familyProfile.dart';
 
@@ -12,6 +13,10 @@ import 'package:toast/toast.dart';
 import '../services/globals.dart' as globals;
 //import 'dart:io';
 //import 'package:flutter/services.dart';
+
+var logger = Logger();
+
+
 
 class Login extends StatefulWidget {
   @override
@@ -187,6 +192,7 @@ class _LoginState extends State<Login> {
     var response = await http.post(
         "https://protected-bayou-52277.herokuapp.com/users/login",
         body: data);
+        logger.wtf(response.statusCode);
     if (response.statusCode == 200) {
       jsonResponse = json.decode(response.body);
       globals.globalEmail = emailController.text.toString();

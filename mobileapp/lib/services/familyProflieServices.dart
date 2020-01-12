@@ -8,12 +8,9 @@ import 'globals.dart' as globals;
 
 var logger = Logger();
 
-
-
 Future<Family> fetchFamily() async {
   print('fetch family function');
 
- 
   //   final jwtDetails = await http.get('https://protected-bayou-52277.herokuapp.com/users/profile',headers: ).then((res){
   //   logger.wtf(res.body);
   // });
@@ -40,13 +37,15 @@ class Family {
   final String wifeName;
   final String husbandName;
   final String childrenCount;
+  final String address;
 
   Family(
       {this.idNumber,
       this.vilID,
       this.wifeName,
       this.husbandName,
-      this.childrenCount});
+      this.childrenCount,
+      this.address});
 
   factory Family.fromJson(Map<String, dynamic> json) {
     globals.familyId = json['Identity_number'];
@@ -57,6 +56,7 @@ class Family {
       vilID: json['village_id'],
       wifeName: json['Name_of_wife'],
       husbandName: json['Name_of_husband'],
+      address: json['Address'],
       childrenCount: json['numberofyoungchildren'].toString(),
     );
   }

@@ -121,8 +121,8 @@ class _FamilyProfileState extends State<FamilyProfile> {
                             ListTile(
                               leading: Icon(Icons.home),
                               // title: Text(.idNo),
-                              title: Text('Village ID'),
-                              subtitle: Text(snapshot.data.vilID),
+                              title: Text('Address'),
+                              subtitle: Text(snapshot.data.address),
                             ),
                             div,
                             ListTile(
