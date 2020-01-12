@@ -73,12 +73,14 @@
 
 import 'dart:async';
 import 'dart:convert';
-
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:logger/logger.dart';
 import '../globals.dart' as globals;
 import '../chartdata.dart' as chart;
+import 'package:path_provider/path_provider.dart';
+import './fileUtils.dart';
 
 var logger = Logger();
 
@@ -98,7 +100,7 @@ Future fetchChart() async {
     // logger.i(Baby.fromJson(json.decode(response.body)));
 //    print(Baby.fromJson(json.decode(response.body)));
 
-   // logger.wtf(json.decode(response.body)[0]);
+    // logger.wtf(json.decode(response.body)[0]);
     return Baby.fromJson(json.decode(response.body)[0]);
   } else {
     // If that call was not successful, throw an error.
@@ -151,13 +153,29 @@ class Baby {
       this.y10});
 
   factory Baby.fromJson(Map<String, dynamic> json) {
+    List data = List();
     logger.wtf(json['x1']);
     // chart.x1 = json['x1'].toString();
     // logger.d(chart.x1);
-    
+
     chart.x1 = json['x1'].toString();
     logger.e(json['x1']);
     logger.d(chart.x1);
+
+    for (var i = 1; i < 24; i++) {
+      data.add(json['x${i}']);
+    }
+    for (var i = 1; i < 24; i++) {
+      //chart.data.add(json['x${i}']);
+      data.remove(null);
+    }
+
+    FileUtils.saveToFile(data.toString());
+    FileUtils.readFromFile().then((content) {
+      logger.e(content);
+    });
+    logger.v(chart.data);
+
     return Baby(
       x1: json['x1'].toDouble(),
       y1: json['y1'].toDouble(),
