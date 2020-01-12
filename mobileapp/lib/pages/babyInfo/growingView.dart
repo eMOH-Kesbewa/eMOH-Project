@@ -531,7 +531,7 @@ class _GrowingViewState extends State<GrowingView> {
                     canCopyVis,
                     'can_copy_an_art_with_a_circle_age_at_the_time_of_occurence'),
                 GrowthCard(
-                    'Have the ability to build up a sentence using 3 or more words. ',
+                    'Have the ability to build up a sentence using 3 or more words.',
                     snapshot.data.canCreateOcc.toString(),
                     snapshot.data.canCreateCon.toString(),
                     snapshot.data.canCreateOf.toString(),

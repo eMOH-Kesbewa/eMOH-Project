@@ -19,6 +19,7 @@ import 'package:mobileapp/pages/babyInfo/vitaminA.dart';
 import 'package:mobileapp/pages/babyInfo/worm.dart';
 import 'package:mobileapp/pages/bottomNavigation.dart';
 import 'package:mobileapp/widgets/childHealthCard.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 import '../services/globals.dart' as globals;
 
@@ -29,8 +30,10 @@ class BabyDetails extends StatefulWidget {
 
 class _BabyDetailsState extends State<BabyDetails> {
   String _value = '01';
+  
   @override
   Widget build(BuildContext context) {
+    var data = EasyLocalizationProvider.of(context).data;
     // String dropdownValue = 'One';
     final selectBaby = DropdownButton<String>(
       items: [
@@ -65,64 +68,70 @@ class _BabyDetailsState extends State<BabyDetails> {
       elevation: .0,
       borderRadius: BorderRadius.circular(10.0),
       color: Color(0xff2660a4),
-      child: MaterialButton(
-        child: Column(
-          children: <Widget>[
-            SizedBox(
-              height: 40.0,
-            ),
-            Icon(
-              Icons.person,
-              color: Colors.white,
-              size: 70.0,
-            ),
-            SizedBox(
-              height: 0.0,
-            ),
-            Text(
-              'Basic Information',
-              style:
-                  TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
-              textAlign: TextAlign.center,
-            ),
-          ],
+      child: EasyLocalizationProvider(
+        data: data,
+              child: MaterialButton(
+          child: Column(
+            children: <Widget>[
+              SizedBox(
+                height: 40.0,
+              ),
+              Icon(
+                Icons.person,
+                color: Colors.white,
+                size: 70.0,
+              ),
+              SizedBox(
+                height: 0.0,
+              ),
+              Text(
+                AppLocalizations.of(context).tr('basicInfo'),
+                style:
+                    TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
+                textAlign: TextAlign.center,
+              ),
+            ],
+          ),
+          //minWidth: MediaQuery.of(context).size.width / 2,
+          //height: MediaQuery.of(context).size.width / 4,
+          onPressed: () => Navigator.push(
+              context, MaterialPageRoute(builder: (context) => BabyBasicInfo())),
         ),
-        //minWidth: MediaQuery.of(context).size.width / 2,
-        //height: MediaQuery.of(context).size.width / 4,
-        onPressed: () => Navigator.push(
-            context, MaterialPageRoute(builder: (context) => BabyBasicInfo())),
       ),
     );
     final protectionBtn = Material(
       elevation: .0,
       borderRadius: BorderRadius.circular(10.0),
       color: Color(0xff51a3a3),
-      child: MaterialButton(
-        child: Column(
-          children: <Widget>[
-            SizedBox(
-              height: 40.0,
-            ),
-            Icon(
-              Icons.person,
-              color: Colors.white,
-              size: 70.0,
-            ),
-            SizedBox(
-              height: 0.0,
-            ),
-            Text(
-              'Protection of Baby',
-              style:
-                  TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
-              textAlign: TextAlign.center,
-            ),
-          ],
+      child: EasyLocalizationProvider(
+        data: data,
+              child: MaterialButton(
+          child: Column(
+            children: <Widget>[
+              SizedBox(
+                height: 40.0,
+              ),
+              Icon(
+                Icons.person,
+                color: Colors.white,
+                size: 70.0,
+              ),
+              SizedBox(
+                height: 0.0,
+              ),
+              Text(
+                AppLocalizations.of(context).tr('proBaby'),
+                style:
+                    TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
+                textAlign: TextAlign.center,
+              ),
+            ],
+          ),
+          //minWidth: MediaQuery.of(context).size.width / 2,
+          //height: MediaQuery.of(context).size.width / 4,
+          onPressed: () => Navigator.push(
+              context, MaterialPageRoute(builder: (context) => BabyProtection())),
         ),
-        //minWidth: MediaQuery.of(context).size.width / 2,
-        //height: MediaQuery.of(context).size.width / 4,
-        onPressed: () => Navigator.push(
-            context, MaterialPageRoute(builder: (context) => BabyProtection())),
       ),
     );
     final eyeTestBtn = Material(
@@ -131,434 +140,470 @@ class _BabyDetailsState extends State<BabyDetails> {
 
       color: Color(0xff8acb88),
       //color: Color(0xff593c8f),
-      child: MaterialButton(
-        child: Column(
-          children: <Widget>[
-            SizedBox(
-              height: 40.0,
-            ),
-            Icon(
-              Icons.person,
-              color: Colors.white,
-              size: 70.0,
-            ),
-            SizedBox(
-              height: 0.0,
-            ),
-            Text(
-              'Eye Test',
-              style:
-                  TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
-              textAlign: TextAlign.center,
-            ),
-          ],
+      child: EasyLocalizationProvider(
+        data: data,
+              child: MaterialButton(
+          child: Column(
+            children: <Widget>[
+              SizedBox(
+                height: 40.0,
+              ),
+              Icon(
+                Icons.person,
+                color: Colors.white,
+                size: 70.0,
+              ),
+              SizedBox(
+                height: 0.0,
+              ),
+              Text(
+                AppLocalizations.of(context).tr('eyeTest'),
+                style:
+                    TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
+                textAlign: TextAlign.center,
+              ),
+            ],
+          ),
+          //minWidth: MediaQuery.of(context).size.width / 2,
+          //height: MediaQuery.of(context).size.width / 4,
+          onPressed: () => Navigator.push(
+              context, MaterialPageRoute(builder: (context) => EyeTest())),
         ),
-        //minWidth: MediaQuery.of(context).size.width / 2,
-        //height: MediaQuery.of(context).size.width / 4,
-        onPressed: () => Navigator.push(
-            context, MaterialPageRoute(builder: (context) => EyeTest())),
       ),
     );
     final hearTestBtn = Material(
       elevation: .0,
       borderRadius: BorderRadius.circular(10.0),
       color: Color(0xff228cdb),
-      child: MaterialButton(
-        child: Column(
-          children: <Widget>[
-            SizedBox(
-              height: 40.0,
-            ),
-            Icon(
-              Icons.person,
-              color: Colors.white,
-              size: 70.0,
-            ),
-            SizedBox(
-              height: 0.0,
-            ),
-            Text(
-              'Hearing Test',
-              style:
-                  TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
-              textAlign: TextAlign.center,
-            ),
-          ],
+      child: EasyLocalizationProvider(
+        data: data,
+              child: MaterialButton(
+          child: Column(
+            children: <Widget>[
+              SizedBox(
+                height: 40.0,
+              ),
+              Icon(
+                Icons.person,
+                color: Colors.white,
+                size: 70.0,
+              ),
+              SizedBox(
+                height: 0.0,
+              ),
+              Text(
+                AppLocalizations.of(context).tr('hearingTest'),
+                style:
+                    TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
+                textAlign: TextAlign.center,
+              ),
+            ],
+          ),
+          //minWidth: MediaQuery.of(context).size.width / 2,
+          //height: MediaQuery.of(context).size.width / 4,
+          onPressed: () => Navigator.push(
+              context, MaterialPageRoute(builder: (context) => HearTest())),
         ),
-        //minWidth: MediaQuery.of(context).size.width / 2,
-        //height: MediaQuery.of(context).size.width / 4,
-        onPressed: () => Navigator.push(
-            context, MaterialPageRoute(builder: (context) => HearTest())),
       ),
     );
     final untilFiveYearsBtn = Material(
         elevation: .0,
         borderRadius: BorderRadius.circular(10.0),
         color: Color(0xff593c8f),
-        child: MaterialButton(
-          child: Column(
-            children: <Widget>[
-              SizedBox(
-                height: 40.0,
-              ),
-              Icon(
-                Icons.person,
-                color: Colors.white,
-                size: 70.0,
-              ),
-              SizedBox(
-                height: 0.0,
-              ),
-              Flexible(
-                child: Text(
-                  'Growth Until Five Years',
-                  overflow: TextOverflow.ellipsis,
-                  maxLines: 3,
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold, color: Colors.white),
-                  textAlign: TextAlign.center,
+        child: EasyLocalizationProvider(
+          data: data,
+                  child: MaterialButton(
+            child: Column(
+              children: <Widget>[
+                SizedBox(
+                  height: 40.0,
                 ),
-              ),
-            ],
-          ),
-          //minWidth: MediaQuery.of(context).size.width / 2,
-          //height: MediaQuery.of(context).size.width / 4,
-          onPressed: () => Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => GrowingView()),
+                Icon(
+                  Icons.person,
+                  color: Colors.white,
+                  size: 70.0,
+                ),
+                SizedBox(
+                  height: 0.0,
+                ),
+                Flexible(
+                  child: Text(
+                    AppLocalizations.of(context).tr('growth5'),
+                    overflow: TextOverflow.ellipsis,
+                    maxLines: 3,
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold, color: Colors.white),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+              ],
+            ),
+            //minWidth: MediaQuery.of(context).size.width / 2,
+            //height: MediaQuery.of(context).size.width / 4,
+            onPressed: () => Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => GrowingView()),
+            ),
           ),
         ));
     final helthChartbtn = Material(
         elevation: .0,
         borderRadius: BorderRadius.circular(10.0),
         color: Color(0xffeccf68),
-        child: MaterialButton(
-          child: Column(
-            children: <Widget>[
-              SizedBox(
-                height: 40.0,
-              ),
-              Icon(
-                Icons.person,
-                color: Colors.white,
-                size: 70.0,
-              ),
-              SizedBox(
-                height: 0.0,
-              ),
-              Flexible(
-                child: Text(
-                  'Health Chart',
-                  overflow: TextOverflow.ellipsis,
-                  maxLines: 3,
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold, color: Colors.white),
-                  textAlign: TextAlign.center,
+        child: EasyLocalizationProvider(
+          data: data,
+                  child: MaterialButton(
+            child: Column(
+              children: <Widget>[
+                SizedBox(
+                  height: 40.0,
                 ),
-              ),
-            ],
-          ),
-          //minWidth: MediaQuery.of(context).size.width / 2,
-          //height: MediaQuery.of(context).size.width / 4,
-          onPressed: () => Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => HelthChart()),
+                Icon(
+                  Icons.person,
+                  color: Colors.white,
+                  size: 70.0,
+                ),
+                SizedBox(
+                  height: 0.0,
+                ),
+                Flexible(
+                  child: Text(
+                    AppLocalizations.of(context).tr('healthCard'),
+                    overflow: TextOverflow.ellipsis,
+                    maxLines: 3,
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold, color: Colors.white),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+              ],
+            ),
+            //minWidth: MediaQuery.of(context).size.width / 2,
+            //height: MediaQuery.of(context).size.width / 4,
+            onPressed: () => Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => HelthChart()),
+            ),
           ),
         ));
     final immunizationbtn = Material(
         elevation: .0,
         borderRadius: BorderRadius.circular(10.0),
         color: Color(0xfff46f79),
-        child: MaterialButton(
-          child: Column(
-            children: <Widget>[
-              SizedBox(
-                height: 40.0,
-              ),
-              Icon(
-                Icons.person,
-                color: Colors.white,
-                size: 70.0,
-              ),
-              SizedBox(
-                height: 0.0,
-              ),
-              Flexible(
-                child: Text(
-                  'Immunization',
-                  overflow: TextOverflow.ellipsis,
-                  maxLines: 3,
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold, color: Colors.white),
-                  textAlign: TextAlign.center,
+        child: EasyLocalizationProvider(
+          data: data,
+                  child: MaterialButton(
+            child: Column(
+              children: <Widget>[
+                SizedBox(
+                  height: 40.0,
                 ),
-              ),
-            ],
-          ),
-          //minWidth: MediaQuery.of(context).size.width / 2,
-          //height: MediaQuery.of(context).size.width / 4,
-          onPressed: () => Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => Immunization()),
+                Icon(
+                  Icons.person,
+                  color: Colors.white,
+                  size: 70.0,
+                ),
+                SizedBox(
+                  height: 0.0,
+                ),
+                Flexible(
+                  child: Text(
+                    AppLocalizations.of(context).tr('immuni'),
+                    overflow: TextOverflow.ellipsis,
+                    maxLines: 3,
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold, color: Colors.white),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+              ],
+            ),
+            //minWidth: MediaQuery.of(context).size.width / 2,
+            //height: MediaQuery.of(context).size.width / 4,
+            onPressed: () => Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => Immunization()),
+            ),
           ),
         ));
     final immunizationRefbtn = Material(
         elevation: .0,
         borderRadius: BorderRadius.circular(10.0),
         color: Color(0xff963564),
-        child: MaterialButton(
-          child: Column(
-            children: <Widget>[
-              SizedBox(
-                height: 40.0,
-              ),
-              Icon(
-                Icons.person,
-                color: Colors.white,
-                size: 70.0,
-              ),
-              SizedBox(
-                height: 0.0,
-              ),
-              Flexible(
-                child: Text(
-                  'Immunization Refferance',
-                  overflow: TextOverflow.ellipsis,
-                  maxLines: 3,
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold, color: Colors.white),
-                  textAlign: TextAlign.center,
+        child: EasyLocalizationProvider(
+          data: data,
+                  child: MaterialButton(
+            child: Column(
+              children: <Widget>[
+                SizedBox(
+                  height: 40.0,
                 ),
-              ),
-            ],
-          ),
-          //minWidth: MediaQuery.of(context).size.width / 2,
-          //height: MediaQuery.of(context).size.width / 4,
-          onPressed: () => Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => ImmunizationRef()),
+                Icon(
+                  Icons.person,
+                  color: Colors.white,
+                  size: 70.0,
+                ),
+                SizedBox(
+                  height: 0.0,
+                ),
+                Flexible(
+                  child: Text(
+                    AppLocalizations.of(context).tr('immuniRef'),
+                    overflow: TextOverflow.ellipsis,
+                    maxLines: 3,
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold, color: Colors.white),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+              ],
+            ),
+            //minWidth: MediaQuery.of(context).size.width / 2,
+            //height: MediaQuery.of(context).size.width / 4,
+            onPressed: () => Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => ImmunizationRef()),
+            ),
           ),
         ));
     final vitaminAbtn = Material(
         elevation: .0,
         borderRadius: BorderRadius.circular(10.0),
         color: Color(0xff68c8c8),
-        child: MaterialButton(
-          child: Column(
-            children: <Widget>[
-              SizedBox(
-                height: 40.0,
-              ),
-              Icon(
-                Icons.person,
-                color: Colors.white,
-                size: 70.0,
-              ),
-              SizedBox(
-                height: 0.0,
-              ),
-              Flexible(
-                child: Text(
-                  'Vitamin A',
-                  overflow: TextOverflow.ellipsis,
-                  maxLines: 3,
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold, color: Colors.white),
-                  textAlign: TextAlign.center,
+        child: EasyLocalizationProvider(
+          data: data,
+                  child: MaterialButton(
+            child: Column(
+              children: <Widget>[
+                SizedBox(
+                  height: 40.0,
                 ),
-              ),
-            ],
-          ),
-          //minWidth: MediaQuery.of(context).size.width / 2,
-          //height: MediaQuery.of(context).size.width / 4,
-          onPressed: () => Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => VitaminA()),
+                Icon(
+                  Icons.person,
+                  color: Colors.white,
+                  size: 70.0,
+                ),
+                SizedBox(
+                  height: 0.0,
+                ),
+                Flexible(
+                  child: Text(
+                    AppLocalizations.of(context).tr('vitaminA'),
+                    overflow: TextOverflow.ellipsis,
+                    maxLines: 3,
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold, color: Colors.white),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+              ],
+            ),
+            //minWidth: MediaQuery.of(context).size.width / 2,
+            //height: MediaQuery.of(context).size.width / 4,
+            onPressed: () => Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => VitaminA()),
+            ),
           ),
         ));
     final wormbtn = Material(
         elevation: .0,
         borderRadius: BorderRadius.circular(10.0),
         color: Color(0xffca8766),
-        child: MaterialButton(
-          child: Column(
-            children: <Widget>[
-              SizedBox(
-                height: 40.0,
-              ),
-              Icon(
-                Icons.person,
-                color: Colors.white,
-                size: 70.0,
-              ),
-              SizedBox(
-                height: 0.0,
-              ),
-              Flexible(
-                child: Text(
-                  'Worm Treatments',
-                  overflow: TextOverflow.ellipsis,
-                  maxLines: 3,
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold, color: Colors.white),
-                  textAlign: TextAlign.center,
+        child: EasyLocalizationProvider(
+          data: data,
+                  child: MaterialButton(
+            child: Column(
+              children: <Widget>[
+                SizedBox(
+                  height: 40.0,
                 ),
-              ),
-            ],
-          ),
-          //minWidth: MediaQuery.of(context).size.width / 2,
-          //height: MediaQuery.of(context).size.width / 4,
-          onPressed: () => Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => WormTreat()),
+                Icon(
+                  Icons.person,
+                  color: Colors.white,
+                  size: 70.0,
+                ),
+                SizedBox(
+                  height: 0.0,
+                ),
+                Flexible(
+                  child: Text(
+                    AppLocalizations.of(context).tr('worm'),
+                    overflow: TextOverflow.ellipsis,
+                    maxLines: 3,
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold, color: Colors.white),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+              ],
+            ),
+            //minWidth: MediaQuery.of(context).size.width / 2,
+            //height: MediaQuery.of(context).size.width / 4,
+            onPressed: () => Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => WormTreat()),
+            ),
           ),
         ));
     final childHealthbtn = Material(
         elevation: .0,
         borderRadius: BorderRadius.circular(10.0),
         color: Color(0xffc3e989),
-        child: MaterialButton(
-          child: Column(
-            children: <Widget>[
-              SizedBox(
-                height: 40.0,
-              ),
-              Icon(
-                Icons.person,
-                color: Colors.white,
-                size: 70.0,
-              ),
-              SizedBox(
-                height: 0.0,
-              ),
-              Flexible(
-                child: Text(
-                  'Child Health Chart',
-                  overflow: TextOverflow.ellipsis,
-                  maxLines: 3,
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold, color: Colors.white),
-                  textAlign: TextAlign.center,
+        child: EasyLocalizationProvider(
+          data: data,
+                  child: MaterialButton(
+            child: Column(
+              children: <Widget>[
+                SizedBox(
+                  height: 40.0,
                 ),
-              ),
-            ],
-          ),
-          //minWidth: MediaQuery.of(context).size.width / 2,
-          //height: MediaQuery.of(context).size.width / 4,
-          onPressed: () => Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => ChildHealthView()),
+                Icon(
+                  Icons.person,
+                  color: Colors.white,
+                  size: 70.0,
+                ),
+                SizedBox(
+                  height: 0.0,
+                ),
+                Flexible(
+                  child: Text(
+                    AppLocalizations.of(context).tr('childHealthCard'),
+                    overflow: TextOverflow.ellipsis,
+                    maxLines: 3,
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold, color: Colors.white),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+              ],
+            ),
+            //minWidth: MediaQuery.of(context).size.width / 2,
+            //height: MediaQuery.of(context).size.width / 4,
+            onPressed: () => Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => ChildHealthView()),
+            ),
           ),
         ));
     final doctorNotesbtn = Material(
         elevation: 0.0,
         borderRadius: BorderRadius.circular(10.0),
         color: Color(0xffe87554),
-        child: MaterialButton(
-          child: Column(
-            children: <Widget>[
-              SizedBox(
-                height: 40.0,
-              ),
-              Icon(
-                Icons.person,
-                color: Colors.white,
-                size: 70.0,
-              ),
-              SizedBox(
-                height: 0.0,
-              ),
-              Flexible(
-                child: Text(
-                  'Doctor Notes',
-                  overflow: TextOverflow.ellipsis,
-                  maxLines: 3,
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold, color: Colors.white),
-                  textAlign: TextAlign.center,
+        child: EasyLocalizationProvider(
+          data: data,
+                  child: MaterialButton(
+            child: Column(
+              children: <Widget>[
+                SizedBox(
+                  height: 40.0,
                 ),
-              ),
-            ],
-          ),
-          //minWidth: MediaQuery.of(context).size.width / 2,
-          //height: MediaQuery.of(context).size.width / 4,
-          onPressed: () => Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => DoctorNotes()),
+                Icon(
+                  Icons.person,
+                  color: Colors.white,
+                  size: 70.0,
+                ),
+                SizedBox(
+                  height: 0.0,
+                ),
+                Flexible(
+                  child: Text(
+                    AppLocalizations.of(context).tr('doctorNotes'),
+                    overflow: TextOverflow.ellipsis,
+                    maxLines: 3,
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold, color: Colors.white),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+              ],
+            ),
+            //minWidth: MediaQuery.of(context).size.width / 2,
+            //height: MediaQuery.of(context).size.width / 4,
+            onPressed: () => Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => DoctorNotes()),
+            ),
           ),
         ));
     final teethbtn = Material(
         elevation: .0,
         borderRadius: BorderRadius.circular(10.0),
         color: Color(0xffe0e0ce),
-        child: MaterialButton(
-          child: Column(
-            children: <Widget>[
-              SizedBox(
-                height: 40.0,
-              ),
-              Icon(
-                Icons.person,
-                color: Colors.white,
-                size: 70.0,
-              ),
-              SizedBox(
-                height: 0.0,
-              ),
-              Flexible(
-                child: Text(
-                  'Teeths',
-                  overflow: TextOverflow.ellipsis,
-                  maxLines: 3,
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold, color: Colors.white),
-                  textAlign: TextAlign.center,
+        child: EasyLocalizationProvider(
+          data: data,
+                  child: MaterialButton(
+            child: Column(
+              children: <Widget>[
+                SizedBox(
+                  height: 40.0,
                 ),
-              ),
-            ],
-          ),
-          //minWidth: MediaQuery.of(context).size.width / 2,
-          //height: MediaQuery.of(context).size.width / 4,
-          onPressed: () => Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => Teeth()),
+                Icon(
+                  Icons.person,
+                  color: Colors.white,
+                  size: 70.0,
+                ),
+                SizedBox(
+                  height: 0.0,
+                ),
+                Flexible(
+                  child: Text(
+                    AppLocalizations.of(context).tr('teeths'),
+                    overflow: TextOverflow.ellipsis,
+                    maxLines: 3,
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold, color: Colors.white),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+              ],
+            ),
+            //minWidth: MediaQuery.of(context).size.width / 2,
+            //height: MediaQuery.of(context).size.width / 4,
+            onPressed: () => Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => Teeth()),
+            ),
           ),
         ));
     final chartbtn = Material(
         elevation: 0.0,
         borderRadius: BorderRadius.circular(10.0),
         color: Color(0xff7c606b),
-        child: MaterialButton(
-          child: Column(
-            children: <Widget>[
-              SizedBox(
-                height: 40.0,
-              ),
-              Icon(
-                Icons.person,
-                color: Colors.white,
-                size: 70.0,
-              ),
-              SizedBox(
-                height: 0.0,
-              ),
-              Flexible(
-                child: Text(
-                  'Chart',
-                  overflow: TextOverflow.ellipsis,
-                  maxLines: 3,
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold, color: Colors.white),
-                  textAlign: TextAlign.center,
+        child: EasyLocalizationProvider(
+          data: data,
+                  child: MaterialButton(
+            child: Column(
+              children: <Widget>[
+                SizedBox(
+                  height: 40.0,
                 ),
-              ),
-            ],
-          ),
-          //minWidth: MediaQuery.of(context).size.width / 2,
-          //height: MediaQuery.of(context).size.width / 4,
-          onPressed: () => Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => GraphHome()),
+                Icon(
+                  Icons.person,
+                  color: Colors.white,
+                  size: 70.0,
+                ),
+                SizedBox(
+                  height: 0.0,
+                ),
+                Flexible(
+                  child: Text(
+                    AppLocalizations.of(context).tr('Chart'),
+                    overflow: TextOverflow.ellipsis,
+                    maxLines: 3,
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold, color: Colors.white),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+              ],
+            ),
+            //minWidth: MediaQuery.of(context).size.width / 2,
+            //height: MediaQuery.of(context).size.width / 4,
+            onPressed: () => Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => GraphHome()),
+            ),
           ),
         ));
 
