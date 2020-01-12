@@ -4,6 +4,7 @@ import { AddApprovedFamiliesComponent } from '../add-approved-families/add-appro
 import { ViewFamilybyIdComponent } from '../view-familyby-id/view-familyby-id.component';
 import { AddMotherComponent } from '../add-mother/add-mother.component';
 import { NgModule } from '@angular/core';
+import { AuthGuard } from 'app/auth.guard';
 
 
 
@@ -11,18 +12,22 @@ export const ApprovedFamilyRoutes: Routes = [
     {
         path: '',
         component: ViewApprovedFamiliesComponent,
+        canActivate:[AuthGuard],
         children: [
             {
                 path: 'AddApprovedFamilies',
-                component: AddApprovedFamiliesComponent
+                component: AddApprovedFamiliesComponent,
+                canActivate:[AuthGuard]
             },
             {
                 path: 'ViewFamilesById/:familyId',
-                component: ViewFamilybyIdComponent
+                component: ViewFamilybyIdComponent,
+                canActivate:[AuthGuard]
             },
             { 
                 path: 'AddMother/:familyId',
-                component: AddMotherComponent
+                component: AddMotherComponent,
+                canActivate:[AuthGuard]
             }
         
         ]   

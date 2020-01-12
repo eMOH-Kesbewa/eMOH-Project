@@ -81,7 +81,7 @@ router.post("/login",function(req,res){
             res.json(
                 {
                     success:true,
-                    token:"JWT " + token,
+                    token:token,
                     //user:{
                         id:user._id,
                         userid:user.userid,

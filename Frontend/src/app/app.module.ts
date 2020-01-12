@@ -31,6 +31,8 @@ import {
 } from '@angular/material';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatCardModule} from '@angular/material/card';
+import { AuthService } from './Services/auth.service';
+import { AuthGuard } from './auth.guard';
 
 
 
@@ -77,7 +79,7 @@ import {MatCardModule} from '@angular/material/card';
 
 
   ],
-  providers: [],
+  providers: [AuthService,AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
