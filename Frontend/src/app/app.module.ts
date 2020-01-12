@@ -15,8 +15,24 @@ import { HttpClientModule, HttpClient } from '@angular/common/http'
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import { LoginComponent } from './login/login.component';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {
+  MatButtonModule,
+  MatInputModule,
+  MatRippleModule,
+  MatFormFieldModule,
+  MatTooltipModule,
+  MatSelectModule,
+  MatRadioModule,
+  MatExpansionModule,
+  MatDatepickerModule,MatNativeDateModule
 
-
+} from '@angular/material';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import {MatCardModule} from '@angular/material/card';
+import { AuthService } from './Services/auth.service';
+import { AuthGuard } from './auth.guard';
 
 
 
@@ -30,6 +46,20 @@ import {TranslateHttpLoader} from '@ngx-translate/http-loader';
     ComponentsModule,
     RouterModule,
     AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatButtonModule,
+    MatRippleModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule,
+    MatTooltipModule,
+    MatRadioModule,
+    MatDatepickerModule,MatNativeDateModule,
+    MatSlideToggleModule,
+    MatSnackBarModule,
+    MatExpansionModule,
+    MatCardModule,
     TranslateModule.forRoot({
       loader: {
           provide: TranslateLoader,
@@ -41,6 +71,7 @@ import {TranslateHttpLoader} from '@ngx-translate/http-loader';
   declarations: [
     AppComponent,
     AdminLayoutComponent,
+    LoginComponent,
     
     
   
@@ -48,7 +79,7 @@ import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 
 
   ],
-  providers: [],
+  providers: [AuthService,AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
