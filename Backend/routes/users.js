@@ -17,8 +17,8 @@ router.post("/reguser",function(req, res){
     var newUser = new useraccounts({
         userid:req.body.userid,
         username:req.body.username,
-        password:req.body.password
-
+        password:req.body.password,
+        role:req.body.role
     });
     //function for save username password to db
     User.saveuser(newUser,function(err,user){
@@ -82,12 +82,13 @@ router.post("/login",function(req,res){
                 {
                     success:true,
                     token:"JWT " + token,
-                    user:{
+                    //user:{
                         id:user._id,
                         userid:user.userid,
                         username:user.username,
-                        password:user.password
-                    }
+                        password:user.password,
+                        role:user.role
+                    //}
                 } 
             )
             }
