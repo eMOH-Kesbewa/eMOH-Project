@@ -33,6 +33,8 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatCardModule} from '@angular/material/card';
 import { AuthService } from './Services/auth.service';
 import { AuthGuard } from './auth.guard';
+import { RegPHMComponent } from './reg-phm/reg-phm.component';
+import { RegMotherComponent } from './reg-mother/reg-mother.component';
 
 
 
@@ -72,6 +74,8 @@ import { AuthGuard } from './auth.guard';
     AppComponent,
     AdminLayoutComponent,
     LoginComponent,
+    RegPHMComponent,
+    RegMotherComponent,
     
     
   

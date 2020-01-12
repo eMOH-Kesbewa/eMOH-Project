@@ -6,6 +6,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { LoginComponent } from './login/login.component';
 import { AuthGuard } from './auth.guard';
+import { RegMotherComponent } from './reg-mother/reg-mother.component';
+import { RegPHMComponent } from './reg-phm/reg-phm.component';
 
 
 const routes: Routes =[
@@ -25,6 +27,12 @@ const routes: Routes =[
   },{
     path:'login',
     component:LoginComponent
+  },{
+    path:'regMother',
+    component:RegMotherComponent
+  },{
+    path:'regPHM',
+    component:RegPHMComponent
   }
   
 ];
