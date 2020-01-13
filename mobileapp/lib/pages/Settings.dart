@@ -116,7 +116,7 @@ class _SettingsState extends State<Settings> {
           actions: <Widget>[
             FlatButton(
               child: Text(
-                'Save',
+                AppLocalizations.of(context).tr('save'),
                 style: TextStyle(color: Colors.white),
               ),
               onPressed: () {
@@ -160,7 +160,7 @@ class _SettingsState extends State<Settings> {
                     children: <Widget>[
                       ExpansionTile(
                         initiallyExpanded: false,
-                        title: Text('Edit Profile'),
+                        title: Text(AppLocalizations.of(context).tr('basicInfo')),
                         children: <Widget>[
                           Center(
                             child: profilePic,
@@ -169,62 +169,63 @@ class _SettingsState extends State<Settings> {
                             height: 20.0,
                           ),
                           Card(
-                            child: Column(
-                              mainAxisSize: MainAxisSize.min,
-                              children: <Widget>[
-                                ListTile(
-                                  leading: Icon(Icons.perm_identity),
-                                  title: Text('Identity Number'),
-                                  subtitle: Text(snapshot.data.idNumber),
-                                ),
-                                div,
-                                ListTile(
-                                  leading: Icon(Icons.home),
-                                  title: Text('Village ID'),
-                                  subtitle: Text(snapshot.data.vilID),
-                                ),
-                                div,
-                                ListTile(
-                                  leading: Icon(Icons.ac_unit),
-                                  title: Text('Wife Name'),
-                                  subtitle: Text(snapshot.data.wifeName),
-                                ),
-                                div,
-                                ListTile(
-                                  leading: Icon(Icons.ac_unit),
-                                  title: Text('Husband Name'),
-                                  subtitle: Text(snapshot.data.husbandName),
-                                ),
-                                div,
-                                ListTile(
-                                  leading: Icon(Icons.child_friendly),
-                                  title: Text('Number of Children'),
-                                  subtitle: Text(snapshot.data.childrenCount),
-                                ),
-                              ],
-                            ),
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            children: <Widget>[
+                              ListTile(
+                                leading: Icon(Icons.perm_identity),
+                                title: Text(AppLocalizations.of(context).tr('idNo')),
+                                subtitle: Text(snapshot.data.idNumber),
+                              ),
+                              div,
+                              ListTile(
+                                leading: Icon(Icons.home),
+                                // title: Text(.idNo),
+                                title: Text(AppLocalizations.of(context).tr('address')),
+                                subtitle: Text(snapshot.data.address),
+                              ),
+                              div,
+                              ListTile(
+                                leading: Icon(Icons.ac_unit),
+                                title: Text(AppLocalizations.of(context).tr('wifename')),
+                                subtitle: Text(snapshot.data.wifeName),
+                              ),
+                              div,
+                              ListTile(
+                                leading: Icon(Icons.ac_unit),
+                                title: Text(AppLocalizations.of(context).tr('fathername')),
+                                subtitle: Text(snapshot.data.husbandName),
+                              ),
+                              div,
+                              ListTile(
+                                leading: Icon(Icons.child_friendly),
+                                title: Text(AppLocalizations.of(context).tr('nooflivingchildren')),
+                                subtitle: Text(snapshot.data.childrenCount),
+                              ),
+                            ],
                           ),
+                        ),
                         ],
                       ),
                       ExpansionTile(
                         initiallyExpanded: false,
-                        title: Text('Change Email/Password'),
+                        title: Text(AppLocalizations.of(context).tr('changepwemail')),
                         children: <Widget>[
                           ListTile(
-                              title: Text('Email'),
-                              subtitle: Text('http email')),
+                              title: Text(AppLocalizations.of(context).tr('email')),
+                              subtitle: Text(AppLocalizations.of(context).tr('password'))),
                           ListTile(
-                            title: Text('Password'),
+                            title: Text(AppLocalizations.of(context).tr('password')),
                             subtitle: Text('**********'),
                           )
                         ],
                       ),
                       ExpansionTile(
                         initiallyExpanded: false,
-                        title: Text('Change Language'),
+                        title: Text(AppLocalizations.of(context).tr('changelan')),
                         children: <Widget>[
                           ListTile(
-                            title: Text('Current Language'),
+                            title: Text(AppLocalizations.of(context).tr('currentlan')),
                             subtitle: Text(AppLocalizations.of(context)
                                 .tr('selectedlanguage')),
                             trailing: OutlineButton(
