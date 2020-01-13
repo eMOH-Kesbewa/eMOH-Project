@@ -250,6 +250,12 @@
     "breastcon" : "Breastfeeding Connection",
     "others" : "Others",
 
+    "changepwemail" : "Change Email/Password",
+    "password" : "Password",
+    "changelan" : "Change Language",
+    "currentlan" : "Current Language",
+    "save" : "Save",
+
     "specialnotes" : "Special Notes",
     "selectedlanguage" : "English",
     "title" : "Settings"

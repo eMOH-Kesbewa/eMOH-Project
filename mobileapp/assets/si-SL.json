@@ -246,6 +246,13 @@
     "others" : "වෙනත්",
     "specialnotes" : "විශේෂ සටහන්",
 
+    "changepwemail" : "ඊමේල්/මුරපදය වෙනස් කිරීම",
+    "password" : "මුරපදය",
+    "changelan" : "භාෂාව වෙනස් කිරීම",
+    "email" : "ඊමේල්",
+    "currentlan" : "වර්තමාන භාෂාව",
+    "save" : "සුරකින්න",
+
     
 
     "doctornotes" : "Doctor Notes",
