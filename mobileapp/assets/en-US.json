@@ -164,16 +164,17 @@
     "reasonforreff" : "Reason for refferals",
     "placeofreff" : "Place of refferal",
 
+    
     "sixmonth" : "6th Month",
     "1year" : "1st Year",
-    "1.5year" : "2nd Year",
-    "2year" : "3rd Year",
-    "2.5year" : "4th Year",
-    "3year" : "5th Year",
-    "3.5year" : "6th Year",
-    "4year" : "7th Year",
-    "4.5year" : "8th Year",
-    "5year" : "9th Year",
+    "1.5year" : "1.5 Years",
+    "2year" : "2 Years",
+    "2.5year" : "2.5 Years",
+    "3year" : "3 Years",
+    "3.5year" : "3.5 Years",
+    "4year" : "4 Years",
+    "4.5year" : "4.5 Years",
+    "5year" : "5 Years",
 
     "wormTreat" : "Worm Treatments",
 
@@ -190,14 +191,18 @@
     "10month" : "10 Months",
     "11month" : "11 Months",
     "12month" : "12 Months",
+    "18month" : "18 Months",
 
     "eyes" : "Eyes",
     "squint" : "Squint",
     "cataract" : "Cataract",
     "hearingleft" : "Hearing Left",
     "hearingright" : "Hearing Right",
+    "sightleft" : "Sight Left Eye",
+    "sightright" : "Sight Right Eye",
     "weight" : "Weight",
     "height" : "Height",
+    "heart" : "Heart Diseases",
     "lungs" : "Lungs",
     "hipjoint" : "Hip Joint",
     "inheritedProb" : "Inherited Problems",
@@ -226,6 +231,7 @@
     "eighteenmonthofbirth" : "Eighteen Months of Birth",
     "teethcount" : "Teeth Count",
     "statusofteeth" : "Status of Teeth",
+    "checkeddate" : "Checked Date",
     
     "selectedlanguage" : "English",
     "title" : "Settings"

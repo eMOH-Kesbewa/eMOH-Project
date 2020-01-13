@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:mobileapp/services/babyService/childHealthService.dart';
 import 'package:mobileapp/widgets/childHealthCard.dart';
-
+import 'package:easy_localization/easy_localization.dart';
+import 'package:easy_localization/easy_localization_provider.dart';
 class ChildHealthView extends StatefulWidget {
   @override
   _ChildHealthViewState createState() => _ChildHealthViewState();
@@ -10,6 +11,7 @@ class ChildHealthView extends StatefulWidget {
 class _ChildHealthViewState extends State<ChildHealthView> {
   @override
   Widget build(BuildContext context) {
+    var data = EasyLocalizationProvider.of(context).data;
     //  Future baby = fetchBaby();
     //Choice index;
 
@@ -17,14 +19,17 @@ class _ChildHealthViewState extends State<ChildHealthView> {
       future: fetchBaby(),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
-          return Scaffold(
-            appBar: AppBar(title: Text('Child Health')),
-            body: Center(child: CircularProgressIndicator()),
+          return EasyLocalizationProvider(
+            data: data,
+                      child: Scaffold(
+              appBar: AppBar(title: Text(AppLocalizations.of(context).tr('childHealthCard'))),
+              body: Center(child: CircularProgressIndicator()),
+            ),
           );
         } else {
           List<Choice> choices = <Choice>[
             Choice.onemotoFour(
-                title: '1 Months',
+                title: AppLocalizations.of(context).tr('1month'),
                 date: snapshot.data.date1mo.substring(0, 10),
                 eye: snapshot.data.eye1mo,
                 squint: snapshot.data.squint1mo,
@@ -41,7 +46,7 @@ class _ChildHealthViewState extends State<ChildHealthView> {
                 officer: snapshot.data.officer6mo,
                 count: 4),
             Choice.onemotoFour(
-                title: '2 Months',
+                title: AppLocalizations.of(context).tr('2month'),
                 date: snapshot.data.date2mo.substring(0, 10),
                 eye: snapshot.data.eye2mo,
                 squint: snapshot.data.squint2mo,
@@ -58,7 +63,7 @@ class _ChildHealthViewState extends State<ChildHealthView> {
                 officer: snapshot.data.officer6mo,
                 count: 4),
             Choice.onemotoFour(
-                title: '4 Months',
+                title: AppLocalizations.of(context).tr('4month'),
                 date: snapshot.data.date4mo.substring(0, 10),
                 eye: snapshot.data.eye4mo,
                 squint: snapshot.data.squint4mo,
@@ -75,7 +80,7 @@ class _ChildHealthViewState extends State<ChildHealthView> {
                 officer: snapshot.data.officer4mo,
                 count: 4),
             Choice.sixmotoEighteen(
-                title: '6 Months',
+                title: AppLocalizations.of(context).tr('6month'),
                 date: snapshot.data.date6mo.substring(0, 10),
                 eye: snapshot.data.eye6mo,
                 squint: snapshot.data.squint6mo,
@@ -94,7 +99,7 @@ class _ChildHealthViewState extends State<ChildHealthView> {
                 dentalCavities: snapshot.data.dentalCavities6mo,
                 count: 3),
             Choice.sixmotoEighteen(
-                title: '9 Months',
+                title: AppLocalizations.of(context).tr('9month'),
                 date: snapshot.data.date9mo.substring(0, 10),
                 eye: snapshot.data.eye9mo,
                 squint: snapshot.data.squint9mo,
@@ -113,7 +118,7 @@ class _ChildHealthViewState extends State<ChildHealthView> {
                 dentalCavities: snapshot.data.dentalCavities9mo,
                 count: 3),
             Choice.sixmotoEighteen(
-                title: '12 Months',
+                title: AppLocalizations.of(context).tr('12month'),
                 date: snapshot.data.date12mo.substring(0, 10),
                 eye: snapshot.data.eye12mo,
                 squint: snapshot.data.squint12mo,
@@ -132,7 +137,7 @@ class _ChildHealthViewState extends State<ChildHealthView> {
                 dentalCavities: snapshot.data.dentalCavities12mo,
                 count: 3),
             Choice.sixmotoEighteen(
-                title: '18 Months',
+                title: AppLocalizations.of(context).tr('18month'),
                 date: snapshot.data.date18mo.substring(0, 10),
                 eye: snapshot.data.eye18mo,
                 squint: snapshot.data.squint18mo,
@@ -151,7 +156,7 @@ class _ChildHealthViewState extends State<ChildHealthView> {
                 dentalCavities: snapshot.data.dentalCavities18mo,
                 count: 3),
             Choice.fourToThree(
-                title: '3 Years',
+                title: AppLocalizations.of(context).tr('3year'),
                 date: snapshot.data.date3y,
                 eye: snapshot.data.eye3y,
                 squint: snapshot.data.squint3y,
@@ -172,7 +177,7 @@ class _ChildHealthViewState extends State<ChildHealthView> {
                 dentalCavities: snapshot.data.dentalCavities3y,
                 count: 2),
             Choice.fourToThree(
-                title: '4 Years',
+                title: AppLocalizations.of(context).tr('4year'),
                 date: snapshot.data.date4y,
                 eye: snapshot.data.eye4y,
                 squint: snapshot.data.squint4y,
@@ -193,7 +198,7 @@ class _ChildHealthViewState extends State<ChildHealthView> {
                 dentalCavities: snapshot.data.dentalCavities4y,
                 count: 2),
             Choice(
-                title: '5 Years',
+                title: AppLocalizations.of(context).tr('5year'),
                 date: snapshot.data.date5y.substring(0, 10),
                 eye: snapshot.data.eye5y,
                 squint: snapshot.data.squint5y,
@@ -220,7 +225,7 @@ class _ChildHealthViewState extends State<ChildHealthView> {
               length: choices.length,
               child: Scaffold(
                 appBar: AppBar(
-                  title: Text('Child Health'),
+                  title: Text(AppLocalizations.of(context).tr('ChildHealthCard')),
                   bottom: TabBar(
                     isScrollable: true,
                     tabs: choices.map((Choice choice) {
