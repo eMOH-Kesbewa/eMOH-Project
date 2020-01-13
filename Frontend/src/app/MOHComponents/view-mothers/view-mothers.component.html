@@ -7,8 +7,8 @@
     <div class="col-md-12">
         <div class="card">
             <div class="card-header">
-                <h4 class="card-title "><h3>View Mother details</h3></h4>
-                <h5 class="card-category">Click to view the individual Records</h5>
+                <h4 class="card-title "><h3>{{ 'mother.mothers' | translate }}</h3></h4> 
+                <h5 class="card-category">{{ 'click_individual' | translate }}</h5>
             </div>
             <div class="card-body">
               <mat-form-field class="example-full-width">
@@ -19,18 +19,18 @@
                       
                           
                               <tr>
-                              <th rowspan = 2><b>Mother ID</b></th>
-                              <th rowspan = 2><b>Name of the Pregnant Mother</b></th>
-                              <th rowspan = 2><b>Address</b></th>
-                              <th rowspan = 2><b>Age</b></th>
-                              <th rowspan = 2><b>No. of Living Children</b></th>
-                              <th colspan=2 align="center">Risked Conditions</th>
+                              <th rowspan = 2><b>{{ 'mother.mother_id' | translate }}</b></th>
+                              <th rowspan = 2><b>{{ 'mother.mothers_name' | translate }}</b></th>
+                              <th rowspan = 2><b>{{ 'mother.address' | translate }}</b></th>
+                              <th rowspan = 2><b>{{ 'mother.age' | translate }}</b></th>
+                              <th rowspan = 2><b>{{ 'mother.no_of_living_children' | translate }}</b></th>
+                              <th colspan=2 align="center">{{ 'mother.risk_conditions' | translate }}</th>
                               
                               </tr>
 
                               <tr>  
-                                <th><b>Low</b></th>
-                                <th><b>High</b></th>
+                                <th><b>{{ 'mother.risk_conditions_low' | translate }}</b></th>
+                                <th><b>{{ 'mother.risk_conditions_high' | translate }}</b></th>
                               </tr>
                               <tbody>
                               <tr *ngFor="let mother of mother" (click)="onClickMe(mother.mother_id)" style="cursor:pointer">

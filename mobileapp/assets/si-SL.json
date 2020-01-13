@@ -1,9 +1,11 @@
 {
-    "idNo": "හැදුනුම්පත් අංකය",
+    "idNo": "ලියාපදිංචි අංකය",
     "address": "ලිපිනය",
     "wifename": "බිරිඳගේ නම",
     "fathername": "සැමියාගේ නම",
     "nooflivingchildren": "ජීවත්ව සිටින ළමුන් ගණන",
+
+    "familyprofile" : "පවුලේ විස්තර",
     "basicInfo": "මූලික තොරතුරු",
     "proBaby": "අලුත උපන් දරුවාගේ රැකවරණය",
     "eyeTest": "පෙනීම පරීක්ෂාව",
@@ -143,6 +145,110 @@
     "fromtwotothreeyearstxt3" : "රවුමක්/වක්‍ර සහිත රූපයක් පිටපත් කිරීමට පුළුවන",
     "fromtwotothreeyearstxt4" : "වචන 3ක් හෝ  ඊට වැඩි සංඛ්‍යාවකින් වාක්‍යක් ගොඩනගා ගැනීමට හැකියාව ඇත",
 
+    "immunization" : "ප්‍රතිශක්තිකරණය",
+    "immunizationtxt1" : "උපතේදී",
+    "immunizationtxt2" : "දෙවන මාසය සම්පූර්ණ වූ විට",
+    "immunizationtxt3" : "හතරවන මාසය සම්පූර්ණ වූ විට",
+    "immunizationtxt4" : "හයවන මාසය සම්පූර්ණ වූ විට",
+    "immunizationtxt5" : "නවවන මාසය සම්පූර්ණ වූ විට",
+    "immunizationtxt6" : "දොළොස්වන මාසය සම්පූර්ණ වූ විට",
+    "immunizationtxt7" : "දහඅටවන මාසය සම්පූර්ණ වූ විට",
+    "immunizationtxt8" : "තුන්වන වන අවුරුද්ද සම්පූර්ණ වූ විට",
+    "immunizationtxt9" : "පස්වන අවුරුද්ද සම්පූර්ණ වූ විට",
+    "immunizationtxt10" : "දොළොස්වන අවුරුද්ද සම්පූර්ණ වූ විට",
+
+
+    "immunizationRef" : "ප්‍රතිශක්තිකරණය හා සම්බන්ද යොමු කිරීම්",
+    "reasonforreff" : "යොමු කිරීමට හේතුව ",
+    "placeofreff" : "යොමුකළ ස්ථානය",
+    "date" : "දිනය",
+
+
+     
+
+
+    "sixmonth" : "6වන මාසය",
+    "1year" : "1වන අවුරුද්ද",
+    "1.5year" : "1.5වන අවුරුද්ද",
+    "2year" : "2වන අවුරුද්ද",
+    "2.5year" : "2.5වන අවුරුද්ද",
+    "3year" : "3වන අවුරුද්ද",
+    "3.5year" : "3.5වන අවුරුද්ද",
+    "4year" : "4වන අවුරුද්ද",
+    "4.5year" : "4.5වන අවුරුද්ද",
+    "5year" : "5වන අවුරුද්ද",
+
+    "1month" : "1 මාසය",
+    "2month" : "2 මාසය",
+    "4month" : "4 මාසය",
+    "6month" : "6 මාසය",
+    "9month" : "9 මාසය",
+    "12month" : "12 මාසය",
+    "18month" : "18 මාසය",
+    "3rdyear" : "3 අවුරුද්ද",
+    "4thyear" : "4 අවුරුද්ද",
+    "5thyear" : "5 අවුරුද්ද",
+
+    "eyes" : "ඇසේ ප්‍රමාණයේ වෙනසක් (ලොකු/කුඩා)", 
+    "squint" : "වපරය",
+    "cataract" : "කණීනිකාව සුදු වීම",
+    "hearingleft" : "ශ්‍රවණය (වම)",
+    "hearingright" : "ශ්‍රවණය (දකුණ)",
+    "weight" : "බර",
+    "height" : "උස",
+    "heart" : "හදවත් රෝග",
+    "lungs" : "පෙනහළු ",
+    "hipjoint" : "උකුල් සන්ධිය",
+    "inheritedProb" : "සංජානීය අබාධ",
+    "otherdiseases" : "වෙනත් රෝගී තත්වයන්",
+     
+
+    "dentalspots" : "දත් මත සුදු හෝ දුඹුරු ලප",
+    "dentalcavities" : "දන්ත කුහර ",
+    "checkedofficer" : "පරීක්ෂා කල නිලධාරියාගේ තනතුර",
+    "nightblind" : "රාත්‍රී අන්ධතාවය",
+    "bitospots" : "බිටෝ ලප",
+
+    "teethcheck" : "දත් පරීක්ෂා කිරීමේ සටහන",
+    "sixmonthsofbirth" : "හයවන මාසය වන විට",
+    "sevenmonthsofbirth" : "හත්වන මාසය වන විට",
+    "eightmonthsofbirth" : "අටවන මාසය වන විට",
+    "ninemonthsofbirth" : "නවවන මාසය වන විට",
+    "tenmonthsofbirth" : "දහවන මාසය වන විට",
+    "elevenmonthsofbirth" : "එකොළොස්වන මාසය වන විට",
+    "twelvemonthsofbirth" : "දොළොස්වන මාසය වන විට",
+    "thirteenmonthsofbirth" : "දහතුන්වන මාසය වන විට",
+    "fourteenmonthsofbirth" : "දාහතරවන මාසය වන විට",
+    "fifteenmonthsofbirth" : "පහළොස්වන මාසය වන විට",
+    "sixteenmonthsofbirth" : "දහසයවන මාසය වන විට",
+    "seventeenmonthsofbirth" : "දාහත්වන මාසය වන විට",
+    "eighteenmonthsofbirth" : "දහඅටවන මාසය වන විට",
+    "teethcount" : "මතු වී ඇති දත් ගණන",
+    "statusofteeth" : "දත් වල තත්වය",
+    "checkeddate" : "පරීක්ෂා කල දිනය ",
+
+    
+
+
+ 
+    "from1-5days" : "දින 1 සිට 5 දක්වා",
+    "from6-10days" : "දින 6 සිට 10 දක්වා",
+    "from14-21days" : "දින 14 සිට 21 දක්වා",
+    "around42days" : "දින 42 ආශ්‍රිතව",
+
+    "skincolor" : "සමේ පැහැය",
+    "eyeschart" : "ඇස්",
+    "natureofnavel" : "පෙකණියේ ස්වභාවය",
+    "temperature" : "උෂ්ණත්වය",
+    "onlybreast" : "මව්කිරි පමණක්දීම",
+    "breaststab" : "මව්කිරි දීමේ ස්ථාපිතය",
+    "breastcon" : "මව්කිරි දීමේ සම්බන්ධය",
+    "others" : "වෙනත්",
+    "specialnotes" : "විශේෂ සටහන්",
+
+    
+
+    "doctornotes" : "Doctor Notes",
 
 
     "otherwarning": "වෙනත්",

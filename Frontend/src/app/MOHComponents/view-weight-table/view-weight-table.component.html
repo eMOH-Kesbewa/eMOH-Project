@@ -1,13 +1,13 @@
 <div class="main-content">
   <router-outlet></router-outlet>
   <div class="row">
-    <div class="col-md-3" ><a routerLink="AddWeightHeight" class="btn btn-info btn-block">Add New Weight Height Form</a></div>
+    <div class="col-md-3" ><a routerLink="AddWeightHeight" class="btn btn-info btn-block">{{ 'weightHeight.newform' | translate }}</a></div>
   </div>
   <div class="row">
     <div class="col-md-12">
         <div class="card">
             <div class="card-header">
-                <h4 class="card-title "><h3>View Children Weight Height Table</h3></h4>
+                <h4 class="card-title "><h3>{{ 'weightHeight.view_weight' | translate }}</h3></h4>
                 <h5 class="card-category">Click to view the individual Records</h5>
             </div>
             <div class="card-body">
@@ -18,17 +18,17 @@
                   <table class="table table-hover table-bordered">
                     
                       <tr>
-                        <th rowspan = 2><b>Baby ID</b></th>
-                        <th rowspan = 2><b>Batch No</b></th>
-                        <th rowspan = 2><b>Baby Name</b></th>
-                        <th rowspan = 2><b>Sex</b></th>
-                        <th rowspan = 2><b>Date Of Birth</b></th>
-                        <th colspan=2 align="center">At Birth</th>
+                        <th rowspan = 2><b>{{ 'weightHeight.baby_id' | translate }}</b></th>
+                        <th rowspan = 2><b>{{ 'weightHeight.bathch_no' | translate }}</b></th>
+                        <th rowspan = 2><b>{{ 'weightHeight.childs_name' | translate }}</b></th>
+                        <th rowspan = 2><b>{{ 'weightHeight.sex' | translate }}</b></th>
+                        <th rowspan = 2><b>{{ 'weightHeight.date_of_birth' | translate }}</b></th>
+                        <th colspan=2 align="center">{{ 'weightHeight.atBirth' | translate }}</th>
                       </tr>
 
                       <tr>
-                          <th><b>Weight</b></th>
-                          <th><b>Length</b></th>
+                          <th><b>{{ 'weightHeight.weight' | translate }}</b></th>
+                          <th><b>{{ 'weightHeight.height' | translate }}</b></th>
                       </tr>
                       <tbody>
                       <tr *ngFor="let weight of weights" (click)="onClickMe(weight.baby_id)" style="cursor:pointer">

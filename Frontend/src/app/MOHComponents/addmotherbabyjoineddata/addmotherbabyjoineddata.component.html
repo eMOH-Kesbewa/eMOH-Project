@@ -4,7 +4,7 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header card-header-info">
-                    <h4 class="card-title">Add baby details</h4>
+                    <h4 class="card-title">{{ 'motherBabyJoined.fill' | translate }}</h4>
                 </div>
                 <div class="card-body">   
                     <form [formGroup]="addmotherbabyForm" (ngSubmit)="onSubmit()" [hidden]="success">
@@ -12,7 +12,7 @@
                         <div class="row">
                             <div class="col-md-3">
                                     <mat-form-field class="example-full-width">
-                                        <input matInput placeholder="Mother Id" type= "text" formControlName="mother_id">
+                                        <input matInput placeholder="{{ 'motherBabyJoined.mother_id' | translate }}" type= "text" formControlName="mother_id">
                                         <div *ngIf="submitted && addmotherbabyForm.controls.mother_id.errors" class="error">
                                             <div *ngIf="addmotherbabyForm.controls.mother_id.errors.required">This field is required</div>
                                           </div>
@@ -21,7 +21,7 @@
                         
                             <div class="col-md-3">
                                 <mat-form-field class="example-full-width">
-                                    <input matInput placeholder="Child's Name" type= "text" formControlName="child_name">
+                                    <input matInput placeholder="{{ 'motherBabyJoined.child_name' | translate }}" type= "text" formControlName="child_name">
                                     <div *ngIf="submitted && addmotherbabyForm.controls.child_name.errors" class="error">
                                         <div *ngIf="addmotherbabyForm.controls.child_name.errors.required">This field is required</div>
                                       </div>
@@ -31,7 +31,7 @@
                         <mat-expansion-panel>
                             <mat-expansion-panel-header>
                               <mat-panel-title>
-                                <h5>Registration Details</h5>
+                                <h5>{{ 'motherBabyJoined.registration_details' | translate }}</h5>
                               </mat-panel-title>
                               <mat-panel-description>
                                 Click to View/Edit
@@ -40,7 +40,7 @@
                         <div class="row">
                             <div class="col-md-3">
                                 <mat-form-field class="example-full-width">
-                                    <input matInput placeholder="Mother's Nmae" type= "text" formControlName="mothers_name">
+                                    <input matInput placeholder="{{ 'motherBabyJoined.mothers_name' | translate }}" type= "text" formControlName="mothers_name">
                                     <div *ngIf="submitted && addmotherbabyForm.controls.mothers_name.errors" class="error">
                                         <div *ngIf="addmotherbabyForm.controls.mothers_name.errors.required">This field is required</div>
                                       </div>
@@ -48,7 +48,7 @@
                             </div>
                             <div class="col-md-5">
                                     <mat-form-field class="example-full-width">
-                                        <input matInput placeholder="Address" type= "text" formControlName="address">
+                                        <input matInput placeholder="{{ 'motherBabyJoined.address' | translate }}" type= "text" formControlName="address">
                                         <div *ngIf="submitted && addmotherbabyForm.controls.address.errors" class="error">
                                             <div *ngIf="addmotherbabyForm.controls.address.errors.required">This field is required</div>
                                           </div>
@@ -58,7 +58,7 @@
                         <div class="row">
                                 <div class="col-md-2">
                                         <mat-form-field class="example-full-width">
-                                            <input matInput placeholder="Gender" type= "text" formControlName="sex">
+                                            <input matInput placeholder="{{ 'motherBabyJoined.sex' | translate }}" type= "text" formControlName="sex">
                                             <div *ngIf="submitted && addmotherbabyForm.controls.sex.errors" class="error">
                                                 <div *ngIf="addmotherbabyForm.controls.sex.errors.required">This field is required</div>
                                               </div>
@@ -68,7 +68,7 @@
                                 <div class="col-md-2">
                                         <mat-form-field class="example-full-width">
                                             
-                                            <input matInput placeholder="Date of Birth" type= "date" formControlName="date_of_birth">
+                                            <input matInput placeholder="{{ 'motherBabyJoined.date_of_birth' | translate }}" type= "date" formControlName="date_of_birth">
                                             <div *ngIf="submitted && addmotherbabyForm.controls.date_of_birth.errors" class="error">
                                                 <div *ngIf="addmotherbabyForm.controls.date_of_birth.errors.required">This field is required</div>
                                               </div>
@@ -76,7 +76,7 @@
                                 </div>
                                 <div class="col-md-2">
                                         <mat-form-field class="example-full-width">
-                                            <input matInput placeholder="Birth Weight" type= "number" formControlName="birth_weight" min="0" max="5">
+                                            <input matInput placeholder="{{ 'motherBabyJoined.birth_weight' | translate }}" type= "number" formControlName="birth_weight" min="0" max="5">
                                             <div *ngIf="submitted && addmotherbabyForm.controls.birth_weight.errors" class="error">
                                                 <div *ngIf="addmotherbabyForm.controls.birth_weight.errors.required">This field is required</div>
                                               </div>
@@ -86,7 +86,7 @@
                         <div class="row">
                                 <div class="col-md-2">
                                         <mat-form-field class="example-full-width">
-                                            <input matInput placeholder="Registration Date" type= "date" formControlName="registration_date">
+                                            <input matInput placeholder="{{ 'motherBabyJoined.registration_date' | translate }}" type= "date" formControlName="registration_date">
                                             <div *ngIf="submitted && addmotherbabyForm.controls.registration_date.errors" class="error">
                                                 <div *ngIf="addmotherbabyForm.controls.registration_date.errors.required">This field is required</div>
                                               </div>
@@ -94,7 +94,7 @@
                                 </div>
                                 <div class="col-md-2">
                                         <mat-form-field class="example-full-width">
-                                            <input matInput placeholder="Registration Category" type= "text" formControlName="registration_category">
+                                            <input matInput placeholder="{{ 'motherBabyJoined.registration_category' | translate }}" type= "text" formControlName="registration_category">
                                             <div *ngIf="submitted && addmotherbabyForm.controls.registration_category.errors" class="error">
                                                 <div *ngIf="addmotherbabyForm.controls.registration_category.errors.required">This field is required</div>
                                               </div>
@@ -105,7 +105,7 @@
                     <mat-expansion-panel>
                         <mat-expansion-panel-header>
                           <mat-panel-title>
-                            <h5>Immunization Details</h5>
+                            <h5>{{ 'motherBabyJoined.immunization__Details' | translate }}</h5>
                           </mat-panel-title>
                           <mat-panel-description>
                             Click to View/Edit
@@ -114,7 +114,7 @@
                         <div class="row">
                                 <div class="col-md-2">
                                         <mat-form-field class="example-full-width">
-                                            <input matInput placeholder="BGC" type= "date" formControlName="immunization__BGC">
+                                            <input matInput placeholder="{{ 'motherBabyJoined.immunization__BGC' | translate }}" type= "date" formControlName="immunization__BGC">
                                         </mat-form-field>
                                 </div>  
                         </div>
@@ -122,7 +122,7 @@
                                 <div class="col-md-4">      
                                 <div class="form-check">
                                     <label class="form-check-label">
-                                            <label>Immunization Scar</label>
+                                            <label>{{ 'motherBabyJoined.immunization__scar' | translate }}</label>
                                         <input class="form-check-input" type="checkbox" value="true" formControlName="immunization__scar" >
                                         <span class="form-check-sign">
                                             <span class="check"></span>
@@ -131,21 +131,21 @@
                                 </div>
                                 </div>
                         </div>
-                        <label> Immunization Pentavalent</label>
+                        <label> {{ 'motherBabyJoined.immunization__pentavalent' | translate }}</label>
                         <div class="row">
                                 <div class="col-md-3">
                                         <mat-form-field class="example-full-width">
-                                            <input matInput placeholder="First" type= "date" formControlName="immunization__pentavalent__first">
+                                            <input matInput placeholder="{{ 'motherBabyJoined.immunization__pentavalent__first' | translate }}" type= "date" formControlName="immunization__pentavalent__first">
                                         </mat-form-field>
                                 </div>
                                 <div class="col-md-3">
                                         <mat-form-field class="example-full-width">
-                                            <input matInput placeholder="Second" type= "date" formControlName="immunization__pentavalent__second">
+                                            <input matInput placeholder="{{ 'motherBabyJoined.immunization__pentavalent__second' | translate }}" type= "date" formControlName="immunization__pentavalent__second">
                                         </mat-form-field>
                                 </div>
                                 <div class="col-md-3">
                                         <mat-form-field class="example-full-width">
-                                            <input matInput placeholder="Third" type= "date" formControlName="immunization__pentavalent__third">
+                                            <input matInput placeholder="{{ 'motherBabyJoined.immunization__pentavalent__third' | translate }}" type= "date" formControlName="immunization__pentavalent__third">
                                         </mat-form-field>
                                 </div>
                         </div>
@@ -153,7 +153,7 @@
                     <mat-expansion-panel>
                         <mat-expansion-panel-header>
                           <mat-panel-title>
-                            <h5>Polio opv/fipv</h5>
+                            <h5>{{ 'motherBabyJoined.immunization__polio__opv__fipv' | translate }}</h5>
                           </mat-panel-title>
                           <mat-panel-description>
                             Click to View/Edit
@@ -162,29 +162,29 @@
                         <div class="row">
                                 <div class="col-md-3">
                                         <mat-form-field class="example-full-width">
-                                            <input matInput placeholder="First" type= "date" formControlName="immunization__polio__opv__first">
+                                            <input matInput placeholder="{{ 'motherBabyJoined.immunization__polio__opv__first' | translate }}" type= "date" formControlName="immunization__polio__opv__first">
                                         </mat-form-field>
                                 </div>
                                 <div class="col-md-3">
                                         <mat-form-field class="example-full-width">
-                                            <input matInput placeholder="Second" type= "date" formControlName="immunization__polio__opv__second">
+                                            <input matInput placeholder="{{ 'motherBabyJoined.immunization__polio__opv__second' | translate }}" type= "date" formControlName="immunization__polio__opv__second">
                                         </mat-form-field>
                                 </div>
                                 <div class="col-md-3">
                                         <mat-form-field class="example-full-width">
-                                            <input matInput placeholder="Third" type= "date" formControlName="immunization__polio__opv__third">
+                                            <input matInput placeholder="{{ 'motherBabyJoined.immunization__polio__opv__third' | translate }}" type= "date" formControlName="immunization__polio__opv__third">
                                         </mat-form-field>
                                 </div>
                         </div>
                         <div class="row">
                                 <div class="col-md-3">
                                         <mat-form-field class="example-full-width">
-                                            <input matInput placeholder="Polio fipv two m" type= "date" formControlName="immunization__polio__fipv__two_m">
+                                            <input matInput placeholder="{{ 'motherBabyJoined.immunization__polio__fipv__two_m' | translate }}" type= "date" formControlName="immunization__polio__fipv__two_m">
                                         </mat-form-field>
                                 </div>
                                 <div class="col-md-3">
                                         <mat-form-field class="example-full-width">
-                                            <input matInput placeholder="Polio fipv foru m" type= "date" formControlName="immunization__polio__fipv__foru_m">
+                                            <input matInput placeholder="{{ 'motherBabyJoined.immunization__polio__fipv__foru_m' | translate }}" type= "date" formControlName="immunization__polio__fipv__foru_m">
                                         </mat-form-field>
                                 </div>
                         </div>
@@ -193,7 +193,7 @@
                     <mat-expansion-panel>
                         <mat-expansion-panel-header>
                           <mat-panel-title>
-                            <h5>Vitamin-A Megadose</h5>
+                            <h5>{{ 'motherBabyJoined.vitamin_a_mega_dose' | translate }}</h5>
                           </mat-panel-title>
                           <mat-panel-description>
                             Click to View/Edit
@@ -202,66 +202,66 @@
                         <div class="row">
                                 <div class="col-md-3">
                                         <mat-form-field class="example-full-width">
-                                            <input matInput placeholder="Postnatal mothers" type= "date" formControlName="vitamin_a_mega_dose__postnatal_mothers">
+                                            <input matInput placeholder="{{ 'motherBabyJoined.vitamin_a_mega_dose__postnatal_mothers' | translate }}" type= "date" formControlName="vitamin_a_mega_dose__postnatal_mothers">
                                         </mat-form-field>
                                 </div>
                                 <div class="col-md-3">
                                         <mat-form-field class="example-full-width">
-                                            <input matInput placeholder="In sixth month" type= "date" formControlName="vitamin_a_mega_dose__at_sixth_month">
+                                            <input matInput placeholder="{{ 'motherBabyJoined.vitamin_a_mega_dose__at_sixth_month' | translate }}" type= "date" formControlName="vitamin_a_mega_dose__at_sixth_month">
                                         </mat-form-field>
                                 </div>
                                 <div class="col-md-3">
                                         <mat-form-field class="example-full-width">
-                                            <input matInput placeholder="When one year old" type= "date" formControlName="vitamin_a_mega_dose__at_first_year">
+                                            <input matInput placeholder="{{ 'motherBabyJoined.vitamin_a_mega_dose__at_first_year' | translate }}" type= "date" formControlName="vitamin_a_mega_dose__at_first_year">
                                         </mat-form-field>
                                 </div>
                                 <div class="col-md-3">
                                         <mat-form-field class="example-full-width">
-                                            <input matInput placeholder="When one and half years old" type= "date" formControlName="vitamin_a_mega_dose__at_one_and_half_yr">
-                                        </mat-form-field>
-                                </div>
-                        </div>
-                        <div class="row">
-                                <div class="col-md-3">
-                                        <mat-form-field class="example-full-width">
-                                            <input matInput placeholder="When second years old" type= "date" formControlName="vitamin_a_mega_dose__at_year_two">
-                                        </mat-form-field>
-                                </div>
-                                <div class="col-md-3">
-                                        <mat-form-field class="example-full-width">
-                                            <input matInput placeholder="When two and half years old" type= "date" formControlName="vitamin_a_mega_dose__at_year_two_and_half">
-                                        </mat-form-field>
-                                </div>
-                                <div class="col-md-3">
-                                        <mat-form-field class="example-full-width">
-                                            <input matInput placeholder="When three years old" type= "date" formControlName="vitamin_a_mega_dose__at_year_three">
-                                        </mat-form-field>
-                                </div>
-                                <div class="col-md-3">
-                                        <mat-form-field class="example-full-width">
-                                            <input matInput placeholder="When three and half years old" type= "date" formControlName="vitamin_a_mega_dose__at_year_three_and_half">
+                                            <input matInput placeholder="{{ 'motherBabyJoined.vitamin_a_mega_dose__at_one_and_half_yr' | translate }}" type= "date" formControlName="vitamin_a_mega_dose__at_one_and_half_yr">
                                         </mat-form-field>
                                 </div>
                         </div>
                         <div class="row">
                                 <div class="col-md-3">
                                         <mat-form-field class="example-full-width">
-                                            <input matInput placeholder="When four years old" type= "date" formControlName="vitamin_a_mega_dose__at_year_four">
+                                            <input matInput placeholder="{{ 'motherBabyJoined.vitamin_a_mega_dose__at_year_two' | translate }}" type= "date" formControlName="vitamin_a_mega_dose__at_year_two">
                                         </mat-form-field>
                                 </div>
                                 <div class="col-md-3">
                                         <mat-form-field class="example-full-width">
-                                            <input matInput placeholder="When four and half years old" type= "date" formControlName="vitamin_a_mega_dose__at_year_four_and_half">
+                                            <input matInput placeholder="{{ 'motherBabyJoined.vitamin_a_mega_dose__at_year_two _and_half' | translate }}" type= "date" formControlName="vitamin_a_mega_dose__at_year_two_and_half">
                                         </mat-form-field>
                                 </div>
                                 <div class="col-md-3">
                                         <mat-form-field class="example-full-width">
-                                            <input matInput placeholder="At year nine old" type= "date" formControlName="vitamin_a_mega_dose__at_year_nine">
+                                            <input matInput placeholder="{{ 'motherBabyJoined.vitamin_a_mega_dose__at_year_three' | translate }}" type= "date" formControlName="vitamin_a_mega_dose__at_year_three">
                                         </mat-form-field>
                                 </div>
                                 <div class="col-md-3">
                                         <mat-form-field class="example-full-width">
-                                            <input matInput placeholder="At year twelve old" type= "date" formControlName="vitamin_a_mega_dose__at_year_twelve">
+                                            <input matInput placeholder="{{ 'motherBabyJoined.vitamin_a_mega_dose__at_year_three_and_half' | translate }}" type= "date" formControlName="vitamin_a_mega_dose__at_year_three_and_half">
+                                        </mat-form-field>
+                                </div>
+                        </div>
+                        <div class="row">
+                                <div class="col-md-3">
+                                        <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="{{ 'motherBabyJoined.vitamin_a_mega_dose__at_year_four' | translate }}" type= "date" formControlName="vitamin_a_mega_dose__at_year_four">
+                                        </mat-form-field>
+                                </div>
+                                <div class="col-md-3">
+                                        <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="{{ 'motherBabyJoined.vitamin_a_mega_dose__at_year_four_and_half' | translate }}" type= "date" formControlName="vitamin_a_mega_dose__at_year_four_and_half">
+                                        </mat-form-field>
+                                </div>
+                                <div class="col-md-3">
+                                        <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="{{ 'motherBabyJoined.vitamin_a_mega_dose__at_year_nine' | translate }}" type= "date" formControlName="vitamin_a_mega_dose__at_year_nine">
+                                        </mat-form-field>
+                                </div>
+                                <div class="col-md-3">
+                                        <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="{{ 'motherBabyJoined.vitamin_a_mega_dose__at_year_twelve' | translate }}" type= "date" formControlName="vitamin_a_mega_dose__at_year_twelve">
                                         </mat-form-field>
                                 </div>
                         </div>
@@ -269,7 +269,7 @@
                     <mat-expansion-panel>
                         <mat-expansion-panel-header>
                           <mat-panel-title>
-                            <h5>Other Vaccines</h5>
+                            <h5>{{ 'motherBabyJoined.other__vaccines' | translate }}</h5>
                           </mat-panel-title>
                           <mat-panel-description>
                             Click to View/Edit
@@ -278,51 +278,51 @@
                         <div class="row">
                             <div class="col-md-3">
                                     <mat-form-field class="example-full-width">
-                                        <input matInput placeholder="Japanese Encephalitis" type= "date" formControlName="immunization__japanese_encephalitis">
+                                        <input matInput placeholder="{{ 'motherBabyJoined.immunization__japanese_encephalitis' | translate }}" type= "date" formControlName="immunization__japanese_encephalitis">
                                     </mat-form-field>
                             </div>
                             <div class="col-md-3">
                                     <mat-form-field class="example-full-width">
-                                        <input matInput placeholder="Measles Mumps Rubella mmr-1" type= "date" formControlName="immunization__measles_mumps_rubella_mmr_1">
+                                        <input matInput placeholder="{{ 'motherBabyJoined.immunization__measles_mumps_rubella_mmr_1' | translate }}" type= "date" formControlName="immunization__measles_mumps_rubella_mmr_1">
                                     </mat-form-field>
                             </div>
                             <div class="col-md-3">
                                     <mat-form-field class="example-full-width">
-                                        <input matInput placeholder="Diptheria Pertusis Tetanus-4" type= "date" formControlName="immunization__diptheria_pertusis_tetanus_4">
+                                        <input matInput placeholder="{{ 'motherBabyJoined.immunization__diptheria_pertusis_tetanus_4' | translate }}" type= "date" formControlName="immunization__diptheria_pertusis_tetanus_4">
                                     </mat-form-field>
                             </div>
                     </div>
                     <div class="row">
                             <div class="col-md-3">
                                     <mat-form-field class="example-full-width">
-                                        <input matInput placeholder="Polio-4" type= "date" formControlName="immunization__polio_4">
+                                        <input matInput placeholder="{{ 'motherBabyJoined.immunization__polio_4' | translate }}" type= "date" formControlName="immunization__polio_4">
                                     </mat-form-field>
                             </div>
                             <div class="col-md-3">
                                     <mat-form-field class="example-full-width">
-                                        <input matInput placeholder="Measles Mumps Rubella mmr-2" type= "date" formControlName="immunization__measles_mumps_rubella_mmr_2">
+                                        <input matInput placeholder="{{ 'motherBabyJoined.immunization__measles_mumps_rubella_mmr_2' | translate }}" type= "date" formControlName="immunization__measles_mumps_rubella_mmr_2">
                                     </mat-form-field>
                             </div>
                             <div class="col-md-3">
                                     <mat-form-field class="example-full-width">
-                                        <input matInput placeholder="Diptheria Tetanus-5" type= "date" formControlName="immunization__diptheria_tetanus_5">
+                                        <input matInput placeholder="{{ 'motherBabyJoined.immunization__diptheria_tetanus_5' | translate }}" type= "date" formControlName="immunization__diptheria_tetanus_5">
                                     </mat-form-field>
                             </div>
                             <div class="col-md-3">
                                     <mat-form-field class="example-full-width">
-                                        <input matInput placeholder="Diptheria Tetanus-6" type= "date" formControlName="immunization__diptheria_tetanus_6">
+                                        <input matInput placeholder="{{ 'motherBabyJoined.immunization__diptheria_tetanus_6' | translate }}" type= "date" formControlName="immunization__diptheria_tetanus_6">
                                     </mat-form-field>
                             </div>
                     </div>
                         <div class="row">
                                 <div class="col-md-3">
                                         <mat-form-field class="example-full-width">
-                                            <input matInput placeholder="remarks" type= "text" formControlName="remarks">
+                                            <input matInput placeholder="{{ 'motherBabyJoined.remarks' | translate }}" type= "text" formControlName="remarks">
                                         </mat-form-field>
                                 </div>
                         </div>
                     </mat-expansion-panel>
-                        <input type="submit" value="Submit baby details" class="btn btn-info pull-right">
+                        <input type="submit" value="{{ 'enter' | translate }}" class="btn btn-info pull-right">
                     </form>
                     <div *ngIf="success"><h5>You submitted a new baby record successfully</h5></div>
                 </div>

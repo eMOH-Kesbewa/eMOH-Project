@@ -101,6 +101,7 @@ Future fetchChart() async {
 //    print(Baby.fromJson(json.decode(response.body)));
 
     // logger.wtf(json.decode(response.body)[0]);
+    
     return Baby.fromJson(json.decode(response.body)[0]);
   } else {
     // If that call was not successful, throw an error.

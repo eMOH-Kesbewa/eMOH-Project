@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:mobileapp/pages/babyInfo/childHEalthView.dart';
 //import 'package:mobileapp/pages/babyInfo/growingView.dart';
 import 'package:mobileapp/services/style.dart';
+import 'package:easy_localization/easy_localization.dart';
+import 'package:easy_localization/easy_localization_provider.dart';
 
 class ChoiceCard extends StatelessWidget {
   const ChoiceCard({Key key, this.choice}) : super(key: key);
@@ -10,117 +12,126 @@ class ChoiceCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var data = EasyLocalizationProvider.of(context).data;
     final TextStyle textStyle = Theme.of(context).textTheme.display1;
     if (choice.count == 1) {
-      return SingleChildScrollView(
-        child: Card(
-          color: Colors.white,
-          child: Center(
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[
-                ListTile(
-                  leading: growBulletIcon,
-                  title: Text('Date'),
-                  trailing: Text(choice.date),
-                ),
-                ListTile(
-                  leading: growBulletIcon,
-                  title: Text('Eyes'),
-                  trailing: Text(choice.eye),
-                ),
-                ListTile(
-                  leading: growBulletIcon,
-                  title: Text('Squint'),
-                  trailing: Text(choice.squint),
-                ),
-                ListTile(
-                  leading: growBulletIcon,
-                  title: Text('Cataract'),
-                  trailing: Text(choice.cataract),
-                ),
-                ListTile(
-                  leading: growBulletIcon,
-                  title: Text('Sight Left Eye'),
-                  trailing: Text(choice.sightL),
-                ),
-                ListTile(
-                  leading: growBulletIcon,
-                  title: Text('Sight Right Eye'),
-                  trailing: Text(choice.sightR),
-                ),
-                ListTile(
-                  leading: growBulletIcon,
-                  title: Text('NIght Blind'),
-                  trailing: Text(choice.nightBlind),
-                ),
-                ListTile(
-                  leading: growBulletIcon,
-                  title: Text('Bito Spots'),
-                  trailing: Text(choice.bitoSpots),
-                ),
-                ListTile(
-                  leading: growBulletIcon,
-                  title: Text('Hearing Left'),
-                  trailing: Text(choice.hearingL),
-                ),
-                ListTile(
-                  leading: growBulletIcon,
-                  title: Text('Hearing Right'),
-                  trailing: Text(choice.hearingR),
-                ),
-                ListTile(
-                  leading: growBulletIcon,
-                  title: Text('Weight'),
-                  trailing: Text(choice.weight),
-                ),
-                ListTile(
-                  leading: growBulletIcon,
-                  title: Text('Height'),
-                  trailing: Text(choice.height),
-                ),
-                ListTile(
-                  leading: growBulletIcon,
-                  title: Text('Heart'),
-                  trailing: Text(choice.heart),
-                ),
-                ListTile(
-                  leading: growBulletIcon,
-                  title: Text('Lungs'),
-                  trailing: Text(choice.lungs),
-                ),
-                ListTile(
-                  leading: growBulletIcon,
-                  title: Text('Hip Joint'),
-                  trailing: Text(choice.hipJoint),
-                ),
-                ListTile(
-                  leading: growBulletIcon,
-                  title: Text('Inherited Problems'),
-                  trailing: Text(choice.inhProblems),
-                ),
-                ListTile(
-                  leading: growBulletIcon,
-                  title: Text('Other Diseases'),
-                  trailing: Text(choice.otherDiseases),
-                ),
-                ListTile(
-                  leading: growBulletIcon,
-                  title: Text('Checked Officer'),
-                  trailing: Text(choice.officer),
-                ),
-                ListTile(
-                  leading: growBulletIcon,
-                  title: Text('Dental Spots'),
-                  trailing: Text(choice.dentalSpots),
-                ),
-                ListTile(
-                  leading: growBulletIcon,
-                  title: Text('Dental Cavities'),
-                  trailing: Text(choice.dentalCavities),
-                ),
-              ],
+      return EasyLocalizationProvider(
+        data: data,
+        child: SingleChildScrollView(
+          child: Card(
+            color: Colors.white,
+            child: Center(
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[
+                  ListTile(
+                    leading: growBulletIcon,
+                    title: Text(AppLocalizations.of(context).tr('date')),
+                    trailing: Text(choice.date),
+                  ),
+                  ListTile(
+                    leading: growBulletIcon,
+                    title: Text(AppLocalizations.of(context).tr('eyes')),
+                    trailing: Text(choice.eye),
+                  ),
+                  ListTile(
+                    leading: growBulletIcon,
+                    title: Text(AppLocalizations.of(context).tr('squint')),
+                    trailing: Text(choice.squint),
+                  ),
+                  ListTile(
+                    leading: growBulletIcon,
+                    title: Text(AppLocalizations.of(context).tr('cataract')),
+                    trailing: Text(choice.cataract),
+                  ),
+                  ListTile(
+                    leading: growBulletIcon,
+                    title: Text(AppLocalizations.of(context).tr('sightleft')),
+                    trailing: Text(choice.sightL),
+                  ),
+                  ListTile(
+                    leading: growBulletIcon,
+                    title: Text(AppLocalizations.of(context).tr('sightright')),
+                    trailing: Text(choice.sightR),
+                  ),
+                  ListTile(
+                    leading: growBulletIcon,
+                    title: Text(AppLocalizations.of(context).tr('weight')),
+                    trailing: Text(choice.nightBlind),
+                  ),
+                  ListTile(
+                    leading: growBulletIcon,
+                    title: Text(AppLocalizations.of(context).tr('height')),
+                    trailing: Text(choice.bitoSpots),
+                  ),
+                  ListTile(
+                    leading: growBulletIcon,
+                    title: Text(AppLocalizations.of(context).tr('hearingleft')),
+                    trailing: Text(choice.hearingL),
+                  ),
+                  ListTile(
+                    leading: growBulletIcon,
+                    title:
+                        Text(AppLocalizations.of(context).tr('hearingright')),
+                    trailing: Text(choice.hearingR),
+                  ),
+                  ListTile(
+                    leading: growBulletIcon,
+                    title: Text(AppLocalizations.of(context).tr('heart')),
+                    trailing: Text(choice.weight),
+                  ),
+                  ListTile(
+                    leading: growBulletIcon,
+                    title: Text(AppLocalizations.of(context).tr('lungs')),
+                    trailing: Text(choice.height),
+                  ),
+                  ListTile(
+                    leading: growBulletIcon,
+                    title: Text(AppLocalizations.of(context).tr('hipjoint')),
+                    trailing: Text(choice.heart),
+                  ),
+                  ListTile(
+                    leading: growBulletIcon,
+                    title:
+                        Text(AppLocalizations.of(context).tr('inheritedProb')),
+                    trailing: Text(choice.lungs),
+                  ),
+                  ListTile(
+                    leading: growBulletIcon,
+                    title:
+                        Text(AppLocalizations.of(context).tr('otherdiseases')),
+                    trailing: Text(choice.hipJoint),
+                  ),
+                  ListTile(
+                    leading: growBulletIcon,
+                    title: Text(AppLocalizations.of(context).tr('dentalspots')),
+                    trailing: Text(choice.inhProblems),
+                  ),
+                  ListTile(
+                    leading: growBulletIcon,
+                    title:
+                        Text(AppLocalizations.of(context).tr('dentalcavities')),
+                    trailing: Text(choice.otherDiseases),
+                  ),
+                  ListTile(
+                    leading: growBulletIcon,
+                    title: Text(AppLocalizations.of(context).tr('nightblind')),
+                    trailing: Text(choice.officer),
+                  ),
+                  ListTile(
+                    leading: growBulletIcon,
+                    title: Text(AppLocalizations.of(context).tr('bitospots')),
+                    trailing: Text(choice.dentalSpots),
+                  ),
+                  ListTile(
+                    leading: growBulletIcon,
+                    title:
+                        Text(AppLocalizations.of(context).tr('checkedofficer')),
+                    trailing: Text(choice.dentalCavities),
+                  ),
+                ],
+              ),
             ),
           ),
         ),
@@ -137,92 +148,94 @@ class ChoiceCard extends StatelessWidget {
               children: <Widget>[
                 ListTile(
                   leading: growBulletIcon,
-                  title: Text('Date'),
+                  title: Text(AppLocalizations.of(context).tr('date')),
                   trailing: Text(choice.date),
                 ),
                 ListTile(
                   leading: growBulletIcon,
-                  title: Text('Eyes'),
+                  title: Text(AppLocalizations.of(context).tr('eyes')),
                   trailing: Text(choice.eye),
                 ),
                 ListTile(
                   leading: growBulletIcon,
-                  title: Text('Squint'),
+                  title: Text(AppLocalizations.of(context).tr('squint')),
                   trailing: Text(choice.squint),
                 ),
                 ListTile(
                   leading: growBulletIcon,
-                  title: Text('Cataract'),
+                  title: Text(AppLocalizations.of(context).tr('cataract')),
                   trailing: Text(choice.cataract),
                 ),
                 ListTile(
                   leading: growBulletIcon,
-                  title: Text('NIght Blind'),
+                  title: Text(AppLocalizations.of(context).tr('nightblind')),
                   trailing: Text(choice.nightBlind),
                 ),
                 ListTile(
                   leading: growBulletIcon,
-                  title: Text('Bito Spots'),
+                  title: Text(AppLocalizations.of(context).tr('bitospots')),
                   trailing: Text(choice.bitoSpots),
                 ),
                 ListTile(
                   leading: growBulletIcon,
-                  title: Text('Hearing Left'),
+                  title: Text(AppLocalizations.of(context).tr('hearingleft')),
                   trailing: Text(choice.hearingL),
                 ),
                 ListTile(
                   leading: growBulletIcon,
-                  title: Text('Hearing Right'),
+                  title: Text(AppLocalizations.of(context).tr('hearingright')),
                   trailing: Text(choice.hearingR),
                 ),
                 ListTile(
                   leading: growBulletIcon,
-                  title: Text('Weight'),
+                  title: Text(AppLocalizations.of(context).tr('weight')),
                   trailing: Text(choice.weight),
                 ),
                 ListTile(
                   leading: growBulletIcon,
-                  title: Text('Height'),
+                  title: Text(AppLocalizations.of(context).tr('height')),
                   trailing: Text(choice.height),
                 ),
                 ListTile(
                   leading: growBulletIcon,
-                  title: Text('Heart'),
+                  title: Text(AppLocalizations.of(context).tr('heart')),
                   trailing: Text(choice.heart),
                 ),
                 ListTile(
                   leading: growBulletIcon,
-                  title: Text('Lungs'),
+                  title: Text(AppLocalizations.of(context).tr('lungs')),
                   trailing: Text(choice.lungs),
                 ),
                 ListTile(
                   leading: growBulletIcon,
-                  title: Text('Hip Joint'),
+                  title: Text(AppLocalizations.of(context).tr('hipjoint')),
                   trailing: Text(choice.hipJoint),
                 ),
                 ListTile(
                   leading: growBulletIcon,
-                  title: Text('Inherited Problems'),
+                  title: Text(AppLocalizations.of(context).tr('inheritedProb')),
                   trailing: Text(choice.inhProblems),
                 ),
                 ListTile(
                   leading: growBulletIcon,
-                  title: Text('Other Diseases'),
+                  title: Text(AppLocalizations.of(context).tr('otherdiseases')),
                   trailing: Text(choice.otherDiseases),
                 ),
                 ListTile(
                   leading: growBulletIcon,
-                  title: Text('Checked Officer'),
+                  title:
+                      Text(AppLocalizations.of(context).tr('checkedofficer')),
                   trailing: Text(choice.officer),
                 ),
                 ListTile(
                   leading: growBulletIcon,
-                  title: Text('Dental Spots'),
+                  title: Text(AppLocalizations.of(context).tr('dentalspots')),
                   trailing: Text(choice.dentalSpots),
                 ),
                 ListTile(
                   leading: growBulletIcon,
-                  title: Text('Dental Cavities'),
+                  title:
+                      Text(AppLocalizations.of(context).tr('denatalcavities')),
                   trailing: Text(choice.dentalCavities),
                 ),
               ],
@@ -242,83 +255,85 @@ class ChoiceCard extends StatelessWidget {
               children: <Widget>[
                 ListTile(
                   leading: growBulletIcon,
-                  title: Text('Date'),
+                  title: Text(AppLocalizations.of(context).tr('date')),
                   trailing: Text(choice.date),
                 ),
                 ListTile(
                   leading: growBulletIcon,
-                  title: Text('Eyes'),
+                  title: Text(AppLocalizations.of(context).tr('eyes')),
                   trailing: Text(choice.eye),
                 ),
                 ListTile(
                   leading: growBulletIcon,
-                  title: Text('Squint'),
+                  title: Text(AppLocalizations.of(context).tr('squint')),
                   trailing: Text(choice.squint),
                 ),
                 ListTile(
                   leading: growBulletIcon,
-                  title: Text('Cataract'),
+                  title: Text(AppLocalizations.of(context).tr('cataract')),
                   trailing: Text(choice.cataract),
                 ),
                 ListTile(
                   leading: growBulletIcon,
-                  title: Text('Hearing Left'),
+                  title: Text(AppLocalizations.of(context).tr('hearingleft')),
                   trailing: Text(choice.hearingL),
                 ),
                 ListTile(
                   leading: growBulletIcon,
-                  title: Text('Hearing Right'),
+                  title: Text(AppLocalizations.of(context).tr('hearingright')),
                   trailing: Text(choice.hearingR),
                 ),
                 ListTile(
                   leading: growBulletIcon,
-                  title: Text('Weight'),
+                  title: Text(AppLocalizations.of(context).tr('weight')),
                   trailing: Text(choice.weight),
                 ),
                 ListTile(
                   leading: growBulletIcon,
-                  title: Text('Height'),
+                  title: Text(AppLocalizations.of(context).tr('height')),
                   trailing: Text(choice.height),
                 ),
                 ListTile(
                   leading: growBulletIcon,
-                  title: Text('Heart'),
+                  title: Text(AppLocalizations.of(context).tr('heart')),
                   trailing: Text(choice.heart),
                 ),
                 ListTile(
                   leading: growBulletIcon,
-                  title: Text('Lungs'),
+                  title: Text(AppLocalizations.of(context).tr('lungs')),
                   trailing: Text(choice.lungs),
                 ),
                 ListTile(
                   leading: growBulletIcon,
-                  title: Text('Hip Joint'),
+                  title: Text(AppLocalizations.of(context).tr('hipjoint')),
                   trailing: Text(choice.hipJoint),
                 ),
                 ListTile(
                   leading: growBulletIcon,
-                  title: Text('Inherited Problems'),
+                  title: Text(AppLocalizations.of(context).tr('inheritedProb')),
                   trailing: Text(choice.inhProblems),
                 ),
                 ListTile(
                   leading: growBulletIcon,
-                  title: Text('Other Diseases'),
+                  title: Text(AppLocalizations.of(context).tr('otherdiseases')),
                   trailing: Text(choice.otherDiseases),
                 ),
                 ListTile(
                   leading: growBulletIcon,
-                  title: Text('Checked Officer'),
-                  trailing: Text(choice.officer),
-                ),
-                ListTile(
-                  leading: growBulletIcon,
-                  title: Text('Dental Spots'),
+                  title: Text(AppLocalizations.of(context).tr('dentalspots')),
                   trailing: Text(choice.dentalSpots),
                 ),
                 ListTile(
                   leading: growBulletIcon,
-                  title: Text('Dental Cavities'),
+                  title:
+                      Text(AppLocalizations.of(context).tr('dentalcavities')),
                   trailing: Text(choice.dentalCavities),
+                ),
+                ListTile(
+                  leading: growBulletIcon,
+                  title:
+                      Text(AppLocalizations.of(context).tr('checkedofficer')),
+                  trailing: Text(choice.officer),
                 ),
               ],
             ),
@@ -337,72 +352,72 @@ class ChoiceCard extends StatelessWidget {
               children: <Widget>[
                 ListTile(
                   leading: growBulletIcon,
-                  title: Text('Date'),
+                  title: Text(AppLocalizations.of(context).tr('date')),
                   trailing: Text(choice.date),
                 ),
                 ListTile(
                   leading: growBulletIcon,
-                  title: Text('Eyes'),
+                  title: Text(AppLocalizations.of(context).tr('eyes')),
                   trailing: Text(choice.eye),
                 ),
                 ListTile(
                   leading: growBulletIcon,
-                  title: Text('Squint'),
+                  title: Text(AppLocalizations.of(context).tr('squint')),
                   trailing: Text(choice.squint),
                 ),
                 ListTile(
                   leading: growBulletIcon,
-                  title: Text('Cataract'),
+                  title: Text(AppLocalizations.of(context).tr('cataract')),
                   trailing: Text(choice.cataract),
                 ),
                 ListTile(
                   leading: growBulletIcon,
-                  title: Text('Hearing Left'),
+                  title: Text(AppLocalizations.of(context).tr('hearingleft')),
                   trailing: Text(choice.hearingL),
                 ),
                 ListTile(
                   leading: growBulletIcon,
-                  title: Text('Hearing Right'),
+                  title: Text(AppLocalizations.of(context).tr('hearingright')),
                   trailing: Text(choice.hearingR),
                 ),
                 ListTile(
                   leading: growBulletIcon,
-                  title: Text('Weight'),
+                  title: Text(AppLocalizations.of(context).tr('weight')),
                   trailing: Text(choice.weight),
                 ),
                 ListTile(
                   leading: growBulletIcon,
-                  title: Text('Height'),
+                  title: Text(AppLocalizations.of(context).tr('height')),
                   trailing: Text(choice.height),
                 ),
                 ListTile(
                   leading: growBulletIcon,
-                  title: Text('Heart'),
+                  title: Text(AppLocalizations.of(context).tr('heart')),
                   trailing: Text(choice.heart),
                 ),
                 ListTile(
                   leading: growBulletIcon,
-                  title: Text('Lungs'),
+                  title: Text(AppLocalizations.of(context).tr('lungs')),
                   trailing: Text(choice.lungs),
                 ),
                 ListTile(
                   leading: growBulletIcon,
-                  title: Text('Hip Joint'),
+                  title: Text(AppLocalizations.of(context).tr('hipjoint')),
                   trailing: Text(choice.hipJoint),
                 ),
                 ListTile(
                   leading: growBulletIcon,
-                  title: Text('Inherited Problems'),
+                  title: Text(AppLocalizations.of(context).tr('inheritedProb')),
                   trailing: Text(choice.inhProblems),
                 ),
                 ListTile(
                   leading: growBulletIcon,
-                  title: Text('Other Diseases'),
+                  title: Text(AppLocalizations.of(context).tr('otherdiseases')),
                   trailing: Text(choice.otherDiseases),
                 ),
                 ListTile(
                   leading: growBulletIcon,
-                  title: Text('Checked Officer'),
+                  title: Text(AppLocalizations.of(context).tr('checkedofficer')),
                   trailing: Text(choice.officer),
                 ),
               ],

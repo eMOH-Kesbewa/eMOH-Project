@@ -5,7 +5,8 @@
     "wifename" : "Name of the Wife",
     "husbandName" : "Name of the Husband",
     "noOfChildren" : "Number of Children",
-
+    
+"familyprofile" : "Family Profile",
     "basicInfo" : "Basic Information",
     "proBaby" : "Protection of Baby",
     "eyeTest" : "Eye Test",
@@ -164,16 +165,17 @@
     "reasonforreff" : "Reason for refferals",
     "placeofreff" : "Place of refferal",
 
+    
     "sixmonth" : "6th Month",
     "1year" : "1st Year",
-    "1.5year" : "2nd Year",
-    "2year" : "3rd Year",
-    "2.5year" : "4th Year",
-    "3year" : "5th Year",
-    "3.5year" : "6th Year",
-    "4year" : "7th Year",
-    "4.5year" : "8th Year",
-    "5year" : "9th Year",
+    "1.5year" : "1.5 Years",
+    "2year" : "2 Years",
+    "2.5year" : "2.5 Years",
+    "3year" : "3 Years",
+    "3.5year" : "3.5 Years",
+    "4year" : "4 Years",
+    "4.5year" : "4.5 Years",
+    "5year" : "5 Years",
 
     "wormTreat" : "Worm Treatments",
 
@@ -190,14 +192,18 @@
     "10month" : "10 Months",
     "11month" : "11 Months",
     "12month" : "12 Months",
+    "18month" : "18 Months",
 
-    "eyes" : "Eyes",
+    "eyes" : "Change of the eye size",
     "squint" : "Squint",
     "cataract" : "Cataract",
     "hearingleft" : "Hearing Left",
     "hearingright" : "Hearing Right",
+    "sightleft" : "Sight Left Eye",
+    "sightright" : "Sight Right Eye",
     "weight" : "Weight",
     "height" : "Height",
+    "heart" : "Heart Diseases",
     "lungs" : "Lungs",
     "hipjoint" : "Hip Joint",
     "inheritedProb" : "Inherited Problems",
@@ -226,7 +232,25 @@
     "eighteenmonthofbirth" : "Eighteen Months of Birth",
     "teethcount" : "Teeth Count",
     "statusofteeth" : "Status of Teeth",
+    "checkeddate" : "Checked Date",
+
     
+    
+    "from1-5days" : "From 1-5 Days",
+    "from6-10days" : "From 6-10 Days",
+    "from14-21days" : "From 14-21 Days",
+    "around42days" : "Around 42 Days",
+    
+    "skincolor" : "Skin Colour",
+    "natureofnavel" : "Nature of Navel",
+    "eyechart" : "Eyes",
+    "temperature" : "Temperature",
+    "onlybreast" : "Only Breast Feeding",
+    "breaststab" : "Breastfeeding Stability",
+    "breastcon" : "Breastfeeding Connection",
+    "others" : "Others",
+
+    "specialnotes" : "Special Notes",
     "selectedlanguage" : "English",
     "title" : "Settings"
 }

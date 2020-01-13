@@ -11,7 +11,7 @@
           <div class="col-md-12">
               <div class="card">
                 <div class="card-header">
-                    <h4 class="card-title "><h3>View Babies of the Area</h3></h4>
+                    <h4 class="card-title "><h3>{{ 'motherBabyJoined.view_babies' | translate }}</h3></h4>
                     <h5 class="card-category">Click to view the individual Records</h5>
                 </div>
 
@@ -23,7 +23,7 @@
                         <table class="table table-hover table-bordered">
                             
                                 <tr>
-                                    <th align="center" rowspan=4><b>Mother No</b></th>  <th align="center" rowspan=4><b>Name of the Child</b></th>  <th align="center" rowspan=4><b>Mothers Name</b></th>  <th align="center" rowspan=4><b>Address</b></th>  <th align="center" rowspan=4><b>Sex</b></th>  <th align="center" rowspan=4><b>Date of Birth</b></th>  <th align="center" rowspan=4><b>Birth Weight</b></th> 
+                                    <th align="center" rowspan=4><b>{{ 'motherBabyJoined.mother_id' | translate }}</b></th>  <th align="center" rowspan=4><b>{{ 'motherBabyJoined.child_name' | translate }}</b></th>  <th align="center" rowspan=4><b>{{ 'motherBabyJoined.mothers_name' | translate }}</b></th>  <th align="center" rowspan=4><b>{{ 'motherBabyJoined.address' | translate }}</b></th>  <th align="center" rowspan=4><b>{{ 'motherBabyJoined.sex' | translate }}</b></th>  <th align="center" rowspan=4><b>{{ 'motherBabyJoined.date_of_birth' | translate }}</b></th>  <th align="center" rowspan=4><b>{{ 'motherBabyJoined.birth_weight' | translate }}</b></th> 
                                 </tr>
                                 <tbody>
                                 <tr *ngFor="let motherbabyjoineddata of motherbabyjoineddatas" (click)="onClickMe(motherbabyjoineddata.baby_id)" style="cursor:pointer">
