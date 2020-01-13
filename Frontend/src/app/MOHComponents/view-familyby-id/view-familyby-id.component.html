@@ -1,80 +1,81 @@
 
-  <div class="container-fluid">
+<div class="container-fluid">
     <div class="row">
         <div class="col-md-8"></div>
         <div class="col-md-2">
-            <mat-slide-toggle  [formControl]="autoRenew" (change)="onChange()">Edit details</mat-slide-toggle>
+            <mat-slide-toggle  [formControl]="autoRenew" (change)="onChange()">{{'edit'| translate}}</mat-slide-toggle>
         </div>
         <div class="col-md-2">
-           <button  (click)="onClickMe()" class="btn btn-info btn-block">Change As Mother</button>
+           <button  (click)="onClickMe()" class="btn btn-info btn-block">{{'family.changeAsMother'| translate }}</button>
         </div>
         <div class="col-md-12">
           
             <div class="card">
-               <h3>Update Eligible Familes</h3>
+                <div class="card-header card-header-info">
+                    <h4 class="card-title">{{'family.familyDetails'| translate }}</h4>
+                </div>
                 <div class="card-body">
                     <form [formGroup]="approvedFamilyForm" [hidden]="success" (ngSubmit)="onSubmit()">
-                      <mat-accordion>
                         <mat-expansion-panel>
-                          <mat-expansion-panel-header>
-                            <mat-panel-title>
-                              <h5>Family Details</h5>
-                            </mat-panel-title>
-                            <mat-panel-description>
-                              Click to View/Edit
-                            </mat-panel-description>
-                          </mat-expansion-panel-header>
+                            <mat-expansion-panel-header>
+                              <mat-panel-title>
+                                <h5>{{ 'family.familyDetails' | translate }}</h5>
+                              </mat-panel-title>
+                              <mat-panel-description>
+                                Click to View/Edit
+                              </mat-panel-description>
+                            </mat-expansion-panel-header>
                         <div class="row">
                             <div class="col-md-3">
                                 <mat-form-field class="example-full-width">
-                                  <input matInput placeholder="Village ID" type="text"  readonly="{{onChange()}}" formControlName="village_id" >
+                                  <input matInput placeholder="{{ 'family.village_id' | translate }}" type="text"  readonly="{{onChange()}}" formControlName="village_id" >
                                 </mat-form-field>
                             </div>
                             <div class="col-md-5">
                                 <mat-form-field class="example-full-width">
-                                  <input matInput placeholder="Approved familly category" type= "text" readonly="{{onChange()}}" formControlName="Approved_family_category">
+                                  <input matInput placeholder="{{ 'family.Approved_family_category' | translate }}" type= "text" readonly="{{onChange()}}" formControlName="Approved_family_category">
                                  
                                 </mat-form-field>
                             </div>
                             <div class="col-md-3">
                                 <mat-form-field class="example-full-width">
-                                  <input matInput placeholder="Identity number" type="text" readonly="{{onChange()}}" formControlName="Identity_number">
+                                  <input matInput placeholder="{{ 'family.Identity_number' | translate }}" type="text" readonly="{{onChange()}}" formControlName="Identity_number">
                                   
                                 </mat-form-field>
                             </div>
                             <div class="col-md-3">
                                 <mat-form-field class="example-full-width">
-                                  <input matInput placeholder="Date" type="date" readonly="{{onChange()}}" formControlName="Date">
+                                  <input matInput placeholder="{{ 'family.Date' | translate }}" type="date" readonly="{{onChange()}}" formControlName="Date">
                                 </mat-form-field>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-5">
                                 <mat-form-field class="example-full-width">
-                                  <input matInput placeholder="Name of wife" type= "text" readonly="{{onChange()}}" formControlName="Name_of_wife">
+                                  <input matInput placeholder="{{ 'family.Name_of_wife' | translate }}" type= "text" readonly="{{onChange()}}" formControlName="Name_of_wife">
                                  
                                 </mat-form-field>
 
                             </div>
                             <div class="col-md-5">
                               <mat-form-field class="example-full-width">
-                                <input matInput placeholder="Name of husband" type= "text" readonly="{{onChange()}}" formControlName="Name_of_husband">
+                                <input matInput placeholder="{{ 'family.Name_of_husband' | translate }}" type= "text" readonly="{{onChange()}}" formControlName="Name_of_husband">
                               </mat-form-field>
                           </div>
                         </div>
                         <div class="row">
                             <div class="col-md-3">
                                 <mat-form-field class="example-full-width">
-                                  <input matInput placeholder="Date of birth" type= "date" readonly="{{onChange()}}" formControlName="Date_of_birth">
+                                  <input matInput placeholder="{{ 'family.Date_of_birth' | translate }}" type= "date" readonly="{{onChange()}}" formControlName="Date_of_birth">
                                 </mat-form-field>
                             </div><div class="col-md-5">
                                 <mat-form-field class="example-full-width">
-                                  <input matInput placeholder="Address" type= "text" readonly="{{onChange()}}" formControlName="address">
+                                  <input matInput placeholder="{{ 'family.Address' | translate }}" type= "text" readonly="{{onChange()}}" formControlName="address">
                                   
                                 </mat-form-field>
                             </div><div class="col-md-3">
                                 <mat-form-field class="example-full-width">
-                                  <input matInput placeholder="Age at marriage" type= "number" readonly="{{onChange()}}" formControlName="Age_at_the_time_of_marriage" min="0" max="45">
+                                  <input matInput placeholder="{{ 'family.Age_at_the_time_of_marriage' | translate }}" type= "number" readonly="{{onChange()}}" formControlName="Age_at_the_time_of_marriage" min="0" max="45">
                                   
                                 </mat-form-field>
                             </div>
@@ -82,194 +83,188 @@
                         <div class="row">
                           <div class="col-md-3">
                               <mat-form-field class="example-full-width">
-                                <input matInput placeholder="Job status" type= "text" readonly="{{onChange()}}" formControlName="Job_status">
+                                <input matInput placeholder="{{ 'family.Job_status' | translate }}" type= "text" readonly="{{onChange()}}" formControlName="Job_status">
                               </mat-form-field>
                           </div>
                           <div class="col-md-3">
                             <mat-form-field class="example-full-width">
-                              <input matInput placeholder="Education level" type= "text" readonly="{{onChange()}}" formControlName="Education_level">
+                              <input matInput placeholder="{{ 'family.Education_level' | translate }}" type= "text" readonly="{{onChange()}}" formControlName="Education_level">
                             </mat-form-field>
                         </div>
                         <div class="col-md-3">
                           <mat-form-field class="example-full-width">
-                            <input matInput placeholder="Number of living children" type= "number" readonly="{{onChange()}}" formControlName="Number_of_living_children" min="0" max="20">
+                            <input matInput placeholder="{{ 'family.Number_of_living_children' | translate }}" type= "number" readonly="{{onChange()}}" formControlName="Number_of_living_children" min="0" max="20">
                             
                           </mat-form-field>
                         </div>
                       </div>
-                        </mat-expansion-panel>
-                      
-                        <mat-expansion-panel>
-                          <mat-expansion-panel-header>
-                            <mat-panel-title>
-                              <h5>Pregnancy Details</h5>
-                            </mat-panel-title>
-                            <mat-panel-description>
-                              Click to View/Edit
-                            </mat-panel-description>
-                          </mat-expansion-panel-header>
-                      <h5>  Pregnancy</h5>
+                    </mat-expansion-panel>
+                    <mat-expansion-panel>
+                      <mat-expansion-panel-header>
+                        <mat-panel-title>
+                          <h5>{{ 'family.pregnancyDetails' | translate }}</h5>
+                        </mat-panel-title>
+                        <mat-panel-description>
+                          Click to View/Edit
+                        </mat-panel-description>
+                      </mat-expansion-panel-header>
+                   
+                    <h5>{{ 'family.Pregnancy' | translate }}</h5>
                       <div class="row">
                           <div class="col-md-2">
                               <mat-form-field class="example-full-width">
-                                <input matInput placeholder="First" type= "text" readonly="{{onChange()}}" formControlName="Pregnancy_details__Pregnancy__Frist">
+                                <input matInput placeholder="{{ 'family.Pregnancy_details__Pregnancy__First' | translate }}" type= "text" readonly="{{onChange()}}" formControlName="Pregnancy_details__Pregnancy__Frist">
                               </mat-form-field>
                           </div>
                           <div class="col-md-2">
                               <mat-form-field class="example-full-width">
-                                <input matInput placeholder="Second" type= "text" readonly="{{onChange()}}" formControlName="Pregnancy_details__Pregnancy__Second">
+                                <input matInput placeholder="{{ 'family.Pregnancy_details__Pregnancy__Second' | translate }}" type= "text" readonly="{{onChange()}}" formControlName="Pregnancy_details__Pregnancy__Second">
                               </mat-form-field>
                           </div>
                           <div class="col-md-2">
                               <mat-form-field class="example-full-width">
-                                <input matInput placeholder="Third" type= "text" readonly="{{onChange()}}" formControlName="Pregnancy_details__Pregnancy__Third">
+                                <input matInput placeholder="{{ 'family.Pregnancy_details__Pregnancy__Third' | translate }}" type= "text" readonly="{{onChange()}}" formControlName="Pregnancy_details__Pregnancy__Third">
                               </mat-form-field>
                           </div>
                           <div class="col-md-2">
                               <mat-form-field class="example-full-width">
-                                <input matInput placeholder="Fourth" type= "text" readonly="{{onChange()}}" formControlName="Pregnancy_details__Pregnancy__Fourth">
+                                <input matInput placeholder="{{ 'family.Pregnancy_details__Pregnancy__Fourth' | translate }}" type= "text" readonly="{{onChange()}}" formControlName="Pregnancy_details__Pregnancy__Fourth">
                               </mat-form-field>
                           </div>
                           <div class="col-md-2">
                               <mat-form-field class="example-full-width">
-                                <input matInput placeholder="Fifth" type= "text" readonly="{{onChange()}}" formControlName="Pregnancy_details__Pregnancy__Fifth">
+                                <input matInput placeholder="{{ 'family.Pregnancy_details__Pregnancy__Fifth' | translate }}" type= "text" readonly="{{onChange()}}" formControlName="Pregnancy_details__Pregnancy__Fifth">
                               </mat-form-field>
                           </div>
                       </div>
-                      <h5>Results</h5>
+                      <h5>{{ 'family.Pregnancy_details__Results' | translate }}</h5>
                       <div class="row">
                           <div class="col-md-2">
                               <mat-form-field class="example-full-width">
-                                <input matInput placeholder="First" type= "text" readonly="{{onChange()}}" formControlName="Pregnancy_details__Result__First">
+                                <input matInput placeholder="{{ 'family.Pregnancy_details__Result__First' | translate }}" type= "text" readonly="{{onChange()}}" formControlName="Pregnancy_details__Result__First">
                               </mat-form-field>
                           </div>
                           <div class="col-md-2">
                               <mat-form-field class="example-full-width">
-                                <input matInput placeholder="Second" type= "text" readonly="{{onChange()}}" formControlName="Pregnancy_details__Result__Second">
+                                <input matInput placeholder="{{ 'family.Pregnancy_details__Result__Second' | translate }}" type= "text" readonly="{{onChange()}}" formControlName="Pregnancy_details__Result__Second">
                               </mat-form-field>
                           </div>
                           <div class="col-md-2">
                               <mat-form-field class="example-full-width">
-                                <input matInput placeholder="Third" type= "text" readonly="{{onChange()}}" formControlName="Pregnancy_details__Result__Third">
+                                <input matInput placeholder="{{ 'family.Pregnancy_details__Result__Third' | translate }}" type= "text" readonly="{{onChange()}}" formControlName="Pregnancy_details__Result__Third">
                               </mat-form-field>
                           </div>
                           <div class="col-md-2">
                               <mat-form-field class="example-full-width">
-                                <input matInput placeholder="Fourth" type= "text" readonly="{{onChange()}}" formControlName="Pregnancy_details__Result__Fourth">
+                                <input matInput placeholder="{{ 'family.Pregnancy_details__Result__Fourth' | translate }}" type= "text" readonly="{{onChange()}}" formControlName="Pregnancy_details__Result__Fourth">
                               </mat-form-field>
                           </div>
                           <div class="col-md-2">
                               <mat-form-field class="example-full-width">
-                                <input matInput placeholder="Fifth" type= "text" readonly="{{onChange()}}" formControlName="Pregnancy_details__Result__Fifth">
+                                <input matInput placeholder="{{ 'family.Pregnancy_details__Result__Fifth' | translate }}" type= "text" readonly="{{onChange()}}" formControlName="Pregnancy_details__Result__Fifth">
                               </mat-form-field>
                           </div>
                       </div>
-                      </mat-expansion-panel>
-                      
-                      
-                     
-                        <mat-expansion-panel>
-                          <mat-expansion-panel-header>
-                            <mat-panel-title>
-                              <h5>Family planing methods</h5>
-                            </mat-panel-title>
-                            <mat-panel-description>
-                              Click to View/Edit
-                            </mat-panel-description>
-                          </mat-expansion-panel-header>
-                      <h5>First</h5>
+                    </mat-expansion-panel>
+                    <mat-expansion-panel>
+                      <mat-expansion-panel-header>
+                        <mat-panel-title>
+                          <h5>{{ 'family.familyPlaningMethods' | translate }}</h5>
+                        </mat-panel-title>
+                        <mat-panel-description>
+                          Click to View/Edit
+                        </mat-panel-description>
+                      </mat-expansion-panel-header>
+                      <h5>{{ 'family.Pregnancy_details__Pregnancy__First' | translate }}</h5>
                       <div class="row">
                         <div class="col-md-5">
                           <mat-form-field class="example-full-width">
-                            <input matInput placeholder="Method" type= "text" readonly="{{onChange()}}" formControlName="Family_planning_methods__First__Method">
+                            <input matInput placeholder="{{ 'family.Family_planning_methods__First__Method' | translate }}" type= "text" readonly="{{onChange()}}" formControlName="Family_planning_methods__First__Method">
                           </mat-form-field>
                       </div>
                       <div class="col-md-3">
                         <mat-form-field class="example-full-width">
-                          <input matInput placeholder="Date" type= "date" readonly="{{onChange()}}" formControlName="Family_planning_methods__First__Date">
-                        </mat-form-field>
-                    </div>
-                      </div>
-                    
-
-                      <h5>Second</h5>
-                      <div class="row">
-                        <div class="col-md-5">
-                          <mat-form-field class="example-full-width">
-                            <input matInput placeholder="Method" type= "text" readonly="{{onChange()}}" formControlName="Family_planning_methods__second__Method">
-                          </mat-form-field>
-                      </div>
-                      <div class="col-md-3">
-                        <mat-form-field class="example-full-width">
-                          <input matInput placeholder="Date" type= "date" readonly="{{onChange()}}" formControlName="Family_planning_methods__second__Date">
+                          <input matInput placeholder="{{ 'family.Family_planning_methods__First__Date' | translate }}" type= "date" readonly="{{onChange()}}" formControlName="Family_planning_methods__First__Date">
                         </mat-form-field>
                     </div>
                       </div>
 
-                      <h5>Third</h5>
+                      <h5>{{ 'family.Pregnancy_details__Pregnancy__Second' | translate }}</h5>
                       <div class="row">
                         <div class="col-md-5">
                           <mat-form-field class="example-full-width">
-                            <input matInput placeholder="Method" type= "text" readonly="{{onChange()}}" formControlName="Family_planning_methods__third__Method">
+                            <input matInput placeholder="{{ 'family.Family_planning_methods__second__Method' | translate }}" type= "text" readonly="{{onChange()}}" formControlName="Family_planning_methods__second__Method">
                           </mat-form-field>
                       </div>
                       <div class="col-md-3">
                         <mat-form-field class="example-full-width">
-                          <input matInput placeholder="Date" type= "date" readonly="{{onChange()}}" formControlName="Family_planning_methods__third__Date">
+                          <input matInput placeholder="{{ 'family.Family_planning_methods__second__Date' | translate }}" type= "date" readonly="{{onChange()}}" formControlName="Family_planning_methods__second__Date">
                         </mat-form-field>
                     </div>
                       </div>
 
-                      <h5>Fourth</h5>
+                      <h5>{{ 'family.Pregnancy_details__Pregnancy__Third' | translate }}</h5>
                       <div class="row">
                         <div class="col-md-5">
                           <mat-form-field class="example-full-width">
-                            <input matInput placeholder="Method" type= "text" readonly="{{onChange()}}" formControlName="Family_planning_methods__fourth__Method">
+                            <input matInput placeholder="{{ 'family.Family_planning_methods__third__Method' | translate }}" type= "text" readonly="{{onChange()}}" formControlName="Family_planning_methods__third__Method">
                           </mat-form-field>
                       </div>
                       <div class="col-md-3">
                         <mat-form-field class="example-full-width">
-                          <input matInput placeholder="Date" type= "date" readonly="{{onChange()}}" formControlName="Family_planning_methods__fourth__Date">
+                          <input matInput placeholder="{{ 'family.Family_planning_methods__third__Date' | translate }}" type= "date" readonly="{{onChange()}}" formControlName="Family_planning_methods__third__Date">
+                        </mat-form-field>
+                    </div>
+                      </div>
+
+                      <h5>{{ 'family.Pregnancy_details__Pregnancy__Fourth' | translate }}</h5>
+                      <div class="row">
+                        <div class="col-md-5">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="{{ 'family.Family_planning_methods__fourth__Method' | translate }}" type= "text" readonly="{{onChange()}}" formControlName="Family_planning_methods__fourth__Method">
+                          </mat-form-field>
+                      </div>
+                      <div class="col-md-3">
+                        <mat-form-field class="example-full-width">
+                          <input matInput placeholder="{{ 'family.Family_planning_methods__fourth__Date' | translate }}" type= "date" readonly="{{onChange()}}" formControlName="Family_planning_methods__fourth__Date">
                         </mat-form-field>
                     </div>
                       </div>
                     </mat-expansion-panel>
-                  
-                  <mat-expansion-panel>
-                    <mat-expansion-panel-header>
-                      <mat-panel-title>
-                        <h5>Other Details</h5>
-                      </mat-panel-title>
-                      <mat-panel-description>
-                        Click to View/Edit
-                      </mat-panel-description>
-                    </mat-expansion-panel-header>
+                    <mat-expansion-panel>
+                      <mat-expansion-panel-header>
+                        <mat-panel-title>
+                          <h5>{{ 'family.Other' | translate }}</h5>
+                        </mat-panel-title>
+                        <mat-panel-description>
+                          Click to View/Edit
+                        </mat-panel-description>
+                      </mat-expansion-panel-header>
                       <div class="row">
                           <div class="col-md-2">
                               <mat-form-field class="example-full-width">
-                                <input matInput placeholder="Safe for rubella" type= "text" readonly="{{onChange()}}" formControlName="Safe_for_rubella">
+                                <input matInput placeholder="{{ 'family.Safeforrubella' | translate }}" type= "text" readonly="{{onChange()}}" formControlName="Safe_for_rubella">
                               </mat-form-field>
                           </div>
                           <div class="col-md-3">
                               <mat-form-field class="example-full-width">
-                                <input matInput placeholder="Date of cervical mucous test" type= "text" readonly="{{onChange()}}" formControlName="Date_of_cervical_mucous_test">
+                                <input matInput placeholder="{{ 'family.Dateofcervicalmucoustest' | translate }}" type= "text" readonly="{{onChange()}}" formControlName="Date_of_cervical_mucous_test">
                               </mat-form-field>
                           </div>
                           <div class="col-md-2">
                               <mat-form-field class="example-full-width">
-                                <input matInput placeholder="Other details" type= "text" readonly="{{onChange()}}" formControlName="Other_details">
+                                <input matInput placeholder="{{ 'family.Otherdetails' | translate }}" type= "text" readonly="{{onChange()}}" formControlName="Other_details">
                               </mat-form-field>
                           </div>
                           <div class="col-md-3">
                               <mat-form-field class="example-full-width">
-                                <input matInput placeholder="Number of young children" type= "number" readonly="{{onChange()}}" formControlName="number_of_young_children" min="0" max="20">
+                                <input matInput placeholder="{{ 'family.numberofyoungchildren' | translate }}" type= "number" readonly="{{onChange()}}" formControlName="number_of_young_children" min="0" max="20">
                               </mat-form-field>
                           </div>
                       </div>
-                      </mat-expansion-panel>  
-                      </mat-accordion>
+                    </mat-expansion-panel>
                       <div *ngIf="onHidden()">
-                        <input type="submit" value="Submit details" class="btn btn-danger pull-right">
+                        <input type="submit" value={{'update'| translate=""" class="btn btn-danger pull-right">
                       </div>
                       </form>
                         <div *ngIf="success"><h1>You submitted a record</h1></div>
