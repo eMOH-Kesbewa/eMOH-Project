@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:mobileapp/services/babyService/doctorNotes.dart';
 import 'package:mobileapp/widgets/doctorNotesCard.dart';
+import 'package:easy_localization/easy_localization.dart';
+import 'package:easy_localization/easy_localization_provider.dart';
 
 class DoctorNotes extends StatefulWidget {
   @override
@@ -13,37 +15,41 @@ class _DoctorNotesState extends State<DoctorNotes> {
   List<DoctorNotesCard> refcard = <DoctorNotesCard>[];
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Doctor Notes'),
-      ),
-      body: SingleChildScrollView(
-        child: FutureBuilder<Baby>(
-            future: fetchBaby(),
-            builder: (context, snapshot) {
-              if (snapshot.connectionState == ConnectionState.waiting) {
-                return Center(
-                  child: CircularProgressIndicator(),
-                );
-              } else {
-                int loop = snapshot.data.date.length.toInt();
+    var data = EasyLocalizationProvider.of(context).data;
+    return EasyLocalizationProvider(
+      data: data,
+          child: Scaffold(
+        appBar: AppBar(
+          title: Text(AppLocalizations.of(context).tr('doctorNotes')),
+        ),
+        body: SingleChildScrollView(
+          child: FutureBuilder<Baby>(
+              future: fetchBaby(),
+              builder: (context, snapshot) {
+                if (snapshot.connectionState == ConnectionState.waiting) {
+                  return Center(
+                    child: CircularProgressIndicator(),
+                  );
+                } else {
+                  int loop = snapshot.data.date.length.toInt();
 
-                for (int i = 0; i < loop; i++) {
-                  String date = snapshot.data.date[i];
+                  for (int i = 0; i < loop; i++) {
+                    String date = snapshot.data.date[i];
 
-                  String notes = snapshot.data.notes[i];
+                    String notes = snapshot.data.notes[i];
 
 
-                  refcard.add(DoctorNotesCard(date, notes));
+                    refcard.add(DoctorNotesCard(date, notes));
+                  }
+
+                  return SingleChildScrollView(
+                    child: Column(
+                      children: refcard,
+                    ),
+                  );
                 }
-
-                return SingleChildScrollView(
-                  child: Column(
-                    children: refcard,
-                  ),
-                );
-              }
-            }),
+              }),
+        ),
       ),
     );
   }

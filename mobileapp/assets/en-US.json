@@ -5,7 +5,8 @@
     "wifename" : "Name of the Wife",
     "husbandName" : "Name of the Husband",
     "noOfChildren" : "Number of Children",
-
+    
+"familyprofile" : "Family Profile",
     "basicInfo" : "Basic Information",
     "proBaby" : "Protection of Baby",
     "eyeTest" : "Eye Test",
@@ -193,7 +194,7 @@
     "12month" : "12 Months",
     "18month" : "18 Months",
 
-    "eyes" : "Eyes",
+    "eyes" : "Change of the eye size",
     "squint" : "Squint",
     "cataract" : "Cataract",
     "hearingleft" : "Hearing Left",
@@ -232,7 +233,24 @@
     "teethcount" : "Teeth Count",
     "statusofteeth" : "Status of Teeth",
     "checkeddate" : "Checked Date",
+
     
+    
+    "from1-5days" : "From 1-5 Days",
+    "from6-10days" : "From 6-10 Days",
+    "from14-21days" : "From 14-21 Days",
+    "around42days" : "Around 42 Days",
+    
+    "skincolor" : "Skin Colour",
+    "natureofnavel" : "Nature of Navel",
+    "eyechart" : "Eyes",
+    "temperature" : "Temperature",
+    "onlybreast" : "Only Breast Feeding",
+    "breaststab" : "Breastfeeding Stability",
+    "breastcon" : "Breastfeeding Connection",
+    "others" : "Others",
+
+    "specialnotes" : "Special Notes",
     "selectedlanguage" : "English",
     "title" : "Settings"
 }
