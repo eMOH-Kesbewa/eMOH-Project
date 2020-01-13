@@ -12,11 +12,13 @@ import { concat } from 'rxjs';
 })
 export class RegMotherComponent implements OnInit {
   
+  passwordType = "password";
   regMotherForm: FormGroup;
   generatedPassword;
   constructor(private formBuilder: FormBuilder,private authService : AuthService, private router: Router,private snackBar : MatSnackBar) { }
 
   ngOnInit() {
+    if(localStorage.getItem('role')=="mother") this.router.navigate([''])
     this.generatedPassword = this.generatePassword()
     this.regMotherForm = this.formBuilder.group({
       username : ['', Validators.email],
@@ -44,7 +46,6 @@ export class RegMotherComponent implements OnInit {
     console.log(userid.substr(3,))
     var motherNo = parseInt(userid.substr(3,))
     return (userid.substr(1,1).concat(motherNo+1))
-
   }
 
 
@@ -68,5 +69,10 @@ export class RegMotherComponent implements OnInit {
       res=> console.log(res),    
       err=> console.log(err)
     )
+  }
+
+  showPassword(){
+    if(this.passwordType=="text") this.passwordType = "password"
+    else this.passwordType="text"
   }
 }

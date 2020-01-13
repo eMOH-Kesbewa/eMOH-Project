@@ -29,10 +29,12 @@ const routes: Routes =[
     component:LoginComponent
   },{
     path:'regMother',
-    component:RegMotherComponent
+    component:RegMotherComponent,
+    canActivate:[AuthGuard]
   },{
     path:'regPHM',
-    component:RegPHMComponent
+    component:RegPHMComponent,
+    canActivate:[AuthGuard]
   }
   
 ];
