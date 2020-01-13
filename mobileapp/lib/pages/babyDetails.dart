@@ -602,7 +602,7 @@ class _BabyDetailsState extends State<BabyDetails> {
             //height: MediaQuery.of(context).size.width / 4,
             onPressed: () => Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => GraphHome()),
+              MaterialPageRoute(builder: (context) => Chart()),
             ),
           ),
         ));

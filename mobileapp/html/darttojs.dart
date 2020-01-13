@@ -1,4 +1,4 @@
+// import 'dart:js';
 
-import "package:js/js.dart";
 
-var x1 = "10";
+// var x1 = "10";
