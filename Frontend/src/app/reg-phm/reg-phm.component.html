@@ -16,25 +16,33 @@
         <mat-card-title>Register PHM</mat-card-title>
         <mat-card-subtitle></mat-card-subtitle>
       </mat-card-header>
-      <form [formGroup]="regPHMform" [hidden]="success" (ngSubmit)="onSubmit()">
-          <mat-form-field class="example-full-width">
-            <input matInput placeholder="Area Id" type="number" formControlName="areaId">
-          </mat-form-field>
+      <div class="container">
+          <form [formGroup]="regPHMform" [hidden]="success" (ngSubmit)="onSubmit()">
+              <mat-form-field class="example-full-width">
+                <input matInput placeholder="Area Id" type="number" formControlName="areaId">
+              </mat-form-field>
 
-          <mat-form-field class="example-full-width">
-            <input matInput placeholder="User Id" type="text" formControlName="userid">
-          </mat-form-field>
-          <mat-form-field class="example-full-width">
-            <input matInput placeholder="Email" type="text" formControlName="username">
-          </mat-form-field>
-          <mat-form-field class="example-full-width">
-            <input matInput placeholder="Password" type="text" formControlName="password">
-          </mat-form-field>
+              <mat-form-field class="example-full-width">
+                <input matInput placeholder="User Id" type="text" formControlName="userid">
+              </mat-form-field>
+              <mat-form-field class="example-full-width">
+                <input matInput placeholder="Email" type="text" formControlName="username">
+              </mat-form-field>
+              <div class="row">
+                <div class="col-md-10">
+                  <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Password" type="{{passwordType}}" formControlName="password">
+                  </mat-form-field>
+                </div>
+                <div class="col-md-2">
+                  <i class="material-icons" (click)="showPassword()">remove_red_eye</i>
+                  </div>
+            </div>
+              
+              <button mat-raised-button color="primary" [disabled]="!regPHMform.valid" type="submit">Login</button>
 
-          <button mat-raised-button color="primary" [disabled]="!regPHMform.valid" type="submit">Login</button>
-
-      </form>
-
+          </form>
+     </div>
     </mat-card>
   </div>
 
