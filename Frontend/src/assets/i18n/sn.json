@@ -1,6 +1,9 @@
 {
   "click_individual": "Click to view the individual Records",
   "enter": "ඇතුලත් කරන්න",
+  "edit":"තොරතුරු වෙනස් කරන්න",
+  "update": "තොරතුරු වෙනස් කරන්න",
+  
 
   "clinic.view_clinic_records": "සායන වාර්තා බලන්න",
   "clinic.upcoming_clinics": "ඉදිරියේදී එන සායන",
@@ -152,7 +155,9 @@
     "motherBabyJoined.vitamin_a_mega_dose__at_year_nine": "අවුරුදු 9 දී",
     "motherBabyJoined.vitamin_a_mega_dose__at_year_twelve": "අවුරුදු 12 දී",
     "motherBabyJoined.remarks": "වෙනත් කරුණු",
-    
+
+    "weightHeight.newform": "උස බර පෝරමය",
+    "weightHeight.viewGraph": "දරුවාගේ උස්/බර ප්‍රස්තාරය",
     "weightHeight.add": "දරුවන්ගේ උස සහ බර පෝරමය",
     "weightHeight.update": "දරුවාගේ උස සහ බර තොරතුරු",
     "weightHeight.view_weight": "දරුවන්ගේ උස සහ බර තොරතුරු",

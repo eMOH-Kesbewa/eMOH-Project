@@ -3,6 +3,8 @@
 {
   "click_individual": "Click to view the individual Records",
   "enter": "Enter",
+  "edit":"Edit details",
+  "update": "Update",
 
   "clinic.view_clinic_records": "View Clinic Records",
   "clinic.upcoming_clinics": "Upcoming Clinics",
@@ -157,6 +159,8 @@
     "motherBabyJoined.vitamin_a_mega_dose__at_year_twelve": "At Year 12",
     "motherBabyJoined.remarks": "Remarks",
 
+    "weightHeight.newform": "Add New Weight Height Form",
+    "weightHeight.viewGraph": "View Weight Graph of The Baby",
     "weightHeight.add": "Add Weight Height Details",
     "weightHeight.update": "Weight Height Details Of Baby",
     "weightHeight.view_weight": "View Children's Weight Height Table",

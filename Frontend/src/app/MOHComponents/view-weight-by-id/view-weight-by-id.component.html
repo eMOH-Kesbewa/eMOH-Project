@@ -2,16 +2,16 @@
   <div class="row">
         <div class="col-md-8"></div>
         <div class="col-md-2">
-            <mat-slide-toggle  [formControl]="autoRenew" (change)="onChange()">Edit details</mat-slide-toggle>
+            <mat-slide-toggle  [formControl]="autoRenew" (change)="onChange()">{{'edit'| translate}}</mat-slide-toggle>
         </div>
         <div class="col-md-2">
-           <button  (click)="onClickMe()" class="btn btn-info btn-block">View Weight Graph of The Baby</button>
+           <button  (click)="onClickMe()" class="btn btn-info btn-block">{{'weightHeight.viewGraph'| translate}}</button>
         </div> 
         <div class="col-md-12">
       <div class="col-md-12">
           <div class="card">
               <div class="card-header card-header-info">
-                  <h4 class="card-title">View Weight Height Details Of Baby</h4>
+                  <h4 class="card-title">{{'weightHeight.update'| translate}}</h4>
               </div>
               <div class="card-body">   
                 <form [formGroup]="addWeightForm" (ngSubmit)="onSubmit()" [hidden]="success">
@@ -19,7 +19,7 @@
                     <div class="row">
                         <div class="col-md-3">
                             <mat-form-field class="example-full-width">
-                                <input matInput placeholder="Baby ID" type="text"  readonly="{{onChange()}}" formControlName="baby_id">
+                                <input matInput placeholder="{{'weightHeight.baby_id'| translate}}" type="text"  readonly="{{onChange()}}" formControlName="baby_id">
                                 <div *ngIf="submitted && WeightHeightForm.controls.baby_id.errors" class="error">
                                     <div *ngIf="WeightHeightForm.controls.baby_id.errors.required">This field is required</div>
                                   </div>
@@ -28,7 +28,7 @@
                     
                         <div class="col-md-4">
                             <mat-form-field class="example-full-width">
-                                <input matInput placeholder="Name Of Child" type="text" readonly="{{onChange()}}" formControlName="name_of_child">
+                                <input matInput placeholder="{{'weightHeight.childs_name'| translate}}" type="text" readonly="{{onChange()}}" formControlName="name_of_child">
                                 <div *ngIf="submitted && WeightHeightForm.controls.name_of_child.errors" class="error">
                                     <div *ngIf="WeightHeightForm.controls.name_of_child.errors.required">This field is required</div>
                                   </div>
@@ -36,7 +36,7 @@
                         </div>
                         <div class="col-md-4">
                             <mat-form-field class="example-full-width">
-                                <input matInput placeholder="Sex" type="text" readonly="{{onChange()}}" formControlName="Gender">
+                                <input matInput placeholder="{{'weightHeight.sex'| translate}}" type="text" readonly="{{onChange()}}" formControlName="Gender">
                                 <div *ngIf="submitted && WeightHeightForm.controls.sex.errors" class="error">
                                     <div *ngIf="WeightHeightForm.controls.sex.errors.required">This field is required</div>
                                   </div>
@@ -46,7 +46,7 @@
                       <mat-expansion-panel>
                         <mat-expansion-panel-header>
                           <mat-panel-title>
-                            <h5>Birth Details</h5>
+                            <h5>{{'weightHeight.birth_details'| translate}}</h5>
                           </mat-panel-title>
                           <mat-panel-description>
                             Click to View/Edit
@@ -55,7 +55,7 @@
                       <div class="row">
                         <div class="col-md-4">
                             <mat-form-field class="example-full-width">
-                                <input matInput placeholder="Date Of Child" type="date" readonly="{{onChange()}}" formControlName="Date_of_birth">
+                                <input matInput placeholder="{{'weightHeight.date_of_birth'| translate}}" type="date" readonly="{{onChange()}}" formControlName="Date_of_birth">
                                 <div *ngIf="submitted && WeightHeightForm.controls.Date_of_birth.errors" class="error">
                                     <div *ngIf="WeightHeightForm.controls.Date_of_birth.errors.required">This field is required</div>
                                   </div>
@@ -64,7 +64,7 @@
                         
                         <div class="col-md-3">
                             <mat-form-field class="example-full-width">
-                                <input matInput placeholder="Batch No" type="text" readonly="{{onChange()}}" formControlName="batch_no">
+                                <input matInput placeholder="{{'weightHeight.bathch_no'| translate}}" type="text" readonly="{{onChange()}}" formControlName="batch_no">
                                 <div *ngIf="submitted && WeightHeightForm.controls.batch_no.errors" class="error">
                                     <div *ngIf="WeightHeightForm.controls.batch_no.errors.required">This field is required</div>
                                   </div>
@@ -73,10 +73,10 @@
                       </div>
                      
                       <div class="row">
-                        <div class="col-md-4">At Birth</div>
+                        <div class="col-md-4">{{'weightHeight.atBirth'| translate}}</div>
                         <div class="col-md-4">
                           <mat-form-field class="example-full-width">
-                              <input matInput placeholder="Weight" type="number" readonly="{{onChange()}}" formControlName="weight_of_birth">
+                              <input matInput placeholder="{{'weightHeight.weight'| translate}}" type="number" readonly="{{onChange()}}" formControlName="weight_of_birth">
                               <div *ngIf="submitted && WeightHeightForm.controls.weight_of_birth.errors" class="error">
                                   <div *ngIf="WeightHeightForm.controls.weight_of_birth.errors.required">This field is required</div>
                                 </div>
@@ -84,14 +84,14 @@
                         </div>
                         <div class="col-md-4">
                           <mat-form-field class="example-full-width">
-                              <input matInput placeholder="Height" type="number" readonly="{{onChange()}}" formControlName="height_of_birth">
+                              <input matInput placeholder="{{'weightHeight.height'| translate}}" type="number" readonly="{{onChange()}}" formControlName="height_of_birth">
                               <div *ngIf="submitted && WeightHeightForm.controls.height_of_birth.errors" class="error">
                                   <div *ngIf="WeightHeightForm.controls.height_of_birth.errors.required">This field is required</div>
                                 </div>
                             </mat-form-field>
                         </div>
                         <div class="col-md-6">
-                          <label>Other Details</label>
+                          <label>{{'weightHeight.otherDetails'| translate}}</label>
                           <mat-form-field class="example-full-width">
                             <textarea matInput placeholder="" readonly="{{onChange()}}" formControlName="other_details" ></textarea>
                           </mat-form-field>
@@ -101,7 +101,7 @@
                       <mat-expansion-panel>
                         <mat-expansion-panel-header>
                           <mat-panel-title>
-                            <h5>Weight Table</h5>
+                            <h5>{{'weightHeight.weighttable'| translate}}</h5>
                           </mat-panel-title>
                           <mat-panel-description>
                             Click to View/Edit
@@ -112,18 +112,18 @@
                           
                           <div class="row">
                               <div class="col-md-2"></div>
-                              <div class="col-md-2">First Year</div>
-                              <div class="col-md-2">Second Year</div>
-                              <div class="col-md-2">Third Year</div>
-                              <div class="col-md-2">Fourth Year</div>
-                              <div class="col-md-2">Fifth Year</div>
+                              <div class="col-md-2">{{'weightHeight.firstYear'| translate}}</div>
+                                <div class="col-md-2">{{'weightHeight.secondYear'| translate}}</div>
+                                <div class="col-md-2">{{'weightHeight.thirdYear'| translate}}</div>
+                                <div class="col-md-2">{{'weightHeight.fourthYear'| translate}}</div>
+                                <div class="col-md-2">{{'weightHeight.fifthYear'| translate}}</div>
                           </div>
                           <div class="row">
-                              <div class="col-md-2">Age Of Month</div>
-                              <div class="col-md-10">Weight From kg</div>
+                            <div class="col-md-2">{{'weightHeight.ageofMonth'| translate}}</div>
+                            <div class="col-md-10">{{'weightHeight.weightFromKG'| translate}}</div>
                           </div>
                           <div class="row">
-                              <div class="col-md-2">First Month</div>
+                              <div class="col-md-2">{{'weightHeight.firstMonth'| translate}}</div>
                               <div class="col-md-2">
                                   <mat-form-field class="example-full-width">
                                       <input matInput placeholder="" type= "number" readonly="{{onChange()}}" formControlName="first_yearone">
@@ -151,7 +151,7 @@
                               </div>
                           </div>
                           <div class="row">
-                              <div class="col-md-2">Second Month</div>
+                              <div class="col-md-2">{{'weightHeight.secondMonth'| translate}}</div>
                               <div class="col-md-2">
                                   <mat-form-field class="example-full-width">
                                       <input matInput placeholder="" type= "number" readonly="{{onChange()}}" formControlName="first_yeartwo">
@@ -179,7 +179,7 @@
                               </div>
                           </div>
                           <div class="row">
-                              <div class="col-md-2">Third Month</div>
+                              <div class="col-md-2">{{'weightHeight.thirdMonth'| translate}}</div>
                               <div class="col-md-2">
                                   <mat-form-field class="example-full-width">
                                       <input matInput placeholder="" type= "number" readonly="{{onChange()}}" formControlName="first_yearthree">
@@ -207,7 +207,7 @@
                               </div>
                           </div>
                           <div class="row">
-                              <div class="col-md-2">Fourth Month</div>
+                              <div class="col-md-2">{{'weightHeight.fourthMonth'| translate}}</div>
                               <div class="col-md-2">
                                   <mat-form-field class="example-full-width">
                                       <input matInput placeholder="" type= "number" readonly="{{onChange()}}" formControlName="first_yearfour">
@@ -235,7 +235,7 @@
                               </div>
                           </div>
                           <div class="row">
-                              <div class="col-md-2">Fifth Month</div>
+                              <div class="col-md-2">{{'weightHeight.fifthMonth'| translate}}</div>
                               <div class="col-md-2">
                                   <mat-form-field class="example-full-width">
                                       <input matInput placeholder="" type= "number" readonly="{{onChange()}}" formControlName="first_yearfive">
@@ -263,7 +263,7 @@
                               </div>
                           </div>
                           <div class="row">
-                              <div class="col-md-2">Sixth Month</div>
+                              <div class="col-md-2">{{'weightHeight.sisthMonth'| translate}}</div>
                               <div class="col-md-2">
                                   <mat-form-field class="example-full-width">
                                       <input matInput placeholder="" type= "number" readonly="{{onChange()}}" formControlName="first_yearsix">
@@ -291,7 +291,7 @@
                               </div>
                           </div>
                           <div class="row">
-                              <div class="col-md-2">Seventh Month</div>
+                              <div class="col-md-2">{{'weightHeight.seventhMonth'| translate}}</div>
                               <div class="col-md-2">
                                   <mat-form-field class="example-full-width">
                                       <input matInput placeholder="" type= "number" readonly="{{onChange()}}" formControlName="first_yearseven">
@@ -319,7 +319,7 @@
                               </div>
                           </div>
                           <div class="row">
-                              <div class="col-md-2">Eighth Month</div>
+                              <div class="col-md-2">{{'weightHeight.eighthMonth'| translate}}</div>
                               <div class="col-md-2">
                                   <mat-form-field class="example-full-width">
                                       <input matInput placeholder="" type= "number" readonly="{{onChange()}}" formControlName="first_yeareight">
@@ -347,7 +347,7 @@
                               </div>
                           </div>
                           <div class="row">
-                              <div class="col-md-2">Nineth Month</div>
+                              <div class="col-md-2">{{'weightHeight.ninethMonth'| translate}}</div>
                               <div class="col-md-2">
                                   <mat-form-field class="example-full-width">
                                       <input matInput placeholder="" type= "number" readonly="{{onChange()}}" formControlName="first_yearnine">
@@ -375,7 +375,7 @@
                               </div>
                           </div>
                           <div class="row">
-                              <div class="col-md-2">Tenth Month</div>
+                              <div class="col-md-2">{{'weightHeight.tenthMonth'| translate}}</div>
                               <div class="col-md-2">
                                   <mat-form-field class="example-full-width">
                                       <input matInput placeholder="" type= "number" readonly="{{onChange()}}" formControlName="first_yearten">
@@ -403,7 +403,7 @@
                               </div>
                           </div>
                           <div class="row">
-                              <div class="col-md-2">Eleventh Month</div>
+                              <div class="col-md-2">{{'weightHeight.eleventhMonth'| translate}}</div>
                               <div class="col-md-2">
                                   <mat-form-field class="example-full-width">
                                       <input matInput placeholder="" type= "number" readonly="{{onChange()}}" formControlName="first_yeareleven">
@@ -431,7 +431,7 @@
                               </div>
                           </div>
                           <div class="row">
-                              <div class="col-md-2">Twelveth Month</div>
+                              <div class="col-md-2">{{'weightHeight.twelthMonth'| translate}}</div>
                               <div class="col-md-2">
                                   <mat-form-field class="example-full-width">
                                       <input matInput placeholder="" type= "number" readonly="{{onChange()}}" formControlName="first_yeartwelve">
@@ -464,7 +464,7 @@
                       <mat-expansion-panel>
                         <mat-expansion-panel-header>
                           <mat-panel-title>
-                            <h5>Height Table</h5>
+                            <h5>{{'weightHeight.heightTable'| translate}}</h5>
                           </mat-panel-title>
                           <mat-panel-description>
                             Click to View/Edit
@@ -475,15 +475,15 @@
                           
                           <div class="row">
                               <div class="col-md-2"></div>
-                              <div class="col-md-2">First Year</div>
-                              <div class="col-md-2">Second Year</div>
-                              <div class="col-md-2">Third Year</div>
-                              <div class="col-md-2">Fourth Year</div>
-                              <div class="col-md-2">Fifth Year</div>
+                              <div class="col-md-2">{{'weightHeight.firstYear'| translate}}</div>
+                                <div class="col-md-2">{{'weightHeight.secondYear'| translate}}</div>
+                                <div class="col-md-2">{{'weightHeight.thirdYear'| translate}}</div>
+                                <div class="col-md-2">{{'weightHeight.fourthYear'| translate}}</div>
+                                <div class="col-md-2">{{'weightHeight.fifthYear'| translate}}</div>
                               
                           </div>
                           <div class="row">
-                              <div class="col-md-2">Date</div>
+                              <div class="col-md-2">{{'weightHeight.date'| translate}}</div>
                               <div class="col-md-2">
                                    <mat-form-field class="example-full-width">
                                       <input matInput placeholder="" type= "date" readonly="{{onChange()}}" formControlName="oneyeardate">
@@ -513,7 +513,7 @@
                           </div>
                           
                           <div class="row">
-                                  <div class="col-md-2">Height Or Length</div>
+                                  <div class="col-md-2">{{'weightHeight.heightOrLength'| translate}}</div>
                                   <div class="col-md-2">
                                        <mat-form-field class="example-full-width">
                                           <input matInput placeholder="" type= "number" readonly="{{onChange()}}" formControlName="oneyearheight">
@@ -544,7 +544,7 @@
                       </div>
                       </mat-expansion-panel>
                       <div *ngIf="onHidden()">
-                          <input type="submit" value="Update" class="btn btn-info pull-right">
+                          <input type="submit" value="{{'update'| translate}}" class="btn btn-info pull-right">
                       </div>
                     
               </form>
