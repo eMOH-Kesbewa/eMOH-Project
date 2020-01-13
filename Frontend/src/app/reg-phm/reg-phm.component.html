@@ -1,0 +1,43 @@
+
+<html lang="en">
+
+<head>
+
+
+</head>
+
+<body>
+  <div class="main-div">
+    <mat-card>
+
+      <mat-card-header>
+
+        <div mat-card-avatar class="logo-image"></div>
+        <mat-card-title>Register PHM</mat-card-title>
+        <mat-card-subtitle></mat-card-subtitle>
+      </mat-card-header>
+      <form [formGroup]="regPHMform" [hidden]="success" (ngSubmit)="onSubmit()">
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Area Id" type="number" formControlName="areaId">
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="User Id" type="text" formControlName="userid">
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Email" type="text" formControlName="username">
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Password" type="text" formControlName="password">
+          </mat-form-field>
+
+          <button mat-raised-button color="primary" [disabled]="!regPHMform.valid" type="submit">Login</button>
+
+      </form>
+
+    </mat-card>
+  </div>
+
+</body>
+
+</html>
