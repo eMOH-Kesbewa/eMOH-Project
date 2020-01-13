@@ -152,6 +152,8 @@
     "motherBabyJoined.vitamin_a_mega_dose__at_year_twelve": "At Year 12",
     "motherBabyJoined.remarks": "Remarks",
 
+    "weightHeight.add": "Add Weight Height Details",
+    "weightHeight.update": "Weight Height Details Of Baby",
     "weightHeight.view_weight": "View Children's Weight Height Table",
     "weightHeight.baby_id": "Child's Number",
     "weightHeight.childs_name": "Child's Name",

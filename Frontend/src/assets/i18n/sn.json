@@ -153,6 +153,8 @@
     "motherBabyJoined.vitamin_a_mega_dose__at_year_twelve": "අවුරුදු 12 දී",
     "motherBabyJoined.remarks": "වෙනත් කරුණු",
     
+    "weightHeight.add": "දරුවන්ගේ උස සහ බර පෝරමය",
+    "weightHeight.update": "දරුවාගේ උස සහ බර තොරතුරු",
     "weightHeight.view_weight": "දරුවන්ගේ උස සහ බර තොරතුරු",
     "weightHeight.baby_id": "දරුවාගේ අංකය",
     "weightHeight.childs_name": "දරුවාගේ නම",
