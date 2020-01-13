@@ -22,4 +22,9 @@ export class AuthService {
   loggedIn(){
     return !!localStorage.getItem('token');
   }
+
+  getPreviousUserId(areaId){
+    let url = `http://localhost:3000/users/generateUserId/${areaId}`;
+    return this.http.get<any>(url);
+  }
 }
