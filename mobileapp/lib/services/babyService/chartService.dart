@@ -13,11 +13,10 @@ Future<WeightHeight> fetchWeightHeight() async {
   //String _babyId = globals.WeightHeightId + babyIndex;
 
   final response = await http.get(
-
       'http://protected-bayou-52277.herokuapp.com/weightheight/viewWeightHeightById/A000010'
 
       //'http://protected-bayou-52277.herokuapp.com/weightheight/viewWeightHeightById/${globals.babyId}'
-      
+
       );
 
   logger.d('${globals.babyId}');
@@ -162,68 +161,83 @@ class WeightHeight {
       this.five_yeartwelve});
 
   factory WeightHeight.fromJson(Map<String, dynamic> json) {
-    logger.wtf(json['first_yearone']);
+    logger.d('in factory');
+
+    // logger.d(json['first_yearone']);
+    // logger.d(json['first_yeartwo']);
+    // logger.d(json['first_yearthree']);
+    // logger.d(json['first_yearfour']);
+    // logger.d(json['first_yearfive']);
+    // logger.d(json['first_yearsix']);
+    // logger.d(json['first_yearseven']);
+    // logger.d(json['first_yeareight']);
+    // logger.d(json['first_yearnine']);
+    // logger.d(json['first_yearten']);
+    // logger.d(json['first_yeareleven']);
+    // logger.d(json['first_yeartwelve']);
+
     return WeightHeight(
-      first_yearone: json['first_yearone'],
-      first_yeartwo: json['first_yeartwo'],
-      first_yearthree: json['first_yearthree'],
-      first_yearfour: json['first_yearfour'],
-      first_yearfive: json['first_yearfive'],
-      first_yearsix: json['first_yearsix'],
-      first_yearseven: json['first_yearseven'],
-      first_yeareight: json['first_yeareight'],
-      first_yearnine: json['first_yearnine'],
-      first_yearten: json['first_yearten'],
-      first_yeareleven: json['first_yeareleven'],
-      first_yeartwelve: json['first_yeartwelve'],
-      sec_yearone: json['sec_yearone'],
-      sec_yeartwo: json['sec_yeartwo'],
-      sec_yearthree: json['sec_yearthree'],
-      sec_yearfour: json['sec_yearfour'],
-      sec_yearfive: json['sec_yearfive'],
-      sec_yearsix: json['sec_yearsix'],
-      sec_yearseven: json['sec_yearseven'],
-      sec_yeareight: json['sec_yeareight'],
-      sec_yearnine: json['sec_yearnine'],
-      sec_yearten: json['sec_yearten'],
-      sec_yeareleven: json['sec_yeareleven'],
-      sec_yeartwelve: json['sec_yeartwelve'],
-      third_yearone: json['third_yearone'],
-      third_yeartwo: json['third_yeartwo'],
-      third_yearthree: json['third_yearthree'],
-      third_yearfour: json['third_yearfour'],
-      third_yearfive: json['third_yearfive'],
-      third_yearsix: json['third_yearsix'],
-      third_yearseven: json['third_yearseven'],
-      third_yeareight: json['third_yeareight'],
-      third_yearnine: json['third_yearnine'],
-      third_yearten: json['third_yearten'],
-      third_yeareleven: json['third_yeareleven'],
-      third_yeartwelve: json['third_yeartwelve'],
-      four_yearone: json['four_yearone'],
-      four_yeartwo: json['four_yeartwo'],
-      four_yearthree: json['four_yearthree'],
-      four_yearfour: json['four_yearfour'],
-      four_yearfive: json['four_yearfive'],
-      four_yearsix: json['four_yearsix'],
-      four_yearseven: json['four_yearseven'],
-      four_yeareight: json['four_yeareight'],
-      four_yearnine: json['four_yearnine'],
-      four_yearten: json['four_yearten'],
-      four_yeareleven: json['four_yeareleven'],
-      four_yeartwelve: json['four_yeartwelve'],
-      five_yearone: json['five_yearone'],
-      five_yeartwo: json['five_yeartwo'],
-      five_yearthree: json['five_yeathree'],
-      five_yearfour: json['five_yearfour'],
-      five_yearfive: json['five_yearfive'],
-      five_yearsix: json['five_yearsix'],
-      five_yearseven: json['five_yearseven'],
-      five_yeareight: json['five_yeareight'],
-      five_yearnine: json['five_yearnine'],
-      five_yearten: json['five_yearten'],
-      five_yeareleven: json['five_yeareleven'],
-      five_yeartwelve: json['five_yeartwelve'],
+      first_yearone: json['first_yearone'].toDouble(),
+      first_yeartwo: json['first_yeartwo'].toDouble(),
+      first_yearthree: json['first_yearthree'].toDouble(),
+      first_yearfour: json['first_yearfour'].toDouble(),
+      first_yearfive: json['first_yearfive'].toDouble(),
+      first_yearsix: json['first_yearsix'].toDouble(),
+      first_yearseven: json['first_yearseven'].toDouble(),
+      first_yeareight: json['first_yeareight'].toDouble(),
+      first_yearnine: json['first_yearnine'].toDouble(),
+      first_yearten: json['first_yearten'].toDouble(),
+      first_yeareleven: json['first_yeareleven'].toDouble(),
+      first_yeartwelve: json['first_yeartwelve'].toDouble(),
+      sec_yearone: json['sec_yearone'].toDouble(),
+      sec_yeartwo: json['sec_yeartwo'].toDouble(),
+      sec_yearthree: json['sec_yearthree'].toDouble(),
+      sec_yearfour: json['sec_yearfour'].toDouble(),
+      sec_yearfive: json['sec_yearfive'].toDouble(),
+      sec_yearsix: json['sec_yearsix'].toDouble(),
+      sec_yearseven: json['sec_yearseven'].toDouble(),
+      sec_yeareight: json['sec_yeareight'].toDouble(),
+      sec_yearnine: json['sec_yearnine'].toDouble(),
+      sec_yearten: json['sec_yearten'].toDouble(),
+      sec_yeareleven: json['sec_yeareleven'].toDouble(),
+      sec_yeartwelve: json['sec_yeartwelve'].toDouble(),
+      third_yearone: json['third_yearone'].toDouble(),
+      third_yeartwo: json['third_yeartwo'].toDouble(),
+      third_yearthree: json['third_yearthree'].toDouble(),
+      third_yearfour: json['third_yearfour'].toDouble(),
+      third_yearfive: json['third_yearfive'].toDouble(),
+      third_yearsix: json['third_yearsix'].toDouble(),
+      third_yearseven: json['third_yearseven'].toDouble(),
+      third_yeareight: json['third_yeareight'].toDouble(),
+      third_yearnine: json['third_yearnine'].toDouble(),
+      third_yearten: json['third_yearten'].toDouble(),
+      third_yeareleven: json['third_yeareleven'].toDouble(),
+      third_yeartwelve: json['third_yeartwelve'].toDouble(),
+      four_yearone: json['four_yearone'].toDouble(),
+      four_yeartwo: json['four_yeartwo'].toDouble(),
+      four_yearthree: json['four_yearthree'].toDouble(),
+      four_yearfour: json['four_yearfour'].toDouble(),
+      four_yearfive: json['four_yearfive'].toDouble(),
+      four_yearsix: json['four_yearsix'].toDouble(),
+      four_yearseven: json['four_yearseven'].toDouble(),
+      four_yeareight: json['four_yeareight'].toDouble(),
+      four_yearnine: json['four_yearnine'].toDouble(),
+      four_yearten: json['four_yearten'].toDouble(),
+      four_yeareleven: json['four_yeareleven'].toDouble(),
+      four_yeartwelve: json['four_yeartwelve'].toDouble(),
+      five_yearone: json['five_yearone'].toDouble(),
+      five_yeartwo: json['five_yeartwo'].toDouble(),
+      five_yearthree: json['five_yearthree'].toDouble(),
+      five_yearfour: json['five_yearfour'].toDouble(),
+      five_yearfive: json['five_yearfive'].toDouble(),
+      five_yearsix: json['five_yearsix'].toDouble(),
+      five_yearseven: json['five_yearseven'].toDouble(),
+      five_yeareight: json['five_yeareight'].toDouble(),
+      five_yearnine: json['five_yearnine'].toDouble(),
+      five_yearten: json['five_yearten'].toDouble(),
+      five_yeareleven: json['five_yeareleven'].toDouble(),
+      five_yeartwelve: json['five_yeartwelve'].toDouble(),
+
       // x1: json['x1'],
       // y1: json['y1'],
       // x2: json['x2'],

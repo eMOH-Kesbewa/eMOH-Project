@@ -15,10 +15,15 @@ class Chart extends StatefulWidget {
 }
 
 class _ChartState extends State<Chart> {
-  Future<WeightHeight> wh = fetchWeightHeight();
-  List<charts.Series<Points, double>> _seriesLineData;
+    List<charts.Series<Points, double>> _seriesLineData;
+  // Future<WeightHeight> wh = fetchWeightHeight();
+ // List _seriesLineData;
+ 
+    //List<charts.Series<Sales, int>> _seriesLineData;
 
   //Future<WeightHeight> plot = fetchWeightHeight();
+
+  List<Points> plot = List();
 
   static double first_yearone,
       first_yeartwo,
@@ -82,10 +87,106 @@ class _ChartState extends State<Chart> {
       five_yeartwelve;
 
   @override
-  void initState(){
-    // TODO: implement initState
+  void initState() {
+    super.initState();
+     _seriesLineData = List<charts.Series<Points, double>>();
+    _asyncMethod();
+  }
 
-    wh.then((it) {
+  _generateData() {
+    logger.d('in genearate');
+    logger.w(first_yearone);
+    plot = [
+      new Points(0, first_yearone),
+      new Points(1, first_yeartwo),
+      new Points(2, first_yearthree),
+      new Points(3, first_yearfour),
+      new Points(4, first_yearfive),
+      new Points(5, first_yearsix),
+      new Points(6, first_yearseven),
+      new Points(7, first_yeareight),
+      new Points(8, first_yearnine),
+      new Points(9, first_yearten),
+      new Points(9, first_yeareleven),
+      new Points(9, first_yeartwelve),
+      new Points(0, sec_yearone),
+      new Points(1, sec_yeartwo),
+      new Points(2, sec_yearthree),
+      new Points(3, sec_yearfour),
+      new Points(4, sec_yearfive),
+      new Points(5, sec_yearsix),
+      new Points(6, sec_yearseven),
+      new Points(7, sec_yeareight),
+      new Points(8, sec_yearnine),
+      new Points(9, sec_yearten),
+      new Points(9, sec_yeareleven),
+      new Points(9, sec_yeartwelve),
+      new Points(0, third_yearone),
+      new Points(1, third_yeartwo),
+      new Points(2, third_yearthree),
+      new Points(3, third_yearfour),
+      new Points(4, third_yearfive),
+      new Points(5, third_yearsix),
+      new Points(6, third_yearseven),
+      new Points(7, third_yeareight),
+      new Points(8, third_yearnine),
+      new Points(9, third_yearten),
+      new Points(9, third_yeareleven),
+      new Points(9, third_yeartwelve),
+      new Points(0, four_yearone),
+      new Points(1, four_yeartwo),
+      new Points(2, four_yearthree),
+      new Points(3, four_yearfour),
+      new Points(4, four_yearfive),
+      new Points(5, four_yearsix),
+      new Points(6, four_yearseven),
+      new Points(7, four_yeareight),
+      new Points(8, four_yearnine),
+      new Points(9, four_yearten),
+      new Points(9, four_yeareleven),
+      new Points(9, four_yeartwelve),
+      new Points(0, five_yearone),
+      new Points(1, five_yeartwo),
+      new Points(2, five_yearthree),
+      new Points(3, five_yearfour),
+      new Points(4, five_yearfive),
+      new Points(5, five_yearsix),
+      new Points(6, five_yearseven),
+      new Points(7, five_yeareight),
+      new Points(8, five_yearnine),
+      new Points(9, five_yearten),
+      new Points(9, five_yeareleven),
+      new Points(9, five_yeartwelve),
+    ];
+
+    logger.v(plot.length);
+    _seriesLineData.add(
+      charts.Series(
+        //colorFn: (__, _) => charts.ColorUtil.fromDartColor(Color(0xffff9900)),
+        id: 'plot',
+        data: plot,
+        domainFn: (Points sales, _) => sales.x,
+        measureFn: (Points sales, _) => sales.y,
+      ),
+
+    );
+
+    //  _seriesLineData.add(
+    //   charts.Series(
+    //     colorFn: (__, _) => charts.ColorUtil.fromDartColor(Color(0xff109618)),
+    //     id: 'Air Pollution',
+    //     data: linesalesdata1,
+    //     domainFn: (Sales sales, _) => sales.yearval,
+    //     measureFn: (Sales sales, _) => sales.salesval,
+    //   ),
+    // );
+  }
+
+  _asyncMethod() async {
+    //Future<WeightHeight> wh = fetchWeightHeight();
+    logger.d('in async method');
+    fetchWeightHeight().then((it) {
+      logger.w('inside then');
       first_yearone = it.first_yearone;
       first_yeartwo = it.first_yeartwo;
       first_yearthree = it.first_yearthree;
@@ -150,106 +251,19 @@ class _ChartState extends State<Chart> {
       five_yearten = it.five_yearten;
       five_yeareleven = it.five_yeareleven;
       five_yeartwelve = it.five_yeartwelve;
-    });
-    super.initState();
-    _seriesLineData = List<charts.Series<Points, double>>();
-  }
-
-  _asyncMethod() async {
-     _googleSignIn.onCurrentUserChanged.listen((GoogleSignInAccount account)     {
-        setState(() {
-          _currentUser = account;
-        });
+      setState(() {
+        logger.i('in setstate');
+        _generateData();
       });
-      _googleSignIn.signInSilently();
-    }
-
-  // @override
-  // void initState() {
-  //   getDataFromFirestore();
-  //   super.initState();
-
-  //   });
-  // }
+    }).catchError((e) {
+      logger.e(e);
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     logger.wtf(first_yearone);
-    var plot = [
-      new Points(0, first_yearone, 2),
-      new Points(1, first_yeartwo, 2),
-      new Points(2, first_yearthree, 2),
-      new Points(3, first_yearfour, 2),
-      new Points(4, first_yearfive, 2),
-      new Points(5, first_yearsix, 2),
-      new Points(6, first_yearseven, 2),
-      new Points(7, first_yeareight, 2),
-      new Points(8, first_yearnine, 2),
-      new Points(9, first_yearten, 2),
-      new Points(9, first_yeareleven, 2),
-      new Points(9, first_yeartwelve, 2),
-      new Points(0, sec_yearone, 2),
-      new Points(1, sec_yeartwo, 2),
-      new Points(2, sec_yearthree, 2),
-      new Points(3, sec_yearfour, 2),
-      new Points(4, sec_yearfive, 2),
-      new Points(5, sec_yearsix, 2),
-      new Points(6, sec_yearseven, 2),
-      new Points(7, sec_yeareight, 2),
-      new Points(8, sec_yearnine, 2),
-      new Points(9, sec_yearten, 2),
-      new Points(9, sec_yeareleven, 2),
-      new Points(9, sec_yeartwelve, 2),
-      new Points(0, third_yearone, 2),
-      new Points(1, third_yeartwo, 2),
-      new Points(2, third_yearthree, 2),
-      new Points(3, third_yearfour, 2),
-      new Points(4, third_yearfive, 2),
-      new Points(5, third_yearsix, 2),
-      new Points(6, third_yearseven, 2),
-      new Points(7, third_yeareight, 2),
-      new Points(8, third_yearnine, 2),
-      new Points(9, third_yearten, 2),
-      new Points(9, third_yeareleven, 2),
-      new Points(9, third_yeartwelve, 2),
-      new Points(0, four_yearone, 2),
-      new Points(1, four_yeartwo, 2),
-      new Points(2, four_yearthree, 2),
-      new Points(3, four_yearfour, 2),
-      new Points(4, four_yearfive, 2),
-      new Points(5, four_yearsix, 2),
-      new Points(6, four_yearseven, 2),
-      new Points(7, four_yeareight, 2),
-      new Points(8, four_yearnine, 2),
-      new Points(9, four_yearten, 2),
-      new Points(9, four_yeareleven, 2),
-      new Points(9, four_yeartwelve, 2),
-      new Points(0, five_yearone, 2),
-      new Points(1, five_yeartwo, 2),
-      new Points(2, five_yearthree, 2),
-      new Points(3, five_yearfour, 2),
-      new Points(4, five_yearfive, 2),
-      new Points(5, five_yearsix, 2),
-      new Points(6, five_yearseven, 2),
-      new Points(7, five_yeareight, 2),
-      new Points(8, five_yearnine, 2),
-      new Points(9, five_yearten, 2),
-      new Points(9, five_yeareleven, 2),
-      new Points(9, five_yeartwelve, 2),
-    ];
 
-    _seriesLineData.add(
-      charts.Series(
-        colorFn: (__, _) => charts.ColorUtil.fromDartColor(Color(0xffff9900)),
-        id: 'plot',
-        data: plot,
-        domainFn: (Points sales, _) => sales.x,
-        measureFn: (Points sales, _) => sales.y,
-        strokeWidthPxFn: (Points sales, _) => sales.strokeWidthPx,
-        areaColorFn: (_, __) =>
-            charts.MaterialPalette.purple.shadeDefault.lighter,
-      ),
-    );
     return Scaffold(
       body: Column(
         children: [
@@ -263,19 +277,6 @@ class _ChartState extends State<Chart> {
                     includeLine: true, includeArea: false, stacked: false),
                 animate: true,
                 animationDuration: Duration(seconds: 5),
-                // primaryMeasureAxis: new charts.NumericAxisSpec(
-                //     renderSpec: new charts.NoneRenderSpec()),
-//************************************************************************ */,
-
-                // primaryMeasureAxis: new charts.NumericAxisSpec(
-                //     tickProviderSpec: new charts
-                //             .BasicNumericTickProviderSpec(
-                //         // Make sure we don't have values less than 1 as ticks
-                //         // (ie: counts).
-                //         dataIsInWholeNumbers: true,
-                //         // Fixed tick count to highlight the integer only behavior
-                //         // generating ticks [0, 1, 2, 3, 4].
-                //         desiredTickCount: 17)),
                 behaviors: [
                   new charts.ChartTitle('Months',
                       behaviorPosition: charts.BehaviorPosition.bottom,
@@ -289,123 +290,6 @@ class _ChartState extends State<Chart> {
           ),
         ],
       ),
-      // var plot = [
-      //   new Points(0, first_yearone, 2),
-      //   new Points(1, first_yeartwo, 2),
-      //   new Points(2, first_yearthree, 2),
-      //   new Points(3, first_yearfour, 2),
-      //   new Points(4, first_yearfive, 2),
-      //   new Points(5, first_yearsix, 2),
-      //   new Points(6, first_yearseven, 2),
-      //   new Points(7, first_yeareight, 2),
-      //   new Points(8, first_yearnine, 2),
-      //   new Points(9, first_yearten, 2),
-      //   new Points(9, first_yeareleven, 2),
-      //   new Points(9, first_yeartwelve, 2),
-      //   new Points(0, sec_yearone, 2),
-      //   new Points(1, sec_yeartwo, 2),
-      //   new Points(2, sec_yearthree, 2),
-      //   new Points(3, sec_yearfour, 2),
-      //   new Points(4, sec_yearfive, 2),
-      //   new Points(5, sec_yearsix, 2),
-      //   new Points(6, sec_yearseven, 2),
-      //   new Points(7, sec_yeareight, 2),
-      //   new Points(8, sec_yearnine, 2),
-      //   new Points(9, sec_yearten, 2),
-      //   new Points(9, sec_yeareleven, 2),
-      //   new Points(9, sec_yeartwelve, 2),
-      //   new Points(0, third_yearone, 2),
-      //   new Points(1, third_yeartwo, 2),
-      //   new Points(2, third_yearthree, 2),
-      //   new Points(3, third_yearfour, 2),
-      //   new Points(4, third_yearfive, 2),
-      //   new Points(5, third_yearsix, 2),
-      //   new Points(6, third_yearseven, 2),
-      //   new Points(7, third_yeareight, 2),
-      //   new Points(8, third_yearnine, 2),
-      //   new Points(9, third_yearten, 2),
-      //   new Points(9, third_yeareleven, 2),
-      //   new Points(9, third_yeartwelve, 2),
-      //   new Points(0, four_yearone, 2),
-      //   new Points(1, four_yeartwo, 2),
-      //   new Points(2, four_yearthree, 2),
-      //   new Points(3, four_yearfour, 2),
-      //   new Points(4, four_yearfive, 2),
-      //   new Points(5, four_yearsix, 2),
-      //   new Points(6, four_yearseven, 2),
-      //   new Points(7, four_yeareight, 2),
-      //   new Points(8, four_yearnine, 2),
-      //   new Points(9, four_yearten, 2),
-      //   new Points(9, four_yeareleven, 2),
-      //   new Points(9, four_yeartwelve, 2),
-      //   new Points(0, five_yearone, 2),
-      //   new Points(1, five_yeartwo, 2),
-      //   new Points(2, five_yearthree, 2),
-      //   new Points(3, five_yearfour, 2),
-      //   new Points(4, five_yearfive, 2),
-      //   new Points(5, five_yearsix, 2),
-      //   new Points(6, five_yearseven, 2),
-      //   new Points(7, five_yeareight, 2),
-      //   new Points(8, five_yearnine, 2),
-      //   new Points(9, five_yearten, 2),
-      //   new Points(9, five_yeareleven, 2),
-      //   new Points(9, five_yeartwelve, 2),
-      // ];
-
-      // _seriesLineData.add(
-      //   charts.Series(
-      //     colorFn: (__, _) =>
-      //         charts.ColorUtil.fromDartColor(Color(0xffff9900)),
-      //     id: 'plot',
-      //     data: plot,
-      //     domainFn: (Points sales, _) => sales.x,
-      //     measureFn: (Points sales, _) => sales.y,
-      //     strokeWidthPxFn: (Points sales, _) => sales.strokeWidthPx,
-      //     areaColorFn: (_, __) =>
-      //         charts.MaterialPalette.purple.shadeDefault.lighter,
-      //   ),
-      // );
-
-//             return Column(
-//               children: [
-//                 Text(
-//                   'Points for the first 5 years',
-//                   style: TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold),
-//                 ),
-//                 Expanded(
-//                   child: charts.LineChart(_seriesLineData,
-//                       defaultRenderer: new charts.LineRendererConfig(
-//                           includeLine: true,
-//                           includeArea: false,
-//                           stacked: false),
-//                       animate: true,
-//                       animationDuration: Duration(seconds: 5),
-//                       // primaryMeasureAxis: new charts.NumericAxisSpec(
-//                       //     renderSpec: new charts.NoneRenderSpec()),
-// //************************************************************************ */,
-
-//                       // primaryMeasureAxis: new charts.NumericAxisSpec(
-//                       //     tickProviderSpec: new charts
-//                       //             .BasicNumericTickProviderSpec(
-//                       //         // Make sure we don't have values less than 1 as ticks
-//                       //         // (ie: counts).
-//                       //         dataIsInWholeNumbers: true,
-//                       //         // Fixed tick count to highlight the integer only behavior
-//                       //         // generating ticks [0, 1, 2, 3, 4].
-//                       //         desiredTickCount: 17)),
-//                       behaviors: [
-//                         new charts.ChartTitle('Months',
-//                             behaviorPosition: charts.BehaviorPosition.bottom,
-//                             titleOutsideJustification:
-//                                 charts.OutsideJustification.middleDrawArea),
-//                         new charts.ChartTitle('Weight',
-//                             behaviorPosition: charts.BehaviorPosition.start,
-//                             titleOutsideJustification:
-//                                 charts.OutsideJustification.middleDrawArea),
-//                       ]),
-//                 ),
-//               ],
-//             );
     );
   }
 }
@@ -413,6 +297,5 @@ class _ChartState extends State<Chart> {
 class Points {
   double x;
   double y;
-  final double strokeWidthPx;
-  Points(this.x, this.y, this.strokeWidthPx);
+  Points(this.x, this.y);
 }
