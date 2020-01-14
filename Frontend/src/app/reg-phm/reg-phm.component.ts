@@ -11,11 +11,13 @@ import { MatSnackBar } from '@angular/material';
 })
 export class RegPHMComponent implements OnInit {
 
+  passwordType = "password";
   regPHMform: FormGroup;
   generatedPassword;
   constructor(private formBuilder: FormBuilder,private authService : AuthService, private router: Router,private snackBar : MatSnackBar) { }
 
   ngOnInit() {
+    if(localStorage.getItem('role')!="Doctor") this.router.navigate([''])
     this.generatedPassword = this.generatePassword()
     this.regPHMform = this.formBuilder.group({
       username : ['', Validators.email],
@@ -49,6 +51,11 @@ export class RegPHMComponent implements OnInit {
       },
       err=>console.log(err)
     )
+  }
+
+  showPassword(){
+    if(this.passwordType=="text") this.passwordType = "password"
+    else this.passwordType="text"
   }
 }
 
