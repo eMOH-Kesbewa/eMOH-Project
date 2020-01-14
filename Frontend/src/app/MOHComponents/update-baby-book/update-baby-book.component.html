@@ -15,7 +15,7 @@
                         <div class="row">
                             <div class="col-md-6">
                               <mat-form-field class="example-full-width">
-                                <input matInput placeholder="Baby ID" readonly="{{onChange()}}" type="text" formControlName="baby_id">
+                                <input matInput placeholder="{{'baby.baby_id' | translate}}" readonly="{{onChange()}}" type="text" formControlName="baby_id">
                                 <div *ngIf="submitted && BabyForm.controls.baby_id.errors" class="error">
                                     <div *ngIf="BabyForm.controls.baby_id.errors.required">This field is required</div>
                                   </div>
@@ -23,7 +23,7 @@
                             </div>
                             <div class="col-md-6">
                               <mat-form-field class="example-full-width">
-                                <input matInput placeholder="Baby Name" readonly="{{onChange()}}" type="text" formControlName="name_of_child">
+                                <input matInput placeholder="{{'baby.name_of_child' | translate}}" readonly="{{onChange()}}" type="text" formControlName="name_of_child">
                                 <div *ngIf="submitted && BabyForm.controls.name_of_child.errors" class="error">
                                     <div *ngIf="BabyForm.controls.name_of_child.errors.required">This field is required</div>
                                   </div>
@@ -34,7 +34,7 @@
                           <div class="row">
                               <div class="col-md-6">
                                 <mat-form-field class="example-full-width">
-                                  <input matInput placeholder="Date Of Birth" readonly="{{onChange()}}" type="date" formControlName="date_of_birth_of_child">
+                                  <input matInput placeholder="{{'baby.date_of_birth_of_child' | translate}}" readonly="{{onChange()}}" type="date" formControlName="date_of_birth_of_child">
                                   <div *ngIf="submitted && BabyForm.controls.date_of_birth_of_child.errors" class="error">
                                       <div *ngIf="BabyForm.controls.date_of_birth_of_child.errors.required">This field is required</div>
                                     </div>
@@ -43,7 +43,7 @@
                               </div>
                               <div class="col-md-6">
                                   <mat-form-field class="example-full-width">
-                                  <input matInput placeholder="Registered Date" readonly="{{onChange()}}" type="date" formControlName="date_of_registered">
+                                  <input matInput placeholder="{{'baby.date_of_registered' | translate}}" readonly="{{onChange()}}" type="date" formControlName="date_of_registered">
                                   <div *ngIf="submitted && BabyForm.controls.date_of_registered.errors" class="error">
                                       <div *ngIf="BabyForm.controls.date_of_registered.errors.required">This field is required</div>
                                     </div>
@@ -54,7 +54,7 @@
                             <div class="row">
                                 <div class="col-md-6">
                                   <mat-form-field class="example-full-width">
-                                    <input matInput placeholder="Name Of Mother" readonly="{{onChange()}}" type="text" formControlName="name_of_mother">
+                                    <input matInput placeholder="{{'baby.name_of_mother' | translate}}" readonly="{{onChange()}}" type="text" formControlName="name_of_mother">
                                     <div *ngIf="submitted && BabyForm.controls.name_of_mother.errors" class="error">
                                         <div *ngIf="BabyForm.controls.name_of_mother.errors.required">This field is required</div>
                                       </div>
@@ -62,7 +62,7 @@
                                 </div>
                                 <div class="col-md-6">
                                   <mat-form-field class="example-full-width">
-                                    <input matInput placeholder="Age Of Mother" readonly="{{onChange()}}" type= "text" formControlName="age_of_mother">
+                                    <input matInput placeholder="{{'baby.age_of_mother' | translate}}" readonly="{{onChange()}}" type= "text" formControlName="age_of_mother">
                                   </mat-form-field>
                                 </div>
                               </div>
@@ -70,7 +70,7 @@
                               <div class="row">
                                   <div class="col-md-12">
                                    <mat-form-field class="example-full-width">
-                                     <input matInput placeholder="Address" readonly="{{onChange()}}" type= "text" formControlName="address">
+                                     <input matInput placeholder="{{'baby.address' | translate}}" readonly="{{onChange()}}" type= "text" formControlName="address">
                                    </mat-form-field>
                                   </div>
                                 </div>
@@ -78,60 +78,60 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                       <mat-form-field class="example-full-width">
-                                        <input matInput placeholder="Total Number Of Children Alive Including This Child" readonly="{{onChange()}}" type= "number" formControlName="total_Number_of_children_alive_including_this_child"> 
+                                        <input matInput placeholder="{{'baby.total_Number_of_children_alive_including_this_child' | translate}}" readonly="{{onChange()}}" type= "number" formControlName="total_Number_of_children_alive_including_this_child"> 
                                       </mat-form-field>
                                     </div>
                                   </div>
   
                                   <h4>For Hospital Staff</h4>
-                                  <h4>About New Born Child</h4>
+                                  <h4>{{'baby.About_New_Born_Child' | translate}}</h4>
   
                                 <div class="second_field">
                                   <!--start of second field-->
-                                  <h5>readonly="{{onChange()}}" type Of Delivery</h5>
+                                  <h5>readonly="{{onChange()}}" {{'baby.method_of_delivery' | translate}}</h5>
                                   <div class="row">
                                     <div class="col-md-3">
-                                        <label class="container">Normal Delivery
+                                        <label class="container">{{'baby.Normal_Delivery' | translate}}
                                             <input id="normal_delivery" readonly="{{onChange()}}" type="radio"  formControlName="method_of_delivery" value="normal_delivery" ng-value="Normal" >
                                             <span class="checkmark"></span>
                                           </label>
                                         </div>
                                     <div class="col-md-3">
-                                        <label class="container">Low Delivery
+                                        <label class="container">{{'baby.Low_Delivery' | translate}}
                                             <input id="low_delivery" readonly="{{onChange()}}" type="radio" formControlName="method_of_delivery" value="low_delivery">
                                             <span class="checkmark"></span>
                                           </label>
                                      </div> 
                                     
                                     <div class="col-md-3">
-                                      <label class="container"> Vaccume Delivery
+                                      <label class="container"> {{'baby.Vaccume_Delivery' | translate}}
                                         <input id="vaccume_delivery" readonly="{{onChange()}}" type="radio" formControlName="method_of_delivery" value="vaccume_delivery">
                                         <span class="checkmark"></span>
                                       </label>
                                     </div>
                                     <div class="col-md-3">
-                                      <label class="container">Seasarian Delivery
+                                      <label class="container">{{'baby.Seasarian_Delivery' | translate}}
                                         <input id="seasarian_delivery" readonly="{{onChange()}}" type="radio" formControlName="method_of_delivery" value="seasarian_delivery">
                                         <span class="checkmark"></span>
                                       </label>
                                     </div>
                                   </div>
   
-                                  <h4>Number Of Apgas</h4>
+                                  <h4>{{'baby.Number_of_apgas' | translate}}</h4>
                                   <div class="row">
                                     <div class="col-md-4">
                                       <mat-form-field class="example-full-width">
-                                        <input matInput placeholder="1m" readonly="{{onChange()}}" type= "text" formControlName="Number_of_apgas_1m">
+                                        <input matInput placeholder="{{'baby.Number_of_apgas_1m'| translate}}" readonly="{{onChange()}}" type= "text" formControlName="Number_of_apgas_1m">
                                       </mat-form-field>
                                     </div>
                                     <div class="col-md-4">
                                       <mat-form-field class="example-full-width">
-                                        <input matInput placeholder="5m" readonly="{{onChange()}}" type= "text" formControlName="Number_of_apgas_5m">
+                                        <input matInput placeholder="{{'baby.Number_of_apgas_5m' | translate}}" readonly="{{onChange()}}" type= "text" formControlName="Number_of_apgas_5m">
                                       </mat-form-field>
                                     </div>
                                     <div class="col-md-4">
                                       <mat-form-field class="example-full-width">
-                                        <input matInput placeholder="10m" readonly="{{onChange()}}" type= "text" formControlName="Number_of_apgas_10m">
+                                        <input matInput placeholder="{{'baby.Number_of_apgas_10m' | translate}}" readonly="{{onChange()}}" type= "text" formControlName="Number_of_apgas_10m">
                                       </mat-form-field>
                                     </div>
                                   </div>
@@ -139,22 +139,22 @@
                                   <div class="row">
                                       <div class="col-md-4">
                                         <mat-form-field class="example-full-width">
-                                          <input matInput placeholder="Birth Weight" readonly="{{onChange()}}" type= "text" formControlName="birth_weight">
+                                          <input matInput placeholder="{{'baby.birth_weight' | translate}}" readonly="{{onChange()}}" type= "text" formControlName="birth_weight">
                                         </mat-form-field>
                                       </div>
                                       <div class="col-md-4">
                                         <mat-form-field class="example-full-width">
-                                          <input matInput placeholder="Gridle Circumference At Birth" readonly="{{onChange()}}" type= "text" formControlName="gridle_circumference_at_birth">
+                                          <input matInput placeholder="{{'baby.gridle_circumference_at_birth' | translate}}" readonly="{{onChange()}}" type= "text" formControlName="gridle_circumference_at_birth">
                                         </mat-form-field>
                                       </div>
                                       <div class="col-md-4">
                                         <mat-form-field class="example-full-width">
-                                          <input matInput placeholder=" Length Of Baby At Birth" readonly="{{onChange()}}" type= "text" formControlName="length_of_baby_at_birth">
+                                          <input matInput placeholder="{{'baby.length_of_baby_at_birth' | translate}}" readonly="{{onChange()}}" type= "text" formControlName="length_of_baby_at_birth">
                                         </mat-form-field>
                                       </div>
                                       <div class="col-md-4">
                                           <mat-form-field class="example-full-width">
-                                            <input matInput placeholder="Weight In Discharge From Hospital" readonly="{{onChange()}}" type= "text" formControlName="weight_in_discharge_from_hospital">
+                                            <input matInput placeholder="{{'baby.weight_in_discharge_from_hospital' | translate}}" readonly="{{onChange()}}" type= "text" formControlName="weight_in_discharge_from_hospital">
                                           </mat-form-field>
                                         </div>
                                     </div>
@@ -162,55 +162,55 @@
                                     <div class="row">
                                         <div class="col-md-4">
                                             <mat-form-field class="example-full-width">
-                                                <input matInput placeholder="K vitamine" readonly="{{onChange()}}" type= "text" formControlName="K_vitamine">
+                                                <input matInput placeholder="{{'baby.K_vitamine'|translate}}" readonly="{{onChange()}}" type= "text" formControlName="K_vitamine">
                                               </mat-form-field>
                                         </div>
                                       </div>
   
                                     
                                     <div class="row">
-                                        <div class="col-md-3"><p>Breast Feeding</p></div>
+                                        <div class="col-md-3"><p>{{'baby.Breast_Feeding' | translate}}</p></div>
                                         <div class="col-md-9">
                                           <div class="row">
                                             <div class="col-md-6">Breast Feeding During First Hour</div>
                                             <div class="col-md-3">
-                                                <label class="container">Yes
+                                                <label class="container">{{'baby.yes' | translate}}
                                                     <input id="yes" readonly="{{onChange()}}" type="radio" formControlName="breast_feeding_breast_feeding_during_the_first_hour" value="yes">
                                                     <span class="checkmark"></span>
                                                   </label>
                                            </div>
                                             <div class="col-md-3">
-                                                <label class="container">No
+                                                <label class="container">{{'baby.no' | translate}}
                                                     <input id="no" readonly="{{onChange()}}" type="radio" formControlName="breast_feeding_breast_feeding_during_the_first_hour" value="no">
                                                     <span class="checkmark"></span>
                                                   </label>
                                             </div>
                                           </div>
                                           <div class="row">
-                                              <div class="col-md-6">Unstability</div>
+                                              <div class="col-md-6">{{'baby.breast_feeding_unstability' | translate}}</div>
                                               <div class="col-md-3">
-                                                  <label class="container">Yes
+                                                  <label class="container">{{'baby.yes' | translate}}
                                                       <input id="yes" readonly="{{onChange()}}" type="radio" formControlName="breast_feeding_unstability" value="yes">
                                                       <span class="checkmark"></span>
                                                     </label>
                                               </div>
                                               <div class="col-md-3">
-                                                  <label class="container">No
+                                                  <label class="container">{{'baby.no' | translate}}
                                                       <input id="no" readonly="{{onChange()}}" type="radio" formControlName="breast_feeding_unstability" value="no">
                                                       <span class="checkmark"></span>
                                                     </label>
                                               </div>
                                           </div>
                                           <div class="row">
-                                              <div class="col-md-6">Connection</div>
+                                              <div class="col-md-6">{{'baby.breast_feeding_connection' | translate}}</div>
                                               <div class="col-md-3">
-                                                  <label class="container">Yes
+                                                  <label class="container">{{'baby.yes' | translate}}
                                                       <input id="yes" readonly="{{onChange()}}" type="radio" formControlName="breast_feeding_connection" value="yes">
                                                       <span class="checkmark"></span>
                                                     </label>
                                               </div>
                                               <div class="col-md-3">
-                                                  <label class="container">No
+                                                  <label class="container">{{'baby.no' | translate}}
                                                       <input id="no" readonly="{{onChange()}}" type="radio" formControlName="breast_feeding_connection" value="no">
                                                       <span class="checkmark"></span>
                                                     </label>
@@ -223,14 +223,14 @@
                                       <div class="row">
                                           <div class="col-md-12">
                                               <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="Does Check Congenital Hypothyroidism" readonly="{{onChange()}}" type= "text" formControlName="does_check_congenital_hypothyroidism">
+                                                  <input matInput placeholder="{{'baby.does_check_congenital_hypothyroidism' | translate}}" readonly="{{onChange()}}" type= "text" formControlName="does_check_congenital_hypothyroidism">
                                                 </mat-form-field>
                                           </div>
                                         </div>
                                   <!--end of second field-->
                                 </div>
   
-                                <h3>Please Check Second Page For Doctors Filling Part</h3>
+                                <h3>{{'baby.Check_Second_Page' | translate}}</h3>
   
                                 <div class="third_field">
                                   <!--start third field-->
@@ -250,10 +250,10 @@
                                                                   </label>
                                                               </div>
                                                           </td>
-                                                          <td>Premature Births</td>
+                                                          <td>{{'baby.premature_births_status' | translate}}</td>
                                                           <td class="td-actions text-right">
                                                               <mat-form-field class="example-full-width">
-                                                                  <input matInput placeholder="Date" readonly="{{onChange()}}" type= "date" formControlName="premature_births_date">
+                                                                  <input  matInput placeholder="{{'baby.date' | translate}}" readonly="{{onChange()}}" type= "date" formControlName="premature_births_date">
                                                                 </mat-form-field>
                                                           </td>
                                                       </tr>
@@ -268,10 +268,10 @@
                                                                   </label>
                                                               </div>
                                                           </td>
-                                                          <td>Low Birth Weight</td>
+                                                          <td>{{'baby.low_birth_weight_status' | translate}}</td>
                                                           <td class="td-actions text-right">
                                                               <mat-form-field class="example-full-width">
-                                                                  <input matInput placeholder="Date" readonly="{{onChange()}}" type= "date" formControlName="low_birth_weight_date">
+                                                                  <input  matInput placeholder="{{'baby.date' | translate}}" readonly="{{onChange()}}" type= "date" formControlName="low_birth_weight_date">
                                                                 </mat-form-field>
                                                           </td>
                                                       </tr>
@@ -286,10 +286,10 @@
                                                                   </label>
                                                               </div>
                                                           </td>
-                                                          <td>Neonatal Abnomalities</td>
+                                                          <td>{{'baby.neonatal_abnomalities_status' | translate}}</td>
                                                           <td class="td-actions text-right">
                                                               <mat-form-field class="example-full-width">
-                                                                  <input matInput placeholder="Date" readonly="{{onChange()}}" type= "date" formControlName="neonatal_abnomalities_date">
+                                                                  <input  matInput placeholder="{{'baby.date' | translate}}" readonly="{{onChange()}}" type= "date" formControlName="neonatal_abnomalities_date">
                                                                 </mat-form-field>
                                                           </td>
                                                       </tr>
@@ -304,10 +304,10 @@
                                                                   </label>
                                                               </div>
                                                           </td>
-                                                          <td>Inherited Problems</td>
+                                                          <td>{{'baby.inherited_problems_status' | translate}}</td>
                                                           <td class="td-actions text-right">
                                                               <mat-form-field class="example-full-width">
-                                                                  <input matInput placeholder="Date" readonly="{{onChange()}}" type= "date" formControlName="inherited_problems_date">
+                                                                  <input  matInput placeholder="{{'baby.date' | translate}}" readonly="{{onChange()}}" type= "date" formControlName="inherited_problems_date">
                                                                 </mat-form-field>
                                                           </td>
                                                       </tr>
@@ -322,10 +322,10 @@
                                                                   </label>
                                                               </div>
                                                           </td>
-                                                          <td>Congenital Hypothyroidism</td>
+                                                          <td>{{'baby.congenital_hypothyroidism_state' | translate}}</td>
                                                           <td class="td-actions text-right">
                                                               <mat-form-field class="example-full-width">
-                                                                  <input matInput placeholder="Date" readonly="{{onChange()}}" type= "date" formControlName="congenital_hypothyroidism_date">
+                                                                  <input  matInput placeholder="{{'baby.date' | translate}}" readonly="{{onChange()}}" type= "date" formControlName="congenital_hypothyroidism_date">
                                                                 </mat-form-field>
                                                           </td>
                                                       </tr>
@@ -340,10 +340,10 @@
                                                                   </label>
                                                               </div>
                                                           </td>
-                                                          <td>Server Illness Of The Mother After Delivery</td>
+                                                          <td>{{'baby.server_illness_of_the_mother_after_delivery_status' | translate}}</td>
                                                           <td class="td-actions text-right">
                                                               <mat-form-field class="example-full-width">
-                                                                  <input matInput placeholder="Date" readonly="{{onChange()}}" type= "date" formControlName="server_illness_of_the_mother_after_delivery_date">
+                                                                  <input  matInput placeholder="{{'baby.date' | translate}}" readonly="{{onChange()}}" type= "date" formControlName="server_illness_of_the_mother_after_delivery_date">
                                                                 </mat-form-field>
                                                           </td>
                                                       </tr>
@@ -358,10 +358,10 @@
                                                                   </label>
                                                               </div>
                                                           </td>
-                                                          <td>Breastfeeding At First Six Months</td>
+                                                          <td>{{'baby.breastfeeding_at_first_six_months_status' | translate}}</td>
                                                           <td class="td-actions text-right">
                                                               <mat-form-field class="example-full-width">
-                                                                  <input matInput placeholder="Date" readonly="{{onChange()}}" type= "date" formControlName="breastfeeding_at_first_six_months_date">
+                                                                  <input  matInput placeholder="{{'baby.date' | translate}}" readonly="{{onChange()}}" type= "date" formControlName="breastfeeding_at_first_six_months_date">
                                                                 </mat-form-field>
                                                           </td>
                                                       </tr>
@@ -376,10 +376,10 @@
                                                                   </label>
                                                               </div>
                                                           </td>
-                                                          <td>Impairments Of Growth</td>
+                                                          <td>{{'baby.impairments_of_growth_status' | translate}}</td>
                                                           <td class="td-actions text-right">
                                                               <mat-form-field class="example-full-width">
-                                                                  <input matInput placeholder="Date" readonly="{{onChange()}}" type= "date" formControlName="impairments_of_growth_date">
+                                                                  <input  matInput placeholder="{{'baby.date' | translate}}" readonly="{{onChange()}}" type= "date" formControlName="impairments_of_growth_date">
                                                                 </mat-form-field>
                                                           </td>
                                                       </tr>
@@ -394,10 +394,10 @@
                                                                   </label>
                                                               </div>
                                                           </td>
-                                                          <td>Death Of Mother Or Father</td>
+                                                          <td>{{'baby.death_of_mother_or_father_status' | translate}}</td>
                                                           <td class="td-actions text-right">
                                                               <mat-form-field class="example-full-width">
-                                                                  <input matInput placeholder="Date" readonly="{{onChange()}}" type= "date" formControlName="death_of_mother_or_father_date">
+                                                                  <input  matInput placeholder="{{'baby.date' | translate}}" readonly="{{onChange()}}" type= "date" formControlName="death_of_mother_or_father_date">
                                                                 </mat-form-field>
                                                           </td>
                                                       </tr>
@@ -412,10 +412,10 @@
                                                                   </label>
                                                               </div>
                                                           </td>
-                                                          <td>Separation Or Depature Of Mother Or Father</td>
+                                                          <td>{{'baby.separation_or_depature_of_mother_or_father_status' | translate}}</td>
                                                           <td class="td-actions text-right">
                                                               <mat-form-field class="example-full-width">
-                                                                  <input matInput placeholder="Date" readonly="{{onChange()}}" type= "date" formControlName="separation_or_depature_of_mother_or_father_status">
+                                                                  <input  matInput placeholder="{{'baby.date' | translate}}" readonly="{{onChange()}}" type= "date" formControlName="separation_or_depature_of_mother_or_father_status">
                                                                 </mat-form-field>
                                                           </td>
                                                       </tr>
@@ -430,10 +430,10 @@
                                                                   </label>
                                                               </div>
                                                           </td>
-                                                          <td>Other</td>
+                                                          <td>{{'baby.other' | translate}}</td>
                                                           <td class="td-actions text-right">
                                                               <mat-form-field class="example-full-width">
-                                                                  <input matInput placeholder="Date" readonly="{{onChange()}}" type= "date" formControlName="other_date">
+                                                                  <input matInput placeholder="{{'baby.date' | translate}}" readonly="{{onChange()}}" type= "date" formControlName="other_date">
                                                                 </mat-form-field>
                                                           </td>
                                                       </tr>
@@ -453,7 +453,7 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <mat-form-field class="example-full-width">
-                                                <input matInput placeholder="Date" readonly="{{onChange()}}" type= "date" formControlName="second_date">
+                                                <input matInput placeholder="{{'baby.date' | translate}}" readonly="{{onChange()}}" type= "date" formControlName="second_date">
                                               </mat-form-field>
                                         </div>
                                         <div class="col-md-6">
@@ -1231,7 +1231,7 @@
   
                                           <div class="third_page">
                                                   <!--start of third page-->
-                                                  <h3>For PHP Fill After Delivery Visit</h3>
+                                                  <h3>{{'baby.PHP_Fill_After_Delivery_Visit' | translate}}</h3>
                                                   <div class="card-body">
                                                       <div class="tab-content">
                                                           <div class="tab-pane active" id="profile">
@@ -1241,48 +1241,48 @@
                                                                         <div class="row">
                                                                           <div class="col-md-4"></div>
                                                                           <div class="col-md-2">
-                                                                            <td>1-5 Days From Birth</td>
+                                                                            <td>{{'baby.1-5_Days_From_Birth' | translate}}</td>
                                                                             <div class="row">
                                                                               <div class="col-md-12">
                                                                                 <td>
                                                                                     <mat-form-field class="example-full-width">
-                                                                                        <input matInput placeholder="Date" readonly="{{onChange()}}" type= "date" formControlName="ten_days_from_birth_one_five_days_date">
+                                                                                        <input matInput placeholder="{{'baby.date' | translate}}" readonly="{{onChange()}}" type= "date" formControlName="ten_days_from_birth_one_five_days_date">
                                                                                       </mat-form-field>
                                                                                 </td>
                                                                               </div>
                                                                             </div>
                                                                           </div>
                                                                           <div class="col-md-2">
-                                                                              <td>6-10 Days From Birth</td>
+                                                                              <td>{{'baby.6-10_Days_From_Birth' | translate}}</td>
                                                                               <div class="row">
                                                                                 <div class="col-md-12">
                                                                                   <td>
                                                                                       <mat-form-field class="example-full-width">
-                                                                                          <input matInput placeholder="Date" readonly="{{onChange()}}" type= "date" formControlName="six_ten_days_date">
+                                                                                          <input matInput placeholder="{{'baby.date' | translate}}" readonly="{{onChange()}}" type= "date" formControlName="six_ten_days_date">
                                                                                         </mat-form-field>
                                                                                   </td>
                                                                                 </div>
                                                                               </div>
                                                                           </div>
                                                                           <div class="col-md-2">
-                                                                              <td>14-21 Days </td>
+                                                                              <td>{{'baby.14-21_Days' | translate}} </td>
                                                                               <div class="row">
                                                                                 <div class="col-md-12">
                                                                                   <td>
                                                                                       <mat-form-field class="example-full-width">
-                                                                                          <input matInput placeholder="Date" readonly="{{onChange()}}" type= "date" formControlName="fourteen_twentytwo_days_date">
+                                                                                          <input matInput placeholder="{{'baby.date' | translate}}" readonly="{{onChange()}}" type= "date" formControlName="fourteen_twentytwo_days_date">
                                                                                         </mat-form-field>
                                                                                   </td>
                                                                                 </div>
                                                                               </div>
                                                                           </div>
                                                                           <div class="col-md-2">
-                                                                              <td>22-42 Days </td>
+                                                                              <td>{{'baby.22-42_Days' | translate}}</td>
                                                                               <div class="row">
                                                                                 <div class="col-md-12">
                                                                                   <td>
                                                                                       <mat-form-field class="example-full-width">
-                                                                                          <input matInput placeholder="Date" readonly="{{onChange()}}" type= "date" formControlName="fourtytwo_days_date">
+                                                                                          <input matInput placeholder="{{'baby.date' | translate}}" readonly="{{onChange()}}" type= "date" formControlName="fourtytwo_days_date">
                                                                                         </mat-form-field>
                                                                                   </td>
                                                                                 </div>
@@ -1294,7 +1294,7 @@
   
                                                                       <tr>
                                                                         <div class="row">
-                                                                          <div class="col-md-4"><td>01) Color Of Skin</td></div>
+                                                                          <div class="col-md-4"><td>01) {{'baby.color_of_skin' | translate}}</td></div>
                                                                           <div class="col-md-2">
                                                                             <td>
                                                                                 <mat-form-field class="example-full-width">
@@ -1328,7 +1328,7 @@
   
                                                                       <tr>
                                                                           <div class="row">
-                                                                            <div class="col-md-4"><td>02) Eyes</td></div>
+                                                                            <div class="col-md-4"><td>02) {{'baby.eyes' | translate}}</td></div>
                                                                             <div class="col-md-2">
                                                                               <td>
                                                                                   <mat-form-field class="example-full-width">
@@ -1362,7 +1362,7 @@
   
                                                                         <tr>
                                                                             <div class="row">
-                                                                              <div class="col-md-4"><td>03) The Native Of Lobbyists</td></div>
+                                                                              <div class="col-md-4"><td>03) {{'baby.the_native_of_lobbyists' | translate}}</td></div>
                                                                               <div class="col-md-2">
                                                                                 <td>
                                                                                     <mat-form-field class="example-full-width">
@@ -1396,7 +1396,7 @@
                                                                           
                                                                           <tr>
                                                                               <div class="row">
-                                                                                <div class="col-md-4"><td>04) Tempreture</td></div>
+                                                                                <div class="col-md-4"><td>04) {{'baby.tempreture' | translate}}</td></div>
                                                                                 <div class="col-md-2">
                                                                                   <td>
                                                                                       <mat-form-field class="example-full-width">
@@ -1431,7 +1431,7 @@
   
                                                                               <tr>
                                                                                   <div class="row">
-                                                                                    <div class="col-md-4"><td>05) Breastfeeding</td></div>
+                                                                                    <div class="col-md-4"><td>05) {{'baby.only_breastfeeding' | translate}}</td></div>
                                                                                     <div class="col-md-2">
                                                                                       <td>
                                                                                           <mat-form-field class="example-full-width">
@@ -1465,7 +1465,7 @@
   
                                                                                  <tr>
                                                                                 <div class="row">
-                                                                                  <div class="col-md-4"><td>06) Breastfeeding Stability</td></div>
+                                                                                  <div class="col-md-4"><td>06) {{'baby.breastfeeding_stability' | translate}}</td></div>
                                                                                   <div class="col-md-2">
                                                                                     <td>
                                                                                         <mat-form-field class="example-full-width">
@@ -1499,7 +1499,7 @@
   
                                                                               <tr>
                                                                                   <div class="row">
-                                                                                    <div class="col-md-4"><td>07) Breastfeeding Connection</td></div>
+                                                                                    <div class="col-md-4"><td>07) {{'baby.breastfeeding_connection' | translate}}</td></div>
                                                                                     <div class="col-md-2">
                                                                                       <td>
                                                                                           <mat-form-field class="example-full-width">
@@ -1533,7 +1533,7 @@
   
                                                                                 <tr>
                                                                                     <div class="row">
-                                                                                      <div class="col-md-4"><td>08) Other</td></div>
+                                                                                      <div class="col-md-4"><td>08) {{'baby.other' | translate}}</td></div>
                                                                                       <div class="col-md-2">
                                                                                         <td>
                                                                                             <mat-form-field class="example-full-width">
@@ -1575,54 +1575,54 @@
                                                    </div>
                                                    <div class="vaccine_page">
                                                       <!--start of vaccine page-->
-                                                      <h3>Vaccine</h3>
-                                                      <h4>At Birth</h4>
+                                                      <h3>{{'baby.Vaccine' | translate}}</h3>
+                                                      <h4>{{'baby.At_Birth' | translate}}</h4>
                                                       <div class="row">
                                                         <div class="col-md-12">
-                                                          <h5>1) B.C.G. Vaccine</h5>
+                                                          <h5>1) {{'baby.b_c_g' | translate}}</h5>
                                                         </div>
                                                       </div>
                                                       
                                                       <div class="row">
                                                         <div class="col-md-4">
                                                             <mat-form-field class="example-full-width">
-                                                                <input matInput placeholder="Date" readonly="{{onChange()}}" type= "date" formControlName="b_c_g_date">
+                                                                <input matInput placeholder="{{'baby.date' | translate}}" readonly="{{onChange()}}" type= "date" formControlName="b_c_g_date">
                                                               </mat-form-field>
                                                         </div>
                                                         <div class="col-md-4">
                                                             <mat-form-field class="example-full-width">
-                                                                <input matInput placeholder="Batch No" readonly="{{onChange()}}" type= "text" formControlName="b_c_g_batch_no">
+                                                                <input matInput placeholder="{{'baby.batch_no' | translate}}" readonly="{{onChange()}}" type= "text" formControlName="b_c_g_batch_no">
                                                               </mat-form-field>
                                                         </div>
                                                         <div class="col-md-4">
                                                             <mat-form-field class="example-full-width">
-                                                                <input matInput placeholder="BCG Scar" readonly="{{onChange()}}" type= "text" formControlName="b_c_g_b_c_g_scar">
+                                                                <input matInput placeholder="{{'baby.b_c_g_b_c_g_scar'| translate}}" readonly="{{onChange()}}" type= "text" formControlName="b_c_g_b_c_g_scar">
                                                               </mat-form-field>
                                                         </div>
                                                       </div>
                                                       <div class="row">
                                                         <div class="col-md-12">
                                                             <mat-form-field class="example-full-width">
-                                                                <input matInput placeholder="Effects Of Immunization" readonly="{{onChange()}}" type= "text" formControlName="b_c_g_effects_of_immunization">
+                                                                <input matInput placeholder="{{'baby.effects_of_immunization' | translate}}" readonly="{{onChange()}}" type= "text" formControlName="b_c_g_effects_of_immunization">
                                                               </mat-form-field>
                                                         </div>
                                                       </div>
    
                                                       <div class="row">
                                                           <div class="col-md-12">
-                                                            <h5>2) B.C.G. Second Dose</h5>
+                                                            <h5>2) {{'baby.b_c_g_second_dose' | translate}}</h5>
                                                           </div>
                                                         </div>
                                                         
                                                         <div class="row">
                                                           <div class="col-md-4">
                                                               <mat-form-field class="example-full-width">
-                                                                  <input matInput placeholder="Date" readonly="{{onChange()}}" type= "date" formControlName="b_c_g_second_dose_date">
+                                                                  <input matInput placeholder="{{'baby.date' | translate}}" readonly="{{onChange()}}" type= "date" formControlName="b_c_g_second_dose_date">
                                                                 </mat-form-field>
                                                           </div>
                                                           <div class="col-md-4">
                                                               <mat-form-field class="example-full-width">
-                                                                  <input matInput placeholder="Batch No" readonly="{{onChange()}}" type= "text" formControlName="b_c_g_second_dose_batch_no">
+                                                                  <input matInput placeholder="{{'baby.batch_no' | translate}}" readonly="{{onChange()}}" type= "text" formControlName="b_c_g_second_dose_batch_no">
                                                                 </mat-form-field>
                                                           </div>
                                                           
@@ -1630,27 +1630,27 @@
                                                         <div class="row">
                                                           <div class="col-md-12">
                                                               <mat-form-field class="example-full-width">
-                                                                  <input matInput placeholder="Effects Of Immunization" readonly="{{onChange()}}" type= "text" formControlName="b_c_g_second_dose_effects_of_immunization">
+                                                                  <input matInput placeholder="{{'baby.effects_of_immunization' | translate}}" readonly="{{onChange()}}" type= "text" formControlName="b_c_g_second_dose_effects_of_immunization">
                                                                 </mat-form-field>
                                                           </div>
                                                         </div>
   
-                                                        <h4>Two Months Completed</h4>
+                                                        <h4>{{'baby.two_months' | translate}}</h4>
                                                         <div class="row">
                                                             <div class="col-md-12">
-                                                              <h5>1) Pentavalent 1</h5>
+                                                              <h5>1) {{'baby.pentavalent_one' | translate}}</h5>
                                                             </div>
                                                           </div>
                                                           
                                                           <div class="row">
                                                             <div class="col-md-4">
                                                                 <mat-form-field class="example-full-width">
-                                                                    <input matInput placeholder="Date" readonly="{{onChange()}}" type= "date" formControlName="pentavalent_one_date">
+                                                                    <input matInput placeholder="{{'baby.date' | translate}}" readonly="{{onChange()}}" type= "date" formControlName="pentavalent_one_date">
                                                                   </mat-form-field>
                                                             </div>
                                                             <div class="col-md-4">
                                                                 <mat-form-field class="example-full-width">
-                                                                    <input matInput placeholder="Batch No" readonly="{{onChange()}}" type= "text" formControlName="pentavalent_one_batch_no">
+                                                                    <input matInput placeholder="{{'baby.batch_no' | translate}}" readonly="{{onChange()}}" type= "text" formControlName="pentavalent_one_batch_no">
                                                                   </mat-form-field>
                                                             </div>
                                                             
@@ -1658,25 +1658,25 @@
                                                           <div class="row">
                                                             <div class="col-md-12">
                                                                 <mat-form-field class="example-full-width">
-                                                                    <input matInput placeholder="Effects Of Immunization" readonly="{{onChange()}}" type= "text" formControlName="pentavalent_one_effects_of_immunization">
+                                                                    <input matInput placeholder="{{'baby.effects_of_immunization' | translate}}" readonly="{{onChange()}}" type= "text" formControlName="pentavalent_one_effects_of_immunization">
                                                                   </mat-form-field>
                                                             </div>
                                                           </div>
                                                           <div class="row">
                                                               <div class="col-md-12">
-                                                                <h5>2) OPV 1</h5>
+                                                                <h5>2) {{'baby.opv_one' | translate}}</h5>
                                                               </div>
                                                             </div>
                                                             
                                                             <div class="row">
                                                               <div class="col-md-4">
                                                                   <mat-form-field class="example-full-width">
-                                                                      <input matInput placeholder="Date" readonly="{{onChange()}}" type= "date" formControlName="opv_one_date">
+                                                                      <input matInput placeholder="{{'baby.date' | translate}}" readonly="{{onChange()}}" type= "date" formControlName="opv_one_date">
                                                                     </mat-form-field>
                                                               </div>
                                                               <div class="col-md-4">
                                                                   <mat-form-field class="example-full-width">
-                                                                      <input matInput placeholder="Batch No" readonly="{{onChange()}}" type= "text" formControlName="opv_one_batch_no">
+                                                                      <input matInput placeholder="{{'baby.batch_no' | translate}}" readonly="{{onChange()}}" type= "text" formControlName="opv_one_batch_no">
                                                                     </mat-form-field>
                                                               </div>
                                                               
@@ -1684,26 +1684,26 @@
                                                             <div class="row">
                                                               <div class="col-md-12">
                                                                   <mat-form-field class="example-full-width">
-                                                                      <input matInput placeholder="Effects Of Immunization" readonly="{{onChange()}}" type= "text" formControlName="opv_one_effects_of_immunization">
+                                                                      <input matInput placeholder="{{'baby.effects_of_immunization' | translate}}" readonly="{{onChange()}}" type= "text" formControlName="opv_one_effects_of_immunization">
                                                                     </mat-form-field>
                                                               </div>
                                                             </div>
-                                                            <h4>Four Months Completed</h4>
+                                                            <h4>{{'baby.four_months' | translate}}</h4>
                                                             <div class="row">
                                                                 <div class="col-md-12">
-                                                                  <h5>1) Pentavalent 2</h5>
+                                                                  <h5>1) {{'baby.pentavalent_two' | translate}}</h5>
                                                                 </div>
                                                               </div>
                                                               
                                                               <div class="row">
                                                                 <div class="col-md-4">
                                                                     <mat-form-field class="example-full-width">
-                                                                        <input matInput placeholder="Date" readonly="{{onChange()}}" type= "date" formControlName="pentavalent_two_date">
+                                                                        <input matInput placeholder="{{'baby.date' | translate}}" readonly="{{onChange()}}" type= "date" formControlName="pentavalent_two_date">
                                                                       </mat-form-field>
                                                                 </div>
                                                                 <div class="col-md-4">
                                                                     <mat-form-field class="example-full-width">
-                                                                        <input matInput placeholder="Batch No" readonly="{{onChange()}}" type= "text" formControlName="pentavalent_two_batch_no">
+                                                                        <input matInput placeholder="{{'baby.batch_no' | translate}}" readonly="{{onChange()}}" type= "text" formControlName="pentavalent_two_batch_no">
                                                                       </mat-form-field>
                                                                 </div>
                                                                 
@@ -1711,25 +1711,25 @@
                                                               <div class="row">
                                                                 <div class="col-md-12">
                                                                     <mat-form-field class="example-full-width">
-                                                                        <input matInput placeholder="Effects Of Immunization" readonly="{{onChange()}}" type= "text" formControlName="pentavalent_two_effects_of_immunization">
+                                                                        <input matInput placeholder="{{'baby.effects_of_immunization' | translate}}" readonly="{{onChange()}}" type= "text" formControlName="pentavalent_two_effects_of_immunization">
                                                                       </mat-form-field>
                                                                 </div>
                                                               </div>
                                                               <div class="row">
                                                                   <div class="col-md-12">
-                                                                    <h5>2) OPV 2</h5>
+                                                                    <h5>2) {{'baby.opv_two' | translate}}</h5>
                                                                   </div>
                                                                 </div>
                                                                 
                                                                 <div class="row">
                                                                   <div class="col-md-4">
                                                                       <mat-form-field class="example-full-width">
-                                                                          <input matInput placeholder="Date" readonly="{{onChange()}}" type= "date" formControlName="opv_two_date">
+                                                                          <input matInput placeholder="{{'baby.date' | translate}}" readonly="{{onChange()}}" type= "date" formControlName="opv_two_date">
                                                                         </mat-form-field>
                                                                   </div>
                                                                   <div class="col-md-4">
                                                                       <mat-form-field class="example-full-width">
-                                                                          <input matInput placeholder="Batch No" readonly="{{onChange()}}" type= "text" formControlName="opv_two_batch_no">
+                                                                          <input matInput placeholder="{{'baby.batch_no' | translate}}" readonly="{{onChange()}}" type= "text" formControlName="opv_two_batch_no">
                                                                         </mat-form-field>
                                                                   </div>
                                                                   
@@ -1737,27 +1737,27 @@
                                                                 <div class="row">
                                                                   <div class="col-md-12">
                                                                       <mat-form-field class="example-full-width">
-                                                                          <input matInput placeholder="Effects Of Immunization" readonly="{{onChange()}}" type= "text" formControlName="opv_two_effects_of_immunization">
+                                                                          <input matInput placeholder="{{'baby.effects_of_immunization' | translate}}" readonly="{{onChange()}}" type= "text" formControlName="opv_two_effects_of_immunization">
                                                                         </mat-form-field>
                                                                   </div>
                                                                 </div>
   
-                                                            <h4>Six Months Completed</h4>
+                                                            <h4>{{'baby.six_months' | translate}}</h4>
                                                             <div class="row">
                                                                 <div class="col-md-12">
-                                                                  <h5>1) Pentavalent 3</h5>
+                                                                  <h5>1) {{'baby.pentavalent_three' | translate}}</h5>
                                                                 </div>
                                                               </div>
                                                               
                                                               <div class="row">
                                                                 <div class="col-md-4">
                                                                     <mat-form-field class="example-full-width">
-                                                                        <input matInput placeholder="Date" readonly="{{onChange()}}" type= "date" formControlName="pentavalent_three_date">
+                                                                        <input matInput placeholder="{{'baby.date' | translate}}" readonly="{{onChange()}}" type= "date" formControlName="pentavalent_three_date">
                                                                       </mat-form-field>
                                                                 </div>
                                                                 <div class="col-md-4">
                                                                     <mat-form-field class="example-full-width">
-                                                                        <input matInput placeholder="Batch No" readonly="{{onChange()}}" type= "text" formControlName="pentavalent_three_batch_no">
+                                                                        <input matInput placeholder="{{'baby.batch_no' | translate}}" readonly="{{onChange()}}" type= "text" formControlName="pentavalent_three_batch_no">
                                                                       </mat-form-field>
                                                                 </div>
                                                                 
@@ -1765,25 +1765,25 @@
                                                               <div class="row">
                                                                 <div class="col-md-12">
                                                                     <mat-form-field class="example-full-width">
-                                                                        <input matInput placeholder="Effects Of Immunization" readonly="{{onChange()}}" type= "text" formControlName="pentavalent_three_effects_of_immunization">
+                                                                        <input matInput placeholder="{{'baby.effects_of_immunization' | translate}}" readonly="{{onChange()}}" type= "text" formControlName="pentavalent_three_effects_of_immunization">
                                                                       </mat-form-field>
                                                                 </div>
                                                               </div>
                                                               <div class="row">
                                                                   <div class="col-md-12">
-                                                                    <h5>2) OPV 3</h5>
+                                                                    <h5>2) {{'baby.opv_three' | translate}}</h5>
                                                                   </div>
                                                                 </div>
                                                                 
                                                                 <div class="row">
                                                                   <div class="col-md-4">
                                                                       <mat-form-field class="example-full-width">
-                                                                          <input matInput placeholder="Date" readonly="{{onChange()}}" type= "date" formControlName="opv_three_date">
+                                                                          <input matInput placeholder="{{'baby.date' | translate}}" readonly="{{onChange()}}" type= "date" formControlName="opv_three_date">
                                                                         </mat-form-field>
                                                                   </div>
                                                                   <div class="col-md-4">
                                                                       <mat-form-field class="example-full-width">
-                                                                          <input matInput placeholder="Batch No" readonly="{{onChange()}}" type= "text" formControlName="opv_three_batch_no">
+                                                                          <input matInput placeholder="{{'baby.batch_no' | translate}}" readonly="{{onChange()}}" type= "text" formControlName="opv_three_batch_no">
                                                                         </mat-form-field>
                                                                   </div>
                                                                   
@@ -1791,27 +1791,27 @@
                                                                 <div class="row">
                                                                   <div class="col-md-12">
                                                                       <mat-form-field class="example-full-width">
-                                                                          <input matInput placeholder="Effects Of Immunization" readonly="{{onChange()}}" type= "text" formControlName="opv_three_effects_of_immunization">
+                                                                          <input matInput placeholder="{{'baby.effects_of_immunization' | translate}}" readonly="{{onChange()}}" type= "text" formControlName="opv_three_effects_of_immunization">
                                                                         </mat-form-field>
                                                                   </div>
                                                                 </div>
   
-                                                              <h4>Nine Months Completed</h4>
+                                                              <h4>{{'baby.nine_months' | translate}}</h4>
                                                               <div class="row">
                                                                   <div class="col-md-12">
-                                                                    <h5>1) Live JE</h5>
+                                                                    <h5>1) {{'baby.live_je' | translate}}</h5>
                                                                   </div>
                                                                 </div>
                                                                 
                                                                 <div class="row">
                                                                   <div class="col-md-4">
                                                                       <mat-form-field class="example-full-width">
-                                                                          <input matInput placeholder="Date" readonly="{{onChange()}}" type= "date" formControlName="live_je_date">
+                                                                          <input matInput placeholder="{{'baby.date' | translate}}" readonly="{{onChange()}}" type= "date" formControlName="live_je_date">
                                                                         </mat-form-field>
                                                                   </div>
                                                                   <div class="col-md-4">
                                                                       <mat-form-field class="example-full-width">
-                                                                          <input matInput placeholder="Batch No" readonly="{{onChange()}}" type= "text" formControlName="live_je_batch_no">
+                                                                          <input matInput placeholder="{{'baby.batch_no' | translate}}" readonly="{{onChange()}}" type= "text" formControlName="live_je_batch_no">
                                                                         </mat-form-field>
                                                                   </div>
                                                                   
@@ -1819,27 +1819,27 @@
                                                                 <div class="row">
                                                                   <div class="col-md-12">
                                                                       <mat-form-field class="example-full-width">
-                                                                          <input matInput placeholder="Effects Of Immunization" readonly="{{onChange()}}" type= "text" formControlName="live_je_effects_of_immunization">
+                                                                          <input matInput placeholder="{{'baby.effects_of_immunization' | translate}}" readonly="{{onChange()}}" type= "text" formControlName="live_je_effects_of_immunization">
                                                                         </mat-form-field>
                                                                   </div>
                                                                 </div>
   
-                                                                <h4>Twelve Months Completed</h4>
+                                                                <h4>{{'baby.twelve_months' | translate}}</h4>
                                                                 <div class="row">
                                                                     <div class="col-md-12">
-                                                                      <h5>1) Measules Mumps Rubella</h5>
+                                                                      <h5>1){{'baby.measules_mumps_rubella' | translate}}</h5>
                                                                     </div>
                                                                   </div>
                                                                   
                                                                   <div class="row">
                                                                     <div class="col-md-4">
                                                                         <mat-form-field class="example-full-width">
-                                                                            <input matInput placeholder="Date" readonly="{{onChange()}}" type= "date" formControlName="measules_mumps_rubella_date">
+                                                                            <input matInput placeholder="{{'baby.date' | translate}}" readonly="{{onChange()}}" type= "date" formControlName="measules_mumps_rubella_date">
                                                                           </mat-form-field>
                                                                     </div>
                                                                     <div class="col-md-4">
                                                                         <mat-form-field class="example-full-width">
-                                                                            <input matInput placeholder="Batch No" readonly="{{onChange()}}" type= "text" formControlName="measules_mumps_rubella_batch_no">
+                                                                            <input matInput placeholder="{{'baby.batch_no' | translate}}" readonly="{{onChange()}}" type= "text" formControlName="measules_mumps_rubella_batch_no">
                                                                           </mat-form-field>
                                                                     </div>
                                                                     
@@ -1847,27 +1847,27 @@
                                                                   <div class="row">
                                                                     <div class="col-md-12">
                                                                         <mat-form-field class="example-full-width">
-                                                                            <input matInput placeholder="Effects Of Immunization" readonly="{{onChange()}}" type= "text" formControlName="measules_mumps_rubella_effects_of_immunization">
+                                                                            <input matInput placeholder="{{'baby.effects_of_immunization' | translate}}" readonly="{{onChange()}}" type= "text" formControlName="measules_mumps_rubella_effects_of_immunization">
                                                                           </mat-form-field>
                                                                     </div>
                                                                   </div>
   
-                                                                  <h4>Eighteen Months Completed</h4>
+                                                                  <h4>{{'baby.eighteen_months' | translate}}</h4>
                                                                 <div class="row">
                                                                     <div class="col-md-12">
-                                                                      <h5>1) DPT</h5>
+                                                                      <h5>1) {{'baby.dpt' | translate}}</h5>
                                                                     </div>
                                                                   </div>
                                                                   
                                                                   <div class="row">
                                                                     <div class="col-md-4">
                                                                         <mat-form-field class="example-full-width">
-                                                                            <input matInput placeholder="Date" readonly="{{onChange()}}" type= "date" formControlName="dpt_date">
+                                                                            <input matInput placeholder="{{'baby.date' | translate}}" readonly="{{onChange()}}" type= "date" formControlName="dpt_date">
                                                                           </mat-form-field>
                                                                     </div>
                                                                     <div class="col-md-4">
                                                                         <mat-form-field class="example-full-width">
-                                                                            <input matInput placeholder="Batch No" readonly="{{onChange()}}" type= "text" formControlName="dpt_batch_no">
+                                                                            <input matInput placeholder="{{'baby.batch_no' | translate}}" readonly="{{onChange()}}" type= "text" formControlName="dpt_batch_no">
                                                                           </mat-form-field>
                                                                     </div>
                                                                     
@@ -1875,25 +1875,25 @@
                                                                   <div class="row">
                                                                     <div class="col-md-12">
                                                                         <mat-form-field class="example-full-width">
-                                                                            <input matInput placeholder="Effects Of Immunization" readonly="{{onChange()}}" type= "text" formControlName="dpt_effects_of_immunization">
+                                                                            <input matInput placeholder="{{'baby.effects_of_immunization' | translate}}" readonly="{{onChange()}}" type= "text" formControlName="dpt_effects_of_immunization">
                                                                           </mat-form-field>
                                                                     </div>
                                                                   </div>
                                                                   <div class="row">
                                                                       <div class="col-md-12">
-                                                                        <h5>2) OPV 4</h5>
+                                                                        <h5>2) {{'baby.opv_four' | translate}}</h5>
                                                                       </div>
                                                                     </div>
                                                                     
                                                                     <div class="row">
                                                                       <div class="col-md-4">
                                                                           <mat-form-field class="example-full-width">
-                                                                              <input matInput placeholder="Date" readonly="{{onChange()}}" type= "date" formControlName="opv_four_date">
+                                                                              <input matInput placeholder="{{'baby.date' | translate}}" readonly="{{onChange()}}" type= "date" formControlName="opv_four_date">
                                                                             </mat-form-field>
                                                                       </div>
                                                                       <div class="col-md-4">
                                                                           <mat-form-field class="example-full-width">
-                                                                              <input matInput placeholder="Batch No" readonly="{{onChange()}}" type= "text" formControlName="opv_four_batch_no">
+                                                                              <input matInput placeholder="{{'baby.batch_no' | translate}}" readonly="{{onChange()}}" type= "text" formControlName="opv_four_batch_no">
                                                                             </mat-form-field>
                                                                       </div>
                                                                       
@@ -1901,27 +1901,27 @@
                                                                     <div class="row">
                                                                       <div class="col-md-12">
                                                                           <mat-form-field class="example-full-width">
-                                                                              <input matInput placeholder="Effects Of Immunization" readonly="{{onChange()}}" type= "text" formControlName="opv_four_effects_of_immunization">
+                                                                              <input matInput placeholder="{{'baby.effects_of_immunization' | translate}}" readonly="{{onChange()}}" type= "text" formControlName="opv_four_effects_of_immunization">
                                                                             </mat-form-field>
                                                                       </div>
                                                                     </div>
   
-                                                                    <h4>Three Years Completed</h4>
+                                                                    <h4>{{'baby.three_year' | translate}}</h4>
                                                                 <div class="row">
                                                                     <div class="col-md-12">
-                                                                      <h5>1) Measules Rubella 2</h5>
+                                                                      <h5>1) {{'baby.measules_rubella_two '| translate}}</h5>
                                                                     </div>
                                                                   </div>
                                                                   
                                                                   <div class="row">
                                                                     <div class="col-md-4">
                                                                         <mat-form-field class="example-full-width">
-                                                                            <input matInput placeholder="Date" readonly="{{onChange()}}" type= "date" formControlName="measules_rubella_two_date">
+                                                                            <input matInput placeholder="{{'baby.date' | translate}}" readonly="{{onChange()}}" type= "date" formControlName="measules_rubella_two_date">
                                                                           </mat-form-field>
                                                                     </div>
                                                                     <div class="col-md-4">
                                                                         <mat-form-field class="example-full-width">
-                                                                            <input matInput placeholder="Batch No" readonly="{{onChange()}}" type= "text" formControlName="measules_rubella_two_batch_no">
+                                                                            <input matInput placeholder="{{'baby.batch_no' | translate}}" readonly="{{onChange()}}" type= "text" formControlName="measules_rubella_two_batch_no">
                                                                           </mat-form-field>
                                                                     </div>
                                                                     
@@ -1929,27 +1929,27 @@
                                                                   <div class="row">
                                                                     <div class="col-md-12">
                                                                         <mat-form-field class="example-full-width">
-                                                                            <input matInput placeholder="Effects Of Immunization" readonly="{{onChange()}}" type= "text" formControlName="measules_rubella_two_effects_of_immunization">
+                                                                            <input matInput placeholder="{{'baby.effects_of_immunization' | translate}}" readonly="{{onChange()}}" type= "text" formControlName="measules_rubella_two_effects_of_immunization">
                                                                           </mat-form-field>
                                                                     </div>
                                                                   </div>
   
-                                                                  <h4>Five Years Completed</h4>
+                                                                  <h4>{{'baby.five_year' | translate}}</h4>
                                                                   <div class="row">
                                                                       <div class="col-md-12">
-                                                                        <h5>1) DT</h5>
+                                                                        <h5>1) {{'baby.d_t ' | translate}}</h5>
                                                                       </div>
                                                                     </div>
                                                                     
                                                                     <div class="row">
                                                                       <div class="col-md-4">
                                                                           <mat-form-field class="example-full-width">
-                                                                              <input matInput placeholder="Date" readonly="{{onChange()}}" type= "date" formControlName="d_t_date">
+                                                                              <input matInput placeholder="{{'baby.date' | translate}}" readonly="{{onChange()}}" type= "date" formControlName="d_t_date">
                                                                             </mat-form-field>
                                                                       </div>
                                                                       <div class="col-md-4">
                                                                           <mat-form-field class="example-full-width">
-                                                                              <input matInput placeholder="Batch No" readonly="{{onChange()}}" type= "text" formControlName="d_t_batch_no">
+                                                                              <input matInput placeholder="{{'baby.batch_no' | translate}}" readonly="{{onChange()}}" type= "text" formControlName="d_t_batch_no">
                                                                             </mat-form-field>
                                                                       </div>
                                                                       
@@ -1957,25 +1957,25 @@
                                                                     <div class="row">
                                                                       <div class="col-md-12">
                                                                           <mat-form-field class="example-full-width">
-                                                                              <input matInput placeholder="Effects Of Immunization" readonly="{{onChange()}}" type= "text" formControlName="d_t_effects_of_immunization">
+                                                                              <input matInput placeholder="{{'baby.effects_of_immunization' | translate}}" readonly="{{onChange()}}" type= "text" formControlName="d_t_effects_of_immunization">
                                                                             </mat-form-field>
                                                                       </div>
                                                                     </div>
                                                                     <div class="row">
                                                                         <div class="col-md-12">
-                                                                          <h5>2) OPV 5</h5>
+                                                                          <h5>2) {{'baby.opv_five' | translate}}</h5>
                                                                         </div>
                                                                       </div>
                                                                       
                                                                       <div class="row">
                                                                         <div class="col-md-4">
                                                                             <mat-form-field class="example-full-width">
-                                                                                <input matInput placeholder="Date" readonly="{{onChange()}}" type= "date" formControlName="opv_five_date">
+                                                                                <input matInput placeholder="{{'baby.date' | translate}}" readonly="{{onChange()}}" type= "date" formControlName="opv_five_date">
                                                                               </mat-form-field>
                                                                         </div>
                                                                         <div class="col-md-4">
                                                                             <mat-form-field class="example-full-width">
-                                                                                <input matInput placeholder="Batch No" readonly="{{onChange()}}" type= "text" formControlName="opv_five_batch_no">
+                                                                                <input matInput placeholder="{{'baby.batch_no' | translate}}" readonly="{{onChange()}}" type= "text" formControlName="opv_five_batch_no">
                                                                               </mat-form-field>
                                                                         </div>
                                                                         
@@ -1983,27 +1983,27 @@
                                                                       <div class="row">
                                                                         <div class="col-md-12">
                                                                             <mat-form-field class="example-full-width">
-                                                                                <input matInput placeholder="Effects Of Immunization" readonly="{{onChange()}}" type= "text" formControlName="opv_five_effects_of_immunization">
+                                                                                <input matInput placeholder="{{'baby.effects_of_immunization' | translate}}" readonly="{{onChange()}}" type= "text" formControlName="opv_five_effects_of_immunization">
                                                                               </mat-form-field>
                                                                         </div>
                                                                       </div>
   
-                                                                      <h5>Twelve Years Completed</h5>
+                                                                      <h5>{{'baby.twelve_year' | translate}}</h5>
                                                                       <div class="row">
                                                                           <div class="col-md-12">
-                                                                            <h5>1) Adult Tatanus Diphtheria</h5>
+                                                                            <h5>1) {{'baby.adult_tatanus_diphtheria' | translate}}</h5>
                                                                           </div>
                                                                         </div>
                                                                         
                                                                         <div class="row">
                                                                           <div class="col-md-4">
                                                                               <mat-form-field class="example-full-width">
-                                                                                  <input matInput placeholder="Date" readonly="{{onChange()}}" type= "date" formControlName="adult_tatanus_diphtheria_date">
+                                                                                  <input matInput placeholder="{{'baby.date' | translate}}" readonly="{{onChange()}}" type= "date" formControlName="adult_tatanus_diphtheria_date">
                                                                                 </mat-form-field>
                                                                           </div>
                                                                           <div class="col-md-4">
                                                                               <mat-form-field class="example-full-width">
-                                                                                  <input matInput placeholder="Batch No" readonly="{{onChange()}}" type= "text" formControlName="adult_tatanus_diphtheria_batch_no">
+                                                                                  <input matInput placeholder="{{'baby.batch_no' | translate}}" readonly="{{onChange()}}" type= "text" formControlName="adult_tatanus_diphtheria_batch_no">
                                                                                 </mat-form-field>
                                                                           </div>
                                                                           
@@ -2011,23 +2011,23 @@
                                                                         <div class="row">
                                                                           <div class="col-md-12">
                                                                               <mat-form-field class="example-full-width">
-                                                                                  <input matInput placeholder="Effects Of Immunization" readonly="{{onChange()}}" type= "text" formControlName="adult_tatanus_diphtheria_effects_of_immunization">
+                                                                                  <input matInput placeholder="{{'baby.effects_of_immunization' | translate}}" readonly="{{onChange()}}" type= "text" formControlName="adult_tatanus_diphtheria_effects_of_immunization">
                                                                                 </mat-form-field>
                                                                           </div>
                                                                         </div>
   
-                                                                        <h5>Other</h5>
+                                                                        <h5>{{'baby.other' | translate}}</h5>
                                                                       
                                                                         
                                                                         <div class="row">
                                                                           <div class="col-md-4">
                                                                               <mat-form-field class="example-full-width">
-                                                                                  <input matInput placeholder="Date" readonly="{{onChange()}}" type= "date" formControlName="other_vaccine_date">
+                                                                                  <input matInput placeholder="{{'baby.date' | translate}}" readonly="{{onChange()}}" type= "date" formControlName="other_vaccine_date">
                                                                                 </mat-form-field>
                                                                           </div>
                                                                           <div class="col-md-4">
                                                                               <mat-form-field class="example-full-width">
-                                                                                  <input matInput placeholder="Batch No" readonly="{{onChange()}}" type= "text" formControlName="other_batch_no">
+                                                                                  <input matInput placeholder="{{'baby.batch_no' | translate}}" readonly="{{onChange()}}" type= "text" formControlName="other_batch_no">
                                                                                 </mat-form-field>
                                                                           </div>
                                                                           
@@ -2035,7 +2035,7 @@
                                                                         <div class="row">
                                                                           <div class="col-md-12">
                                                                               <mat-form-field class="example-full-width">
-                                                                                  <input matInput placeholder="Effects Of Immunization" readonly="{{onChange()}}" type= "text" formControlName="other_effects_of_immunization">
+                                                                                  <input matInput placeholder="{{'baby.effects_of_immunization' | translate}}" readonly="{{onChange()}}" type= "text" formControlName="other_effects_of_immunization">
                                                                                 </mat-form-field>
                                                                           </div>
                                                                         </div>
@@ -2043,7 +2043,7 @@
                                                     </div>
                                                   <div class="fifith_page">
                                                     <!--start of fifith page-->
-                                                    <h3>Refferals Of Immunization</h3>
+                                                    <h3>{{'baby.Refferals_Of_I' | translate}}</h3>
                                                     <div class="card-body">
                                                         <div class="tab-content">
                                                             <div class="tab-pane active" id="profile">
@@ -2051,10 +2051,10 @@
                                                                       <tbody>
                                                                         <tr>
                                                                           <div class="row">
-                                                                            <div class="col-md-2">Date</div>
-                                                                            <div class="col-md-4">Reason for Refferals</div>
-                                                                            <div class="col-md-2">Place Of Refferal</div>
-                                                                            <div class="col-md-4">Notes Back Of Refferals</div>
+                                                                            <div class="col-md-2">{{'baby.date' | translate}}</div>
+                                                                            <div class="col-md-4">{{'baby.reason_for_referrals' | translate}}</div>
+                                                                            <div class="col-md-2">{{'baby.place_of_refferal' | translate}}</div>
+                                                                            <div class="col-md-4">{{'baby.notes_on_back' | translate}}</div>
                                                                           </div>
                                                                         </tr>
                                                                         <tr>
@@ -2089,135 +2089,135 @@
   
                                                               <div class="second_field">
                                                                 <!--start second field-->
-                                                                <h3>Vitamine A</h3>
+                                                                <h3>{{'baby.A_vitamine' | translate}}</h3>
                                                                 <div class="row">
-                                                                  <div class="col-md-3">6 Months</div>
+                                                                  <div class="col-md-3">{{'baby.six_month' | translate}}</div>
                                                                   <div class="col-md-3">
                                                                       <mat-form-field class="example-full-width">
-                                                                          <input matInput placeholder="Date" readonly="{{onChange()}}" type= "date" formControlName="A_vitamine_six_month_date">
+                                                                          <input matInput placeholder="{{'baby.date' | translate}}" readonly="{{onChange()}}" type= "date" formControlName="A_vitamine_six_month_date">
                                                                         </mat-form-field>
                                                                   </div>
                                                                   <div class="col-md-3">
                                                                       <mat-form-field class="example-full-width">
-                                                                          <input matInput placeholder="Batch No" readonly="{{onChange()}}" type= "text" formControlName="A_vitamine_six_month_batch_no">
+                                                                          <input matInput placeholder="{{'baby.batch_no' | translate}}" readonly="{{onChange()}}" type= "text" formControlName="A_vitamine_six_month_batch_no">
                                                                         </mat-form-field>
                                                                   </div>
                                                                 </div>
   
                                                                 <div class="row">
-                                                                    <div class="col-md-3">1 Years</div>
+                                                                    <div class="col-md-3">{{'baby.one_year' | translate}}</div>
                                                                     <div class="col-md-3">
                                                                         <mat-form-field class="example-full-width">
-                                                                            <input matInput placeholder="Date" readonly="{{onChange()}}" type= "date" formControlName="A_vitamine_one_year_date">
+                                                                            <input matInput placeholder="{{'baby.date' | translate}}" readonly="{{onChange()}}" type= "date" formControlName="A_vitamine_one_year_date">
                                                                           </mat-form-field>
                                                                     </div>
                                                                     <div class="col-md-3">
                                                                         <mat-form-field class="example-full-width">
-                                                                            <input matInput placeholder="Batch No" readonly="{{onChange()}}" type= "text" formControlName="A_vitamine_one_year_batch_no">
+                                                                            <input matInput placeholder="{{'baby.batch_no' | translate}}" readonly="{{onChange()}}" type= "text" formControlName="A_vitamine_one_year_batch_no">
                                                                           </mat-form-field>
                                                                     </div>
                                                                   </div>
                                                                   <div class="row">
-                                                                      <div class="col-md-3">1 1/2Years</div>
+                                                                      <div class="col-md-3">{{'baby.one_half_year' | translate}}</div>
                                                                       <div class="col-md-3">
                                                                           <mat-form-field class="example-full-width">
-                                                                              <input matInput placeholder="Date" readonly="{{onChange()}}" type= "date" formControlName="A_vitamine_one_half_year_date">
+                                                                              <input matInput placeholder="{{'baby.date' | translate}}" readonly="{{onChange()}}" type= "date" formControlName="A_vitamine_one_half_year_date">
                                                                             </mat-form-field>
                                                                       </div>
                                                                       <div class="col-md-3">
                                                                           <mat-form-field class="example-full-width">
-                                                                              <input matInput placeholder="Batch No" readonly="{{onChange()}}" type= "text" formControlName="A_vitamine_one_half_year_batch_no">
+                                                                              <input matInput placeholder="{{'baby.batch_no' | translate}}" readonly="{{onChange()}}" type= "text" formControlName="A_vitamine_one_half_year_batch_no">
                                                                             </mat-form-field>
                                                                       </div>
                                                                     </div>
                                                                     <div class="row">
-                                                                        <div class="col-md-3">2 Years</div>
+                                                                        <div class="col-md-3">{{'baby.two_year' | translate}}</div>
                                                                         <div class="col-md-3">
                                                                             <mat-form-field class="example-full-width">
-                                                                                <input matInput placeholder="Date" readonly="{{onChange()}}" type= "date" formControlName="A_vitamine_two_year_date">
+                                                                                <input matInput placeholder="{{'baby.date' | translate}}" readonly="{{onChange()}}" type= "date" formControlName="A_vitamine_two_year_date">
                                                                               </mat-form-field>
                                                                         </div>
                                                                         <div class="col-md-3">
                                                                             <mat-form-field class="example-full-width">
-                                                                                <input matInput placeholder="Batch No" readonly="{{onChange()}}" type= "text" formControlName="A_vitamine_two_year_batch_no">
+                                                                                <input matInput placeholder="{{'baby.batch_no' | translate}}" readonly="{{onChange()}}" type= "text" formControlName="A_vitamine_two_year_batch_no">
                                                                               </mat-form-field>
                                                                         </div>
                                                                       </div>
                                                                       <div class="row">
-                                                                          <div class="col-md-3">2 1/2 Years</div>
+                                                                          <div class="col-md-3">{{'baby.two_half_year' | translate}}</div>
                                                                           <div class="col-md-3">
                                                                               <mat-form-field class="example-full-width">
-                                                                                  <input matInput placeholder="Date" readonly="{{onChange()}}" type= "date" formControlName="A_vitamine_two_half_year_date">
+                                                                                  <input matInput placeholder="{{'baby.date' | translate}}" readonly="{{onChange()}}" type= "date" formControlName="A_vitamine_two_half_year_date">
                                                                                 </mat-form-field>
                                                                           </div>
                                                                           <div class="col-md-3">
                                                                               <mat-form-field class="example-full-width">
-                                                                                  <input matInput placeholder="Batch No" readonly="{{onChange()}}" type= "text" formControlName="A_vitamine_two_half_year_batch_no">
+                                                                                  <input matInput placeholder="{{'baby.batch_no' | translate}}" readonly="{{onChange()}}" type= "text" formControlName="A_vitamine_two_half_year_batch_no">
                                                                                 </mat-form-field>
                                                                           </div>
                                                                         </div>
                                                                         <div class="row">
-                                                                            <div class="col-md-3">3 Years</div>
+                                                                            <div class="col-md-3">{{'baby.three_yea' | translate}}</div>
                                                                             <div class="col-md-3">
                                                                                 <mat-form-field class="example-full-width">
-                                                                                    <input matInput placeholder="Date" readonly="{{onChange()}}" type= "date" formControlName="A_vitamine_three_year_date">
+                                                                                    <input matInput placeholder="{{'baby.date' | translate}}" readonly="{{onChange()}}" type= "date" formControlName="A_vitamine_three_year_date">
                                                                                   </mat-form-field>
                                                                             </div>
                                                                             <div class="col-md-3">
                                                                                 <mat-form-field class="example-full-width">
-                                                                                    <input matInput placeholder="Batch No" readonly="{{onChange()}}" type= "text" formControlName="A_vitamine_three_year_batch_no">
+                                                                                    <input matInput placeholder="{{'baby.batch_no' | translate}}" readonly="{{onChange()}}" type= "text" formControlName="A_vitamine_three_year_batch_no">
                                                                                   </mat-form-field>
                                                                             </div>
                                                                           </div>
                                                                           <div class="row">
-                                                                              <div class="col-md-3">3 1/2 Years</div>
+                                                                              <div class="col-md-3">{{'baby.three_half_year' | translate}}</div>
                                                                               <div class="col-md-3">
                                                                                   <mat-form-field class="example-full-width">
-                                                                                      <input matInput placeholder="Date" readonly="{{onChange()}}" type= "date" formControlName="A_vitamine_three_half_year_date">
+                                                                                      <input matInput placeholder="{{'baby.date' | translate}}" readonly="{{onChange()}}" type= "date" formControlName="A_vitamine_three_half_year_date">
                                                                                     </mat-form-field>
                                                                               </div>
                                                                               <div class="col-md-3">
                                                                                   <mat-form-field class="example-full-width">
-                                                                                      <input matInput placeholder="Batch No" readonly="{{onChange()}}" type= "text" formControlName="A_vitamine_three_half_year_batch_no">
+                                                                                      <input matInput placeholder="{{'baby.batch_no' | translate}}" readonly="{{onChange()}}" type= "text" formControlName="A_vitamine_three_half_year_batch_no">
                                                                                     </mat-form-field>
                                                                               </div>
                                                                             </div>
                                                                             <div class="row">
-                                                                                <div class="col-md-3">4 Years</div>
+                                                                                <div class="col-md-3">{{'baby.four_year' |translate}}</div>
                                                                                 <div class="col-md-3">
                                                                                     <mat-form-field class="example-full-width">
-                                                                                        <input matInput placeholder="Date" readonly="{{onChange()}}" type= "date" formControlName="A_vitamine_four_year_date">
+                                                                                        <input matInput placeholder="{{'baby.date' | translate}}" readonly="{{onChange()}}" type= "date" formControlName="A_vitamine_four_year_date">
                                                                                       </mat-form-field>
                                                                                 </div>
                                                                                 <div class="col-md-3">
                                                                                     <mat-form-field class="example-full-width">
-                                                                                        <input matInput placeholder="Batch No" readonly="{{onChange()}}" type= "text" formControlName="A_vitamine_four_year_batch_no">
+                                                                                        <input matInput placeholder="{{'baby.batch_no' | translate}}" readonly="{{onChange()}}" type= "text" formControlName="A_vitamine_four_year_batch_no">
                                                                                       </mat-form-field>
                                                                                 </div>
                                                                               </div>
                                                                               <div class="row">
-                                                                                  <div class="col-md-3">4 1/2 Years</div>
+                                                                                  <div class="col-md-3">{{'baby.four_half_year' | translate}}</div>
                                                                                   <div class="col-md-3">
                                                                                       <mat-form-field class="example-full-width">
-                                                                                          <input matInput placeholder="Date" readonly="{{onChange()}}" type= "date" formControlName="A_vitamine_four_half_year_date">
+                                                                                          <input matInput placeholder="{{'baby.date' | translate}}" readonly="{{onChange()}}" type= "date" formControlName="A_vitamine_four_half_year_date">
                                                                                         </mat-form-field>
                                                                                   </div>
                                                                                   <div class="col-md-3">
                                                                                       <mat-form-field class="example-full-width">
-                                                                                          <input matInput placeholder="Batch No" readonly="{{onChange()}}" type= "text" formControlName="A_vitamine_four_half_year_batch_no">
+                                                                                          <input matInput placeholder="{{'baby.batch_no' | translate}}" readonly="{{onChange()}}" type= "text" formControlName="A_vitamine_four_half_year_batch_no">
                                                                                         </mat-form-field>
                                                                                   </div>
                                                                                 </div>
                                                                                 <div class="row">
-                                                                                    <div class="col-md-3">5 Years</div>
+                                                                                    <div class="col-md-3">{{'baby.five_yea' | translate}}</div>
                                                                                     <div class="col-md-3">
                                                                                         <mat-form-field class="example-full-width">
-                                                                                            <input matInput placeholder="Date" readonly="{{onChange()}}" type= "date" formControlName="A_vitamine_five_year_date">
+                                                                                            <input matInput placeholder="{{'baby.date' | translate}}" readonly="{{onChange()}}" type= "date" formControlName="A_vitamine_five_year_date">
                                                                                           </mat-form-field>
                                                                                     </div>
                                                                                     <div class="col-md-3">
                                                                                         <mat-form-field class="example-full-width">
-                                                                                            <input matInput placeholder="Batch No" readonly="{{onChange()}}" type= "text" formControlName="A_vitamine_five_year_batch_no">
+                                                                                            <input matInput placeholder="{{'baby.batch_no' | translate}}" readonly="{{onChange()}}" type= "text" formControlName="A_vitamine_five_year_batch_no">
                                                                                           </mat-form-field>
                                                                                     </div>
                                                                                   </div>
@@ -2226,122 +2226,122 @@
   
                                                               <div class="third_field">
                                                                   <!--start second field-->
-                                                                  <h3>Warm Treat</h3>
+                                                                  <h3>{{'baby.warm_treat' | translate}}</h3>
                                                                   
                                                                   <div class="row">
-                                                                      <div class="col-md-3">1 Years</div>
+                                                                      <div class="col-md-3">{{'baby.one_year' | translate}}</div>
                                                                       <div class="col-md-3">
                                                                           <mat-form-field class="example-full-width">
-                                                                              <input matInput placeholder="Date" readonly="{{onChange()}}" type= "date" formControlName="warm_treat_one_year_date">
+                                                                              <input matInput placeholder="{{'baby.date' | translate}}" readonly="{{onChange()}}" type= "date" formControlName="warm_treat_one_year_date">
                                                                             </mat-form-field>
                                                                       </div>
                                                                       <div class="col-md-3">
                                                                           <mat-form-field class="example-full-width">
-                                                                              <input matInput placeholder="Batch No" readonly="{{onChange()}}" type= "text" formControlName="warm_treat_one_year_batch_no">
+                                                                              <input matInput placeholder="{{'baby.batch_no' | translate}}" readonly="{{onChange()}}" type= "text" formControlName="warm_treat_one_year_batch_no">
                                                                             </mat-form-field>
                                                                       </div>
                                                                     </div>
                                                                     <div class="row">
-                                                                        <div class="col-md-3">1 1/2Years</div>
+                                                                        <div class="col-md-3">{{'baby.one_half_year' | translate}}</div>
                                                                         <div class="col-md-3">
                                                                             <mat-form-field class="example-full-width">
-                                                                                <input matInput placeholder="Date" readonly="{{onChange()}}" type= "date" formControlName="warm_treat_one_half_year_date">
+                                                                                <input matInput placeholder="{{'baby.date' | translate}}" readonly="{{onChange()}}" type= "date" formControlName="warm_treat_one_half_year_date">
                                                                               </mat-form-field>
                                                                         </div>
                                                                         <div class="col-md-3">
                                                                             <mat-form-field class="example-full-width">
-                                                                                <input matInput placeholder="Batch No" readonly="{{onChange()}}" type= "text" formControlName="warm_treat_one_half_year_batch_no">
+                                                                                <input matInput placeholder="{{'baby.batch_no' | translate}}" readonly="{{onChange()}}" type= "text" formControlName="warm_treat_one_half_year_batch_no">
                                                                               </mat-form-field>
                                                                         </div>
                                                                       </div>
                                                                       <div class="row">
-                                                                          <div class="col-md-3">2 Years</div>
+                                                                          <div class="col-md-3">{{'baby.two_year' | translate}}</div>
                                                                           <div class="col-md-3">
                                                                               <mat-form-field class="example-full-width">
-                                                                                  <input matInput placeholder="Date" readonly="{{onChange()}}" type= "date" formControlName="warm_treat_two_year_date">
+                                                                                  <input matInput placeholder="{{'baby.date' | translate}}" readonly="{{onChange()}}" type= "date" formControlName="warm_treat_two_year_date">
                                                                                 </mat-form-field>
                                                                           </div>
                                                                           <div class="col-md-3">
                                                                               <mat-form-field class="example-full-width">
-                                                                                  <input matInput placeholder="Batch No" readonly="{{onChange()}}" type= "text" formControlName="warm_treat_two_year_batch_no">
+                                                                                  <input matInput placeholder="{{'baby.batch_no' | translate}}" readonly="{{onChange()}}" type= "text" formControlName="warm_treat_two_year_batch_no">
                                                                                 </mat-form-field>
                                                                           </div>
                                                                         </div>
                                                                         <div class="row">
-                                                                            <div class="col-md-3">2 1/2 Years</div>
+                                                                            <div class="col-md-3">{{'baby.two_half_year' | translate}}</div>
                                                                             <div class="col-md-3">
                                                                                 <mat-form-field class="example-full-width">
-                                                                                    <input matInput placeholder="Date" readonly="{{onChange()}}" type= "date" formControlName="warm_treat_two_half_year_date">
+                                                                                    <input matInput placeholder="{{'baby.date' | translate}}" readonly="{{onChange()}}" type= "date" formControlName="warm_treat_two_half_year_date">
                                                                                   </mat-form-field>
                                                                             </div>
                                                                             <div class="col-md-3">
                                                                                 <mat-form-field class="example-full-width">
-                                                                                    <input matInput placeholder="Batch No" readonly="{{onChange()}}" type= "text" formControlName="warm_treat_two_half_year_batch_no">
+                                                                                    <input matInput placeholder="{{'baby.batch_no' | translate}}" readonly="{{onChange()}}" type= "text" formControlName="warm_treat_two_half_year_batch_no">
                                                                                   </mat-form-field>
                                                                             </div>
                                                                           </div>
                                                                           <div class="row">
-                                                                              <div class="col-md-3">3 Years</div>
+                                                                              <div class="col-md-3">{{'baby.three_yea' | translate}}</div>
                                                                               <div class="col-md-3">
                                                                                   <mat-form-field class="example-full-width">
-                                                                                      <input matInput placeholder="Date" readonly="{{onChange()}}" type= "date" formControlName="warm_treat_three_year_date">
+                                                                                      <input matInput placeholder="{{'baby.date' | translate}}" readonly="{{onChange()}}" type= "date" formControlName="warm_treat_three_year_date">
                                                                                     </mat-form-field>
                                                                               </div>
                                                                               <div class="col-md-3">
                                                                                   <mat-form-field class="example-full-width">
-                                                                                      <input matInput placeholder="Batch No" readonly="{{onChange()}}" type= "text" formControlName="warm_treat_three_year_batch_no">
+                                                                                      <input matInput placeholder="{{'baby.batch_no' | translate}}" readonly="{{onChange()}}" type= "text" formControlName="warm_treat_three_year_batch_no">
                                                                                     </mat-form-field>
                                                                               </div>
                                                                             </div>
                                                                             <div class="row">
-                                                                                <div class="col-md-3">3 1/2 Years</div>
+                                                                                <div class="col-md-3">{{'baby.three_half_year' | translate}}</div>
                                                                                 <div class="col-md-3">
                                                                                     <mat-form-field class="example-full-width">
-                                                                                        <input matInput placeholder="Date" readonly="{{onChange()}}" type= "date" formControlName="warm_treat_three_half_year_date">
+                                                                                        <input matInput placeholder="{{'baby.date' | translate}}" readonly="{{onChange()}}" type= "date" formControlName="warm_treat_three_half_year_date">
                                                                                       </mat-form-field>
                                                                                 </div>
                                                                                 <div class="col-md-3">
                                                                                     <mat-form-field class="example-full-width">
-                                                                                        <input matInput placeholder="Batch No" readonly="{{onChange()}}" type= "text" formControlName="warm_treat_three_half_year_batch_no">
+                                                                                        <input matInput placeholder="{{'baby.batch_no' | translate}}" readonly="{{onChange()}}" type= "text" formControlName="warm_treat_three_half_year_batch_no">
                                                                                       </mat-form-field>
                                                                                 </div>
                                                                               </div>
                                                                               <div class="row">
-                                                                                  <div class="col-md-3">4 Years</div>
+                                                                                  <div class="col-md-3">{{'baby.four_year' |translate}}</div>
                                                                                   <div class="col-md-3">
                                                                                       <mat-form-field class="example-full-width">
-                                                                                          <input matInput placeholder="Date" readonly="{{onChange()}}" type= "date" formControlName="warm_treat_four_year_date">
+                                                                                          <input matInput placeholder="{{'baby.date' | translate}}" readonly="{{onChange()}}" type= "date" formControlName="warm_treat_four_year_date">
                                                                                         </mat-form-field>
                                                                                   </div>
                                                                                   <div class="col-md-3">
                                                                                       <mat-form-field class="example-full-width">
-                                                                                          <input matInput placeholder="Batch No" readonly="{{onChange()}}" type= "text" formControlName="warm_treat_four_year_batch_no">
+                                                                                          <input matInput placeholder="{{'baby.batch_no' | translate}}" readonly="{{onChange()}}" type= "text" formControlName="warm_treat_four_year_batch_no">
                                                                                         </mat-form-field>
                                                                                   </div>
                                                                                 </div>
                                                                                 <div class="row">
-                                                                                    <div class="col-md-3">4 1/2 Years</div>
+                                                                                    <div class="col-md-3">{{'baby.four_half_year' | translate}}</div>
                                                                                     <div class="col-md-3">
                                                                                         <mat-form-field class="example-full-width">
-                                                                                            <input matInput placeholder="Date" readonly="{{onChange()}}" type= "date" formControlName="warm_treat_four_half_year_date">
+                                                                                            <input matInput placeholder="{{'baby.date' | translate}}" readonly="{{onChange()}}" type= "date" formControlName="warm_treat_four_half_year_date">
                                                                                           </mat-form-field>
                                                                                     </div>
                                                                                     <div class="col-md-3">
                                                                                         <mat-form-field class="example-full-width">
-                                                                                            <input matInput placeholder="Batch No" readonly="{{onChange()}}" type= "text" formControlName="warm_treat_four_half_year_batch_no">
+                                                                                            <input matInput placeholder="{{'baby.batch_no' | translate}}" readonly="{{onChange()}}" type= "text" formControlName="warm_treat_four_half_year_batch_no">
                                                                                           </mat-form-field>
                                                                                     </div>
                                                                                   </div>
                                                                                   <div class="row">
-                                                                                      <div class="col-md-3">5 Years</div>
+                                                                                      <div class="col-md-3">{{'baby.five_yea' | translate}}</div>
                                                                                       <div class="col-md-3">
                                                                                           <mat-form-field class="example-full-width">
-                                                                                              <input matInput placeholder="Date" readonly="{{onChange()}}" type= "date" formControlName="warm_treat_five_year_date">
+                                                                                              <input matInput placeholder="{{'baby.date' | translate}}" readonly="{{onChange()}}" type= "date" formControlName="warm_treat_five_year_date">
                                                                                             </mat-form-field>
                                                                                       </div>
                                                                                       <div class="col-md-3">
                                                                                           <mat-form-field class="example-full-width">
-                                                                                              <input matInput placeholder="Batch No" readonly="{{onChange()}}" type= "text" formControlName="warm_treat_five_year_batch_no">
+                                                                                              <input matInput placeholder="{{'baby.batch_no' | translate}}" readonly="{{onChange()}}" type= "text" formControlName="warm_treat_five_year_batch_no">
                                                                                             </mat-form-field>
                                                                                       </div>
                                                                                     </div>
@@ -4989,7 +4989,7 @@
                                            <div class="row">
                                               <div class="col-md-3">
                                                   <mat-form-field class="example-full-width">
-                                                    <input matInput placeholder="Date" readonly="{{onChange()}}" type= "date" formControlName="admit_date">
+                                                    <input matInput placeholder="{{'baby.date' | translate}}" readonly="{{onChange()}}" type= "date" formControlName="admit_date">
                                                   </mat-form-field>
                                                  </div>
                                            </div>
