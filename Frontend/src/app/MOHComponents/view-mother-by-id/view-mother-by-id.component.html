@@ -4,16 +4,16 @@
   <div class="row">
         <div class="col-md-8"></div>
         <div class="col-md-2">
-            <mat-slide-toggle  [formControl]="autoRenew" (change)="onChange()">Edit  details</mat-slide-toggle>
+            <mat-slide-toggle  [formControl]="autoRenew" (change)="onChange()">{{'edit'| translate}}</mat-slide-toggle>
         </div>
         <div class="col-md-2">
-           <button  (click)="onClickMe()" class="btn btn-info btn-block">Change As Mother</button>
+           <button  (click)="onClickMe()" class="btn btn-info btn-block">{{'family.changeAsMother'| translate}}</button>
         </div>
         <div class="col-md-12">
       <div class="col-md-12">
           <div class="card">
               <div class="card-header card-header-info">
-                  <h4 class="card-title">View mother details</h4>
+                  <h4 class="card-title">{{'mother.mother'| translate}}</h4>
               </div>
               <div class="card-body">   
                 <form [formGroup]="addMotherForm" (ngSubmit)="onSubmit()" [hidden]="success">
@@ -22,7 +22,7 @@
                     
                             <div class="col-md-2">
                                 <mat-form-field class="example-full-width">
-                                    <input matInput placeholder="Mother ID" type="text" readonly="{{onChange()}}" formControlName="mother_id">
+                                    <input matInput placeholder="{{'mother.mother_id'| translate}}" type="text" readonly="{{onChange()}}" formControlName="mother_id">
                                     <div *ngIf="submit && addMotherSchema.controls.mother_id.errors" class="error">
                                         <div *ngIf="addMotherSchema.controls.mother_id.errors.required">This field is required</div>
                                     </div>
@@ -30,7 +30,7 @@
                             </div>
                             <div class="col-md-3">
                               <mat-form-field class="example-full-width">
-                                  <input matInput placeholder="Mother's Name" type="text" readonly="{{onChange()}}" formControlName="mothers_name">
+                                  <input matInput placeholder="{{'mother.mothers_name'| translate}}" type="text" readonly="{{onChange()}}" formControlName="mothers_name">
                                   <div *ngIf="submit && addMotherSchema.controls.mothers_name.errors" class="error">
                                       <div *ngIf="addMotherSchema.controls.mothers_name.errors.required">This field is required</div>
                                   </div>
@@ -41,7 +41,7 @@
                         <mat-expansion-panel>
                             <mat-expansion-panel-header>
                               <mat-panel-title>
-                                <h5>Personal details</h5>
+                                <h5>{{'mother.personal_details'| translate}}</h5>
                               </mat-panel-title>
                               <mat-panel-description>
                                 Click to View/Edit
@@ -50,7 +50,7 @@
                             <div class="row">
                                 <div class="col-md-3">
                                     <mat-form-field class="example-full-width">
-                                        <input matInput placeholder="Registration Number" type="text"readonly="{{onChange()}}" formControlName="registration_no">
+                                        <input matInput placeholder="{{'mother.registration_no'| translate}}" type="text"readonly="{{onChange()}}" formControlName="registration_no">
                                         <div *ngIf="submit && addMotherSchema.controls.registration_no.errors" class="error">
                                             <div *ngIf="addMotherSchema.controls.registration_no.errors.required">This field is required</div>
                                         </div>
@@ -58,7 +58,7 @@
                             </div>
                             <div class="col-md-3">
                                     <mat-form-field class="example-full-width">
-                                        <input matInput placeholder="Registration Date" type="date" readonly="{{onChange()}}" formControlName="registration_date">
+                                        <input matInput placeholder="{{'mother.registration_date'| translate}}" type="date" readonly="{{onChange()}}" formControlName="registration_date">
                                         <div *ngIf="submit && addMotherSchema.controls.registration_date.errors" class="error">
                                             <div *ngIf="addMotherSchema.controls.registration_date.errors.required">This field is required</div>
                                         </div>
@@ -66,7 +66,7 @@
                             </div>
                                   <div class="col-md-5">
                                           <mat-form-field class="example-full-width">
-                                              <input matInput placeholder="Address" type="text" readonly="{{onChange()}}" formControlName="address">
+                                              <input matInput placeholder="{{'mother.address'| translate}}" type="text" readonly="{{onChange()}}" formControlName="address">
                                               <div *ngIf="submit && addMotherSchema.controls.address.errors" class="error">
                                                   <div *ngIf="addMotherSchema.controls.address.errors.required">This field is required</div>
                                               </div>
@@ -74,7 +74,7 @@
                                   </div>
                                   <div class="col-md-2">
                                           <mat-form-field class="example-full-width">
-                                              <input matInput placeholder="Age" type="number" readonly="{{onChange()}}" formControlName="age" min="0" max="45">
+                                              <input matInput placeholder="{{'mother.age'| translate}}" type="number" readonly="{{onChange()}}" formControlName="age" min="0" max="45">
                                               <div *ngIf="submit && addMotherSchema.controls.age.errors" class="error">
                                                   <div *ngIf="addMotherSchema.controls.age.errors.required">This field is required</div>
                                               </div>
@@ -84,7 +84,7 @@
                               <div class="row">
                                   <div class="col-md-3">
                                           <mat-form-field class="example-full-width">
-                                              <input matInput placeholder="Number of Living Children" type="number" readonly="{{onChange()}}" formControlName="no_of_living_children" min="0">
+                                              <input matInput placeholder="{{'mother.no_of_living_children'| translate}}" type="number" readonly="{{onChange()}}" formControlName="no_of_living_children" min="0">
                                               <div *ngIf="submit && addMotherSchema.controls.no_of_living_children.errors" class="error">
                                                   <div *ngIf="addMotherSchema.controls.no_of_living_children.errors.required">This field is required</div>
                                               </div>
@@ -92,7 +92,7 @@
                                   </div>
                                   <div class="col-md-2">
                                           <mat-form-field class="example-full-width">
-                                              <input matInput placeholder="Gravidity" type="number" readonly="{{onChange()}}" formControlName="gravidity" min="0">
+                                              <input matInput placeholder="{{'mother.gravidity'| translate}}" type="number" readonly="{{onChange()}}" formControlName="gravidity" min="0">
                                               <div *ngIf="submit && addMotherSchema.controls.gravidity.errors" class="error">
                                                       <div *ngIf="addMotherSchema.controls.gravidity.errors.required">This field is required</div>
                                                     </div>
@@ -100,30 +100,30 @@
                                   </div>
                                   <div class="col-md-2">
                                           <mat-form-field class="example-full-width">
-                                              <input matInput placeholder="POA" type="number" readonly="{{onChange()}}" formControlName="POA" min="0">
+                                              <input matInput placeholder="{{'mother.POA'| translate}}" type="number" readonly="{{onChange()}}" formControlName="POA" min="0">
                                           </mat-form-field>
                                   </div>
                                   <div class="col-md-2">
                                           <mat-form-field class="example-full-width">
                                               
-                                              <input matInput placeholder="EDD" type="date" readonly="{{onChange()}}" formControlName="EDD">
+                                              <input matInput placeholder="{{'mother.EDD'| translate}}" type="date" readonly="{{onChange()}}" formControlName="EDD">
                                           </mat-form-field>
                                   </div>
                               </div>
                               <div class="row">
                                   <div class="col-md-3">
                                       <mat-form-field class="example-full-width">
-                                          <input matInput placeholder="Protection against tetanus" type="text" readonly="{{onChange()}}" formControlName="protection_against_tetanus">
+                                          <input matInput placeholder="{{'mother.protection_against_tetanus'| translate}}" type="text" readonly="{{onChange()}}" formControlName="protection_against_tetanus">
                                       </mat-form-field>
                                   </div>
                                   <div class="col-md-3">
                                       <mat-form-field class="example-full-width">
-                                          <input matInput placeholder="Protection against rubella" type="text" readonly="{{onChange()}}" formControlName="protection_against_rubella">
+                                          <input matInput placeholder="{{'mother.protection_against_rubella'| translate}}" type="text" readonly="{{onChange()}}" formControlName="protection_against_rubella">
                                       </mat-form-field>
                                   </div>
                                   <div class="col-md-3">
                                       <mat-form-field class="example-full-width">
-                                          <input matInput placeholder="Risk conditions" type="text" readonly="{{onChange()}}" formControlName="risk_conditions">
+                                          <input matInput placeholder="{{'mother.risk_conditions'| translate}}" type="text" readonly="{{onChange()}}" formControlName="risk_conditions">
                                       </mat-form-field>
                                   </div>
                               </div>
@@ -131,7 +131,7 @@
                   <mat-expansion-panel>
                     <mat-expansion-panel-header>
                       <mat-panel-title>
-                        <h5>Mother's Blood Test Details</h5>
+                        <h5>{{'mother.blood_details'| translate}}</h5>
                       </mat-panel-title>
                       <mat-panel-description>
                         Click to View/Edit
@@ -141,33 +141,33 @@
                   <div class="row">
                       <div class="col-md-3">
                               <mat-form-field class="example-full-width">
-                                  <input matInput placeholder="During the first twelve weeks" type="number" readonly="{{onChange()}}" formControlName="blood_sugar__during_first_twelve_weeks" min="0">
+                                  <input matInput placeholder="{{'mother.blood_sugar__during_first_twelve_weeks'| translate}}" type="number" readonly="{{onChange()}}" formControlName="blood_sugar__during_first_twelve_weeks" min="0">
                               </mat-form-field>
                       </div>
                       <div class="col-md-5">
                               <mat-form-field class="example-full-width">
-                                  <input matInput placeholder="During Twenty four-fourty eight weeks" type="number" readonly="{{onChange()}}" formControlName="blood_sugar__twentyfour_fourtyeight_weeks" min="0" >
+                                  <input matInput placeholder="{{'mother.blood_sugar__twentyfour_fourtyeight_weeks'| translate}}" type="number" readonly="{{onChange()}}" formControlName="blood_sugar__twentyfour_fourtyeight_weeks" min="0" >
                               </mat-form-field>
                       </div>
                   </div>
-                  <label>Hemoglobin Level</label>
+                  <label>{{'mother.hemoglobin_level'| translate}}</label>
                   <div class="row">
                       
                       <div class="col-md-3">
                               <mat-form-field class="example-full-width">
-                                  <input matInput placeholder="During first twelve weeks" type="number" readonly="{{onChange()}}" formControlName="hemoglobin_level__first_twelve_weeks" min="0">
+                                  <input matInput placeholder="{{'mother.hemoglobin_level__first_twelve_weeks'| translate}}" type="number" readonly="{{onChange()}}" formControlName="hemoglobin_level__first_twelve_weeks" min="0">
                               </mat-form-field>
                       </div>
                       <div class="col-md-5">
                               <mat-form-field class="example-full-width">
-                                  <input matInput placeholder="During twenty six-twenty eight weeks" type="number" readonly="{{onChange()}}" formControlName="hemoglobin_level__twentysix_twentyeight_weeks" min="0">
+                                  <input matInput placeholder="{{'mother.hemoglobin_level__twentysix_twentyeight_weeks'| translate}}" type="number" readonly="{{onChange()}}" formControlName="hemoglobin_level__twentysix_twentyeight_weeks" min="0">
                               </mat-form-field>
                       </div>
                   </div>
                   <div class="row">
                       <div class="col-md-3">
                               <mat-form-field class="example-full-width">
-                                  <input matInput placeholder="Blood Group" type="text" readonly="{{onChange()}}" formControlName="blood_group">
+                                  <input matInput placeholder="{{'mother.blood_group'| translate}}" type="text" readonly="{{onChange()}}" formControlName="blood_group">
                               </mat-form-field>
                       </div>
                   </div>
@@ -175,7 +175,7 @@
                   <mat-expansion-panel>
                     <mat-expansion-panel-header>
                       <mat-panel-title>
-                        <h5>VDRL Tests</h5>
+                        <h5>{{'mother.vdrl_test'| translate}}</h5>
                       </mat-panel-title>
                       <mat-panel-description>
                         Click to View/Edit
@@ -185,19 +185,19 @@
                       
                       <div class="col-md-3">
                               <mat-form-field class="example-full-width">
-                                  <input matInput placeholder="Before twelve weeks" type="text" readonly="{{onChange()}}" formControlName="vdrl_test__before_twelve_weeks">
+                                  <input matInput placeholder="{{'mother.vdrl_test__before_twelve_weeks'| translate}}" type="text" readonly="{{onChange()}}" formControlName="vdrl_test__before_twelve_weeks">
                               </mat-form-field>
                       </div>
                       <div class="col-md-3">
                               <mat-form-field class="example-full-width">
-                                  <input matInput placeholder="After twelve weeks" type="text" readonly="{{onChange()}}" formControlName="vdrl_test__after_twelve_weeks">
+                                  <input matInput placeholder="{{'mother.vdrl_test__after_twelve_weeks'| translate}}" type="text" readonly="{{onChange()}}" formControlName="vdrl_test__after_twelve_weeks">
                               </mat-form-field>
                       </div>
                   </div>
                   <div class="row">
                       <div class="col-md-5">
                               <mat-form-field class="example-full-width">
-                                  <input matInput placeholder="HIV screening" type="text" readonly="{{onChange()}}" formControlName="hiv_screening">
+                                  <input matInput placeholder="{{'mother.hiv_screening'| translate}}" type="text" readonly="{{onChange()}}" formControlName="hiv_screening">
                               </mat-form-field>
                       </div>
                   </div>
@@ -205,7 +205,7 @@
                   <mat-expansion-panel>
                     <mat-expansion-panel-header>
                       <mat-panel-title>
-                        <h5>Mother's Weight Details</h5>
+                        <h5>{{'mother.mothers_weight'| translate}}</h5>
                       </mat-panel-title>
                       <mat-panel-description>
                         Click to View/Edit
@@ -215,35 +215,35 @@
                       
                       <div class="col-md-3">
                               <mat-form-field class="example-full-width">
-                                  <input matInput placeholder="At first visit" type="number" readonly="{{onChange()}}" formControlName="mothers_weight__weight_at_first_visit" min="0"> 
+                                  <input matInput placeholder="{{'mother.mothers_weight__weight_at_first_visit'| translate}}" type="number" readonly="{{onChange()}}" formControlName="mothers_weight__weight_at_first_visit" min="0"> 
                               </mat-form-field>
                       </div>
 
                       <div class="col-md-3">
                               <mat-form-field class="example-full-width">
-                                  <input matInput placeholder="poa-at first visit" type="number" readonly="{{onChange()}}" formControlName="mothers_weight__poa_at_first_visit" min="0">
+                                  <input matInput placeholder="{{'mother.mothers_weight__poa_at_first_visit'| translate}}" type="number" readonly="{{onChange()}}" formControlName="mothers_weight__poa_at_first_visit" min="0">
                               </mat-form-field>
                       </div>
                       <div class="col-md-3">
                               <mat-form-field class="example-full-width">
-                                  <input matInput placeholder="At last visit" type="number" readonly="{{onChange()}}" formControlName="mothers_weight__weight_at_last_visit" min="0">
+                                  <input matInput placeholder="{{'mother.mothers_weight__weight_at_last_visit'| translate}}" type="number" readonly="{{onChange()}}" formControlName="mothers_weight__weight_at_last_visit" min="0">
                               </mat-form-field>
                       </div>
                       <div class="col-md-3">
                               <mat-form-field class="example-full-width">
-                                  <input matInput placeholder="poa-at last visit" type="number" readonly="{{onChange()}}" formControlName="mothers_weight__poa_at_last_visit" min="0">
+                                  <input matInput placeholder="{{'mother.mothers_weight__poa_at_last_visit'| translate}}" type="number" readonly="{{onChange()}}" formControlName="mothers_weight__poa_at_last_visit" min="0">
                               </mat-form-field>
                       </div>
                       <div class="col-md-3">
                               <mat-form-field class="example-full-width">
-                                  <input matInput placeholder="Gained-weight during pregnancy" type="number" readonly="{{onChange()}}" formControlName="mothers_weight__gained_weight_during_pregnancy" min="0">
+                                  <input matInput placeholder="{{'mother.mothers_weight__gained_weight_during_pregnancy'| translate}}" type="number" readonly="{{onChange()}}" formControlName="mothers_weight__gained_weight_during_pregnancy" min="0">
                               </mat-form-field>
                       </div>
                   
                   
                       <div class="col-md-3">
                               <mat-form-field class="example-full-width">
-                                  <input matInput placeholder="BMI Before twelve weeks" type="number" readonly="{{onChange()}}" formControlName="bmi_before_twelve_weeks" min="0">
+                                  <input matInput placeholder="{{'mother.bmi_before_twelve_weeks'| translate}}" type="number" readonly="{{onChange()}}" formControlName="bmi_before_twelve_weeks" min="0">
                               </mat-form-field>
                       </div>
                   </div>
@@ -251,7 +251,7 @@
                   <mat-expansion-panel>
                     <mat-expansion-panel-header>
                       <mat-panel-title>
-                        <h5>Delivery Informations</h5>
+                        <h5>{{'mother.delivery_informations'| translate}}</h5>
                       </mat-panel-title>
                       <mat-panel-description>
                         Click to View/Edit
@@ -261,32 +261,32 @@
                       
                       <div class="col-md-2">
                               <mat-form-field class="example-full-width">
-                                  <input matInput placeholder="Date" type="date" readonly="{{onChange()}}" formControlName="delivery_informations__date">
+                                  <input matInput placeholder="{{'mother.delivery_informations__date'| translate}}" type="date" readonly="{{onChange()}}" formControlName="delivery_informations__date">
                               </mat-form-field>
                       </div>
                       <div class="col-md-2">
                               <mat-form-field class="example-full-width">
-                                  <input matInput placeholder="Place" type="text" readonly="{{onChange()}}" formControlName="delivery_informations__place">
+                                  <input matInput placeholder="{{'mother.delivery_informations__place'| translate}}" type="text" readonly="{{onChange()}}" formControlName="delivery_informations__place">
                               </mat-form-field>
                       </div>
                       <div class="col-md-2">
                               <mat-form-field class="example-full-width">
-                                  <input matInput placeholder="Outcome" type="text" readonly="{{onChange()}}" formControlName="delivery_informations__outcome">
+                                  <input matInput placeholder="{{'mother.delivery_informations__outcome'| translate}}" type="text" readonly="{{onChange()}}" formControlName="delivery_informations__outcome">
                               </mat-form-field>
                       </div>
                       <div class="col-md-3">
                               <mat-form-field class="example-full-width">
-                                  <input matInput placeholder="Child's Gender" type="text"readonly="{{onChange()}}" formControlName="delivery_informations__sex">
+                                  <input matInput placeholder="{{'mother.delivery_informations__sex'| translate}}" type="text"readonly="{{onChange()}}" formControlName="delivery_informations__sex">
                               </mat-form-field>
                       </div>
                       <div class="col-md-3">
                               <mat-form-field class="example-full-width">
-                                  <input matInput placeholder="Mode of delivery" type="text" readonly="{{onChange()}}" formControlName="mode_of_delivery">
+                                  <input matInput placeholder="{{'mother.mode_of_delivery'| translate}}" type="text" readonly="{{onChange()}}" formControlName="mode_of_delivery">
                               </mat-form-field>
                       </div>
                       <div class="col-md-3">
                               <mat-form-field class="example-full-width">
-                                  <input matInput placeholder="Birth Weight" type="number" readonly="{{onChange()}}" formControlName="birth_weight" min="0" min="0">
+                                  <input matInput placeholder="{{'mother.birth_weight'| translate}}" type="number" readonly="{{onChange()}}" formControlName="birth_weight" min="0" min="0">
                               </mat-form-field>
                       </div>
                   </div>
@@ -294,7 +294,7 @@
                 <mat-expansion-panel>
                   <mat-expansion-panel-header>
                     <mat-panel-title>
-                      <h5>Oostpartum Visits</h5>
+                      <h5>{{'mother.postpartum_visits'| translate}}</h5>
                     </mat-panel-title>
                     <mat-panel-description>
                       Click to View/Edit
@@ -304,44 +304,44 @@
                       
                       <div class="col-md-3">
                               <mat-form-field class="example-full-width">
-                                  <input matInput placeholder="Within first five days" type="text" readonly="{{onChange()}}" formControlName="postpartum_visits__within_first_five_days">
+                                  <input matInput placeholder="{{'mother.postpartum_visits__within_first_five_days'| translate}}" type="text" readonly="{{onChange()}}" formControlName="postpartum_visits__within_first_five_days">
                               </mat-form-field>
                       </div>
                       <div class="col-md-3">
                               <mat-form-field class="example-full-width">
-                                  <input matInput placeholder="Six to ten days" type="text" readonly="{{onChange()}}" formControlName="postpartum_visits__six_to_ten_days">
+                                  <input matInput placeholder="{{'mother.postpartum_visits__six_to_ten_days'| translate}}" type="text" readonly="{{onChange()}}" formControlName="postpartum_visits__six_to_ten_days">
                               </mat-form-field>
                       </div>
                       <div class="col-md-5">
                               <mat-form-field class="example-full-width">
-                                  <input matInput placeholder="Late first visit-eleven to thirteen days" type="text" readonly="{{onChange()}}" formControlName="postpartum_visits__late_first_visit_eleven_thirteen_days">
+                                  <input matInput placeholder="{{'mother.postpartum_visits__late_first_visit_eleven_thirteen_days'| translate}}" type="text" readonly="{{onChange()}}" formControlName="postpartum_visits__late_first_visit_eleven_thirteen_days">
                               </mat-form-field>
                       </div>
                       <div class="col-md-3">
                               <mat-form-field class="example-full-width">
-                                  <input matInput placeholder="Fourteen-twentyone-days" type="text" readonly="{{onChange()}}" formControlName="postpartum_visits__fourteen_twentyone_days">
+                                  <input matInput placeholder="{{'mother.postpartum_visits__fourteen_twentyone_days'| translate}}" type="text" readonly="{{onChange()}}" formControlName="postpartum_visits__fourteen_twentyone_days">
                               </mat-form-field>
                       </div>
                       <div class="col-md-3">
                               <mat-form-field class="example-full-width">
-                                  <input matInput placeholder="Arround fourty two days" type="text" readonly="{{onChange()}}" formControlName="postpartum_visits__arround_fourtytwo_days">
+                                  <input matInput placeholder="{{'mother.postpartum_visits__arround_fourtytwo_days'| translate}}" type="text" readonly="{{onChange()}}" formControlName="postpartum_visits__arround_fourtytwo_days">
                               </mat-form-field>
                       </div>
                   </div>
                   <div class="row">
                       <div class="col-md-3">
                               <mat-form-field class="example-full-width">
-                                  <input matInput placeholder="Registration No in BI register" type="text" readonly="{{onChange()}}" formControlName="registration_no_in_bi_register">
+                                  <input matInput placeholder="{{'mother.registration_no_in_bi_register'| translate}}" type="text" readonly="{{onChange()}}" formControlName="registration_no_in_bi_register">
                               </mat-form-field>
                       </div>
                       <div class="col-md-5">
                           <mat-form-field class="example-full-width">
-                              <input matInput placeholder="Registration date in BI register" type="date" readonly="{{onChange()}}" formControlName="registration_date_in_bi_register">
+                              <input matInput placeholder="{{'mother.registration_date_in_bi_register'| translate}}" type="date" readonly="{{onChange()}}" formControlName="registration_date_in_bi_register">
                           </mat-form-field>
                       </div>
                       <div class="col-md-3">
                               <mat-form-field class="example-full-width">
-                                  <input matInput placeholder="Remarks" type="text" readonly="{{onChange()}}" formControlName="remarks">
+                                  <input matInput placeholder="{{'mother.remarks'| translate}}" type="text" readonly="{{onChange()}}" formControlName="remarks">
                               </mat-form-field>
                       </div>
                     </div>
