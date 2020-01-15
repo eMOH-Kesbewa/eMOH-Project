@@ -4,13 +4,14 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:logger/logger.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'globals.dart' as globals;
 
 var logger = Logger();
 
 Future<Family> fetchFamily() async {
   print('fetch family function');
-
+ SharedPreferences prefs = await SharedPreferences.getInstance();
   //   final jwtDetails = await http.get('https://protected-bayou-52277.herokuapp.com/users/profile',headers: ).then((res){
   //   logger.wtf(res.body);
   // });
@@ -19,7 +20,7 @@ Future<Family> fetchFamily() async {
   var x = await globals.getGlobals();
   logger.e(globals.globalEmail);
   final response = await http.get(
-      'https://protected-bayou-52277.herokuapp.com/families/viewbyid/${globals.globalEmail}');
+      'https://protected-bayou-52277.herokuapp.com/families/viewbyid/${globals.globalEmail}',headers: {'token':prefs.getString('jwt')});
   print('status code');
   print(response.statusCode);
   print(response.body);

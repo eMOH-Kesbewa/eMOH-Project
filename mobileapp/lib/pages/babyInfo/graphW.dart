@@ -1,99 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:charts_flutter/flutter.dart' as charts;
 
-import 'package:mobileapp/services/babyService/chartService.dart';
+import 'package:mobileapp/services/babyService/graphService.dart';
 
-class Chart extends StatefulWidget {
+class GraphW extends StatefulWidget {
   final Widget child;
 
-  Chart({Key key, this.child}) : super(key: key);
+  GraphW({Key key, this.child}) : super(key: key);
 
-  _ChartState createState() => _ChartState();
+  _GraphWState createState() => _GraphWState();
 }
 
-class _ChartState extends State<Chart> {
+class _GraphWState extends State<GraphW> {
   List<charts.Series<Points, int>> _seriesLineData;
-  // Future<WeightHeight> wh = fetchWeightHeight();
-  // List _seriesLineData;
-
-  //List<charts.Series<Sales, int>> _seriesLineData;
-
-  //Future<WeightHeight> plot = fetchWeightHeight();
 
   List<Points> plot = List();
 
   var endVal, month;
   var message;
-  Color sercolor = Color(0xff0000);
-  //var sercolor = "0xff0000";
-  Color modcolor = Color(0xffa500);
-  Color riskcolor = Color(0xccff00);
-  Color norcolor = Color(0x008000);
-  Color ovcolor = Color(0x800080);
   Color col = Colors.white;
 
   //to display warnings.
-
-  static double first_yearone,
-      first_yeartwo,
-      first_yearthree,
-      first_yearfour,
-      first_yearfive,
-      first_yearsix,
-      first_yearseven,
-      first_yeareight,
-      first_yearnine,
-      first_yearten,
-      first_yeareleven,
-      first_yeartwelve,
-      sec_yearone,
-      sec_yeartwo,
-      sec_yearthree,
-      sec_yearfour,
-      sec_yearfive,
-      sec_yearsix,
-      sec_yearseven,
-      sec_yeareight,
-      sec_yearnine,
-      sec_yearten,
-      sec_yeareleven,
-      sec_yeartwelve,
-      third_yearone,
-      third_yeartwo,
-      third_yearthree,
-      third_yearfour,
-      third_yearfive,
-      third_yearsix,
-      third_yearseven,
-      third_yeareight,
-      third_yearnine,
-      third_yearten,
-      third_yeareleven,
-      third_yeartwelve,
-      four_yearone,
-      four_yeartwo,
-      four_yearthree,
-      four_yearfour,
-      four_yearfive,
-      four_yearsix,
-      four_yearseven,
-      four_yeareight,
-      four_yearnine,
-      four_yearten,
-      four_yeareleven,
-      four_yeartwelve,
-      five_yearone,
-      five_yeartwo,
-      five_yearthree,
-      five_yearfour,
-      five_yearfive,
-      five_yearsix,
-      five_yearseven,
-      five_yeareight,
-      five_yearnine,
-      five_yearten,
-      five_yeareleven,
-      five_yeartwelve;
 
   @override
   void initState() {
@@ -103,9 +30,6 @@ class _ChartState extends State<Chart> {
   }
 
   _generateData() {
-    logger.d('in genearate');
-
-    logger.v(plot.length);
     _seriesLineData.add(
       charts.Series(
         //colorFn: (__, _) => charts.ColorUtil.fromDartColor(Color(0xffff9900)),
@@ -115,23 +39,14 @@ class _ChartState extends State<Chart> {
         measureFn: (Points sales, _) => sales.y, //error
       ),
     );
-    logger.d(_seriesLineData.length);
   }
 
   _asyncMethod() async {
-    //Future<WeightHeight> wh = fetchWeightHeight();
-    logger.d('in async method');
     fetchWeightHeight().then((it) {
-      logger.w('inside then');
-      logger.w(it);
-
       for (var i = 0; i < it.length; i++) {
         var p = 'p' + '${i}';
-        logger.d(p);
-        logger.d(it["${p}"]);
+
         double val = it["${p}"].toDouble();
-        //double j = i.toDouble();
-        logger.v(it.length);
 
         var x = i / 5;
         month = x.round();
@@ -140,11 +55,8 @@ class _ChartState extends State<Chart> {
       }
 
       setState(() {
-        logger.i('in setstate');
         _generateData();
         endVal = plot.length;
-        logger.d('endval');
-        logger.d(endVal);
       });
     }).catchError((e) {
       logger.e(e);
@@ -153,10 +65,6 @@ class _ChartState extends State<Chart> {
 
   @override
   Widget build(BuildContext context) {
-    logger.wtf(_seriesLineData.length);
-
-    // final  theme = IconThemeData(color:Color(0xff0000) );
-
     if (month == 1) {
       //2.7,3.13.6,5.4
       if (endVal < 2.7) {
@@ -655,26 +563,6 @@ class _ChartState extends State<Chart> {
         col = Colors.lightBlue[400];
       }
     }
-    logger.d('month');
-    logger.d(month);
-    // if (month == 52) {
-    //   if (endVal < 2.7) {
-    //     message = "Severe Under Weight";
-    //     col = sercolor;
-    //   } else if (endVal < 3.1) {
-    //     message = "Moderate Under Weight";
-    //     col = modcolor;
-    //   } else if (endVal < 3.6) {
-    //     message = 'Risk for Under Weight';
-    //     col = riskcolor;
-    //   } else if (endVal < 5.4) {
-    //     message = "Normal Weight";
-    //     col = norcolor;
-    //   } else {
-    //     message = "Over Weight";
-    //     col = ovcolor;
-    //   }
-    // }
 
     if (message == null) {
       return Scaffold(
@@ -704,7 +592,7 @@ class _ChartState extends State<Chart> {
                   defaultRenderer: new charts.LineRendererConfig(
                       includeLine: true, includeArea: false, stacked: false),
                   animate: true,
-                  animationDuration: Duration(seconds: 5),
+                  animationDuration: Duration(seconds: 2),
                   behaviors: [
                     new charts.ChartTitle('Months',
                         behaviorPosition: charts.BehaviorPosition.bottom,
