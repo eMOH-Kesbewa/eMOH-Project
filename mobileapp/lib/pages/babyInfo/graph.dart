@@ -676,42 +676,50 @@ class _ChartState extends State<Chart> {
     //   }
     // }
 
-    return Scaffold(
-      body: Column(
-        children: [
-          SizedBox(
-            height: 30.0,
-          ),
-          Chip(
-            avatar: CircleAvatar(
-              backgroundColor: Colors.grey.shade800,
-              child: IconTheme(
-                data: IconThemeData(color: col),
-                child: Icon(Icons.favorite),
-              ),
+    if (message == null) {
+      return Scaffold(
+        body: Center(
+          child: CircularProgressIndicator(),
+        ),
+      );
+    } else {
+      return Scaffold(
+        body: Column(
+          children: [
+            SizedBox(
+              height: 30.0,
             ),
-            label: Text(message),
-          ),
-          Expanded(
-            child: charts.LineChart(_seriesLineData,
-                defaultRenderer: new charts.LineRendererConfig(
-                    includeLine: true, includeArea: false, stacked: false),
-                animate: true,
-                animationDuration: Duration(seconds: 5),
-                behaviors: [
-                  new charts.ChartTitle('Months',
-                      behaviorPosition: charts.BehaviorPosition.bottom,
-                      titleOutsideJustification:
-                          charts.OutsideJustification.middleDrawArea),
-                  new charts.ChartTitle('Weight',
-                      behaviorPosition: charts.BehaviorPosition.start,
-                      titleOutsideJustification:
-                          charts.OutsideJustification.middleDrawArea),
-                ]),
-          ),
-        ],
-      ),
-    );
+            Chip(
+              avatar: CircleAvatar(
+                backgroundColor: Colors.grey.shade800,
+                child: IconTheme(
+                  data: IconThemeData(color: col),
+                  child: Icon(Icons.favorite),
+                ),
+              ),
+              label: Text(message),
+            ),
+            Expanded(
+              child: charts.LineChart(_seriesLineData,
+                  defaultRenderer: new charts.LineRendererConfig(
+                      includeLine: true, includeArea: false, stacked: false),
+                  animate: true,
+                  animationDuration: Duration(seconds: 5),
+                  behaviors: [
+                    new charts.ChartTitle('Months',
+                        behaviorPosition: charts.BehaviorPosition.bottom,
+                        titleOutsideJustification:
+                            charts.OutsideJustification.middleDrawArea),
+                    new charts.ChartTitle('Weight',
+                        behaviorPosition: charts.BehaviorPosition.start,
+                        titleOutsideJustification:
+                            charts.OutsideJustification.middleDrawArea),
+                  ]),
+            ),
+          ],
+        ),
+      );
+    }
   }
 }
 
