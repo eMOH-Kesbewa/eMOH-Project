@@ -25,8 +25,10 @@ import { PregnantMothers } from "../view-mothers/view-mothers.component.module";
 import { TranslateModule, TranslateLoader } from "@ngx-translate/core";
 import { HttpLoaderFactory } from "app/app.module";
 import { HttpClient } from "@angular/common/http";
+import { ModernContraceptiveMethodsComponent } from "app/Graphs/modern-contraceptive-methods/modern-contraceptive-methods.component";
+import {MatMenuModule} from '@angular/material/menu';
 @NgModule({
-    declarations:[ViewApprovedFamiliesComponent,AddApprovedFamiliesComponent,ViewFamilybyIdComponent,AddMotherComponent],
+    declarations:[ViewApprovedFamiliesComponent,AddApprovedFamiliesComponent,ViewFamilybyIdComponent,AddMotherComponent,ModernContraceptiveMethodsComponent],
     imports:[
         ApprovedFamilies,
         CommonModule,
@@ -43,6 +45,7 @@ import { HttpClient } from "@angular/common/http";
         MatSlideToggleModule,
         MatSnackBarModule,
         MatExpansionModule,
+        MatMenuModule,
         TranslateModule.forChild({
           loader: {
             provide: TranslateLoader,
