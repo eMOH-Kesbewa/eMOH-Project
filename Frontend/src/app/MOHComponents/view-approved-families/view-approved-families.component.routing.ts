@@ -6,6 +6,7 @@ import { AddMotherComponent } from '../add-mother/add-mother.component';
 import { NgModule } from '@angular/core';
 import { AuthGuard } from 'app/auth.guard';
 import { ModernContraceptiveMethodsComponent } from 'app/Graphs/modern-contraceptive-methods/modern-contraceptive-methods.component';
+import { ContraceptivePrevalanceComponent } from 'app/Graphs/contraceptive-prevalance/contraceptive-prevalance.component';
 
 
 
@@ -34,7 +35,13 @@ export const ApprovedFamilyRoutes: Routes = [
                 path: 'ModernContMethods',
                 component: ModernContraceptiveMethodsComponent,
                 canActivate:[AuthGuard]
+            },
+            {
+                path: 'ContraPrevailMethods',
+                component: ContraceptivePrevalanceComponent,
+                canActivate:[AuthGuard]
             }
+
         
         ]   
     }
