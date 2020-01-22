@@ -8,6 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class MotherfordocService {
 
+  mothers : any = [] 
   constructor(private http: HttpClient) { }
 
   getdata():Observable<Pregnantmother>{
@@ -15,10 +16,16 @@ export class MotherfordocService {
     return this.http.get<Pregnantmother>(uri);
   }
 
-  __url= "http://localhost:3000/mothers/addmotherfordoc";
-  add(userData){                                   
-   console.log(userData)
-   return this.http.post<any>(this.__url,userData);
-  }
+//   __url= "http://localhost:3000/mothers/addmotherfordoc";
+//   add(userData){                                   
+//    console.log(userData)
+//    return this.http.post<any>(this.__url,userData);
+//   }
+  
+  // __url= "http://localhost:3000/families/add";
+  //  add(userData){                                   //Post the approved family details
+  //   console.log(userData)
+  //   return this.http.post<any>(this.__url,userData);
+  //  }
   
 }

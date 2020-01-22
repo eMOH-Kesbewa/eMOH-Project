@@ -1,8 +1,10 @@
 library mobileapp.globals;
 
+import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 String globalEmail;
+int flag = 0;
 Future getGlobals() async {
   SharedPreferences prefs = await SharedPreferences.getInstance();
   //prefs.setString('email', emailController.text.toString());
@@ -10,9 +12,30 @@ Future getGlobals() async {
   globalEmail = prefs.getString('email');
 }
 
+Future getFlag()async{
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+  return prefs.getInt('flag');
+  
+}
+
+int children; //for dropdown menue in babydetails.
+
+
+
+
+// Future getClinics()async{
+//   SharedPreferences prefs = await SharedPreferences.getInstance();
+//   return prefs.getStringList('key')
+// }
+
+ List<ListTile> msgList = <ListTile>[];
+
+ //List<String> clinicList = <String>[];
+
 int selectedIndex = 0;
 String familyId = 'fam123';
 String babyId;
+String msgDiscription,msgTitle,msgDate;
 
 String layingFaceDownOcc,
     movingObjectOcc,

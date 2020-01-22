@@ -1,3 +1,4 @@
+
 <div class="main-content">
     <router-outlet></router-outlet>
 <div class="container-fluid">
@@ -5,30 +6,25 @@
             
             <div class="col-md-4"></div>
             <div class="col-md-5"><h3></h3></div>
-            <div class="col-md-3"> <a routerLink="AddMotherBabyJoined" class="btn btn-info btn-block">Add a new Baby</a></div>
+            <div class="col-md-3"> <a routerLink="AddMotherBabyJoined" class="btn btn-info btn-block">{{'motherBabyJoined.fill'| translate }}</a></div>
         </div>
       <div class="row">
           <div class="col-md-12">
               <div class="card">
-                  <div class="card-header">
-                      <h3 class="card-title ">View Babies of the Area</h3>
-                      <p class="card-category"> </p>
-                  </div>
+                <div class="card-header">
+                    <h4 class="card-title "><h3>{{ 'motherBabyJoined.view_babies' | translate }}</h3></h4>
+                    <h5 class="card-category">Click to view the individual Records</h5>
+                </div>
+
                   <div class="card-body">
-                    <div class="table-responsive">
+                    <mat-form-field class="example-full-width">
+                        <input (keyup)="onKey($event)" matInput placeholder="Search By Mother Id/ Baby's Name/Mother's Id" value="">
+                    </mat-form-field>
+                    <div *ngIf="showTable" class="table-responsive">
                         <table class="table table-hover table-bordered">
                             
                                 <tr>
-                                    <th align="center" rowspan=4><b>Mother No</b></th>  <th align="center" rowspan=4><b>Name of the Child</b></th>  <th align="center" rowspan=4><b>Mothers Name</b></th>  <th align="center" rowspan=4><b>Address</b></th>  <th align="center" rowspan=4><b>Sex</b></th>  <th align="center" rowspan=4><b>Date of Birth</b></th>  <th align="center" rowspan=4><b>Birth Weight</b></th>  <th align="center" rowspan=4><b>Date of Registration</b></th>  <th rowspan=4><b>Registration Category</b></th>  <th colspan=17 align="center"><b>Date of Immunization</b></th>  <th align="center" colspan=11><b>Vitamin a mega dose</b></th><th rowspan = 4><b>Remarks</b></th>
-                                </tr>
-                                <tr>
-                                    <th align="center" rowspan=3><b>BGC</b></th><th align="center" rowspan=3><b>SCAR (Y/N)</b></th><th align="center" colspan=3 rowspan=2><b>Pentavalent</b></th><th align="center" colspan=5><b>Polio</b></th><th align="center" rowspan=3><b>Japanese Encephalitis</b></th><th align="center" rowspan=3><b>Measles/Mumps/Rubella (MMR) I</b></th><th align="center" rowspan=3><b>Diptheria/Pertusis/Tetanus 4</b></th><th align="center" rowspan=3><b>Polio 4</b></th><th align="center" rowspan=3><b>Measles/Mumps/Rubella (MMR) 2</b></th><th align="center" rowspan=3><b>Diptheria/Tetanus 5</b></th><th align="center" rowspan=3><b>Diptheria/Tetanus 6</b></th><th align="center" rowspan=3><b>Postnatal Mothers</b></th><th align="center" rowspan=3><b>At 6<sup>th</sup> Month</b></th><th align="center"><b>At 1 year</b></th><th align="center" rowspan=3><b>At 1 1/2 years</b></th><th align="center" rowspan="3"><b>At Two Years</b></th><th align="center" rowspan=3><b>At 2 1/2 Years</b></th><th align="center" rowspan=3><b>At 3 Years</b></th><th align="center" rowspan=3><b>At 4 Years</b></th><th align="center" rowspan=3><b>At 4 1/2 Years</b></th><th align="center" rowspan=3><b>At 9 Years</b></th><th align="center" rowspan=3><b>At 12 Years</b></th>
-                                </tr>
-                                <tr>
-                                    <th align="center" colspan=3><b>OPV</b></th><th align="center" colspan="2"><b>FPV</b></th>
-                                </tr>
-                                <tr>
-                                        <th><b>1</b></th><th><b>2</b></th><th><b>3</b></th><th><b>1</b></th><th><b>2</b></th><th><b>3</b></th><th><b>2m</b></th><th><b>4m</b></th>
+                                    <th align="center" rowspan=4><b>{{ 'motherBabyJoined.mother_id' | translate }}</b></th>  <th align="center" rowspan=4><b>{{ 'motherBabyJoined.child_name' | translate }}</b></th>  <th align="center" rowspan=4><b>{{ 'motherBabyJoined.mothers_name' | translate }}</b></th>  <th align="center" rowspan=4><b>{{ 'motherBabyJoined.address' | translate }}</b></th>  <th align="center" rowspan=4><b>{{ 'motherBabyJoined.sex' | translate }}</b></th>  <th align="center" rowspan=4><b>{{ 'motherBabyJoined.date_of_birth' | translate }}</b></th>  <th align="center" rowspan=4><b>{{ 'motherBabyJoined.birth_weight' | translate }}</b></th> 
                                 </tr>
                                 <tbody>
                                 <tr *ngFor="let motherbabyjoineddata of motherbabyjoineddatas" (click)="onClickMe(motherbabyjoineddata.baby_id)" style="cursor:pointer">
@@ -36,45 +32,10 @@
                                     <td>{{motherbabyjoineddata.child_name}}</td>
                                     <td>{{motherbabyjoineddata.mothers_name}}</td>
                                     <td>{{motherbabyjoineddata.address}}</td>
-                                    <td>{{motherbabyjoineddata.sex}}</td>
+                                    <td align="center">{{motherbabyjoineddata.sex}}</td>
                                     <td>{{motherbabyjoineddata.date_of_birth | date: 'yyyy/MM/dd' }}</td>
-                                    <td>{{motherbabyjoineddata.birth_weight}}</td>
-                                    <td>{{motherbabyjoineddata.registration_date | date: 'yyyy/MM/dd' }}</td>
-                                    <td>{{motherbabyjoineddata.registration_category}}</td>
-
-                                    <td>{{motherbabyjoineddata.immunization__BGC}}</td>
-                                    <td>{{motherbabyjoineddata.immunization__scar}}</td>
-
-                                    <td>{{motherbabyjoineddata.immunization__pentavalent__first | date: 'yyyy/MM/dd' }}</td>
-                                    <td>{{motherbabyjoineddata.immunization__pentavalent__second | date: 'yyyy/MM/dd' }}</td>
-                                    <td>{{motherbabyjoineddata.immunization__pentavalent__third | date: 'yyyy/MM/dd' }}</td>
-
-                                    <td>{{motherbabyjoineddata.immunization__polio__opv__first | date: 'yyyy/MM/dd' }}</td>
-                                    <td>{{motherbabyjoineddata.immunization__polio__opv__second | date: 'yyyy/MM/dd' }}</td>
-                                    <td>{{motherbabyjoineddata.immunization__polio__opv__third | date: 'yyyy/MM/dd' }}</td>
-                                    <td>{{motherbabyjoineddata.immunization__polio__fipv__two_m | date: 'yyyy/MM/dd' }}</td>
-                                    <td>{{motherbabyjoineddata.immunization__polio__fipv__foru_m | date: 'yyyy/MM/dd' }}</td>
-
-                                    <td>{{motherbabyjoineddata.immunization__japanese_encephalitis | date: 'yyyy/MM/dd' }}</td>
-                                    <td>{{motherbabyjoineddata.immunization__measles_mumps_rubella_mmr_1 | date: 'yyyy/MM/dd' }}</td>
-                                    <td>{{motherbabyjoineddata.immunization__diptheria_pertusis_tetanus_4 | date: 'yyyy/MM/dd' }}</td>
-                                    <td>{{motherbabyjoineddata.immunization__polio_4 | date: 'yyyy/MM/dd' }}</td>
-                                    <td>{{motherbabyjoineddata.immunization__measles_mumps_rubella_mmr_2 | date: 'yyyy/MM/dd' }}</td>
-                                    <td>{{motherbabyjoineddata.immunization__diptheria_tetanus_5 | date: 'yyyy/MM/dd' }}</td>
-                                    <td>{{motherbabyjoineddata.immunization__diptheria_tetanus_6 | date: 'yyyy/MM/dd' }}</td>
-                                    
-                                    <td>{{motherbabyjoineddata.vitamin_a_mega_dose__postnatal_mothers | date: 'yyyy/MM/dd' }}</td>
-                                    <td>{{motherbabyjoineddata.vitamin_a_mega_dose__at_sixth_month | date: 'yyyy/MM/dd' }}</td>
-                                    <td>{{motherbabyjoineddata.vitamin_a_mega_dose__at_first_year | date: 'yyyy/MM/dd' }}</td>
-                                    <td>{{motherbabyjoineddata.vitamin_a_mega_dose__at_one_and_half_yr | date: 'yyyy/MM/dd' }}</td>
-                                    <td>{{motherbabyjoineddata.vitamin_a_mega_dose__at_year_two | date: 'yyyy/MM/dd' }}</td>
-                                    <td>{{motherbabyjoineddata.vitamin_a_mega_dose__at_year_two_and_half | date: 'yyyy/MM/dd' }}</td>
-                                    <td>{{motherbabyjoineddata.vitamin_a_mega_dose__at_year_three | date: 'yyyy/MM/dd' }}</td>
-                                    <td>{{motherbabyjoineddata.vitamin_a_mega_dose__at_year_four | date: 'yyyy/MM/dd' }}</td>
-                                    <td>{{motherbabyjoineddata.vitamin_a_mega_dose__at_year_four_and_half | date: 'yyyy/MM/dd' }}</td>
-                                    <td>{{motherbabyjoineddata.vitamin_a_mega_dose__at_year_nine | date: 'yyyy/MM/dd' }}</td>
-                                    <td>{{motherbabyjoineddata.vitamin_a_mega_dose__at_year_twelve | date: 'yyyy/MM/dd' }}</td>
-                                    <td>{{motherbabyjoineddata.remarks}}</td>
+                                    <td align="center">{{motherbabyjoineddata.birth_weight}}</td>
+                                   
                                     
                                     </tr>
                                 </tbody>

@@ -1,3 +1,4 @@
+
            
 
 <div class="main-content">
@@ -6,8 +7,20 @@
         <div class="row">
                 
                 
-                <div class="col-md-9"></div>
-                <div *ngIf="checkRoute()" class="col-md-3"> <a routerLink="AddApprovedFamilies" class="btn btn-info btn-block">Add New Family</a></div>
+                <div class="col-md-6">
+                    
+                </div>
+                <div *ngIf="checkRoute()" class="col-md-3"> 
+                    <button class="btn btn-info btn-block" mat-button [matMenuTriggerFor]="menu">{{ 'family.generateReports' | translate }}</button>
+                        <mat-menu #menu="matMenu">
+                        <!--<button mat-menu-item>Current Users of M. Contra. Methods</button>-->
+                        <a mat-menu-item routerLink="ModernContMethods">Current Users of M. Contra. Methods</a>
+                        <a mat-menu-item routerLink="ContraPrevailMethods">Contraceptive Prevalence</a>
+                        <!--<button mat-menu-item>Contraceptive Prevalence</button>-->
+                        
+                        </mat-menu>
+                </div>
+                <div *ngIf="checkRoute()" class="col-md-3"> <a routerLink="AddApprovedFamilies" class="btn btn-info btn-block">{{ 'family.add' | translate }}</a></div>
             </div>
             
         <div class="row">
@@ -19,70 +32,41 @@
           <div class="col-md-12">
               <div class="card">
                   <div class="card-header">
-                      <h4 class="card-title "><h3>View Approved Families of the Area</h3></h4>
-                      <h5 class="card-category">Click to view the individual Records</h5>
+                      <h4 class="card-title "><h3>{{ 'family.view_approved_families_of_the_area' | translate }}</h3></h4>
+                      
                   </div>
                   <div class="card-body">
-                    <div class="table-responsive">
+                    <mat-form-field class="example-full-width">
+                        <input (keyup)="onKey($event)" matInput placeholder="Search By Name/Id" value="">
+                    </mat-form-field>
+                    
+                    <div *ngIf="showTable" class="table-responsive">
                         <table class="table table-hover table-bordered">
                             
                               
-                                    <tr>
-                                    <th rowspan = 3><b>Village ID</b></th><th rowspan = 3><b>Approved Family Category</b></th><th rowspan = 3><b>Family ID</b></th><th rowspan = 3><b>Date</b></th><th rowspan = 3><b>Name Of Wife</b></th><th rowspan = 3><b>Name Of Husband</b></th><th rowspan = 3><b>Address</b></th> <th rowspan = 3><b>DOB</b></th> <th rowspan = 3><b>Age at the time of Marriage</b></th> <th rowspan = 3><b>Job Status</b></th> <th rowspan = 3><b>Education Level</b></th> <th rowspan = 3><b>Address</b></th> <th rowspan = 3><b>Number Of Living Children</b></th>  <th colspan = 8 align="center"><b>Pregnancy details</b> </th>  <th colspan = 8 align="center"><b>Family Planning Methods details </b></th><th rowspan=3><b>Safe For Rubella</b></th><th rowspan=3><b>Date of cervical mucoustest</b></th><th rowspan=3><b> Other Details</b></th><th rowspan="3"><b>Number Of Young Children </b></th>
-                                    </tr>
+                            <tr>
+                                <th rowspan = 3><b>{{ 'family.village_id' | translate }}</b></th>
+                                <th rowspan = 3><b>{{ 'family.Identity_number' | translate }}</b></th>
+                                <th rowspan = 3><b>{{ 'family.Name_of_wife' | translate }}</b></th>
+                                <th rowspan = 3><b>{{ 'family.Name_of_husband' | translate }}</b></th>
+                                <th rowspan = 3><b>{{ 'family.Address' | translate }}</b></th> 
+                                <th rowspan = 3><b>{{ 'family.Age_at_the_time_of_marriage' | translate }}</b></th> 
+                                <th rowspan = 3><b>{{ 'family.Job_status' | translate }}</b></th> 
+                                <th rowspan = 3><b>{{ 'family.Number_of_living_children' | translate }}</b></th> 
+                                </tr>
 
-                                    <tr>  
-                                        <th colspan=4 align="center"><b>Pregnancy</b></th>  <th colspan=4 align="center" ><b>Result</b></th>     <th colspan=2 align="center"><b>1</b></th>   <th colspan=2 align="center"><b>2</b></th> <th colspan=2 align="center"><b>3</b></th> <th colspan=2 align="center"><b>4</b></th> 
-                                    </tr>
-                                    
-                                    <tr>
-                                        <th><b>1</b></th><th><b>2</b></th><th><b>3</b></th><th><b>4</b></th><th><b>1</b></th><th><b>2</b></th><th><b>3</b></th><th><b>4</b></th> <th><b>Method</b></th><th><b>Date</b></th>  <th><b>Method</b></th><th><b>Date</b></th> <th><b>Method</b></th><th><b>Date</b></th> <th><b>Method</b></th><th><b>Date</b></th>
-                                    </tr>
                                
                                 <tbody>
 
                                     <tr *ngFor="let family of families" (click)="onClickMe(family.Identity_number)" style="cursor:pointer">
-                                    <td>{{family.village_id}}</td>
-                                    <td>{{family.Approved_family_category}}</td>
-                                    <td>{{family.Identity_number}}</td>
-                                    <td>{{family.Date | date: 'yyyy/MM/dd' }}</td>
-                                    <td>{{family.Name_of_wife}}</td>
-                                    <td>{{family.Name_of_husband}}</td>
-                                    <td>{{family.Address}}</td>
-                                    <td>{{family.Date_of_birth | date: 'yyyy/MM/dd' }}</td>
-                                    <td>{{family.Age_at_the_time_of_marriage}}</td>
-                                    <td>{{family.Job_status}}</td>
-                                    <td>{{family.Education_level}}</td>
-                                    <td>{{family.Number_of_living_children}}</td>
-
-                                    <td>{{family.Pregnancy_details__Pregnancy__First}}</td>
-                                    <td>{{family.Pregnancy_details__Pregnancy__Second}}</td>
-                                    <td>{{family.Pregnancy_details__Pregnancy__Third}}</td>
-                                    <td>{{family.Pregnancy_details__Pregnancy__Fourth}}</td>
-                                    
-
-                                    <td>{{family.Pregnancy_details__Result__First}}</td>
-                                    <td>{{family.Pregnancy_details__Result__Second}}</td>
-                                    <td>{{family.Pregnancy_details__Result__Third}}</td>
-                                    <td>{{family.Pregnancy_details__Result__Fourth}}</td>
-
-                                    <td>{{family.Family_planning_methods__First__Method}}</td>
-                                    <td>{{family.Family_planning_methods__First__Date | date: 'yyyy/MM/dd' }}</td>
-
-                                    <td>{{family.Family_planning_methods__second__Method}}</td>
-                                    <td>{{family.Family_planning_methods__second__Date | date: 'yyyy/MM/dd' }}</td>
-
-                                    <td>{{family.Family_planning_methods__third__Method}}</td>
-                                    <td>{{family.Family_planning_methods__third__Date | date: 'yyyy/MM/dd' }}</td>
-
-                                    <td>{{family.Family_planning_methods__fourth__Method}}</td>
-                                    <td>{{family.Family_planning_methods__fourth__Date | date: 'yyyy/MM/dd' }}</td>
-
-                                    <td>{{family.Safeforrubella}}</td>
-                                    <td>{{family.Dateofcervicalmucoustest}}</td>
-                                    <td>{{family.Otherdetails}}</td>
-                                    <td></td>
-                                    <td>{{family.numberofyoungchildren}}</td>
+                                        <td align="center">{{family.village_id}}</td>
+                                        <td>{{family.Identity_number}}</td>
+                                        <td>{{family.Name_of_wife}}</td>
+                                        <td>{{family.Name_of_husband}}</td>
+                                        <td>{{family.Address}}</td>
+                                        <td align="center">{{family.Age_at_the_time_of_marriage}}</td>
+                                        <td>{{family.Job_status}}</td>
+                                        <td align="center">{{family.Number_of_living_children}}</td>
                                     
                                     </tr>
                             </tbody>

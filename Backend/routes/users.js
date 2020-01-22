@@ -17,10 +17,36 @@ router.post("/reguser",function(req, res){
     var newUser = new useraccounts({
         userid:req.body.userid,
         username:req.body.username,
-        password:req.body.password
-
+        password:req.body.password,
+        role:req.body.role,
+        areaId:req.body.areaId
     });
     //function for save username password to db
+/*
+    useraccounts.find({username: 'req.body.username'},
+    (err,doc)=>{
+        doc=>{
+            if(doc.length){
+                res.json({state:false,msg:"data not inserted"});
+                console.log("error");
+            }else{
+                User.saveuser(newUser,function(err,user){
+
+                    if(err){
+                        res.json({state:false,msg:"data not inserted"});
+                        console.log("error");
+                    }
+                    if(user){
+                        res.json({state:true,msg:"data inserted"});
+                        console.log("correct inserted");
+                    }
+                })
+            }
+        },
+        err=>{
+            res.json({state:false,msg:"data not inserted"});
+        }
+    },/** */
     User.saveuser(newUser,function(err,user){
         
        
@@ -32,10 +58,12 @@ router.post("/reguser",function(req, res){
             res.json({state:true,msg:"data inserted"});
             console.log("correct inserted");
         }
-    });
+    }
+    );
 
 
 });
+
 
 //login 
 router.post("/login",function(req,res){
@@ -81,13 +109,14 @@ router.post("/login",function(req,res){
             res.json(
                 {
                     success:true,
-                    token:"JWT " + token,
-                    user:{
+                    token:token,
+                    //user:{
                         id:user._id,
                         userid:user.userid,
                         username:user.username,
-                        password:user.password
-                    }
+                        password:user.password,
+                        role:user.role
+                    //}
                 } 
             )
             }
@@ -107,6 +136,7 @@ router.get('/profile', passport.authenticate('jwt', { session: false }),function
         console.log("good");
     }
 );
+
 
 
 //reset password
@@ -154,4 +184,37 @@ router.get('/resetpassword', async (req, res) => {
         console.log(error);
     }
 
+});
+
+
+//
+// router.post('/req-reset-password', User.ResetPassword);
+// router.post('/new-password', User.NewPassword);
+// router.post('/valid-password-token', User.ValidPasswordToken);
+
+router.get('/generateUserId/:areaId', (req, res) => {
+    areaId = req.params.areaId;
+    console.log(areaId)
+    if (areaId == '0') {
+        useraccounts.find((err, doc) => {
+            res.send(areaId+"..0000") 
+        })
+    } else {
+        useraccounts.find({
+            //userid: new RegExp(areaId, 'i')
+            userid: new RegExp('^'+areaId,'i')
+            //userid: /^2/ 
+        }, (err, doc) => {
+            if (doc.length) {
+                //res.send(doc);
+                console.log(doc);
+                console.log(doc[0].userid);
+                res.send(doc);
+            } else {
+                console.log('Cannot find the record');
+                //res.send(doc);
+                res.send(areaId.concat('..0000')) ;
+            }
+        }).sort({_id:-1}).limit(1);;
+    }
 });

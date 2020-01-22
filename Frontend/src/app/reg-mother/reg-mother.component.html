@@ -1,0 +1,51 @@
+<html lang="en">
+
+<head>
+
+
+</head>
+
+<body>
+  <div class="main-div">
+    <mat-card>
+
+      <mat-card-header>
+
+        <div mat-card-avatar class="logo-image"></div>
+        <mat-card-title>Register Mother</mat-card-title>
+        <mat-card-subtitle></mat-card-subtitle>
+      </mat-card-header>
+      <div class="container">
+        <form [formGroup]="regMotherForm" [hidden]="success" (ngSubmit)="onSubmit()">
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Village Id" type="text" formControlName="villageId">
+          </mat-form-field>
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="Email" type="text" formControlName="username">
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="User Id Without VIllage Id" type="text" formControlName="userid">
+            </mat-form-field>
+            <div class="row">
+              <div class="col-md-11">
+                <mat-form-field class="example-full-width">
+                  <input matInput placeholder="Password" type="{{passwordType}}" formControlName="password">
+                </mat-form-field>
+              </div>
+              <div class="col-md-1">
+                <i class="material-icons" (click)="showPassword()">remove_red_eye</i>
+              </div>
+              
+            </div>
+            
+
+            <button mat-raised-button color="primary" [disabled]="!regMotherForm.valid" type="submit">Login</button>
+
+        </form>
+    </div>
+    </mat-card>
+  </div>
+
+</body>
+
+</html>

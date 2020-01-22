@@ -5,6 +5,7 @@ import { ClinicsService } from 'app/Services/clinics.service';
 import { Clinic } from 'app/Services/Models/clinic';
 import { searchdata } from 'app/Services/Models/searchdata';
 import { Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 
 
 @Component({
@@ -20,8 +21,9 @@ export class NavbarComponent implements OnInit {
     private sidebarVisible: boolean;
     public nameOftheSearch;
     clinics : Clinic;
+    lang;
 
-    constructor(location: Location,  private element: ElementRef, private router: Router,private clinicService: ClinicsService) {
+    constructor(private translate: TranslateService,location: Location,  private element: ElementRef, private router: Router,private clinicService: ClinicsService) {
       this.location = location;
           this.sidebarVisible = false;
     }
@@ -40,6 +42,8 @@ export class NavbarComponent implements OnInit {
      });
      //MYCode
      this.clinicService.getUpcomingClinicData().subscribe(data => this.clinics = data);
+     this.translate.setDefaultLang('en');
+     
     }
 
     sidebarOpen() {
@@ -117,6 +121,11 @@ export class NavbarComponent implements OnInit {
         }
     };
 
+    changeLanguage(e){
+        console.log(e)
+        this.translate.setDefaultLang(e);
+    }
+
     getTitle(){
         /* 
       var titlee = this.location.prepareExternalUrl(this.location.path());
@@ -166,6 +175,7 @@ export class NavbarComponent implements OnInit {
             this.router.navigate([this.router.url,'ViewFamilesById',this.searchEnterdData.data])
         }
     }
+
 
     
 }

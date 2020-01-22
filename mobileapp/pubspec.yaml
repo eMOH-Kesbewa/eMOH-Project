@@ -31,7 +31,14 @@ dependencies:
   font_awesome_flutter: ^8.5.0
   logger: ^0.7.0+2
   charts_flutter: ^0.8.1
-  
+  sqflite: any
+  path_provider: any
+  intl: any
+  image_picker: any
+  image: any
+  easy_localization: ^1.3.1
+  webview_flutter: ^0.3.17
+  js: ^0.6.0
 
 dev_dependencies:
   flutter_test:
@@ -51,6 +58,9 @@ flutter:
 
   assets:
     - images/mother.png
+    - assets/si-SL.json
+    - assets/en-US.json
+    - html/
 
   # To add assets to your application, add an assets section, like this:
   # assets:

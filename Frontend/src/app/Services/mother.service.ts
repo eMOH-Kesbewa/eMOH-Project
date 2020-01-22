@@ -34,4 +34,14 @@ export class MotherService {
     console.log(userData)
     return this.http.put<Mother>(_url , userData,{observe: 'response'});
    }
+
+   searchmotherdataById(motherId){             //Selecting a record by motherId
+    let uri = `http://localhost:3000/mothers/searchbyid/${motherId}`;
+    return this.http.get<Mother>(uri,{observe: 'response'})
+   }
+
+   getBabyList(motherId){
+     let uri = `http://localhost:3000/babies/getBabyList/${motherId}`;
+     return this.http.get<any>(uri);
+   }
 }

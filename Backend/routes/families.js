@@ -56,4 +56,83 @@ router.get('/viewbyid/:id', (req, res) => {
 
 });
 
+
+router.get('/searchbyid/:searchData', (req, res) => {
+    searchData = req.params.searchData;
+    console.log(searchData)
+    if (searchData == '0') {
+        ApprovedFamily.find((err, doc) => {
+            res.send(doc)
+        })
+    } else {
+        ApprovedFamily.find({
+            $or:[
+                    {
+                        Identity_number: new RegExp(searchData, 'i')
+                    },
+                    {
+                        Name_of_wife:new RegExp(searchData, 'i')
+                    }
+                ]
+        }, (err, doc) => {
+            if (doc.length) {
+                res.send(doc);
+                console.log(doc);
+            } else {
+                console.log('Cannot find the record');
+                res.send(doc);
+            }
+        });
+    }
+});
+
+router.get('/getModernContraceptiveMethods', (req, res) => {
+    ApprovedFamily.aggregate([
+        {
+            $facet:{
+                Quarter1:[
+                    {
+                        $group:{
+                            _id:'$Family_planning_methods__First__Method',
+                            count:{$sum:1}
+                        }
+                    }
+                ],
+                Quarter2:[
+                    {
+                        $group:{
+                            _id:'$Family_planning_methods__second__Method',
+                            count:{$sum:1}
+                        }
+                    }
+                ],
+                Quarter3:[
+                    {
+                        $group:{
+                            _id:'$Family_planning_methods__third__Method',
+                            count:{$sum:1}
+                        }
+                    }
+                ],
+                Quarter4:[
+                    {
+                        $group:{
+                            _id:'$Family_planning_methods__fourth__Method',
+                            count:{$sum:1}
+                        }
+                    }
+                ],
+            }
+            
+        }
+    ]).then(doc=>
+        {
+            res.status(200).json(doc[0])
+    }
+            
+    )
+})
+
+
+
 module.exports = router;

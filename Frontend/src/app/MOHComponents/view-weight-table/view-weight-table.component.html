@@ -1,197 +1,46 @@
 <div class="main-content">
   <router-outlet></router-outlet>
   <div class="row">
-    <div class="col-md-3" ><a routerLink="AddWeightHeight" class="btn btn-info btn-block">Add New Weight Height Form</a></div>
+    <div class="col-md-3" ><a routerLink="AddWeightHeight" class="btn btn-info btn-block">{{ 'weightHeight.newform' | translate }}</a></div>
   </div>
   <div class="row">
     <div class="col-md-12">
         <div class="card">
             <div class="card-header">
-                <h4 class="card-title "><h3>View Children Weight Height Table</h3></h4>
+                <h4 class="card-title "><h3>{{ 'weightHeight.view_weight' | translate }}</h3></h4>
                 <h5 class="card-category">Click to view the individual Records</h5>
             </div>
             <div class="card-body">
-              <div class="table-responsive">
+              <mat-form-field class="example-full-width">
+                <input (keyup)="onKey($event)" matInput placeholder="Search By Name/Id" value="">
+              </mat-form-field>
+              <div *ngIf="showTable" class="table-responsive">
                   <table class="table table-hover table-bordered">
                     
                       <tr>
-                        <th rowspan = 2><b>Baby ID</b></th>
-                        <th rowspan = 2><b>Batch No</b></th>
-                        <th rowspan = 2><b>Baby Name</b></th>
-                        <th rowspan = 2><b>Sex</b></th>
-                        <th rowspan = 2><b>Date Of Birth</b></th>
-                        <th colspan=2 align="center">At Birth</th>
-                        <th colspan=12 align="center">Age Of Child(Month) 1 Year</th>
-                        <th colspan=2 align="center">Age Of Child(Month) 1 Year</th>
-                        <th colspan=12 align="center">Age Of Child(Month) 2 Year</th>
-                        <th colspan=2 align="center">Age Of Child(Month) 2 Year</th>
-                        <th colspan=12 align="center">Age Of Child(Month) 3 Year</th>
-                        <th colspan=2 align="center">Age Of Child(Month) 3 Year</th>
-                        <th colspan=12 align="center">Age Of Child(Month) 4 Year</th>
-                        <th colspan=2 align="center">Age Of Child(Month) 4 Year</th>
-                        <th colspan=12 align="center">Age Of Child(Month) 5 Year</th>
-                        <th colspan=2 align="center">Age Of Child(Month) 5 Year</th>
-                        <th rowspan = 4><b>Other</b></th>
+                        <th rowspan = 2><b>{{ 'weightHeight.baby_id' | translate }}</b></th>
+                        <th rowspan = 2><b>{{ 'weightHeight.bathch_no' | translate }}</b></th>
+                        <th rowspan = 2><b>{{ 'weightHeight.childs_name' | translate }}</b></th>
+                        <th rowspan = 2><b>{{ 'weightHeight.sex' | translate }}</b></th>
+                        <th rowspan = 2><b>{{ 'weightHeight.date_of_birth' | translate }}</b></th>
+                        <th colspan=2 align="center">{{ 'weightHeight.atBirth' | translate }}</th>
                       </tr>
 
                       <tr>
-                          <th><b>Weight</b></th>
-                          <th><b>Length</b></th>
-                          <th><b>1</b></th>
-                          <th><b>2</b></th>
-                          <th><b>3</b></th>
-                          <th><b>4</b></th>
-                          <th><b>5</b></th>
-                          <th><b>6</b></th>
-                          <th><b>7</b></th>
-                          <th><b>8</b></th>
-                          <th><b>9</b></th>
-                          <th><b>10</b></th>
-                          <th><b>11</b></th>
-                          <th><b>12</b></th>
-                          <th><b>Date</b></th>
-                          <th><b>Length</b></th>
-                          <th><b>1</b></th>
-                          <th><b>2</b></th>
-                          <th><b>3</b></th>
-                          <th><b>4</b></th>
-                          <th><b>5</b></th>
-                          <th><b>6</b></th>
-                          <th><b>7</b></th>
-                          <th><b>8</b></th>
-                          <th><b>9</b></th>
-                          <th><b>10</b></th>
-                          <th><b>11</b></th>
-                          <th><b>12</b></th>
-                          <th><b>Date</b></th>
-                          <th><b>Length</b></th>
-                          <th><b>1</b></th>
-                          <th><b>2</b></th>
-                          <th><b>3</b></th>
-                          <th><b>4</b></th>
-                          <th><b>5</b></th>
-                          <th><b>6</b></th>
-                          <th><b>7</b></th>
-                          <th><b>8</b></th>
-                          <th><b>9</b></th>
-                          <th><b>10</b></th>
-                          <th><b>11</b></th>
-                          <th><b>12</b></th>
-                          <th><b>Date</b></th>
-                          <th><b>Length</b></th>
-                          <th><b>1</b></th>
-                          <th><b>2</b></th>
-                          <th><b>3</b></th>
-                          <th><b>4</b></th>
-                          <th><b>5</b></th>
-                          <th><b>6</b></th>
-                          <th><b>7</b></th>
-                          <th><b>8</b></th>
-                          <th><b>9</b></th>
-                          <th><b>10</b></th>
-                          <th><b>11</b></th>
-                          <th><b>12</b></th>
-                          <th><b>Date</b></th>
-                          <th><b>Length</b></th>
-                          <th><b>1</b></th>
-                          <th><b>2</b></th>
-                          <th><b>3</b></th>
-                          <th><b>4</b></th>
-                          <th><b>5</b></th>
-                          <th><b>6</b></th>
-                          <th><b>7</b></th>
-                          <th><b>8</b></th>
-                          <th><b>9</b></th>
-                          <th><b>10</b></th>
-                          <th><b>11</b></th>
-                          <th><b>12</b></th>
-                          <th><b>Date</b></th>
-                          <th><b>Length</b></th>
+                          <th><b>{{ 'weightHeight.weight' | translate }}</b></th>
+                          <th><b>{{ 'weightHeight.height' | translate }}</b></th>
                       </tr>
                       <tbody>
                       <tr *ngFor="let weight of weights" (click)="onClickMe(weight.baby_id)" style="cursor:pointer">
                           <td>{{weight.baby_id}}</td>
-                          <td>{{weight.batch_no}}</td>
-                          <td>{{weight.name_of_child}}</td>
-                          <td>{{weight.sex}}</td>
+                          <td align="center">{{weight.batch_no}}</td>
+                          <td >{{weight.name_of_child}}</td>
+                          <td align="center">{{weight.sex}}</td>
                           <td>{{weight.Date_of_birth | date: 'yyyy/MM/dd'}}</td>
-                          <td>{{weight.weight_of_birth}}</td>
-                          <td>{{weight.height_of_birth}}</td>
+                          <td align="center">{{weight.weight_of_birth}}</td>
+                          <td align="center">{{weight.height_of_birth}}</td>
                           
-                          <td>{{weight.first_yearone}}</td>
-                          <td>{{weight.first_yeartwo}}</td>
-                          <td>{{weight.first_yearthree}}</td>
-                          <td>{{weight.first_yearfour}}</td>
-                          <td>{{weight.first_yearfive}}</td>
-                          <td>{{weight.first_yearsix}}</td>
-                          <td>{{weight.first_yearseven}}</td>
-                          <td>{{weight.first_yeareight}}</td>
-                          <td>{{weight.first_yearnine}}</td>
-                          <td>{{weight.first_yearten}}</td>
-                          <td>{{weight.first_yeareleven}}</td>
-                          <td>{{weight.first_yeartwelve}}</td>
-                          <td>{{weight.oneyeardate | date: 'yyyy/MM/dd'}}</td>
-                          <td>{{weight.oneyearheight}}</td>
-
-                          <td>{{weight.sec_yearone}}</td>
-                          <td>{{weight.sec_yeartwo}}</td>
-                          <td>{{weight.sec_yearthree}}</td>
-                          <td>{{weight.sec_yearfour}}</td>
-                          <td>{{weight.sec_yearfive}}</td>
-                          <td>{{weight.sec_yearsix}}</td>
-                          <td>{{weight.sec_yearseven}}</td>
-                          <td>{{weight.sec_yeareight}}</td>
-                          <td>{{weight.sec_yearnine}}</td>
-                          <td>{{weight.sec_yearten}}</td>
-                          <td>{{weight.sec_yeareleven}}</td>
-                          <td>{{weight.sec_yeartwelve}}</td>
-                          <td>{{weight.twoyeardate | date: 'yyyy/MM/dd'}}</td>
-                          <td>{{weight.twoyearheight}}</td>
-
-                          <td>{{weight.third_yearone}}</td>
-                          <td>{{weight.third_yeartwo}}</td>
-                          <td>{{weight.third_yearthree}}</td>
-                          <td>{{weight.third_yearfour}}</td>
-                          <td>{{weight.third_yearfive}}</td>
-                          <td>{{weight.third_yearsix}}</td>
-                          <td>{{weight.third_yearseven}}</td>
-                          <td>{{weight.third_yeareight}}</td>
-                          <td>{{weight.third_yearnine}}</td>
-                          <td>{{weight.third_yearten}}</td>
-                          <td>{{weight.third_yeareleven}}</td>
-                          <td>{{weight.third_yeartwelve}}</td>
-                          <td>{{weight.threeyeardate | date: 'yyyy/MM/dd'}}</td>
-                          <td>{{weight.threeyearheight}}</td>
-
-                          <td>{{weight.four_yearone}}</td>
-                          <td>{{weight.four_yeartwo}}</td>
-                          <td>{{weight.four_yearthree}}</td>
-                          <td>{{weight.four_yearfour}}</td>
-                          <td>{{weight.four_yearfive}}</td>
-                          <td>{{weight.four_yearsix}}</td>
-                          <td>{{weight.four_yearseven}}</td>
-                          <td>{{weight.four_yeareight}}</td>
-                          <td>{{weight.four_yearnine}}</td>
-                          <td>{{weight.four_yearten}}</td>
-                          <td>{{weight.four_yeareleven}}</td>
-                          <td>{{weight.four_yeartwelve}}</td>
-                          <td>{{weight.foueyeardate | date: 'yyyy/MM/dd'}}</td>
-                          <td>{{weight.foueyearheight}}</td>
-
-                          <td>{{weight.five_yearone}}</td>
-                          <td>{{weight.five_yeartwo}}</td>
-                          <td>{{weight.five_yearthree}}</td>
-                          <td>{{weight.five_yearfour}}</td>
-                          <td>{{weight.five_yearfive}}</td>
-                          <td>{{weight.five_yearsix}}</td>
-                          <td>{{weight.five_yearseven}}</td>
-                          <td>{{weight.five_yeareight}}</td>
-                          <td>{{weight.five_yearnine}}</td>
-                          <td>{{weight.five_yearten}}</td>
-                          <td>{{weight.five_yeareleven}}</td>
-                          <td>{{weight.five_yeartwelve}}</td>
-                          <td>{{weight.fiveyeardate | date: 'yyyy/MM/dd'}}</td>
-                          <td>{{weight.fiveyearheight}}</td>
+                          
                       </tr>
                     </tbody>
                     </table>

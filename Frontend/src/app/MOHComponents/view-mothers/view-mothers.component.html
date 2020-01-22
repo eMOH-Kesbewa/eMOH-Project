@@ -1,119 +1,48 @@
+
 <div class="main-content">
   <router-outlet></router-outlet>
   <div class="row">
-    <div class="col-md-3" ><a routerLink="addMother" class="btn btn-info btn-block">Add New Mother</a></div>
+    <div class="col-md-3" ><a routerLink="addMother" class="btn btn-info btn-block">{{'mother.form'| translate }}</a></div>
   </div>
   <div class="row">
     <div class="col-md-12">
         <div class="card">
             <div class="card-header">
-                <h4 class="card-title "><h3>View Mother details</h3></h4>
-                <h5 class="card-category">Click to view the individual Records</h5>
+                <h4 class="card-title "><h3>{{ 'mother.mothers' | translate }}</h3></h4> 
+                <h5 class="card-category">{{ 'click_individual' | translate }}</h5>
             </div>
             <div class="card-body">
-              <div class="table-responsive">
+              <mat-form-field class="example-full-width">
+                <input (keyup)="onKey($event)" matInput placeholder="Search By Name/Id" value="">
+              </mat-form-field>
+              <div *ngIf="showTable" class="table-responsive">
                   <table class="table table-hover table-bordered">
                       
                           
                               <tr>
-                              <th rowspan = 2><b>Mother ID</b></th>
-                              <th rowspan = 2><b>Registration Number</b></th>
-                              <th rowspan = 2><b>Date of Registration</b></th>
-                              <th rowspan = 2><b>Name of the Pregnant Mother</b></th>
-                              <th rowspan = 2><b>Address</b></th>
-                              <th rowspan = 2><b>Age</b></th>
-                              <th rowspan = 2><b>No. of Living Children</b></th> 
-                              <th rowspan = 2 ><b>Gravidity</b> </th>  
-                              <th rowspan = 2 ><b>POA</b> </th>
-                              <th rowspan = 2 ><b>EDD</b> </th>  
-                              <th rowspan = 2 ><b>Protection Against Tetanus</b> </th> 
-                              <th rowspan = 2 ><b>Protection Against Rubella</b> </th> 
-                              <th colspan=2 align="center">Risked Conditions</th>
-                              <th colspan=2 align="center" ><b>Blood Sugar Level</b> </th> 
-                              <th colspan=2 align="center" ><b>Hemoglobin Level</b> </th> 
-                              <th rowspan = 2 ><b>Blood Group</b> </th> 
-                              <th colspan=2 align="center" ><b>VDRL Test</b> </th> 
-                              <th rowspan = 2 ><b>HIV Screening</b> </th>  
-                              <th colspan=5 align="center" ><b>Maternal Weight</b> </th> 
-                              <th rowspan = 2 ><b>BMI Before 12 weeks</b> </th> 
-                              <th colspan=4 align="center" ><b>Delivery Informations </b> </th> 
-                              <th rowspan = 2 ><b>Mode of Delivery</b> </th> 
-                              <th rowspan = 2 ><b>Birth Weight</b> </th> 
-                              <th colspan=5 align="center" ><b>Postpartum Visits</b> </th> 
-                              <th colspan=2 align="center" ><b>According to BI Register</b> </th>
-                              <th rowspan = 2><b>Remarks</b></th>
+                              <th rowspan = 2><b>{{ 'mother.mother_id' | translate }}</b></th>
+                              <th rowspan = 2><b>{{ 'mother.mothers_name' | translate }}</b></th>
+                              <th rowspan = 2><b>{{ 'mother.address' | translate }}</b></th>
+                              <th rowspan = 2><b>{{ 'mother.age' | translate }}</b></th>
+                              <th rowspan = 2><b>{{ 'mother.no_of_living_children' | translate }}</b></th>
+                              <th colspan=2 align="center">{{ 'mother.risk_conditions' | translate }}</th>
+                              
                               </tr>
 
                               <tr>  
-                                <th><b>Low</b></th>
-                                <th><b>High</b></th>
-                                <th><b>first 12 weeks</b></th>
-                                <th><b>24-28 weeks</b></th>
-                                <th><b>first 12 weeks</b></th>
-                                <th><b>26-28 weeks</b></th>
-                                <th><b>Before 12 Weeks </b></th>
-                                <th><b>After 12 Weeks</b></th>
-                                <th><b>Wt. at First Visit</b></th>
-                                <th><b>POA at First Visit</b></th>
-                                <th><b>Wt. at Last Visit</b></th>
-                                <th><b>POA at Last Visit</b></th>
-                                <th><b>Weight Gained During Pregnancy</b></th>
-                                <th><b>Date</b></th>
-                                <th><b>Place</b></th>
-                                <th><b>Outcomde</b></th>
-                                <th><b>Male/Female</b></th>
-                                <th><b>Within First 5 days</b></th>
-                                <th><b>6-10 Days</b></th>
-                                <th><b>Late First Visits</b></th>
-                                <th><b>14-21 Days</b></th>
-                                <th><b>Around 42 Days</b></th>
-                                <th><b>Number</b></th>
-                                <th><b>Date</b></th>
+                                <th><b>{{ 'mother.risk_conditions_low' | translate }}</b></th>
+                                <th><b>{{ 'mother.risk_conditions_high' | translate }}</b></th>
                               </tr>
                               <tbody>
                               <tr *ngFor="let mother of mother" (click)="onClickMe(mother.mother_id)" style="cursor:pointer">
                                 <td>{{mother.mother_id}}</td>
-                                <td>{{mother.registration_no}}</td>
-                                <td>{{mother.registration_date | date: 'yyyy/MM/dd'}}</td>
                                 <td>{{mother.mothers_name}}</td>
                                 <td>{{mother.address}}</td>
-                                <td>{{mother.age}}</td>
-                                <td>{{mother.no_of_living_children}}</td>
-                                <td>{{mother.gravidity}}</td>
-                                <td>{{mother.POA}}</td>
-                                <td>{{mother.EDD | date: 'yyyy/MM/dd'}}</td>
-                                <td><div *ngIf="mother.protection_against_tetanus"><i _ngcontent-rwm-c19="" class="material-icons icon-image-preview">done</i></div> <div *ngIf="!mother.protection_against_tetanus">Not Injected</div></td>
-                                <td><div *ngIf="mother.protection_against_rubella"><i _ngcontent-rwm-c19="" class="material-icons icon-image-preview">done</i></div> <div *ngIf="!mother.protection_against_rubella">Not Injected</div></td>
-                                <td><div  *ngIf="!mother.risk_conditions"><i _ngcontent-rwm-c19="" class="material-icons icon-image-preview">done</i></div></td>
-                                <td><div  *ngIf="mother.risk_conditions"><i _ngcontent-rwm-c19="" class="material-icons icon-image-preview">done</i></div></td>
-                                <td>{{mother.blood_sugar__during_first_twelve_weeks}}</td>
-                                <td>{{mother.blood_sugar__twentyfour_fourtyeight_weeks}}</td>
-                                <td>{{mother.hemoglobin_level__first_twelve_weeks}}</td>
-                                <td>{{mother.hemoglobin_level__twentysix_twentyeight_weeks}}</td>
-                                <td>{{mother.blood_group}}</td>
-                                <td>{{mother.vdrl_test__before_twelve_weeks}}</td>
-                                <td>{{mother.vdrl_test__after_twelve_weeks}}</td>
-                                <td>{{mother.hiv_screening}}</td>
-                                <td>{{mother.mothers_weight__weight_at_first_visit}}</td>
-                                <td>{{mother.mothers_weight__poa_at_first_visit}}</td>
-                                <td>{{mother.mothers_weight__weight_at_last_visit}}</td>
-                                <td>{{mother.mothers_weight__poa_at_last_visit}}</td>
-                                <td>{{mother.mothers_weight__gained_weight_during_pregnancy}}</td>
-                                <td>{{mother.bmi_before_twelve_weeks}}</td>
-                                <td>{{mother.delivery_informations__date | date: 'yyyy/MM/dd'}}</td>
-                                <td>{{mother.delivery_informations__place}}</td>
-                                <td>{{mother.delivery_informations__outcome}}</td>
-                                <td>{{mother.delivery_informations__sex}}</td>
-                                <td>{{mother.mode_of_delivery}}</td>
-                                <td>{{mother.birth_weight}}</td>
-                                <td>{{mother.postpartum_visits__within_first_five_days}}</td>
-                                <td>{{mother.postpartum_visits__six_to_ten_days}}</td>
-                                <td>{{mother.postpartum_visits__late_first_visit_eleven_thirteen_days}}</td>
-                                <td>{{mother.postpartum_visits__fourteen_twentyone_days}}</td>
-                                <td>{{mother.postpartum_visits__arround_fourtytwo_days}}</td>
-                                <td>{{mother.registration_no_in_bi_register}}</td>
-                                <td>{{mother.registration_date_in_bi_register | date: 'yyyy/MM/dd'}}</td>
-                                <td>{{mother.remarks}}</td>
+                                <td align="center">{{mother.age}}</td>
+                                <td align="center">{{mother.no_of_living_children}}</td>
+                                <td align="center"><div  *ngIf="!mother.risk_conditions"><i _ngcontent-rwm-c19="" class="material-icons icon-image-preview">done</i></div></td>
+                                <td align="center"><div  *ngIf="mother.risk_conditions"><i _ngcontent-rwm-c19="" class="material-icons icon-image-preview">done</i></div></td>
+                                
                               </tr>
                       </tbody>
                      

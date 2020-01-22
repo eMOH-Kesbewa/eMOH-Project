@@ -62,7 +62,7 @@ export class ViewFamilybyIdComponent implements OnInit {
    
     
     this.familyservice.getfamilydataById(this.familyId).subscribe(data => {
-        console.log(data[0]['Date']);
+        //console.log(data[0]['Date']);
         this.approvedFamilyForm.patchValue({
           village_id : data[0]['village_id'],
           Approved_family_category: data[0]['Approved_family_category'] ,

@@ -64,14 +64,14 @@ export class AddmotherbabyjoineddataComponent implements OnInit {
   
 
   onSubmit(){
-    /*
+    
     this.submitted=true;
 
     if(this.addmotherbabyForm.invalid){
       return;
     }
 
-    this.success=true;*/
+    this.success=true;
 
     console.log(this.addmotherbabyForm.value);
       this.MotherbabyjoinedService.addnewbaby(this.addmotherbabyForm.value)

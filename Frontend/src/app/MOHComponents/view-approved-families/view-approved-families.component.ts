@@ -13,7 +13,7 @@ export class ViewApprovedFamiliesComponent implements OnInit {
   constructor(private familyservice : FamiliesService,private router: Router) { }
 
   families : Family;
-  
+  showTable : Boolean = false;
   
   ngOnInit() {
     this.familyservice.getfamilydata().subscribe(data => this.families = data);
@@ -29,4 +29,18 @@ export class ViewApprovedFamiliesComponent implements OnInit {
     this.router.navigate([this.router.url,'ViewFamilesById',familyID])
   }
   
+  onKey(event: any){
+    console.log(event.target.value)
+    this.familyservice.searchfamilydataById(event.target.value).subscribe(
+      data=>{
+        
+        this.families = data.body;
+        if(!event.target.value){
+          this.showTable = false
+        }else{
+          this.showTable = true;
+        }
+      }
+    )
+}
 }

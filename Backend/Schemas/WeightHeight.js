@@ -1,13 +1,13 @@
 const mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var weight_height = new Schema({
-	"baby_id":String,
+	"baby_id": String,
 	"batch_no": String,
 	"name_of_child": String,
 	"sex": String,
 	"Date_of_birth": Date,
-	"weight_of_birth":Number,
-	"height_of_birth":Number,
+	"weight_of_birth": Number,
+	"height_of_birth": Number,
 	"other_details": String,
 
 	"first_yearone": Number,
@@ -74,22 +74,88 @@ var weight_height = new Schema({
 	"five_yearten": Number,
 	"five_yeareleven": Number,
 	"five_yeartwelve": Number,
-	
+
 	//height
-	"oneyeardate":Date,
-	"twoyeardate":Date,
-	"threeyeardate":Date,
-	"foueyeardate":Date,
-	"fiveyeardate":Date,
-	"oneyearheight":Number,
-	"twoyearheight":Number,
-	"threeyearheight":Number,
-	"foueyearheight":Number,
-	"fiveyearheight":Number
-	
-	
+	"oneyeardate": Date,
+	"twoyeardate": Date,
+	"threeyeardate": Date,
+	"foueyeardate": Date,
+	"fiveyeardate": Date,
+	"oneyearheight": Number,
+	"twoyearheight": Number,
+	"threeyearheight": Number,
+	"foueyearheight": Number,
+	"fiveyearheight": Number,
+	//height 1st year
+	"hfirst_yearone": Number,
+	"hfirst_yeartwo": Number,
+	"hfirst_yearthree": Number,
+	"hfirst_year`four": Number,
+	"hfirst_yearfive": Number,
+	"hfirst_yearsix": Number,
+	"hfirst_yearseven": Number,
+	"hfirst_yeareight": Number,
+	"hfirst_yearnine": Number,
+	"hfirst_yearten": Number,
+	"hfirst_yeareleven": Number,
+	"hfirst_yeartwelve": Number,
+	//height 2nd year
+	"hsec_yearone": Number,
+	"hsec_yeartwo": Number,
+	"hsec_yearthree": Number,
+	"hsec_yearfour": Number,
+	"hsec_yearfive": Number,
+	"hsec_yearsix": Number,
+	"hsec_yearseven": Number,
+	"hsec_yeareight": Number,
+	"hsec_yearnine": Number,
+	"hsec_yearten": Number,
+	"hsec_yeareleven": Number,
+	"hsec_yeartwelve": Number,
+	//height 3rd year
+	"hthird_yearone": Number,
+	"hthird_yeartwo": Number,
+	"hthird_yearthree": Number,
+	"hthird_yearfour": Number,
+	"hthird_yearfive": Number,
+	"hthird_yearsix": Number,
+	"hthird_yearseven": Number,
+	"hthird_yeareight": Number,
+	"hthird_yearnine": Number,
+	"hthird_yearten": Number,
+	"hthird_yeareleven": Number,
+	"hthird_yeartwelve": Number,
+	//height 4th year
+	"hfour_yearone": Number,
+	"hfour_yeartwo": Number,
+	"hfour_yearthree": Number,
+	"hfour_yearfour": Number,
+	"hfour_yearfive": Number,
+	"hfour_yearsix": Number,
+	"hfour_yearseven": Number,
+	"hfour_yeareight": Number,
+	"hfour_yearnine": Number,
+	"hfour_yearten": Number,
+	"hfour_yeareleven": Number,
+	"hfour_yeartwelve": Number,
+	//height 5th year
+	"hfive_yearone": Number,
+	"hfive_yeartwo": Number,
+	"hfive_yearthree": Number,
+	"hfive_yearfour": Number,
+	"hfive_yearfive": Number,
+	"hfive_yearsix": Number,
+	"hfive_yearseven": Number,
+	"hfive_yeareight": Number,
+	"hfive_yearnine": Number,
+	"hfive_yearten": Number,
+	"hfive_yeareleven": Number,
+	"hfive_yeartwelve": Number
+
+
+
 }, {
-    collection: 'weightheight'
+	collection: 'weightheight'
 });
 var weight_height = mongoose.model('weight_height', weight_height);
 
