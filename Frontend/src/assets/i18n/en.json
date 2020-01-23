@@ -60,8 +60,7 @@
   "family.numberofyoungchildren": "Number of young children",
 
 
-  "baby.Update_Baby" : "Update Baby Book",
-
+  
     "mother.form": "Add a new mother",
     "mother.mothers": "Mothers' Details",
     "mother.mother": "Mother's Details",
@@ -208,7 +207,7 @@
     "weightHeight.heightOrLength": "Weight/Height",
     
 
-
+  "baby.Update_Baby" : "Update Baby Book",
   "baby.baby_id": "Baby ID" ,
   "baby.name_of_child": "Baby Name", 
   "baby.date_of_birth_of_child":"Date Of Birth",
@@ -297,7 +296,7 @@
   "baby.d_t ": "DT",
  "baby.opv_five ":  "OPV 5",
  "baby.adult_tatanus_diphtheria": "Adult Tatanus Diphtheria",
- "baby.Refferals_Of_I ":  "Refferals Of Immunization",
+ "baby.Refferals_Of_I":  "Refferals Of Immunization",
  "baby.reason_for_referrals":  "Reason for Refferals",
  "baby.place_of_refferal" :  "Place Of Refferal" ,
  "baby.notes_on_back": "Notes Back Of Refferals",
@@ -364,7 +363,7 @@
  "baby.they_play_when_crossing_fingers" : "They Play When Crossing Fingers",
  "baby.streching_his_hands_toward_something_he_hold_it_with_his_whole_hand" : "Streching His Hands Toward Something He Hold It With His Whole Hand",
  "baby.when_heard_a_sound_he_turn_his_head_toward" : "When Heard A Sound He Turn His Head Toward That",
- "baby.emits_single_letter_sounds ": "Emits Single Letter Sounds",
+ "baby.emits_single_letter_sounds": "Emits Single Letter Sounds",
  "baby.smiles_loudely" : "Smiles Loudely",
  "baby.lie_your_hips_and_head_up" : "Lie Your Hips And Head Up",
  "baby.turn_back_again_and_again" : "Turn Back Again And Again",
@@ -441,6 +440,7 @@
   "baby.Reason_For_Admit" : "Reason For Admit",
   "baby.About_Diseases" :  "About Diseases ",
   "baby.Refferals" : "Refferals" ,
+  "baby.hip_joint" : "Hip Joint",
 
     
 
@@ -528,6 +528,7 @@
     "pregm.from_letter":"Does It Informed From A Letter?",
     "pregm.informed_delivery_time": "Is It Informed Delivery Time ?",
     "pregm.is_it_informed" : "If Have A Risk Does Informed About That ?",
+    "pregm.Ready_For" : "Ready For Birth and Emargency",
     "pregm.delivery": "At Delivery ", 
     "pregm.transport_method": "Transport Method ",
     "pregm.emergency": "At Emergency",
@@ -551,10 +552,9 @@
     "pregm.Other_Medical":"Other Medical Details ",
     "pregm.date_of_issued_embry_moves_form":"Date Of Issued Embryo Moves Form",
     "pregm.worm_treatment_given_date": "Worm Treatment Given Date",
-    "pregm.tetanus_treatments": "පිටගැස්ම ධූලකාභය",
-    "pregm.type": "Tetanus Treatment Type",
-    "pregm.given_date": "Tetanus Treatment Given Date",
-    "pregm.type_number": "Tetanus Treatment Type Number",
+    "pregm.tetanus_treatments_type": "Tetanus Treatment Type",
+    "pregm.tetanus_treatments_given_date": "Tetanus Treatment Given Date",
+    "pregm.tetanus_treatments_type_number": "Tetanus Treatment Type Number",
     "pregm.height": "Height From cm",
     "pregm.bmi": "BMI Value",
     "pregm.vdrl": "VDRL",
@@ -577,7 +577,8 @@
     "pregm.weeks":"ගර්භ සති ගණන" ,
     "pregm.after_delivery_details": "Identified After Delivery Problems",
     "pregm.vitamin_c_overdose": "Vitamine C Overdose Date",
-    "pregm.rubella": "Rubella Batch No",
+    "pregm.rubella_date": "Rubella Date",
+    "pregm.rubella.batch" : "Rubella Batch No",
     "pregm.day_mother_came_home": "Date Of Mother Come Home",
     "pregm.child": "Child",
     "pregm.sexx": "Sex",
