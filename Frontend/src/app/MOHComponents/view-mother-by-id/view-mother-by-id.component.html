@@ -3,11 +3,21 @@
 <div class="container-fluid">
   <div class="row">
         <div class="col-md-8"></div>
-        <div class="col-md-2">
+        <div class="col-md-2-toggle">
             <mat-slide-toggle  [formControl]="autoRenew" (change)="onChange()">{{'edit'| translate}}</mat-slide-toggle>
         </div>
-        <div class="col-md-2">
+ <!--       <div class="col-md-2">
            <button  (click)="onClickMe()" class="btn btn-info btn-block">{{'family.changeAsMother'| translate}}</button>
+        </div>-->
+        <div class="col-md-2">
+        <mat-form-field>
+            <mat-label>Baby</mat-label>
+            <mat-select>
+            <mat-option *ngFor="let baby of babyList" (click)="onClickMe(baby.baby_id)">
+                {{baby.baby_id}}
+            </mat-option>
+            </mat-select>
+        </mat-form-field>
         </div>
         <div class="col-md-12">
       <div class="col-md-12">

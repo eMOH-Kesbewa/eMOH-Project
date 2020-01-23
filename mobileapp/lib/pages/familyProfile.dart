@@ -64,6 +64,7 @@ class _FamilyProfileState extends State<FamilyProfile> {
 
     Future family = fetchFamily();
     Future readFile() async {
+      
       String data = await DefaultAssetBundle.of(context)
           .loadString("text/BabyBookSinhala.json");
       text = data;
@@ -71,7 +72,7 @@ class _FamilyProfileState extends State<FamilyProfile> {
 
     return EasyLocalizationProvider(
       data: data,
-          child: Scaffold(
+      child: Scaffold(
         appBar: AppBar(
           title: Text(AppLocalizations.of(context).tr('familyprofile')),
           actions: <Widget>[
@@ -83,7 +84,8 @@ class _FamilyProfileState extends State<FamilyProfile> {
               ),
             ),
             IconButton(
-              icon: Icon(Icons.undo),color: Colors.white,
+              icon: Icon(Icons.undo),
+              color: Colors.white,
               onPressed: () async {
                 SharedPreferences prefs = await SharedPreferences.getInstance();
                 prefs.remove('email');
@@ -98,9 +100,11 @@ class _FamilyProfileState extends State<FamilyProfile> {
             child: FutureBuilder<Family>(
               future: family,
               builder: (context, snapshot) {
+               
                 var data = readFile();
                 logger.wtf(data);
                 if (snapshot.hasData) {
+                   globals.children = int.parse(snapshot.data.childrenCount);
                   return SingleChildScrollView(
                     child: Column(
                       children: <Widget>[
@@ -119,32 +123,37 @@ class _FamilyProfileState extends State<FamilyProfile> {
                             children: <Widget>[
                               ListTile(
                                 leading: Icon(Icons.perm_identity),
-                                title: Text(AppLocalizations.of(context).tr('idNo')),
+                                title: Text(
+                                    AppLocalizations.of(context).tr('idNo')),
                                 subtitle: Text(snapshot.data.idNumber),
                               ),
                               div,
                               ListTile(
                                 leading: Icon(Icons.home),
                                 // title: Text(.idNo),
-                                title: Text(AppLocalizations.of(context).tr('address')),
+                                title: Text(
+                                    AppLocalizations.of(context).tr('address')),
                                 subtitle: Text(snapshot.data.address),
                               ),
                               div,
                               ListTile(
                                 leading: Icon(Icons.ac_unit),
-                                title: Text(AppLocalizations.of(context).tr('wifename')),
+                                title: Text(AppLocalizations.of(context)
+                                    .tr('wifename')),
                                 subtitle: Text(snapshot.data.wifeName),
                               ),
                               div,
                               ListTile(
                                 leading: Icon(Icons.ac_unit),
-                                title: Text(AppLocalizations.of(context).tr('fathername')),
+                                title: Text(AppLocalizations.of(context)
+                                    .tr('fathername')),
                                 subtitle: Text(snapshot.data.husbandName),
                               ),
                               div,
                               ListTile(
                                 leading: Icon(Icons.child_friendly),
-                                title: Text(AppLocalizations.of(context).tr('nooflivingchildren')),
+                                title: Text(AppLocalizations.of(context)
+                                    .tr('nooflivingchildren')),
                                 subtitle: Text(snapshot.data.childrenCount),
                               ),
                             ],

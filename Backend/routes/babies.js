@@ -230,6 +230,32 @@ router.get('/searchbyid/:searchData', (req, res) => {
     }
 });
 
+router.get('/getBabyList/:searchData', (req, res) => {
+    searchData = req.params.searchData;
+    console.log(searchData)
+    if (searchData == '0') {
+        motherbabyjoined.find((err, doc) => {
+            res.send(doc)
+        })
+    } else {
+        motherbabyjoined.find({
+            $or:[
+                    {
+                        baby_id: new RegExp(searchData, 'i')
+                    }
+                ]
+        }, (err, doc) => {
+            if (doc.length) {
+                res.send(doc);
+                console.log(doc);
+            } else {
+                console.log('Cannot find the record');
+                res.send(doc);
+            }
+        });
+    }
+});
+
 router.get('/searchweightbyid/:searchData', (req, res) => {
     searchData = req.params.searchData;
     console.log(searchData)

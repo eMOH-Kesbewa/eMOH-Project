@@ -16,8 +16,6 @@ import '../services/globals.dart' as globals;
 
 var logger = Logger();
 
-
-
 class Login extends StatefulWidget {
   @override
   _LoginState createState() => _LoginState();
@@ -192,11 +190,14 @@ class _LoginState extends State<Login> {
     var response = await http.post(
         "https://protected-bayou-52277.herokuapp.com/users/login",
         body: data);
-        logger.wtf(response.statusCode);
+    logger.wtf(response.statusCode);
     if (response.statusCode == 200) {
       jsonResponse = json.decode(response.body);
       globals.globalEmail = emailController.text.toString();
-
+      logger.d(jsonResponse['token']);
+      SharedPreferences prefs = await SharedPreferences.getInstance();
+      
+          prefs.setString('jwt', jsonResponse['token']);
       if (jsonResponse != null) {
         setState(() {
           _isLoading = false;

@@ -2,16 +2,15 @@ import 'package:flutter/material.dart';
 //import 'package:mobileapp/pages/babyInfo/basicInfo.dart';
 import 'package:mobileapp/pages/babyInfo/babyBasicInfo.dart';
 import 'package:mobileapp/pages/babyInfo/babyprotection.dart';
+import 'package:mobileapp/pages/babyInfo/graphHome.dart';
 import 'package:mobileapp/pages/babyInfo/childHEalthView.dart';
 import 'package:mobileapp/pages/babyInfo/doctorNotes.dart';
 import 'package:mobileapp/pages/babyInfo/eyeTest.dart';
-import 'package:mobileapp/pages/babyInfo/graph.dart';
 import 'package:mobileapp/pages/babyInfo/growingView.dart';
 import 'package:mobileapp/pages/babyInfo/hearTest.dart';
 import 'package:mobileapp/pages/babyInfo/immunization.dart';
 import 'package:mobileapp/pages/babyInfo/immunizationRef.dart';
 import 'package:mobileapp/pages/babyInfo/newBornBayHealthChart.dart';
-import 'package:mobileapp/pages/babyInfo/plot.dart';
 import 'package:mobileapp/pages/babyInfo/teeth.dart';
 //import 'package:mobileapp/pages/babyInfo/untilFiveYears.dart';
 import 'package:mobileapp/pages/babyInfo/untilFiveYearsStep.dart';
@@ -30,38 +29,60 @@ class BabyDetails extends StatefulWidget {
 
 class _BabyDetailsState extends State<BabyDetails> {
   String _value = '01';
-  
+  String hintText = 'Select Baby'; //for drop downbutton hint
   @override
   Widget build(BuildContext context) {
     var data = EasyLocalizationProvider.of(context).data;
     // String dropdownValue = 'One';
+
+    List<DropdownMenuItem<String>> dropDownItems = List();
+    logger.d(globals.children);
+
+    //not running this for loop.
+
+    for (int i = 1; i < globals.children+1; i++) {
+      logger.d(i);
+      // var x = DropdownMenuItem<String>(
+      //   value: '${i}',
+      //   child: Text('Baby ${i}'),
+      // );
+      dropDownItems.add(DropdownMenuItem<String>( //check drop
+        value: '${i}',
+        child: Text('Baby ${i}'),
+      ));
+    }
+
+    logger.wtf(dropDownItems.length);
+
     final selectBaby = DropdownButton<String>(
-      items: [
-        DropdownMenuItem<String>(
-          value: '01',
-          child: Text('Baby 1'),
-        ),
-        DropdownMenuItem<String>(
-          value: '02',
-          child: Text('Baby 2'),
-        ),
-        DropdownMenuItem<String>(
-          value: '03',
-          child: Text('Baby 3'),
-        ),
-      ],
+      items: dropDownItems,
+      // items: [
+      //   DropdownMenuItem<String>(
+      //     value: '01',
+      //     child: Text('Baby 1'),
+      //   ),
+      //   DropdownMenuItem<String>(
+      //     value: '02',
+      //     child: Text('Baby 2'),
+      //   ),
+      //   DropdownMenuItem<String>(
+      //     value: '03',
+      //     child: Text('Baby 3'),
+      //   ),
+      // ],
       onChanged: (String value) {
         setState(() {
-          _value = value;
+          _value = '0'+value;
           String tempId = globals.familyId + _value;
           print(globals.familyId);
           globals.babyId = tempId.substring(0, 6) + _value;
           print('baby id');
           print(globals.babyId);
+          hintText = 'Baby' + '${value}';
         });
       },
-      hint: Text('Baby 1'),
-      value: _value,
+      hint: Text(hintText,style: TextStyle(color: Colors.white),),
+    //  value: _value,
     );
 
     final basicInfoBtn = Material(
@@ -70,7 +91,7 @@ class _BabyDetailsState extends State<BabyDetails> {
       color: Color(0xff2660a4),
       child: EasyLocalizationProvider(
         data: data,
-              child: MaterialButton(
+        child: MaterialButton(
           child: Column(
             children: <Widget>[
               SizedBox(
@@ -94,8 +115,8 @@ class _BabyDetailsState extends State<BabyDetails> {
           ),
           //minWidth: MediaQuery.of(context).size.width / 2,
           //height: MediaQuery.of(context).size.width / 4,
-          onPressed: () => Navigator.push(
-              context, MaterialPageRoute(builder: (context) => BabyBasicInfo())),
+          onPressed: () => Navigator.push(context,
+              MaterialPageRoute(builder: (context) => BabyBasicInfo())),
         ),
       ),
     );
@@ -105,7 +126,7 @@ class _BabyDetailsState extends State<BabyDetails> {
       color: Color(0xff51a3a3),
       child: EasyLocalizationProvider(
         data: data,
-              child: MaterialButton(
+        child: MaterialButton(
           child: Column(
             children: <Widget>[
               SizedBox(
@@ -129,8 +150,8 @@ class _BabyDetailsState extends State<BabyDetails> {
           ),
           //minWidth: MediaQuery.of(context).size.width / 2,
           //height: MediaQuery.of(context).size.width / 4,
-          onPressed: () => Navigator.push(
-              context, MaterialPageRoute(builder: (context) => BabyProtection())),
+          onPressed: () => Navigator.push(context,
+              MaterialPageRoute(builder: (context) => BabyProtection())),
         ),
       ),
     );
@@ -142,7 +163,7 @@ class _BabyDetailsState extends State<BabyDetails> {
       //color: Color(0xff593c8f),
       child: EasyLocalizationProvider(
         data: data,
-              child: MaterialButton(
+        child: MaterialButton(
           child: Column(
             children: <Widget>[
               SizedBox(
@@ -177,7 +198,7 @@ class _BabyDetailsState extends State<BabyDetails> {
       color: Color(0xff228cdb),
       child: EasyLocalizationProvider(
         data: data,
-              child: MaterialButton(
+        child: MaterialButton(
           child: Column(
             children: <Widget>[
               SizedBox(
@@ -212,7 +233,7 @@ class _BabyDetailsState extends State<BabyDetails> {
         color: Color(0xff593c8f),
         child: EasyLocalizationProvider(
           data: data,
-                  child: MaterialButton(
+          child: MaterialButton(
             child: Column(
               children: <Widget>[
                 SizedBox(
@@ -252,7 +273,7 @@ class _BabyDetailsState extends State<BabyDetails> {
         color: Color(0xffeccf68),
         child: EasyLocalizationProvider(
           data: data,
-                  child: MaterialButton(
+          child: MaterialButton(
             child: Column(
               children: <Widget>[
                 SizedBox(
@@ -292,7 +313,7 @@ class _BabyDetailsState extends State<BabyDetails> {
         color: Color(0xfff46f79),
         child: EasyLocalizationProvider(
           data: data,
-                  child: MaterialButton(
+          child: MaterialButton(
             child: Column(
               children: <Widget>[
                 SizedBox(
@@ -332,7 +353,7 @@ class _BabyDetailsState extends State<BabyDetails> {
         color: Color(0xff963564),
         child: EasyLocalizationProvider(
           data: data,
-                  child: MaterialButton(
+          child: MaterialButton(
             child: Column(
               children: <Widget>[
                 SizedBox(
@@ -372,7 +393,7 @@ class _BabyDetailsState extends State<BabyDetails> {
         color: Color(0xff68c8c8),
         child: EasyLocalizationProvider(
           data: data,
-                  child: MaterialButton(
+          child: MaterialButton(
             child: Column(
               children: <Widget>[
                 SizedBox(
@@ -412,7 +433,7 @@ class _BabyDetailsState extends State<BabyDetails> {
         color: Color(0xffca8766),
         child: EasyLocalizationProvider(
           data: data,
-                  child: MaterialButton(
+          child: MaterialButton(
             child: Column(
               children: <Widget>[
                 SizedBox(
@@ -452,7 +473,7 @@ class _BabyDetailsState extends State<BabyDetails> {
         color: Color(0xffc3e989),
         child: EasyLocalizationProvider(
           data: data,
-                  child: MaterialButton(
+          child: MaterialButton(
             child: Column(
               children: <Widget>[
                 SizedBox(
@@ -492,7 +513,7 @@ class _BabyDetailsState extends State<BabyDetails> {
         color: Color(0xffe87554),
         child: EasyLocalizationProvider(
           data: data,
-                  child: MaterialButton(
+          child: MaterialButton(
             child: Column(
               children: <Widget>[
                 SizedBox(
@@ -532,7 +553,7 @@ class _BabyDetailsState extends State<BabyDetails> {
         color: Color(0xffe0e0ce),
         child: EasyLocalizationProvider(
           data: data,
-                  child: MaterialButton(
+          child: MaterialButton(
             child: Column(
               children: <Widget>[
                 SizedBox(
@@ -572,7 +593,7 @@ class _BabyDetailsState extends State<BabyDetails> {
         color: Color(0xff7c606b),
         child: EasyLocalizationProvider(
           data: data,
-                  child: MaterialButton(
+          child: MaterialButton(
             child: Column(
               children: <Widget>[
                 SizedBox(
@@ -602,7 +623,7 @@ class _BabyDetailsState extends State<BabyDetails> {
             //height: MediaQuery.of(context).size.width / 4,
             onPressed: () => Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => Chart()),
+              MaterialPageRoute(builder: (context) => GraphHome()),
             ),
           ),
         ));
