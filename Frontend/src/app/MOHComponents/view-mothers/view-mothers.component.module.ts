@@ -26,10 +26,11 @@ import { ViewMotherByIDComponent } from "../view-mother-by-id/view-mother-by-id.
 import { TranslateModule, TranslateLoader } from "@ngx-translate/core";
 import { HttpLoaderFactory } from "app/app.module";
 import { HttpClient } from "@angular/common/http";
+import { RegPregMothersComponent } from "app/Graphs/reg-preg-mothers/reg-preg-mothers.component";
 
 
 @NgModule({
-    declarations:[ViewMothersComponent,PregnancyFormComponent,ViewMotherByIDComponent,ViewPregnantMothersComponent],
+    declarations:[ViewMothersComponent,PregnancyFormComponent,ViewMotherByIDComponent,ViewPregnantMothersComponent,RegPregMothersComponent],
     imports:[
         Mothers,
         CommonModule,

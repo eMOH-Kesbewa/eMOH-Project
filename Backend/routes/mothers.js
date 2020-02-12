@@ -4,6 +4,7 @@ var Mother = require('../Schemas/MotherSchema');
 var mongoose = require('mongoose');
 var motherbabyjoined = require('../Schemas/MotherBabyJoined');
 var motherfordoc = require('../Schemas/motherfordoc');
+var phm = require('../Schemas/phm');
 
 
 //Add Details to MotherBabyJoinedTable
@@ -198,6 +199,45 @@ router.put('/update/:id', function(req, res, next) {
         });
     }
 });
+
+//create report for registration of pregnanat mothers
+router.get('/registrationMothers',(req,res)=>{
+      phm.aggregate([
+          {
+              $facet:{
+                Quarter1:[
+                    {
+                        $group:{
+                            _id:'$Registered_mothers_before_eight_weeks',
+                            count:{$sum:1}
+                        }
+                    }
+                ],
+                Quarter2:[
+                    {
+                        $group:{
+                            _id:'$Registered_mothers_between_eight_twelve_weeks',
+                            count:{$sum:1}
+                        }
+                    }
+                ],
+                Quarter3:[
+                    {
+                        $group:{
+                            _id:'$Registered_mothers_between_eight_twelve_weeks',
+                            count:{$sum:1}
+                        }
+                    }
+                ]
+              }
+          }
+
+      ]).then(doc=>
+        {
+            res.status(200).json(doc[0])
+    }
+      )
+})
 
 
 

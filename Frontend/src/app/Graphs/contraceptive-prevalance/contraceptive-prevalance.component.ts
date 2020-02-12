@@ -81,7 +81,7 @@ export class ContraceptivePrevalanceComponent implements OnInit {
        console.log(this.Implanon[3])
       i=0;
       
-      this.totalFp[0]=this.DMPA[0]+this.not_accepted[0];
+     // this.totalFp[0]=this.DMPA[0]+this.not_accepted[0];
       
        while(i<4){
           this.totalFp[i]=(this.DMPA[i]||0)+(this.IUCD[i]||0)+(this.OCP[i]||0)+(this.Implanon[i]||0)+(this.Condoms[i]||0)+(this.LRT[i]||0)+(this.V[i]||0)+(this.not_accepted[i]||0);
