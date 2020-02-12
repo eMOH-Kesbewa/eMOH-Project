@@ -6,6 +6,7 @@ import { PregnancyFormComponent } from '../pregnancy-form/pregnancy-form.compone
 import { ViewMotherByIDComponent } from '../view-mother-by-id/view-mother-by-id.component';
 import { ViewPregnantMothersComponent } from '../view-pregnant-mothers/view-pregnant-mothers.component';
 import { AuthGuard } from 'app/auth.guard';
+import { RegPregMothersComponent } from 'app/Graphs/reg-preg-mothers/reg-preg-mothers.component';
 
 
 export const MotherRoutes: Routes = [
@@ -28,7 +29,13 @@ export const MotherRoutes: Routes = [
                 path:'ViewPregnantMother',
                 component:ViewPregnantMothersComponent,
                 canActivate:[AuthGuard]
-            }
+            },
+            {
+                path:'viewPregnantReport',
+                component:RegPregMothersComponent,
+                canActivate:[AuthGuard]
+            },
+
 
 
         ]

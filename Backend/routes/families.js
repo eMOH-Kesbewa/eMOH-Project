@@ -86,12 +86,25 @@ router.get('/searchbyid/:searchData', (req, res) => {
     }
 });
 
-router.get('/getModernContraceptiveMethods', (req, res) => {
+router.get('/getModernContraceptiveMethods/:year', (req, res) => {
+    currentYear = req.params.year;
+    nextYearInt = parseInt(currentYear);
+    nextYearInt+=1;
+    nextYear = nextYearInt.toString();
     ApprovedFamily.aggregate([
+        { $match: {
+                "Family_planning_methods__First__Date": 
+                {
+                    $gte: new Date(`${currentYear}-01-01T00:00:00.000Z`),
+                    $lt: new Date(`${nextYear}-01-01T00:00:00.000Z`),
+                }
+            } 
+        },
         {
             $facet:{
                 Quarter1:[
                     {
+                        
                         $group:{
                             _id:'$Family_planning_methods__First__Method',
                             count:{$sum:1}
