@@ -262,7 +262,7 @@
     "baby.only_breastfeeding": "මව්කිරි පමණක් දීම" ,
     "baby.breastfeeding_stability": "මව්කිරි දිමේ ස්ථාපිතය",
     "baby.breastfeeding_connection": "මව්කිරි දිමේ සම්බන්ධය",
-    "baby.Vaccine": "ප්‍රතිශක්තිකරණය" ,
+    "baby.Vaccine": "ප්‍රතිශක්තිකරණ එන්නත්" ,
    "baby.At_Birth": "උපතේදී" ,
    "baby.two_months": "2 මාසය සම්පුර්ණ වූ විට",
    "baby.four_months": "4 මාසය සම්පුර්ණ වූ විට",
@@ -438,6 +438,8 @@
     "baby.Refferals" : "ආපසු යොමු කිරීම් / පසු විපරම්" ,
     "baby.hip_joint" : "උකුල් සන්ධිය", 
     "baby.Update_Baby" :"ළදරු සටහන් පොත" ,
+    "baby.newborndetails" : "අළුත උපන් දරුවාගේ විස්තර ",
+    "baby.babyDetails" : "දරුවාගේ හා මවගේ විස්තර ",
 
     "pregm.pregnancy_form": "ගර්භනී සටහන් පත",
     "pregm.maiden":"කුළුදුල්",
@@ -610,4 +612,5 @@
     "pregm.does_mother_comes_to_post_delivery_clinics": "පසු ප්‍රසව සායනයට පැමිණියේද?",
     "pregm.accepted_family_organization_method": "පවුල් සංවිධාන ක්‍රමයක් පිළිගත්තේද?",
     "pregm.if_no":"පිලිනොගත්තේනම් හේතුව"
+    
     }

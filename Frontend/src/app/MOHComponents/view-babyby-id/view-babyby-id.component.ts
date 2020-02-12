@@ -24,6 +24,7 @@ export class ViewBabybyIDComponent implements OnInit {
     this.addmotherbabyForm=this.formBuilder.group({
       mother_id: ['', Validators.required],
       child_name: ['', Validators.required],
+      baby_id: ['', Validators.required],
       mothers_name: ['', Validators.required],
       address: ['', Validators.required],
       sex: ['', Validators.required],
@@ -69,6 +70,7 @@ export class ViewBabybyIDComponent implements OnInit {
           this.addmotherbabyForm.patchValue({
           mother_id: data[0]['mother_id'],
           child_name: data[0]['child_name'],
+          baby_id: data[0]['baby_id'],
           mothers_name: data[0]['mothers_name'],
           address: data[0]['address'],
           sex: data[0]['sex'],

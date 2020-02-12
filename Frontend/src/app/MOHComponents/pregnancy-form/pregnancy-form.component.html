@@ -25,10 +25,17 @@
                         </div>
                         <div class="col-md-2">
                             <mat-form-field class="example-full-width">
-                                <input matInput placeholder="{{'pregm.blood_group' | translate}}" type="text" formControlName="blood_group">
-                                <div *ngIf="submitted && PregnancyForm.controls.blood_group.errors" class="error">
-                                    <div *ngIf="PregnancyForm.controls.blood_group.errors.required">This field is required</div>
-                                  </div>
+                              <mat-select placeholder="{{'pregm.blood_group' | translate}}" formControlName="blood_group" required>
+                                
+                                  <mat-option value="High">A+</mat-option>
+                                  <mat-option value="High">A-</mat-option>
+                                  <mat-option value="High">B+</mat-option>
+                                  <mat-option value="High">B-</mat-option>
+                                  <mat-option value="High">AB+</mat-option>
+                                  <mat-option value="High">AB-</mat-option>
+                                  <mat-option value="High">O+</mat-option>
+                                  <mat-option value="High">O-</mat-option>
+                            </mat-select>
                               </mat-form-field>
                         </div>
                         <div class="col-md-4">
@@ -54,7 +61,7 @@
                       </div>
                       <div class="col-md-3">
                          <mat-form-field class="example-full-width">
-                             <input matInput placeholder="{{'pregm.registration_date' | translate}}" type= "date" formControlName="registration_date" >
+                             <input matInput placeholder="{{'pregm.registration_date' | translate}}" type= "date" formControlName="registration_date"  >
                              <div *ngIf="submitted && PregnancyForm.controls.registration_date.errors" class="error">
                                  <div *ngIf="PregnancyForm.controls.registration_date.errors.required">This field is required</div>
                                </div>
@@ -130,7 +137,7 @@
                       </div>
                       <div class="col-md-3">
                          <mat-form-field class="example-full-width">
-                             <input matInput placeholder="{{'pregm.mothers_age' | translate}}" type= "number" formControlName="mothers_age" >
+                             <input matInput placeholder="{{'pregm.mothers_age' | translate}}" type= "number" formControlName="mothers_age" min="0" max="50"inputmode="numeric" pattern="[0-9]*" digitOnly >
                              <div *ngIf="submitted && PregnancyForm.controls.mothers_age.errors" class="error">
                                  <div *ngIf="PregnancyForm.controls.mothers_age.errors.required">This field is required</div>
                                </div>
@@ -145,7 +152,7 @@
                       </div>
                       <div class="col-md-3">
                          <mat-form-field class="example-full-width">
-                             <input matInput placeholder="{{'pregm.husband_age' | translate}}" type= "number" formControlName="husband_age" >
+                             <input matInput placeholder="{{'pregm.husband_age' | translate}}" type= "number" formControlName="husband_age" min="0" max="50"inputmode="numeric" pattern="[0-9]*" digitOnly>
                            </mat-form-field>
                       </div>
                       <div class="col-md-3">
@@ -189,7 +196,7 @@
                       </div>
                       <div class="col-md-3">
                          <mat-form-field class="example-full-width">
-                             <input matInput placeholder="{{'pregm.mothers_age_at_marriage' | translate}}" type= "number" formControlName="mothers_age_at_marriage" >
+                             <input matInput placeholder="{{'pregm.mothers_age_at_marriage' | translate}}" type= "number" formControlName="mothers_age_at_marriage" min="0" max="50"inputmode="numeric" pattern="[0-9]*" digitOnly >
                            </mat-form-field>
                       </div>
                     </div>
@@ -208,7 +215,7 @@
                            <div class="row">
                              <div class="col-md-6"></div>
                              <div class="col-md-2">
-                               <td>{{'pregm.yes' | translate}}/td>
+                               <td>{{'pregm.yes' | translate}}</td>
                              </div>
                              <div class="col-md-2">
                                <td>{{'pregm.no' | translate}}</td>
@@ -334,17 +341,17 @@
                     <div class="row">
                       <div class="col-md-3">
                          <mat-form-field class="example-full-width">
-                             <input matInput placeholder="{{'pregm.which_pregnancy' | translate}}" type= "number" formControlName="which_pregnancy" >
+                             <input matInput placeholder="{{'pregm.which_pregnancy' | translate}}" type= "number" formControlName="which_pregnancy"min="0" max="50">
                            </mat-form-field>
                       </div>
                       <div class="col-md-3">
                          <mat-form-field class="example-full-width">
-                             <input matInput placeholder="{{'pregm.no_of_living_children' | translate}}" type= "number" formControlName="no_of_living_children" >
+                             <input matInput placeholder="{{'pregm.no_of_living_children' | translate}}" type= "number" formControlName="no_of_living_children" min="0" max="20">
                            </mat-form-field>
                       </div>
                       <div class="col-md-3">
                          <mat-form-field class="example-full-width">
-                             <input matInput placeholder="{{'pregm.age_of_the_youngest_child' | translate}}" type= "text" formControlName="age_of_the_youngest_child" >
+                             <input matInput placeholder="{{'pregm.age_of_the_youngest_child' | translate}}" type= "text" formControlName="age_of_the_youngest_child" min="0" max="20" >
                            </mat-form-field>
                       </div>
                     </div>
@@ -1002,21 +1009,21 @@
                                        <div class="col-md-2">
                                          <td>
                                              <mat-form-field class="example-full-width">
-                                                 <input matInput placeholder="" type= "date" formControlName="day1_date">
+                                                 <input matInput placeholder="" type= "date" formControlName="day1_date" >
                                                </mat-form-field>
                                          </td>
                                        </div>
                                        <div class="col-md-2">
                                          <td>
                                              <mat-form-field class="example-full-width">
-                                                 <input matInput placeholder="" type= "date" formControlName="day2_date">
+                                                 <input matInput placeholder="" type= "date" formControlName="day2_date" >
                                                </mat-form-field>
                                          </td>
                                        </div>
                                        <div class="col-md-2">
                                          <td>
                                              <mat-form-field class="example-full-width">
-                                                 <input matInput placeholder="" type= "date" formControlName="day3_date">
+                                                 <input matInput placeholder="" type= "date" formControlName="day3_date" >
                                                </mat-form-field>
                                          </td>
                                        </div>
@@ -1471,28 +1478,28 @@
                                      <div class="col-md-2">
                                        <td>
                                            <mat-form-field class="example-full-width">
-                                               <input matInput placeholder="" type= "date" formControlName="day1_clinical_day">
+                                               <input matInput placeholder="" type= "date" formControlName="day1_clinical_day" >
                                              </mat-form-field>
                                        </td>
                                      </div>
                                      <div class="col-md-2">
                                        <td>
                                            <mat-form-field class="example-full-width">
-                                               <input matInput placeholder="" type= "date" formControlName="day2_clinical_day">
+                                               <input matInput placeholder="" type= "date" formControlName="day2_clinical_day" >
                                              </mat-form-field>
                                        </td>
                                      </div>
                                      <div class="col-md-2">
                                        <td>
                                            <mat-form-field class="example-full-width">
-                                               <input matInput placeholder="" type= "date" formControlName="day3_clinical_day">
+                                               <input matInput placeholder="" type= "date" formControlName="day3_clinical_day" >
                                              </mat-form-field>
                                        </td>
                                      </div>
                                      <div class="col-md-2">
                                          <td>
                                              <mat-form-field class="example-full-width">
-                                                 <input matInput placeholder="" type= "date" formControlName="day4_clinical_day">
+                                                 <input matInput placeholder="" type= "date" formControlName="day4_clinical_day" >
                                                </mat-form-field>
                                          </td>
                                      </div>
@@ -1986,28 +1993,28 @@
                                          <div class="col-md-2">
                                            <td>
                                                <mat-form-field class="example-full-width">
-                                                   <input matInput placeholder="" type= "date" formControlName="day5_clinical_day">
+                                                   <input matInput placeholder="" type= "date" formControlName="day5_clinical_day" >
                                                  </mat-form-field>
                                            </td>
                                          </div>
                                          <div class="col-md-2">
                                            <td>
                                                <mat-form-field class="example-full-width">
-                                                   <input matInput placeholder="" type= "date" formControlName="day6_clinical_day">
+                                                   <input matInput placeholder="" type= "date" formControlName="day6_clinical_day" >
                                                  </mat-form-field>
                                            </td>
                                          </div>
                                          <div class="col-md-2">
                                            <td>
                                                <mat-form-field class="example-full-width">
-                                                   <input matInput placeholder="" type= "date" formControlName="day7_clinical_day">
+                                                   <input matInput placeholder="" type= "date" formControlName="day7_clinical_day" >
                                                  </mat-form-field>
                                            </td>
                                          </div>
                                          <div class="col-md-2">
                                              <td>
                                                  <mat-form-field class="example-full-width">
-                                                     <input matInput placeholder="" type= "date" formControlName="day8_clinical_day">
+                                                     <input matInput placeholder="" type= "date" formControlName="day8_clinical_day" >
                                                    </mat-form-field>
                                              </td>
                                          </div>
@@ -2785,22 +2792,22 @@
                         <div class="col-md-4">{{'pregm.date'|translate}}</div>
                         <div class="col-md-2">
                            <mat-form-field class="example-full-width">
-                               <input matInput placeholder="" type= "date" formControlName="day1travel_date">
+                               <input matInput placeholder="" type= "date" formControlName="day1travel_date" >
                              </mat-form-field>
                         </div>
                         <div class="col-md-2">
                            <mat-form-field class="example-full-width">
-                               <input matInput placeholder="" type= "date" formControlName="day2travel_date">
+                               <input matInput placeholder="" type= "date" formControlName="day2travel_date" >
                              </mat-form-field>
                         </div>
                         <div class="col-md-2">
                            <mat-form-field class="example-full-width">
-                               <input matInput placeholder="" type= "date" formControlName="day3travel_date">
+                               <input matInput placeholder="" type= "date" formControlName="day3travel_date" >
                              </mat-form-field>
                         </div>
                         <div class="col-md-2">
                            <mat-form-field class="example-full-width">
-                               <input matInput placeholder="" type= "date" formControlName="day4travel_date">
+                               <input matInput placeholder="" type= "date" formControlName="day4travel_date" >
                              </mat-form-field>
                         </div>
                       </div>
@@ -3210,22 +3217,22 @@
                         <div class="col-md-4">{{'pregm.date'|translate}}</div>
                         <div class="col-md-2">
                            <mat-form-field class="example-full-width">
-                               <input matInput placeholder="" type= "date" formControlName="day5travel_date">
+                               <input matInput placeholder="" type= "date" formControlName="day5travel_date" >
                              </mat-form-field>
                         </div>
                         <div class="col-md-2">
                            <mat-form-field class="example-full-width">
-                               <input matInput placeholder="" type= "date" formControlName="day6travel_date">
+                               <input matInput placeholder="" type= "date" formControlName="day6travel_date" >
                              </mat-form-field>
                         </div>
                         <div class="col-md-2">
                            <mat-form-field class="example-full-width">
-                               <input matInput placeholder="" type= "date" formControlName="day7travel_date">
+                               <input matInput placeholder="" type= "date" formControlName="day7travel_date" >
                              </mat-form-field>
                         </div>
                         <div class="col-md-2">
                            <mat-form-field class="example-full-width">
-                               <input matInput placeholder="" type= "date" formControlName="day8travel_date">
+                               <input matInput placeholder="" type= "date" formControlName="day8travel_date" >
                              </mat-form-field>
                         </div>
                       </div>

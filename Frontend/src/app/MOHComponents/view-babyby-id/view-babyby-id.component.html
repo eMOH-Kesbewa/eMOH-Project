@@ -28,6 +28,14 @@
                             </div>
                             <div class="col-md-3">
                                 <mat-form-field class="example-full-width">
+                                    <input matInput placeholder="{{ 'motherBabyJoined.baby_id' | translate}}" type= "text" readonly="{{onChange()}}" formControlName="baby_id">
+                                    <div *ngIf="submitted && addmotherbabyForm.controls.baby_id.errors" class="error">
+                                        <div *ngIf="addmotherbabyForm.controls.baby_id.errors.required">This field is required</div>
+                                      </div>
+                                </mat-form-field>
+                        </div>
+                            <div class="col-md-3">
+                                <mat-form-field class="example-full-width">
                                     <input matInput placeholder="{{ 'motherBabyJoined.child_name' | translate }}" type= "text" readonly="{{onChange()}}" formControlName="child_name">
                                     <div *ngIf="submitted && addmotherbabyForm.controls.child_name.errors" class="error">
                                         <div *ngIf="addmotherbabyForm.controls.child_name.errors.required">This field is required</div>

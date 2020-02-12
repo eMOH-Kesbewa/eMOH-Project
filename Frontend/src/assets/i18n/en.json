@@ -312,7 +312,7 @@
   "baby.four_half_year" : "4 1/2 Years",
   "baby.five_yea" : "5 Years",
   "baby.warm_treat": "Warm Treat",
-  "baby.Baby_Eyes" : "To Check Baby's Eyes",
+  "baby.Baby_Eyes" : "Check Baby's Eyes",
   "baby.First_Month_From_Birth" : "First Month From Birth",
   "baby.Second_Month_From_Birth" : "Second Month From Birth",
   "baby.four_Month_From_Birth" : "From Four Months",
@@ -331,7 +331,7 @@
   "baby.is_it_possible_for_a_child_to_pickup_small_things_with_a_thumb_and_forefinger": "Is It Possible For A Child To Pickup Small Things With A Thumb And Forefinger?",
   "baby.have_your_child_strech_out_his_hand_and_touch_them": "Have Your Child Strech Out His Hand And Touch Them?",
   "baby.if_the_person_identifies_them_the_child_will_recognize_them_before_they_call_them": "If The Person Identifies Them The Child Will Recognize Them Before They Call Them?",
-  "baby.To_Check_Baby_s_Hearing": "To Check Baby's Hearing",
+  "baby.To_Check_Baby_s_Hearing": "Check Baby's Hearing",
   "baby.if_your_child_is_startled_by_a_sudden_loud_noise_does_his_stutter_or_widden_his_eyes": "If Your Child Is Startled By A Sudden Loud Noise Does His Stutter Or Widden His Eyes?",
  "baby.does_your_child_detect_sudden_or_presistent_noises_and_begin_to_listen_quitely_to_eve": "Does Your Child Detect Sudden Or Presistent Noises And Begin To Listen Quitely To Eve?",
  "baby.if_they_cant_see_their_mother_do_they_keep_silent_or_laugh_when_their_voice_is_heard": "If They Cant See Their Mother Do They Keep Silent Or Laugh When Their Voice Is Heard?",
@@ -441,6 +441,8 @@
   "baby.About_Diseases" :  "About Diseases ",
   "baby.Refferals" : "Refferals" ,
   "baby.hip_joint" : "Hip Joint",
+  "baby.newborndetails" : "New Born Child Health Details",
+  "baby.babyDetails" : "Mother and Baby Details",
 
     
 
@@ -615,5 +617,5 @@
     "pregm.does_mother_comes_to_post_delivery_clinics": "Does Mother Come To Post Delivery Clinics?",
     "pregm.accepted_family_organization_method": "Does Accepted A Family Planning Method?",
     "pregm.if_no":"If No Why?"
-        
+    
 }
