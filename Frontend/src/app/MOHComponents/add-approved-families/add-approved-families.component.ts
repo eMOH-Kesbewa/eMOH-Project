@@ -3,6 +3,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { FamiliesService } from 'app/Services/families.service';
 
+import {  minDate,prop, RxReactiveFormsModule, RxwebValidators} from "@rxweb/reactive-form-validators";
+
+
 @Component({
   selector: 'app-add-approved-families',
   templateUrl: './add-approved-families.component.html',
@@ -23,11 +26,11 @@ export class AddApprovedFamiliesComponent implements OnInit {
       village_id : ['', Validators.required],
       Approved_family_category: ['', Validators.required],
       Identity_number: ['', Validators.required],
-      Date: ['', Validators.required],
+      Date: ['',Validators.required],
       Name_of_wife: ['', Validators.required],
       Name_of_husband: [''],
       address: ['', Validators.required],
-      Date_of_birth: ['', Validators.required],
+      Date_of_birth: ['', Validators.required,RxwebValidators.maxDate({value:new Date(2018,7,30) })],
       Age_at_the_time_of_marriage: ['', Validators.required],
       Job_status: [''],
       Education_level: [''],
@@ -54,8 +57,22 @@ export class AddApprovedFamiliesComponent implements OnInit {
       Date_of_cervical_mucous_test: [''],
       Other_details: [''],
       number_of_young_children: ['']
-    });
+    },
+    {validator: this.dateLessThan('Date_of_birth', 'Date')});
   }
+
+  dateLessThan(from: string, to: string) {
+    return (group: FormGroup): {[key: string]: any} => {
+      let f = group.controls[from];
+      let t = group.controls[to];
+      if (f.value > t.value) {
+        return {
+          dates: "Date of birth should be less than Date"
+        };
+      }
+      return {};
+    }
+}
 
   onSubmit() {
     this.submitted = true;

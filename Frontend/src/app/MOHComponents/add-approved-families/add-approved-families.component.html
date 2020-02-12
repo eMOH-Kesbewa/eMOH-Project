@@ -47,6 +47,8 @@
                             <div class="col-md-3">
                                 <mat-form-field class="example-full-width">
                                   <input matInput placeholder="{{ 'family.Date' | translate }}" type="date" formControlName="Date">
+                                  <label *ngIf="approvedFamilyForm.errors">{{ approvedFamilyForm.errors.dates | json }}</label>
+                                  
                                 </mat-form-field>
                             </div>
                         </div>
@@ -275,6 +277,7 @@
                       <input type="submit" value="{{ 'enter' | translate }}" class="btn btn-danger pull-right">
                       
                       </form>
+                      
                         <div *ngIf="success"><h1>You submitted a record</h1></div>
                 </div>
             </div>

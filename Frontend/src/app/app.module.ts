@@ -4,7 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 
-
+import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators'; 
 
 import { AppRoutingModule } from './app.routing';
 import { ComponentsModule } from './components/components.module';
@@ -26,6 +26,7 @@ import {
   MatSelectModule,
   MatRadioModule,
   MatExpansionModule,
+  
   MatDatepickerModule,MatNativeDateModule
 
 } from '@angular/material';
@@ -61,6 +62,7 @@ import { RegMotherComponent } from './reg-mother/reg-mother.component';
     MatSnackBarModule,
     MatExpansionModule,
     MatCardModule,
+    RxReactiveFormsModule,
     TranslateModule.forRoot({
       loader: {
           provide: TranslateLoader,

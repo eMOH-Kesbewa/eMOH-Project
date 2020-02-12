@@ -517,6 +517,7 @@ export class PregnancyFormComponent implements OnInit {
 
     });
   }
+  
 
   onSubmit() {
     this.submitted = true;
@@ -535,6 +536,10 @@ export class PregnancyFormComponent implements OnInit {
           else console.log("Success No Errors")
         }
     );
+  }
+
+  getToday(): string {
+    return new Date().toISOString().split('T')[0]
   }
   
 

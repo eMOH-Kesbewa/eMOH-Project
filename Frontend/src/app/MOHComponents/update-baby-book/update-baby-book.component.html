@@ -8,10 +8,19 @@
             <div class="card">
                 <div class="card-header card-header-danger">
                     <h4 class="card-title">{{ 'baby.Update_Baby' | translate }}</h4>
-                    <p class="card-category">Complete profile</p>
+                    <p class="card-category"></p>
                 </div>
                 <div class="card-body">
                     <form [formGroup]="BabyForm" [hidden]="success" (ngSubmit)="onSubmit()">
+                      <mat-expansion-panel>
+                        <mat-expansion-panel-header>
+                          <mat-panel-title>
+                            <h5>{{ 'baby.babyDetails' | translate }}</h5>
+                          </mat-panel-title>
+                          <mat-panel-description>
+                            Click to View/Edit
+                          </mat-panel-description>
+                        </mat-expansion-panel-header>
                         <div class="row">
                             <div class="col-md-6">
                               <mat-form-field class="example-full-width">
@@ -34,16 +43,17 @@
                           <div class="row">
                               <div class="col-md-6">
                                 <mat-form-field class="example-full-width">
-                                  <input matInput placeholder="{{'baby.date_of_birth_of_child' | translate}}" readonly="{{onChange()}}" type="date" formControlName="date_of_birth_of_child">
+                                  <input matInput placeholder="{{'baby.date_of_birth_of_child' | translate}}" readonly="{{onChange()}}" type="date" formControlName="date_of_birth_of_child" [max]="getToday()" min="2018-01-01">
                                   <div *ngIf="submitted && BabyForm.controls.date_of_birth_of_child.errors" class="error">
                                       <div *ngIf="BabyForm.controls.date_of_birth_of_child.errors.required">This field is required</div>
+                                      
                                     </div>
                                 </mat-form-field>
                                 
                               </div>
                               <div class="col-md-6">
                                   <mat-form-field class="example-full-width">
-                                  <input matInput placeholder="{{'baby.date_of_registered' | translate}}" readonly="{{onChange()}}" type="date" formControlName="date_of_registered">
+                                  <input matInput placeholder="{{'baby.date_of_registered' | translate}}" readonly="{{onChange()}}" type="date" formControlName="date_of_registered" [max]="getToday()" min="2018-01-01">
                                   <div *ngIf="submitted && BabyForm.controls.date_of_registered.errors" class="error">
                                       <div *ngIf="BabyForm.controls.date_of_registered.errors.required">This field is required</div>
                                     </div>
@@ -62,7 +72,8 @@
                                 </div>
                                 <div class="col-md-6">
                                   <mat-form-field class="example-full-width">
-                                    <input matInput placeholder="{{'baby.age_of_mother' | translate}}" readonly="{{onChange()}}" type= "text" formControlName="age_of_mother">
+                                    <input matInput placeholder="{{'baby.age_of_mother' | translate}}" readonly="{{onChange()}}" type= "number" formControlName="age_of_mother" min ="0" max="50"
+                                    inputmode="numeric" pattern="[0-9]*" digitOnly>
                                   </mat-form-field>
                                 </div>
                               </div>
@@ -78,17 +89,28 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                       <mat-form-field class="example-full-width">
-                                        <input matInput placeholder="{{'baby.total_Number_of_children_alive_including_this_child' | translate}}" readonly="{{onChange()}}" type= "number" formControlName="total_Number_of_children_alive_including_this_child"> 
+                                        <input matInput placeholder="{{'baby.total_Number_of_children_alive_including_this_child' | translate}}" readonly="{{onChange()}}" type= "number" formControlName="total_Number_of_children_alive_including_this_child" min ="0" max="50"
+                                        inputmode="numeric" pattern="[0-9]*" digitOnly> 
+                                        
                                       </mat-form-field>
                                     </div>
                                   </div>
-  
-                                  <h4>For Hospital Staff</h4>
-                                  <h4>{{'baby.About_New_Born_Child' | translate}}</h4>
+                                  </mat-expansion-panel>
+                                  <mat-expansion-panel>
+                                    <mat-expansion-panel-header>
+                                      <mat-panel-title>
+                                        <h5>{{ 'baby.About_New_Born_Child' | translate }}</h5>
+                                      </mat-panel-title>
+                                      <mat-panel-description>
+                                        Click to View/Edit
+                                      </mat-panel-description>
+                                    </mat-expansion-panel-header>
+                                  <!-- <h4>For Hospital Staff</h4> -->
+                                  
   
                                 <div class="second_field">
                                   <!--start of second field-->
-                                  <h5>readonly="{{onChange()}}" {{'baby.method_of_delivery' | translate}}</h5>
+                                  <h5>"readonly="{{onChange()}}" {{'baby.method_of_delivery' | translate}}</h5>
                                   <div class="row">
                                     <div class="col-md-3">
                                         <label class="container">{{'baby.Normal_Delivery' | translate}}
@@ -229,10 +251,18 @@
                                         </div>
                                   <!--end of second field-->
                                 </div>
-  
-                                <h3>{{'baby.Check_Second_Page' | translate}}</h3>
-  
-                                <div class="third_field">
+                                </mat-expansion-panel>
+
+                                <mat-expansion-panel>
+                                  <mat-expansion-panel-header>
+                                    <mat-panel-title>
+                                      <h5>{{ 'baby.newborndetails' | translate }}</h5>
+                                    </mat-panel-title>
+                                    <mat-panel-description>
+                                      Click to View/Edit
+                                    </mat-panel-description>
+                                  </mat-expansion-panel-header>
+                              <div class="third_field">
                                   <!--start third field-->
                                   <div class="card-body">
                                       <div class="tab-content">
@@ -253,7 +283,7 @@
                                                           <td>{{'baby.premature_births_status' | translate}}</td>
                                                           <td class="td-actions text-right">
                                                               <mat-form-field class="example-full-width">
-                                                                  <input  matInput placeholder="{{'baby.date' | translate}}" readonly="{{onChange()}}" type= "date" formControlName="premature_births_date">
+                                                                  <input  matInput placeholder="{{'baby.date' | translate}}" readonly="{{onChange()}}" type= "date" formControlName="premature_births_date" [max]="getToday()">
                                                                 </mat-form-field>
                                                           </td>
                                                       </tr>
@@ -271,7 +301,7 @@
                                                           <td>{{'baby.low_birth_weight_status' | translate}}</td>
                                                           <td class="td-actions text-right">
                                                               <mat-form-field class="example-full-width">
-                                                                  <input  matInput placeholder="{{'baby.date' | translate}}" readonly="{{onChange()}}" type= "date" formControlName="low_birth_weight_date">
+                                                                  <input  matInput placeholder="{{'baby.date' | translate}}" readonly="{{onChange()}}" type="date" formControlName="low_birth_weight_date" [max]="getToday()">
                                                                 </mat-form-field>
                                                           </td>
                                                       </tr>
@@ -307,7 +337,7 @@
                                                           <td>{{'baby.inherited_problems_status' | translate}}</td>
                                                           <td class="td-actions text-right">
                                                               <mat-form-field class="example-full-width">
-                                                                  <input  matInput placeholder="{{'baby.date' | translate}}" readonly="{{onChange()}}" type= "date" formControlName="inherited_problems_date">
+                                                                  <input  matInput placeholder="{{'baby.date' | translate}}" readonly="{{onChange()}}" type= "date" formControlName="inherited_problems_date" [max]="getToday()">
                                                                 </mat-form-field>
                                                           </td>
                                                       </tr>
@@ -325,7 +355,7 @@
                                                           <td>{{'baby.congenital_hypothyroidism_state' | translate}}</td>
                                                           <td class="td-actions text-right">
                                                               <mat-form-field class="example-full-width">
-                                                                  <input  matInput placeholder="{{'baby.date' | translate}}" readonly="{{onChange()}}" type= "date" formControlName="congenital_hypothyroidism_date">
+                                                                  <input  matInput placeholder="{{'baby.date' | translate}}" readonly="{{onChange()}}" type= "date" formControlName="congenital_hypothyroidism_date" [max]="getToday()">
                                                                 </mat-form-field>
                                                           </td>
                                                       </tr>
@@ -343,7 +373,7 @@
                                                           <td>{{'baby.server_illness_of_the_mother_after_delivery_status' | translate}}</td>
                                                           <td class="td-actions text-right">
                                                               <mat-form-field class="example-full-width">
-                                                                  <input  matInput placeholder="{{'baby.date' | translate}}" readonly="{{onChange()}}" type= "date" formControlName="server_illness_of_the_mother_after_delivery_date">
+                                                                  <input  matInput placeholder="{{'baby.date' | translate}}" readonly="{{onChange()}}" type= "date" formControlName="server_illness_of_the_mother_after_delivery_date" [max]="getToday()">
                                                                 </mat-form-field>
                                                           </td>
                                                       </tr>
@@ -361,7 +391,7 @@
                                                           <td>{{'baby.breastfeeding_at_first_six_months_status' | translate}}</td>
                                                           <td class="td-actions text-right">
                                                               <mat-form-field class="example-full-width">
-                                                                  <input  matInput placeholder="{{'baby.date' | translate}}" readonly="{{onChange()}}" type= "date" formControlName="breastfeeding_at_first_six_months_date">
+                                                                  <input  matInput placeholder="{{'baby.date' | translate}}" readonly="{{onChange()}}" type= "date" formControlName="breastfeeding_at_first_six_months_date" [max]="getToday()">
                                                                 </mat-form-field>
                                                           </td>
                                                       </tr>
@@ -379,7 +409,7 @@
                                                           <td>{{'baby.impairments_of_growth_status' | translate}}</td>
                                                           <td class="td-actions text-right">
                                                               <mat-form-field class="example-full-width">
-                                                                  <input  matInput placeholder="{{'baby.date' | translate}}" readonly="{{onChange()}}" type= "date" formControlName="impairments_of_growth_date">
+                                                                  <input  matInput placeholder="{{'baby.date' | translate}}" readonly="{{onChange()}}" type= "date" formControlName="impairments_of_growth_date" [max]="getToday()">
                                                                 </mat-form-field>
                                                           </td>
                                                       </tr>
@@ -397,7 +427,7 @@
                                                           <td>{{'baby.death_of_mother_or_father_status' | translate}}</td>
                                                           <td class="td-actions text-right">
                                                               <mat-form-field class="example-full-width">
-                                                                  <input  matInput placeholder="{{'baby.date' | translate}}" readonly="{{onChange()}}" type= "date" formControlName="death_of_mother_or_father_date">
+                                                                  <input  matInput placeholder="{{'baby.date' | translate}}" readonly="{{onChange()}}" type= "date" formControlName="death_of_mother_or_father_date" [max]="getToday()">
                                                                 </mat-form-field>
                                                           </td>
                                                       </tr>
@@ -415,7 +445,7 @@
                                                           <td>{{'baby.separation_or_depature_of_mother_or_father_status' | translate}}</td>
                                                           <td class="td-actions text-right">
                                                               <mat-form-field class="example-full-width">
-                                                                  <input  matInput placeholder="{{'baby.date' | translate}}" readonly="{{onChange()}}" type= "date" formControlName="separation_or_depature_of_mother_or_father_status">
+                                                                  <input  matInput placeholder="{{'baby.date' | translate}}" readonly="{{onChange()}}" type= "date" formControlName="separation_or_depature_of_mother_or_father_status" [max]="getToday()">
                                                                 </mat-form-field>
                                                           </td>
                                                       </tr>
@@ -433,7 +463,7 @@
                                                           <td>{{'baby.other' | translate}}</td>
                                                           <td class="td-actions text-right">
                                                               <mat-form-field class="example-full-width">
-                                                                  <input matInput placeholder="{{'baby.date' | translate}}" readonly="{{onChange()}}" type= "date" formControlName="other_date">
+                                                                  <input matInput placeholder="{{'baby.date' | translate}}" readonly="{{onChange()}}" type= "date" formControlName="other_date" [max]="getToday()">
                                                                 </mat-form-field>
                                                           </td>
                                                       </tr>
@@ -458,7 +488,7 @@
                                         </div>
                                         <div class="col-md-6">
                                             <mat-form-field class="example-full-width">
-                                                <input matInput placeholder="Maturaty Of Baby Weeks" readonly="{{onChange()}}" type= "number" formControlName="maturaty_of_baby_weeks">
+                                                <input matInput placeholder="Maturaty Of Baby Weeks" readonly="{{onChange()}}" type= "number" formControlName="maturaty_of_baby_weeks" min="0" max = "40" inputmode="numeric" pattern="[0-9]*" digitOnly>
                                               </mat-form-field>
                                         </div>
                                       </div>
@@ -1228,10 +1258,21 @@
                                   </div>
                                   <!--end of second page-->
                                 </div>
+                                </mat-expansion-panel>
+
+                                <mat-expansion-panel>
+                                  <mat-expansion-panel-header>
+                                    <mat-panel-title>
+                                      <h5>{{ 'baby.PHP_Fill_After_Delivery_Visit' | translate }}</h5>
+                                    </mat-panel-title>
+                                    <mat-panel-description>
+                                      Click to View/Edit
+                                    </mat-panel-description>
+                                  </mat-expansion-panel-header>
   
                                           <div class="third_page">
                                                   <!--start of third page-->
-                                                  <h3>{{'baby.PHP_Fill_After_Delivery_Visit' | translate}}</h3>
+                                                  
                                                   <div class="card-body">
                                                       <div class="tab-content">
                                                           <div class="tab-pane active" id="profile">
@@ -1573,9 +1614,18 @@
   
                                                         <!--end of third page-->
                                                    </div>
+                                                   </mat-expansion-panel>
                                                    <div class="vaccine_page">
                                                       <!--start of vaccine page-->
-                                                      <h3>{{'baby.Vaccine' | translate}}</h3>
+                                                      <mat-expansion-panel>
+                                                        <mat-expansion-panel-header>
+                                                          <mat-panel-title>
+                                                            <h5>{{ 'baby.Vaccine' | translate }}</h5>
+                                                          </mat-panel-title>
+                                                          <mat-panel-description>
+                                                            Click to View/Edit
+                                                          </mat-panel-description>
+                                                        </mat-expansion-panel-header>
                                                       <h4>{{'baby.At_Birth' | translate}}</h4>
                                                       <div class="row">
                                                         <div class="col-md-12">
@@ -2039,11 +2089,12 @@
                                                                                 </mat-form-field>
                                                                           </div>
                                                                         </div>
+                                                                        </mat-expansion-panel>
                                                              <!--end of vaccine page-->
                                                     </div>
                                                   <div class="fifith_page">
                                                     <!--start of fifith page-->
-                                                    <h3>{{'baby.Refferals_Of_I' | translate}}</h3>
+                                                    <!-- <h3>{{'baby.Refferals_Of_I' | translate}}</h3>
                                                     <div class="card-body">
                                                         <div class="tab-content">
                                                             <div class="tab-pane active" id="profile">
@@ -2085,21 +2136,30 @@
                                                                     </table>
                                                                   </div>
                                                                 </div>
-                                                              </div>
+                                                              </div> -->
   
                                                               <div class="second_field">
                                                                 <!--start second field-->
-                                                                <h3>{{'baby.A_vitamine' | translate}}</h3>
+                                                                <mat-expansion-panel>
+                                                                  <mat-expansion-panel-header>
+                                                                    <mat-panel-title>
+                                                                      <h5>{{ 'baby.A_vitamine' | translate }}</h5>
+                                                                    </mat-panel-title>
+                                                                    <mat-panel-description>
+                                                                      Click to View/Edit
+                                                                    </mat-panel-description>
+                                                                  </mat-expansion-panel-header>
+                                                                
                                                                 <div class="row">
                                                                   <div class="col-md-3">{{'baby.six_month' | translate}}</div>
                                                                   <div class="col-md-3">
                                                                       <mat-form-field class="example-full-width">
-                                                                          <input matInput placeholder="{{'baby.date' | translate}}" readonly="{{onChange()}}" type= "date" formControlName="A_vitamine_six_month_date">
+                                                                          <input matInput placeholder="{{'baby.date' | translate}}" readonly="{{onChange()}}" type= "date" formControlName="A_vitamine_six_month_date" [max]="getToday()" min="2018-01-01">
                                                                         </mat-form-field>
                                                                   </div>
                                                                   <div class="col-md-3">
                                                                       <mat-form-field class="example-full-width">
-                                                                          <input matInput placeholder="{{'baby.batch_no' | translate}}" readonly="{{onChange()}}" type= "text" formControlName="A_vitamine_six_month_batch_no">
+                                                                          <input matInput placeholder="{{'baby.batch_no' | translate}}" readonly="{{onChange()}}" type= "text" formControlName="A_vitamine_six_month_batch_no" min="2018-01-01">
                                                                         </mat-form-field>
                                                                   </div>
                                                                 </div>
@@ -2222,12 +2282,20 @@
                                                                                     </div>
                                                                                   </div>
                                                                 <!--end second field-->
+                                                                </mat-expansion-panel>
                                                               </div>
   
                                                               <div class="third_field">
                                                                   <!--start second field-->
-                                                                  <h3>{{'baby.warm_treat' | translate}}</h3>
-                                                                  
+                                                                  <mat-expansion-panel>
+                                                                    <mat-expansion-panel-header>
+                                                                      <mat-panel-title>
+                                                                        <h5>{{ 'baby.warm_treat' | translate }}</h5>
+                                                                      </mat-panel-title>
+                                                                      <mat-panel-description>
+                                                                        Click to View/Edit
+                                                                      </mat-panel-description>
+                                                                    </mat-expansion-panel-header>
                                                                   <div class="row">
                                                                       <div class="col-md-3">{{'baby.one_year' | translate}}</div>
                                                                       <div class="col-md-3">
@@ -2346,13 +2414,22 @@
                                                                                       </div>
                                                                                     </div>
                                                                   <!--end third field-->
+                                                                  </mat-expansion-panel>
                                                                 </div>
   
                                                     <!--end of fifith page-->
                                                   </div>
                                                 <div class="sixth_page">
                                                   <!--start of sixth page-->
-                                                  <h3>{{'baby.Baby_Eyes' | translate}}</h3>
+                                                  <mat-expansion-panel>
+                                                    <mat-expansion-panel-header>
+                                                      <mat-panel-title>
+                                                        <h5>{{ 'baby.Baby_Eyes' | translate}}</h5>
+                                                      </mat-panel-title>
+                                                      <mat-panel-description>
+                                                        Click to View/Edit
+                                                      </mat-panel-description>
+                                                    </mat-expansion-panel-header>
                                                   <h4>For Mothers</h4>
                                                   <div class="card-body">
                                                     <div class="tab-content">
@@ -2624,11 +2701,20 @@
                                                       </div>
                                                     </div>
                                                   <!--end of sixth page-->
+                                                  </mat-expansion-panel>
                                                 </div>
                                               <div class="seventh_page">
                                                 <!--start of seventh page-->
-                                                <h3>{{'baby.To_Check_Baby_s_Hearing' | translate}}</h3>
-                                                  <h4>For Mothers</h4>
+                                                <mat-expansion-panel>
+                                                  <mat-expansion-panel-header>
+                                                    <mat-panel-title>
+                                                      <h5>{{ 'baby.To_Check_Baby_s_Hearing' | translate}}</h5>
+                                                    </mat-panel-title>
+                                                    <mat-panel-description>
+                                                      Click to View/Edit
+                                                    </mat-panel-description>
+                                                  </mat-expansion-panel-header>
+                                                <h4>For Mothers</h4>
                                                   <div class="card-body">
                                                     <div class="tab-content">
                                                         <div class="tab-pane active" id="profile">
@@ -2911,10 +2997,19 @@
                                                       </div>
                                                     </div>
                                                 <!--end of seventh page-->
+                                                </mat-expansion-panel>
                                               </div>
                                             <div class="eighth_page">
                                               <!--start eight page-->
-                                              <h3>{{'baby.Growth_From_Birth_To_5' | translate}}</h3>
+                                              <mat-expansion-panel>
+                                                <mat-expansion-panel-header>
+                                                  <mat-panel-title>
+                                                    <h5>{{ 'baby.Growth_From_Birth_To_5' | translate}}</h5>
+                                                  </mat-panel-title>
+                                                  <mat-panel-description>
+                                                    Click to View/Edit
+                                                  </mat-panel-description>
+                                                </mat-expansion-panel-header>
                                               <h4>For Mothers And PHMs</h4>
                                               <div class="row">
                                                 <div class="col-md-6">{{'baby.Age' | translate}}</div>
@@ -3582,10 +3677,19 @@
                                                   </div>
                                               </div>
                                               <!--end eight page-->
+                                              </mat-expansion-panel>
                                             </div>
                                            <div class="nineth_page">
                                              <!--start nineth page-->
-                                             <h3>{{'baby.child_health_form' | translate}}</h3>
+                                             <mat-expansion-panel>
+                                              <mat-expansion-panel-header>
+                                                <mat-panel-title>
+                                                  <h5>{{ 'baby.child_health_form' | translate}}</h5>
+                                                </mat-panel-title>
+                                                <mat-panel-description>
+                                                  Click to View/Edit
+                                                </mat-panel-description>
+                                              </mat-expansion-panel-header>
                                              <div class="row">
                                                <div class="col-md-2">{{'baby.Age' | translate}}</div>
                                                <div class="col-md-1">{{'baby.1_month' | translate}}</div>
@@ -4561,15 +4665,16 @@
                                               </div>
                                              </div>
                                              <!--end nineth page-->
+                                             </mat-expansion-panel>
                                            </div>
                                           <div class="tenth_page">
                                             <!--satrt tenth page-->
-                                            <h3>For Doctors</h3>
+                                            <!-- <h3>For Doctors</h3> -->
                                             <!-- <div class="row">
                                               <div class="col-md-4">Date</div>
                                               <div class="col-md-8">Special Notes</div>
                                             </div> -->
-                                            <div class="row">
+                                            <!-- <div class="row">
                                               <div class="col-md-4">
                                                 <label>{{'baby.date_of_checked' | translate}}</label>
                                                   <mat-form-field class="example-full-width">
@@ -4584,13 +4689,21 @@
                                                   <textarea matInput placeholder="" formControlName="special_notice" ></textarea>
                                                 </mat-form-field>
                                               </div>
-                                              </div>
+                                              </div> -->
                                             <!-- <button mat-raised-button readonly="{{onChange()}}" type="submit" class="btn btn-default pull-right" >Update Profile</button> -->
                                             <!-- <button mat-raised-button readonly="{{onChange()}}" type="submit" class="btn btn-danger pull-right" >View Other Notes</button> -->
                                             <div class="second_field">
                                               <!--start 2nd field-->
-                                              <h3>{{'baby.Check_Baby_Teeth' | translate}}</h3>
-                                              <div class="row">
+                                              <mat-expansion-panel>
+                                                <mat-expansion-panel-header>
+                                                  <mat-panel-title>
+                                                    <h5>{{ 'baby.Check_Baby_Teeth' | translate}}</h5>
+                                                  </mat-panel-title>
+                                                  <mat-panel-description>
+                                                    Click to View/Edit
+                                                  </mat-panel-description>
+                                                </mat-expansion-panel-header>
+                                             <div class="row">
                                                 <div class="col-md-3">{{'baby.Age_Of_Child' | translate}}</div>
                                                 <div class="col-md-3">{{'baby.No_Of_Teeth' | translate}}</div>
                                                 <div class="col-md-3">
@@ -4605,7 +4718,7 @@
                                                   <div class="col-md-3">{{'baby.six_month' | translate}}</div>
                                                   <div class="col-md-3">
                                                     <mat-form-field class="example-full-width">
-                                                      <input matInput placeholder="" readonly="{{onChange()}}" type= "number" formControlName="six_Number_of_teeth">
+                                                      <input matInput placeholder="" readonly="{{onChange()}}" type= "number" formControlName="six_Number_of_teeth" min="0" max="32">
                                                     </mat-form-field>
                                                   </div>
                                                   <div class="col-md-3">
@@ -4634,7 +4747,7 @@
                                                     <div class="col-md-3">{{'baby.7_month' | translate}}</div>
                                                     <div class="col-md-3">
                                                       <mat-form-field class="example-full-width">
-                                                        <input matInput placeholder="" readonly="{{onChange()}}" type= "number" formControlName="seven_Number_of_teeth">
+                                                        <input matInput placeholder="" readonly="{{onChange()}}" type= "number" formControlName="seven_Number_of_teeth" min="0" max="32">
                                                       </mat-form-field>
                                                     </div>
                                                     <div class="col-md-3">
@@ -4663,7 +4776,7 @@
                                                       <div class="col-md-3">{{'baby.8_month' | translate}}</div>
                                                       <div class="col-md-3">
                                                         <mat-form-field class="example-full-width">
-                                                          <input matInput placeholder="" readonly="{{onChange()}}" type= "number" formControlName="eight_Number_of_teeth">
+                                                          <input matInput placeholder="" readonly="{{onChange()}}" type= "number" formControlName="eight_Number_of_teeth" min="0" max="32">
                                                         </mat-form-field>
                                                       </div>
                                                       <div class="col-md-3">
@@ -4692,7 +4805,7 @@
                                                         <div class="col-md-3">{{'baby.9_month' | translate}}</div>
                                                         <div class="col-md-3">
                                                           <mat-form-field class="example-full-width">
-                                                            <input matInput placeholder="" readonly="{{onChange()}}" type= "number" formControlName="nine_Number_of_teeth">
+                                                            <input matInput placeholder="" readonly="{{onChange()}}" type= "number" formControlName="nine_Number_of_teeth" min="0" max="32">
                                                           </mat-form-field>
                                                         </div>
                                                         <div class="col-md-3">
@@ -4722,7 +4835,7 @@
                                                           <div class="col-md-3">{{'baby.10_month' | translate}}</div>
                                                           <div class="col-md-3">
                                                             <mat-form-field class="example-full-width">
-                                                              <input matInput placeholder="" readonly="{{onChange()}}" type= "number" formControlName="ten_Number_of_teeth">
+                                                              <input matInput placeholder="" readonly="{{onChange()}}" type= "number" formControlName="ten_Number_of_teeth" min="0" max="32">
                                                             </mat-form-field>
                                                           </div>
                                                           <div class="col-md-3">
@@ -4751,7 +4864,7 @@
                                                             <div class="col-md-3">{{'baby.11_month' | translate}}</div>
                                                             <div class="col-md-3">
                                                               <mat-form-field class="example-full-width">
-                                                                <input matInput placeholder="" readonly="{{onChange()}}" type= "number" formControlName="eleven_Number_of_teeth">
+                                                                <input matInput placeholder="" readonly="{{onChange()}}" type= "number" formControlName="eleven_Number_of_teeth" min="0" max="32">
                                                               </mat-form-field>
                                                             </div>
                                                             <div class="col-md-3">
@@ -4780,7 +4893,7 @@
                                                               <div class="col-md-3">{{'baby.12_month' | translate}}</div>
                                                               <div class="col-md-3">
                                                                 <mat-form-field class="example-full-width">
-                                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "number" formControlName="twelve_Number_of_teeth">
+                                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "number" formControlName="twelve_Number_of_teeth" min="0" max="32">
                                                                 </mat-form-field>
                                                               </div>
                                                               <div class="col-md-3">
@@ -4809,7 +4922,7 @@
                                                                 <div class="col-md-3">{{'baby.13_month' | translate}}</div>
                                                                 <div class="col-md-3">
                                                                   <mat-form-field class="example-full-width">
-                                                                    <input matInput placeholder="" readonly="{{onChange()}}" type= "number" formControlName="thirteen_Number_of_teeth">
+                                                                    <input matInput placeholder="" readonly="{{onChange()}}" type= "number" formControlName="thirteen_Number_of_teeth" min="0" max="32">
                                                                   </mat-form-field>
                                                                 </div>
                                                                 <div class="col-md-3">
@@ -4838,7 +4951,7 @@
                                                                   <div class="col-md-3">{{'baby.14_month' | translate}}</div>
                                                                   <div class="col-md-3">
                                                                     <mat-form-field class="example-full-width">
-                                                                      <input matInput placeholder="" readonly="{{onChange()}}" type= "number" formControlName="fouteen_Number_of_teeth">
+                                                                      <input matInput placeholder="" readonly="{{onChange()}}" type= "number" formControlName="fouteen_Number_of_teeth" min="0" max="32">
                                                                     </mat-form-field>
                                                                   </div>
                                                                   <div class="col-md-3">
@@ -4867,7 +4980,7 @@
                                                                     <div class="col-md-3">{{'baby.15_month' | translate}}</div>
                                                                     <div class="col-md-3">
                                                                       <mat-form-field class="example-full-width">
-                                                                        <input matInput placeholder="" readonly="{{onChange()}}" type= "number" formControlName="fifteen_Number_of_teeth">
+                                                                        <input matInput placeholder="" readonly="{{onChange()}}" type= "number" formControlName="fifteen_Number_of_teeth" min="0" max="32">
                                                                       </mat-form-field>
                                                                     </div>
                                                                     <div class="col-md-3">
@@ -4896,7 +5009,7 @@
                                                                       <div class="col-md-3">{{'baby.16_month' | translate}}</div>
                                                                       <div class="col-md-3">
                                                                         <mat-form-field class="example-full-width">
-                                                                          <input matInput placeholder="" readonly="{{onChange()}}" type= "number" formControlName="sixteen_Number_of_teeth">
+                                                                          <input matInput placeholder="" readonly="{{onChange()}}" type= "number" formControlName="sixteen_Number_of_teeth" min="0" max="32">
                                                                         </mat-form-field>
                                                                       </div>
                                                                       <div class="col-md-3">
@@ -4925,7 +5038,7 @@
                                                                         <div class="col-md-3">{{'baby.17_month' | translate}}</div>
                                                                         <div class="col-md-3">
                                                                           <mat-form-field class="example-full-width">
-                                                                            <input matInput placeholder="" readonly="{{onChange()}}" type= "number" formControlName="seventeen_Number_of_teeth">
+                                                                            <input matInput placeholder="" readonly="{{onChange()}}" type= "number" formControlName="seventeen_Number_of_teeth" min="0" max="32">
                                                                           </mat-form-field>
                                                                         </div>
                                                                         <div class="col-md-3">
@@ -4954,7 +5067,7 @@
                                                                           <div class="col-md-3">{{'baby.18_month' | translate}}</div>
                                                                           <div class="col-md-3">
                                                                             <mat-form-field class="example-full-width">
-                                                                              <input matInput placeholder="" readonly="{{onChange()}}" type= "number" formControlName="eighteen_Number_of_teeth">
+                                                                              <input matInput placeholder="" readonly="{{onChange()}}" type= "number" formControlName="eighteen_Number_of_teeth" min="0" max="32">
                                                                             </mat-form-field>
                                                                           </div>
                                                                           <div class="col-md-3">
@@ -4979,13 +5092,14 @@
                                                                                 </mat-form-field>
                                                                           </div>
                                                                         </div>
+                                                                        </mat-expansion-panel>
                                               <!--end 2nd field-->
                                             </div>
                                             <!--end tenth page-->
                                           </div>
                                          <div class="eleven_page">
                                            <!--start eleven page-->
-                                           <h3>{{'baby.For_Hospital' | translate}}</h3>
+                                           <!-- <h3>{{'baby.For_Hospital' | translate}}</h3>
                                            <div class="row">
                                               <div class="col-md-3">
                                                   <mat-form-field class="example-full-width">
@@ -5013,16 +5127,16 @@
                                                 <textarea matInput placeholder="" formControlName="referalls" ></textarea>
                                               </mat-form-field>
                                              </div>
-                                           </div>
+                                           </div> -->
                                            <!-- <button mat-raised-button readonly="{{onChange()}}" type="submit" class="btn btn-default pull-right" >Update Profile</button> -->
                                            <!-- <button mat-raised-button readonly="{{onChange()}}" type="submit" class="btn btn-danger pull-right" >View Other Admits</button> -->
                                            <!--end eleven page-->
                                          </div>
                                                         
                                                 
-                        <br><br><br><br><br><br><br><br><br>
-  
-                        <div *ngIf="onHidden()"><input readonly="{{onChange()}}" type="submit" value="Update" class="btn btn-info pull-right"></div>
+                        
+                        <input type="submit" value="{{ 'Submit' | translate }}" class="btn btn-danger pull-right">
+                        <!-- <div *ngIf="onHidden()"><input readonly="{{onChange()}}" type="submit" value="Update" class="btn btn-info pull-right"></div> -->
                     </form>
                     <div *ngIf="success"><h1>You submitted a record</h1></div>
                   </div>
