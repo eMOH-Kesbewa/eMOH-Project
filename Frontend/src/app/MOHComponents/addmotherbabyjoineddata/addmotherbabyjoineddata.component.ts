@@ -20,6 +20,7 @@ export class AddmotherbabyjoineddataComponent implements OnInit {
     this.addmotherbabyForm=this.fb.group({
     mother_id: ['', Validators.required],
     child_name: ['', Validators.required],
+    baby_id: ['', Validators.required],
     mothers_name: ['', Validators.required],
     address: ['', Validators.required],
     sex: ['', Validators.required],
