@@ -88,6 +88,7 @@ router.get('/searchbyid/:searchData', (req, res) => {
 
 router.get('/getModernContraceptiveMethods/:year', (req, res) => {
     currentYear = req.params.year;
+    console.log(currentYear)
     nextYearInt = parseInt(currentYear);
     nextYearInt+=1;
     nextYear = nextYearInt.toString();

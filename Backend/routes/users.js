@@ -170,7 +170,7 @@ router.post("/login",(req,res)=>{
         }
         
         if(!user){
-            return res.json({
+            return res.status(500).send({
                 success:false,
                 message:'Error,no user found'
             });

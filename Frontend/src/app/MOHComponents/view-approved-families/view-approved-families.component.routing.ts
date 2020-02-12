@@ -32,12 +32,12 @@ export const ApprovedFamilyRoutes: Routes = [
                 canActivate:[AuthGuard]
             },
             {
-                path: 'ModernContMethods',
+                path: 'ModernContMethods/:year',
                 component: ModernContraceptiveMethodsComponent,
                 canActivate:[AuthGuard]
             },
             {
-                path: 'ContraPrevailMethods',
+                path: 'ContraPrevailMethods/:year',
                 component: ContraceptivePrevalanceComponent,
                 canActivate:[AuthGuard]
             }

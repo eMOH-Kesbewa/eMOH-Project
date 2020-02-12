@@ -14,10 +14,22 @@
                     <button class="btn btn-info btn-block" mat-button [matMenuTriggerFor]="menu">{{ 'family.generateReports' | translate }}</button>
                         <mat-menu #menu="matMenu">
                         <!--<button mat-menu-item>Current Users of M. Contra. Methods</button>-->
-                        <a mat-menu-item routerLink="ModernContMethods">Current Users of M. Contra. Methods</a>
-                        <a mat-menu-item routerLink="ContraPrevailMethods">Contraceptive Prevalence</a>
+                        <a mat-menu-item [matMenuTriggerFor]="ModernContMethods">Current Users of M. Contra. Methods</a>
+                        <a mat-menu-item  [matMenuTriggerFor]="ContraPrevailMethods" routerLink="ContraPrevailMethods/2019">Contraceptive Prevalence</a>
+
                         <!--<button mat-menu-item>Contraceptive Prevalence</button>-->
-                        
+                        </mat-menu>
+                        <mat-menu #ModernContMethods="matMenu">
+                            <a mat-menu-item routerLink="ModernContMethods/2019" >2019</a>
+                            <a mat-menu-item routerLink="ModernContMethods/2018">2018</a>
+                            <a mat-menu-item routerLink="ModernContMethods/2017">2017</a>
+                        </mat-menu>
+
+                        <mat-menu #ContraPrevailMethods="matMenu">
+                            <a mat-menu-item routerLink="ContraPrevailMethods/2019"> 2019</a>
+                            <a mat-menu-item routerLink="ContraPrevailMethods/2018">2018</a>
+                            <a mat-menu-item routerLink="ContraPrevailMethods/2017">2017</a>
+
                         </mat-menu>
                 </div>
                 <div *ngIf="checkRoute()" class="col-md-3"> <a routerLink="AddApprovedFamilies" class="btn btn-info btn-block">{{ 'family.add' | translate }}</a></div>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Chart } from 'chart.js';
 import { FamiliesService } from 'app/Services/families.service';
+import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-contraceptive-prevalance',
   templateUrl: './contraceptive-prevalance.component.html',
@@ -8,7 +9,7 @@ import { FamiliesService } from 'app/Services/families.service';
 })
 export class ContraceptivePrevalanceComponent implements OnInit {
 
-  constructor(private familyService : FamiliesService) { }
+  constructor(private familyService : FamiliesService,private activeroute: ActivatedRoute) { }
 
   LineChart=[];
   BarChart=[];
@@ -23,9 +24,10 @@ export class ContraceptivePrevalanceComponent implements OnInit {
   not_accepted=[]
   totalFp=[]
   ModMethods=[]
-
+  year
   ngOnInit() {
-    this.familyService.getModernContraceptiveMethods().subscribe(data=>{
+    this.year = this.activeroute.snapshot.paramMap.get('year');
+    this.familyService.getModernContraceptiveMethods(this.year).subscribe(data=>{
         
       console.log(data['Quarter1'][2]['_id'])
       console.log(data['Quarter1'].length)
@@ -129,8 +131,8 @@ export class ContraceptivePrevalanceComponent implements OnInit {
          },
          options: {
           title:{
-              text:'Contraceptive Prevalence',
-              display:true
+              //text:'Contraceptive Prevalence',
+              //display:true
           },
           scales: {
               yAxes: [{
