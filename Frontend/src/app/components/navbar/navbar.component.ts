@@ -123,6 +123,7 @@ export class NavbarComponent implements OnInit {
 
     changeLanguage(e){
         console.log(e)
+        localStorage.setItem('lang',e);
         this.translate.setDefaultLang(e);
     }
 
