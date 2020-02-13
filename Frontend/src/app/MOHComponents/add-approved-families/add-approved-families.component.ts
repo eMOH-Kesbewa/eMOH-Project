@@ -24,12 +24,12 @@ export class AddApprovedFamiliesComponent implements OnInit {
   ngOnInit() {
     this.approvedFamilyForm = this.formBuilder.group({
       village_id : ['', Validators.required],
-      Approved_family_category: ['', Validators.required],
+      // Approved_family_category: ['', Validators.required],
       Identity_number: ['', Validators.required],
       Date: ['',Validators.required],
       Name_of_wife: ['', Validators.required],
       Name_of_husband: [''],
-      address: ['', Validators.required],
+      Address: ['', Validators.required],
       Date_of_birth: ['', Validators.required,RxwebValidators.maxDate({value:new Date(2018,7,30) })],
       Age_at_the_time_of_marriage: ['', Validators.required],
       Job_status: [''],

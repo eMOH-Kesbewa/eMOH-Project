@@ -1,9 +1,33 @@
 
 <div class="main-content">
   <router-outlet></router-outlet>
+ 
+
   <div class="row">
     <div class="col-md-3" ><a routerLink="addMother" class="btn btn-info btn-block">{{'mother.form'| translate }}</a></div>
+    <div class="col-md-6"></div>
+    <div class="col-md-3">
+      <button class="btn btn-info btn-block" mat-button [matMenuTriggerFor]="menu">{{ 'family.generateReports' | translate }}</button>
+      <mat-menu #menu="matMenu">
+        
+        <a mat-menu-item [matMenuTriggerFor]="viewPregnantReport">Pregnancy Weeks Of Registration</a>
+        <a mat-menu-item [matMenuTriggerFor]="ViewDeliveryReport">Deliveries And Postpartum Visits</a>
+        
+        </mat-menu>
+        <mat-menu #viewPregnantReport="matMenu">
+          <a mat-menu-item routerLink="viewPregnantReport/2020" >2020</a>
+          <a mat-menu-item routerLink="viewPregnantReport/2019">2019</a>
+          <a mat-menu-item routerLink="viewPregnantReport/2018">2018</a>
+      </mat-menu>
+
+      <mat-menu #ViewDeliveryReport="matMenu">
+        <a mat-menu-item routerLink="ViewDeliveryReport/2020" >2020</a>
+        <a mat-menu-item routerLink="ViewDeliveryReport/2019">2019</a>
+        <a mat-menu-item routerLink="ViewDeliveryReport/2018">2018</a>
+    </mat-menu>
+  </div>  
   </div>
+
   <div class="row">
     <div class="col-md-12">
         <div class="card">

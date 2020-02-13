@@ -30,7 +30,7 @@ export class ViewFamilybyIdComponent implements OnInit {
       Date: [''],
       Name_of_wife: [''],
       Name_of_husband: [''],
-      address: [''],
+      Address: [''],
       Date_of_birth: [''],
       Age_at_the_time_of_marriage: [''],
       Job_status: [''],
