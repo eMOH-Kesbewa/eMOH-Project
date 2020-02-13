@@ -23,6 +23,7 @@ export class ViewFamilybyIdComponent implements OnInit {
 
   ngOnInit() {
     this.familyId = this.activeroute.snapshot.paramMap.get('familyId');
+    localStorage.setItem('selectedFamId',this.familyId);
     this.approvedFamilyForm = this.formBuilder.group({
       village_id : [''],
       Approved_family_category: [''],
