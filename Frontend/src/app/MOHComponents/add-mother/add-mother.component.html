@@ -78,7 +78,7 @@
                     <div class="row">
                         <div class="col-md-3">
                                 <mat-form-field class="example-full-width">
-                                    <input matInput placeholder="{{'mother.no_of_living_children'| translate}}" type="number" formControlName="no_of_living_children" min="0">
+                                    <input matInput placeholder="{{'mother.no_of_living_children'| translate}}" type="number" formControlName="no_of_living_children" min="0" max="20">
                                     <div *ngIf="submit && addMotherSchema.controls.no_of_living_children.errors" class="error">
                                         <div *ngIf="addMotherSchema.controls.no_of_living_children.errors.required">This field is required</div>
                                     </div>
@@ -86,7 +86,7 @@
                         </div>
                         <div class="col-md-2">
                                 <mat-form-field class="example-full-width">
-                                    <input matInput placeholder="{{'mother.gravidity'| translate}}" type="number" formControlName="gravidity" min="0">
+                                    <input matInput placeholder="{{'mother.gravidity'| translate}}" type="number" formControlName="gravidity" min="0" max="20">
                                     <div *ngIf="submit && addMotherSchema.controls.gravidity.errors" class="error">
                                             <div *ngIf="addMotherSchema.controls.gravidity.errors.required">This field is required</div>
                                           </div>
