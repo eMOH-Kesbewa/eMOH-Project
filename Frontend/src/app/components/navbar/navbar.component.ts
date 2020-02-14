@@ -1,5 +1,5 @@
 import { Component, OnInit, ElementRef } from '@angular/core';
-import { ROUTES } from '../sidebar/sidebar.component';
+import { ROUTESforDoc,ROUTESforPHM,ROUTESforMother } from '../sidebar/sidebar.component';
 import {Location, LocationStrategy, PathLocationStrategy} from '@angular/common';
 import { ClinicsService } from 'app/Services/clinics.service';
 import { Clinic } from 'app/Services/Models/clinic';
@@ -29,7 +29,16 @@ export class NavbarComponent implements OnInit {
     }
 
     ngOnInit(){
-      this.listTitles = ROUTES.filter(listTitle => listTitle);
+        if(localStorage.getItem('role')=="Doctor"){
+            this.listTitles = ROUTESforDoc.filter(listTitle => listTitle);
+           }
+           else if((localStorage.getItem('role')=="PHM")){
+            this.listTitles = ROUTESforPHM.filter(listTitle => listTitle);
+           }
+           else if((localStorage.getItem('role')=="Mother")){
+            this.listTitles = ROUTESforMother.filter(listTitle => listTitle);
+           }  
+      //this.listTitles = ROUTESforDoc.filter(listTitle => listTitle);
       const navbar: HTMLElement = this.element.nativeElement;
       this.toggleButton = navbar.getElementsByClassName('navbar-toggler')[0];
       this.router.events.subscribe((event) => {
@@ -123,6 +132,7 @@ export class NavbarComponent implements OnInit {
 
     changeLanguage(e){
         console.log(e)
+        localStorage.setItem('lang',e);
         this.translate.setDefaultLang(e);
     }
 
@@ -176,6 +186,9 @@ export class NavbarComponent implements OnInit {
         }
     }
 
-
+    logOut(){
+        localStorage.clear();
+        this.router.navigate(['/login']);
+    }
     
 }

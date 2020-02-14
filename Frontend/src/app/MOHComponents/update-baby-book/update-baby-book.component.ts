@@ -7,6 +7,7 @@ import { BabiesService } from 'app/Services/babies.service';
 import { from } from 'rxjs';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import { FormBuilder, FormGroup, Validators,FormControl } from '@angular/forms';
+import {  minDate,prop, } from "@rxweb/reactive-form-validators";
 
 @Component({
   selector: 'app-update-baby-book',
@@ -20,6 +21,13 @@ export class UpdateBabyBookComponent implements OnInit {
   BabyForm: FormGroup;
   submitted = false;
   success = false;
+  DOB;
+  @prop()
+	date_of_birth_of_child: string ;
+
+	@minDate({fieldName:'date_of_birth_of_child',operator:">" }) 
+	date_of_registered: string;
+
 
   constructor(private router: Router,private formBuilder: FormBuilder, private _snackBar: MatSnackBar,private addbabyService: BabiesService, private ngZone: NgZone,private activeroute: ActivatedRoute) { }
 
@@ -41,7 +49,7 @@ export class UpdateBabyBookComponent implements OnInit {
       Number_of_apgas_1m: [''],
       Number_of_apgas_5m: [''],
       Number_of_apgas_10m: [''],
-      total_Number_of_children_alive_including_this_child: [''],
+      total_Number_of_children_alive_including_this_child: ['',],
       method_of_delivery:[''],
       birth_weight: [''],
       gridle_circumference_at_birth: [''],
@@ -704,6 +712,7 @@ export class UpdateBabyBookComponent implements OnInit {
       });
 
       this.addbabyService.getbabydata(this.babyID).subscribe(data => {
+        this.DOB =  this.dateconverter(data[0] ['date_of_birth_of_child'])
         this.BabyForm.patchValue({
           
           baby_id: data[0] ['baby_id'],
@@ -1381,6 +1390,7 @@ export class UpdateBabyBookComponent implements OnInit {
 
     this.autoRenew = new FormControl();
     this.onChange();
+    
   }
 
   onSubmit() {
@@ -1403,6 +1413,8 @@ export class UpdateBabyBookComponent implements OnInit {
           } 
         )
       }
+
+     
 
 
 
@@ -1437,5 +1449,20 @@ export class UpdateBabyBookComponent implements OnInit {
               return false;
             }
           }
+
+          getToday(): string {
+            
+            return new Date().toISOString().split('T')[0]
+            
+          }
+
+          getVaccineDate(months,DOB){
+            let dateBirth = DOB.split('-');
+            let month = dateBirth[1];
+            let newMonth = parseInt(month)+months;
+            return dateBirth[0]+"-"+newMonth+"-"+dateBirth[2]
+          }
+
+        
  
 }

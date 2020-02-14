@@ -3,7 +3,7 @@
       <div class="col-md-12">
           <div class="card">
               <div class="card-header card-header-danger">
-                  <h4 class="card-title">Prgnancy Form For Doctor</h4>
+                  <h4 class="card-title">{{'pregm.pregnancy_form' | translate}}</h4>
                   <p class="card-category">Complete profile</p>
               </div>
               <div class="card-body">
@@ -12,27 +12,34 @@
                      <!--start 1st field-->
                      <div class="row">
                         <div class="col-md-4">
-                            <label class="container">Maiden
+                            <label class="container">{{'pregm.maiden' | translate}}
                                 <input id="maiden" type="radio"  formControlName="maiden_or_risked" value="maiden">
                                 <span class="checkmark"></span>
                               </label>
                         </div>
                         <div class="col-md-4">
-                            <label class="container">Risked
+                            <label class="container">{{'pregm.risk'| translate}}
                                 <input id="risked" type="radio"  formControlName="maiden_or_risked" value="risked">
                                 <span class="checkmark"></span>
                               </label>
                         </div>
                         <div class="col-md-2">
                             <mat-form-field class="example-full-width">
-                                <input matInput placeholder="Blood Group" type="text" formControlName="blood_group">
-                                <div *ngIf="submitted && PregnancyForm.controls.blood_group.errors" class="error">
-                                    <div *ngIf="PregnancyForm.controls.blood_group.errors.required">This field is required</div>
-                                  </div>
+                              <mat-select placeholder="{{'pregm.blood_group' | translate}}" formControlName="blood_group" required>
+                                
+                                  <mat-option value="High">A+</mat-option>
+                                  <mat-option value="High">A-</mat-option>
+                                  <mat-option value="High">B+</mat-option>
+                                  <mat-option value="High">B-</mat-option>
+                                  <mat-option value="High">AB+</mat-option>
+                                  <mat-option value="High">AB-</mat-option>
+                                  <mat-option value="High">O+</mat-option>
+                                  <mat-option value="High">O-</mat-option>
+                            </mat-select>
                               </mat-form-field>
                         </div>
                         <div class="col-md-4">
-                            <label>Identified Maternal Risks Diseases</label>
+                            <label>{{'pregm.identified_maternal_risks_diseases' | translate}}</label>
                             <mat-form-field class="example-full-width">
                               <textarea matInput placeholder="" formControlName="identified_maternal_risks_diseases" ></textarea>
                             </mat-form-field>
@@ -46,7 +53,7 @@
                    <div class="row">
                       <div class="col-md-3">
                          <mat-form-field class="example-full-width">
-                             <input matInput placeholder="Registration Number" type= "text" formControlName="registration_number" >
+                             <input matInput placeholder="{{'pregm.registration_number' | translate}}" type= "text" formControlName="registration_number" >
                              <div *ngIf="submitted && PregnancyForm.controls.registration_number.errors" class="error">
                                  <div *ngIf="PregnancyForm.controls.registration_number.errors.required">This field is required</div>
                                </div>
@@ -54,7 +61,7 @@
                       </div>
                       <div class="col-md-3">
                          <mat-form-field class="example-full-width">
-                             <input matInput placeholder="Registration Date" type= "date" formControlName="registration_date" >
+                             <input matInput placeholder="{{'pregm.registration_date' | translate}}" type= "date" formControlName="registration_date"  >
                              <div *ngIf="submitted && PregnancyForm.controls.registration_date.errors" class="error">
                                  <div *ngIf="PregnancyForm.controls.registration_date.errors.required">This field is required</div>
                                </div>
@@ -62,7 +69,7 @@
                       </div>
                       <div class="col-md-3">
                          <mat-form-field class="example-full-width">
-                             <input matInput placeholder="Registration Place" type= "text" formControlName="registered_place" >
+                             <input matInput placeholder="{{'pregm.registered_place' | translate}}" type= "text" formControlName="registered_place" >
                              <div *ngIf="submitted && PregnancyForm.controls.registered_place.errors" class="error">
                                  <div *ngIf="PregnancyForm.controls.registered_place.errors.required">This field is required</div>
                                </div>
@@ -70,7 +77,7 @@
                       </div>
                       <div class="col-md-3">
                          <mat-form-field class="example-full-width">
-                             <input matInput placeholder="Registration Date According To The Approved Family Document" type= "date" formControlName="registered_date_according_to_the_approved_family_document" >
+                             <input matInput placeholder="{{'pregm.registered_date_according_to_the_approved_family_document'| translate}}" type= "date" formControlName="registered_date_according_to_the_approved_family_document" >
                              <div *ngIf="submitted && PregnancyForm.controls.registered_date_according_to_the_approved_family_document.errors" class="error">
                                  <div *ngIf="PregnancyForm.controls.registered_date_according_to_the_approved_family_document.errors.required">This field is required</div>
                                </div>
@@ -80,7 +87,7 @@
                     <div class="row">
                       <div class="col-md-3">
                          <mat-form-field class="example-full-width">
-                             <input matInput placeholder="Grama Niladari Division" type= "text" formControlName="grama_niladari_division" >
+                             <input matInput placeholder="{{'pregm.grama_niladari_division' | translate}}" type= "text" formControlName="grama_niladari_division" >
                              <div *ngIf="submitted && PregnancyForm.controls.grama_niladari_division.errors" class="error">
                                  <div *ngIf="PregnancyForm.controls.grama_niladari_division.errors.required">This field is required</div>
                                </div>
@@ -88,7 +95,7 @@
                       </div>
                       <div class="col-md-3">
                          <mat-form-field class="example-full-width">
-                             <input matInput placeholder="PHM Division" type= "text" formControlName="phm_devision" >
+                             <input matInput placeholder="{{'pregm.phm_devision' | translate}}" type= "text" formControlName="phm_devision" >
                              <div *ngIf="submitted && PregnancyForm.controls.phm_devision.errors" class="error">
                                  <div *ngIf="PregnancyForm.controls.phm_devision.errors.required">This field is required</div>
                                </div>
@@ -96,7 +103,7 @@
                       </div>
                       <div class="col-md-3">
                          <mat-form-field class="example-full-width">
-                             <input matInput placeholder="PHI Division" type= "text" formControlName="phi_devision" >
+                             <input matInput placeholder="{{'pregm.phi_devision' | translate}}" type= "text" formControlName="phi_devision" >
                              <div *ngIf="submitted && PregnancyForm.controls.phi_devision.errors" class="error">
                                  <div *ngIf="PregnancyForm.controls.phi_devision.errors.required">This field is required</div>
                                </div>
@@ -114,7 +121,7 @@
                     <div class="row">
                       <div class="col-md-3">
                          <mat-form-field class="example-full-width">
-                             <input matInput placeholder="Mother ID" type= "text" formControlName="mother_id" >
+                             <input matInput placeholder="{{'pregm.mother_id' | translate}}" type= "text" formControlName="mother_id" >
                              <div *ngIf="submitted && PregnancyForm.controls.mother_id.errors" class="error">
                                  <div *ngIf="PregnancyForm.controls.mother_id.errors.required">This field is required</div>
                                </div>
@@ -122,7 +129,7 @@
                       </div>
                       <div class="col-md-3">
                          <mat-form-field class="example-full-width">
-                             <input matInput placeholder="Mother Name" type= "text" formControlName="mothers_name" >
+                             <input matInput placeholder="{{'pregm.mothers_name' | translate}}" type= "text" formControlName="mothers_name" >
                              <div *ngIf="submitted && PregnancyForm.controls.mothers_name.errors" class="error">
                                  <div *ngIf="PregnancyForm.controls.mothers_name.errors.required">This field is required</div>
                                </div>
@@ -130,7 +137,7 @@
                       </div>
                       <div class="col-md-3">
                          <mat-form-field class="example-full-width">
-                             <input matInput placeholder="Mother Age" type= "number" formControlName="mothers_age" >
+                             <input matInput placeholder="{{'pregm.mothers_age' | translate}}" type= "number" formControlName="mothers_age" min="0" max="50"inputmode="numeric" pattern="[0-9]*" digitOnly >
                              <div *ngIf="submitted && PregnancyForm.controls.mothers_age.errors" class="error">
                                  <div *ngIf="PregnancyForm.controls.mothers_age.errors.required">This field is required</div>
                                </div>
@@ -140,56 +147,56 @@
                     <div class="row">
                       <div class="col-md-3">
                          <mat-form-field class="example-full-width">
-                             <input matInput placeholder="Husband Name" type= "text" formControlName="husband_name" >
+                             <input matInput placeholder="{{'pregm.husband_name' | translate}}" type= "text" formControlName="husband_name" >
                            </mat-form-field>
                       </div>
                       <div class="col-md-3">
                          <mat-form-field class="example-full-width">
-                             <input matInput placeholder="Husband Age" type= "number" formControlName="husband_age" >
+                             <input matInput placeholder="{{'pregm.husband_age' | translate}}" type= "number" formControlName="husband_age" min="0" max="50"inputmode="numeric" pattern="[0-9]*" digitOnly>
                            </mat-form-field>
                       </div>
                       <div class="col-md-3">
                          <mat-form-field class="example-full-width">
-                             <input matInput placeholder="Mother's Education Level" type= "text" formControlName="mothers_education_level" >
+                             <input matInput placeholder="{{'pregm.mothers_education_level' | translate}}" type= "text" formControlName="mothers_education_level" >
                            </mat-form-field>
                       </div>
                       <div class="col-md-3">
                          <mat-form-field class="example-full-width">
-                             <input matInput placeholder="Husband's Education Level" type= "text" formControlName="husbands_education_level" >
+                             <input matInput placeholder="{{'pregm.husbands_education_level' | translate}}" type= "text" formControlName="husbands_education_level" >
                            </mat-form-field>
                       </div>
                     </div>
                     <div class="row">
                       <div class="col-md-3">
                          <mat-form-field class="example-full-width">
-                             <input matInput placeholder="Mother's Occupation" type= "text" formControlName="mothers_occupation" >
+                             <input matInput placeholder="{{'pregm.mothers_occupation' | translate}}" type= "text" formControlName="mothers_occupation" >
                            </mat-form-field>
                       </div>
                       <div class="col-md-3">
                          <mat-form-field class="example-full-width">
-                             <input matInput placeholder="Husband's Occupation" type= "text" formControlName="fathers_occupation" >
+                             <input matInput placeholder="{{'pregm.fathers_occupation' | translate}}" type= "text" formControlName="fathers_occupation" >
                            </mat-form-field>
                       </div>
                       <div class="col-md-6">
                          <mat-form-field class="example-full-width">
-                             <input matInput placeholder="Address" type= "text" formControlName="address" >
+                             <input matInput placeholder="{{'pregm.address' | translate}}" type= "text" formControlName="address" >
                            </mat-form-field>
                       </div>
                     </div>
                     <div class="row">
                       <div class="col-md-5">
                          <mat-form-field class="example-full-width">
-                             <input matInput placeholder="Telephone No" type= "text" formControlName="telephone" >
+                             <input matInput placeholder="{{'pregm.telephone' | translate}}" type= "text" formControlName="telephone" >
                            </mat-form-field>
                       </div>
                       <div class="col-md-3">
                          <mat-form-field class="example-full-width">
-                             <input matInput placeholder="Distance To Mother Workplace(km)" type= "number" formControlName="distance_to_mothers_workplace" >
+                             <input matInput placeholder="{{'pregm.distance_to_mothers_workplace(km)' | translate}}" type= "number" formControlName="distance_to_mothers_workplace" >
                            </mat-form-field>
                       </div>
                       <div class="col-md-3">
                          <mat-form-field class="example-full-width">
-                             <input matInput placeholder="Mother's Age At Marriage" type= "number" formControlName="mothers_age_at_marriage" >
+                             <input matInput placeholder="{{'pregm.mothers_age_at_marriage' | translate}}" type= "number" formControlName="mothers_age_at_marriage" min="0" max="50"inputmode="numeric" pattern="[0-9]*" digitOnly >
                            </mat-form-field>
                       </div>
                     </div>
@@ -208,16 +215,16 @@
                            <div class="row">
                              <div class="col-md-6"></div>
                              <div class="col-md-2">
-                               <td>Yes</td>
+                               <td>{{'pregm.yes' | translate}}</td>
                              </div>
                              <div class="col-md-2">
-                               <td>No</td>
+                               <td>{{'pregm.no' | translate}}</td>
                              </div>
                            </div>
                          </tr>
                          <tr>
                              <div class="row">
-                                 <div class="col-md-6"><td>Is A Blood Relatives Marriage?</td></div>
+                                 <div class="col-md-6"><td>{{'pregm.blood_relatives_marriage' | translate}}</td></div>
                                 <div class="col-md-2">
                                 <td>
                                    <label class="container">
@@ -226,6 +233,7 @@
                                      </label>
                                 </td>
                                 </div>
+
                                 <div class="col-md-2">
                                 <td>
                                    <label class="container">
@@ -238,7 +246,7 @@
                          </tr>
                          <tr>
                              <div class="row">
-                                 <div class="col-md-6"><td>Is Injected For Rubella ?</td></div>
+                                 <div class="col-md-6"><td>{{'pregm.injected_for_rubella' | translate}}</td></div>
                                 <div class="col-md-2">
                                  <td>
                                      <label class="container">
@@ -259,7 +267,7 @@
                          </tr>
                          <tr>
                              <div class="row">
-                                 <div class="col-md-6"><td>Done Pre Pregnancy Test ?</td></div>
+                                 <div class="col-md-6"><td>{{'pregm.done_pre_pregnancy_test' | translate}}</td></div>
                                 <div class="col-md-2">
                                  <td>
                                      <label class="container">
@@ -280,7 +288,7 @@
                          </tr>
                          <tr>
                              <div class="row">
-                                 <div class="col-md-6"><td>Does Forlic Acid Given ?</td></div>
+                                 <div class="col-md-6"><td>{{'pregm.is_forlic_acid_given' | translate}}</td></div>
                                 <div class="col-md-2">
                                  <td>
                                      <label class="container">
@@ -301,7 +309,7 @@
                          </tr>
                          <tr>
                              <div class="row">
-                                 <div class="col-md-6"><td>Have History Of Madasarubawa ?</td></div>
+                                 <div class="col-md-6"><td>{{'pregm.history_of_madasarubawaya' | translate}}</td></div>
                                 <div class="col-md-2">
                                  <td>
                                      <label class="container">
@@ -328,56 +336,56 @@
                   </div>
                   <div class="fifth_field">
                     <!--start 5 field-->
-                    <h4>Pregnancy History</h4>
-                    <h4>Current Pregnancy Status</h4>
+                    <h4>{{'pregm.Pregnancy_History' | translate}}</h4>
+                    <h4>{{'pregm.current_pregnancy_details' | translate}}</h4>
                     <div class="row">
                       <div class="col-md-3">
                          <mat-form-field class="example-full-width">
-                             <input matInput placeholder="Which Pregnancy" type= "number" formControlName="which_pregnancy" >
+                             <input matInput placeholder="{{'pregm.which_pregnancy' | translate}}" type= "number" formControlName="which_pregnancy"min="0" max="50">
                            </mat-form-field>
                       </div>
                       <div class="col-md-3">
                          <mat-form-field class="example-full-width">
-                             <input matInput placeholder="Number Of Living Children" type= "number" formControlName="no_of_living_children" >
+                             <input matInput placeholder="{{'pregm.no_of_living_children' | translate}}" type= "number" formControlName="no_of_living_children" min="0" max="20">
                            </mat-form-field>
                       </div>
                       <div class="col-md-3">
                          <mat-form-field class="example-full-width">
-                             <input matInput placeholder="Age Of Youngest Child" type= "text" formControlName="age_of_the_youngest_child" >
+                             <input matInput placeholder="{{'pregm.age_of_the_youngest_child' | translate}}" type= "text" formControlName="age_of_the_youngest_child" min="0" max="20" >
                            </mat-form-field>
                       </div>
                     </div>
                     <div class="row">
                       <div class="col-md-3">
                          <mat-form-field class="example-full-width">
-                             <input matInput placeholder="Last Menstrual Date" type= "date" formControlName="last_menstrual_date" >
+                             <input matInput placeholder="{{'pregm.last_menstrual_date' | translate}}" type= "date" formControlName="last_menstrual_date" >
                            </mat-form-field>
                       </div>
                       <div class="col-md-3">
                          <mat-form-field class="example-full-width">
-                             <input matInput placeholder="Expected Dilivery Date" type= "date" formControlName="expected_dilivery_date" >
+                             <input matInput placeholder="{{'pregm.expected_dilivery_date' | translate}}" type= "date" formControlName="expected_dilivery_date" >
                            </mat-form-field>
                       </div>
                       <div class="col-md-3">
                          <mat-form-field class="example-full-width">
-                             <input matInput placeholder="Expected Dilivery Date By US" type= "date" formControlName="expected_dilivery_date_corrected_by_US" >
+                             <input matInput placeholder="{{'pregm.expected_dilivery_date_corrected_by_US' | translate}}" type= "date" formControlName="expected_dilivery_date_corrected_by_US" >
                            </mat-form-field>
                       </div>
                       <div class="col-md-3">
                          <mat-form-field class="example-full-width">
-                             <input matInput placeholder="Expected Time Period" type= "date" formControlName="expecting_time_period" >
+                             <input matInput placeholder="{{'pregm.expecting_time_period_from' | translate}}" type= "date" formControlName="expecting_time_period" >
                            </mat-form-field>
                       </div>
                     </div>
                     <div class="row">
                       <div class="col-md-3">
                          <mat-form-field class="example-full-width">
-                             <input matInput placeholder="Weeks Into Pregnancy When Registration" type= "text" formControlName="weeks_into_pregnancy_when_registration" >
+                             <input matInput placeholder="{{'pregm.weeks_into_pregnancy_when_registration' | translate}}" type= "text" formControlName="weeks_into_pregnancy_when_registration" >
                            </mat-form-field>
                       </div>
                       <div class="col-md-6">
                          <mat-form-field class="example-full-width">
-                             <input matInput placeholder="Have Used Any Family Organization Method And What Is It?" type= "text" formControlName="have_used_any_family_organization_method" >
+                             <input matInput placeholder="{{'pregm.have_used_any_family_organization_method' | translate}}" type= "text" formControlName="have_used_any_family_organization_method" >
                            </mat-form-field>
                       </div>
                     </div>
@@ -385,7 +393,7 @@
                   </div>
                   <div class="sixth_field">
                     <!--start 6 field-->
-                    <h4>Current Pregnancy Status</h4>
+                    <h4>{{'pregm.current_pregnancy_details' | translate}}</h4>
                     <div class="card-body">
                      <div class="tab-content">
                          <div class="tab-pane active" id="profile">
@@ -402,7 +410,7 @@
                                                </label>
                                            </div>
                                        </td>
-                                       <td>Less than 20 Years Old Or More than 35 Years Old</td>
+                                       <td>{{'pregm.between_20t025_ages' | translate}}</td>
                                        <td class="td-actions text-right">
                                            <mat-form-field class="example-full-width">
                                                <input matInput placeholder="" type= "text" formControlName="between_20t025_ages_details">
@@ -420,7 +428,7 @@
                                                </label>
                                            </div>
                                        </td>
-                                       <td>Fifth Pregnancy Or More Than</td>
+                                       <td>{{'pregm.fifth_pregnanycy_or above_fifth' | translate}}</td>
                                        <td class="td-actions text-right">
                                            <mat-form-field class="example-full-width">
                                                <input matInput placeholder="" type= "text" formControlName="fifth_pregnanycy_or_details">
@@ -438,7 +446,7 @@
                                                </label>
                                            </div>
                                        </td>
-                                       <td>Uterine Diseases Or High Blood Sugar Details</td>
+                                       <td>{{'pregm.uterine_diseaces_or_high_blood_sugar' | translate}}</td>
                                        <td class="td-actions text-right">
                                            <mat-form-field class="example-full-width">
                                                <input matInput placeholder="" type= "text" formControlName="uterine_diseaces_or_high_blood_sugar_details">
@@ -456,7 +464,7 @@
                                                </label>
                                            </div>
                                        </td>
-                                       <td>Prenatal Vaginal Bleeding</td>
+                                       <td>{{'pregm.prenatal_vaginal_bleeding' | translate}}</td>
                                        <td class="td-actions text-right">
                                            <mat-form-field class="example-full-width">
                                                <input matInput placeholder="" type= "text" formControlName="prenatal_vaginal_bleeding_details">
@@ -474,7 +482,7 @@
                                                </label>
                                            </div>
                                        </td>
-                                       <td>Abnormal Positioning</td>
+                                       <td>{{'pregm.abnormal_positioning' | translate}}</td>
                                        <td class="td-actions text-right">
                                            <mat-form-field class="example-full-width">
                                                <input matInput placeholder="" type= "text" formControlName="abnormal_positioning_details">
@@ -492,7 +500,7 @@
                                                </label>
                                            </div>
                                        </td>
-                                       <td>Not Knowing The Exact Delivery Date</td>
+                                       <td>{{'pregm.not_knowing_the_exact_delivery_date' | translate}}</td>
                                        <td class="td-actions text-right">
                                            <mat-form-field class="example-full-width">
                                                <input matInput placeholder="" type= "text" formControlName="not_knowing_the_exact_delivery_date_details">
@@ -510,7 +518,7 @@
                                                </label>
                                            </div>
                                        </td>
-                                       <td>Others</td>
+                                       <td>{{'pregm.other' | translate}}</td>
                                        <td class="td-actions text-right">
                                            <mat-form-field class="example-full-width">
                                                <input matInput placeholder="" type= "text" formControlName="other_details">
@@ -526,7 +534,7 @@
                   </div>
                   <div class="seventh_field">
                     <!--start 7 field-->
-                    <h4>Other Risky Status</h4>
+                    <h4>{{'pregm.other_risky_situations' | translate}}</h4>
                     <div class="card-body">
                        <div class="tab-content">
                            <div class="tab-pane active" id="profile">
@@ -543,7 +551,7 @@
                                                  </label>
                                              </div>
                                          </td>
-                                         <td>Less than 20 BMI Value Or More than 25 BMI Value</td>
+                                         <td>{{'pregm.bmi_below20_or_above25' | translate}}</td>
                                          <td class="td-actions text-right">
                                              <mat-form-field class="example-full-width">
                                                  <input matInput placeholder="" type= "text" formControlName="bmi_below20_or_above25_details">
@@ -561,7 +569,7 @@
                                                  </label>
                                              </div>
                                          </td>
-                                         <td>Diabetes</td>
+                                         <td>{{'pregm.diabetes' | translate}}</td>
                                          <td class="td-actions text-right">
                                              <mat-form-field class="example-full-width">
                                                  <input matInput placeholder="" type= "text" formControlName="diabetes_details">
@@ -579,7 +587,7 @@
                                                  </label>
                                              </div>
                                          </td>
-                                         <td>Malaria</td>
+                                         <td>{{'pregm.malaria' | translate}}</td>
                                          <td class="td-actions text-right">
                                              <mat-form-field class="example-full-width">
                                                  <input matInput placeholder="" type= "text" formControlName="malaria_details">
@@ -597,7 +605,7 @@
                                                  </label>
                                              </div>
                                          </td>
-                                         <td>Heart Problems</td>
+                                         <td>{{'pregm.heart_problems' | translate}}</td>
                                          <td class="td-actions text-right">
                                              <mat-form-field class="example-full-width">
                                                  <input matInput placeholder="" type= "text" formControlName="heart_problems_details">
@@ -615,7 +623,7 @@
                                                  </label>
                                              </div>
                                          </td>
-                                         <td>Other Risky Details</td>
+                                         <td>{{'pregm.other_details'| translate}}</td>
                                          <td class="td-actions text-right">
                                              <mat-form-field class="example-full-width">
                                                  <input matInput placeholder="" type= "text" formControlName="other_risky_details">
@@ -631,7 +639,7 @@
                   </div>
                   <div class="eighth_field">
                     <!--start 8 field-->
-                    <h4>Previous Pregnancy History</h4>
+                    <h4>{{'pregm.Previous_pregnancy_details' | translate}}</h4>
                     <div class="card-body">
                        <div class="tab-content">
                            <div class="tab-pane active" id="profile">
@@ -639,7 +647,7 @@
                                  <tbody>
                                    <tr>
                                      <div class="row">
-                                         <div class="col-md-2"><td>Pregnancy</td></div>
+                                         <div class="col-md-2"><td>{{'pregm.pregnancy' | translate}}</td></div>
                                          <div class="col-md-2"><td>G1</td></div>
                                          <div class="col-md-2"><td>G2</td></div>
                                          <div class="col-md-2"><td>G3</td></div>
@@ -649,7 +657,7 @@
                                      </tr>
                                      <tr>
                                          <div class="row">
-                                             <div class="col-md-2"><td>Results</td></div>
+                                             <div class="col-md-2"><td>{{'pregm.result' | translate}}</td></div>
                                              <div class="col-md-2">
                                                <td>
                                                    <mat-form-field class="example-full-width">
@@ -689,7 +697,7 @@
                                      </tr>
                                      <tr>
                                          <div class="row">
-                                             <div class="col-md-2"><td>Delivery Details</td></div>
+                                             <div class="col-md-2"><td>{{'pregm.delivery_details' | translate}}</td></div>
                                              <div class="col-md-2">
                                                <td>
                                                    <mat-form-field class="example-full-width">
@@ -729,7 +737,7 @@
                                      </tr>
                                      <tr>
                                          <div class="row">
-                                             <div class="col-md-2"><td>Delivery Place</td></div>
+                                             <div class="col-md-2"><td>{{'pregm.delivered_place' | translate}}</td></div>
                                              <div class="col-md-2">
                                                <td>
                                                    <mat-form-field class="example-full-width">
@@ -769,7 +777,7 @@
                                      </tr>
                                      <tr>
                                          <div class="row">
-                                             <div class="col-md-2"><td>Born Weight</td></div>
+                                             <div class="col-md-2"><td>{{'pregm.bron_weight' | translate}}</td></div>
                                              <div class="col-md-2">
                                                <td>
                                                    <mat-form-field class="example-full-width">
@@ -809,7 +817,7 @@
                                      </tr>
                                      <tr>
                                          <div class="row">
-                                             <div class="col-md-2"><td>Delivery Abnormalities</td></div>
+                                             <div class="col-md-2"><td>{{'pregm.delivery_abnormalities' | translate}}</td></div>
                                              <div class="col-md-2">
                                                <td>
                                                    <mat-form-field class="example-full-width">
@@ -849,7 +857,7 @@
                                      </tr>
                                      <tr>
                                          <div class="row">
-                                             <div class="col-md-2"><td>Sex and Age</td></div>
+                                             <div class="col-md-2"><td>{{'pregm.sexe' | translate}}</td></div>
                                              <div class="col-md-2">
                                                <td>
                                                    <mat-form-field class="example-full-width">
@@ -896,7 +904,7 @@
                   </div>
                   <div class="nineth_field">
                     <!--start 9 field-->
-                    <h4>Family Diseases History</h4>
+                    <h4>{{'pregm.family_diseases_details' | translate}}</h4>
                     <div class="card-body">
                      <div class="tab-content">
                          <div class="tab-pane active" id="profile">
@@ -913,7 +921,7 @@
                                                </label>
                                            </div>
                                        </td>
-                                       <td>Diabetes</td>
+                                       <td>{{'pregm.diabetes' | translate}}</td>
                                        <td class="td-actions text-right">
                                            <mat-form-field class="example-full-width">
                                                <input matInput placeholder="" type= "text" formControlName="diabetes_history_details">
@@ -931,7 +939,7 @@
                                                </label>
                                            </div>
                                        </td>
-                                       <td>High Blood Preasure</td>
+                                       <td>{{'pregm.high_blood_preasre' | translate}}</td>
                                        <td class="td-actions text-right">
                                            <mat-form-field class="example-full-width">
                                                <input matInput placeholder="" type= "text" formControlName="high_blood_preasre_history_details">
@@ -949,7 +957,7 @@
                                                </label>
                                            </div>
                                        </td>
-                                       <td>Blood Diseases</td>
+                                       <td>{{'pregm.blood_diseases' | translate}}</td>
                                        <td class="td-actions text-right">
                                            <mat-form-field class="example-full-width">
                                                <input matInput placeholder="" type= "text" formControlName="blood_diseases_history_details">
@@ -967,7 +975,7 @@
                                                </label>
                                            </div>
                                        </td>
-                                       <td>Others</td>
+                                       <td>{{'pregm.other' | translate}}</td>
                                        <td class="td-actions text-right">
                                            <mat-form-field class="example-full-width">
                                                <input matInput placeholder="" type= "text" formControlName="other_history_details">
@@ -997,25 +1005,25 @@
                                  <tbody>
                                    <tr>
                                      <div class="row">
-                                       <div class="col-md-4"><td>Date Of Clinic</td></div>
+                                       <div class="col-md-4"><td>{{'pregm.clinics_day' | translate}}</td></div>
                                        <div class="col-md-2">
                                          <td>
                                              <mat-form-field class="example-full-width">
-                                                 <input matInput placeholder="" type= "date" formControlName="day1_date">
+                                                 <input matInput placeholder="" type= "date" formControlName="day1_date" >
                                                </mat-form-field>
                                          </td>
                                        </div>
                                        <div class="col-md-2">
                                          <td>
                                              <mat-form-field class="example-full-width">
-                                                 <input matInput placeholder="" type= "date" formControlName="day2_date">
+                                                 <input matInput placeholder="" type= "date" formControlName="day2_date" >
                                                </mat-form-field>
                                          </td>
                                        </div>
                                        <div class="col-md-2">
                                          <td>
                                              <mat-form-field class="example-full-width">
-                                                 <input matInput placeholder="" type= "date" formControlName="day3_date">
+                                                 <input matInput placeholder="" type= "date" formControlName="day3_date" >
                                                </mat-form-field>
                                          </td>
                                        </div>
@@ -1030,7 +1038,7 @@
                                    </tr>
                                    <tr>
                                        <div class="row">
-                                         <div class="col-md-4"><td>Number Of Weeks For Pregnancy</td></div>
+                                         <div class="col-md-4"><td>{{'Number Of Weeks For Pregnancy' | translate}}</td></div>
                                          <div class="col-md-2">
                                            <td>
                                                <mat-form-field class="example-full-width">
@@ -1063,7 +1071,7 @@
                                      </tr>
                                      <tr>
                                          <div class="row">
-                                           <div class="col-md-4"><td>Urine</td></div>
+                                           <div class="col-md-4"><td>{{'pregm.urine' | translate}}</td></div>
                                            <div class="col-md-2">
                                              <td>
                                                  <mat-form-field class="example-full-width">
@@ -1096,7 +1104,7 @@
                                        </tr>
                                        <tr>
                                            <div class="row">
-                                             <div class="col-md-4"><td>Natritional Needs Myths</td></div>
+                                             <div class="col-md-4"><td>{{'pregm.natritional_needs_myths' | translate}}</td></div>
                                              <div class="col-md-2">
                                                <td>
                                                    <mat-form-field class="example-full-width">
@@ -1129,7 +1137,7 @@
                                          </tr>
                                          <tr>
                                              <div class="row">
-                                               <div class="col-md-4"><td>Embryo Height</td></div>
+                                               <div class="col-md-4"><td>{{'pregm.embryo_height' | translate}}</td></div>
                                                <div class="col-md-2">
                                                  <td>
                                                      <mat-form-field class="example-full-width">
@@ -1162,7 +1170,7 @@
                                            </tr>
                                            <tr>
                                               <div class="row">
-                                                     <div class="col-md-4"><td>Embryo Moves</td></div>
+                                                     <div class="col-md-4"><td>{{'pregm.embryo_moves' | translate}}</td></div>
                                                      <div class="col-md-2">
                                                        <td>
                                                            <div class="form-check">
@@ -1215,7 +1223,7 @@
                                                  </tr>
                                                  <tr>
                                                      <div class="row">
-                                                       <div class="col-md-4"><td>Embryo Sounds</td></div>
+                                                       <div class="col-md-4"><td>{{'pregm.embryo_sounds' | translate}}</td></div>
                                                        <div class="col-md-2">
                                                          <td>
                                                              <div class="form-check">
@@ -1268,7 +1276,7 @@
                                                    </tr>
                                                    <tr>
                                                        <div class="row">
-                                                         <div class="col-md-4"><td>Is It Informed Delivery Time ?</td></div>
+                                                         <div class="col-md-4"><td>{{'pregm.informed_delivery_time' | translate}}</td></div>
                                                          <div class="col-md-2">
                                                            <td>
                                                                <div class="form-check">
@@ -1321,7 +1329,7 @@
                                                      </tr>
                                                      <tr>
                                                          <div class="row">
-                                                           <div class="col-md-4"><td>If Have A Risk Does Informed About That ?</td></div>
+                                                           <div class="col-md-4"><td>{{'pregm.is_it_informed' | translate}}</td></div>
                                                            <div class="col-md-2">
                                                              <td>
                                                                  <div class="form-check">
@@ -1380,22 +1388,22 @@
                        <div class="second_field">
                          <!--start 2 field-->
                          <div class="row">
-                           <div class="col-md-6">Does Temporiry Left The Province?</div>
+                           <div class="col-md-6">{{'pregm.temporiry_left_the_province' | translate}}</div>
                            <div class="col-md-3">
-                               <label class="container">Yes
+                               <label class="container">{{'pregm.yes' | translate}}
                                    <input id="yse" type="radio"  formControlName="temporiry_left_the_province" value="yes">
                                    <span class="checkmark"></span>
                                  </label>
                            </div>
                            <div class="col-md-3">
-                               <label class="container">No
+                               <label class="container">{{'pregm.no' | translate}}
                                    <input id="no" type="radio"  formControlName="temporiry_left_the_province" value="no">
                                    <span class="checkmark"></span>
                                  </label>
                            </div>
                          </div>
                          <div class="row">
-                             <div class="col-md-6">Does It Informed From A Letter?</div>
+                             <div class="col-md-6">{{'pregm.from_letter' | translate}}</div>
                              <div class="col-md-3">
                                  <label class="container">Yes
                                      <input id="yse" type="radio"  formControlName="is_it_informed" value="yes">
@@ -1412,14 +1420,14 @@
                          <!--end 2 field-->
                          <div class="third_field">
                            <!--start 3 field-->
-                           <h4>Ready For Birth and Emargency</h4>
+                           <h4>{{'pregm.Ready_For' | translate}}</h4>
                            <div class="row">
                              <div class="col-md-4"></div>
-                             <div class="col-md-4">At Delivery</div>
-                             <div class="col-md-4">At Emergency</div>
+                             <div class="col-md-4">{{'pregm.delivery' | translate}}</div>
+                             <div class="col-md-4">{{'pregm.emergency' | translate}}</div>
                            </div>
                            <div class="row">
-                               <div class="col-md-4">Hospital For Admits</div>
+                               <div class="col-md-4">{{'pregm.hospital' | translate}}</div>
                                <div class="col-md-4">
                                    <mat-form-field class="example-full-width">
                                        <input matInput placeholder="" type= "text" formControlName="in_delivery_hospital">
@@ -1432,7 +1440,7 @@
                                </div>
                            </div>
                            <div class="row">
-                               <div class="col-md-4">Transport Method</div>
+                               <div class="col-md-4">{{'pregm.transport_method' | translate}}</div>
                                <div class="col-md-4">
                                    <mat-form-field class="example-full-width">
                                        <input matInput placeholder="" type= "text" formControlName="in_delivery_transport_method">
@@ -1458,7 +1466,7 @@
                                <mat-panel-title><h4>Clinic Details</h4></mat-panel-title>
                                <mat-panel-description>Clinic Details Of Pregnancy Women</mat-panel-description>
                              </mat-expansion-panel-header> -->
-                 <h4>First Four Clinics</h4>
+                 <h4>{{'pregm.First_Four' | translate}}</h4>
                     <div class="card-body">
                        <div class="tab-content">
                            <div class="tab-pane active" id="profile">
@@ -1466,32 +1474,32 @@
                                  <tbody>
                                    <tr>
                                      <div class="row">
-                                     <div class="col-md-4"><td>Date Of Clinic</td></div>
+                                     <div class="col-md-4"><td>{{'pregm.clinics_day'| translate}}</td></div>
                                      <div class="col-md-2">
                                        <td>
                                            <mat-form-field class="example-full-width">
-                                               <input matInput placeholder="" type= "date" formControlName="day1_clinical_day">
+                                               <input matInput placeholder="" type= "date" formControlName="day1_clinical_day" >
                                              </mat-form-field>
                                        </td>
                                      </div>
                                      <div class="col-md-2">
                                        <td>
                                            <mat-form-field class="example-full-width">
-                                               <input matInput placeholder="" type= "date" formControlName="day2_clinical_day">
+                                               <input matInput placeholder="" type= "date" formControlName="day2_clinical_day" >
                                              </mat-form-field>
                                        </td>
                                      </div>
                                      <div class="col-md-2">
                                        <td>
                                            <mat-form-field class="example-full-width">
-                                               <input matInput placeholder="" type= "date" formControlName="day3_clinical_day">
+                                               <input matInput placeholder="" type= "date" formControlName="day3_clinical_day" >
                                              </mat-form-field>
                                        </td>
                                      </div>
                                      <div class="col-md-2">
                                          <td>
                                              <mat-form-field class="example-full-width">
-                                                 <input matInput placeholder="" type= "date" formControlName="day4_clinical_day">
+                                                 <input matInput placeholder="" type= "date" formControlName="day4_clinical_day" >
                                                </mat-form-field>
                                          </td>
                                      </div>
@@ -1499,7 +1507,7 @@
                                    </tr>
                                    <tr>
                                        <div class="row">
-                                       <div class="col-md-4"><td>Weeks Into Pregnancy</td></div>
+                                       <div class="col-md-4"><td>{{'pregm.weeks_into_pregnancy' | translate}}</td></div>
                                        <div class="col-md-2">
                                          <td>
                                              <mat-form-field class="example-full-width">
@@ -1532,7 +1540,7 @@
                                    </tr>
                                    <tr>
                                        <div class="row">
-                                       <div class="col-md-4"><td>Weight</td></div>
+                                       <div class="col-md-4"><td>{{'pregm.weight' | translate}}</td></div>
                                        <div class="col-md-2">
                                          <td>
                                              <mat-form-field class="example-full-width">
@@ -1565,7 +1573,7 @@
                                    </tr>
                                    <tr>
                                        <div class="row">
-                                       <div class="col-md-4"><td>Urine Sugar</td></div>
+                                       <div class="col-md-4"><td>{{'pregm.sugar' | translate}}</td></div>
                                        <div class="col-md-2">
                                          <td>
                                              <mat-form-field class="example-full-width">
@@ -1598,7 +1606,7 @@
                                    </tr>
                                    <tr>
                                        <div class="row">
-                                       <div class="col-md-4"><td>Hemoglobin</td></div>
+                                       <div class="col-md-4"><td>{{'pregm.hemoglobin' | translate}}</td></div>
                                        <div class="col-md-2">
                                          <td>
                                              <mat-form-field class="example-full-width">
@@ -1631,7 +1639,7 @@
                                    </tr>
                                    <tr>
                                        <div class="row">
-                                       <div class="col-md-4"><td>Blood Pressure</td></div>
+                                       <div class="col-md-4"><td>{{'pregm.blood_pressure' | translate}}</td></div>
                                        <div class="col-md-2">
                                          <td>
                                              <mat-form-field class="example-full-width">
@@ -1664,7 +1672,7 @@
                                    </tr>
                                    <tr>
                                        <div class="row">
-                                       <div class="col-md-4"><td>Position</td></div>
+                                       <div class="col-md-4"><td>{{'pregm.position' | translate}}</td></div>
                                        <div class="col-md-2">
                                          <td>
                                              <mat-form-field class="example-full-width">
@@ -1697,7 +1705,7 @@
                                    </tr>
                                    <tr>
                                        <div class="row">
-                                       <div class="col-md-4"><td>Embryo Moves</td></div>
+                                       <div class="col-md-4"><td>{{'pregm.embryo_moves' | translate}}</td></div>
                                        <div class="col-md-2">
                                          <td>
                                              <div class="form-check">
@@ -1750,7 +1758,7 @@
                                    </tr>
                                    <tr>
                                        <div class="row">
-                                       <div class="col-md-4"><td>Embryo Sounds</td></div>
+                                       <div class="col-md-4"><td>{{'pregm.embryo_sounds' | translate}}</td></div>
                                        <div class="col-md-2">
                                          <td>
                                              <div class="form-check">
@@ -1803,7 +1811,7 @@
                                    </tr>
                                    <tr>
                                        <div class="row">
-                                       <div class="col-md-4"><td>Iron Folate</td></div>
+                                       <div class="col-md-4"><td>{{'pregm.iron_folate'| translate}}</td></div>
                                        <div class="col-md-2">
                                          <td>
                                              <mat-form-field class="example-full-width">
@@ -1836,7 +1844,7 @@
                                    </tr>
                                    <tr>
                                        <div class="row">
-                                       <div class="col-md-4"><td>Vitamine C</td></div>
+                                       <div class="col-md-4"><td>{{'pregm.vitamin_c'| translate}}</td></div>
                                        <div class="col-md-2">
                                          <td>
                                              <mat-form-field class="example-full-width">
@@ -1869,7 +1877,7 @@
                                    </tr>
                                    <tr>
                                        <div class="row">
-                                       <div class="col-md-4"><td>Calcium Malaria Treatment</td></div>
+                                       <div class="col-md-4"><td>{{'pregm.calsium_malaria_treatments'| translate}}</td></div>
                                        <div class="col-md-2">
                                          <td>
                                              <mat-form-field class="example-full-width">
@@ -1902,7 +1910,7 @@
                                    </tr>
                                    <tr>
                                        <div class="row">
-                                       <div class="col-md-4"><td>Thriposha</td></div>
+                                       <div class="col-md-4"><td>{{'pregm.threeposha'| translate}}</td></div>
                                        <div class="col-md-2">
                                          <td>
                                              <mat-form-field class="example-full-width">
@@ -1935,7 +1943,7 @@
                                    </tr>
                                    <tr>
                                        <div class="row">
-                                       <div class="col-md-4"><td>Checked By</td></div>
+                                       <div class="col-md-4"><td>{{'pregm.checked_by'| translate}}</td></div>
                                        <div class="col-md-2">
                                          <td>
                                              <mat-form-field class="example-full-width">
@@ -1973,7 +1981,7 @@
                       </div>
                       <div class="second_field">
                         <!--start 2 field-->
-                        <h4>Second Four Clinics</h4>
+                        <h4>{{'pregm.second_Four' | translate}}</h4>
                         <div class="card-body">
                            <div class="tab-content">
                                <div class="tab-pane active" id="profile">
@@ -1981,32 +1989,32 @@
                                      <tbody>
                                        <tr>
                                          <div class="row">
-                                         <div class="col-md-4"><td>Date Of Clinic</td></div>
+                                         <div class="col-md-4"><td>{{'pregm.clinics_day'| translate}}</td></div>
                                          <div class="col-md-2">
                                            <td>
                                                <mat-form-field class="example-full-width">
-                                                   <input matInput placeholder="" type= "date" formControlName="day5_clinical_day">
+                                                   <input matInput placeholder="" type= "date" formControlName="day5_clinical_day" >
                                                  </mat-form-field>
                                            </td>
                                          </div>
                                          <div class="col-md-2">
                                            <td>
                                                <mat-form-field class="example-full-width">
-                                                   <input matInput placeholder="" type= "date" formControlName="day6_clinical_day">
+                                                   <input matInput placeholder="" type= "date" formControlName="day6_clinical_day" >
                                                  </mat-form-field>
                                            </td>
                                          </div>
                                          <div class="col-md-2">
                                            <td>
                                                <mat-form-field class="example-full-width">
-                                                   <input matInput placeholder="" type= "date" formControlName="day7_clinical_day">
+                                                   <input matInput placeholder="" type= "date" formControlName="day7_clinical_day" >
                                                  </mat-form-field>
                                            </td>
                                          </div>
                                          <div class="col-md-2">
                                              <td>
                                                  <mat-form-field class="example-full-width">
-                                                     <input matInput placeholder="" type= "date" formControlName="day8_clinical_day">
+                                                     <input matInput placeholder="" type= "date" formControlName="day8_clinical_day" >
                                                    </mat-form-field>
                                              </td>
                                          </div>
@@ -2014,7 +2022,7 @@
                                        </tr>
                                        <tr>
                                            <div class="row">
-                                           <div class="col-md-4"><td>Weeks Into Pregnancy</td></div>
+                                           <div class="col-md-4"><td>{{'pregm.weeks_into_pregnancy' | translate}}</td></div>
                                            <div class="col-md-2">
                                              <td>
                                                  <mat-form-field class="example-full-width">
@@ -2047,7 +2055,7 @@
                                        </tr>
                                        <tr>
                                            <div class="row">
-                                           <div class="col-md-4"><td>Weight</td></div>
+                                           <div class="col-md-4"><td>{{'pregm.weight' | translate}}</td></div>
                                            <div class="col-md-2">
                                              <td>
                                                  <mat-form-field class="example-full-width">
@@ -2080,7 +2088,7 @@
                                        </tr>
                                        <tr>
                                            <div class="row">
-                                           <div class="col-md-4"><td>Urine Sugar</td></div>
+                                           <div class="col-md-4"><td>{{'pregm.sugar' | translate}}</td></div>
                                            <div class="col-md-2">
                                              <td>
                                                  <mat-form-field class="example-full-width">
@@ -2113,7 +2121,7 @@
                                        </tr>
                                        <tr>
                                            <div class="row">
-                                           <div class="col-md-4"><td>Urine Hemoglobin</td></div>
+                                           <div class="col-md-4"><td>{{'pregm.hemoglobin' | translate}}</td></div>
                                            <div class="col-md-2">
                                              <td>
                                                  <mat-form-field class="example-full-width">
@@ -2146,7 +2154,7 @@
                                        </tr>
                                        <tr>
                                            <div class="row">
-                                           <div class="col-md-4"><td>Blood Pressure</td></div>
+                                           <div class="col-md-4"><td>{{'pregm.blood_pressure' | translate}}</td></div>
                                            <div class="col-md-2">
                                              <td>
                                                  <mat-form-field class="example-full-width">
@@ -2179,7 +2187,7 @@
                                        </tr>
                                        <tr>
                                            <div class="row">
-                                           <div class="col-md-4"><td>Position</td></div>
+                                           <div class="col-md-4"><td>{{'pregm.position' | translate}}</td></div>
                                            <div class="col-md-2">
                                              <td>
                                                  <mat-form-field class="example-full-width">
@@ -2212,7 +2220,7 @@
                                        </tr>
                                        <tr>
                                            <div class="row">
-                                           <div class="col-md-4"><td>Embryo Moves</td></div>
+                                           <div class="col-md-4"><td>{{'pregm.embryo_moves' | translate}}</td></div>
                                            <div class="col-md-2">
                                              <td>
                                                  <div class="form-check">
@@ -2265,7 +2273,7 @@
                                        </tr>
                                        <tr>
                                            <div class="row">
-                                           <div class="col-md-4"><td>Embryo Sounds</td></div>
+                                           <div class="col-md-4"><td>{{'pregm.embryo_sounds' | translate}}</td></div>
                                            <div class="col-md-2">
                                              <td>
                                                  <div class="form-check">
@@ -2318,7 +2326,7 @@
                                        </tr>
                                        <tr>
                                            <div class="row">
-                                           <div class="col-md-4"><td>Iron Folate</td></div>
+                                           <div class="col-md-4"><td>{{'pregm.iron_folate'| translate}}</td></div>
                                            <div class="col-md-2">
                                              <td>
                                                  <mat-form-field class="example-full-width">
@@ -2351,7 +2359,7 @@
                                        </tr>
                                        <tr>
                                            <div class="row">
-                                           <div class="col-md-4"><td>Vitamine C</td></div>
+                                           <div class="col-md-4"><td>{{'pregm.vitamin_c'| translate}}</td></div>
                                            <div class="col-md-2">
                                              <td>
                                                  <mat-form-field class="example-full-width">
@@ -2384,7 +2392,7 @@
                                        </tr>
                                        <tr>
                                            <div class="row">
-                                           <div class="col-md-4"><td>Calcium Malaria Treatment</td></div>
+                                           <div class="col-md-4"><td>{{'pregm.calsium_malaria_treatments'| translate}}</td></div>
                                            <div class="col-md-2">
                                              <td>
                                                  <mat-form-field class="example-full-width">
@@ -2417,7 +2425,7 @@
                                        </tr>
                                        <tr>
                                            <div class="row">
-                                           <div class="col-md-4"><td>Thriposha</td></div>
+                                           <div class="col-md-4"><td>{{'pregm.threeposha'| translate}}</td></div>
                                            <div class="col-md-2">
                                              <td>
                                                  <mat-form-field class="example-full-width">
@@ -2450,7 +2458,7 @@
                                        </tr>
                                        <tr>
                                            <div class="row">
-                                           <div class="col-md-4"><td>Checked By</td></div>
+                                           <div class="col-md-4"><td>{{'pregm.checked_by'| translate}}</td></div>
                                            <div class="col-md-2">
                                              <td>
                                                  <mat-form-field class="example-full-width">
@@ -2490,82 +2498,82 @@
                       </div>
                       <div class="third_field">
                         <!--start 3 field-->
-                        <h3>Other Medical Details</h3>
+                        <h3>{{'pregm.Other_Medical' | translate}}</h3>
                         <div class="row">
                           <div class="col-md-6">
                              <mat-form-field class="example-full-width">
-                                 <input matInput placeholder="Date Of Issued Embryo Moves Form" type= "date" formControlName="date_of_issued_embry_moves_form">
+                                 <input matInput placeholder="{{'pregm.date_of_issued_embry_moves_form' | translate}}" type= "date" formControlName="date_of_issued_embry_moves_form">
                                </mat-form-field>
                           </div>
                           <div class="col-md-6">
                              <mat-form-field class="example-full-width">
-                                 <input matInput placeholder="Worm Treatment Given Date" type= "date" formControlName="worm_treatment_given_date">
+                                 <input matInput placeholder="{{'pregm.worm_treatment_given_date'| translate}}" type= "date" formControlName="worm_treatment_given_date">
                                </mat-form-field>
                           </div>
                         </div>
                         <div class="row">
                           <div class="col-md-4">
                              <mat-form-field class="example-full-width">
-                                 <input matInput placeholder="Tetanus Treatment Type" type= "text" formControlName="tetanus_treatments_type">
+                                 <input matInput placeholder="{{'pregm.tetanus_treatments_type' | translate}}" type= "text" formControlName="tetanus_treatments_type">
                                </mat-form-field>
                           </div>
                           <div class="col-md-4">
                              <mat-form-field class="example-full-width">
-                                 <input matInput placeholder="Tetanus Treatment Given Date" type= "date" formControlName="tetanus_treatments_given_date">
+                                 <input matInput placeholder="{{'pregm.tetanus_treatments_given_date' | translate}}" type= "date" formControlName="tetanus_treatments_given_date">
                                </mat-form-field>
                           </div>
                           <div class="col-md-4">
                              <mat-form-field class="example-full-width">
-                                 <input matInput placeholder="Tetanus Treatment Type Number" type= "text" formControlName="tetanus_treatments_type_number">
+                                 <input matInput placeholder="{{'pregm.tetanus_treatments_type_number' | translate}}" type= "text" formControlName="tetanus_treatments_type_number">
                                </mat-form-field>
                           </div>
                         </div>
                         <div class="row">
                           <div class="col-md-6">
                              <mat-form-field class="example-full-width">
-                                 <input matInput placeholder="Height From cm" type= "number" formControlName="height">
+                                 <input matInput placeholder="{{'pregm.height' | translate}}" type= "number" formControlName="height">
                                </mat-form-field>
                           </div>
                           <div class="col-md-6">
                              <mat-form-field class="example-full-width">
-                                 <input matInput placeholder="BMI Value" type= "number" formControlName="bmi">
+                                 <input matInput placeholder="{{'pregm.bmi' | translate}}" type= "number" formControlName="bmi">
                                </mat-form-field>
                           </div>
                         </div>
                         <div class="row">
-                          <div class="col-md-4">VDRL</div>
+                          <div class="col-md-4">{{'pregm.vdrl' | translate}}</div>
                         </div>
                         <div class="row">
                           <div class="col-md-3">
                              <mat-form-field class="example-full-width">
-                                 <input matInput placeholder="Blood Sample Obtained Date" type= "date" formControlName="vdrl_blood_sample_obtained_date">
+                                 <input matInput placeholder="{{'pregm.blood_sample_obtained_date' | translate}}" type= "date" formControlName="vdrl_blood_sample_obtained_date">
                                </mat-form-field>
                           </div>
                           <div class="col-md-3">
                              <mat-form-field class="example-full-width">
-                                 <input matInput placeholder="Weeks Into Pregnancy When Getting Blood Sample" type= "number" formControlName="vdrl_weeks_into_pregnancy_when_blood_sample_was_obtained">
+                                 <input matInput placeholder="{{'pregm.weeks_into_pregnancy_when_blood_sample_was_obtained' | translate}}" type= "number" formControlName="vdrl_weeks_into_pregnancy_when_blood_sample_was_obtained">
                                </mat-form-field>
                           </div>
                           <div class="col-md-3">
                              <mat-form-field class="example-full-width">
-                                 <input matInput placeholder="Results Date" type= "date" formControlName="vdrl_date_of_results">
+                                 <input matInput placeholder="{{'pregm.date_of_results' | translate}}" type= "date" formControlName="vdrl_date_of_results">
                                </mat-form-field>
                           </div>
                           <div class="col-md-3">
                              <mat-form-field class="example-full-width">
-                                 <input matInput placeholder="Results" type= "text" formControlName="vdrl_result">
+                                 <input matInput placeholder="{{'pregm.result' | translate}}" type= "text" formControlName="vdrl_result">
                                </mat-form-field>
                           </div>
                           <div class="col-md-3">
                              <mat-form-field class="example-full-width">
-                                 <input matInput placeholder="Date Of Refferal For Treatment" type= "date" formControlName="vdrl_date_of_referral_for_further_treatments">
+                                 <input matInput placeholder="{{'pregm.date_of_referral_for_further_treatments' | translate}}" type= "date" formControlName="vdrl_date_of_referral_for_further_treatments">
                                </mat-form-field>
                           </div>
                         </div>
                         <div class="row">
                           <div class="col-md-6">
                              <div class="form-check">
-                                 <label class="form-check-label">Was Blood Sample Taken For Pretest For HIV
+                                 <label class="form-check-label">{{'pregm.was_blood_sample_taken_fot_pretest_for_hiv' | translate}}
                                      <input class="form-check-input" type="checkbox" value="" formControlName="was_blood_sample_taken_fot_pretest_for_hiv">
                                      <span class="form-check-sign">
                                          <span class="check"></span>
@@ -2575,7 +2583,7 @@
                           </div>
                           <div class="col-md-6">
                              <div class="form-check">
-                             <label class="form-check-label">Was Blood Sample Taken For Pretest For Malaria
+                             <label class="form-check-label">{{'pregm.was_blood_sample_taken_fot_pretest_for_malria' | translate}}
                                  <input class="form-check-input" type="checkbox" value="" formControlName="was_blood_sample_taken_fot_pretest_for_malaria">
                                  <span class="form-check-sign">
                                      <span class="check"></span>
@@ -2587,52 +2595,52 @@
                         <div class="row">
                           <div class="col-md-4">
                              <mat-form-field class="example-full-width">
-                                 <input matInput placeholder="Breast Test" type= "text" formControlName="breast_test">
+                                 <input matInput placeholder="{{'pregm.breast_test' | translate}}" type= "text" formControlName="breast_test">
                                </mat-form-field>
                           </div>
                           <div class="col-md-4">
                              <mat-form-field class="example-full-width">
-                                 <input matInput placeholder="Lungs" type= "text" formControlName="lungs">
+                                 <input matInput placeholder="{{'pregm.lungs' | translate}}" type= "text" formControlName="lungs">
                                </mat-form-field>
                           </div>
                         </div>
                         <div class="row">
-                          <div class="col-md-3">Cardiac Test</div>
+                          <div class="col-md-3">{{'pregm.cardiac_examination' | translate}}</div>
                           <div class="col-md-3">
                              <mat-form-field class="example-full-width">
-                                 <input matInput placeholder="First Three Months" type= "text" formControlName="cardiac_examination_first_three_month">
+                                 <input matInput placeholder="{{'pregm.first_three_month' | translate}}" type= "text" formControlName="cardiac_examination_first_three_month">
                                </mat-form-field>
                           </div>
                           <div class="col-md-3">
                              <mat-form-field class="example-full-width">
-                                 <input matInput placeholder="Second Three Months" type= "text" formControlName="cardiac_examination_second_three_month">
+                                 <input matInput placeholder="{{'pregm.second_three_month' | translate}}" type= "text" formControlName="cardiac_examination_second_three_month">
                                </mat-form-field>
                           </div>
                           <div class="col-md-3">
                              <mat-form-field class="example-full-width">
-                                 <input matInput placeholder="Third Three Months" type= "text" formControlName="cardiac_examination_third_three_month">
+                                 <input matInput placeholder="{{'pregm.third_three_month' | translate}}" type= "text" formControlName="cardiac_examination_third_three_month">
                                </mat-form-field>
                           </div>
                         </div>
                         <div class="row">
                           <div class="col-md-6">
                              <mat-form-field class="example-full-width">
-                                 <input matInput placeholder="Dental Test" type= "text" formControlName="dental_test">
+                                 <input matInput placeholder="{{'pregm.dental_test' | translate}}" type= "text" formControlName="dental_test">
                                </mat-form-field>
                           </div>
                           <div class="col-md-6">
                              <mat-form-field class="example-full-width">
-                                 <input matInput placeholder="Dental Caries" type= "text" formControlName="dental_caries">
+                                 <input matInput placeholder="{{'pregm.dental_caries' | translate}}" type= "text" formControlName="dental_caries">
                                </mat-form-field>
                           </div>
                         </div>
                         <div class="row">
                           <div class="col-md-6"></div>
-                          <div class="col-md-3">Number Of Pregnancy Weeks</div>
-                          <div class="col-md-3">Results</div>
+                          <div class="col-md-3">{{'pregm.weeks' | translate}}</div>
+                          <div class="col-md-3">{{'pregm.result' | translate}}</div>
                         </div>
                         <div class="row">
-                           <div class="col-md-6">Blood Sugar</div>
+                           <div class="col-md-6">{{'pregm.blood_sugar' | translate}}</div>
                            <div class="col-md-3">
                                <mat-form-field class="example-full-width">
                                    <input matInput placeholder="" type= "text" formControlName="blood_sugar_week">
@@ -2645,7 +2653,7 @@
                            </div>
                         </div>
                         <div class="row">
-                           <div class="col-md-6">Hemoglobin</div>
+                           <div class="col-md-6">{{'pregm.hemoglobin' | translate}}</div>
                            <div class="col-md-3">
                                <mat-form-field class="example-full-width">
                                    <input matInput placeholder="" type= "text" formControlName="hemoglobin_week">
@@ -2658,7 +2666,7 @@
                            </div>
                         </div>
                         <div class="row">
-                           <div class="col-md-6">Blood Test For Malaria</div>
+                           <div class="col-md-6">{{'pregm.malarias' | translate}}</div>
                            <div class="col-md-3">
                                <mat-form-field class="example-full-width">
                                    <input matInput placeholder="" type= "text" formControlName="malaria_week">
@@ -2687,50 +2695,50 @@
                     <div class="row">
                       <div class="col-md-4">
                          <mat-form-field class="example-full-width">
-                             <input matInput placeholder="Rubella Date" type= "date" formControlName="rubella_date">
+                             <input matInput placeholder="{{'pregm.rubella_date' | translate}}" type= "date" formControlName="rubella_date">
                            </mat-form-field>
                       </div>
                       <div class="col-md-4">
                          <mat-form-field class="example-full-width">
-                             <input matInput placeholder="Rubella Batch No" type= "number" formControlName="rubella_type">
+                             <input matInput placeholder="{{'pregm.rubella.batch' | translate}}" type= "number" formControlName="rubella_type">
                            </mat-form-field>
                       </div>
                     </div>
                     <div class="row">
                       <div class="col-md-4">
                          <mat-form-field class="example-full-width">
-                             <input matInput placeholder="Vitamine C Overdose Date" type= "date" formControlName="vitamin_c_overdose">
+                             <input matInput placeholder="{{'pregm.vitamin_c_overdose' | translate}}" type= "date" formControlName="vitamin_c_overdose">
                            </mat-form-field>
                       </div>
                       <div class="col-md-6">
-                         <label>Identified After Delivery Problems</label>
+                         <label>{{'pregm.after_delivery_details' | translate}}</label>
                          <mat-form-field class="example-full-width">
                            <textarea matInput placeholder="" formControlName="unidentified_abnormalities" ></textarea>
                          </mat-form-field>
                       </div>
                       <div class="col-md-4">
                          <mat-form-field class="example-full-width">
-                             <input matInput placeholder="Date Of Mother Come Home" type= "date" formControlName="day_mother_came_home">
+                             <input matInput placeholder="{{'pregm.day_mother_came_home' | translate}}" type= "date" formControlName="day_mother_came_home">
                            </mat-form-field>
                       </div>
                     </div>
                     <div class="second_field">
                       <!--start 2 field-->
-                      <h5>Child</h5>
+                      <h5>{{'pregm.child' | translate}}</h5>
                       <div class="row">
                         <div class="col-md-4">
                            <mat-form-field class="example-full-width">
-                               <input matInput placeholder="Sex" type= "text" formControlName="child_sex">
+                               <input matInput placeholder="{{'pregm.sexx' | translate}}" type= "text" formControlName="child_sex">
                              </mat-form-field>
                         </div>
                         <div class="col-md-4">
                            <mat-form-field class="example-full-width">
-                               <input matInput placeholder="Birth Weight" type= "number" formControlName="child_birth_weight">
+                               <input matInput placeholder="{{'pregm.birth_weight' | translate}}" type= "number" formControlName="child_birth_weight">
                              </mat-form-field>
                         </div>
                         <div class="col-md-4">
                            <div class="form-check">
-                               <label class="form-check-label">Immatured
+                               <label class="form-check-label">{{'pregm.immatured' | translate}}
                                    <input class="form-check-input" type="checkbox" value="" formControlName="child_immatured">
                                    <span class="form-check-sign">
                                        <span class="check"></span>
@@ -2741,13 +2749,13 @@
                       </div>
                       <div class="row">
                         <div class="col-md-6">
-                           <label>Abnormalities At Birth</label>
+                           <label>{{'pregm.abnormalities_birth' | translate}}</label>
                            <mat-form-field class="example-full-width">
                              <textarea matInput placeholder="" formControlName="child_abnormalities" ></textarea>
                            </mat-form-field>
                         </div>
                         <div class="col-md-6">
-                           <label>Other Details</label>
+                           <label>{{'pregm.other' | translate}}</label>
                            <mat-form-field class="example-full-width">
                              <textarea matInput placeholder="" formControlName="child_other_details" ></textarea>
                            </mat-form-field>
@@ -2757,21 +2765,21 @@
                     </div>
                     <div class="third_field">
                       <!--start 3 field-->
-                      <h5>Maternal Death</h5>
+                      <h5>{{'pregm.maternal_deaths' | translate}}</h5>
                       <div class="row">
                         <div class="col-md-3">
                            <mat-form-field class="example-full-width">
-                               <input matInput placeholder="Maternal Death Date" type= "date" formControlName="maternal_deathsdate">
+                               <input matInput placeholder="{{'pregm.date' | translate}}" type= "date" formControlName="maternal_deathsdate">
                              </mat-form-field>
                         </div>
                         <div class="col-md-6">
                            <mat-form-field class="example-full-width">
-                               <input matInput placeholder="Maternal Death Reason" type= "text" formControlName="maternal_deathsreason">
+                               <input matInput placeholder="{{'pregm.reason' | translate}}" type= "text" formControlName="maternal_deathsreason">
                              </mat-form-field>
                         </div>
                         <div class="col-md-3">
                            <mat-form-field class="example-full-width">
-                               <input matInput placeholder="Does It Investigated?" type= "text" formControlName="maternal_deathsinversigated">
+                               <input matInput placeholder="{{'pregm.inversigated' | translate}}" type= "text" formControlName="maternal_deathsinversigated">
                              </mat-form-field>
                         </div>
                       </div>
@@ -2779,35 +2787,35 @@
                     </div>
                     <div class="fouth_field">
                       <!--start 4 field-->
-                      <h4>First Four Post Travel Days</h4>
+                      <h4>{{'pregm.First_Four_Post' | translate}}</h4>
                       <div class="row">
-                        <div class="col-md-4">Date</div>
+                        <div class="col-md-4">{{'pregm.date'|translate}}</div>
                         <div class="col-md-2">
                            <mat-form-field class="example-full-width">
-                               <input matInput placeholder="" type= "date" formControlName="day1travel_date">
+                               <input matInput placeholder="" type= "date" formControlName="day1travel_date" >
                              </mat-form-field>
                         </div>
                         <div class="col-md-2">
                            <mat-form-field class="example-full-width">
-                               <input matInput placeholder="" type= "date" formControlName="day2travel_date">
+                               <input matInput placeholder="" type= "date" formControlName="day2travel_date" >
                              </mat-form-field>
                         </div>
                         <div class="col-md-2">
                            <mat-form-field class="example-full-width">
-                               <input matInput placeholder="" type= "date" formControlName="day3travel_date">
+                               <input matInput placeholder="" type= "date" formControlName="day3travel_date" >
                              </mat-form-field>
                         </div>
                         <div class="col-md-2">
                            <mat-form-field class="example-full-width">
-                               <input matInput placeholder="" type= "date" formControlName="day4travel_date">
+                               <input matInput placeholder="" type= "date" formControlName="day4travel_date" >
                              </mat-form-field>
                         </div>
                       </div>
                       <div class="row">
-                        <h4>Mother</h4>
+                        <h4>{{'pregm.mother'| translate}}</h4>
                       </div>
                       <div class="row">
-                        <div class="col-md-4">Temperature</div>
+                        <div class="col-md-4">{{'pregm.temperature'|translate}}</div>
                         <div class="col-md-2">
                            <mat-form-field class="example-full-width">
                                <input matInput placeholder="" type= "number" formControlName="day1mother_temperature">
@@ -2830,7 +2838,7 @@
                         </div>
                       </div>
                       <div class="row">
-                         <div class="col-md-4">Paleness</div>
+                         <div class="col-md-4">{{'pregm.paleness'|translate}}</div>
                          <div class="col-md-2">
                             <mat-form-field class="example-full-width">
                                 <input matInput placeholder="" type= "text" formControlName="day1mother_paleness">
@@ -2853,7 +2861,7 @@
                          </div>
                        </div>
                        <div class="row">
-                           <div class="col-md-4">Breast</div>
+                           <div class="col-md-4">{{'pregm.breast'| translate}}</div>
                            <div class="col-md-2">
                               <mat-form-field class="example-full-width">
                                   <input matInput placeholder="" type= "text" formControlName="day1mother_breast">
@@ -2876,7 +2884,7 @@
                            </div>
                          </div>
                          <div class="row">
-                             <div class="col-md-4">Filamemtous Blood</div>
+                             <div class="col-md-4">{{'pregm.filamemtous_blood'| translate}}</div>
                              <div class="col-md-2">
                                 <mat-form-field class="example-full-width">
                                     <input matInput placeholder="" type= "text" formControlName="day1mother_filamemtous_blood">
@@ -2899,7 +2907,7 @@
                              </div>
                            </div>
                            <div class="row">
-                               <div class="col-md-4">Mental Changes</div>
+                               <div class="col-md-4">{{'pregm.mental_changes'| translate}}</div>
                                <div class="col-md-2">
                                   <mat-form-field class="example-full-width">
                                       <input matInput placeholder="" type= "text" formControlName="day1mother_mental_changes">
@@ -2922,7 +2930,7 @@
                                </div>
                              </div>
                              <div class="row">
-                                 <div class="col-md-4">Diarrrhea</div>
+                                 <div class="col-md-4">{{'pregm.diarrrhea'| translate}}</div>
                                  <div class="col-md-2">
                                     <mat-form-field class="example-full-width">
                                         <input matInput placeholder="" type= "text" formControlName="day1mother_diarrrhea">
@@ -2945,7 +2953,7 @@
                                  </div>
                                </div>
                                <div class="row">
-                                   <div class="col-md-4">Vomiting</div>
+                                   <div class="col-md-4">{{'pregm.vomiting' | translate}}</div>
                                    <div class="col-md-2">
                                       <mat-form-field class="example-full-width">
                                           <input matInput placeholder="" type= "text" formControlName="day1mother_vomiting">
@@ -2968,7 +2976,7 @@
                                    </div>
                                  </div>
                                  <div class="row">
-                                     <div class="col-md-4">Breathing Difficulties</div>
+                                     <div class="col-md-4">{{'pregm.breathing_difficulties' | translate}}</div>
                                      <div class="col-md-2">
                                         <mat-form-field class="example-full-width">
                                             <input matInput placeholder="" type= "text" formControlName="day1mother_breathing_difficulties">
@@ -2991,7 +2999,7 @@
                                      </div>
                                    </div>
                                    <div class="row">
-                                       <div class="col-md-4">Visual Difficulties</div>
+                                       <div class="col-md-4">{{'pregm.visual_difficulties' | translate}}</div>
                                        <div class="col-md-2">
                                           <mat-form-field class="example-full-width">
                                               <input matInput placeholder="" type= "text" formControlName="day1mother_visual_difficulties">
@@ -3014,7 +3022,7 @@
                                        </div>
                                      </div>
                                      <div class="row">
-                                         <div class="col-md-4">Pain In Kent</div>
+                                         <div class="col-md-4">{{'pregm.pain_in_kent' | translate}}</div>
                                          <div class="col-md-2">
                                             <mat-form-field class="example-full-width">
                                                 <input matInput placeholder="" type= "text" formControlName="day1mother_pain_in_kent">
@@ -3036,8 +3044,8 @@
                                               </mat-form-field>
                                          </div>
                                        </div>
-                                       <div class="row">
-                                           <div class="col-md-4">Prebiotics</div>
+                                       <!-- <div class="row">
+                                           <div class="col-md-4">{{'pregm.prebiotics' | translate}}</div>
                                            <div class="col-md-2">
                                               <mat-form-field class="example-full-width">
                                                   <input matInput placeholder="" type= "text" formControlName="day1mother_prebiotics">
@@ -3058,12 +3066,12 @@
                                                   <input matInput placeholder="" type= "text" formControlName="day4mother_prebiotics">
                                                 </mat-form-field>
                                            </div>
+                                         </div> -->
+                                         <div class="row">
+                                           <h4>{{'pregm.child'| translate}}</h4>
                                          </div>
                                          <div class="row">
-                                           <h4>Child</h4>
-                                         </div>
-                                         <div class="row">
-                                             <div class="col-md-4">Fever</div>
+                                             <div class="col-md-4">{{'pregm.fever'| translate}}</div>
                                              <div class="col-md-2">
                                                 <mat-form-field class="example-full-width">
                                                     <input matInput placeholder="" type= "text" formControlName="day1child_fever">
@@ -3086,7 +3094,7 @@
                                              </div>
                                            </div>
                                            <div class="row">
-                                               <div class="col-md-4">Abnormalities</div>
+                                               <div class="col-md-4">{{'pregm.abnormalities'| translate}}</div>
                                                <div class="col-md-2">
                                                   <mat-form-field class="example-full-width">
                                                       <input matInput placeholder="" type= "text" formControlName="day1child_abnormalities">
@@ -3109,7 +3117,7 @@
                                                </div>
                                              </div>
                                              <div class="row">
-                                                 <div class="col-md-4">Infections Near Umbilicus</div>
+                                                 <div class="col-md-4">{{'pregm.infections_near_umbilicus'| translate}}</div>
                                                  <div class="col-md-2">
                                                     <mat-form-field class="example-full-width">
                                                         <input matInput placeholder="" type= "text" formControlName="day1child_infections_near_umbilicus">
@@ -3132,7 +3140,7 @@
                                                  </div>
                                                </div>
                                                <div class="row">
-                                                   <div class="col-md-4">Skin Color</div>
+                                                   <div class="col-md-4">{{'pregm.skin_color'| translate}}</div>
                                                    <div class="col-md-2">
                                                       <mat-form-field class="example-full-width">
                                                           <input matInput placeholder="" type= "text" formControlName="day1child_skin_color">
@@ -3155,7 +3163,7 @@
                                                    </div>
                                                  </div>
                                                  <div class="row">
-                                                     <div class="col-md-4">Suckling</div>
+                                                     <div class="col-md-4">{{'pregm.suckling'| translate}}</div>
                                                      <div class="col-md-2">
                                                         <mat-form-field class="example-full-width">
                                                             <input matInput placeholder="" type= "text" formControlName="day1child_suckling">
@@ -3178,7 +3186,7 @@
                                                      </div>
                                                  </div>
                                                  <div class="row">
-                                                     <div class="col-md-4">Prebiotics</div>
+                                                     <div class="col-md-4">{{'pregm.prebiotics' | translate}}</div>
                                                      <div class="col-md-2">
                                                         <mat-form-field class="example-full-width">
                                                             <input matInput placeholder="" type= "text" formControlName="day1child_prebiotics">
@@ -3206,33 +3214,33 @@
                       <!--start 5 field-->
                       <h4>Second Four Post Travel Days</h4>
                       <div class="row">
-                        <div class="col-md-4">Date</div>
+                        <div class="col-md-4">{{'pregm.date'|translate}}</div>
                         <div class="col-md-2">
                            <mat-form-field class="example-full-width">
-                               <input matInput placeholder="" type= "date" formControlName="day5travel_date">
+                               <input matInput placeholder="" type= "date" formControlName="day5travel_date" >
                              </mat-form-field>
                         </div>
                         <div class="col-md-2">
                            <mat-form-field class="example-full-width">
-                               <input matInput placeholder="" type= "date" formControlName="day6travel_date">
+                               <input matInput placeholder="" type= "date" formControlName="day6travel_date" >
                              </mat-form-field>
                         </div>
                         <div class="col-md-2">
                            <mat-form-field class="example-full-width">
-                               <input matInput placeholder="" type= "date" formControlName="day7travel_date">
+                               <input matInput placeholder="" type= "date" formControlName="day7travel_date" >
                              </mat-form-field>
                         </div>
                         <div class="col-md-2">
                            <mat-form-field class="example-full-width">
-                               <input matInput placeholder="" type= "date" formControlName="day8travel_date">
+                               <input matInput placeholder="" type= "date" formControlName="day8travel_date" >
                              </mat-form-field>
                         </div>
                       </div>
                       <div class="row">
-                        <h4>Mother</h4>
+                        <h4>{{'pregm.mother'| translate}}</h4>
                       </div>
                       <div class="row">
-                        <div class="col-md-4">Temperature</div>
+                        <div class="col-md-4">{{'pregm.temperature'|translate}}</div>
                         <div class="col-md-2">
                            <mat-form-field class="example-full-width">
                                <input matInput placeholder="" type= "number" formControlName="day5mother_temperature">
@@ -3255,7 +3263,7 @@
                         </div>
                       </div>
                       <div class="row">
-                         <div class="col-md-4">Paleness</div>
+                         <div class="col-md-4">{{'pregm.paleness'|translate}}</div>
                          <div class="col-md-2">
                             <mat-form-field class="example-full-width">
                                 <input matInput placeholder="" type= "text" formControlName="day5mother_paleness">
@@ -3278,7 +3286,7 @@
                          </div>
                        </div>
                        <div class="row">
-                           <div class="col-md-4">Breast</div>
+                           <div class="col-md-4">{{'pregm.breast'| translate}}</div>
                            <div class="col-md-2">
                               <mat-form-field class="example-full-width">
                                   <input matInput placeholder="" type= "text" formControlName="day5mother_breast">
@@ -3301,7 +3309,7 @@
                            </div>
                          </div>
                          <div class="row">
-                             <div class="col-md-4">Filamemtous Blood</div>
+                             <div class="col-md-4">{{'pregm.filamemtous_blood'| translate}}</div>
                              <div class="col-md-2">
                                 <mat-form-field class="example-full-width">
                                     <input matInput placeholder="" type= "text" formControlName="day5mother_filamemtous_blood">
@@ -3324,7 +3332,7 @@
                              </div>
                            </div>
                            <div class="row">
-                               <div class="col-md-4">Mental Changes</div>
+                               <div class="col-md-4">{{'pregm.mental_changes'| translate}}</div>
                                <div class="col-md-2">
                                   <mat-form-field class="example-full-width">
                                       <input matInput placeholder="" type= "text" formControlName="day5mother_mental_changes">
@@ -3347,7 +3355,7 @@
                                </div>
                              </div>
                              <div class="row">
-                                 <div class="col-md-4">Diarrrhea</div>
+                                 <div class="col-md-4">{{'pregm.diarrrhea'| translate}}</div>
                                  <div class="col-md-2">
                                     <mat-form-field class="example-full-width">
                                         <input matInput placeholder="" type= "text" formControlName="day5mother_diarrrhea">
@@ -3370,7 +3378,7 @@
                                  </div>
                                </div>
                                <div class="row">
-                                   <div class="col-md-4">Vomiting</div>
+                                   <div class="col-md-4">{{'pregm.vomiting' | translate}}</div>
                                    <div class="col-md-2">
                                       <mat-form-field class="example-full-width">
                                           <input matInput placeholder="" type= "text" formControlName="day5mother_vomiting">
@@ -3393,7 +3401,7 @@
                                    </div>
                                  </div>
                                  <div class="row">
-                                     <div class="col-md-4">Breathing Difficulties</div>
+                                     <div class="col-md-4">{{'pregm.breathing_difficulties' | translate}}</div>
                                      <div class="col-md-2">
                                         <mat-form-field class="example-full-width">
                                             <input matInput placeholder="" type= "text" formControlName="day5mother_breathing_difficulties">
@@ -3416,7 +3424,7 @@
                                      </div>
                                    </div>
                                    <div class="row">
-                                       <div class="col-md-4">Visual Difficulties</div>
+                                       <div class="col-md-4">{{'pregm.visual_difficulties' | translate}}</div>
                                        <div class="col-md-2">
                                           <mat-form-field class="example-full-width">
                                               <input matInput placeholder="" type= "text" formControlName="day5mother_visual_difficulties">
@@ -3439,7 +3447,7 @@
                                        </div>
                                      </div>
                                      <div class="row">
-                                         <div class="col-md-4">Pain In Kent</div>
+                                         <div class="col-md-4">{{'pregm.pain_in_kent' | translate}}</div>
                                          <div class="col-md-2">
                                             <mat-form-field class="example-full-width">
                                                 <input matInput placeholder="" type= "text" formControlName="day5mother_pain_in_kent">
@@ -3461,8 +3469,8 @@
                                               </mat-form-field>
                                          </div>
                                        </div>
-                                       <div class="row">
-                                           <div class="col-md-4">Prebiotics</div>
+                                       <!-- <div class="row">
+                                           <div class="col-md-4">{{'pregm.prebiotics'| translate}}</div>
                                            <div class="col-md-2">
                                               <mat-form-field class="example-full-width">
                                                   <input matInput placeholder="" type= "text" formControlName="day5mother_prebiotics">
@@ -3483,12 +3491,12 @@
                                                   <input matInput placeholder="" type= "text" formControlName="day8mother_prebiotics">
                                                 </mat-form-field>
                                            </div>
+                                         </div> -->
+                                         <div class="row">
+                                           <h4>{{'pregm.child'| translate}}</h4>
                                          </div>
                                          <div class="row">
-                                           <h4>Child</h4>
-                                         </div>
-                                         <div class="row">
-                                             <div class="col-md-4">Fever</div>
+                                             <div class="col-md-4">{{'pregm.fever'| translate}}</div>
                                              <div class="col-md-2">
                                                 <mat-form-field class="example-full-width">
                                                     <input matInput placeholder="" type= "text" formControlName="day5child_fever">
@@ -3511,7 +3519,7 @@
                                              </div>
                                            </div>
                                            <div class="row">
-                                               <div class="col-md-4">Abnormalities</div>
+                                               <div class="col-md-4">{{'pregm.abnormalities'| translate}}</div>
                                                <div class="col-md-2">
                                                   <mat-form-field class="example-full-width">
                                                       <input matInput placeholder="" type= "text" formControlName="day5child_abnormalities">
@@ -3534,7 +3542,7 @@
                                                </div>
                                              </div>
                                              <div class="row">
-                                                 <div class="col-md-4">Infections Near Umbilicus</div>
+                                                 <div class="col-md-4">{{'pregm.infections_near_umbilicus'| translate}}</div>
                                                  <div class="col-md-2">
                                                     <mat-form-field class="example-full-width">
                                                         <input matInput placeholder="" type= "text" formControlName="day5child_infections_near_umbilicus">
@@ -3557,7 +3565,7 @@
                                                  </div>
                                                </div>
                                                <div class="row">
-                                                   <div class="col-md-4">Skin Color</div>
+                                                   <div class="col-md-4">{{'pregm.skin_color'| translate}}</div>
                                                    <div class="col-md-2">
                                                       <mat-form-field class="example-full-width">
                                                           <input matInput placeholder="" type= "text" formControlName="day5child_skin_color">
@@ -3580,7 +3588,7 @@
                                                    </div>
                                                  </div>
                                                  <div class="row">
-                                                     <div class="col-md-4">Suckling</div>
+                                                     <div class="col-md-4">{{'pregm.suckling'| translate}}</div>
                                                      <div class="col-md-2">
                                                         <mat-form-field class="example-full-width">
                                                             <input matInput placeholder="" type= "text" formControlName="day5child_suckling">
@@ -3603,7 +3611,7 @@
                                                      </div>
                                                  </div>
                                                  <div class="row">
-                                                     <div class="col-md-4">Prebiotics</div>
+                                                     <div class="col-md-4">{{'pregm.prebiotics'| translate}}</div>
                                                      <div class="col-md-2">
                                                         <mat-form-field class="example-full-width">
                                                             <input matInput placeholder="" type= "text" formControlName="day5child_prebiotics">
@@ -3631,20 +3639,20 @@
                       <!--start 6 field-->
                       <div class="row">
                         <div class="col-md-6">
-                           <label>Other Details</label>
+                           <label>{{'pregm.other_details' | translate}}</label>
                            <mat-form-field class="example-full-width">
                              <textarea matInput placeholder="" formControlName="others_details" ></textarea>
                            </mat-form-field>
                         </div>
                         <div class="col-md-6">
-                           <label>Mental Health According To Edingburo</label>
+                           <label>{{'pregm.mental_health_according_to_edingburo' | translate}}</label>
                            <mat-form-field class="example-full-width">
                              <textarea matInput placeholder="" formControlName="mental_health_according_to_edingburo" ></textarea>
                            </mat-form-field>
                         </div>
                       </div>
                       <div class="row">
-                        <div class="col-md-4">New Born Baby</div>
+                        <div class="col-md-4">{{'pregm.new_born_baby' | translate}}</div>
                         <div class="col-md-4">
                            <mat-form-field class="example-full-width">
                                <input matInput placeholder="BCG" type= "text" formControlName="new_born_baby_bcg">
@@ -3652,55 +3660,55 @@
                         </div>
                       </div>
                       <div class="row">
-                        <div class="col-md-3">New Born Child Death</div>
+                        <div class="col-md-3">{{'pregm.if_died' | translate}}</div>
                         <div class="col-md-3">
                            <mat-form-field class="example-full-width">
-                               <input matInput placeholder="Time Of Dead" type= "text" formControlName="new_born_baby_if_died_when">
+                               <input matInput placeholder="{{'pregm.date' | translate}}" type= "text" formControlName="new_born_baby_if_died_when">
                              </mat-form-field>
                         </div>
                         <div class="col-md-4">
                            <mat-form-field class="example-full-width">
-                               <input matInput placeholder="Reason Of Dead" type= "text" formControlName="new_born_baby_if_died_reason">
+                               <input matInput placeholder="{{'pregm.reason' | translate}}" type= "text" formControlName="new_born_baby_if_died_reason">
                              </mat-form-field>
                         </div>
                         <div class="col-md-3">
                            <mat-form-field class="example-full-width">
-                               <input matInput placeholder="Does Investigated Of Dead" type= "text" formControlName="new_born_baby_if_died_inversigated">
+                               <input matInput placeholder="{{'pregm.inversigated' | translate}}" type= "text" formControlName="new_born_baby_if_died_inversigated">
                              </mat-form-field>
                         </div>
                       </div>
                       <div class="row">
-                        <div class="col-md-6">Does Mother Come To Post Delivery Clinics?</div>
+                        <div class="col-md-6">{{'pregm.does_mother_comes_to_post_delivery_clinics' | translate}}</div>
                         <div class="col-md-2">
-                           <label class="container">Yes
+                           <label class="container">{{'pregm.yes' | translate}}
                                <input id="yes" type="radio"  formControlName="does_mother_comes_to_post_delivery_clinics" value="yes">
                                <span class="checkmark"></span>
                              </label>
                         </div>
                         <div class="col-md-2">
-                           <label class="container">No
+                           <label class="container">{{'pregm.no' | translate}}
                                <input id="no" type="radio"  formControlName="does_mother_comes_to_post_delivery_clinics" value="no">
                                <span class="checkmark"></span>
                              </label>
                         </div>
                       </div>
                       <div class="row">
-                         <div class="col-md-6">Does Accepted A Family Planning Method?</div>
+                         <div class="col-md-6">{{'pregm.accepted_family_organization_method' | translate}}</div>
                          <div class="col-md-2">
-                            <label class="container">Yes
+                            <label class="container">{{'pregm.yes' | translate}}
                                 <input id="yes" type="radio"  formControlName="accepted_family_organization_method" value="yes">
                                 <span class="checkmark"></span>
                               </label>
                          </div>
                          <div class="col-md-2">
-                            <label class="container">No
+                            <label class="container">{{'pregm.no' | translate}}
                                 <input id="no" type="radio"  formControlName="accepted_family_organization_method" value="no">
                                 <span class="checkmark"></span>
                               </label>
                          </div>
                          <div class="col-md-2">
                              <mat-form-field class="example-full-width">
-                                 <input matInput placeholder="If No Why?" type= "text" formControlName="why_accepted_family_organization_method">
+                                 <input matInput placeholder="{{'pregm.if_no' | translate}}" type= "text" formControlName="why_accepted_family_organization_method">
                                </mat-form-field>
                          </div>
                       </div>
@@ -3711,12 +3719,7 @@
                   </div>
                  <!-- </mat-accordation> -->
                  
-
-
-                  
-                  
-                   
-                      <input type="submit" value="Submit details" class="btn btn-danger pull-right">
+                  <input type="submit" value="Submit details" class="btn btn-danger pull-right">
                     </form>
                   <div *ngIf="success"><h1>You submitted a record</h1></div>
                 </div>

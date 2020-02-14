@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var ApprovedFamily = require('../Schemas/ApprovedFamiliesSchema');
 var mongoose = require('mongoose');
+var phm =require('../Schemas/phm');
 
 router.post('/add', (req, res) => {
     console.log(req.body);
@@ -86,7 +87,102 @@ router.get('/searchbyid/:searchData', (req, res) => {
     }
 });
 
+router.get('/getModernContraceptiveMethods/:year', (req, res) => {
+    currentYear = req.params.year;
+    console.log(currentYear)
+    nextYearInt = parseInt(currentYear);
+    nextYearInt+=1;
+    nextYear = nextYearInt.toString();
+    ApprovedFamily.aggregate([
+        { $match: {
+                "Family_planning_methods__First__Date": 
+                {
+                    $gte: new Date(`${currentYear}-01-01T00:00:00.000Z`),
+                    $lt: new Date(`${nextYear}-01-01T00:00:00.000Z`),
+                }
+            } 
+        },
+        {
+            $facet:{
+                Quarter1:[
+                    {
+                        
+                        $group:{
+                            _id:'$Family_planning_methods__First__Method',
+                            count:{$sum:1}
+                        }
+                    }
+                ],
+                Quarter2:[
+                    {
+                        $group:{
+                            _id:'$Family_planning_methods__second__Method',
+                            count:{$sum:1}
+                        }
+                    }
+                ],
+                Quarter3:[
+                    {
+                        $group:{
+                            _id:'$Family_planning_methods__third__Method',
+                            count:{$sum:1}
+                        }
+                    }
+                ],
+                Quarter4:[
+                    {
+                        $group:{
+                            _id:'$Family_planning_methods__fourth__Method',
+                            count:{$sum:1}
+                        }
+                    }
+                ],
+            }
+            
+        }
+    ]).then(doc=>
+        {
+            res.status(200).json(doc[0])
+    }
+            
+    )
+})
 
+//report about approved families
+router.get('/familyReport/:year',(req,res)=>{
+    
 
+    currentYear = req.params.year
+    nextYearInt = parseInt(currentYear)
+    nextYearInt += 1
+    nextYear = nextYearInt.toString();
+    phm.aggregate([
+        {$match :{
+            "date_of_today": 
+            {
+                $gte: new Date(`${currentYear}-01-01T00:00:00.000Z`),
+                $lt: new Date(`${nextYear}-01-01T00:00:00.000Z`),
+            }
+        }
+
+        },
+        {
+            $group:{
+                           _id:null,
+                           
+                           "total1": {$sum:"$No_of_new_registered_family"},
+                           "total2" : {$sum:"$No_of_removed_family_from_form"}
+                        
+                      }
+                    
+               
+               }
+
+    ]).then(doc=>
+        {
+            res.status(200).json(doc[0])
+    }
+      )
+})
 
 module.exports = router;

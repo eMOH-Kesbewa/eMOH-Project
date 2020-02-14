@@ -230,6 +230,32 @@ router.get('/searchbyid/:searchData', (req, res) => {
     }
 });
 
+router.get('/getBabyList/:searchData', (req, res) => {
+    searchData = req.params.searchData;
+    console.log(searchData)
+    if (searchData == '0') {
+        motherbabyjoined.find((err, doc) => {
+            res.send(doc)
+        })
+    } else {
+        motherbabyjoined.find({
+            $or:[
+                    {
+                        baby_id: new RegExp(searchData, 'i')
+                    }
+                ]
+        }, (err, doc) => {
+            if (doc.length) {
+                res.send(doc);
+                console.log(doc);
+            } else {
+                console.log('Cannot find the record');
+                res.send(doc);
+            }
+        });
+    }
+});
+
 router.get('/searchweightbyid/:searchData', (req, res) => {
     searchData = req.params.searchData;
     console.log(searchData)
@@ -259,5 +285,70 @@ router.get('/searchweightbyid/:searchData', (req, res) => {
     }
 });
 
+//baby immunization report
+router.get('/immunizationReport/:year',(req,res)=>{
+    currentYear = req.params.year
+    nextYearInt = parseInt(currentYear)
+    nextYearInt += 1
+    nextYear = nextYearInt.toString();
+
+    motherbabyjoined.aggregate([
+        {$match :{
+            "immunization__japanese_encephalitis": 
+            {
+                $gte: new Date(`${currentYear}-01-01T00:00:00.000Z`),
+                $lt: new Date(`${nextYear}-01-01T00:00:00.000Z`),
+            }
+        }
+        
+
+        },
+        {
+            $facet:{
+                Quarter1:[
+                    {
+                        
+                        $group:{
+                            _id:'$immunization__japanese_encephalitis',
+                            count:{$sum:1}
+                        }
+                    }
+                ],
+                Quarter2:[
+                    {
+                        $group:{
+                            _id:'$immunization__measles_mumps_rubella_mmr_1',
+                            count:{$sum:1}
+                        }
+                    }
+                ],
+                Quarter3:[
+                    {
+                        $group:{
+                            _id:'$immunization__measles_mumps_rubella_mmr_1',
+                            count:{$sum:1}
+                        }
+                    }
+                ],
+                Quarter4:[
+                    {
+                        $group:{
+                            _id:'$immunization__measles_mumps_rubella_mmr_1',
+                            count:{$sum:1}
+                        }
+                    }
+                ],
+            }
+            
+        }
+        
+    ])
+    
+    .then(doc=>
+        {
+            res.status(200).json(doc[0])
+    }
+      )
+})
 
 module.exports = router;

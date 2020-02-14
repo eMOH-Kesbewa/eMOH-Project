@@ -5,6 +5,9 @@ import { ViewFamilybyIdComponent } from '../view-familyby-id/view-familyby-id.co
 import { AddMotherComponent } from '../add-mother/add-mother.component';
 import { NgModule } from '@angular/core';
 import { AuthGuard } from 'app/auth.guard';
+import { FamilyReportComponent } from 'app/Graphs/family-report/family-report.component';
+import { ModernContraceptiveMethodsComponent } from 'app/Graphs/modern-contraceptive-methods/modern-contraceptive-methods.component';
+import { ContraceptivePrevalanceComponent } from 'app/Graphs/contraceptive-prevalance/contraceptive-prevalance.component';
 
 
 
@@ -28,7 +31,23 @@ export const ApprovedFamilyRoutes: Routes = [
                 path: 'AddMother/:familyId',
                 component: AddMotherComponent,
                 canActivate:[AuthGuard]
+            },
+            {
+                path: 'ModernContMethods/:year',
+                component: ModernContraceptiveMethodsComponent,
+                canActivate:[AuthGuard]
+            },
+            {
+                path: 'ContraPrevailMethods/:year',
+                component: ContraceptivePrevalanceComponent,
+                canActivate:[AuthGuard]
+            },
+            {
+                path:'ViewFamilyReport/:year',
+                component:FamilyReportComponent,
+                canActivate:[AuthGuard]
             }
+
         
         ]   
     }

@@ -25,6 +25,7 @@ export class ViewMotherByIDComponent implements OnInit {
   mothers : Mother;
   addMotherForm: FormGroup;
   autoRenew : FormControl;
+  babyList;
   public motherId
 
 
@@ -134,6 +135,13 @@ export class ViewMotherByIDComponent implements OnInit {
   this.autoRenew = new FormControl();
   this.onChange();
 
+  this.motherService.getBabyList(this.motherId).subscribe(
+    res=>{
+      this.babyList = res;
+    }
+  )
+
+
   }
 
   onSubmit() {
@@ -189,5 +197,11 @@ export class ViewMotherByIDComponent implements OnInit {
       }
     }
   }
-  
+
+  onClickMe(babyId){
+    this.router.navigate(['viewBabies','ViewMotherBabybyID',babyId]);
+  }
+  goToAddNewBaby(){
+    this.router.navigate(['viewBabies','AddMotherBabyJoined']);
+  }
 }

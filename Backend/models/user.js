@@ -14,10 +14,21 @@ const passwordResetToken = require('../Schemas/resetpwd');
 // });
 
 // const useraccounts = module.exports = mongoose.model("useraccounts",userSchema);
-
-module.exports.saveuser = function(newUser,callback){
-    bcrypt.genSalt(10, function(err,salt){
-        bcrypt.hash(newUser.password,salt,function(err,hash){
+// module.exports.create = function(userpara,callback){
+//     User.findOne({username:userpara.username },
+//         function(err,user){
+//             if(err) throw err;
+//             if(user){
+//                 res.json({state:false,msg:'Username "' + userParam.username + '" is already taken'});
+//             }else{
+//                 saveuser();
+//             }
+//         }
+//         )
+// }
+module.exports.adduser = function(newUser,callback){
+    bcrypt.genSalt(10,(err,salt)=>{
+        bcrypt.hash(newUser.password,salt,(err,hash)=>{
             console.log(hash);
             newUser.password = hash;
             
@@ -29,19 +40,7 @@ module.exports.saveuser = function(newUser,callback){
     });
 };
 
-module.exports.saveresetuser = function(nextUser,callback){
-    bcrypt.genSalt(10, function(err,salt){
-        bcrypt.hash(nextUser.password,salt,function(err,hash){
-            console.log(hash);
-            nextUser.password = hash;
-            
 
-            if(err) throw err;
-            nextUser.save(callback);
-        });
-
-    });
-};
 
 module.exports.findUserbyId = function(id,callback){
   

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from 'app/Services/auth.service';
 import { Router } from '@angular/router';
+import { SimpleSnackBar, MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +13,7 @@ export class LoginComponent implements OnInit {
 
   loginForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder,private authService : AuthService, private router: Router) { }
+  constructor(private formBuilder: FormBuilder,private authService : AuthService, private router: Router,private snackbar: MatSnackBar) { }
 
   ngOnInit() {
     console.log(this.router.url);
@@ -35,7 +36,10 @@ export class LoginComponent implements OnInit {
         localStorage.setItem('role',res.role);
         this.router.navigate(['']);
       },
-      err=>console.log(err)
+      err=>{
+        console.log(err);
+        this.snackbar.open('Your Password Or Email is Invalid, Pls Enter Again', 'OK');
+      }
     )
   }
      
