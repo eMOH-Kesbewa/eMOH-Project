@@ -21,7 +21,7 @@ export class UpdateBabyBookComponent implements OnInit {
   BabyForm: FormGroup;
   submitted = false;
   success = false;
-
+  DOB;
   @prop()
 	date_of_birth_of_child: string ;
 
@@ -712,6 +712,7 @@ export class UpdateBabyBookComponent implements OnInit {
       });
 
       this.addbabyService.getbabydata(this.babyID).subscribe(data => {
+        this.DOB =  this.dateconverter(data[0] ['date_of_birth_of_child'])
         this.BabyForm.patchValue({
           
           baby_id: data[0] ['baby_id'],
@@ -1389,6 +1390,7 @@ export class UpdateBabyBookComponent implements OnInit {
 
     this.autoRenew = new FormControl();
     this.onChange();
+    
   }
 
   onSubmit() {
@@ -1449,7 +1451,16 @@ export class UpdateBabyBookComponent implements OnInit {
           }
 
           getToday(): string {
+            
             return new Date().toISOString().split('T')[0]
+            
+          }
+
+          getVaccineDate(months,DOB){
+            let dateBirth = DOB.split('-');
+            let month = dateBirth[1];
+            let newMonth = parseInt(month)+months;
+            return dateBirth[0]+"-"+newMonth+"-"+dateBirth[2]
           }
 
         

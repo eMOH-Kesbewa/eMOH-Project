@@ -27,10 +27,12 @@ import { TranslateModule, TranslateLoader } from "@ngx-translate/core";
 import { HttpLoaderFactory } from "app/app.module";
 import { HttpClient } from "@angular/common/http";
 import { RegPregMothersComponent } from "app/Graphs/reg-preg-mothers/reg-preg-mothers.component";
+import {MatMenuModule} from '@angular/material/menu';
+import { DeliveryReportComponent } from 'app/Graphs/delivery-report/delivery-report.component';
 
 
 @NgModule({
-    declarations:[ViewMothersComponent,PregnancyFormComponent,ViewMotherByIDComponent,ViewPregnantMothersComponent,RegPregMothersComponent],
+    declarations:[ViewMothersComponent,PregnancyFormComponent,ViewMotherByIDComponent,ViewPregnantMothersComponent,RegPregMothersComponent,DeliveryReportComponent],
     imports:[
         Mothers,
         CommonModule,
@@ -47,6 +49,7 @@ import { RegPregMothersComponent } from "app/Graphs/reg-preg-mothers/reg-preg-mo
         MatSlideToggleModule,
         MatSnackBarModule,
         MatExpansionModule,
+        MatMenuModule,
         TranslateModule.forChild({
           loader: {
             provide: TranslateLoader,

@@ -29,7 +29,7 @@ export class AddmotherbabyjoineddataComponent implements OnInit {
     date_of_birth: ['', Validators.required],
     birth_weight: ['', Validators.required],
     registration_date: ['', Validators.required],
-    registration_category: ['', Validators.required],
+    registration_category: [''],
     immunization__BGC: [''],
     immunization__scar: [false],
     immunization__pentavalent__first: [''],

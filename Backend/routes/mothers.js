@@ -201,38 +201,79 @@ router.put('/update/:id', function(req, res, next) {
 });
 
 //create report for registration of pregnanat mothers
-router.get('/registrationMothers',(req,res)=>{
+router.get('/registrationMothers/:year',(req,res)=>{
+    currentYear = req.params.year;
+    console.log(currentYear)
+    nextYearInt = parseInt(currentYear);
+    nextYearInt+=1;
+    nextYear = nextYearInt.toString();
+    
       phm.aggregate([
+       { $match: {
+            "date_of_today": 
+            {
+                $gte: new Date(`${currentYear}-01-01T00:00:00.000Z`),
+                $lt: new Date(`${nextYear}-01-01T00:00:00.000Z`),
+            }
+        } 
+    },
           {
-              $facet:{
-                Quarter1:[
-                    {
-                        $group:{
-                            _id:'$Registered_mothers_before_eight_weeks',
-                            count:{$sum:1}
-                        }
-                    }
-                ],
-                Quarter2:[
-                    {
-                        $group:{
-                            _id:'$Registered_mothers_between_eight_twelve_weeks',
-                            count:{$sum:1}
-                        }
-                    }
-                ],
-                Quarter3:[
-                    {
-                        $group:{
-                            _id:'$Registered_mothers_between_eight_twelve_weeks',
-                            count:{$sum:1}
-                        }
-                    }
-                ]
-              }
-          }
+             $group:{
+                            _id:null,
+                            "sum_of_dates1":{$sum:"$Registered_mothers_before_eight_weeks"},
+                            "sum_of_dates2":{$sum:"$Registered_mothers_between_eight_twelve_weeks"},
+                            "sum_of_dates3":{$sum:"$Registered_mothers_after_twelve_weeks"},
+                            "total":{$sum:{$add:["$Registered_mothers_before_eight_weeks","$Registered_mothers_between_eight_twelve_weeks","$Registered_mothers_after_twelve_weeks"]}}
+                       }
+                     
+                
+                }
+                
 
-      ]).then(doc=>
+      ],
+      
+      ).then(doc=>
+        {
+            res.status(200).json(doc[0])
+    }
+      )
+})
+
+//create graph about deliveries
+router.get('/deliveryMothers/:year',(req,res)=>{
+    currentYear = req.params.year
+    nextYearInt = parseInt(currentYear)
+    nextYearInt += 1
+    nextYear = nextYearInt.toString();
+
+    phm.aggregate([
+        {$match :{
+            "date_of_today": 
+            {
+                $gte: new Date(`${currentYear}-01-01T00:00:00.000Z`),
+                $lt: new Date(`${nextYear}-01-01T00:00:00.000Z`),
+            }
+        }
+
+        },
+        {
+            $group:{
+                           _id:null,
+                           
+                           "total1":{$sum:{$add:["$No_of_delivery_permant_mothers_after_walking","$No_of_delivery_permant_mothers_hearing","$No_of_out_of_registered_mothers_before_delivery","$No_of_out_of_not_registered_mothers_before_delivery",
+                             "$No_of_out_of_registered_mothers_after_delivery","$No_of_out_of_not_registered_mothers_after_delivery"
+                        ]}},
+                        "total2":{$sum:{$add:["$New_first_five_days","$Old_first_five_days"]}},
+                        "total3":{$sum:{$add:["$New_between_six_ten_days","$Old_between_six_ten_days"]}},
+                        "total4":{$sum:"$Between_elevn_thirteen_days"},
+                        "total5":{$sum:{$add:["$New_between_fouteen_twentyone_days","$Old_between_fouteen_twentyone_days"]}},
+                        "total6":{$sum:"$Near_fourtytwo_days"}
+                      }
+                    
+               
+               }
+
+    ]).then(doc=>
         {
             res.status(200).json(doc[0])
     }

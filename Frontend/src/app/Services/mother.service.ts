@@ -45,8 +45,12 @@ export class MotherService {
      return this.http.get<any>(uri);
    }
 
-   registerMother(){             //for no of register mothers report generation
-    let uri = `http://localhost:3000/mothers/registrationMothers`;
+   registerMother(year){             //for no of register mothers report generation
+    let uri = `http://localhost:3000/mothers/registrationMothers/${year}`;
+    return this.http.get<any>(uri)
+   }
+   deliveryrMother(year){             //for no of register mothers report generation
+    let uri = `http://localhost:3000/mothers/deliveryMothers/${year}`;
     return this.http.get<any>(uri)
    }
 }
