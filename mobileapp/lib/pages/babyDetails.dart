@@ -73,7 +73,7 @@ class _BabyDetailsState extends State<BabyDetails> {
       onChanged: (String value) {
         setState(() {
           _value = '0'+value;
-          String tempId = globals.familyId + _value;
+          String tempId = globals.familyId + _value; //generating baby id 
           print(globals.familyId);
           globals.babyId = tempId.substring(0, 6) + _value;
           print('baby id');

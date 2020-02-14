@@ -31,17 +31,6 @@ class _LoginState extends State<Login> {
   var password;
   bool _passwordVisible = true;
 
-  // @override
-  // void initState() async {
-  //   super.initState();
-  //   SharedPreferences pref = await SharedPreferences.getInstance();
-  //   if (pref.getString("email") != null) {
-  //     Navigator.push(
-  //         context, MaterialPageRoute(builder: (context) => BottomNavigation()));
-  //   }
-  // }
-
-//https://protected-bayou-52277.herokuapp.com/
   @override
   Widget build(BuildContext context) {
     final motherLogo = const ImageIcon(AssetImage("images/mother.png"),
@@ -65,25 +54,6 @@ class _LoginState extends State<Login> {
         hintStyle: TextStyle(color: Colors.black26),
       ),
     );
-
-    /* final pwField =  Container(
-            margin: EdgeInsets.only(left: 16.0),
-            child: TextFormField(
-              controller: passwordController,
-              decoration: InputDecoration(
-                  hintText: 'Password',
-                  filled: true,
-                  prefixIcon: Icon(
-                    Icons.account_box,
-                    size: 28.0,
-                  ),
-                  suffixIcon: IconButton(
-                      icon: Icon(Icons.remove),
-                      onPressed: () {
-                        debugPrint('222');
-                      })),
-            ),
-          );*/
 
     final pwField = TextFormField(
       controller: passwordController,
