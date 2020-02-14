@@ -31,8 +31,10 @@ import {MatMenuModule} from '@angular/material/menu';
 import { DeliveryReportComponent } from 'app/Graphs/delivery-report/delivery-report.component';
 
 
+
 @NgModule({
-    declarations:[ViewMothersComponent,PregnancyFormComponent,ViewMotherByIDComponent,ViewPregnantMothersComponent,RegPregMothersComponent,DeliveryReportComponent],
+    declarations:[ViewMothersComponent,PregnancyFormComponent,ViewMotherByIDComponent,ViewPregnantMothersComponent,RegPregMothersComponent,DeliveryReportComponent
+    ],
     imports:[
         Mothers,
         CommonModule,

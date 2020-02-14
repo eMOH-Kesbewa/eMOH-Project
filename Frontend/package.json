@@ -38,7 +38,7 @@
     "bootstrap": "4.3.1",
     "bootstrap-material-design": "4.1.2",
     "bootstrap-notify": "3.1.3",
-    "chart.js": "^2.8.0",
+    "chart.js": "^2.9.3",
     "chartist": "0.11.2",
     "classlist.js": "1.1.20150312",
     "core-js": "3.1.3",
@@ -55,7 +55,7 @@
     "zone.js": "0.9.1"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "^0.800.2",
+    "@angular-devkit/build-angular": "^0.800.6",
     "@angular/cli": "8.0.2",
     "@angular/compiler-cli": "8.0.0",
     "@angular/language-service": "8.0.0",
