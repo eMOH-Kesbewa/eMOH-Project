@@ -62,7 +62,10 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
         path:'ViewWeightTable',
         loadChildren:()=>import('../../MOHComponents/view-weight-table/view-weight-table.component.module').then(m=>m.WeightHeights)
       },
-
+      {
+        path:'specialAttention',
+        loadChildren:()=>import('../../specialAttention/main/main.component.module').then(m=>m.specialAttentionModule)
+      }
 
     ])
     

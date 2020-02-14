@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:mobileapp/pages/babyInfo/graphH.dart';
 import 'package:mobileapp/pages/babyInfo/graphW.dart';
+import 'package:mobileapp/pages/babyInfo/graphWH.dart';
 
 class GraphHome extends StatefulWidget {
   @override
@@ -20,7 +22,7 @@ class _GraphHomeState extends State<GraphHome> {
             MaterialButton(
               child: Text('Weight Graph'),
               onPressed: () => Navigator.push(
-              context, MaterialPageRoute(builder: (context) => GraphW())),
+                  context, MaterialPageRoute(builder: (context) => GraphW())),
             ),
             SizedBox(
               height: 30.0,
@@ -28,7 +30,7 @@ class _GraphHomeState extends State<GraphHome> {
             MaterialButton(
               child: Text('Height Graph'),
               onPressed: () => Navigator.push(
-              context, MaterialPageRoute(builder: (context) => GraphW())),
+                  context, MaterialPageRoute(builder: (context) => GraphH())),
             ),
             SizedBox(
               height: 30.0,
@@ -36,7 +38,7 @@ class _GraphHomeState extends State<GraphHome> {
             MaterialButton(
               child: Text('Weight Height Graph'),
               onPressed: () => Navigator.push(
-              context, MaterialPageRoute(builder: (context) => GraphW())),
+                  context, MaterialPageRoute(builder: (context) => GraphWH())),
             ),
             SizedBox(
               height: 30.0,

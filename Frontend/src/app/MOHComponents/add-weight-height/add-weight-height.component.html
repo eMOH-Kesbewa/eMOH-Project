@@ -68,7 +68,7 @@
                           <div class="col-md-4">{{'weightHeight.atBirth'| translate}}</div>
                           <div class="col-md-4">
                             <mat-form-field class="example-full-width">
-                                <input matInput placeholder="{{'weightHeight.weight'| translate}}" type="number" formControlName="weight_of_birth">
+                                <input matInput placeholder="{{'weightHeight.weight'| translate}}" type="number" formControlName="weight_of_birth" min="0" max="10">
                                 <div *ngIf="submitted && WeightHeightForm.controls.weight_of_birth.errors" class="error">
                                     <div *ngIf="WeightHeightForm.controls.weight_of_birth.errors.required">This field is required</div>
                                   </div>
@@ -76,7 +76,7 @@
                           </div>
                           <div class="col-md-4">
                             <mat-form-field class="example-full-width">
-                                <input matInput placeholder="{{'weightHeight.height'| translate}}" type="number" formControlName="height_of_birth">
+                                <input matInput placeholder="{{'weightHeight.height'| translate}}" type="number" formControlName="height_of_birth" min="0">
                                 <div *ngIf="submitted && WeightHeightForm.controls.height_of_birth.errors" class="error">
                                     <div *ngIf="WeightHeightForm.controls.height_of_birth.errors.required">This field is required</div>
                                   </div>
@@ -118,27 +118,27 @@
                                 <div class="col-md-2">{{'weightHeight.firstMonth'| translate}}</div>
                                 <div class="col-md-2">
                                     <mat-form-field class="example-full-width">
-                                        <input matInput placeholder="" type= "number" formControlName="first_yearone">
+                                        <input matInput placeholder="" type= "number" formControlName="first_yearone" min="0">
                                       </mat-form-field>
                                 </div>
                                 <div class="col-md-2">
                                     <mat-form-field class="example-full-width">
-                                        <input matInput placeholder="" type= "number" formControlName="sec_yearone">
+                                        <input matInput placeholder="" type= "number" formControlName="sec_yearone" min="0">
                                       </mat-form-field>
                                 </div>
                                 <div class="col-md-2">
                                     <mat-form-field class="example-full-width">
-                                        <input matInput placeholder="" type= "number" formControlName="third_yearone">
+                                        <input matInput placeholder="" type= "number" formControlName="third_yearone" min="0">
                                       </mat-form-field>
                                 </div>
                                 <div class="col-md-2">
                                     <mat-form-field class="example-full-width">
-                                        <input matInput placeholder="" type= "number" formControlName="four_yearone">
+                                        <input matInput placeholder="" type= "number" formControlName="four_yearone" min="0">
                                       </mat-form-field>
                                 </div>
                                 <div class="col-md-2">
                                     <mat-form-field class="example-full-width">
-                                        <input matInput placeholder="" type= "number" formControlName="five_yearone">
+                                        <input matInput placeholder="" type= "number" formControlName="five_yearone" min="0">
                                       </mat-form-field>
                                 </div>
                             </div>
@@ -146,27 +146,27 @@
                                 <div class="col-md-2">{{'weightHeight.secondMonth'| translate}}</div>
                                 <div class="col-md-2">
                                     <mat-form-field class="example-full-width">
-                                        <input matInput placeholder="" type= "number" formControlName="first_yeartwo">
+                                        <input matInput placeholder="" type= "number" formControlName="first_yeartwo" min="0">
                                       </mat-form-field>
                                 </div>
                                 <div class="col-md-2">
                                     <mat-form-field class="example-full-width">
-                                        <input matInput placeholder="" type= "number" formControlName="sec_yeartwo">
+                                        <input matInput placeholder="" type= "number" formControlName="sec_yeartwo" min="0">
                                       </mat-form-field>
                                 </div>
                                 <div class="col-md-2">
                                     <mat-form-field class="example-full-width">
-                                        <input matInput placeholder="" type= "number" formControlName="third_yeartwo">
+                                        <input matInput placeholder="" type= "number" formControlName="third_yeartwo" min="0">
                                       </mat-form-field>
                                 </div>
                                 <div class="col-md-2">
                                     <mat-form-field class="example-full-width">
-                                        <input matInput placeholder="" type= "number" formControlName="four_yeartwo">
+                                        <input matInput placeholder="" type= "number" formControlName="four_yeartwo" min="0">
                                       </mat-form-field>
                                 </div>
                                 <div class="col-md-2">
                                     <mat-form-field class="example-full-width">
-                                        <input matInput placeholder="" type= "number" formControlName="five_yeartwo">
+                                        <input matInput placeholder="" type= "number" formControlName="five_yeartwo" min="0">
                                       </mat-form-field>
                                 </div>
                             </div>
@@ -174,27 +174,27 @@
                                 <div class="col-md-2">{{'weightHeight.thirdMonth'| translate}}</div>
                                 <div class="col-md-2">
                                     <mat-form-field class="example-full-width">
-                                        <input matInput placeholder="" type= "number" formControlName="first_yearthree">
+                                        <input matInput placeholder="" type= "number" formControlName="first_yearthree" min="0">
                                       </mat-form-field>
                                 </div>
                                 <div class="col-md-2">
                                     <mat-form-field class="example-full-width">
-                                        <input matInput placeholder="" type= "number" formControlName="sec_yearthree">
+                                        <input matInput placeholder="" type= "number" formControlName="sec_yearthree" min="0">
                                       </mat-form-field>
                                 </div>
                                 <div class="col-md-2">
                                     <mat-form-field class="example-full-width">
-                                        <input matInput placeholder="" type= "number" formControlName="third_yearthree">
+                                        <input matInput placeholder="" type= "number" formControlName="third_yearthree" min="0">
                                       </mat-form-field>
                                 </div>
                                 <div class="col-md-2">
                                     <mat-form-field class="example-full-width">
-                                        <input matInput placeholder="" type= "number" formControlName="four_yearthree">
+                                        <input matInput placeholder="" type= "number" formControlName="four_yearthree" min="0">
                                       </mat-form-field>
                                 </div>
                                 <div class="col-md-2">
                                     <mat-form-field class="example-full-width">
-                                        <input matInput placeholder="" type= "number" formControlName="five_yearthree">
+                                        <input matInput placeholder="" type= "number" formControlName="five_yearthree" min="0">
                                       </mat-form-field>
                                 </div>
                             </div>
@@ -202,27 +202,27 @@
                                 <div class="col-md-2">{{'weightHeight.fourthMonth'| translate}}</div>
                                 <div class="col-md-2">
                                     <mat-form-field class="example-full-width">
-                                        <input matInput placeholder="" type= "number" formControlName="first_yearfour">
+                                        <input matInput placeholder="" type= "number" formControlName="first_yearfour" min="0">
                                       </mat-form-field>
                                 </div>
                                 <div class="col-md-2">
                                     <mat-form-field class="example-full-width">
-                                        <input matInput placeholder="" type= "number" formControlName="sec_yearfour">
+                                        <input matInput placeholder="" type= "number" formControlName="sec_yearfour" min="0">
                                       </mat-form-field>
                                 </div>
                                 <div class="col-md-2">
                                     <mat-form-field class="example-full-width">
-                                        <input matInput placeholder="" type= "number" formControlName="third_yearfour">
+                                        <input matInput placeholder="" type= "number" formControlName="third_yearfour" min="0">
                                       </mat-form-field>
                                 </div>
                                 <div class="col-md-2">
                                     <mat-form-field class="example-full-width">
-                                        <input matInput placeholder="" type= "number" formControlName="four_yearfour">
+                                        <input matInput placeholder="" type= "number" formControlName="four_yearfour" min="0">
                                       </mat-form-field>
                                 </div>
                                 <div class="col-md-2">
                                     <mat-form-field class="example-full-width">
-                                        <input matInput placeholder="" type= "number" formControlName="five_yearfour">
+                                        <input matInput placeholder="" type= "number" formControlName="five_yearfour" min="0">
                                       </mat-form-field>
                                 </div>
                             </div>
@@ -230,27 +230,27 @@
                                 <div class="col-md-2">{{'weightHeight.fifthMonth'| translate}}</div>
                                 <div class="col-md-2">
                                     <mat-form-field class="example-full-width">
-                                        <input matInput placeholder="" type= "number" formControlName="first_yearfive">
+                                        <input matInput placeholder="" type= "number" formControlName="first_yearfive" min="0">
                                       </mat-form-field>
                                 </div>
                                 <div class="col-md-2">
                                     <mat-form-field class="example-full-width">
-                                        <input matInput placeholder="" type= "number" formControlName="sec_yearfive">
+                                        <input matInput placeholder="" type= "number" formControlName="sec_yearfive" min="0">
                                       </mat-form-field>
                                 </div>
                                 <div class="col-md-2">
                                     <mat-form-field class="example-full-width">
-                                        <input matInput placeholder="" type= "number" formControlName="third_yearfive">
+                                        <input matInput placeholder="" type= "number" formControlName="third_yearfive" min="0">
                                       </mat-form-field>
                                 </div>
                                 <div class="col-md-2">
                                     <mat-form-field class="example-full-width">
-                                        <input matInput placeholder="" type= "number" formControlName="four_yearfive">
+                                        <input matInput placeholder="" type= "number" formControlName="four_yearfive" min="0">
                                       </mat-form-field>
                                 </div>
                                 <div class="col-md-2">
                                     <mat-form-field class="example-full-width">
-                                        <input matInput placeholder="" type= "number" formControlName="five_yearfive">
+                                        <input matInput placeholder="" type= "number" formControlName="five_yearfive" min="0">
                                       </mat-form-field>
                                 </div>
                             </div>
@@ -258,27 +258,27 @@
                                 <div class="col-md-2">{{'weightHeight.sisthMonth'| translate}}</div>
                                 <div class="col-md-2">
                                     <mat-form-field class="example-full-width">
-                                        <input matInput placeholder="" type= "number" formControlName="first_yearsix">
+                                        <input matInput placeholder="" type= "number" formControlName="first_yearsix" min="0">
                                       </mat-form-field>
                                 </div>
                                 <div class="col-md-2">
                                     <mat-form-field class="example-full-width">
-                                        <input matInput placeholder="" type= "number" formControlName="sec_yearsix">
+                                        <input matInput placeholder="" type= "number" formControlName="sec_yearsix" min="0">
                                       </mat-form-field>
                                 </div>
                                 <div class="col-md-2">
                                     <mat-form-field class="example-full-width">
-                                        <input matInput placeholder="" type= "number" formControlName="third_yearsix">
+                                        <input matInput placeholder="" type= "number" formControlName="third_yearsix" min="0">
                                       </mat-form-field>
                                 </div>
                                 <div class="col-md-2">
                                     <mat-form-field class="example-full-width">
-                                        <input matInput placeholder="" type= "number" formControlName="four_yearsix">
+                                        <input matInput placeholder="" type= "number" formControlName="four_yearsix" min="0">
                                       </mat-form-field>
                                 </div>
                                 <div class="col-md-2">
                                     <mat-form-field class="example-full-width">
-                                        <input matInput placeholder="" type= "number" formControlName="five_yearsix">
+                                        <input matInput placeholder="" type= "number" formControlName="five_yearsix" min="0">
                                       </mat-form-field>
                                 </div>
                             </div>
@@ -286,27 +286,27 @@
                                 <div class="col-md-2">{{'weightHeight.seventhMonth'| translate}}</div>
                                 <div class="col-md-2">
                                     <mat-form-field class="example-full-width">
-                                        <input matInput placeholder="" type= "number" formControlName="first_yearseven">
+                                        <input matInput placeholder="" type= "number" formControlName="first_yearseven" min="0">
                                       </mat-form-field>
                                 </div>
                                 <div class="col-md-2">
                                     <mat-form-field class="example-full-width">
-                                        <input matInput placeholder="" type= "number" formControlName="sec_yearseven">
+                                        <input matInput placeholder="" type= "number" formControlName="sec_yearseven" min="0">
                                       </mat-form-field>
                                 </div>
                                 <div class="col-md-2">
                                     <mat-form-field class="example-full-width">
-                                        <input matInput placeholder="" type= "number" formControlName="third_yearseven">
+                                        <input matInput placeholder="" type= "number" formControlName="third_yearseven" min="0">
                                       </mat-form-field>
                                 </div>
                                 <div class="col-md-2">
                                     <mat-form-field class="example-full-width">
-                                        <input matInput placeholder="" type= "number" formControlName="four_yearseven">
+                                        <input matInput placeholder="" type= "number" formControlName="four_yearseven" min="0">
                                       </mat-form-field>
                                 </div>
                                 <div class="col-md-2">
                                     <mat-form-field class="example-full-width">
-                                        <input matInput placeholder="" type= "number" formControlName="five_yearseven">
+                                        <input matInput placeholder="" type= "number" formControlName="five_yearseven" min="0">
                                       </mat-form-field>
                                 </div>
                             </div>
@@ -314,27 +314,27 @@
                                 <div class="col-md-2">{{'weightHeight.eighthMonth'| translate}}</div>
                                 <div class="col-md-2">
                                     <mat-form-field class="example-full-width">
-                                        <input matInput placeholder="" type= "number" formControlName="first_yeareight">
+                                        <input matInput placeholder="" type= "number" formControlName="first_yeareight" min="0">
                                       </mat-form-field>
                                 </div>
                                 <div class="col-md-2">
                                     <mat-form-field class="example-full-width">
-                                        <input matInput placeholder="" type= "number" formControlName="sec_yeareight">
+                                        <input matInput placeholder="" type= "number" formControlName="sec_yeareight" min="0">
                                       </mat-form-field>
                                 </div>
                                 <div class="col-md-2">
                                     <mat-form-field class="example-full-width">
-                                        <input matInput placeholder="" type= "number" formControlName="third_yeareight">
+                                        <input matInput placeholder="" type= "number" formControlName="third_yeareight" min="0">
                                       </mat-form-field>
                                 </div>
                                 <div class="col-md-2">
                                     <mat-form-field class="example-full-width">
-                                        <input matInput placeholder="" type= "number" formControlName="four_yeareight">
+                                        <input matInput placeholder="" type= "number" formControlName="four_yeareight" min="0">
                                       </mat-form-field>
                                 </div>
                                 <div class="col-md-2">
                                     <mat-form-field class="example-full-width">
-                                        <input matInput placeholder="" type= "number" formControlName="five_yeareight">
+                                        <input matInput placeholder="" type= "number" formControlName="five_yeareight" min="0">
                                       </mat-form-field>
                                 </div>
                             </div>
@@ -342,27 +342,27 @@
                                 <div class="col-md-2">{{'weightHeight.ninethMonth'| translate}}</div>
                                 <div class="col-md-2">
                                     <mat-form-field class="example-full-width">
-                                        <input matInput placeholder="" type= "number" formControlName="first_yearnine">
+                                        <input matInput placeholder="" type= "number" formControlName="first_yearnine" min="0">
                                       </mat-form-field>
                                 </div>
                                 <div class="col-md-2">
                                     <mat-form-field class="example-full-width">
-                                        <input matInput placeholder="" type= "number" formControlName="sec_yearnine">
+                                        <input matInput placeholder="" type= "number" formControlName="sec_yearnine" min="0">
                                       </mat-form-field>
                                 </div>
                                 <div class="col-md-2">
                                     <mat-form-field class="example-full-width">
-                                        <input matInput placeholder="" type= "number" formControlName="third_yearnine">
+                                        <input matInput placeholder="" type= "number" formControlName="third_yearnine" min="0">
                                       </mat-form-field>
                                 </div>
                                 <div class="col-md-2">
                                     <mat-form-field class="example-full-width">
-                                        <input matInput placeholder="" type= "number" formControlName="four_yearnine">
+                                        <input matInput placeholder="" type= "number" formControlName="four_yearnine" min="0">
                                       </mat-form-field>
                                 </div>
                                 <div class="col-md-2">
                                     <mat-form-field class="example-full-width">
-                                        <input matInput placeholder="" type= "number" formControlName="five_yearnine">
+                                        <input matInput placeholder="" type= "number" formControlName="five_yearnine" min="0">
                                       </mat-form-field>
                                 </div>
                             </div>
@@ -370,27 +370,27 @@
                                 <div class="col-md-2">{{'weightHeight.tenthMonth'| translate}}</div>
                                 <div class="col-md-2">
                                     <mat-form-field class="example-full-width">
-                                        <input matInput placeholder="" type= "number" formControlName="first_yearten">
+                                        <input matInput placeholder="" type= "number" formControlName="first_yearten" min="0">
                                       </mat-form-field>
                                 </div>
                                 <div class="col-md-2">
                                     <mat-form-field class="example-full-width">
-                                        <input matInput placeholder="" type= "number" formControlName="sec_yearten">
+                                        <input matInput placeholder="" type= "number" formControlName="sec_yearten" min="0">
                                       </mat-form-field>
                                 </div>
                                 <div class="col-md-2">
                                     <mat-form-field class="example-full-width">
-                                        <input matInput placeholder="" type= "number" formControlName="third_yearten">
+                                        <input matInput placeholder="" type= "number" formControlName="third_yearten" min="0">
                                       </mat-form-field>
                                 </div>
                                 <div class="col-md-2">
                                     <mat-form-field class="example-full-width">
-                                        <input matInput placeholder="" type= "number" formControlName="four_yearten">
+                                        <input matInput placeholder="" type= "number" formControlName="four_yearten" min="0">
                                       </mat-form-field>
                                 </div>
                                 <div class="col-md-2">
                                     <mat-form-field class="example-full-width">
-                                        <input matInput placeholder="" type= "number" formControlName="five_yearten">
+                                        <input matInput placeholder="" type= "number" formControlName="five_yearten" min="0">
                                       </mat-form-field>
                                 </div>
                             </div>
@@ -398,27 +398,27 @@
                                 <div class="col-md-2">{{'weightHeight.eleventhMonth'| translate}}</div>
                                 <div class="col-md-2">
                                     <mat-form-field class="example-full-width">
-                                        <input matInput placeholder="" type= "number" formControlName="first_yeareleven">
+                                        <input matInput placeholder="" type= "number" formControlName="first_yeareleven" min="0">
                                       </mat-form-field>
                                 </div>
                                 <div class="col-md-2">
                                     <mat-form-field class="example-full-width">
-                                        <input matInput placeholder="" type= "number" formControlName="sec_yeareleven">
+                                        <input matInput placeholder="" type= "number" formControlName="sec_yeareleven" min="0">
                                       </mat-form-field>
                                 </div>
                                 <div class="col-md-2">
                                     <mat-form-field class="example-full-width">
-                                        <input matInput placeholder="" type= "number" formControlName="third_yeareleven">
+                                        <input matInput placeholder="" type= "number" formControlName="third_yeareleven" min="0">
                                       </mat-form-field>
                                 </div>
                                 <div class="col-md-2">
                                     <mat-form-field class="example-full-width">
-                                        <input matInput placeholder="" type= "number" formControlName="four_yeareleven">
+                                        <input matInput placeholder="" type= "number" formControlName="four_yeareleven" min="0">
                                       </mat-form-field>
                                 </div>
                                 <div class="col-md-2">
                                     <mat-form-field class="example-full-width">
-                                        <input matInput placeholder="" type= "number" formControlName="five_yeareleven">
+                                        <input matInput placeholder="" type= "number" formControlName="five_yeareleven" min="0">
                                       </mat-form-field>
                                 </div>
                             </div>
@@ -426,27 +426,27 @@
                                 <div class="col-md-2">{{'weightHeight.twelthMonth'| translate}}</div>
                                 <div class="col-md-2">
                                     <mat-form-field class="example-full-width">
-                                        <input matInput placeholder="" type= "number" formControlName="first_yeartwelve">
+                                        <input matInput placeholder="" type= "number" formControlName="first_yeartwelve" min="0">
                                       </mat-form-field>
                                 </div>
                                 <div class="col-md-2">
                                     <mat-form-field class="example-full-width">
-                                        <input matInput placeholder="" type= "number" formControlName="sec_yeartwelve">
+                                        <input matInput placeholder="" type= "number" formControlName="sec_yeartwelve" min="0">
                                       </mat-form-field>
                                 </div>
                                 <div class="col-md-2">
                                     <mat-form-field class="example-full-width">
-                                        <input matInput placeholder="" type= "number" formControlName="third_yeartwelve">
+                                        <input matInput placeholder="" type= "number" formControlName="third_yeartwelve" min="0">
                                       </mat-form-field>
                                 </div>
                                 <div class="col-md-2">
                                     <mat-form-field class="example-full-width">
-                                        <input matInput placeholder="" type= "number" formControlName="four_yeartwelve">
+                                        <input matInput placeholder="" type= "number" formControlName="four_yeartwelve" min="0">
                                       </mat-form-field>
                                 </div>
                                 <div class="col-md-2">
                                     <mat-form-field class="example-full-width">
-                                        <input matInput placeholder="" type= "number" formControlName="five_yeartwelve">
+                                        <input matInput placeholder="" type= "number" formControlName="five_yeartwelve" min="0">
                                       </mat-form-field>
                                 </div>
                             </div>
@@ -508,27 +508,27 @@
                                     <div class="col-md-2">{{'weightHeight.heightOrLength'| translate}}</div>
                                     <div class="col-md-2">
                                          <mat-form-field class="example-full-width">
-                                            <input matInput placeholder="" type= "number" formControlName="oneyearheight">
+                                            <input matInput placeholder="" type= "number" formControlName="oneyearheight" min="0">
                                           </mat-form-field>
                                     </div>
                                     <div class="col-md-2">
                                          <mat-form-field class="example-full-width">
-                                            <input matInput placeholder="" type= "number" formControlName="twoyearheight">
+                                            <input matInput placeholder="" type= "number" formControlName="twoyearheight" min="0">
                                           </mat-form-field>
                                     </div>
                                     <div class="col-md-2">
                                          <mat-form-field class="example-full-width">
-                                            <input matInput placeholder="" type= "number" formControlName="threeyearheight">
+                                            <input matInput placeholder="" type= "number" formControlName="threeyearheight" min="0">
                                           </mat-form-field>
                                     </div>
                                     <div class="col-md-2">
                                          <mat-form-field class="example-full-width">
-                                            <input matInput placeholder="" type= "number" formControlName="foueyearheight">
+                                            <input matInput placeholder="" type= "number" formControlName="foueyearheight" min="0">
                                           </mat-form-field>
                                     </div>
                                     <div class="col-md-2">
                                          <mat-form-field class="example-full-width">
-                                            <input matInput placeholder="" type= "number" formControlName="fiveyearheight">
+                                            <input matInput placeholder="" type= "number" formControlName="fiveyearheight" min="0">
                                           </mat-form-field>
                                     </div>
                             </div>
