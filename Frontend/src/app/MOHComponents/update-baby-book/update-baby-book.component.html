@@ -2154,7 +2154,7 @@
                                                                   <div class="col-md-3">{{'baby.six_month' | translate}}</div>
                                                                   <div class="col-md-3">
                                                                       <mat-form-field class="example-full-width">
-                                                                          <input matInput placeholder="{{'baby.date' | translate}}" readonly="{{onChange()}}" type= "date" formControlName="A_vitamine_six_month_date" [max]="getToday()" min="2018-01-01">
+                                                                          <input matInput placeholder="{{'baby.date' | translate}}" readonly="{{onChange()}}" type= "date" formControlName="A_vitamine_six_month_date" max="getVaccineDate(6,{{DOB}})" min={{DOB}}>
                                                                         </mat-form-field>
                                                                   </div>
                                                                   <div class="col-md-3">
