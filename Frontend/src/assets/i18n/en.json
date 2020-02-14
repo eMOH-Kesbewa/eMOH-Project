@@ -74,6 +74,7 @@
     "mother.age": "Age",
     "mother.no_of_living_children": "No. of living Children",
     "mother.gravidity": "Gravidity",
+    "mother.vaccine":"Vaccines",
     "mother.POA": "POA",
     "mother.EDD": "EDD",
     "mother.protection_against_tetanus": "Protection Against Tetanus",
