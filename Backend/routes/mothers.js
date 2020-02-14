@@ -267,7 +267,8 @@ router.get('/deliveryMothers/:year',(req,res)=>{
                         "total3":{$sum:{$add:["$New_between_six_ten_days","$Old_between_six_ten_days"]}},
                         "total4":{$sum:"$Between_elevn_thirteen_days"},
                         "total5":{$sum:{$add:["$New_between_fouteen_twentyone_days","$Old_between_fouteen_twentyone_days"]}},
-                        "total6":{$sum:"$Near_fourtytwo_days"}
+                        "total6":{$sum:"$Near_fourtytwo_days"},
+                        
                       }
                     
                
@@ -279,6 +280,7 @@ router.get('/deliveryMothers/:year',(req,res)=>{
     }
       )
 })
+
 
 
 

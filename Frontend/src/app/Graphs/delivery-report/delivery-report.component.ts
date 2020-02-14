@@ -26,7 +26,7 @@ export class DeliveryReportComponent implements OnInit {
         
           datasets:[
             {
-              label: "Deliveries",
+              label: "Total Deliveries",
               backgroundColor: "rgba(255, 99, 132, 0.2)",
               borderColor: "rgba(193, 7, 218, 0.6)",
               borderWidth: 1,

@@ -10,6 +10,7 @@ import { RegPregMothersComponent } from 'app/Graphs/reg-preg-mothers/reg-preg-mo
 import { DeliveryReportComponent } from 'app/Graphs/delivery-report/delivery-report.component';
 
 
+
 export const MotherRoutes: Routes = [
     {
         path: '',
@@ -40,7 +41,8 @@ export const MotherRoutes: Routes = [
                 path:'ViewDeliveryReport/:year',
                 component:DeliveryReportComponent,
                 canActivate:[AuthGuard]
-            }
+            },
+            
 
 
 

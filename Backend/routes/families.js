@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var ApprovedFamily = require('../Schemas/ApprovedFamiliesSchema');
 var mongoose = require('mongoose');
+var phm =require('../Schemas/phm');
 
 router.post('/add', (req, res) => {
     console.log(req.body);
@@ -147,6 +148,41 @@ router.get('/getModernContraceptiveMethods/:year', (req, res) => {
     )
 })
 
+//report about approved families
+router.get('/familyReport/:year',(req,res)=>{
+    
 
+    currentYear = req.params.year
+    nextYearInt = parseInt(currentYear)
+    nextYearInt += 1
+    nextYear = nextYearInt.toString();
+    phm.aggregate([
+        {$match :{
+            "date_of_today": 
+            {
+                $gte: new Date(`${currentYear}-01-01T00:00:00.000Z`),
+                $lt: new Date(`${nextYear}-01-01T00:00:00.000Z`),
+            }
+        }
+
+        },
+        {
+            $group:{
+                           _id:null,
+                           
+                           "total1": {$sum:"$No_of_new_registered_family"},
+                           "total2" : {$sum:"$No_of_removed_family_from_form"}
+                        
+                      }
+                    
+               
+               }
+
+    ]).then(doc=>
+        {
+            res.status(200).json(doc[0])
+    }
+      )
+})
 
 module.exports = router;

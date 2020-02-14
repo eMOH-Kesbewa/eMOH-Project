@@ -16,6 +16,7 @@
                         <!--<button mat-menu-item>Current Users of M. Contra. Methods</button>-->
                         <a mat-menu-item [matMenuTriggerFor]="ModernContMethods">Current Users of M. Contra. Methods</a>
                         <a mat-menu-item  [matMenuTriggerFor]="ContraPrevailMethods" routerLink="ContraPrevailMethods/2019">Contraceptive Prevalence</a>
+                        <a mat-menu-item [matMenuTriggerFor]="ViewFamilyReport">Elligible Families</a>
 
                         <!--<button mat-menu-item>Contraceptive Prevalence</button>-->
                         </mat-menu>
@@ -29,6 +30,12 @@
                             <a mat-menu-item routerLink="ContraPrevailMethods/2019"> 2019</a>
                             <a mat-menu-item routerLink="ContraPrevailMethods/2018">2018</a>
                             <a mat-menu-item routerLink="ContraPrevailMethods/2017">2017</a>
+
+                        </mat-menu>
+                        <mat-menu #ViewFamilyReport="matMenu">
+                            <a mat-menu-item routerLink="ViewFamilyReport/2019"> 2020</a>
+                            <a mat-menu-item routerLink="ViewFamilyReport/2018">2019</a>
+                            <a mat-menu-item routerLink="ViewFamilyReport/2017">2018</a>
 
                         </mat-menu>
                 </div>
