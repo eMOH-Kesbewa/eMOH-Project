@@ -45,5 +45,10 @@ export class FamiliesService {
     let uri = `http://localhost:3000/families/getModernContraceptiveMethods/${year}`;
     return this.http.get<any>(uri)
    }
+   FamilyReport(year){             //report number of families
+    console.log(year)
+    let uri = `http://localhost:3000/families/familyReport/${year}`;
+    return this.http.get<any>(uri)
+   }
 
 }

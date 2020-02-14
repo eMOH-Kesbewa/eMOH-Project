@@ -27,9 +27,11 @@ import { HttpLoaderFactory } from "app/app.module";
 import { HttpClient } from "@angular/common/http";
 import { ModernContraceptiveMethodsComponent } from "app/Graphs/modern-contraceptive-methods/modern-contraceptive-methods.component";
 import {MatMenuModule} from '@angular/material/menu';
+import { FamilyReportComponent } from 'app/Graphs/family-report/family-report.component';
 import { ContraceptivePrevalanceComponent } from "app/Graphs/contraceptive-prevalance/contraceptive-prevalance.component";
 @NgModule({
-    declarations:[ViewApprovedFamiliesComponent,AddApprovedFamiliesComponent,ViewFamilybyIdComponent,AddMotherComponent,ModernContraceptiveMethodsComponent,ContraceptivePrevalanceComponent],
+    declarations:[ViewApprovedFamiliesComponent,AddApprovedFamiliesComponent,ViewFamilybyIdComponent,AddMotherComponent,ModernContraceptiveMethodsComponent,ContraceptivePrevalanceComponent
+    ,FamilyReportComponent],
     imports:[
         ApprovedFamilies,
         CommonModule,
