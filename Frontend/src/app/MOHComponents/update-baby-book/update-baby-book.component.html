@@ -2,7 +2,12 @@
     <div class="row">
         <div class="col-md-8"></div>
         <div class="col-md-2">
-            <mat-slide-toggle  [formControl]="autoRenew" (change)="onChange()">Edit details</mat-slide-toggle>
+            <mat-slide-toggle  [formControl]="autoRenew" (change)="onChange()">Edit Details</mat-slide-toggle>
+        </div>
+        <div class="col-md-2">
+          <p>
+            <mat-slide-toggle [formControl]="disableSelect">Disable Details</mat-slide-toggle>>
+          </p>
         </div>
         <div class="col-md-12">
             <div class="card">
@@ -110,7 +115,8 @@
   
                                 <div class="second_field">
                                   <!--start of second field-->
-                                  <h5>"readonly="{{onChange()}}" {{'baby.method_of_delivery' | translate}}</h5>
+                                  <!-- <h5>"readonly="{{onChange()}}" {{'baby.method_of_delivery' | translate}}</h5> -->
+                                  <h5>{{'baby.method_of_delivery' | translate}}</h5>
                                   <div class="row">
                                     <div class="col-md-3">
                                         <label class="container">{{'baby.Normal_Delivery' | translate}}
@@ -3692,978 +3698,449 @@
                                               </mat-expansion-panel-header>
                                              <div class="row">
                                                <div class="col-md-2">{{'baby.Age' | translate}}</div>
-                                               <div class="col-md-1">{{'baby.1_month' | translate}}</div>
-                                               <div class="col-md-1">{{'baby.2_month' | translate}}</div>
-                                               <div class="col-md-1">{{'baby.4_month' | translate}}</div>
-                                               <div class="col-md-1">{{'baby.six_month' | translate}}</div>
-                                               <div class="col-md-1">{{'baby.9_month' | translate}}</div>
-                                               <div class="col-md-1">{{'baby.12_month' | translate}}</div>
-                                               <div class="col-md-1">{{'baby.18_month' | translate}}</div>
-                                               <div class="col-md-1">{{'baby.three_yea' | translate}}</div>
-                                               <div class="col-md-1">{{'baby.four_year' | translate}}</div>
-                                               <div class="col-md-1">{{'baby.five_yea' | translate}}</div>
+                                               <div class="col-md-2">{{'baby.1_month' | translate}}</div>
+                                               
+                                               <div class="col-md-2">{{'baby.4_month' | translate}}</div>
+                                               
+                                               <div class="col-md-2">{{'baby.9_month' | translate}}</div>
+                                               
+                                               <div class="col-md-2">{{'baby.18_month' | translate}}</div>
+                                              
+                                               <div class="col-md-2">{{'baby.four_year' | translate}}</div>
+                                              
                                              </div>
                                              <div class="row">
                                               <div class="col-md-2">{{'baby.date_of_clinics' | translate}}</div>
-                                              <div class="col-md-1">
+                                              <div class="col-md-2">
                                                 <mat-form-field class="example-full-width">
                                                   <input matInput placeholder="" readonly="{{onChange()}}" type= "date" formControlName="one_month_date_of_clinics" >
                                                 </mat-form-field>
                                               </div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "date" formControlName="two_month_date_of_clinics" >
-                                                </mat-form-field>
-                                              </div>
-                                              <div class="col-md-1">
+                                              
+                                              <div class="col-md-2">
                                                 <mat-form-field class="example-full-width">
                                                   <input matInput placeholder="" readonly="{{onChange()}}" type= "date" formControlName="four_month_date_of_clinics" >
                                                 </mat-form-field>
                                               </div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "date" formControlName="six_month_date_of_clinics" >
-                                                </mat-form-field>
-                                              </div>
-                                              <div class="col-md-1">
+                                              
+                                              <div class="col-md-2">
                                                 <mat-form-field class="example-full-width">
                                                   <input matInput placeholder="" readonly="{{onChange()}}" type= "date" formControlName="nine_month_date_of_clinics" >
                                                 </mat-form-field>
                                               </div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "date" formControlName="twelve_month_date_of_clinics" >
-                                                </mat-form-field>
-                                              </div>
-                                              <div class="col-md-1">
+                                              
+                                              <div class="col-md-2">
                                                 <mat-form-field class="example-full-width">
                                                   <input matInput placeholder="" readonly="{{onChange()}}" type= "date" formControlName="eighteen_month_date_of_clinics" >
                                                 </mat-form-field>
                                               </div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "date" formControlName="three_year_date_of_clinics" >
-                                                </mat-form-field>
-                                              </div>
-                                              <div class="col-md-1">
+                                              
+                                              <div class="col-md-2">
                                                 <mat-form-field class="example-full-width">
                                                   <input matInput placeholder="" readonly="{{onChange()}}" type= "date" formControlName="four_year_date_of_clinics" >
                                                 </mat-form-field>
                                               </div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "date" formControlName="five_year_date_of_clinics" >
-                                                </mat-form-field>
-                                              </div>
+                                              
                                              </div>
                                              <div class="row">
                                               <div class="col-md-2">{{'baby.change_of_eye_size' | translate}}</div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="one_month_change_of_eye_size" >
+                                              <div class="col-md-2">
+                                                <mat-form-field  class="example-full-width">
+                                                  <mat-select placeholder="" [disabled]="disableSelect.value" formControlName="one_month_change_of_eye_size" >
+                                                    <mat-option value="True">True</mat-option>
+                                                    <mat-option value="False">False</mat-option>
+                                                </mat-select>
                                                 </mat-form-field>
+                                                
                                               </div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="two_month_change_of_eye_size" >
+                                              
+                                              <div class="col-md-2">
+                                                <mat-form-field  class="example-full-width">
+                                                  <mat-select placeholder="" [disabled]="disableSelect.value" formControlName="four_month_change_of_eye_size" >
+                                                    <mat-option value="True">True</mat-option>
+                                                    <mat-option value="False">False</mat-option>
+                                                  </mat-select>
                                                 </mat-form-field>
+                                                
                                               </div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="four_month_change_of_eye_size" >
-                                                </mat-form-field>
-                                              </div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="six_month_change_of_eye_size" >
-                                                </mat-form-field>
-                                              </div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="nine_month_change_of_eye_size" >
-                                                </mat-form-field>
-                                              </div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="twelve_month_change_of_eye_size" >
-                                                </mat-form-field>
-                                              </div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="eighteen_month_change_of_eye_size" >
-                                                </mat-form-field>
-                                              </div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="three_year_change_of_eye_size" >
-                                                </mat-form-field>
-                                              </div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="four_year_change_of_eye_size" >
-                                                </mat-form-field>
-                                              </div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="five_year_change_of_eye_size" >
-                                                </mat-form-field>
-                                              </div>
+                                              
+                                              <div class="col-md-2">
+                                                <mat-form-field  class="example-full-width">
+                                                  <mat-select placeholder="" [disabled]="disableSelect.value" formControlName="nine_month_change_of_eye_size" >
+                                                    <mat-option value="True">True</mat-option>
+                                                    <mat-option value="False">False</mat-option>
+                                                  </mat-select>
+                                                  </mat-form-field>
+                                                </div>
+                                             
+                                              <div class="col-md-2">
+                                                <mat-form-field  class="example-full-width">
+                                                  <mat-select placeholder="" [disabled]="disableSelect.value" formControlName="eighteen_month_change_of_eye_size" >
+                                                    <mat-option value="True">True</mat-option>
+                                                    <mat-option value="False">False</mat-option>
+                                                  </mat-select>
+                                                  </mat-form-field>
+                                               </div>
+                                              
+                                              <div class="col-md-2">
+                                                <mat-form-field  class="example-full-width">
+                                                  <mat-select placeholder="" [disabled]="disableSelect.value" formControlName="four_year_change_of_eye_size" >
+                                                    <mat-option value="True">True</mat-option>
+                                                    <mat-option value="False">False</mat-option>
+                                                  </mat-select>
+                                                  </mat-form-field>
+                                                </div>
+                                              
                                              </div>
-                                             <div class="row">
-                                              <div class="col-md-2">{{'baby.squint' | translate}}</div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="one_month_squint" >
-                                                </mat-form-field>
-                                              </div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="two_month_squint" >
-                                                </mat-form-field>
-                                              </div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="four_month_squint" >
-                                                </mat-form-field>
-                                              </div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="six_month_squint" >
-                                                </mat-form-field>
-                                              </div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="nine_month_squint" >
-                                                </mat-form-field>
-                                              </div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="twelve_month_squint" >
-                                                </mat-form-field>
-                                              </div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="eighteen_month_squint" >
-                                                </mat-form-field>
-                                              </div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="three_year_squint" >
-                                                </mat-form-field>
-                                              </div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="four_year_squint" >
-                                                </mat-form-field>
-                                              </div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="five_year_squint" >
-                                                </mat-form-field>
-                                              </div>
-                                             </div>
-                                             <div class="row">
-                                              <div class="col-md-2">{{'baby.cataract' | translate}}</div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="one_month_cataract" >
-                                                </mat-form-field>
-                                              </div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="two_month_cataract" >
-                                                </mat-form-field>
-                                              </div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="four_month_cataract" >
-                                                </mat-form-field>
-                                              </div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="six_month_cataract" >
-                                                </mat-form-field>
-                                              </div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="nine_month_cataract" >
-                                                </mat-form-field>
-                                              </div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="twelve_month_cataract" >
-                                                </mat-form-field>
-                                              </div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="eighteen_month_cataract" >
-                                                </mat-form-field>
-                                              </div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="three_year_cataract" >
-                                                </mat-form-field>
-                                              </div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="four_year_cataract" >
-                                                </mat-form-field>
-                                              </div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="five_year_cataract" >
-                                                </mat-form-field>
-                                              </div>
-                                             </div>
+                                             
+                                             
                                              <div class="row">
                                               <div class="col-md-2">{{'baby.impairment_of_eye_movement' | translate}}</div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="one_month_impairment_of_eye_movement" >
-                                                </mat-form-field>
-                                              </div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="two_month_impairment_of_eye_movement" >
-                                                </mat-form-field>
-                                              </div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="four_month_impairment_of_eye_movement" >
-                                                </mat-form-field>
-                                              </div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="six_month_impairment_of_eye_movement" >
-                                                </mat-form-field>
-                                              </div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="nine_month_impairment_of_eye_movement" >
-                                                </mat-form-field>
-                                              </div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="twelve_month_impairment_of_eye_movement" >
-                                                </mat-form-field>
-                                              </div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="eighteen_month_impairment_of_eye_movement" >
-                                                </mat-form-field>
-                                              </div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="three_year_impairment_of_eye_movement" >
-                                                </mat-form-field>
-                                              </div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="four_year_impairment_of_eye_movement" >
-                                                </mat-form-field>
-                                              </div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="five_year_impairment_of_eye_movement" >
-                                                </mat-form-field>
-                                              </div>
+                                              <div class="col-md-2">
+                                                <mat-form-field  class="example-full-width">
+                                                  <mat-select placeholder="" [disabled]="disableSelect.value" formControlName="one_month_impairment_of_eye_movement" >
+                                                    <mat-option value="True">True</mat-option>
+                                                    <mat-option value="False">False</mat-option>
+                                                  </mat-select>
+                                                  </mat-form-field>
+                                                </div>
+                                              
+                                              <div class="col-md-2">
+                                                <mat-form-field  class="example-full-width">
+                                                  <mat-select placeholder="" [disabled]="disableSelect.value" formControlName="four_month_impairment_of_eye_movement" >
+                                                    <mat-option value="True">True</mat-option>
+                                                    <mat-option value="False">False</mat-option>
+                                                  </mat-select>
+                                                  </mat-form-field>
+                                               </div>
+                                              
+                                              <div class="col-md-2">
+                                                <mat-form-field  class="example-full-width">
+                                                  <mat-select placeholder="" [disabled]="disableSelect.value" formControlName="nine_month_impairment_of_eye_movement" >
+                                                    <mat-option value="True">True</mat-option>
+                                                    <mat-option value="False">False</mat-option>
+                                                  </mat-select>
+                                                  </mat-form-field>
+                                                </div>
+                                             
+                                              <div class="col-md-2">
+                                                <mat-form-field  class="example-full-width">
+                                                  <mat-select placeholder="" [disabled]="disableSelect.value" formControlName="eighteen_month_impairment_of_eye_movement" >
+                                                    <mat-option value="True">True</mat-option>
+                                                    <mat-option value="False">False</mat-option>
+                                                  </mat-select>
+                                                  </mat-form-field>
+                                                </div>
+                                              
+                                              <div class="col-md-2">
+                                                <mat-form-field  class="example-full-width">
+                                                  <mat-select placeholder="" [disabled]="disableSelect.value" formControlName="four_year_impairment_of_eye_movement" >
+                                                    <mat-option value="True">True</mat-option>
+                                                    <mat-option value="False">False</mat-option>
+                                                  </mat-select>
+                                                  </mat-form-field>
+                                               </div>
+                                              
                                              </div>
                                              <div class="row">
                                               <div class="col-md-2">{{'baby.hearing_left' | translate}}</div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="one_month_hearing_left" >
-                                                </mat-form-field>
-                                              </div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="two_month_hearing_left" >
-                                                </mat-form-field>
-                                              </div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="four_month_hearing_left" >
-                                                </mat-form-field>
-                                              </div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="six_month_hearing_left" >
-                                                </mat-form-field>
-                                              </div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="nine_month_hearing_left" >
-                                                </mat-form-field>
-                                              </div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="twelve_month_hearing_left" >
-                                                </mat-form-field>
-                                              </div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="eighteen_month_hearing_left" >
-                                                </mat-form-field>
-                                              </div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="three_year_hearing_left" >
-                                                </mat-form-field>
-                                              </div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="four_year_hearing_left" >
-                                                </mat-form-field>
-                                              </div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="five_year_hearing_left" >
-                                                </mat-form-field>
-                                              </div>
+                                              <div class="col-md-2">
+                                                <mat-form-field  class="example-full-width">
+                                                  <mat-select placeholder="" [disabled]="disableSelect.value" formControlName="one_month_hearing_left" >
+                                                    <mat-option value="True">True</mat-option>
+                                                    <mat-option value="False">False</mat-option>
+                                                  </mat-select>
+                                                  </mat-form-field>
+                                                </div>
+                                              
+                                              <div class="col-md-2">
+                                                <mat-form-field  class="example-full-width">
+                                                  <mat-select placeholder="" [disabled]="disableSelect.value" formControlName="four_month_hearing_left" >
+                                                    <mat-option value="True">True</mat-option>
+                                                    <mat-option value="False">False</mat-option>
+                                                  </mat-select>
+                                                  </mat-form-field>
+                                               </div>
+                                             
+                                              <div class="col-md-2">
+                                                <mat-form-field  class="example-full-width">
+                                                  <mat-select placeholder="" [disabled]="disableSelect.value" formControlName="nine_month_hearing_left" >
+                                                    <mat-option value="True">True</mat-option>
+                                                    <mat-option value="False">False</mat-option>
+                                                  </mat-select>
+                                                  </mat-form-field>
+                                                </div>
+                                              
+                                              <div class="col-md-2">
+                                                <mat-form-field  class="example-full-width">
+                                                  <mat-select placeholder="" [disabled]="disableSelect.value" formControlName="eighteen_month_hearing_left" >
+                                                    <mat-option value="True">True</mat-option>
+                                                    <mat-option value="False">False</mat-option>
+                                                  </mat-select>
+                                                  </mat-form-field>
+                                                </div>
+                                              
+                                              <div class="col-md-2">
+                                                <mat-form-field  class="example-full-width">
+                                                  <mat-select placeholder="" [disabled]="disableSelect.value" formControlName="four_year_hearing_left" >
+                                                    <mat-option value="True">True</mat-option>
+                                                    <mat-option value="False">False</mat-option>
+                                                  </mat-select>
+                                                  </mat-form-field>
+                                                </div>
+                                             
+                                                
                                              </div>
                                              <div class="row">
                                               <div class="col-md-2">{{'baby.hearing_right' | translate}}</div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="one_month_hearing_right" >
-                                                </mat-form-field>
-                                              </div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="two_month_hearing_right" >
-                                                </mat-form-field>
-                                              </div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="four_month_hearing_right" >
-                                                </mat-form-field>
-                                              </div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="six_month_hearing_right" >
-                                                </mat-form-field>
-                                              </div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="nine_month_hearing_right" >
-                                                </mat-form-field>
-                                              </div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="twelve_month_hearing_right" >
-                                                </mat-form-field>
-                                              </div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="eighteen_month_hearing_right" >
-                                                </mat-form-field>
-                                              </div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="three_year_hearing_right" >
-                                                </mat-form-field>
-                                              </div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="four_year_hearing_right" >
-                                                </mat-form-field>
-                                              </div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="five_year_hearing_right" >
-                                                </mat-form-field>
-                                              </div>
+                                              <div class="col-md-2">
+                                                <mat-form-field  class="example-full-width">
+                                                  <mat-select placeholder="" [disabled]="disableSelect.value" formControlName="one_month_hearing_right" >
+                                                    <mat-option value="True">True</mat-option>
+                                                    <mat-option value="False">False</mat-option>
+                                                  </mat-select>
+                                                  </mat-form-field>
+                                               </div>
+                                              
+                                              <div class="col-md-2">
+                                                <mat-form-field  class="example-full-width">
+                                                  <mat-select placeholder="" [disabled]="disableSelect.value" formControlName="four_month_hearing_right" >
+                                                    <mat-option value="True">True</mat-option>
+                                                    <mat-option value="False">False</mat-option>
+                                                  </mat-select>
+                                                  </mat-form-field>
+                                               </div>
+                                              
+                                              <div class="col-md-2">
+                                                <mat-form-field  class="example-full-width">
+                                                  <mat-select placeholder="" [disabled]="disableSelect.value" formControlName="nine_month_hearing_right" >
+                                                    <mat-option value="True">True</mat-option>
+                                                    <mat-option value="False">False</mat-option>
+                                                  </mat-select>
+                                                  </mat-form-field>
+                                                </div>
+                                              
+                                              <div class="col-md-2">
+                                                <mat-form-field  class="example-full-width">
+                                                  <mat-select placeholder="" [disabled]="disableSelect.value" formControlName="eighteen_month_hearing_right" >
+                                                    <mat-option value="True">True</mat-option>
+                                                    <mat-option value="False">False</mat-option>
+                                                  </mat-select>
+                                                  </mat-form-field>
+                                                </div>
+                                              
+                                              <div class="col-md-2">
+                                                <mat-form-field  class="example-full-width">
+                                                  <mat-select placeholder="" [disabled]="disableSelect.value" formControlName="four_year_hearing_right" >
+                                                    <mat-option value="True">True</mat-option>
+                                                    <mat-option value="False">False</mat-option>
+                                                  </mat-select>
+                                                  </mat-form-field>
+                                               </div>
+                                              
                                              </div>
-                                             <div class="row">
-                                              <div class="col-md-2">{{'baby.development_weight' | translate}}</div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="one_month_development_weight" >
-                                                </mat-form-field>
-                                              </div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="two_month_development_weight" >
-                                                </mat-form-field>
-                                              </div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="four_month_development_weight" >
-                                                </mat-form-field>
-                                              </div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="six_month_development_weight" >
-                                                </mat-form-field>
-                                              </div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="nine_month_development_weight" >
-                                                </mat-form-field>
-                                              </div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="twelve_month_development_weight" >
-                                                </mat-form-field>
-                                              </div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="eighteen_month_development_weight" >
-                                                </mat-form-field>
-                                              </div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="three_year_development_weight" >
-                                                </mat-form-field>
-                                              </div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="four_year_development_weight" >
-                                                </mat-form-field>
-                                              </div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="five_year_development_weight" >
-                                                </mat-form-field>
-                                              </div>
-                                             </div>
-                                             <div class="row">
-                                              <div class="col-md-2">{{'baby.development_height' | translate}}</div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="one_month_development_height" >
-                                                </mat-form-field>
-                                              </div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="two_month_development_height" >
-                                                </mat-form-field>
-                                              </div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="four_month_development_height" >
-                                                </mat-form-field>
-                                              </div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="six_month_development_height" >
-                                                </mat-form-field>
-                                              </div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="nine_month_development_height" >
-                                                </mat-form-field>
-                                              </div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="twelve_month_development_height" >
-                                                </mat-form-field>
-                                              </div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="eighteen_month_development_height" >
-                                                </mat-form-field>
-                                              </div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="three_year_development_height" >
-                                                </mat-form-field>
-                                              </div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="four_year_development_height" >
-                                                </mat-form-field>
-                                              </div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="five_year_development_height" >
-                                                </mat-form-field>
-                                              </div>
-                                             </div>
+                                             
                                              <div class="row">
                                               <div class="col-md-2">{{'baby.heart_disease' | translate}}</div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="one_month_heart_disease" >
-                                                </mat-form-field>
-                                              </div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="two_month_heart_disease" >
-                                                </mat-form-field>
-                                              </div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="four_month_heart_disease" >
-                                                </mat-form-field>
-                                              </div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="six_month_heart_disease" >
-                                                </mat-form-field>
-                                              </div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="nine_month_heart_disease" >
-                                                </mat-form-field>
-                                              </div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="twelve_month_heart_disease" >
-                                                </mat-form-field>
-                                              </div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="eighteen_month_heart_disease" >
-                                                </mat-form-field>
-                                              </div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="three_year_heart_disease" >
-                                                </mat-form-field>
-                                              </div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="four_year_heart_disease" >
-                                                </mat-form-field>
-                                              </div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="five_year_heart_disease" >
-                                                </mat-form-field>
-                                              </div>
+                                              <div class="col-md-2">
+                                                <mat-form-field  class="example-full-width">
+                                                  <mat-select placeholder="" [disabled]="disableSelect.value" formControlName="one_month_heart_disease" >
+                                                    <mat-option value="True">True</mat-option>
+                                                    <mat-option value="False">False</mat-option>
+                                                  </mat-select>
+                                                  </mat-form-field>
+                                               </div>
+                                              
+                                              <div class="col-md-2">
+                                                <mat-form-field  class="example-full-width">
+                                                  <mat-select placeholder="" [disabled]="disableSelect.value" formControlName="four_month_heart_disease" >
+                                                    <mat-option value="True">True</mat-option>
+                                                    <mat-option value="False">False</mat-option>
+                                                  </mat-select>
+                                                  </mat-form-field>
+                                               </div>
+                                              
+                                              <div class="col-md-2">
+                                                <mat-form-field  class="example-full-width">
+                                                  <mat-select placeholder="" [disabled]="disableSelect.value" formControlName="nine_month_heart_disease" >
+                                                    <mat-option value="True">True</mat-option>
+                                                    <mat-option value="False">False</mat-option>
+                                                  </mat-select>
+                                                  </mat-form-field>
+                                               </div>
+                                              
+                                              <div class="col-md-2">
+                                                <mat-form-field  class="example-full-width">
+                                                  <mat-select placeholder="" [disabled]="disableSelect.value" formControlName="eighteen_month_heart_disease" >
+                                                    <mat-option value="True">True</mat-option>
+                                                    <mat-option value="False">False</mat-option>
+                                                  </mat-select>
+                                                  </mat-form-field>
+                                                </div>
+                                              
+                                              <div class="col-md-2">
+                                                <mat-form-field  class="example-full-width">
+                                                  <mat-select placeholder="" [disabled]="disableSelect.value" formControlName="four_year_heart_disease" >
+                                                    <mat-option value="True">True</mat-option>
+                                                    <mat-option value="False">False</mat-option>
+                                                  </mat-select>
+                                                  </mat-form-field>
+                                                </div>
+                                              
                                              </div>
-                                             <div class="row">
-                                              <div class="col-md-2">{{'baby.lungs' | translate}}</div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="one_month_lungs" >
-                                                </mat-form-field>
-                                              </div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="two_month_lungs" >
-                                                </mat-form-field>
-                                              </div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="four_month_lungs" >
-                                                </mat-form-field>
-                                              </div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="six_month_lungs" >
-                                                </mat-form-field>
-                                              </div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="nine_month_lungs" >
-                                                </mat-form-field>
-                                              </div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="twelve_month_lungs" >
-                                                </mat-form-field>
-                                              </div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="eighteen_month_lungs" >
-                                                </mat-form-field>
-                                              </div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="three_year_lungs" >
-                                                </mat-form-field>
-                                              </div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="four_year_lungs" >
-                                                </mat-form-field>
-                                              </div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="five_year_lungs" >
-                                                </mat-form-field>
-                                              </div>
-                                             </div>
-                                             <div class="row">
-                                              <div class="col-md-2">{{'baby.hip_joint' | translate}}</div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="one_month_hip_joint" >
-                                                </mat-form-field>
-                                              </div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="two_month_hip_joint" >
-                                                </mat-form-field>
-                                              </div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="four_month_hip_joint" >
-                                                </mat-form-field>
-                                              </div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="six_month_hip_joint" >
-                                                </mat-form-field>
-                                              </div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="nine_month_hip_joint" >
-                                                </mat-form-field>
-                                              </div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="twelve_month_hip_joint" >
-                                                </mat-form-field>
-                                              </div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="eighteen_month_hip_joint" >
-                                                </mat-form-field>
-                                              </div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="three_year_hip_joint" >
-                                                </mat-form-field>
-                                              </div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="four_year_hip_joint" >
-                                                </mat-form-field>
-                                              </div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="five_year_hip_joint" >
-                                                </mat-form-field>
-                                              </div>
-                                             </div>
-                                             <div class="row">
-                                              <div class="col-md-2">{{'baby.inheited_problems' | translate}}</div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="one_month_inheited_problems" >
-                                                </mat-form-field>
-                                              </div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="two_month_inheited_problems" >
-                                                </mat-form-field>
-                                              </div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="four_month_inheited_problems" >
-                                                </mat-form-field>
-                                              </div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="six_month_inheited_problems" >
-                                                </mat-form-field>
-                                              </div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="nine_month_inheited_problems" >
-                                                </mat-form-field>
-                                              </div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="twelve_month_inheited_problems" >
-                                                </mat-form-field>
-                                              </div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="eighteen_month_inheited_problems" >
-                                                </mat-form-field>
-                                              </div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="three_year_inheited_problems" >
-                                                </mat-form-field>
-                                              </div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="four_year_inheited_problems" >
-                                                </mat-form-field>
-                                              </div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="five_year_inheited_problems" >
-                                                </mat-form-field>
-                                              </div>
-                                             </div>
+                                             
+                                            
+                                             
                                              <div class="row">
                                                <div class="col-md-2">{{'baby.dental_caries_white_brown_spots' | translate}}</div>
-                                               <div class="col-md-1"></div>
-                                               <div class="col-md-1"></div>
-                                               <div class="col-md-1"></div>
-                                               <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="six_month_dental_caries_white_brown_spots" >
-                                                </mat-form-field>
-                                              </div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="nine_month_dental_caries_white_brown_spots" >
-                                                </mat-form-field>
-                                              </div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="twelve_month_dental_caries_white_brown_spots" >
-                                                </mat-form-field>
-                                              </div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="eighteen_month_dental_caries_white_brown_spots" >
-                                                </mat-form-field>
-                                              </div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="three_year_dental_caries_white_brown_spots" >
-                                                </mat-form-field>
-                                              </div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="four_year_dental_caries_white_brown_spots" >
-                                                </mat-form-field>
-                                              </div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="five_year_dental_caries_white_brown_spots" >
-                                                </mat-form-field>
-                                              </div>
+                                               <div class="col-md-2"></div>
+                                               
+                                               <div class="col-md-2"></div>
+                                               
+                                              <div class="col-md-2">
+                                                <mat-form-field  class="example-full-width">
+                                                  <mat-select placeholder="" [disabled]="disableSelect.value" formControlName="nine_month_dental_caries_white_brown_spots" >
+                                                    <mat-option value="True">True</mat-option>
+                                                    <mat-option value="False">False</mat-option>
+                                                  </mat-select>
+                                                  </mat-form-field>
+                                                  </div>
+                                              
+                                              <div class="col-md-2">
+                                                <mat-form-field  class="example-full-width">
+                                                  <mat-select placeholder="" [disabled]="disableSelect.value" formControlName="eighteen_month_dental_caries_white_brown_spots" >
+                                                    <mat-option value="True">True</mat-option>
+                                                    <mat-option value="False">False</mat-option>
+                                                  </mat-select>
+                                                  </mat-form-field>
+                                                </div>
+                                              
+                                              <div class="col-md-2">
+                                                <mat-form-field  class="example-full-width">
+                                                  <mat-select placeholder="" [disabled]="disableSelect.value" formControlName="four_year_dental_caries_white_brown_spots" >
+                                                    <mat-option value="True">True</mat-option>
+                                                    <mat-option value="False">False</mat-option>
+                                                  </mat-select>
+                                                  </mat-form-field>
+                                               </div>
+                                              
                                              </div>
                                              <div class="row">
                                               <div class="col-md-2">{{'baby.dental_caries_dental_cavities' | translate}}</div>
-                                              <div class="col-md-1"></div>
-                                              <div class="col-md-1"></div>
-                                              <div class="col-md-1"></div>
-                                              <div class="col-md-1">
-                                               <mat-form-field class="example-full-width">
-                                                 <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="six_month_dental_caries_dental_cavities" >
-                                               </mat-form-field>
-                                             </div>
-                                             <div class="col-md-1">
-                                               <mat-form-field class="example-full-width">
-                                                 <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="nine_month_dental_caries_dental_cavities" >
-                                               </mat-form-field>
-                                             </div>
-                                             <div class="col-md-1">
-                                               <mat-form-field class="example-full-width">
-                                                 <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="twelve_month_dental_caries_dental_cavities" >
-                                               </mat-form-field>
-                                             </div>
-                                             <div class="col-md-1">
-                                               <mat-form-field class="example-full-width">
-                                                 <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="eighteen_month_dental_caries_dental_cavities" >
-                                               </mat-form-field>
-                                             </div>
-                                             <div class="col-md-1">
-                                               <mat-form-field class="example-full-width">
-                                                 <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="three_year_dental_caries_dental_cavities" >
-                                               </mat-form-field>
-                                             </div>
-                                             <div class="col-md-1">
-                                               <mat-form-field class="example-full-width">
-                                                 <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="four_year_dental_caries_dental_cavities" >
-                                               </mat-form-field>
-                                             </div>
-                                             <div class="col-md-1">
-                                               <mat-form-field class="example-full-width">
-                                                 <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="five_year_dental_caries_dental_cavities" >
-                                               </mat-form-field>
-                                             </div>
+                                              <div class="col-md-2"></div>
+                                              
+                                              <div class="col-md-2"></div>
+                                              
+                                             <div class="col-md-2">
+                                              <mat-form-field  class="example-full-width">
+                                                <mat-select placeholder="" [disabled]="disableSelect.value" formControlName="nine_month_dental_caries_dental_cavities" >
+                                                  <mat-option value="True">True</mat-option>
+                                                  <mat-option value="False">False</mat-option>
+                                                </mat-select>
+                                                </mat-form-field>
+                                              </div>
+                                             
+                                             <div class="col-md-2">
+                                              <mat-form-field  class="example-full-width">
+                                                <mat-select placeholder="" [disabled]="disableSelect.value" formControlName="eighteen_month_dental_caries_dental_cavities" >
+                                                  <mat-option value="True">True</mat-option>
+                                                  <mat-option value="False">False</mat-option>
+                                                </mat-select>
+                                                </mat-form-field>
+                                               </div>
+                                             
+                                             <div class="col-md-2">
+                                              <mat-form-field  class="example-full-width">
+                                                <mat-select placeholder="" [disabled]="disableSelect.value" formControlName="four_year_dental_caries_dental_cavities" >
+                                                  <mat-option value="True">True</mat-option>
+                                                  <mat-option value="False">False</mat-option>
+                                                </mat-select>
+                                                </mat-form-field>
+                                               </div>
+                                             
                                             </div>
                                             <div class="row">
                                               <div class="col-md-2">{{'baby.night_blindness' | translate}}</div>
-                                              <div class="col-md-1"></div>
-                                              <div class="col-md-1"></div>
-                                              <div class="col-md-1"></div>
-                                              <div class="col-md-1"></div>
-                                              <div class="col-md-1"></div>
-                                              <div class="col-md-1"></div>
-                                              <div class="col-md-1"></div>
-                                              <div class="col-md-1">
-                                               <mat-form-field class="example-full-width">
-                                                 <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="three_year_night_blindness" >
-                                               </mat-form-field>
-                                             </div>
-                                             <div class="col-md-1">
-                                               <mat-form-field class="example-full-width">
-                                                 <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="four_year_night_blindness" >
-                                               </mat-form-field>
-                                             </div>
-                                             <div class="col-md-1">
-                                               <mat-form-field class="example-full-width">
-                                                 <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="five_year_night_blindness" >
-                                               </mat-form-field>
-                                             </div>
+                                              <div class="col-md-2"></div>
+                                              
+                                              <div class="col-md-2"></div>
+                                              
+                                              <div class="col-md-2"></div>
+                                              
+                                              <div class="col-md-2"></div>
+                                              
+                                             <div class="col-md-2">
+                                              <mat-form-field  class="example-full-width">
+                                                <mat-select placeholder="" [disabled]="disableSelect.value" formControlName="four_year_night_blindness" >
+                                                  <mat-option value="True">True</mat-option>
+                                                  <mat-option value="False">False</mat-option>
+                                                </mat-select>
+                                                </mat-form-field>
+                                               </div>
+                                             
                                             </div>
                                             <div class="row">
                                               <div class="col-md-2">{{'baby.bito_spots' | translate}}</div>
-                                              <div class="col-md-1"></div>
-                                              <div class="col-md-1"></div>
-                                              <div class="col-md-1"></div>
-                                              <div class="col-md-1"></div>
-                                              <div class="col-md-1"></div>
-                                              <div class="col-md-1"></div>
-                                              <div class="col-md-1"></div>
-                                              <div class="col-md-1">
-                                               <mat-form-field class="example-full-width">
-                                                 <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="three_year_bito_spots" >
-                                               </mat-form-field>
-                                             </div>
-                                             <div class="col-md-1">
-                                               <mat-form-field class="example-full-width">
-                                                 <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="four_year_bito_spots" >
-                                               </mat-form-field>
-                                             </div>
-                                             <div class="col-md-1">
-                                               <mat-form-field class="example-full-width">
-                                                 <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="five_year_bito_spots" >
-                                               </mat-form-field>
-                                             </div>
+                                              <div class="col-md-2"></div>
+                                              
+                                              <div class="col-md-2"></div>
+                                              
+                                              <div class="col-md-2"></div>
+                                              
+                                              <div class="col-md-2"></div>
+                                              
+                                             <div class="col-md-2">
+                                              <mat-form-field  class="example-full-width">
+                                                <mat-select placeholder="" [disabled]="disableSelect.value" formControlName="four_year_bito_spots" >
+                                                  <mat-option value="True">True</mat-option>
+                                                  <mat-option value="False">False</mat-option>
+                                                </mat-select>
+                                                </mat-form-field>
+                                               </div>
+                                             
                                             </div>
                                             <div class="row">
                                               <div class="col-md-2">{{'baby.sight_left' | translate}}</div>
-                                              <div class="col-md-1"></div>
-                                              <div class="col-md-1"></div>
-                                              <div class="col-md-1"></div>
-                                              <div class="col-md-1"></div>
-                                              <div class="col-md-1"></div>
-                                              <div class="col-md-1"></div>
-                                              <div class="col-md-1"></div>
-                                              <div class="col-md-1"></div>
-                                              <div class="col-md-1"></div>
-                                              <div class="col-md-1">
-                                               <mat-form-field class="example-full-width">
-                                                 <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="five_year_sight_left" >
-                                               </mat-form-field>
-                                             </div>
+                                              <div class="col-md-2"></div>
+                                              
+                                              <div class="col-md-2"></div>
+                                              
+                                              <div class="col-md-2"></div>
+                                             
+                                              <div class="col-md-2"></div>
+                                              
+                                              <div class="col-md-2">
+                                                <mat-form-field  class="example-full-width">
+                                                  <mat-select placeholder="" [disabled]="disableSelect.value" formControlName="five_year_sight_left" >
+                                                    <mat-option value="True">True</mat-option>
+                                                    <mat-option value="False">False</mat-option>
+                                                  </mat-select>
+                                                  </mat-form-field>
+                                                </div>
+                                              
                                             </div>
                                             <div class="row">
                                               <div class="col-md-2">{{'baby.sight_right' | translate}}</div>
-                                              <div class="col-md-1"></div>
-                                              <div class="col-md-1"></div>
-                                              <div class="col-md-1"></div>
-                                              <div class="col-md-1"></div>
-                                              <div class="col-md-1"></div>
-                                              <div class="col-md-1"></div>
-                                              <div class="col-md-1"></div>
-                                              <div class="col-md-1"></div>
-                                              <div class="col-md-1"></div>
-                                              <div class="col-md-1">
-                                               <mat-form-field class="example-full-width">
-                                                 <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="five_year_sight_right" >
-                                               </mat-form-field>
-                                             </div>
+                                              <div class="col-md-2"></div>
+                                              
+                                              <div class="col-md-2"></div>
+                                             
+                                              <div class="col-md-2"></div>
+                                              
+                                              <div class="col-md-2"></div>
+                                              
+                                              <div class="col-md-2">
+                                                <mat-form-field  class="example-full-width">
+                                                  <mat-select placeholder="" [disabled]="disableSelect.value" formControlName="five_year_sight_right" >
+                                                    <mat-option value="True">True</mat-option>
+                                                    <mat-option value="False">False</mat-option>
+                                                  </mat-select>
+                                                  </mat-form-field>
+                                               </div>
+                                              
                                             </div>
-                                            <div class="row">
-                                              <div class="col-md-2">{{'baby.other_diseases' | translate}}</div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="one_month_other_diseases" >
-                                                </mat-form-field>
-                                              </div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="two_month_other_diseases" >
-                                                </mat-form-field>
-                                              </div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="four_month_other_diseases" >
-                                                </mat-form-field>
-                                              </div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="six_month_other_diseases" >
-                                                </mat-form-field>
-                                              </div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="nine_month_other_diseases" >
-                                                </mat-form-field>
-                                              </div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="twelve_month_other_diseases" >
-                                                </mat-form-field>
-                                              </div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="eighteen_month_other_diseases" >
-                                                </mat-form-field>
-                                              </div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="three_year_other_diseases" >
-                                                </mat-form-field>
-                                              </div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="four_year_other_diseases" >
-                                                </mat-form-field>
-                                              </div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="five_year_other_diseases" >
-                                                </mat-form-field>
-                                              </div>
-                                             </div>
-                                             <div class="row">
-                                              <div class="col-md-2">{{'baby.designation_of_officer' | translate}}</div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="one_month_designation_of_officer" >
-                                                </mat-form-field>
-                                              </div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="two_month_designation_of_officer" >
-                                                </mat-form-field>
-                                              </div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="four_month_designation_of_officer" >
-                                                </mat-form-field>
-                                              </div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="six_month_designation_of_officer" >
-                                                </mat-form-field>
-                                              </div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="nine_month_designation_of_officer" >
-                                                </mat-form-field>
-                                              </div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="twelve_month_designation_of_officer" >
-                                                </mat-form-field>
-                                              </div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="eighteen_month_designation_of_officer" >
-                                                </mat-form-field>
-                                              </div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="three_year_designation_of_officer" >
-                                                </mat-form-field>
-                                              </div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="four_year_designation_of_officer" >
-                                                </mat-form-field>
-                                              </div>
-                                              <div class="col-md-1">
-                                                <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="" readonly="{{onChange()}}" type= "text" formControlName="five_year_designation_of_officer" >
-                                                </mat-form-field>
-                                              </div>
-                                             </div>
+                                            
+                                             
                                              <!--end nineth page-->
                                              </mat-expansion-panel>
                                            </div>
