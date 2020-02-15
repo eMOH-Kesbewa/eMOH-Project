@@ -73,7 +73,28 @@ module.exports = router;
      
 // });
 
-  router.post('/register',(req,res)=>{
+router.post("/register",function(req,res){
+  
+    const newUser = new useraccounts({
+        userid:req.body.userid,
+        username:req.body.username,
+        password:req.body.password,
+        role:req.body.role,
+        areaId:req.body.areaId
+    });
+
+    User.adduser(newUser,function(err,user){
+        if(err){
+           res.json({state:false,msg:"data not insereted"});
+        }
+        if(user){
+            res.json({state:true,msg:"data inserted"});
+        }
+    });
+
+});
+/*
+router.post('/register',(req,res)=>{
     console.log(req.body);//print body
     var newUser = new useraccounts({
         userid:req.body.userid,
@@ -125,29 +146,9 @@ module.exports = router;
         }
         ,()=> res.json({success:false,msg:'error is'}),
     );
-    //send email username and password
-    let transporter = nodemailer.createTransport({
-        service:'gmail',
-        auth: {
-            user: 'tempsend123@gmail.com', // source email
-            pass: 'ucsc@123' // password 
-        }
-    });
-    let mailOptions = {
-        from: '"Kesbewa MOH" <tempsend123@gmail.com>', // sender address
-        to : User.username,
-        subject: 'You are registered', // Subject line
-        text: req.body.username+req.body.password, // plain text body
-    }
-    transporter.sendMail(mailOptions,(error,info)=>{
-        if(error){
-            console.log(error);
-        }else{
-            console.log('Email sent: '+info.response);
-        }
-    })
+    
   });
-
+*/
 
 //login 
 router.post("/login",(req,res)=>{
@@ -289,6 +290,38 @@ router.get('/generateUserId/:areaId', (req, res) => {
         })
     } else {
         useraccounts.find({
+            $and:[
+                {userid: new RegExp('^'+areaId,'i')},
+                {role:'mother'}
+            ]
+            
+           
+        }, (err, doc) => {
+            if (doc.length) {
+                //res.send(doc);
+                console.log(doc);
+                console.log(doc[0].userid);
+                res.send(doc);
+            } else {
+                console.log('Cannot find the record');
+                //res.send(doc);
+                res.send(areaId.concat('..1001')) ;
+            }
+        }).sort({_id:-1}).limit(1);;
+    }
+});
+
+/*
+
+router.get('/generateUserId/:areaId', (req, res) => {
+    areaId = req.params.areaId;
+    console.log(areaId)
+    if (areaId == '0') {
+        useraccounts.find((err, doc) => {
+            res.send(areaId+"..0000") 
+        })
+    } else {
+        useraccounts.find({
             //userid: new RegExp(areaId, 'i')
             userid: new RegExp('^'+areaId,'i')
             //userid: /^2/ 
@@ -306,3 +339,6 @@ router.get('/generateUserId/:areaId', (req, res) => {
         }).sort({_id:-1}).limit(1);;
     }
 });
+
+
+*/

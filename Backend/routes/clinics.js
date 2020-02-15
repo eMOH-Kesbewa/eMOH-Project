@@ -46,7 +46,7 @@ setTimeout(()=>{
 
             let mailOptions = {
                 from: '"Kesbewa MOH" <tempsend123@gmail.com>', // sender address
-                to: await recipients, //Recipients
+                to: await 'shnrndk@gmail.com', //Recipients
                 subject: req.body.clinic_title, // Subject line
                 text: req.body.clinic_discription, // plain text body
             };
