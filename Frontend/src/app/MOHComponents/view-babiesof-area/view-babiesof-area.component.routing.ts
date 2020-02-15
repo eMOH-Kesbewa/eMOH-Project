@@ -5,6 +5,7 @@ import { AddmotherbabyjoineddataComponent } from '../addmotherbabyjoineddata/add
 import { UpdateBabyBookComponent } from '../update-baby-book/update-baby-book.component';
 import { ViewBabybyIDComponent } from '../view-babyby-id/view-babyby-id.component';
 import { AddWeightHeightComponent } from '../add-weight-height/add-weight-height.component';
+import { ImmunizationReportComponent } from 'app/Graphs/immunization-report/immunization-report.component';
 import { AuthGuard } from 'app/auth.guard';
 
 
@@ -34,6 +35,11 @@ export const BabiesRoutes: Routes = [
                path:'AddWeightHeight',
                component:AddWeightHeightComponent
            }*/
+           {
+               path:'ViewImmunizationReport/:year',
+               component:ImmunizationReportComponent,
+               canActivate:[AuthGuard],
+           }
         ]
     }
     
