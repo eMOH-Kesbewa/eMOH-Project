@@ -294,11 +294,14 @@ router.get('/immunizationReport/:year',(req,res)=>{
 
     motherbabyjoined.aggregate([
         {$match :{
-            "immunization__japanese_encephalitis": 
+            
+                "immunization__japanese_encephalitis" :
+            
             {
                 $gte: new Date(`${currentYear}-01-01T00:00:00.000Z`),
                 $lt: new Date(`${nextYear}-01-01T00:00:00.000Z`),
             }
+            
         }
         
 
@@ -317,7 +320,7 @@ router.get('/immunizationReport/:year',(req,res)=>{
                 Quarter2:[
                     {
                         $group:{
-                            _id:'$immunization__measles_mumps_rubella_mmr_1',
+                            _id:'$immunization__measles_mumps_rubella_mmr_2',
                             count:{$sum:1}
                         }
                     }
@@ -325,19 +328,12 @@ router.get('/immunizationReport/:year',(req,res)=>{
                 Quarter3:[
                     {
                         $group:{
-                            _id:'$immunization__measles_mumps_rubella_mmr_1',
+                            _id:'$immunization__polio__opv__first',
                             count:{$sum:1}
                         }
                     }
                 ],
-                Quarter4:[
-                    {
-                        $group:{
-                            _id:'$immunization__measles_mumps_rubella_mmr_1',
-                            count:{$sum:1}
-                        }
-                    }
-                ],
+                
             }
             
         }

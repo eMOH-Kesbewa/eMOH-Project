@@ -35,6 +35,11 @@ export class BabiesService {
     return this.http.get<Baby>(uri)
    }
   
+   ImmuniReport(year){             //report number of families
+    console.log(year)
+    let uri = `http://localhost:3000/babies/immunizationReport/${year}`;
+    return this.http.get<any>(uri)
+   }
   
   // addBaby(baby_id, name_of_child, date_of_registered){
   //    const obj={
