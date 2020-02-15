@@ -12,12 +12,8 @@ import 'package:mobileapp/pages/babyInfo/immunization.dart';
 import 'package:mobileapp/pages/babyInfo/immunizationRef.dart';
 import 'package:mobileapp/pages/babyInfo/newBornBayHealthChart.dart';
 import 'package:mobileapp/pages/babyInfo/teeth.dart';
-//import 'package:mobileapp/pages/babyInfo/untilFiveYears.dart';
-import 'package:mobileapp/pages/babyInfo/untilFiveYearsStep.dart';
 import 'package:mobileapp/pages/babyInfo/vitaminA.dart';
 import 'package:mobileapp/pages/babyInfo/worm.dart';
-import 'package:mobileapp/pages/bottomNavigation.dart';
-import 'package:mobileapp/widgets/childHealthCard.dart';
 import 'package:easy_localization/easy_localization.dart';
 
 import '../services/globals.dart' as globals;
