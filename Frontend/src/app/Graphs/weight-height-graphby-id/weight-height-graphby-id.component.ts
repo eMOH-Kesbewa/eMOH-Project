@@ -3,6 +3,7 @@ import { Chart } from 'chart.js';
 import { Weight } from 'app/Services/Models/weight';
 import { WeightService } from 'app/Services/weight.service';
 import { ActivatedRoute } from '@angular/router';
+import * as html2pdf from 'html2pdf.js';
 
 @Component({
   selector: 'app-weight-height-graphby-id',
@@ -183,4 +184,20 @@ export class WeightHeightGraphbyIdComponent implements OnInit {
      // Line chart:
 
   }
+
+  saveToPdf(){
+    const options = {
+      filename:"dentalProblemBabies",
+      image:{type:'jpeg'},
+      html2canvas:{},
+      jsPDF:{orientation: 'landscape'}
+    };
+  
+    const content : Element = document.getElementById('element-to-export');
+  
+    html2pdf()
+      .from(content)
+      .set(options)
+      .save();
+   }
 }
