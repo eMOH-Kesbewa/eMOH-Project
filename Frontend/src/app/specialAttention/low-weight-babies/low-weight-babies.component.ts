@@ -3,6 +3,7 @@ import { SpecialAttentionService } from 'app/Services/special-attention.service'
 import { ActivatedRoute, Router } from '@angular/router';
 import { lowweightDetails } from 'app/Services/Models/lowweightDetails';
 import { Weight } from 'app/Services/Models/weight';
+import * as html2pdf from 'html2pdf.js';
 
 @Component({
   selector: 'app-low-weight-babies',
@@ -28,5 +29,21 @@ export class LowWeightBabiesComponent implements OnInit {
   onClickMe(babyId){
     this.router.navigate(['viewBabies/ViewMotherBabybyID/',babyId])
   }
+
+  saveToPdf(){
+    const options = {
+      filename:"lowWeightBabies",
+      image:{type:'jpeg'},
+      html2canvas:{},
+      jsPDF:{orientation: 'landscape'}
+    };
+
+    const content : Element = document.getElementById('element-to-export');
+
+    html2pdf()
+      .from(content)
+      .set(options)
+      .save();
+   }
 
 }

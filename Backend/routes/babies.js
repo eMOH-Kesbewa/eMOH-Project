@@ -39,7 +39,7 @@ router.put('/update/babybook', async (req, res) => {
 
         let doc = await Baby.findOneAndUpdate(filter, update, {
             new: true,
-            upsert: false 
+            upsert: true 
         });
         res.status(201).send(doc)
         console.log(doc);

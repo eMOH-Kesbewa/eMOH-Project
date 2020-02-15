@@ -11,13 +11,15 @@
   </div>
 
   <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-12"></div>
+      <div class="col-md-9"></div>
+      <div class="col-md-3" ><button (click)="saveToPdf()" class="btn btn-info btn-block">Export As PDF</button></div>
         <div class="card">
             <div class="card-header">
                 <h4 class="card-title "><h3>Low Weight Babies</h3></h4> 
                 <h5 class="card-category">{{ 'click_individual' | translate }}</h5>
             </div>
-            <div class="card-body">
+            <div class="card-body" id="element-to-export">
                   <table class="table table-hover table-bordered">
                       
                           
@@ -48,7 +50,7 @@
 
 
     </div>
-</div>
+
 <div class="col-md-12"></div>
     <div class="card card-plain">
       
