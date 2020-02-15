@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { AuthGuard } from 'app/auth.guard';
 import { MainComponent } from './main.component';
 import { LowWeightBabiesComponent } from '../low-weight-babies/low-weight-babies.component';
+import { EyeProblemsComponent } from '../eye-problems/eye-problems.component';
 
 
 
@@ -18,11 +19,11 @@ export const MainAttenRoutes: Routes = [
               component: LowWeightBabiesComponent,
               canActivate:[AuthGuard]
             },
-        //    {
-        //        path: 'UpdateBabyBook/:babyId',
-        //        component: UpdateBabyBookComponent,
-        //        canActivate:[AuthGuard]
-        //    },
+           {
+               path: 'eyeProblems/:problemType',
+               component: EyeProblemsComponent,
+               canActivate:[AuthGuard]
+           },
         //    {
         //         path:'ViewMotherBabybyID/:babyId',
         //         component:ViewBabybyIDComponent,
