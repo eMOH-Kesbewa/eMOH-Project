@@ -20,6 +20,8 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { Babies } from "./view-babiesof-area.component.routing";
 import { ViewBabiesofAreaComponent } from "./view-babiesof-area.component";
 import { AddmotherbabyjoineddataComponent } from "../addmotherbabyjoineddata/addmotherbabyjoineddata.component";
+import { ImmunizationReportComponent } from 'app/Graphs/immunization-report/immunization-report.component';
+import {MatMenuModule} from '@angular/material/menu';
 import { UpdateBabyBookComponent } from "../update-baby-book/update-baby-book.component";
 import { ViewBabybyIDComponent } from "../view-babyby-id/view-babyby-id.component";
 import { AddWeightHeightComponent } from "../add-weight-height/add-weight-height.component";
@@ -28,7 +30,8 @@ import { HttpLoaderFactory } from "app/app.module";
 import { HttpClient } from "@angular/common/http";
 
 @NgModule({
-    declarations:[ViewBabiesofAreaComponent,AddmotherbabyjoineddataComponent,UpdateBabyBookComponent,ViewBabybyIDComponent],
+    declarations:[ViewBabiesofAreaComponent,AddmotherbabyjoineddataComponent,UpdateBabyBookComponent,
+      ViewBabybyIDComponent,ImmunizationReportComponent],
     imports:[
         Babies,
         CommonModule,
@@ -40,6 +43,7 @@ import { HttpClient } from "@angular/common/http";
         MatInputModule,
         MatSelectModule,
         MatTooltipModule,
+        MatMenuModule,
         MatRadioModule,
         MatDatepickerModule,MatNativeDateModule,
         MatSlideToggleModule,

@@ -55,49 +55,56 @@ class _BabyBasicInfoState extends State<BabyBasicInfo> {
                                     children: <Widget>[
                                       ListTile(
                                         leading: detailIconBasicInfo,
-                                        title: Text(AppLocalizations.of(context).tr('babyid')),
+                                        title: Text(AppLocalizations.of(context)
+                                            .tr('babyid')),
                                         subtitle:
                                             Text(snapshot.data.id.toString()),
                                       ),
                                       div,
                                       ListTile(
                                         leading: detailIconBasicInfo,
-                                        title: Text(AppLocalizations.of(context).tr('MOHArea')),
+                                        title: Text(AppLocalizations.of(context)
+                                            .tr('MOHArea')),
                                         subtitle: Text(
                                             snapshot.data.phmArea.toString()),
                                       ),
                                       div,
                                       ListTile(
                                         leading: detailIconBasicInfo,
-                                        title: Text(AppLocalizations.of(context).tr('PHMArea')),
+                                        title: Text(AppLocalizations.of(context)
+                                            .tr('PHMArea')),
                                         subtitle: Text(
                                             snapshot.data.mohArea.toString()),
                                       ),
                                       div,
                                       ListTile(
                                         leading: detailIconBasicInfo,
-                                        title: Text(AppLocalizations.of(context).tr('name')),
+                                        title: Text(AppLocalizations.of(context)
+                                            .tr('name')),
                                         subtitle:
                                             Text(snapshot.data.name.toString()),
                                       ),
                                       div,
                                       ListTile(
                                         leading: detailIconBasicInfo,
-                                        title: Text(AppLocalizations.of(context).tr('birthday')),
+                                        title: Text(AppLocalizations.of(context)
+                                            .tr('birthday')),
                                         subtitle: Text(
                                             snapshot.data.birthday.toString()),
                                       ),
                                       div,
                                       ListTile(
                                         leading: detailIconBasicInfo,
-                                        title: Text(AppLocalizations.of(context).tr('regDate')),
+                                        title: Text(AppLocalizations.of(context)
+                                            .tr('regDate')),
                                         subtitle: Text(
                                             snapshot.data.regDate.toString()),
                                       ),
                                       div,
                                       ListTile(
                                         leading: detailIconBasicInfo,
-                                        title: Text(AppLocalizations.of(context).tr('mothername')),
+                                        title: Text(AppLocalizations.of(context)
+                                            .tr('mothername')),
                                         subtitle: Text(snapshot
                                             .data.nameOfMother
                                             .toString()),
@@ -105,14 +112,16 @@ class _BabyBasicInfoState extends State<BabyBasicInfo> {
                                       div,
                                       ListTile(
                                         leading: detailIconBasicInfo,
-                                        title: Text(AppLocalizations.of(context).tr('ageOfMother')),
+                                        title: Text(AppLocalizations.of(context)
+                                            .tr('ageOfMother')),
                                         subtitle: Text(snapshot.data.ageOfMother
                                             .toString()),
                                       ),
                                       div,
                                       ListTile(
                                         leading: detailIconBasicInfo,
-                                        title: Text(AppLocalizations.of(context).tr('address')),
+                                        title: Text(AppLocalizations.of(context)
+                                            .tr('address')),
                                         subtitle: Text(
                                             snapshot.data.address.toString()),
                                       ),
@@ -130,7 +139,25 @@ class _BabyBasicInfoState extends State<BabyBasicInfo> {
                             ),
                           ); //Text(snapshot.data.childrenCount);
                         } else if (snapshot.hasError) {
-                          return Text("${snapshot.error}");
+                          return Column(
+                            children: <Widget>[
+                              Icon(
+                                Icons.error_outline,
+                                size: 50.0,
+                                color: Colors.red,
+                              ),
+                              SizedBox(
+                                height: 10.0,
+                              ),
+                              Text(
+                                'Check Your Internet Connection',
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.red),
+                              )
+                            ],
+                          );
+                          ;
                         }
 
                         // By default, show a loading spinner.
@@ -141,12 +168,7 @@ class _BabyBasicInfoState extends State<BabyBasicInfo> {
                 ],
               ),
             ),
-          ) /*Column(
-            children: <Widget>[
-               Text('hellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohelellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohelellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohelellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohelellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohelellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohelellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohelellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohelellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohelellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohelellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohelellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohelellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohelellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohelellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellov')
-            ],
-          )*/
-          ),
+          )),
     );
   }
 }

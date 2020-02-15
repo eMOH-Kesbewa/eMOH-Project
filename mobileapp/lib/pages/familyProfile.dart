@@ -64,7 +64,6 @@ class _FamilyProfileState extends State<FamilyProfile> {
 
     Future family = fetchFamily();
     Future readFile() async {
-      
       String data = await DefaultAssetBundle.of(context)
           .loadString("text/BabyBookSinhala.json");
       text = data;
@@ -100,11 +99,14 @@ class _FamilyProfileState extends State<FamilyProfile> {
             child: FutureBuilder<Family>(
               future: family,
               builder: (context, snapshot) {
-               
                 var data = readFile();
-                logger.wtf(data);
-                if (snapshot.hasData) {
-                   globals.children = int.parse(snapshot.data.childrenCount);
+
+                if (snapshot.connectionState == ConnectionState.waiting) {
+                  return Center(
+                    child: CircularProgressIndicator(),
+                  );
+                } else if (snapshot.hasData) {
+                  globals.children = int.parse(snapshot.data.childrenCount);
                   return SingleChildScrollView(
                     child: Column(
                       children: <Widget>[
@@ -163,11 +165,35 @@ class _FamilyProfileState extends State<FamilyProfile> {
                     ),
                   ); //Text(snapshot.data.childrenCount);
                 } else if (snapshot.hasError) {
-                  return Text("${snapshot.error}");
+                  return Column(
+                    children: <Widget>[
+                      Icon(
+                        Icons.error_outline,
+                        size: 50.0,
+                        color: Colors.red,
+                      ),
+                      SizedBox(
+                        height: 10.0,
+                      ),
+                      Text(
+                        'Check Your Internet Connection',
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, color: Colors.red),
+                      )
+                    ],
+                  );
+                  // return Column(
+                  //   children: <Widget>[
+                  //     Center(
+                  //       child: CircularProgressIndicator(),
+                  //     ),
+                  //     SnackBar(content: Text('Check Your Internet Connection')),
+                  //   ],
+                  // ); //connection error
                 }
 
                 // By default, show a loading spinner.
-                return CircularProgressIndicator();
+                //return CircularProgressIndicator();
               },
             ),
           ),

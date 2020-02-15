@@ -76,6 +76,11 @@ import { RegMotherComponent } from './reg-mother/reg-mother.component';
     LoginComponent,
     RegPHMComponent,
     RegMotherComponent,
+<<<<<<< HEAD
+=======
+    
+    
+>>>>>>> 800bc2d42d7ea9a5176324a03f7efa532c8e6f94
 
     
 
