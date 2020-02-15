@@ -11,10 +11,14 @@ export class SpecialAttentionService {
 
   constructor(private http: HttpClient) { }
 
-  getLowWeightBabies(months){          
-    console.log(months)   
+  getLowWeightBabies(months){            
     let uri = `http://localhost:3000/specialAttention/lowWeightFirstYear/${months}`
     return this.http.get<Weight>(uri)
+   }
+
+   getEyeProblemBabies(problemType){          
+    let uri = `http://localhost:3000/specialAttention/eyeProblems/${problemType}`
+    return this.http.get<any>(uri)
    }
   
 }
