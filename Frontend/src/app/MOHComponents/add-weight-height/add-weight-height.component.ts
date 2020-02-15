@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
+import {MatSnackBar} from '@angular/material/snack-bar';
+
 import { WeightService } from 'app/Services/weight.service';
+
 
 @Component({
   selector: 'app-add-weight-height',
@@ -13,14 +18,14 @@ export class AddWeightHeightComponent implements OnInit {
   submitted = false;
   success = false;
 
-  constructor(private formBuilder: FormBuilder, private addweightService: WeightService) { }
+  constructor(private formBuilder: FormBuilder, private addweightService: WeightService, private router: Router, private activeroute: ActivatedRoute, private _snackBar: MatSnackBar) { }
 
   ngOnInit() {
 
     this.WeightHeightForm = this.formBuilder.group({
       
       baby_id:['', Validators.required],
-      batch_no:['', Validators.required],
+      batch_no:[''],
       name_of_child:['', Validators.required],
       sex:['', Validators.required],
       Date_of_birth:['', Validators.required],
@@ -124,10 +129,17 @@ export class AddWeightHeightComponent implements OnInit {
       .subscribe(
         response=>console.log('Success!',response),
         error=>{
-          if(error) console.log("Failure") 
+          if(error) {
+            this.openSnackBar("Inserted Successfully");
+            this.router.navigate(["ViewWeightTable/"])
+          } 
           else console.log("Success No Errors")
         }
     );
 
+}
+
+openSnackBar(msg) {
+  this._snackBar.open(msg,"OK")
 }
 }
