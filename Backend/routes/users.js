@@ -194,6 +194,7 @@ router.post("/login",(req,res)=>{
             console.log("email,password matched login successed");
             // const token = jwt.sign(user.toJSON(),secret,{expiresIn:604800 });
              const token = jwt.sign(user.toJSON(), 'your_jwt_secret',{expiresIn:604800 });
+
             res.json(
                 {
                     success:true,

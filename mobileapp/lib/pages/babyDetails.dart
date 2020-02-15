@@ -51,16 +51,13 @@ class _BabyDetailsState extends State<BabyDetails> {
         ));
       }
     } catch (e) {
-      setState(() {
-        
-      });//error mesg when no connection
-      final errormsg = 
-      Scaffold(
-        appBar: AppBar(title: Text('Babies'),),
+      setState(() {}); //error mesg when no connection
+      final errormsg = Scaffold(
+        appBar: AppBar(
+          title: Text('Babies'),
+        ),
         body: Column(
-          children: <Widget>[
-            Text('No Internet Connection')
-          ],
+          children: <Widget>[Text('No Internet Connection')],
         ),
       );
     }
@@ -72,16 +69,16 @@ class _BabyDetailsState extends State<BabyDetails> {
       onChanged: (String value) {
         setState(() {
           try {
-            //babyid = 1A100101
-            //familyid = 1A1001
+            //babyid = 1A100401
+            //familyid = 1A1004
             _value = '0' + value;
-            String tempId = globals.familyId + _value; //generating baby id
+            // String tempId = globals.familyId + _value; //generating baby id
             print(globals.familyId);
-            logger.v(tempId.substring(0, 6));
+            // logger.v(tempId.substring(0, 6));
             //globals.babyId = tempId.substring(0, 6) + _value;
             globals.babyId = globals.familyId + _value;
             print('baby id');
-            print(globals.babyId);
+            logger.i(globals.babyId);
             hintText = 'Baby' + '${value}';
           } catch (e) {
             return Text('Error');

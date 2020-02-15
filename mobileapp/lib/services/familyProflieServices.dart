@@ -11,7 +11,7 @@ var logger = Logger();
 
 Future<Family> fetchFamily() async {
   print('fetch family function');
- SharedPreferences prefs = await SharedPreferences.getInstance();
+  SharedPreferences prefs = await SharedPreferences.getInstance();
   //   final jwtDetails = await http.get('https://protected-bayou-52277.herokuapp.com/users/profile',headers: ).then((res){
   //   logger.wtf(res.body);
   // });
@@ -20,7 +20,8 @@ Future<Family> fetchFamily() async {
   var x = await globals.getGlobals();
   logger.e(globals.globalEmail);
   final response = await http.get(
-      'https://protected-bayou-52277.herokuapp.com/families/viewbyid/${globals.globalEmail}',headers: {'token':prefs.getString('jwt')});
+      'https://emohback.herokuapp.com/families/viewbyid/${globals.globalEmail}',
+      headers: {'token': prefs.getString('jwt')});
   print('status code');
   print(response.statusCode);
   print(response.body);
@@ -52,13 +53,21 @@ class Family {
     globals.familyId = json['Identity_number'];
     print('*********famid******');
     print(globals.familyId);
+    logger.i(
+      json['Identity_number'],
+    );
+    logger.i(json['village_id']);
+    logger.i(json['Name_of_wife']);
+    logger.i(json['Name_of_husband']);
+    logger.i(json['Address']);
+    logger.i(json['Number_of_living_children'].toString());
     return Family(
       idNumber: json['Identity_number'],
       vilID: json['village_id'],
       wifeName: json['Name_of_wife'],
       husbandName: json['Name_of_husband'],
       address: json['Address'],
-      childrenCount: json['numberofyoungchildren'].toString(),
+      childrenCount: json['Number_of_living_children'].toString(),
     );
   }
 }
