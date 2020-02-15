@@ -162,7 +162,93 @@ router.get('/eyeProblems/RightSightProblem', (req, res) => {
 
 });
 
+router.get('/hearingProblems/left', (req, res) => {
+    babyBook.find({ one_month_hearing_right : "False" }, (err, doc) => {
+       if (doc.length) {
+           res.send(doc);
+           console.log(doc);
+       }
+       else {
+           console.log('Cannot find the record');
+           res.status(500).send("Cannot find the record");
+       }
+   });
+
+});
+
+router.get('/hearingProblems/right', (req, res) => {
+    babyBook.find({ one_month_hearing_right : "False" }, (err, doc) => {
+       if (doc.length) {
+           res.send(doc);
+           console.log(doc);
+       }
+       else {
+           console.log('Cannot find the record');
+           res.status(500).send("Cannot find the record");
+       }
+   });
+
+});
+
+router.get('/dental/whiteBrownSpots', (req, res) => {
+    babyBook.find({ one_month_hearing_right : "True" }, (err, doc) => {
+       if (doc.length) {
+           res.send(doc);
+           console.log(doc);
+       }
+       else {
+           console.log('Cannot find the record');
+           res.status(500).send("Cannot find the record");
+       }
+   });
+
+});
 
 
+router.get('/dental/caries', (req, res) => {
+    babyBook.find({ one_month_hearing_right : "True" }, (err, doc) => {
+       if (doc.length) {
+           res.send(doc);
+           console.log(doc);
+       }
+       else {
+           console.log('Cannot find the record');
+           res.status(500).send("Cannot find the record");
+       }
+   });
+
+});
+
+
+router.get('/dental/cavities', (req, res) => {
+    babyBook.find({ one_month_hearing_right : "True" }, (err, doc) => {
+       if (doc.length) {
+           res.send(doc);
+           console.log(doc);
+       }
+       else {
+           console.log('Cannot find the record');
+           res.status(500).send("Cannot find the record");
+       }
+   });
+
+});
+
+
+
+
+router.get('/heart/diseases', (req, res) => {
+    babyBook.find({ one_month_heart_disease : "True" }, (err, doc) => {
+       if (doc.length) {
+           res.send(doc);
+           console.log(doc);
+       }
+       else {
+           console.log('Cannot find the record');
+           res.status(500).send("Cannot find the record");
+       }
+   });
+
+});
 
 module.exports = router;

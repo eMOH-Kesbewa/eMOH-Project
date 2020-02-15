@@ -20,5 +20,21 @@ export class SpecialAttentionService {
     let uri = `http://localhost:3000/specialAttention/eyeProblems/${problemType}`
     return this.http.get<any>(uri)
    }
+
+   getHearingProblemBabies(problemType){          
+    let uri = `http://localhost:3000/specialAttention/hearingProblems/${problemType}`
+    return this.http.get<any>(uri)
+   }
+
+   getDentalProblemsBabies(problemType){          
+    let uri = `http://localhost:3000/specialAttention/dental/${problemType}`
+    return this.http.get<any>(uri)
+   }
+
+   getHeartProblemsBabies(problemType){          
+    let uri = `http://localhost:3000/specialAttention/heart/${problemType}`
+    return this.http.get<any>(uri)
+   }
+
   
 }
