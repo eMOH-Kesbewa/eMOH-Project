@@ -26,16 +26,6 @@ Future<Baby> fetchBaby() async {
 }
 
 class Baby {
-  // final String name;
-  // final String id;
-  // final String birthday;
-  // final String regDate;
-  // final String nameOfMother;
-  // final String ageOfMother;
-  // final String address;
-  // //final String childrenCount;
-  // final String phmArea;
-  // final String mohArea;
   final String oneSkin, sixSkin, fourteenSkin, fourtyTwoSkin;
   final String oneEyes, sixEyes, fourteenEyes, fourtyTwoEyes;
   final String oneLob, sixLob, fourteenLob, fourtyTwoLob;

@@ -23,96 +23,320 @@ class _HelthChartState extends State<HelthChart> {
           body: FutureBuilder<Baby>(
             future: fetchBaby(),
             builder: (context, snapshot) {
+              String date1, date2, date3, date4;
+              String oneSkin, sixSkin, fourteenSkin, fourtyTwoSkin;
+              String oneEyes, sixEyes, fourteenEyes, fourtyTwoEyes;
+              String oneLob, sixLob, fourteenLob, fourtyTwoLob;
+              String oneTemp, sixTemp, fourteenTemp, fourtyTwoTemp;
+              String oneOnlyBreast,
+                  sixOnlyBreast,
+                  fourteenOnlyBreast,
+                  fourtyTwoOnlyBreast;
+              String oneBreastStab,
+                  sixBreastStab,
+                  fourteenBreastStab,
+                  fourtyTwoBreastStab;
+              String oneBreastCon,
+                  sixBreastCon,
+                  fourteenBreastCon,
+                  fourtyTwoBreastCon;
+              String oneOther, sixOther, fourteenOther, fourtyTwoOther;
+
               if (snapshot.connectionState == ConnectionState.waiting) {
                 return Center(
                   child: CircularProgressIndicator(),
                 );
-              } else {
+              } else if (snapshot.hasData) {
+
+                //Date
+                if (snapshot.data.date1 == null) {
+                  date1 = "No Data";
+                } else {
+                  date1 = snapshot.data.date1;
+                }
+                if (snapshot.data.date2 == null) {
+                  date2 = "No Data";
+                } else {
+                  date2 = snapshot.data.date2;
+                }
+                if (snapshot.data.date3 == null) {
+                  date3 = "No Data";
+                } else {
+                  date3 = snapshot.data.date3;
+                }
+                if (snapshot.data.date4 == null) {
+                  date4 = "No Data";
+                } else {
+                  date4 = snapshot.data.date4;
+                }
+
+                //Skin
+
+                if (snapshot.data.oneSkin == null) {
+                  oneSkin = "No Data";
+                } else {
+                  oneSkin = snapshot.data.oneSkin;
+                }
+
+                if (snapshot.data.sixSkin == null) {
+                  sixSkin = "No Data";
+                } else {
+                  sixSkin = snapshot.data.sixSkin;
+                }
+                if (snapshot.data.fourteenSkin == null) {
+                  fourteenSkin = "No Data";
+                } else {
+                  fourteenSkin = snapshot.data.fourteenSkin;
+                }
+                if (snapshot.data.fourtyTwoSkin == null) {
+                  fourtyTwoSkin = "No Data";
+                } else {
+                  fourtyTwoSkin = snapshot.data.fourtyTwoSkin;
+                }
+
+                //Eyes
+                if (snapshot.data.oneEyes == null) {
+                  oneEyes = "No Data";
+                } else {
+                  oneEyes = snapshot.data.oneEyes;
+                }
+                if (snapshot.data.sixEyes == null) {
+                  sixEyes = "No Data";
+                } else {
+                  sixEyes = snapshot.data.sixEyes;
+                }
+                if (snapshot.data.fourteenEyes == null) {
+                  fourteenEyes = "No Data";
+                } else {
+                  fourteenEyes = snapshot.data.fourteenEyes;
+                }
+                if (snapshot.data.fourtyTwoEyes == null) {
+                  fourtyTwoEyes = "No Data";
+                } else {
+                  fourtyTwoEyes = snapshot.data.fourtyTwoEyes;
+                }
+
+                //Navel
+                if (snapshot.data.oneLob == null) {
+                  oneLob = "No Data";
+                } else {
+                  oneLob = snapshot.data.oneLob;
+                }
+                if (snapshot.data.sixLob == null) {
+                  sixLob = "No Data";
+                } else {
+                  sixLob = snapshot.data.sixLob;
+                }
+                if (snapshot.data.fourteenLob == null) {
+                  fourteenLob = "No Data";
+                } else {
+                  fourteenLob = snapshot.data.fourteenLob;
+                }
+                if (snapshot.data.fourtyTwoLob == null) {
+                  fourtyTwoLob = "No Data";
+                } else {
+                  fourtyTwoLob = snapshot.data.fourtyTwoLob;
+                }
+
+                //Temperature
+                if (snapshot.data.oneTemp == null) {
+                  oneTemp = "No Data";
+                } else {
+                  oneTemp = snapshot.data.oneTemp;
+                }
+                if (snapshot.data.sixTemp == null) {
+                  sixTemp = "No Data";
+                } else {
+                  sixTemp = snapshot.data.sixTemp;
+                }
+                if (snapshot.data.fourteenTemp == null) {
+                  fourteenTemp = "No Data";
+                } else {
+                  fourteenTemp = snapshot.data.fourteenTemp;
+                }
+                if (snapshot.data.fourtyTwoTemp == null) {
+                  fourtyTwoTemp = "No Data";
+                } else {
+                  fourtyTwoTemp = snapshot.data.fourtyTwoTemp;
+                }
+
+                //Only Breastfeeding
+                if (snapshot.data.oneOnlyBreast == null) {
+                  oneOnlyBreast = "No Data";
+                } else {
+                  oneOnlyBreast = snapshot.data.oneOnlyBreast;
+                }
+                if (snapshot.data.sixOnlyBreast == null) {
+                  sixOnlyBreast = "No Data";
+                } else {
+                  sixOnlyBreast = snapshot.data.sixOnlyBreast;
+                }
+                if (snapshot.data.fourteenOnlyBreast == null) {
+                  fourteenOnlyBreast = "No Data";
+                } else {
+                  fourteenOnlyBreast = snapshot.data.fourteenOnlyBreast;
+                }
+                if (snapshot.data.fourtyTwoOnlyBreast == null) {
+                  fourtyTwoOnlyBreast = "No Data";
+                } else {
+                  fourtyTwoOnlyBreast = snapshot.data.fourtyTwoOnlyBreast;
+                }
+
+                //Breastfeeding Stab
+                if (snapshot.data.oneBreastStab == null) {
+                  oneBreastStab = "No Data";
+                } else {
+                  oneBreastStab = snapshot.data.oneBreastStab;
+                }
+                if (snapshot.data.sixBreastStab == null) {
+                  sixBreastStab = "No Data";
+                } else {
+                  sixBreastStab = snapshot.data.sixBreastStab;
+                }
+                if (snapshot.data.fourteenBreastStab == null) {
+                  fourteenBreastStab = "No Data";
+                } else {
+                  fourteenBreastStab = snapshot.data.fourteenBreastStab;
+                }
+                if (snapshot.data.fourtyTwoBreastStab == null) {
+                  fourtyTwoBreastStab = "No Data";
+                } else {
+                  fourtyTwoBreastStab = snapshot.data.fourtyTwoBreastStab;
+                }
+
+                //Breastfeeding Con
+                if (snapshot.data.oneBreastCon == null) {
+                  oneBreastCon = "No Data";
+                } else {
+                  oneBreastCon = snapshot.data.oneBreastCon;
+                }
+                if (snapshot.data.sixBreastCon == null) {
+                  sixBreastCon = "No Data";
+                } else {
+                  sixBreastCon = snapshot.data.sixBreastCon;
+                }
+                if (snapshot.data.fourteenBreastCon == null) {
+                  fourteenBreastCon = "No Data";
+                } else {
+                  fourteenBreastCon = snapshot.data.fourteenBreastCon;
+                }
+                if (snapshot.data.fourtyTwoBreastCon == null) {
+                  fourtyTwoBreastCon = "No Data";
+                } else {
+                  fourtyTwoBreastCon = snapshot.data.fourtyTwoBreastCon;
+                }
+
+                //Others
+                if (snapshot.data.oneOther == null) {
+                  oneOther = "No Data";
+                } else {
+                  oneOther = snapshot.data.oneOther;
+                }
+                if (snapshot.data.oneOther == null) {
+                  sixOther = "No Data";
+                } else {
+                  sixOther = snapshot.data.sixOther;
+                }
+                if (snapshot.data.fourteenOther == null) {
+                  fourteenOther = "No Data";
+                } else {
+                  fourteenOther = snapshot.data.fourteenOther;
+                }
+                if (snapshot.data.fourtyTwoOther == null) {
+                  fourtyTwoOther = "No Data";
+                } else {
+                  fourtyTwoOther = snapshot.data.fourtyTwoOther;
+                }
+
                 return SingleChildScrollView(
                   child: Column(
                     children: <Widget>[
                       HelthCard(
                           AppLocalizations.of(context).tr('skincolor'),
-                          snapshot.data.oneSkin,
-                          snapshot.data.sixSkin,
-                          snapshot.data.fourteenSkin,
-                          snapshot.data.fourtyTwoSkin,
-                          snapshot.data.date1,
-                          snapshot.data.date2,
-                          snapshot.data.date3,
-                          snapshot.data.date4),
+                          oneSkin,
+                          sixSkin,
+                          fourteenSkin,
+                          fourtyTwoSkin,
+                          date1,
+                          date2,
+                          date3,
+                          date4),
                       HelthCard(
                           AppLocalizations.of(context).tr('eyeschart'),
-                          snapshot.data.oneEyes,
-                          snapshot.data.sixEyes,
-                          snapshot.data.fourteenEyes,
-                          snapshot.data.fourtyTwoEyes,
-                          snapshot.data.date1,
-                          snapshot.data.date2,
-                          snapshot.data.date3,
-                          snapshot.data.date4),
+                          oneEyes,
+                          sixEyes,
+                          fourteenEyes,
+                          fourtyTwoEyes,
+                          date1,
+                          date2,
+                          date3,
+                          date4),
                       HelthCard(
                           AppLocalizations.of(context).tr('natureofnavel'),
-                          snapshot.data.oneLob,
-                          snapshot.data.sixLob,
-                          snapshot.data.fourteenLob,
-                          snapshot.data.fourtyTwoLob,
-                          snapshot.data.date1,
-                          snapshot.data.date2,
-                          snapshot.data.date3,
-                          snapshot.data.date4),
+                          oneLob,
+                          sixLob,
+                          fourteenLob,
+                          fourtyTwoLob,
+                          date1,
+                          date2,
+                          date3,
+                          date4),
                       HelthCard(
                           AppLocalizations.of(context).tr('temperature'),
-                          snapshot.data.oneTemp,
-                          snapshot.data.sixTemp,
-                          snapshot.data.fourteenTemp,
-                          snapshot.data.fourtyTwoTemp,
-                          snapshot.data.date1,
-                          snapshot.data.date2,
-                          snapshot.data.date3,
-                          snapshot.data.date4),
+                          oneTemp,
+                          sixTemp,
+                          fourteenTemp,
+                          fourtyTwoTemp,
+                          date1,
+                          date2,
+                          date3,
+                          date4),
                       HelthCard(
                           AppLocalizations.of(context).tr('onlybreast'),
-                          snapshot.data.oneOnlyBreast,
-                          snapshot.data.sixOnlyBreast,
-                          snapshot.data.fourteenOnlyBreast,
-                          snapshot.data.fourtyTwoOnlyBreast,
-                          snapshot.data.date1,
-                          snapshot.data.date2,
-                          snapshot.data.date3,
-                          snapshot.data.date4),
+                          oneOnlyBreast,
+                          sixOnlyBreast,
+                          fourteenOnlyBreast,
+                          fourtyTwoOnlyBreast,
+                          date1,
+                          date2,
+                          date3,
+                          date4),
                       HelthCard(
                           AppLocalizations.of(context).tr('breaststab'),
-                          snapshot.data.oneBreastStab,
-                          snapshot.data.sixBreastStab,
-                          snapshot.data.fourteenBreastStab,
-                          snapshot.data.fourtyTwoBreastStab,
-                          snapshot.data.date1,
-                          snapshot.data.date2,
-                          snapshot.data.date3,
-                          snapshot.data.date4),
+                          oneBreastStab,
+                          sixBreastStab,
+                          fourteenBreastStab,
+                          fourtyTwoBreastStab,
+                          date1,
+                          date2,
+                          date3,
+                          date4),
                       HelthCard(
                           AppLocalizations.of(context).tr('breastcon'),
-                          snapshot.data.oneBreastCon,
-                          snapshot.data.sixBreastCon,
-                          snapshot.data.fourteenBreastStab,
-                          snapshot.data.fourtyTwoBreastStab,
-                          snapshot.data.date1,
-                          snapshot.data.date2,
-                          snapshot.data.date3,
-                          snapshot.data.date4),
+                          oneBreastCon,
+                          sixBreastCon,
+                          fourteenBreastCon,
+                          fourtyTwoBreastCon,
+                          date1,
+                          date2,
+                          date3,
+                          date4),
                       HelthCard(
                           AppLocalizations.of(context).tr('others'),
-                          snapshot.data.oneOther,
-                          snapshot.data.sixOther,
-                          snapshot.data.fourteenOther,
-                          snapshot.data.fourtyTwoTemp,
-                          snapshot.data.date1,
-                          snapshot.data.date2,
-                          snapshot.data.date3,
-                          snapshot.data.date4),
+                          oneOther,
+                          sixOther,
+                          fourteenOther,
+                          fourtyTwoOther,
+                          date1,
+                          date2,
+                          date3,
+                          date4),
                     ],
                   ),
+                );
+              } else {
+                return Center(
+                  child: CircularProgressIndicator(),
                 );
               }
             },
