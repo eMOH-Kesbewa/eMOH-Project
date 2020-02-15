@@ -16,7 +16,7 @@
       <div class="col-md-3" ><button (click)="saveToPdf()" class="btn btn-info btn-block">Export As PDF</button></div>
         <div class="card">
             <div class="card-header">
-                <h4 class="card-title "><h3>Babies Who Have Eye Problems</h3></h4> 
+                <h4 class="card-title "><h3>Babies Who Have Heart Problems</h3></h4> 
                 <h5 class="card-category">{{ 'click_individual' | translate }}</h5>
             </div>
             <div class="card-body" id="element-to-export">
@@ -32,11 +32,11 @@
 
                               
                               <tbody>
-                              <tr *ngFor="let eyeProblemBabyData of eyeProblemBabyDatas" (click)="onClickMe(eyeProblemBabyData.baby_id)" style="cursor:pointer">
-                                <td>{{eyeProblemBabyData.baby_id}}</td>
-                                <td>{{eyeProblemBabyData.name_of_child}}</td>
-                                <td>{{eyeProblemBabyData.address}}</td>
-                                <td>{{eyeProblemBabyData.date_of_birth_of_child | date: 'yyyy/MM/dd'}}</td>
+                              <tr *ngFor="let heartProblemBabyData of heartProblemBabyDatas" (click)="onClickMe(heartProblemBabyData.baby_id)" style="cursor:pointer">
+                                <td>{{heartProblemBabyData.baby_id}}</td>
+                                <td>{{heartProblemBabyData.name_of_child}}</td>
+                                <td>{{heartProblemBabyData.address}}</td>
+                                <td>{{heartProblemBabyData.date_of_birth_of_child | date: 'yyyy/MM/dd'}}</td>
                               </tr>
                       </tbody>
                      

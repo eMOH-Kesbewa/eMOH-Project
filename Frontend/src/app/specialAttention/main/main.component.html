@@ -12,9 +12,9 @@
             </div>
             <div class="card-body">
               <div class="row">
-                <div class="col-md-4">
-                      <button class="btn btn-info btn-block" mat-button [matMenuTriggerFor]="menu">View Low Weight Babies</button>
-                            <mat-menu #menu="matMenu">
+                <div class="col-md-6">
+                      <button class="btn btn-info btn-block" mat-button [matMenuTriggerFor]="menu1">View Low Weight Babies</button>
+                            <mat-menu #menu1="matMenu">
                           
                             <a mat-menu-item [matMenuTriggerFor]="firstYear">First Year</a>
                             <a mat-menu-item  [matMenuTriggerFor]="secondYear">Second Year</a>
@@ -39,7 +39,7 @@
 
                             </mat-menu>
                 </div>
-                <div class="col-md-5">
+                <div class="col-md-6">
                         <button class="btn btn-info btn-block" mat-button [matMenuTriggerFor]="menu">Babies Who Have Eye Problems</button>
                             <mat-menu #menu="matMenu">
                             
@@ -56,6 +56,33 @@
 
                           
                 </div>
+                
+                <div class="col-md-6">
+                        <button class="btn btn-info btn-block" mat-button [matMenuTriggerFor]="menu3">Babies Who Have Hearing Problems</button>
+                            <mat-menu #menu3="matMenu">
+                            <a mat-menu-item routerLink="hearingProblems/left">Left Hearing Problems</a>
+                            <a mat-menu-item routerLink="hearingProblems/right">Right Hearing Problems</a>
+                            </mat-menu>  
+                </div>
+
+                <div class="col-md-6">
+                    <button class="btn btn-info btn-block" mat-button [matMenuTriggerFor]="menu4">Babies Who Have Dental Problems</button>
+                        <mat-menu #menu4="matMenu">
+                        <a mat-menu-item routerLink="dental/caries">Dental Caries</a>
+                        <a mat-menu-item routerLink="dental/whiteBrownSpots">White Brown Spots</a>
+                        <a mat-menu-item routerLink="dental/cavities">Dental Cavities</a>
+                        </mat-menu>  
+                </div>
+                <div class="col-md-3"></div>
+                <div class="col-md-6">
+                    <button class="btn btn-info btn-block" mat-button [matMenuTriggerFor]="menu5">Babies Who Have Heart Problems</button>
+                    <mat-menu #menu5="matMenu">
+                        <a mat-menu-item routerLink="heart/diseases">Heart Diseases</a>
+                        </mat-menu>  
+                </div>
+                <div class="col-md-3"></div>
+                
+            
             </div>
           </div>
          </div>
