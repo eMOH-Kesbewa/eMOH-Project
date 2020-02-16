@@ -355,14 +355,14 @@ Future updateDetails(
     ) async {
   //Map query = {'baby_id' : 'A0000101'};
   Map data = {
-    'baby_id': 'A0000101',
+    'baby_id': globals.babyId,
     field : value,
     
   };
   //Map data = {'does_the_child_look_good_on_your_face': face.toString()};
 
   var response = await http.put(
-      "https://protected-bayou-52277.herokuapp.com/babies/update/${globals.babyId}",
+      "https://emohback.herokuapp.com/babies/update/${globals.babyId}",
       body: data);
   print("****status");
   print(response.statusCode);

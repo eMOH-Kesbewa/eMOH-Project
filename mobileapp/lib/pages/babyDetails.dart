@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:logger/logger.dart';
 //import 'package:mobileapp/pages/babyInfo/basicInfo.dart';
 import 'package:mobileapp/pages/babyInfo/babyBasicInfo.dart';
 import 'package:mobileapp/pages/babyInfo/babyprotection.dart';
@@ -17,6 +18,8 @@ import 'package:mobileapp/pages/babyInfo/worm.dart';
 import 'package:easy_localization/easy_localization.dart';
 
 import '../services/globals.dart' as globals;
+
+Logger logger = Logger();
 
 class BabyDetails extends StatefulWidget {
   @override
