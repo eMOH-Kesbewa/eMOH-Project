@@ -69,8 +69,12 @@ export class RegMotherComponent implements OnInit {
     this.authService.registerUser(this.regMotherForm.value).subscribe(
       res=>{
         console.log(res);
-        let snackBarRef = this.snackBar.open("User Has been Registered", 'OK');
-        this.router.navigate(['viewApprovedFamilies/AddApprovedFamilies']);
+        if(res=="EqualEmail"){
+          let snackBarRef = this.snackBar.open("The Email You Entered is in the Database, Enter another Email", 'OK');
+        }else{
+          let snackBarRef = this.snackBar.open("User Has been Registered", 'OK');
+          this.router.navigate(['viewApprovedFamilies/AddApprovedFamilies']);
+        }
       },  
       err=> {
         console.log(err)

@@ -75,26 +75,33 @@ module.exports = router;
 
 router.post("/register",function(req,res){
     userDetails = req.body;
-    const newUser = new useraccounts({
-        userid:req.body.userid,
-        username:req.body.username,
-        password:req.body.password,
-        role:req.body.role,
-        areaId:req.body.areaId
-    });
 
-    User.adduser(newUser,function(err,user){
-        if(err){
-           res.json({state:false,msg:"data not insereted"});
-        }
-        if(user){
-            sendMail(userDetails,info => {
-                console.log(`The mails has been send and the id is ${info.messageId}`);
-              });
-            res.json({state:true,msg:"data inserted"});
+    useraccounts.find({ username: userDetails['username'] }, (err, doc) => {
+        if (doc.length) {
+            res.json("EqualEmail");
+            console.log(doc);
+        }else{
+            const newUser = new useraccounts({
+                userid:req.body.userid,
+                username:req.body.username,
+                password:req.body.password,
+                role:req.body.role,
+                areaId:req.body.areaId
+            });
+        
+            User.adduser(newUser,function(err,user){
+                if(err){
+                   res.json({state:false,msg:"data not insereted"});
+                }
+                if(user){
+                    sendMail(userDetails,info => {
+                        console.log(`The mails has been send and the id is ${info.messageId}`);
+                      });
+                    res.json({state:true,msg:"data inserted"});
+                }
+            });
         }
     });
-
 });
 
 
