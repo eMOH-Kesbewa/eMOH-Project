@@ -19,9 +19,9 @@ var Phms = new Schema({
     "Number_of_child_death_for_year":Number,
 
     // 01.Approved family details
-    "No_of_approved_families_start_of_month":Number,
+    // "No_of_approved_families_start_of_month":Number,
     "No_of_new_registered_family":Number,
-    "No_of_removed_family_from_form":Number,
+    // "No_of_removed_family_from_form":Number,
     "No_of_house_walking":Number,
     //"No_of_new_married_couple":Number,
 
@@ -56,8 +56,7 @@ var Phms = new Schema({
     "No_of_out_of_registered_not_permanant_mothers":Number,
     "No_of_out_of_notregistered_permanant_mothers":Number,
     "No_of_out_of_notregistered_notpermanant_mothers":Number,
-    "No_of_permanant_mothers_removed_from_village":Number,
-    "No_of_notpermanant_mothers_removed_from_village":Number,
+    
 
     // 03. MOTHER PROTECTIONS AT DELIVERY
 
@@ -182,14 +181,14 @@ var Phms = new Schema({
     // "Other3_no":Number,
 
     // 07.CHILD PROTECTION
-    "No_of_child":Number,
+    // "No_of_child":Number,
     "No_of_registered_child":Number,
-    "No_of_removed_child":Number,
+    // "No_of_removed_child":Number,
     "New_house_walking_after_fourtytwo_days":Number,
     "Old_house_walking_after_fourtytwo_days":Number,
     "Join_to_the_clinic_first_month":Number,
     "Join_to_the_clinic_after_month":Number,
-    "Join_to_the_clinic_old":Number,
+    // "Join_to_the_clinic_old":Number,
     "No_of_child_measured_weight_at_clinic":Number,
     "No_of_child_measured_weight_at_weight_clinic":Number,
     "Low_weight_child":Number,
@@ -197,6 +196,7 @@ var Phms = new Schema({
     "High_weight_child":Number,
     "give_vitamine_A_six_month":Number,
     "give_vitamine_A_twelve_month":Number,
+
     "No_of_child_death_between_one_seven_days":Number,
     "No_of_child_death_between_eight_twentyeight_days":Number,
     "No_of_child_death_at_birth":Number,
@@ -249,76 +249,48 @@ var Phms = new Schema({
     "Other_numb":Number,
     "No_of_aefi_child":Number,
 
-    // 09. Child and newyoungers
-    "No_of_new_youngers":Number,
-    "No_of_new_registered_new_youngers":Number,
-    "No_of_removed_new_youngers":Number,
-    "No_of_house_walking_new_youngers":Number,
-    "No_of_problems":Number,
-    "No_of_enter_phm":Number,
-    "No_of_referes":Number,
-    "No_of_death_between_5_10_yr":Number,
-    "no_of_death_between_10_19_yr":Number,
+    // // 09. Child and newyoungers
+    // "No_of_new_youngers":Number,
+    // "No_of_new_registered_new_youngers":Number,
+    // "No_of_removed_new_youngers":Number,
+    // "No_of_house_walking_new_youngers":Number,
+    // "No_of_problems":Number,
+    // "No_of_enter_phm":Number,
+    // "No_of_referes":Number,
+    // "No_of_death_between_5_10_yr":Number,
+    // "no_of_death_between_10_19_yr":Number,
 
     // SEVEN PAGE
     // FAMILY PLANNING
 
-    "No_of_couples_start_month_tablet":Number,
+    
     "New_identified_tablet":Number,
     "Removed_tablet":Number,
     "No_of_packet":Number,
-
-    "No_of_couples_start_month_injection":Number,
     "New_identified_injection":Number,
     "Removed_injection":Number,
-
-    "No_of_couples_start_month_uterus":Number,
     "New_identified_uterus":Number,
     "Removed_uterus":Number,
-
-    "No_of_couples_start_month_hormona":Number,
     "New_identified_hormona":Number,
     "Removed_hormona":Number,
-
-    "No_of_couples_start_month_condom":Number,
     "New_identified_condom":Number,
     "Removed_condom":Number,
-
-    "No_of_couples_start_month_lady":Number,
     "New_identified_lady":Number,
     "Removed_lady":Number,
-
-    "No_of_couples_start_month_man":Number,
     "New_identified_man":Number,
     "Removed_man":Number,
-
     "Total_couples_using_new_family_palning":Number,
-
-    "No_of_couples_start_month_old":Number,
     "New_identified_old":Number,
     "accept_new_old":Number,
     "Removed_old":Number,
-
-    "No_of_couples_start_month_not_use":Number,
     "New_identified_not_use":Number,
     "accept_use":Number,
     "Removed_not_use":Number,
-
-    // EIGHT PAGE
-
-    "No_of_couples_start_month_madasaru":Number,
     "New_identified_madasaru":Number,
     "prganant_that_month_madasaru":Number,
     "Removed_madasaru":Number,
     "Reffer_madasaru":Number,
-
-    "Fail_family_plan_one_detail":String,
     "Fail_family_plan_one":Number,
-    "Fail_family_plan_two_detai":String,
-    "Fail_family_plan_two":Number,
-    // "Fail_family_plan_three_detail":String,
-    // "Fail_family_plan_three":Number,
-
     "No_of_high_infections":Number,
     "No_of_house_walking_new_famiy_planners":Number,
 
@@ -338,14 +310,7 @@ var Phms = new Schema({
     "No_of_special_clinics":Number,
     "No_of_school_clinic":Number,
 
-    // 13.VISITING
-    "Officer":Number,
-    "Health_officer":Number,
-    "Deputy_officer":Number,
-    "Nurse":Number,
-    "Mo_nurse":Number,
-    "Phm":Number,
-    // "date":Date
+    
 
 
 }, 

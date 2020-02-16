@@ -17,4 +17,10 @@ export class PhmdailyupdateService {
     console.log(userData)
     return this.http.post<any>(this.__url,userData);
    }
+
+   Monthlyreport(year,month){             //monthly report
+    console.log(year,month)
+    let uri = `http://localhost:3000/phms/MonthlyReport/${year}/${month}`;
+    return this.http.get<any>(uri)
+   }
 }

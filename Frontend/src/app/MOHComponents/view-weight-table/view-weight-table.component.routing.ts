@@ -5,6 +5,7 @@ import { AddWeightHeightComponent } from '../add-weight-height/add-weight-height
 import { ViewWeightByIdComponent } from '../view-weight-by-id/view-weight-by-id.component';
 import { WeightHeightGraphbyIdComponent } from 'app/Graphs/weight-height-graphby-id/weight-height-graphby-id.component';
 import { PhmDailyReportsComponent } from '../phm-daily-reports/phm-daily-reports.component';
+import { MonthlyReportComponent } from '../monthly-report/monthly-report.component';
 
 
 
@@ -28,6 +29,10 @@ export const WeightHeightRoutes: Routes = [
             {
                 path:'phmReports',
                 component:  PhmDailyReportsComponent
+            },
+            {
+                path:'MonthlyReport/:year/:month',
+                component: MonthlyReportComponent
             }
 
 

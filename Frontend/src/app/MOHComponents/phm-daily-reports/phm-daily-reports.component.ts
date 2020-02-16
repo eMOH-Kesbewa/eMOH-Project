@@ -21,10 +21,10 @@ export class PhmDailyReportsComponent implements OnInit {
   ngOnInit() {
     this.phmForm = this.formBuilder.group({
       
-      MOH_division: ['', Validators.required],
+      // MOH_division: ['', Validators.required],
       date_of_today : ['', Validators.required],
-      Batch_no : ['', Validators.required],
-      Division : ['', Validators.required],
+      // Batch_no : ['', Validators.required],
+      // Division : ['', Validators.required],
       Moh_population_urban :[''],
       Moh_population_rural :[''],
       Moh_population_other :[''],
@@ -345,6 +345,7 @@ export class PhmDailyReportsComponent implements OnInit {
       Mo_nurse:[''],
       Phm:[''],
     });
+    
   }
 
   onSubmit() {

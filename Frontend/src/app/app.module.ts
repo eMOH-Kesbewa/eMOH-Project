@@ -37,6 +37,8 @@ import { AuthGuard } from './auth.guard';
 import { RegPHMComponent } from './reg-phm/reg-phm.component';
 import { RegMotherComponent } from './reg-mother/reg-mother.component';
 
+
+
 @NgModule({
   imports: [
     BrowserAnimationsModule,
@@ -76,6 +78,10 @@ import { RegMotherComponent } from './reg-mother/reg-mother.component';
     LoginComponent,
     RegPHMComponent,
     RegMotherComponent,
+   
+    
+    
+    
 
     
 
