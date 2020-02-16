@@ -4,6 +4,9 @@ import 'package:mobileapp/widgets/doctorNotesCard.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:easy_localization/easy_localization_provider.dart';
 
+List<String> date = List();
+List<String> notes = List();
+
 class DoctorNotes extends StatefulWidget {
   @override
   _DoctorNotesState createState() => _DoctorNotesState();
@@ -11,6 +14,18 @@ class DoctorNotes extends StatefulWidget {
 
 class _DoctorNotesState extends State<DoctorNotes> {
   List<DoctorNotesCard> refcard = <DoctorNotesCard>[];
+  Future baby = fetchBaby();
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    baby.then((it) {
+      it.date = date;
+      it.notes = notes;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     var data = EasyLocalizationProvider.of(context).data;
@@ -32,20 +47,20 @@ class _DoctorNotesState extends State<DoctorNotes> {
                     );
                   } else if (snapshot.hasData) {
                     try {
-                      if (snapshot.data.date == null) {
-                        loop = 1;
-                      } else {
-                        loop = snapshot.data.date.length.toInt();
+                      if (date.length == 0) {
+                        date[1] = 'No Data';
+                        notes[1] = 'No Data';
                       }
+                      loop = date.length.toInt();
 
                       // loop = snapshot.data.date.length.toInt();
 
                       for (int i = 0; i < loop; i++) {
-                        String date = snapshot.data.date[i];
+                        String datex = date[i];
 
-                        String notes = snapshot.data.notes[i];
+                        String notesx = notes[i];
 
-                        refcard.add(DoctorNotesCard(date, notes));
+                        refcard.add(DoctorNotesCard(datex, notesx));
                       }
 
                       return SingleChildScrollView(

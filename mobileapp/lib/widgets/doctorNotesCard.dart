@@ -13,6 +13,11 @@ class _DoctorNotesCardState extends State<DoctorNotesCard> {
   @override
   Widget build(BuildContext context) {
     var data = EasyLocalizationProvider.of(context).data;
+    String newDate;
+    if(widget.date == null){
+      newDate = "No Data";
+    }
+
     try {
       return EasyLocalizationProvider(
         data: data,
@@ -22,8 +27,7 @@ class _DoctorNotesCardState extends State<DoctorNotesCard> {
               ListTile(
                 leading: Text(AppLocalizations.of(context).tr('date')),
 
-                trailing: Text(widget.date.substring(
-                    0, 10)), //Text(snapshot.data.layingFaceDownOcc.toString()),
+                trailing: Text(newDate), //Text(snapshot.data.layingFaceDownOcc.toString()),
               ),
               Text(AppLocalizations.of(context).tr('specialnotes')),
               Text(widget.note),
