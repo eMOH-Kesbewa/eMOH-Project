@@ -116,11 +116,13 @@ class _BabyDetailsState extends State<BabyDetails> {
               SizedBox(
                 height: 3.0,
               ),
-              Text(
-                AppLocalizations.of(context).tr('basicInfo'),
-                style:
-                    TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
-                textAlign: TextAlign.center,
+              Padding(
+                padding: const EdgeInsets.all(2.0),
+                child: Text(AppLocalizations.of(context).tr('basicInfo'),
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold, color: Colors.white),
+                    textAlign: TextAlign.center,
+                    overflow: TextOverflow.visible),
               ),
             ],
           ),
@@ -152,11 +154,13 @@ class _BabyDetailsState extends State<BabyDetails> {
               SizedBox(
                 height: 3.0,
               ),
-              Text(
-                AppLocalizations.of(context).tr('proBaby'),
-                style:
-                    TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
-                textAlign: TextAlign.center,
+              Padding(
+                padding: const EdgeInsets.all(2.0),
+                child: Text(AppLocalizations.of(context).tr('proBaby'),
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold, color: Colors.white),
+                    textAlign: TextAlign.center,
+                    overflow: TextOverflow.visible),
               ),
             ],
           ),
@@ -189,11 +193,13 @@ class _BabyDetailsState extends State<BabyDetails> {
               SizedBox(
                 height: 3.0,
               ),
-              Text(
-                AppLocalizations.of(context).tr('eyeTest'),
-                style:
-                    TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
-                textAlign: TextAlign.center,
+              Padding(
+                padding: const EdgeInsets.all(2.0),
+                child: Text(AppLocalizations.of(context).tr('eyeTest'),
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold, color: Colors.white),
+                    textAlign: TextAlign.center,
+                    overflow: TextOverflow.visible),
               ),
             ],
           ),
@@ -224,11 +230,13 @@ class _BabyDetailsState extends State<BabyDetails> {
               SizedBox(
                 height: 3.0,
               ),
-              Text(
-                AppLocalizations.of(context).tr('hearingTest'),
-                style:
-                    TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
-                textAlign: TextAlign.center,
+              Padding(
+                padding: const EdgeInsets.all(2.0),
+                child: Text(AppLocalizations.of(context).tr('hearingTest'),
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold, color: Colors.white),
+                    textAlign: TextAlign.center,
+                    overflow: TextOverflow.visible),
               ),
             ],
           ),
@@ -260,13 +268,13 @@ class _BabyDetailsState extends State<BabyDetails> {
                   height: 3.0,
                 ),
                 Flexible(
-                  child: Text(
-                    AppLocalizations.of(context).tr('growth5'),
-                    overflow: TextOverflow.ellipsis,
-                    maxLines: 3,
-                    style: TextStyle(
-                        fontWeight: FontWeight.bold, color: Colors.white),
-                    textAlign: TextAlign.center,
+                  child: Padding(
+                    padding: const EdgeInsets.all(2.0),
+                    child: Text(AppLocalizations.of(context).tr('growth5'),
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, color: Colors.white),
+                        textAlign: TextAlign.center,
+                        overflow: TextOverflow.visible),
                   ),
                 ),
               ],
@@ -300,13 +308,13 @@ class _BabyDetailsState extends State<BabyDetails> {
                   height: 3.0,
                 ),
                 Flexible(
-                  child: Text(
-                    AppLocalizations.of(context).tr('healthCard'),
-                    overflow: TextOverflow.ellipsis,
-                    maxLines: 3,
-                    style: TextStyle(
-                        fontWeight: FontWeight.bold, color: Colors.white),
-                    textAlign: TextAlign.center,
+                  child: Padding(
+                    padding: const EdgeInsets.all(2.0),
+                    child: Text(AppLocalizations.of(context).tr('healthCard'),
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, color: Colors.white),
+                        textAlign: TextAlign.center,
+                        overflow: TextOverflow.visible),
                   ),
                 ),
               ],
@@ -340,13 +348,13 @@ class _BabyDetailsState extends State<BabyDetails> {
                   height: 3.0,
                 ),
                 Flexible(
-                  child: Text(
-                    AppLocalizations.of(context).tr('immuni'),
-                    overflow: TextOverflow.ellipsis,
-                    maxLines: 3,
-                    style: TextStyle(
-                        fontWeight: FontWeight.bold, color: Colors.white),
-                    textAlign: TextAlign.center,
+                  child: Padding(
+                    padding: const EdgeInsets.all(2.0),
+                    child: Text(AppLocalizations.of(context).tr('immuni'),
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, color: Colors.white),
+                        textAlign: TextAlign.center,
+                        overflow: TextOverflow.visible),
                   ),
                 ),
               ],
@@ -420,13 +428,13 @@ class _BabyDetailsState extends State<BabyDetails> {
                   height: 3.0,
                 ),
                 Flexible(
-                  child: Text(
-                    AppLocalizations.of(context).tr('vitaminA'),
-                    overflow: TextOverflow.ellipsis,
-                    maxLines: 3,
-                    style: TextStyle(
-                        fontWeight: FontWeight.bold, color: Colors.white),
-                    textAlign: TextAlign.center,
+                  child: Padding(
+                    padding: const EdgeInsets.all(2.0),
+                    child: Text(AppLocalizations.of(context).tr('vitaminA'),
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, color: Colors.white),
+                        textAlign: TextAlign.center,
+                        overflow: TextOverflow.visible),
                   ),
                 ),
               ],
@@ -460,13 +468,13 @@ class _BabyDetailsState extends State<BabyDetails> {
                   height: 3.0,
                 ),
                 Flexible(
-                  child: Text(
-                    AppLocalizations.of(context).tr('worm'),
-                    overflow: TextOverflow.ellipsis,
-                    maxLines: 3,
-                    style: TextStyle(
-                        fontWeight: FontWeight.bold, color: Colors.white),
-                    textAlign: TextAlign.center,
+                  child: Padding(
+                    padding: const EdgeInsets.all(2.0),
+                    child: Text(AppLocalizations.of(context).tr('worm'),
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, color: Colors.white),
+                        textAlign: TextAlign.center,
+                        overflow: TextOverflow.visible),
                   ),
                 ),
               ],
@@ -500,13 +508,14 @@ class _BabyDetailsState extends State<BabyDetails> {
                   height: 3.0,
                 ),
                 Flexible(
-                  child: Text(
-                    AppLocalizations.of(context).tr('childHealthCard'),
-                    overflow: TextOverflow.ellipsis,
-                    maxLines: 3,
-                    style: TextStyle(
-                        fontWeight: FontWeight.bold, color: Colors.white),
-                    textAlign: TextAlign.center,
+                  child: Padding(
+                    padding: const EdgeInsets.all(2.0),
+                    child: Text(
+                        AppLocalizations.of(context).tr('childHealthCard'),
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, color: Colors.white),
+                        textAlign: TextAlign.center,
+                        overflow: TextOverflow.visible),
                   ),
                 ),
               ],
@@ -580,13 +589,13 @@ class _BabyDetailsState extends State<BabyDetails> {
                   height: 3.0,
                 ),
                 Flexible(
-                  child: Text(
-                    AppLocalizations.of(context).tr('teeths'),
-                    overflow: TextOverflow.ellipsis,
-                    maxLines: 3,
-                    style: TextStyle(
-                        fontWeight: FontWeight.bold, color: Colors.white),
-                    textAlign: TextAlign.center,
+                  child: Padding(
+                    padding: const EdgeInsets.all(2.0),
+                    child: Text(AppLocalizations.of(context).tr('teeths'),
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, color: Colors.white),
+                        textAlign: TextAlign.center,
+                        overflow: TextOverflow.visible),
                   ),
                 ),
               ],
@@ -620,13 +629,13 @@ class _BabyDetailsState extends State<BabyDetails> {
                   height: 3.0,
                 ),
                 Flexible(
-                  child: Text(
-                    AppLocalizations.of(context).tr('Chart'),
-                    overflow: TextOverflow.ellipsis,
-                    maxLines: 3,
-                    style: TextStyle(
-                        fontWeight: FontWeight.bold, color: Colors.white),
-                    textAlign: TextAlign.center,
+                  child: Padding(
+                    padding: const EdgeInsets.all(2.0),
+                    child: Text(AppLocalizations.of(context).tr('Chart'),
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, color: Colors.white),
+                        textAlign: TextAlign.center,
+                        overflow: TextOverflow.visible),
                   ),
                 ),
               ],

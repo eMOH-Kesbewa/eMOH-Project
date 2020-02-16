@@ -10,7 +10,7 @@ var logger = Logger();
 
 Future <Clinic> readMessage(String id) async {
   final response = await http.get(
-      'https://protected-bayou-52277.herokuapp.com/clinics/viewbyid/${id}');
+      'https://emohback.herokuapp.com/clinics/viewbyid/${id}');
 
   if (response.statusCode == 200) {
     return Clinic.fromJson(json.decode(response.body)[0]);
