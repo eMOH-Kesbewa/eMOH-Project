@@ -16,6 +16,7 @@ import 'package:mobileapp/pages/babyInfo/teeth.dart';
 import 'package:mobileapp/pages/babyInfo/vitaminA.dart';
 import 'package:mobileapp/pages/babyInfo/worm.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../services/globals.dart' as globals;
 
@@ -108,18 +109,20 @@ class _BabyDetailsState extends State<BabyDetails> {
                 height: 40.0,
               ),
               Icon(
-                Icons.person,
+                FontAwesomeIcons.userAlt,
                 color: Colors.white,
-                size: 70.0,
+                size: 50.0,
               ),
               SizedBox(
-                height: 0.0,
+                height: 3.0,
               ),
-              Text(
-                AppLocalizations.of(context).tr('basicInfo'),
-                style:
-                    TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
-                textAlign: TextAlign.center,
+              Padding(
+                padding: const EdgeInsets.all(2.0),
+                child: Text(AppLocalizations.of(context).tr('basicInfo'),
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold, color: Colors.white),
+                    textAlign: TextAlign.center,
+                    overflow: TextOverflow.visible),
               ),
             ],
           ),
@@ -130,6 +133,7 @@ class _BabyDetailsState extends State<BabyDetails> {
         ),
       ),
     );
+
     final protectionBtn = Material(
       elevation: .0,
       borderRadius: BorderRadius.circular(10.0),
@@ -143,18 +147,20 @@ class _BabyDetailsState extends State<BabyDetails> {
                 height: 40.0,
               ),
               Icon(
-                Icons.person,
+                FontAwesomeIcons.babyCarriage,
                 color: Colors.white,
-                size: 70.0,
+                size: 50.0,
               ),
               SizedBox(
-                height: 0.0,
+                height: 3.0,
               ),
-              Text(
-                AppLocalizations.of(context).tr('proBaby'),
-                style:
-                    TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
-                textAlign: TextAlign.center,
+              Padding(
+                padding: const EdgeInsets.all(2.0),
+                child: Text(AppLocalizations.of(context).tr('proBaby'),
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold, color: Colors.white),
+                    textAlign: TextAlign.center,
+                    overflow: TextOverflow.visible),
               ),
             ],
           ),
@@ -180,18 +186,20 @@ class _BabyDetailsState extends State<BabyDetails> {
                 height: 40.0,
               ),
               Icon(
-                Icons.person,
+                FontAwesomeIcons.eye,
                 color: Colors.white,
-                size: 70.0,
+                size: 50.0,
               ),
               SizedBox(
-                height: 0.0,
+                height: 3.0,
               ),
-              Text(
-                AppLocalizations.of(context).tr('eyeTest'),
-                style:
-                    TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
-                textAlign: TextAlign.center,
+              Padding(
+                padding: const EdgeInsets.all(2.0),
+                child: Text(AppLocalizations.of(context).tr('eyeTest'),
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold, color: Colors.white),
+                    textAlign: TextAlign.center,
+                    overflow: TextOverflow.visible),
               ),
             ],
           ),
@@ -215,18 +223,20 @@ class _BabyDetailsState extends State<BabyDetails> {
                 height: 40.0,
               ),
               Icon(
-                Icons.person,
+                FontAwesomeIcons.assistiveListeningSystems,
                 color: Colors.white,
-                size: 70.0,
+                size: 50.0,
               ),
               SizedBox(
-                height: 0.0,
+                height: 3.0,
               ),
-              Text(
-                AppLocalizations.of(context).tr('hearingTest'),
-                style:
-                    TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
-                textAlign: TextAlign.center,
+              Padding(
+                padding: const EdgeInsets.all(2.0),
+                child: Text(AppLocalizations.of(context).tr('hearingTest'),
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold, color: Colors.white),
+                    textAlign: TextAlign.center,
+                    overflow: TextOverflow.visible),
               ),
             ],
           ),
@@ -250,21 +260,21 @@ class _BabyDetailsState extends State<BabyDetails> {
                   height: 40.0,
                 ),
                 Icon(
-                  Icons.person,
+                  FontAwesomeIcons.child,
                   color: Colors.white,
-                  size: 70.0,
+                  size: 50.0,
                 ),
                 SizedBox(
-                  height: 0.0,
+                  height: 3.0,
                 ),
                 Flexible(
-                  child: Text(
-                    AppLocalizations.of(context).tr('growth5'),
-                    overflow: TextOverflow.ellipsis,
-                    maxLines: 3,
-                    style: TextStyle(
-                        fontWeight: FontWeight.bold, color: Colors.white),
-                    textAlign: TextAlign.center,
+                  child: Padding(
+                    padding: const EdgeInsets.all(2.0),
+                    child: Text(AppLocalizations.of(context).tr('growth5'),
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, color: Colors.white),
+                        textAlign: TextAlign.center,
+                        overflow: TextOverflow.visible),
                   ),
                 ),
               ],
@@ -290,21 +300,21 @@ class _BabyDetailsState extends State<BabyDetails> {
                   height: 40.0,
                 ),
                 Icon(
-                  Icons.person,
+                  FontAwesomeIcons.fileMedical,
                   color: Colors.white,
-                  size: 70.0,
+                  size: 50.0,
                 ),
                 SizedBox(
-                  height: 0.0,
+                  height: 3.0,
                 ),
                 Flexible(
-                  child: Text(
-                    AppLocalizations.of(context).tr('healthCard'),
-                    overflow: TextOverflow.ellipsis,
-                    maxLines: 3,
-                    style: TextStyle(
-                        fontWeight: FontWeight.bold, color: Colors.white),
-                    textAlign: TextAlign.center,
+                  child: Padding(
+                    padding: const EdgeInsets.all(2.0),
+                    child: Text(AppLocalizations.of(context).tr('healthCard'),
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, color: Colors.white),
+                        textAlign: TextAlign.center,
+                        overflow: TextOverflow.visible),
                   ),
                 ),
               ],
@@ -330,21 +340,21 @@ class _BabyDetailsState extends State<BabyDetails> {
                   height: 40.0,
                 ),
                 Icon(
-                  Icons.person,
+                  FontAwesomeIcons.syringe,
                   color: Colors.white,
-                  size: 70.0,
+                  size: 50.0,
                 ),
                 SizedBox(
-                  height: 0.0,
+                  height: 3.0,
                 ),
                 Flexible(
-                  child: Text(
-                    AppLocalizations.of(context).tr('immuni'),
-                    overflow: TextOverflow.ellipsis,
-                    maxLines: 3,
-                    style: TextStyle(
-                        fontWeight: FontWeight.bold, color: Colors.white),
-                    textAlign: TextAlign.center,
+                  child: Padding(
+                    padding: const EdgeInsets.all(2.0),
+                    child: Text(AppLocalizations.of(context).tr('immuni'),
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, color: Colors.white),
+                        textAlign: TextAlign.center,
+                        overflow: TextOverflow.visible),
                   ),
                 ),
               ],
@@ -357,46 +367,46 @@ class _BabyDetailsState extends State<BabyDetails> {
             ),
           ),
         ));
-    final immunizationRefbtn = Material(
-        elevation: .0,
-        borderRadius: BorderRadius.circular(10.0),
-        color: Color(0xff963564),
-        child: EasyLocalizationProvider(
-          data: data,
-          child: MaterialButton(
-            child: Column(
-              children: <Widget>[
-                SizedBox(
-                  height: 40.0,
-                ),
-                Icon(
-                  Icons.person,
-                  color: Colors.white,
-                  size: 70.0,
-                ),
-                SizedBox(
-                  height: 0.0,
-                ),
-                Flexible(
-                  child: Text(
-                    AppLocalizations.of(context).tr('immuniRef'),
-                    overflow: TextOverflow.ellipsis,
-                    maxLines: 3,
-                    style: TextStyle(
-                        fontWeight: FontWeight.bold, color: Colors.white),
-                    textAlign: TextAlign.center,
-                  ),
-                ),
-              ],
-            ),
-            //minWidth: MediaQuery.of(context).size.width / 2,
-            //height: MediaQuery.of(context).size.width / 4,
-            onPressed: () => Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => ImmunizationRef()),
-            ),
-          ),
-        ));
+    // final immunizationRefbtn = Material(
+    //     elevation: .0,
+    //     borderRadius: BorderRadius.circular(10.0),
+    //     color: Color(0xff963564),
+    //     child: EasyLocalizationProvider(
+    //       data: data,
+    //       child: MaterialButton(
+    //         child: Column(
+    //           children: <Widget>[
+    //             SizedBox(
+    //               height: 40.0,
+    //             ),
+    //             Icon(
+    //               Icons.person,
+    //               color: Colors.white,
+    //               size: 70.0,
+    //             ),
+    //             SizedBox(
+    //               height: 0.0,
+    //             ),
+    //             Flexible(
+    //               child: Text(
+    //                 AppLocalizations.of(context).tr('immuniRef'),
+    //                 overflow: TextOverflow.ellipsis,
+    //                 maxLines: 3,
+    //                 style: TextStyle(
+    //                     fontWeight: FontWeight.bold, color: Colors.white),
+    //                 textAlign: TextAlign.center,
+    //               ),
+    //             ),
+    //           ],
+    //         ),
+    //         //minWidth: MediaQuery.of(context).size.width / 2,
+    //         //height: MediaQuery.of(context).size.width / 4,
+    //         onPressed: () => Navigator.push(
+    //           context,
+    //           MaterialPageRoute(builder: (context) => ImmunizationRef()),
+    //         ),
+    //       ),
+    //     ));
     final vitaminAbtn = Material(
         elevation: .0,
         borderRadius: BorderRadius.circular(10.0),
@@ -410,21 +420,21 @@ class _BabyDetailsState extends State<BabyDetails> {
                   height: 40.0,
                 ),
                 Icon(
-                  Icons.person,
+                  FontAwesomeIcons.tablets,
                   color: Colors.white,
-                  size: 70.0,
+                  size: 50.0,
                 ),
                 SizedBox(
-                  height: 0.0,
+                  height: 3.0,
                 ),
                 Flexible(
-                  child: Text(
-                    AppLocalizations.of(context).tr('vitaminA'),
-                    overflow: TextOverflow.ellipsis,
-                    maxLines: 3,
-                    style: TextStyle(
-                        fontWeight: FontWeight.bold, color: Colors.white),
-                    textAlign: TextAlign.center,
+                  child: Padding(
+                    padding: const EdgeInsets.all(2.0),
+                    child: Text(AppLocalizations.of(context).tr('vitaminA'),
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, color: Colors.white),
+                        textAlign: TextAlign.center,
+                        overflow: TextOverflow.visible),
                   ),
                 ),
               ],
@@ -450,21 +460,21 @@ class _BabyDetailsState extends State<BabyDetails> {
                   height: 40.0,
                 ),
                 Icon(
-                  Icons.person,
+                  FontAwesomeIcons.bacon,
                   color: Colors.white,
-                  size: 70.0,
+                  size: 50.0,
                 ),
                 SizedBox(
-                  height: 0.0,
+                  height: 3.0,
                 ),
                 Flexible(
-                  child: Text(
-                    AppLocalizations.of(context).tr('worm'),
-                    overflow: TextOverflow.ellipsis,
-                    maxLines: 3,
-                    style: TextStyle(
-                        fontWeight: FontWeight.bold, color: Colors.white),
-                    textAlign: TextAlign.center,
+                  child: Padding(
+                    padding: const EdgeInsets.all(2.0),
+                    child: Text(AppLocalizations.of(context).tr('worm'),
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, color: Colors.white),
+                        textAlign: TextAlign.center,
+                        overflow: TextOverflow.visible),
                   ),
                 ),
               ],
@@ -490,21 +500,22 @@ class _BabyDetailsState extends State<BabyDetails> {
                   height: 40.0,
                 ),
                 Icon(
-                  Icons.person,
+                  FontAwesomeIcons.notesMedical,
                   color: Colors.white,
-                  size: 70.0,
+                  size: 50.0,
                 ),
                 SizedBox(
-                  height: 0.0,
+                  height: 3.0,
                 ),
                 Flexible(
-                  child: Text(
-                    AppLocalizations.of(context).tr('childHealthCard'),
-                    overflow: TextOverflow.ellipsis,
-                    maxLines: 3,
-                    style: TextStyle(
-                        fontWeight: FontWeight.bold, color: Colors.white),
-                    textAlign: TextAlign.center,
+                  child: Padding(
+                    padding: const EdgeInsets.all(2.0),
+                    child: Text(
+                        AppLocalizations.of(context).tr('childHealthCard'),
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, color: Colors.white),
+                        textAlign: TextAlign.center,
+                        overflow: TextOverflow.visible),
                   ),
                 ),
               ],
@@ -517,46 +528,46 @@ class _BabyDetailsState extends State<BabyDetails> {
             ),
           ),
         ));
-    final doctorNotesbtn = Material(
-        elevation: 0.0,
-        borderRadius: BorderRadius.circular(10.0),
-        color: Color(0xffe87554),
-        child: EasyLocalizationProvider(
-          data: data,
-          child: MaterialButton(
-            child: Column(
-              children: <Widget>[
-                SizedBox(
-                  height: 40.0,
-                ),
-                Icon(
-                  Icons.person,
-                  color: Colors.white,
-                  size: 70.0,
-                ),
-                SizedBox(
-                  height: 0.0,
-                ),
-                Flexible(
-                  child: Text(
-                    AppLocalizations.of(context).tr('doctorNotes'),
-                    overflow: TextOverflow.ellipsis,
-                    maxLines: 3,
-                    style: TextStyle(
-                        fontWeight: FontWeight.bold, color: Colors.white),
-                    textAlign: TextAlign.center,
-                  ),
-                ),
-              ],
-            ),
-            //minWidth: MediaQuery.of(context).size.width / 2,
-            //height: MediaQuery.of(context).size.width / 4,
-            onPressed: () => Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => DoctorNotes()),
-            ),
-          ),
-        ));
+    // final doctorNotesbtn = Material(
+    //     elevation: 0.0,
+    //     borderRadius: BorderRadius.circular(10.0),
+    //     color: Color(0xffe87554),
+    //     child: EasyLocalizationProvider(
+    //       data: data,
+    //       child: MaterialButton(
+    //         child: Column(
+    //           children: <Widget>[
+    //             SizedBox(
+    //               height: 40.0,
+    //             ),
+    //             Icon(
+    //               Icons.person,
+    //               color: Colors.white,
+    //               size: 70.0,
+    //             ),
+    //             SizedBox(
+    //               height: 0.0,
+    //             ),
+    //             Flexible(
+    //               child: Text(
+    //                 AppLocalizations.of(context).tr('doctorNotes'),
+    //                 overflow: TextOverflow.ellipsis,
+    //                 maxLines: 3,
+    //                 style: TextStyle(
+    //                     fontWeight: FontWeight.bold, color: Colors.white),
+    //                 textAlign: TextAlign.center,
+    //               ),
+    //             ),
+    //           ],
+    //         ),
+    //         //minWidth: MediaQuery.of(context).size.width / 2,
+    //         //height: MediaQuery.of(context).size.width / 4,
+    //         onPressed: () => Navigator.push(
+    //           context,
+    //           MaterialPageRoute(builder: (context) => DoctorNotes()),
+    //         ),
+    //       ),
+    //     ));
     final teethbtn = Material(
         elevation: .0,
         borderRadius: BorderRadius.circular(10.0),
@@ -570,21 +581,21 @@ class _BabyDetailsState extends State<BabyDetails> {
                   height: 40.0,
                 ),
                 Icon(
-                  Icons.person,
+                  FontAwesomeIcons.notesMedical,
                   color: Colors.white,
-                  size: 70.0,
+                  size: 50.0,
                 ),
                 SizedBox(
-                  height: 0.0,
+                  height: 3.0,
                 ),
                 Flexible(
-                  child: Text(
-                    AppLocalizations.of(context).tr('teeths'),
-                    overflow: TextOverflow.ellipsis,
-                    maxLines: 3,
-                    style: TextStyle(
-                        fontWeight: FontWeight.bold, color: Colors.white),
-                    textAlign: TextAlign.center,
+                  child: Padding(
+                    padding: const EdgeInsets.all(2.0),
+                    child: Text(AppLocalizations.of(context).tr('teeths'),
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, color: Colors.white),
+                        textAlign: TextAlign.center,
+                        overflow: TextOverflow.visible),
                   ),
                 ),
               ],
@@ -610,21 +621,21 @@ class _BabyDetailsState extends State<BabyDetails> {
                   height: 40.0,
                 ),
                 Icon(
-                  Icons.person,
+                  FontAwesomeIcons.chartBar,
                   color: Colors.white,
-                  size: 70.0,
+                  size: 50.0,
                 ),
                 SizedBox(
-                  height: 0.0,
+                  height: 3.0,
                 ),
                 Flexible(
-                  child: Text(
-                    AppLocalizations.of(context).tr('Chart'),
-                    overflow: TextOverflow.ellipsis,
-                    maxLines: 3,
-                    style: TextStyle(
-                        fontWeight: FontWeight.bold, color: Colors.white),
-                    textAlign: TextAlign.center,
+                  child: Padding(
+                    padding: const EdgeInsets.all(2.0),
+                    child: Text(AppLocalizations.of(context).tr('Chart'),
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, color: Colors.white),
+                        textAlign: TextAlign.center,
+                        overflow: TextOverflow.visible),
                   ),
                 ),
               ],
@@ -668,11 +679,11 @@ class _BabyDetailsState extends State<BabyDetails> {
                     untilFiveYearsBtn,
                     helthChartbtn,
                     immunizationbtn,
-                    immunizationRefbtn,
+                    // immunizationRefbtn,
                     vitaminAbtn,
                     wormbtn,
                     childHealthbtn,
-                    doctorNotesbtn,
+                    //  doctorNotesbtn,
                     teethbtn,
                     chartbtn,
                   ],

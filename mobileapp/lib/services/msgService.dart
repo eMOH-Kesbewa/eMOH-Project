@@ -17,7 +17,7 @@ Future fetchClinic() async {
 
   var x = await globals.getGlobals();
   final response = await http
-      .get('https://protected-bayou-52277.herokuapp.com/clinics/view');
+      .get('https://emohback.herokuapp.com/clinics/view');
 
   if (response.statusCode == 200) {
     
