@@ -23,25 +23,6 @@ class _HearTestState extends State<HearTest> {
   bool respondNameNoice = false;
   bool byeNoise = false;
 
-  // initState() {
-  //   super.initState();
-  //   baby.then((it) {
-  //     bigNoise = it.bigNoise;
-  //     vehicleNoise = it.vehicleNoise;
-  //     guardianNoise = it.guardianNoise;
-  //     turnToNoise = it.turnToNoise;
-  //     turnToGuardianNoise = it.turnToGuardianNoise;
-  //     dailyNoise = it.dailyNoise;
-  //     hiddenNoise = it.hiddenNoise;
-  //     rythmeicNoise = it.rythmeicNoise;
-  //     respondNameNoice = it.respondNameNoice;
-  //     byeNoise = it.byeNoise;
-
-  //   });
-
-  //   print(bigNoise);
-  // }
-
   @override
   Widget build(BuildContext context) {
     var data = EasyLocalizationProvider.of(context).data;

@@ -9,48 +9,62 @@ class DoctorNotes extends StatefulWidget {
   _DoctorNotesState createState() => _DoctorNotesState();
 }
 
-
-
 class _DoctorNotesState extends State<DoctorNotes> {
   List<DoctorNotesCard> refcard = <DoctorNotesCard>[];
   @override
   Widget build(BuildContext context) {
     var data = EasyLocalizationProvider.of(context).data;
-    return EasyLocalizationProvider(
-      data: data,
-          child: Scaffold(
-        appBar: AppBar(
-          title: Text(AppLocalizations.of(context).tr('doctorNotes')),
-        ),
-        body: SingleChildScrollView(
-          child: FutureBuilder<Baby>(
-              future: fetchBaby(),
-              builder: (context, snapshot) {
-                if (snapshot.connectionState == ConnectionState.waiting) {
-                  return Center(
-                    child: CircularProgressIndicator(),
-                  );
-                } else {
-                  int loop = snapshot.data.date.length.toInt();
+    int loop;
+    try {
+      return EasyLocalizationProvider(
+        data: data,
+        child: Scaffold(
+          appBar: AppBar(
+            title: Text(AppLocalizations.of(context).tr('doctorNotes')),
+          ),
+          body: SingleChildScrollView(
+            child: FutureBuilder<Baby>(
+                future: fetchBaby(),
+                builder: (context, snapshot) {
+                  if (snapshot.connectionState == ConnectionState.waiting) {
+                    return Center(
+                      child: CircularProgressIndicator(),
+                    );
+                  } else if (snapshot.hasData) {
+                    try {
+                      if (snapshot.data.date == null) {
+                        loop = 1;
+                      } else {
+                        loop = snapshot.data.date.length.toInt();
+                      }
 
-                  for (int i = 0; i < loop; i++) {
-                    String date = snapshot.data.date[i];
+                      // loop = snapshot.data.date.length.toInt();
 
-                    String notes = snapshot.data.notes[i];
+                      for (int i = 0; i < loop; i++) {
+                        String date = snapshot.data.date[i];
 
+                        String notes = snapshot.data.notes[i];
 
-                    refcard.add(DoctorNotesCard(date, notes));
+                        refcard.add(DoctorNotesCard(date, notes));
+                      }
+
+                      return SingleChildScrollView(
+                        child: Column(
+                          children: refcard,
+                        ),
+                      );
+                    } catch (e) {
+                      return Text('No Data');
+                    }
+                  } else if (snapshot.hasError) {
+                    return Text('No Data');
                   }
-
-                  return SingleChildScrollView(
-                    child: Column(
-                      children: refcard,
-                    ),
-                  );
-                }
-              }),
+                }),
+          ),
         ),
-      ),
-    );
+      );
+    } catch (e) {
+      return Text('No Data');
+    }
   }
 }
