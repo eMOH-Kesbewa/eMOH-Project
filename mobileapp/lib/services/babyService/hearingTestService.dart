@@ -9,8 +9,8 @@ import '../globals.dart' as globals;
 Future<Baby> fetchBaby() async {
   print('fetch Baby function');
   //String _babyId = globals.BabyId + babyIndex;
-  final response = await http
-      .get('https://emohback.herokuapp.com/babies/viewbybabyid/${globals.babyId}');
+  final response = await http.get(
+      'https://emohback.herokuapp.com/babies/viewbybabyid/${globals.babyId}');
   print('status code');
   print(response.statusCode);
   print(globals.babyId);
@@ -101,7 +101,7 @@ Future updateDetails(
 ) async {
   //Map query = {'baby_id' : 'A0000101'};
   Map data = {
-    'baby_id': 'A0000101',
+    'baby_id': globals.babyId,
     'if_your_child_is_startled_by_a_sudden_loud_noise_does_his_stutter_or_widden_his_eyes':
         bigNoise.toString(),
     'does_your_child_detect_sudden_or_presistent_noises_and_begin_to_listen_quitely_to_eve':
@@ -122,9 +122,8 @@ Future updateDetails(
     'does_he_respond_to_words_even_when_they_do_not': byeNoise.toString(),
   };
   //Map data = {'does_the_child_look_good_on_your_face': face.toString()};
-  var response = await http.put(
-      "https://emohback.herokuapp.com/babies/hearingtest",
-      body: data);
+  var response = await http
+      .put("https://emohback.herokuapp.com/babies/hearingtest", body: data);
   /*.then((result) {
            Fluttertoast.showToast(
           msg: "Done",

@@ -171,7 +171,13 @@ class _HearTestState extends State<HearTest> {
                                     if (switchVal == true) {
                                       setState(() {
                                         bigNoise = !bigNoise;
-                                        bigNoise = bigNoise;
+
+                                        if(bigNoise == true){
+                                          bigNoiseS = "yes";
+                                        }else{
+                                          bigNoiseS = "no";
+                                        }
+                                        
                                         // faceCheck = !faceCheck;
                                       });
                                     } else {
@@ -201,6 +207,13 @@ class _HearTestState extends State<HearTest> {
                                       setState(() {
                                         vehicleNoise = !vehicleNoise;
                                         vehicleNoise = vehicleNoise;
+
+                                        if(vehicleNoise == true){
+                                          vehicleNoiseS = "yes";
+                                        }else{
+                                          vehicleNoiseS = "no";
+                                        }
+
                                         // faceCheck = !faceCheck;
                                       });
                                     } else {
@@ -231,6 +244,11 @@ class _HearTestState extends State<HearTest> {
                                         guardianNoise = !guardianNoise;
                                         guardianNoise = guardianNoise;
                                         // faceCheck = !faceCheck;
+                                        if(guardianNoise == true){
+                                          guardianNoiseS = "yes";
+                                        }else{
+                                          guardianNoiseS = "no";
+                                        }
                                       });
                                     } else {
                                       return null;
@@ -250,6 +268,13 @@ class _HearTestState extends State<HearTest> {
                                         turnToNoise = !turnToNoise;
                                         turnToNoise = turnToNoise;
                                         // faceCheck = !faceCheck;
+
+                                        if(turnToNoise == true){
+                                          turnToNoiseS = "yes";
+                                        }else{
+                                          turnToNoiseS = "no";
+                                        }
+
                                       });
                                     } else {
                                       return null;
@@ -281,6 +306,13 @@ class _HearTestState extends State<HearTest> {
                                         turnToGuardianNoise =
                                             turnToGuardianNoise;
                                         // faceCheck = !faceCheck;
+
+                                        if(turnToGuardianNoise == true){
+                                          turnToGuardianNoiseS = "yes";
+                                        }else{
+                                          turnToGuardianNoiseS = "no";
+                                        }
+
                                       });
                                     } else {
                                       return null;
@@ -310,6 +342,13 @@ class _HearTestState extends State<HearTest> {
                                         dailyNoise = !dailyNoise;
                                         dailyNoise = dailyNoise;
                                         // faceCheck = !faceCheck;
+
+                                        if(dailyNoise == true){
+                                          dailyNoiseS = "yes";
+                                        }else{
+                                          dailyNoiseS = "no";
+                                        }
+
                                       });
                                     } else {
                                       return null;
@@ -329,6 +368,13 @@ class _HearTestState extends State<HearTest> {
                                         hiddenNoise = !hiddenNoise;
                                         hiddenNoise = hiddenNoise;
                                         // faceCheck = !faceCheck;
+
+                                        if(hiddenNoise == true){
+                                          hiddenNoiseS = "yes";
+                                        }else{
+                                          hiddenNoiseS = "no";
+                                        }
+
                                       });
                                     } else {
                                       return null;
@@ -348,6 +394,13 @@ class _HearTestState extends State<HearTest> {
                                         rythmeicNoise = !rythmeicNoise;
                                         rythmeicNoise = rythmeicNoise;
                                         // faceCheck = !faceCheck;
+
+                                        if(rythmeicNoise == true){
+                                          rythmeicNoiseS = "yes";
+                                        }else{
+                                          rythmeicNoiseS = "no";
+                                        }
+
                                       });
                                     } else {
                                       return null;
@@ -377,6 +430,14 @@ class _HearTestState extends State<HearTest> {
                                         respondNameNoise = !respondNameNoise;
                                         respondNameNoise = respondNameNoise;
                                         // faceCheck = !faceCheck;
+
+                                        if(respondNameNoise == true){
+                                          respondNameNoiseS = "yes";
+                                        }else{
+                                          respondNameNoiseS = "no";
+                                        }
+
+
                                       });
                                     } else {
                                       return null;
@@ -396,6 +457,13 @@ class _HearTestState extends State<HearTest> {
                                         byeNoise = !byeNoise;
                                         byeNoise = byeNoise;
                                         // faceCheck = !faceCheck;
+
+                                        if(byeNoise == true){
+                                          byeNoiseS = "yes";
+                                        }else{
+                                          byeNoiseS = "no";
+                                        }
+
                                       });
                                     } else {
                                       return null;
