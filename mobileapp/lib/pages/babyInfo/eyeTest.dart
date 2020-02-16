@@ -336,6 +336,9 @@ class _EyeTestState extends State<EyeTest> {
 
   initState() {
     super.initState();
+    // setState(() {
+    //   switchVal = true;
+    // });
     baby.then((it) {
       if (it.faceCheck.toString() == "no" || it.faceCheck == null) {
         //this gives the error
@@ -416,6 +419,9 @@ class _EyeTestState extends State<EyeTest> {
           child: FutureBuilder<Baby>(
             future: fetchBaby(),
             builder: (context, snapshot) {
+              // setState(() {
+              //   switchVal = false;
+              // });
               logger.i('light check');
               //  logger.i(snapshot.data.ringCheck);
 

@@ -100,30 +100,94 @@ Future updateDetails(
     bool askCheck,
     bool talkCheck) async {
   //Map query = {'baby_id' : 'A0000101'};
+
+  String lightCheckS;
+  String faceCheckS;
+  String turnCheckS;
+  String theneyesCheckS;
+  String lookingCheckS;
+  String touchCheckS;
+  String squintCheckS;
+  String ringCheckS;
+  String askCheckS;
+  String talkCheckS;
+
+  if (lightCheck == true) {
+    lightCheckS = "yes";
+  } else {
+    lightCheckS = "no";
+  }
+  if (faceCheck == true) {
+    faceCheckS = "yes";
+  } else {
+    faceCheckS = "no";
+  }
+  if (turnCheck == true) {
+    turnCheckS = "yes";
+  } else {
+    turnCheckS = "no";
+  }
+  if (theneyesCheck == true) {
+    theneyesCheckS = "yes";
+  } else {
+    theneyesCheckS = "no";
+  }
+  if (lookingCheck == true) {
+    lookingCheckS = "yes";
+  } else {
+    lookingCheckS = "no";
+  }
+  if (touchCheck == true) {
+    touchCheckS = "yes";
+  } else {
+    touchCheckS = "no";
+  }
+  if (squintCheck == true) {
+    squintCheckS = "yes";
+  } else {
+    squintCheckS = "no";
+  }
+  if (ringCheck == true) {
+    ringCheckS = "yes";
+  } else {
+    ringCheckS = "no";
+  }
+  if (askCheck == true) {
+    askCheckS = "yes";
+  } else {
+    askCheckS = "no";
+  }
+  if (talkCheck == true) {
+    talkCheckS = "yes";
+  } else {
+    talkCheckS = "no";
+  }
+
+  logger.i(talkCheckS);
+
   Map data = {
-    'baby_id': 'A0000101',
-    'does_child_eyes_toward_the_light': lightCheck.toString(),
-    'does_the_child_look_good_on_your_face': faceCheck.toString(),
+    'baby_id': globals.babyId,
+    'does_child_eyes_toward_the_light': lightCheckS,
+    'does_the_child_look_good_on_your_face': faceCheckS,
     'when_you_turn_your_face_to_the_side_do_you_see_the_child_smiling_in_response':
-        turnCheck.toString(),
-    'then_the_baby_eyes_move': theneyesCheck.toString(),
-    'does_the_child_look_arround': lookingCheck.toString(),
+        turnCheckS,
+    'then_the_baby_eyes_move': theneyesCheckS,
+    'does_the_child_look_arround': lookingCheckS,
     'is_child_streching_out_his_hand_and_trying_to_touch_something':
-        touchCheck.toString(),
-    'do_you_suspect_that_your_child_has_a_problem': squintCheck.toString(),
+        touchCheckS,
+    'do_you_suspect_that_your_child_has_a_problem': squintCheckS,
     'is_it_possible_for_a_child_to_pickup_small_things_with_a_thumb_and_forefinger':
-        ringCheck.toString(),
+        ringCheckS,
     'if_the_person_identifies_them_the_child_will_recognize_them_before_they_call_them':
-        talkCheck.toString(),
-    'have_your_child_strech_out_his_hand_and_touch_them': askCheck.toString()
+        talkCheckS,
+    'have_your_child_strech_out_his_hand_and_touch_them': askCheckS
   };
   //Map data = {'does_the_child_look_good_on_your_face': face.toString()};
   print('***face***');
   print(faceCheck.toString());
   print(lightCheck.toString());
   print(turnCheck.toString());
-  var response = await http.put(
-      "https://emohback.herokuapp.com/babies/eyetest",
+  var response = await http.put("https://emohback.herokuapp.com/babies/eyetest",
       body: data);
   /*.then((result) {
            Fluttertoast.showToast(
