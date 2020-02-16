@@ -4,9 +4,8 @@ var clinics = require('../Schemas/clinic');
 var mongoose = require('mongoose');
 var users = require('../Schemas/useraccountSchema');
 const nodemailer = require('nodemailer');
-var recipients=[];
-var latestClinicId=[];
-
+const useraccounts = require('../Schemas/useraccountSchema');
+/*
 router.post('/add', (req, res) => {
     
     
@@ -80,7 +79,7 @@ setTimeout(()=>{
 },1000);
    
 });
-
+*/
 //View all Upcoming Clinics 
 router.get('/viewUpComingClinics', (req, res) => {
     //Sorted in a Latest to Oldest Order
@@ -92,6 +91,83 @@ router.get('/viewUpComingClinics', (req, res) => {
     //console.log("Completed");
 });
 
+router.get('/getLatestClinicId', (req, res) => {
+    //Sorted in a Latest to Oldest Order
+    clinics.find().sort( { _id : -1 } ).limit(1).exec(function(err, docs) { 
+        res.send(docs) 
+    });
+    //console.log("Completed");
+});
+
+router.post('/add', (req, res) => {
+    console.log(req.body);
+    var data = new clinics(req.body);
+    data.save((err,doc)=>{
+        if(err) {
+            console.log(handleError(err));
+            res.status(500).json("Error When Inserting");
+        }
+        else if(doc){
+            res.status(200).json("Inserted successfully.");
+        }
+    });
+    console.log("Completed");
+});
+
+router.post('/add', (req, res) => {
+    console.log(req.body);
+    var data = new clinics(req.body);
+    
+});
+
+router.post("/sendmail",  (req, res) => {
+    //console.log("request came");
+    //console.log(req.body)
+    let user=[];
+    clinicData = req.body;
+     useraccounts.find({role:'mother'}).exec(function(err, docs) { 
+        console.log(docs) 
+        docs.forEach(element=>{
+            //console.log(element['username'])
+            user.push(element['username'])
+        }
+        )
+        sendMail(user,clinicData,info => {
+            console.log(`The mails has been send and the id is ${info.messageId}`);
+            res.send(info);
+          });
+    });
+   
+    
+
+    
+  });
+  
+  async function sendMail(user,clinicData,callback) {
+    // create reusable transporter object using the default SMTP transport
+    let transporter = nodemailer.createTransport({
+      host: "smtp.gmail.com",
+      port: 587,
+      secure: false, // true for 465, false for other ports
+      auth: {
+        user: "kesbewaemoh@gmail.com",
+        pass: "tempsend123"
+      }
+    });
+  
+    let mailOptions = {
+      from: '"Kesbewa MOH"<kesbewaemoh@gmail.com>', // sender address
+      to: user, // list of receivers
+      subject: `Sceduled New Clinic - ${clinicData['clinic_title']}`, // Subject line
+      html: `<h3>${clinicData['clinic_discription']}</h3><br>
+      <h5>Emails has been sent by eMOH notification system</h5>`
+    };
+  
+    // send mail with defined transport object
+    let info = await transporter.sendMail(mailOptions);
+  
+    callback(info);
+  }
 //View all Clinic Histories
 router.get('/view', (req, res) => {
     //Sorted in a Latest to Oldest Order
