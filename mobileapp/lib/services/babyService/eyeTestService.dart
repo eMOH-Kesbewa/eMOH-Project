@@ -89,98 +89,95 @@ class Baby {
 }
 
 Future updateDetails(
-    bool lightCheck,
-    bool faceCheck,
-    bool turnCheck,
-    bool theneyesCheck,
-    bool lookingCheck,
-    bool touchCheck,
-    bool squintCheck,
-    bool ringCheck,
-    bool askCheck,
-    bool talkCheck) async {
+    String lightCheck,
+    String faceCheck,
+    String turnCheck,
+    String theneyesCheck,
+    String lookingCheck,
+    String touchCheck,
+    String squintCheck,
+    String ringCheck,
+    String askCheck,
+    String talkCheck) async {
   //Map query = {'baby_id' : 'A0000101'};
 
-  String lightCheckS;
-  String faceCheckS;
-  String turnCheckS;
-  String theneyesCheckS;
-  String lookingCheckS;
-  String touchCheckS;
-  String squintCheckS;
-  String ringCheckS;
-  String askCheckS;
-  String talkCheckS;
+  // String lightCheckS;
+  // String faceCheckS;
+  // String turnCheckS;
+  // String theneyesCheckS;
+  // String lookingCheckS;
+  // String touchCheckS;
+  // String squintCheckS;
+  // String ringCheckS;
+  // String askCheckS;
+  // String talkCheckS;
 
-  if (lightCheck == true) {
-    lightCheckS = "yes";
-  } else {
-    lightCheckS = "no";
-  }
-  if (faceCheck == true) {
-    faceCheckS = "yes";
-  } else {
-    faceCheckS = "no";
-  }
-  if (turnCheck == true) {
-    turnCheckS = "yes";
-  } else {
-    turnCheckS = "no";
-  }
-  if (theneyesCheck == true) {
-    theneyesCheckS = "yes";
-  } else {
-    theneyesCheckS = "no";
-  }
-  if (lookingCheck == true) {
-    lookingCheckS = "yes";
-  } else {
-    lookingCheckS = "no";
-  }
-  if (touchCheck == true) {
-    touchCheckS = "yes";
-  } else {
-    touchCheckS = "no";
-  }
-  if (squintCheck == true) {
-    squintCheckS = "yes";
-  } else {
-    squintCheckS = "no";
-  }
-  if (ringCheck == true) {
-    ringCheckS = "yes";
-  } else {
-    ringCheckS = "no";
-  }
-  if (askCheck == true) {
-    askCheckS = "yes";
-  } else {
-    askCheckS = "no";
-  }
-  if (talkCheck == true) {
-    talkCheckS = "yes";
-  } else {
-    talkCheckS = "no";
-  }
-
-  logger.i(talkCheckS);
+  // if (lightCheck == true) {
+  //   lightCheckS = "yes";
+  // } else {
+  //   lightCheckS = "no";
+  // }
+  // if (faceCheck == true) {
+  //   faceCheckS = "yes";
+  // } else {
+  //   faceCheckS = "no";
+  // }
+  // if (turnCheck == true) {
+  //   turnCheckS = "yes";
+  // } else {
+  //   turnCheckS = "no";
+  // }
+  // if (theneyesCheck == true) {
+  //   theneyesCheckS = "yes";
+  // } else {
+  //   theneyesCheckS = "no";
+  // }
+  // if (lookingCheck == true) {
+  //   lookingCheckS = "yes";
+  // } else {
+  //   lookingCheckS = "no";
+  // }
+  // if (touchCheck == true) {
+  //   touchCheckS = "yes";
+  // } else {
+  //   touchCheckS = "no";
+  // }
+  // if (squintCheck == true) {
+  //   squintCheckS = "yes";
+  // } else {
+  //   squintCheckS = "no";
+  // }
+  // if (ringCheck == true) {
+  //   ringCheckS = "yes";
+  // } else {
+  //   ringCheckS = "no";
+  // }
+  // if (askCheck == true) {
+  //   askCheckS = "yes";
+  // } else {
+  //   askCheckS = "no";
+  // }
+  // if (talkCheck == true) {
+  //   talkCheckS = "yes";
+  // } else {
+  //   talkCheckS = "no";
+  // }
 
   Map data = {
     'baby_id': globals.babyId,
-    'does_child_eyes_toward_the_light': lightCheckS,
-    'does_the_child_look_good_on_your_face': faceCheckS,
+    'does_child_eyes_toward_the_light': lightCheck,
+    'does_the_child_look_good_on_your_face': faceCheck,
     'when_you_turn_your_face_to_the_side_do_you_see_the_child_smiling_in_response':
-        turnCheckS,
-    'then_the_baby_eyes_move': theneyesCheckS,
-    'does_the_child_look_arround': lookingCheckS,
-    'is_child_streching_out_his_hand_and_trying_to_touch_something':
-        touchCheckS,
-    'do_you_suspect_that_your_child_has_a_problem': squintCheckS,
+        turnCheck,
+    'then_the_baby_eyes_move': theneyesCheck,
+    'does_the_child_look_arround': lookingCheck,
+    'is_child_streching_out_his_hand_and_trying_to_touch_something': touchCheck,
+    'do_you_suspect_that_your_child_has_a_problem': squintCheck,
     'is_it_possible_for_a_child_to_pickup_small_things_with_a_thumb_and_forefinger':
-        ringCheckS,
+        ringCheck,
     'if_the_person_identifies_them_the_child_will_recognize_them_before_they_call_them':
-        talkCheckS,
-    'have_your_child_strech_out_his_hand_and_touch_them': askCheckS
+        talkCheck,
+    'have_your_child_strech_out_his_hand_and_touch_them': askCheck
   };
   //Map data = {'does_the_child_look_good_on_your_face': face.toString()};
   print('***face***');

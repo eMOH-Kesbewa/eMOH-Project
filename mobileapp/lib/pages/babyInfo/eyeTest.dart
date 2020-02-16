@@ -26,17 +26,17 @@ class _EyeTestState extends State<EyeTest> {
   bool askCheck = false;
   bool talkCheck = false;
 
-  // String switchValS = "no";
-  // String lightCheckS = "no";
-  // String faceCheckS = "no";
-  // String turnCheckS = "no";
-  // String theneyesCheckS = "no";
-  // String lookingCheckS = "no";
-  // String touchCheckS = "no";
-  // String squintCheckS = "no";
-  // String ringCheckS = "no";
-  // String askCheckS = "no";
-  // String talkCheckS = "no";
+  String switchValS = "no";
+  String lightCheckS = "no";
+  String faceCheckS = "no";
+  String turnCheckS = "no";
+  String theneyesCheckS = "no";
+  String lookingCheckS = "no";
+  String touchCheckS = "no";
+  String squintCheckS = "no";
+  String ringCheckS = "no";
+  String askCheckS = "no";
+  String talkCheckS = "no";
 
   initState() {
     super.initState();
@@ -121,71 +121,12 @@ class _EyeTestState extends State<EyeTest> {
         ),
         body: SingleChildScrollView(
           child: FutureBuilder<Baby>(
-            future: fetchBaby(),
+            future: baby,
             builder: (context, snapshot) {
               // setState(() {
               //   switchVal = false;
               // });
               logger.i('light check');
-              //  logger.i(snapshot.data.ringCheck);
-
-              // if (snapshot.data.lightCheck == "no" ||
-              //     snapshot.data.lightCheck == null) {
-              //   lightCheck = false;
-              //   logger.e('***');
-              // } else {
-              //   lightCheck = true;
-              // }
-              // if (snapshot.data.faceCheck == "no") {
-              //   faceCheck = false;
-              // } else {
-              //   faceCheck = true;
-              // }
-              // if (snapshot.data.turnCheck == "no") {
-              //   turnCheck = false;
-              // } else {
-              //   turnCheck = true;
-              // }
-              // if (snapshot.data.theneyesCheck == "no") {
-              //   theneyesCheck = false;
-              // } else {
-              //   theneyesCheck = true;
-              // }
-              // if (snapshot.data.lookingCheck == "no") {
-              //   lookingCheck = false;
-              // } else {
-              //   lookingCheck = true;
-              // }
-              // if (snapshot.data.touchCheck == "no") {
-              //   touchCheck = false;
-              // } else {
-              //   touchCheck = true;
-              // }
-              // if (snapshot.data.squintCheck == "no") {
-              //   squintCheck = false;
-              // } else {
-              //   squintCheck = true;
-              // }
-              // if (snapshot.data.ringCheck == "no") {
-              //   lookingCheck = false;
-              // } else {
-              //   lookingCheck = true;
-              // }
-              // if (snapshot.data.lookingCheck == "no") {
-              //   ringCheck = false;
-              // } else {
-              //   ringCheck = true;
-              // }
-              // if (snapshot.data.askCheck == "no") {
-              //   askCheck = false;
-              // } else {
-              //   askCheck = true;
-              // }
-              // if (snapshot.data.talkCheck == "no") {
-              //   talkCheck = false;
-              // } else {
-              //   talkCheck = true;
-              // }
 
               if (snapshot.connectionState == ConnectionState.waiting) {
                 return Center(child: CircularProgressIndicator());
@@ -221,6 +162,12 @@ class _EyeTestState extends State<EyeTest> {
                                 if (switchVal == true) {
                                   setState(() {
                                     lightCheck = !lightCheck;
+
+                                    if (faceCheck == true) {
+                                      lightCheckS = "yes";
+                                    } else {
+                                      lightCheckS = "no";
+                                    }
                                   });
                                 }
                               }),
@@ -236,6 +183,12 @@ class _EyeTestState extends State<EyeTest> {
                                 if (switchVal == true) {
                                   setState(() {
                                     faceCheck = !faceCheck;
+
+                                    if (faceCheck == true) {
+                                      faceCheckS = "yes";
+                                    } else {
+                                      faceCheckS = "no";
+                                    }
                                   });
                                 }
                               }),
@@ -260,6 +213,12 @@ class _EyeTestState extends State<EyeTest> {
                                 if (switchVal == true) {
                                   setState(() {
                                     turnCheck = !turnCheck;
+
+                                    if (turnCheck == true) {
+                                      turnCheckS = "yes";
+                                    } else {
+                                      turnCheckS = "no";
+                                    }
                                   });
                                 }
                               }),
@@ -275,6 +234,12 @@ class _EyeTestState extends State<EyeTest> {
                                   if (switchVal == true) {
                                     setState(() {
                                       theneyesCheck = !theneyesCheck;
+
+                                      if (theneyesCheck == true) {
+                                        theneyesCheckS = "yes";
+                                      } else {
+                                        theneyesCheckS = "no";
+                                      }
                                     });
                                   }
                                 }),
@@ -300,6 +265,12 @@ class _EyeTestState extends State<EyeTest> {
                                   if (switchVal == true) {
                                     setState(() {
                                       lookingCheck = !lookingCheck;
+
+                                      if (lookingCheck == true) {
+                                        lookingCheckS = "yes";
+                                      } else {
+                                        lookingCheckS = "no";
+                                      }
                                     });
                                   }
                                 }),
@@ -316,6 +287,12 @@ class _EyeTestState extends State<EyeTest> {
                                   if (switchVal == true) {
                                     setState(() {
                                       touchCheck = !touchCheck;
+
+                                      if (touchCheck == true) {
+                                        touchCheckS = "yes";
+                                      } else {
+                                        touchCheckS = "no";
+                                      }
                                     });
                                   }
                                 }),
@@ -332,6 +309,12 @@ class _EyeTestState extends State<EyeTest> {
                                   if (switchVal) {
                                     setState(() {
                                       squintCheck = !squintCheck;
+
+                                      if (squintCheck == true) {
+                                        squintCheckS = "yes";
+                                      } else {
+                                        squintCheckS = "no";
+                                      }
                                     });
                                   }
                                 }),
@@ -357,6 +340,12 @@ class _EyeTestState extends State<EyeTest> {
                                   if (switchVal == true) {
                                     setState(() {
                                       ringCheck = !ringCheck;
+
+                                      if (ringCheck == true) {
+                                        ringCheckS = "yes";
+                                      } else {
+                                        ringCheckS = "no";
+                                      }
                                     });
                                   }
                                 }),
@@ -382,6 +371,12 @@ class _EyeTestState extends State<EyeTest> {
                                   if (switchVal == true) {
                                     setState(() {
                                       askCheck = !askCheck;
+
+                                      if (askCheck == true) {
+                                        askCheckS = "yes";
+                                      } else {
+                                        askCheckS = "no";
+                                      }
                                     });
                                   }
                                 }),
@@ -398,6 +393,12 @@ class _EyeTestState extends State<EyeTest> {
                                   if (switchVal == true) {
                                     setState(() {
                                       talkCheck = !talkCheck;
+
+                                      if (talkCheck == true) {
+                                        talkCheckS = "yes";
+                                      } else {
+                                        talkCheckS = "no";
+                                      }
                                     });
                                   }
                                 }),
@@ -428,16 +429,16 @@ class _EyeTestState extends State<EyeTest> {
           child: Icon(Icons.done),
           onPressed: () {
             updateDetails(
-                    lightCheck,
-                    faceCheck,
-                    turnCheck,
-                    theneyesCheck,
-                    lookingCheck,
-                    touchCheck,
-                    squintCheck,
-                    ringCheck,
-                    askCheck,
-                    talkCheck)
+                    lightCheckS,
+                    faceCheckS,
+                    turnCheckS,
+                    theneyesCheckS,
+                    lookingCheckS,
+                    touchCheckS,
+                    squintCheckS,
+                    ringCheckS,
+                    askCheckS,
+                    talkCheckS)
                 .then((res) {
               Toast.show("Done", context,
                   duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
