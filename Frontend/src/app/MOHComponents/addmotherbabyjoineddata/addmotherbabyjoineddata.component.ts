@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MotherbabyjoinedService } from 'app/Services/motherbabyjoined.service';
 import { Router } from '@angular/router';
 import { FamiliesService } from 'app/Services/families.service';
+import { MotherService } from 'app/Services/mother.service';
 
 @Component({
   selector: 'app-addmotherbabyjoineddata',
@@ -15,16 +16,16 @@ export class AddmotherbabyjoineddataComponent implements OnInit {
   submitted = false;
   success = false;
   motherId;
-  constructor(private fb: FormBuilder,private MotherbabyjoinedService : MotherbabyjoinedService,private familyservice : FamiliesService) { }
+  constructor(private fb: FormBuilder,private MotherbabyjoinedService : MotherbabyjoinedService,private familyservice : FamiliesService,private motherService: MotherService) { }
 
   ngOnInit() {
     this.motherId = localStorage.getItem('selectedFamId');
     this.addmotherbabyForm=this.fb.group({
     mother_id: ['', Validators.required],
-    child_name: ['', Validators.required],
+    child_name: [''],
     baby_id: ['', Validators.required],
     mothers_name: ['', Validators.required],
-    address: ['', Validators.required],
+    address: [''],
     sex: ['', Validators.required],
     date_of_birth: ['', Validators.required],
     birth_weight: ['', Validators.required],
@@ -73,6 +74,16 @@ export class AddmotherbabyjoineddataComponent implements OnInit {
         age: this.getAge(data[0]['Date_of_birth'])
       })
     })
+
+    this.motherService.getBabyList(this.motherId).subscribe(
+      data=>{
+        
+        this.addmotherbabyForm.patchValue({
+          baby_id:this.countBabies(data)
+        })
+      }
+    )
+  
   }
 
   
@@ -114,6 +125,10 @@ export class AddmotherbabyjoineddataComponent implements OnInit {
     let isoDateArray = isoDate.split("-");
     let stdDate = isoDateArray[0].concat("-",isoDateArray[1],"-",isoDateArray[2]);
     return stdDate
+  }
+
+  countBabies(data){
+    return this.motherId.concat("0"+(data.length+1).toString());
   }
 
 
