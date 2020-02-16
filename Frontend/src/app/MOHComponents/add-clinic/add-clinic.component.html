@@ -29,17 +29,22 @@
               <div> &nbsp;&nbsp; </div>
               <div> &nbsp;&nbsp; </div>
               <div class="row">
+                <div class="col-md-2">
+                  <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Clinic Id" formControlName="clinic_id" type="text" required readonly>
+                  </mat-form-field>
+                </div>
                   <div class="col-md-6">
                     <mat-form-field class="example-full-width">
                       <input matInput placeholder="Clinic Title" formControlName="clinic_title" type="text" required>
                     </mat-form-field>
                   </div>
-                  <div class="col-md-3">
+                  <div class="col-md-2">
                     <mat-form-field class="example-full-width">
                       <input matInput placeholder="Scheduled Date" formControlName="date" type="date" [min]="getToday()" required>
                     </mat-form-field>
                   </div>
-                  <div class="col-md-3">
+                  <div class="col-md-2">
                       <mat-form-field  class="example-full-width">
                           <mat-select placeholder="Priority" formControlName="clinic_priority" required>
                             <mat-option value="High">High</mat-option>
@@ -65,9 +70,18 @@
                       </div>
                 </div>
              
-              <button mat-raised-button type="submit" class="btn btn-info pull-right" [disabled]="clinicForm.invalid">Schedule Clinic</button>
+            
+            <div *ngIf="isDisabled">
+              <button mat-raised-button type="submit" class="btn btn-info pull-right" [disabled]="clinicForm.invalid" >Schedule Clinic</button>
+          </div>
               <div class="clearfix"></div>
           </form>
+          
+          <div *ngIf="!isDisabled">
+            <button mat-raised-button class="btn btn-info pull-right" (click)="sendEmails()">Notify Mothers</button>
+          </div>
+              
+            
       </div>
   </div>
 </div>
