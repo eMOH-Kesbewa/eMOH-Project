@@ -90,7 +90,7 @@ export class RegPregMothersComponent implements OnInit {
 
   saveToPdf(){
     const options = {
-      filename:"dentalProblemBabies",
+      filename:"regPregnantMothers",
       image:{type:'jpeg'},
       html2canvas:{},
       jsPDF:{orientation: 'landscape'}

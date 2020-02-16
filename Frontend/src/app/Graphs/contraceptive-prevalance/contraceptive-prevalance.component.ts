@@ -155,7 +155,7 @@ export class ContraceptivePrevalanceComponent implements OnInit {
 
 saveToPdf(){
   const options = {
-    filename:"dentalProblemBabies",
+    filename:"contraceptivePrevalance",
     image:{type:'jpeg'},
     html2canvas:{},
     jsPDF:{orientation: 'landscape'}

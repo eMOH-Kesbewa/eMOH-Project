@@ -80,7 +80,7 @@ export class ImmunizationReportComponent implements OnInit {
 
   saveToPdf(){
     const options = {
-      filename:"dentalProblemBabies",
+      filename:"immunizationReport",
       image:{type:'jpeg'},
       html2canvas:{},
       jsPDF:{orientation: 'landscape'}

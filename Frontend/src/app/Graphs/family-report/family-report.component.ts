@@ -73,7 +73,7 @@ export class FamilyReportComponent implements OnInit {
 
   saveToPdf(){
     const options = {
-      filename:"dentalProblemBabies",
+      filename:"familyReport",
       image:{type:'jpeg'},
       html2canvas:{},
       jsPDF:{orientation: 'landscape'}

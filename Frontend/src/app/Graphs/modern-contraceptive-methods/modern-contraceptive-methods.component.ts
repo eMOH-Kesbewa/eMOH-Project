@@ -158,7 +158,7 @@ export class ModernContraceptiveMethodsComponent implements OnInit {
 
 saveToPdf(){
   const options = {
-    filename:"dentalProblemBabies",
+    filename:"modernContraceptiveMethods",
     image:{type:'jpeg'},
     html2canvas:{},
     jsPDF:{orientation: 'landscape'}

@@ -187,7 +187,7 @@ export class WeightHeightGraphbyIdComponent implements OnInit {
 
   saveToPdf(){
     const options = {
-      filename:"dentalProblemBabies",
+      filename:"weightHeightGraph",
       image:{type:'jpeg'},
       html2canvas:{},
       jsPDF:{orientation: 'landscape'}

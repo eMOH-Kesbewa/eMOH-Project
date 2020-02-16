@@ -99,7 +99,7 @@ export class DeliveryReportComponent implements OnInit {
 
   saveToPdf(){
     const options = {
-      filename:"dentalProblemBabies",
+      filename:"deliveryReport",
       image:{type:'jpeg'},
       html2canvas:{},
       jsPDF:{orientation: 'landscape'}
