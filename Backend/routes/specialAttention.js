@@ -8,23 +8,6 @@ var motherfordoc = require('../Schemas/motherfordoc');
 var weight_height = require('../Schemas/WeightHeight');
 var babyBook= require('../Schemas/baby');
 
-router.post('/add', (req, res) => {
-    console.log(req.body);
-    var data = new ApprovedFamily(req.body);
-    data.save((err,doc)=>{
-        res.status(200).send("Inserted successfully.");
-    });
-    console.log("Completed");
-});
-
-//View all families in the area
-router.get('/view', (req, res) => {
-    ApprovedFamily.find((err, doc) => {
-        res.send(doc)
-    })
-    
-});
-
 router.get('/lowWeightFirstYear/first_yearone', (req, res) => {
      weight_height.find({ first_yearone : {$lt : 10 }}, (err, doc) => {
         if (doc.length) {
@@ -109,6 +92,163 @@ router.get('/lowWeightFirstYear/third_yeartwelve', (req, res) => {
 
 });
 
+router.get('/eyeProblems/impairedMovements', (req, res) => {
+    babyBook.find({ one_month_impairment_of_eye_movement : "False" }, (err, doc) => {
+       if (doc.length) {
+           res.send(doc);
+           console.log(doc);
+       }
+       else {
+           console.log('Cannot find the record');
+           res.status(500).send("Cannot find the record");
+       }
+   });
 
+});
+
+router.get('/eyeProblems/bitoSpots', (req, res) => {
+    babyBook.find({ four_year_bito_spots : "True" }, (err, doc) => {
+       if (doc.length) {
+           res.send(doc);
+           console.log(doc);
+       }
+       else {
+           console.log('Cannot find the record');
+           res.status(500).send("Cannot find the record");
+       }
+   });
+
+});
+
+router.get('/eyeProblems/impairedMovements', (req, res) => {
+    babyBook.find({ one_month_impairment_of_eye_movement : "False" }, (err, doc) => {
+       if (doc.length) {
+           res.send(doc);
+           console.log(doc);
+       }
+       else {
+           console.log('Cannot find the record');
+           res.status(500).send("Cannot find the record");
+       }
+   });
+
+});
+
+router.get('/eyeProblems/leftSightProblem', (req, res) => {
+    babyBook.find({ one_month_hearing_left : "False" }, (err, doc) => {
+       if (doc.length) {
+           res.send(doc);
+           console.log(doc);
+       }
+       else {
+           console.log('Cannot find the record');
+           res.status(500).send("Cannot find the record");
+       }
+   });
+
+});
+
+router.get('/eyeProblems/RightSightProblem', (req, res) => {
+    babyBook.find({ one_month_hearing_right : "False" }, (err, doc) => {
+       if (doc.length) {
+           res.send(doc);
+           console.log(doc);
+       }
+       else {
+           console.log('Cannot find the record');
+           res.status(500).send("Cannot find the record");
+       }
+   });
+
+});
+
+router.get('/hearingProblems/left', (req, res) => {
+    babyBook.find({ one_month_hearing_right : "False" }, (err, doc) => {
+       if (doc.length) {
+           res.send(doc);
+           console.log(doc);
+       }
+       else {
+           console.log('Cannot find the record');
+           res.status(500).send("Cannot find the record");
+       }
+   });
+
+});
+
+router.get('/hearingProblems/right', (req, res) => {
+    babyBook.find({ one_month_hearing_right : "False" }, (err, doc) => {
+       if (doc.length) {
+           res.send(doc);
+           console.log(doc);
+       }
+       else {
+           console.log('Cannot find the record');
+           res.status(500).send("Cannot find the record");
+       }
+   });
+
+});
+
+router.get('/dental/whiteBrownSpots', (req, res) => {
+    babyBook.find({ one_month_hearing_right : "True" }, (err, doc) => {
+       if (doc.length) {
+           res.send(doc);
+           console.log(doc);
+       }
+       else {
+           console.log('Cannot find the record');
+           res.status(500).send("Cannot find the record");
+       }
+   });
+
+});
+
+
+router.get('/dental/caries', (req, res) => {
+    babyBook.find({ one_month_hearing_right : "True" }, (err, doc) => {
+       if (doc.length) {
+           res.send(doc);
+           console.log(doc);
+       }
+       else {
+           console.log('Cannot find the record');
+           res.status(500).send("Cannot find the record");
+       }
+   });
+
+});
+
+
+router.get('/dental/cavities', (req, res) => {
+    babyBook.find({ one_month_hearing_right : "True" }, (err, doc) => {
+       if (doc.length) {
+           res.send(doc);
+           console.log(doc);
+       }
+       else {
+           console.log('Cannot find the record');
+           res.status(500).send("Cannot find the record");
+       }
+   });
+
+});
+
+
+
+
+router.get('/heart/diseases', (req, res) => {
+    babyBook.find({ one_month_heart_disease : "True" }, (err, doc) => {
+       if (doc.length) {
+           res.send(doc);
+           console.log(doc);
+       }
+       else {
+           console.log('Cannot find the record');
+           res.status(500).send("Cannot find the record");
+       }
+   });
+
+});
 
 module.exports = router;

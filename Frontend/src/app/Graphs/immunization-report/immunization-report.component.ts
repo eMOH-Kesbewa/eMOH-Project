@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { BabiesService } from 'app/Services/babies.service'
 import { ActivatedRoute } from '@angular/router';
 import { Chart } from 'chart.js';
+import * as html2pdf from 'html2pdf.js';
 
 @Component({
   selector: 'app-immunization-report',
@@ -77,4 +78,19 @@ export class ImmunizationReportComponent implements OnInit {
     })
   }
 
+  saveToPdf(){
+    const options = {
+      filename:"immunizationReport",
+      image:{type:'jpeg'},
+      html2canvas:{},
+      jsPDF:{orientation: 'landscape'}
+    };
+  
+    const content : Element = document.getElementById('element-to-export');
+  
+    html2pdf()
+      .from(content)
+      .set(options)
+      .save();
+   }
 }

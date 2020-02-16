@@ -12,12 +12,8 @@ import 'package:mobileapp/pages/babyInfo/immunization.dart';
 import 'package:mobileapp/pages/babyInfo/immunizationRef.dart';
 import 'package:mobileapp/pages/babyInfo/newBornBayHealthChart.dart';
 import 'package:mobileapp/pages/babyInfo/teeth.dart';
-//import 'package:mobileapp/pages/babyInfo/untilFiveYears.dart';
-import 'package:mobileapp/pages/babyInfo/untilFiveYearsStep.dart';
 import 'package:mobileapp/pages/babyInfo/vitaminA.dart';
 import 'package:mobileapp/pages/babyInfo/worm.dart';
-import 'package:mobileapp/pages/bottomNavigation.dart';
-import 'package:mobileapp/widgets/childHealthCard.dart';
 import 'package:easy_localization/easy_localization.dart';
 
 import '../services/globals.dart' as globals;
@@ -38,51 +34,62 @@ class _BabyDetailsState extends State<BabyDetails> {
     List<DropdownMenuItem<String>> dropDownItems = List();
     logger.d(globals.children);
 
-    //not running this for loop.
+    //not running this for loop
 
-    for (int i = 1; i < globals.children+1; i++) {
-      logger.d(i);
-      // var x = DropdownMenuItem<String>(
-      //   value: '${i}',
-      //   child: Text('Baby ${i}'),
-      // );
-      dropDownItems.add(DropdownMenuItem<String>( //check drop
-        value: '${i}',
-        child: Text('Baby ${i}'),
-      ));
+    try {
+      for (int i = 1; i < globals.children + 1; i++) {
+        logger.d(i);
+        // var x = DropdownMenuItem<String>(
+        //   value: '${i}',
+        //   child: Text('Baby ${i}'),
+        // );
+
+        dropDownItems.add(DropdownMenuItem<String>(
+          //check drop
+          value: '${i}',
+          child: Text('Baby ${i}'),
+        ));
+      }
+    } catch (e) {
+      setState(() {}); //error mesg when no connection
+      final errormsg = Scaffold(
+        appBar: AppBar(
+          title: Text('Babies'),
+        ),
+        body: Column(
+          children: <Widget>[Text('No Internet Connection')],
+        ),
+      );
     }
 
     logger.wtf(dropDownItems.length);
 
     final selectBaby = DropdownButton<String>(
       items: dropDownItems,
-      // items: [
-      //   DropdownMenuItem<String>(
-      //     value: '01',
-      //     child: Text('Baby 1'),
-      //   ),
-      //   DropdownMenuItem<String>(
-      //     value: '02',
-      //     child: Text('Baby 2'),
-      //   ),
-      //   DropdownMenuItem<String>(
-      //     value: '03',
-      //     child: Text('Baby 3'),
-      //   ),
-      // ],
       onChanged: (String value) {
         setState(() {
-          _value = '0'+value;
-          String tempId = globals.familyId + _value; //generating baby id 
-          print(globals.familyId);
-          globals.babyId = tempId.substring(0, 6) + _value;
-          print('baby id');
-          print(globals.babyId);
-          hintText = 'Baby' + '${value}';
+          try {
+            //babyid = 1A100401
+            //familyid = 1A1004
+            _value = '0' + value;
+            // String tempId = globals.familyId + _value; //generating baby id
+            print(globals.familyId);
+            // logger.v(tempId.substring(0, 6));
+            //globals.babyId = tempId.substring(0, 6) + _value;
+            globals.babyId = globals.familyId + _value;
+            print('baby id');
+            logger.i(globals.babyId);
+            hintText = 'Baby' + '${value}';
+          } catch (e) {
+            return Text('Error');
+          }
         });
       },
-      hint: Text(hintText,style: TextStyle(color: Colors.white),),
-    //  value: _value,
+      hint: Text(
+        hintText,
+        style: TextStyle(color: Colors.white),
+      ),
+      //  value: _value,
     );
 
     final basicInfoBtn = Material(
@@ -673,46 +680,5 @@ class _BabyDetailsState extends State<BabyDetails> {
         ),
       ),
     );
-    // return Scaffold(
-    //   appBar: AppBar(
-    //     title: Text('Babies'),
-    //     actions: <Widget>[
-    //       Padding(
-    //         padding: EdgeInsets.fromLTRB(5, 5, 15, 5),
-    //         child: selectBaby,
-    //       ),
-    //     ],
-    //   ),
-    //   body: CustomScrollView(
-    //     primary: false,
-    //     slivers: <Widget>[
-    //       SliverPadding(
-    //         padding: const EdgeInsets.all(20),
-    //         sliver: SliverGrid.count(
-    //           crossAxisSpacing: 10,
-    //           mainAxisSpacing: 10,
-    //           crossAxisCount: 2,
-    //           children: <Widget>[
-    //             basicInfoBtn,
-    //             protectionBtn,
-    //             eyeTestBtn,
-    //             hearTestBtn,
-    //             untilFiveYearsBtn,
-    //             helthChartbtn,
-    //             immunizationbtn,
-    //             immunizationRefbtn,
-    //             vitaminAbtn,
-    //             wormbtn,
-    //             childHealthbtn,
-    //             doctorNotesbtn,
-    //             teethbtn,
-    //             chartbtn,
-    //           ],
-    //         ),
-    //       ),
-    //     ],
-    //   ),
-    // bottomNavigationBar: BottomNavigation(),
-    //);
   }
 }

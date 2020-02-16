@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 import { FamiliesService } from 'app/Services/families.service';
 
@@ -19,7 +22,7 @@ export class AddApprovedFamiliesComponent implements OnInit {
   submitted = false;
   success = false;
 
-  constructor(private formBuilder: FormBuilder, private addfamilyService: FamiliesService) { }
+  constructor(private formBuilder: FormBuilder, private addfamilyService: FamiliesService, private router: Router, private activeroute: ActivatedRoute, private _snackBar: MatSnackBar) { }
 
   ngOnInit() {
     this.approvedFamilyForm = this.formBuilder.group({
@@ -30,7 +33,7 @@ export class AddApprovedFamiliesComponent implements OnInit {
       Name_of_wife: ['', Validators.required],
       Name_of_husband: [''],
       Address: ['', Validators.required],
-      Date_of_birth: ['', Validators.required,RxwebValidators.maxDate({value:new Date(2018,7,30) })],
+      Date_of_birth: [''],
       Age_at_the_time_of_marriage: ['', Validators.required],
       Job_status: [''],
       Education_level: [''],
@@ -87,10 +90,17 @@ export class AddApprovedFamiliesComponent implements OnInit {
       .subscribe(
         response=>console.log('Success!',response),
         error=>{
-          if(error) console.log("Failure") 
+          if(error) {
+            this.openSnackBar("Inserted Successfully");
+            this.router.navigate(["viewApprovedFamilies/"])
+          }
           else console.log("Success No Errors")
         }
     );
+}
+
+openSnackBar(msg) {
+  this._snackBar.open(msg,"OK")
 }
 
 }

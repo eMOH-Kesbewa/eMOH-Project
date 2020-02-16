@@ -37,77 +37,87 @@ class _VitaminAState extends State<VitaminA> {
                 child: CircularProgressIndicator(),
               );
             }
-            return SingleChildScrollView(
-                child: Padding(
-              padding: EdgeInsets.all(8.0),
-              child: Card(
-                child: Column(
-                  children: <Widget>[
-                    ListTile(
-                      leading: Text(
-                        AppLocalizations.of(context).tr('sixmonth'),
-                        style: TextStyle(fontSize: 20.0),
+
+            try {
+              return SingleChildScrollView(
+                  child: Padding(
+                padding: EdgeInsets.all(8.0),
+                child: Card(
+                  child: Column(
+                    children: <Widget>[
+                      ListTile(
+                        leading: Text(
+                          AppLocalizations.of(context).tr('sixmonth'),
+                          style: TextStyle(fontSize: 20.0),
+                        ),
+                        title: Text(snapshot.data.date1.substring(0, 10)),
+                        trailing: Text(snapshot.data.batchNo1),
                       ),
-                      title: Text(snapshot.data.date1.substring(0, 10)),
-                      trailing: Text(snapshot.data.batchNo1),
-                    ),
-                    ListTile(
-                      leading: Text(AppLocalizations.of(context).tr('1year'), style: TextStyle(fontSize: 20.0)),
-                      title: Text(snapshot.data.date2.substring(0, 10)),
-                      trailing: Text(snapshot.data.batchNo2),
-                    ),
-                    ListTile(
-                      leading:
-                          Text(AppLocalizations.of(context).tr('1.5year'), style: TextStyle(fontSize: 20.0)),
-                      title: Text(snapshot.data.date3.substring(0, 10)),
-                      trailing: Text(snapshot.data.batchNo3),
-                    ),
-                    ListTile(
-                      leading:
-                          Text(AppLocalizations.of(context).tr('2year'), style: TextStyle(fontSize: 20.0)),
-                      title: Text(snapshot.data.date4.substring(0, 10)),
-                      trailing: Text(snapshot.data.batchNo4),
-                    ),
-                    ListTile(
-                      leading:
-                          Text(AppLocalizations.of(context).tr('2.5year'), style: TextStyle(fontSize: 20.0)),
-                      title: Text(snapshot.data.date9.substring(0, 10)),
-                      trailing: Text(snapshot.data.batchNo10),
-                    ),
-                    ListTile(
-                      leading:
-                          Text(AppLocalizations.of(context).tr('3year'), style: TextStyle(fontSize: 20.0)),
-                      title: Text(snapshot.data.date5.substring(0, 10)),
-                      trailing: Text(snapshot.data.batchNo5),
-                    ),
-                    ListTile(
-                      leading:
-                          Text(AppLocalizations.of(context).tr('3.5year'), style: TextStyle(fontSize: 20.0)),
-                      title: Text(snapshot.data.date6.substring(0, 10)),
-                      trailing: Text(snapshot.data.batchNo6),
-                    ),
-                    ListTile(
-                      leading:
-                          Text(AppLocalizations.of(context).tr('4year'), style: TextStyle(fontSize: 20.0)),
-                      title: Text(snapshot.data.date7.substring(0, 10)),
-                      trailing: Text(snapshot.data.batchNo7),
-                    ),
-                    ListTile(
-                      leading:
-                          Text(AppLocalizations.of(context).tr('4.5year'), style: TextStyle(fontSize: 20.0)),
-                      title: Text(snapshot.data.date8.substring(0, 10)),
-                      trailing: Text(snapshot.data.batchNo8),
-                    ),
-                    ListTile(
-                      leading:
-                          Text(AppLocalizations.of(context).tr('5year'), style: TextStyle(fontSize: 20.0)),
-                      title: Text(snapshot.data.date9.substring(0, 10)),
-                      trailing: Text(snapshot.data.batchNo9),
-                    ),
-                  ],
+                      ListTile(
+                        leading: Text(AppLocalizations.of(context).tr('1year'),
+                            style: TextStyle(fontSize: 20.0)),
+                        title: Text(snapshot.data.date2.substring(0, 10)),
+                        trailing: Text(snapshot.data.batchNo2),
+                      ),
+                      ListTile(
+                        leading: Text(
+                            AppLocalizations.of(context).tr('1.5year'),
+                            style: TextStyle(fontSize: 20.0)),
+                        title: Text(snapshot.data.date3.substring(0, 10)),
+                        trailing: Text(snapshot.data.batchNo3),
+                      ),
+                      ListTile(
+                        leading: Text(AppLocalizations.of(context).tr('2year'),
+                            style: TextStyle(fontSize: 20.0)),
+                        title: Text(snapshot.data.date4.substring(0, 10)),
+                        trailing: Text(snapshot.data.batchNo4),
+                      ),
+                      ListTile(
+                        leading: Text(
+                            AppLocalizations.of(context).tr('2.5year'),
+                            style: TextStyle(fontSize: 20.0)),
+                        title: Text(snapshot.data.date9.substring(0, 10)),
+                        trailing: Text(snapshot.data.batchNo10),
+                      ),
+                      ListTile(
+                        leading: Text(AppLocalizations.of(context).tr('3year'),
+                            style: TextStyle(fontSize: 20.0)),
+                        title: Text(snapshot.data.date5.substring(0, 10)),
+                        trailing: Text(snapshot.data.batchNo5),
+                      ),
+                      ListTile(
+                        leading: Text(
+                            AppLocalizations.of(context).tr('3.5year'),
+                            style: TextStyle(fontSize: 20.0)),
+                        title: Text(snapshot.data.date6.substring(0, 10)),
+                        trailing: Text(snapshot.data.batchNo6),
+                      ),
+                      ListTile(
+                        leading: Text(AppLocalizations.of(context).tr('4year'),
+                            style: TextStyle(fontSize: 20.0)),
+                        title: Text(snapshot.data.date7.substring(0, 10)),
+                        trailing: Text(snapshot.data.batchNo7),
+                      ),
+                      ListTile(
+                        leading: Text(
+                            AppLocalizations.of(context).tr('4.5year'),
+                            style: TextStyle(fontSize: 20.0)),
+                        title: Text(snapshot.data.date8.substring(0, 10)),
+                        trailing: Text(snapshot.data.batchNo8),
+                      ),
+                      ListTile(
+                        leading: Text(AppLocalizations.of(context).tr('5year'),
+                            style: TextStyle(fontSize: 20.0)),
+                        title: Text(snapshot.data.date9.substring(0, 10)),
+                        trailing: Text(snapshot.data.batchNo9),
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-            ));
+              ));
+            } catch (e) {
+              return Text('No Data');
+            }
           },
         ),
       ),

@@ -35,7 +35,7 @@ export class NavbarComponent implements OnInit {
            else if((localStorage.getItem('role')=="PHM")){
             this.listTitles = ROUTESforPHM.filter(listTitle => listTitle);
            }
-           else if((localStorage.getItem('role')=="Mother")){
+           else if((localStorage.getItem('role')=="mother")){
             this.listTitles = ROUTESforMother.filter(listTitle => listTitle);
            }  
       //this.listTitles = ROUTESforDoc.filter(listTitle => listTitle);

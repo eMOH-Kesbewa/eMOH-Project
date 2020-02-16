@@ -4,12 +4,16 @@ import { NgModule } from '@angular/core';
 import { AuthGuard } from 'app/auth.guard';
 import { MainComponent } from './main.component';
 import { LowWeightBabiesComponent } from '../low-weight-babies/low-weight-babies.component';
+import { EyeProblemsComponent } from '../eye-problems/eye-problems.component';
+import { HearingProblemsComponent } from '../hearing-problems/hearing-problems.component';
+import { DentalProblemsComponent } from '../dental-problems/dental-problems.component';
+import { HeartProblemsComponent } from '../heart-problems/heart-problems.component';
 
 
 
 export const MainAttenRoutes: Routes = [
     {
-        path: '',        //Msg has been added to show the success or failure msg to the user when they submit clinic form data
+        path: '',       
         component: MainComponent,
         canActivate:[AuthGuard],
         children: [
@@ -18,20 +22,28 @@ export const MainAttenRoutes: Routes = [
               component: LowWeightBabiesComponent,
               canActivate:[AuthGuard]
             },
-        //    {
-        //        path: 'UpdateBabyBook/:babyId',
-        //        component: UpdateBabyBookComponent,
-        //        canActivate:[AuthGuard]
-        //    },
-        //    {
-        //         path:'ViewMotherBabybyID/:babyId',
-        //         component:ViewBabybyIDComponent,
-        //         canActivate:[AuthGuard],
-        //    },/*
-        //    {
-        //        path:'AddWeightHeight',
-        //        component:AddWeightHeightComponent
-        //    }*/
+           {
+               path: 'eyeProblems/:problemType',
+               component: EyeProblemsComponent,
+               canActivate:[AuthGuard]
+           },
+           {
+                path:'hearingProblems/:problemType',
+                component:HearingProblemsComponent,
+                canActivate:[AuthGuard],
+           },
+           {
+                path:'dental/:problemType',
+                component:DentalProblemsComponent,
+                canActivate:[AuthGuard],
+            },
+            {
+                path:'heart/:problemType',
+                component:HeartProblemsComponent,
+                canActivate:[AuthGuard],
+            },
+        
+
         ]
     }
     

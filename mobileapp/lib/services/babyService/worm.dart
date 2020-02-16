@@ -9,7 +9,7 @@ Future<Baby> fetchBaby() async {
   print('fetch Baby function');
   //String _babyId = globals.BabyId + babyIndex;
   final response = await http.get(
-      'https://protected-bayou-52277.herokuapp.com/babies/viewbyid/${globals.babyId}');
+      'https://emohback.herokuapp.com/babies/viewbybabyid/${globals.babyId}');
   print('status code');
   print(response.statusCode);
   print(response.body);

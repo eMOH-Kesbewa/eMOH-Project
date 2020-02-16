@@ -1,15 +1,7 @@
-import 'dart:convert';
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
-import 'package:flutter_icons/flutter_icons.dart';
 import 'package:logger/logger.dart';
 import 'package:mobileapp/pages/Settings.dart';
-import 'package:mobileapp/pages/babyInfo/babyBasicInfo.dart';
-import 'package:mobileapp/pages/babyDetails.dart';
-import 'package:mobileapp/pages/bottomNavigation.dart';
 import 'package:mobileapp/pages/login.dart';
-import 'package:mobileapp/pages/motherDetails.dart';
 import 'package:mobileapp/services/familyProflieServices.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../services/globals.dart' as globals;
@@ -43,10 +35,6 @@ class _FamilyProfileState extends State<FamilyProfile> {
         decoration: BoxDecoration(
             color: Colors.white,
             image: DecorationImage(image: AssetImage("images/mother.png")),
-            /*  image: DecorationImage(
-                //image: NetworkImage(snapshot.data["Profilepic"]),
-               
-                fit: BoxFit.cover),*/
             borderRadius: BorderRadius.all(Radius.circular(75.0)),
             boxShadow: [BoxShadow(blurRadius: 7.0, color: Colors.black)]));
     final profilePic = Container(
@@ -55,16 +43,11 @@ class _FamilyProfileState extends State<FamilyProfile> {
         decoration: BoxDecoration(
             color: Colors.white,
             image: DecorationImage(image: AssetImage("images/mother.png")),
-            /*  image: DecorationImage(
-                //image: NetworkImage(snapshot.data["Profilepic"]),
-               
-                fit: BoxFit.cover),*/
             borderRadius: BorderRadius.all(Radius.circular(75.0)),
             boxShadow: [BoxShadow(blurRadius: 7.0, color: Colors.black)]));
 
     Future family = fetchFamily();
     Future readFile() async {
-      
       String data = await DefaultAssetBundle.of(context)
           .loadString("text/BabyBookSinhala.json");
       text = data;
@@ -100,11 +83,48 @@ class _FamilyProfileState extends State<FamilyProfile> {
             child: FutureBuilder<Family>(
               future: family,
               builder: (context, snapshot) {
-               
                 var data = readFile();
-                logger.wtf(data);
-                if (snapshot.hasData) {
-                   globals.children = int.parse(snapshot.data.childrenCount);
+
+                String idNumber, address, wifeName, husbandName, childrenCount;
+
+                if (snapshot.connectionState == ConnectionState.waiting) {
+                  return Center(
+                    child: CircularProgressIndicator(),
+                  );
+                } else if (snapshot.hasData) {
+                  if (snapshot.data.idNumber == null) {
+                    idNumber = "No Data";
+                  } else {
+                    idNumber = snapshot.data.idNumber;
+                  }
+                  if (snapshot.data.address == null) {
+                    address = "No Data";
+                  } else {
+                    address = snapshot.data.address;
+                  }
+                  if (snapshot.data.wifeName == null) {
+                    wifeName = "No Data";
+                  } else {
+                    wifeName = snapshot.data.wifeName;
+                  }
+                  if (snapshot.data.husbandName == null) {
+                    husbandName = "No Data";
+                  } else {
+                    husbandName = snapshot.data.husbandName;
+                  }
+                  if (snapshot.data.childrenCount == null) {
+                    childrenCount = "No Data";
+                  } else {
+                    childrenCount = snapshot.data.childrenCount;
+                  }
+
+                  logger.i(idNumber);
+                  logger.i(address);
+                  logger.i(wifeName);
+                  logger.i(husbandName);
+                  logger.i(childrenCount);
+
+                  globals.children = int.parse(snapshot.data.childrenCount);
                   return SingleChildScrollView(
                     child: Column(
                       children: <Widget>[
@@ -125,7 +145,7 @@ class _FamilyProfileState extends State<FamilyProfile> {
                                 leading: Icon(Icons.perm_identity),
                                 title: Text(
                                     AppLocalizations.of(context).tr('idNo')),
-                                subtitle: Text(snapshot.data.idNumber),
+                                subtitle: Text(idNumber),
                               ),
                               div,
                               ListTile(
@@ -133,28 +153,28 @@ class _FamilyProfileState extends State<FamilyProfile> {
                                 // title: Text(.idNo),
                                 title: Text(
                                     AppLocalizations.of(context).tr('address')),
-                                subtitle: Text(snapshot.data.address),
+                                subtitle: Text(address),
                               ),
                               div,
                               ListTile(
                                 leading: Icon(Icons.ac_unit),
                                 title: Text(AppLocalizations.of(context)
                                     .tr('wifename')),
-                                subtitle: Text(snapshot.data.wifeName),
+                                subtitle: Text(wifeName),
                               ),
                               div,
                               ListTile(
                                 leading: Icon(Icons.ac_unit),
                                 title: Text(AppLocalizations.of(context)
                                     .tr('fathername')),
-                                subtitle: Text(snapshot.data.husbandName),
+                                subtitle: Text(husbandName),
                               ),
                               div,
                               ListTile(
                                 leading: Icon(Icons.child_friendly),
                                 title: Text(AppLocalizations.of(context)
                                     .tr('nooflivingchildren')),
-                                subtitle: Text(snapshot.data.childrenCount),
+                                subtitle: Text(childrenCount),
                               ),
                             ],
                           ),
@@ -163,103 +183,29 @@ class _FamilyProfileState extends State<FamilyProfile> {
                     ),
                   ); //Text(snapshot.data.childrenCount);
                 } else if (snapshot.hasError) {
-                  return Text("${snapshot.error}");
+                  return Column(
+                    children: <Widget>[
+                      Icon(
+                        Icons.error_outline,
+                        size: 50.0,
+                        color: Colors.red,
+                      ),
+                      SizedBox(
+                        height: 10.0,
+                      ),
+                      Text(
+                        'Check Your Internet Connection',
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, color: Colors.red),
+                      )
+                    ],
+                  );
                 }
-
-                // By default, show a loading spinner.
-                return CircularProgressIndicator();
               },
             ),
           ),
         ),
       ),
     );
-    // return Scaffold(
-    //   appBar: AppBar(
-    //     title: Text('Family Profile'),
-    //    // backgroundColor: Color(0xffb30089),
-    //     actions: <Widget>[
-    //       IconButton(
-    //         icon: Icon(
-    //           Icons.settings,
-    //           color: Colors.white,
-    //         ),
-    //         onPressed: () async {
-    //           SharedPreferences prefs = await SharedPreferences.getInstance();
-    //           prefs.remove('email');
-    //           Navigator.pushReplacement(context,
-    //               MaterialPageRoute(builder: (BuildContext ctx) => Login()));
-    //         },
-    //       ),
-    //     ],
-    //   ),
-    //   body: Center(
-    //     child: FutureBuilder<Family>(
-    //       future: family,
-    //       builder: (context, snapshot) {
-    //         print(snapshot);
-    //         if (snapshot.hasData) {
-    //           return SingleChildScrollView(
-    //             child: Column(
-    //               children: <Widget>[
-    //                 SizedBox(
-    //                   height: 20.0,
-    //                 ),
-    //                 Center(
-    //                   child: profilePic,
-    //                 ),
-    //                 SizedBox(
-    //                   height: 20.0,
-    //                 ),
-    //                 Card(
-    //                   child: Column(
-    //                     mainAxisSize: MainAxisSize.min,
-    //                     children: <Widget>[
-    //                       ListTile(
-    //                         leading: Icon(Icons.perm_identity),
-    //                         title: Text('Identity Number'),
-    //                         subtitle: Text(snapshot.data.idNumber),
-    //                       ),
-    //                       div,
-    //                       ListTile(
-    //                         leading: Icon(Icons.home),
-    //                         title: Text('Village ID'),
-    //                         subtitle: Text(snapshot.data.vilID),
-    //                       ),
-    //                       div,
-    //                       ListTile(
-    //                         leading: Icon(Icons.ac_unit),
-    //                         title: Text('Wife Name'),
-    //                         subtitle: Text(snapshot.data.wifeName),
-    //                       ),
-    //                       div,
-    //                       ListTile(
-    //                         leading: Icon(Icons.ac_unit),
-    //                         title: Text('Husband Name'),
-    //                         subtitle: Text(snapshot.data.husbandName),
-    //                       ),
-    //                       div,
-    //                       ListTile(
-    //                         leading: Icon(Icons.child_friendly),
-    //                         title: Text('Number of Children'),
-    //                         subtitle: Text(snapshot.data.childrenCount),
-    //                       ),
-    //                     ],
-    //                   ),
-    //                 ),
-    //               ],
-    //             ),
-    //           ); //Text(snapshot.data.childrenCount);
-    //         } else if (snapshot.hasError) {
-    //           return Text("${snapshot.error}");
-    //         }
-
-    //         // By default, show a loading spinner.
-    //         return CircularProgressIndicator();
-    //       },
-    //     ),
-    //   ),
-    //bottomNavigationBar: BottomNavigation(),
-    //);
   }
 }

@@ -1,0 +1,55 @@
+
+<div class="main-content">
+
+  <div class="row">
+    
+    <div class="col-md-6"></div>
+    <div class="col-md-3">
+     
+      
+  </div>  
+  </div>
+
+  <div class="row">
+    <div class="col-md-12"></div>
+      <div class="col-md-9"></div>
+      <div class="col-md-3" ><button (click)="saveToPdf()" class="btn btn-info btn-block">Export As PDF</button></div>
+        <div class="card">
+            <div class="card-header">
+                <h4 class="card-title "><h3>Babies Who Have Hearing Problems</h3></h4> 
+                <h5 class="card-category">{{ 'click_individual' | translate }}</h5>
+            </div>
+            <div class="card-body" id="element-to-export">
+                  <table class="table table-hover table-bordered">
+                      
+                          
+                              <tr>
+                              <th rowspan = 2><b>{{ 'baby.baby_id' | translate }}</b></th>
+                              <th rowspan = 2><b>{{ 'baby.name_of_child' | translate }}</b></th>
+                              <th rowspan = 2><b>{{ 'baby.address' | translate }}</b></th>
+                              <th rowspan = 2><b>{{ 'weightHeight.date_of_birth' | translate }}</b></th>
+                              </tr>
+
+                              
+                              <tbody>
+                              <tr *ngFor="let hearingProblemBabyData of hearingProblemBabyDatas" (click)="onClickMe(hearingProblemBabyData.baby_id)" style="cursor:pointer">
+                                <td>{{hearingProblemBabyData.baby_id}}</td>
+                                <td>{{hearingProblemBabyData.name_of_child}}</td>
+                                <td>{{hearingProblemBabyData.address}}</td>
+                                <td>{{hearingProblemBabyData.date_of_birth_of_child | date: 'yyyy/MM/dd'}}</td>
+                              </tr>
+                      </tbody>
+                     
+                  </table>
+            
+
+
+    </div>
+
+<div class="col-md-12"></div>
+    <div class="card card-plain">
+      
+        </div>
+    </div>
+</div>
+</div>

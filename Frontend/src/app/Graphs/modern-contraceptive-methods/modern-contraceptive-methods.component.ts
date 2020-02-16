@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FamiliesService } from 'app/Services/families.service';
 import { Chart } from 'chart.js';
 import { ActivatedRoute } from '@angular/router';
+import * as html2pdf from 'html2pdf.js';
+
 @Component({
   selector: 'app-modern-contraceptive-methods',
   templateUrl: './modern-contraceptive-methods.component.html',
@@ -153,4 +155,20 @@ export class ModernContraceptiveMethodsComponent implements OnInit {
   })
 
 }
+
+saveToPdf(){
+  const options = {
+    filename:"modernContraceptiveMethods",
+    image:{type:'jpeg'},
+    html2canvas:{},
+    jsPDF:{orientation: 'landscape'}
+  };
+
+  const content : Element = document.getElementById('element-to-export');
+
+  html2pdf()
+    .from(content)
+    .set(options)
+    .save();
+ }
 }

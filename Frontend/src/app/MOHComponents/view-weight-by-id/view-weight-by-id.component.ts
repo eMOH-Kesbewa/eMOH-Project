@@ -121,7 +121,7 @@ export class ViewWeightByIdComponent implements OnInit {
         baby_id: data[0]['baby_id'],
         batch_no:data[0] ['batch_no'],
         name_of_child:data[0] ['name_of_child'],
-        sex:data[0] ['sex'],
+        sex : data[0] ['sex'],
         Date_of_birth:this.dateconverter(data[0] ['Date_of_birth']),
         weight_of_birth:data[0] ['weight_of_birth'],
         height_of_birth:data[0] ['height_of_birth'],
@@ -222,15 +222,14 @@ export class ViewWeightByIdComponent implements OnInit {
     this.success=true;
     this.weightService.register(this.addWeightForm.value,this.babyId)
       .subscribe(
-        response=>{
-          if(response.status==201){
-            this.openSnackBar("Updated Successfully");
+        response=>console.log('Success!',response),
+        error=>{
+          if(error) {
+            this.openSnackBar("Inserted Successfully");
             this.router.navigate(["ViewWeightTable/"])
-          }else{
-            this.openSnackBar("Update is Unsuccessfull, Pls enter it again!");
-            this.router.navigate([this.router.url,'viewWeightbyId',this.babyId])
           }
-        } 
+          else console.log("Success No Errors")
+        }
       )
     }
 

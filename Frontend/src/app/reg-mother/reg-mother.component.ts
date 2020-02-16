@@ -25,7 +25,7 @@ export class RegMotherComponent implements OnInit {
       userid : ['', Validators.required],
       password: [this.generatedPassword, Validators.required],
       villageId:['', Validators.required],
-      role:['Mother']
+      role:['mother']
   })
   
 
@@ -42,8 +42,10 @@ export class RegMotherComponent implements OnInit {
   
   }
   generaterUserId(userid){
+    console.log(userid.substr(1,1))
+    console.log(userid.substr(2,))
     var motherNo = parseInt(userid.substr(2,))
-    return (userid.substr(1,1).concat(motherNo+1))
+    return (motherNo+1)
   }
 
 
@@ -61,7 +63,7 @@ export class RegMotherComponent implements OnInit {
   onSubmit(){
     console.log(this.regMotherForm.value['villageId']);
     console.log(this.regMotherForm.value['userid'])
-    this.regMotherForm.value['userid'] = this.regMotherForm.value['villageId'].concat(this.regMotherForm.value['userid'])
+    this.regMotherForm.value['userid'] = localStorage.getItem('userid').substr(0,1).concat(this.regMotherForm.value['villageId']).concat(this.regMotherForm.value['userid'])
     console.log(this.regMotherForm.value)
     this.authService.registerUser(this.regMotherForm.value).subscribe(
       res=> console.log(res),    

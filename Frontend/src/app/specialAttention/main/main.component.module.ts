@@ -28,8 +28,12 @@ import { ContraceptivePrevalanceComponent } from "app/Graphs/contraceptive-preva
 import { MainAttentions } from "./main.component.routing";
 import { MainComponent } from "./main.component";
 import { LowWeightBabiesComponent } from "../low-weight-babies/low-weight-babies.component";
+import { EyeProblemsComponent } from "../eye-problems/eye-problems.component";
+import { HearingProblemsComponent } from "../hearing-problems/hearing-problems.component";
+import { DentalProblemsComponent } from "../dental-problems/dental-problems.component";
+import { HeartProblemsComponent } from "../heart-problems/heart-problems.component";
 @NgModule({
-    declarations:[MainComponent,LowWeightBabiesComponent,],
+    declarations:[MainComponent,LowWeightBabiesComponent,EyeProblemsComponent,HearingProblemsComponent,DentalProblemsComponent,HeartProblemsComponent],
     imports:[
         MainAttentions,
         CommonModule,
