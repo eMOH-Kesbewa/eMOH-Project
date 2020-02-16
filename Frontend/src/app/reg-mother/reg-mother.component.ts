@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators ,AbstractControl } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from 'app/Services/auth.service';
-import { ValidatorService } from 'app/Services/validator.service';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material';
-import { map } from 'rxjs/operators';
 import { concat } from 'rxjs';
 
 @Component({
@@ -17,19 +15,18 @@ export class RegMotherComponent implements OnInit {
   passwordType = "password";
   regMotherForm: FormGroup;
   generatedPassword;
-  constructor(private formBuilder: FormBuilder,private authService : AuthService, private router: Router,private snackBar : MatSnackBar ,private validService:ValidatorService ) { }
+  constructor(private formBuilder: FormBuilder,private authService : AuthService, private router: Router,private snackBar : MatSnackBar) { }
 
   ngOnInit() {
     if(localStorage.getItem('role')=="mother") this.router.navigate([''])
     this.generatedPassword = this.generatePassword()
     this.regMotherForm = this.formBuilder.group({
-      username : ['', Validators.email ,this.usernameValidator],
+      username : ['', Validators.email],
       userid : ['', Validators.required],
       password: [this.generatedPassword, Validators.required],
       villageId:['', Validators.required],
       role:['Mother']
   })
-  
   
 
   this.authService.getPreviousUserId(localStorage.getItem('userid').substr(0,1)).subscribe(
@@ -45,9 +42,7 @@ export class RegMotherComponent implements OnInit {
   
   }
   generaterUserId(userid){
-    console.log(userid.substr(1,1))
-    console.log(userid.substr(3,))
-    var motherNo = parseInt(userid.substr(3,))
+    var motherNo = parseInt(userid.substr(2,))
     return (userid.substr(1,1).concat(motherNo+1))
   }
 
@@ -61,22 +56,6 @@ export class RegMotherComponent implements OnInit {
       result += characters.charAt(Math.floor(Math.random() * charactersLength));
     }
     return result;
-  }
-
-  usernameValidator(control: AbstractControl){
-    const msg = this.regMotherForm.value['username'];
-    return this.validService.checkUsername(msg)
-     .pipe( map(response => response.json()),
-     map(val => {
-       return {usernameValidator: !val.valid, usernameValidatormsg:val.msg};
-     }),
-     ).subscribe(val =>{
-       if(val.usernameValidator){
-         control.setErrors(val);
-       }else{
-         control.setErrors(null);
-       }
-     })
   }
 
   onSubmit(){

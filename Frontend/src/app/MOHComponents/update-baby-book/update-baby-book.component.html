@@ -6,12 +6,12 @@
         </div>
         <div class="col-md-2">
           <p>
-            <mat-slide-toggle [formControl]="disableSelect">Disable Details</mat-slide-toggle>>
+            <mat-slide-toggle [formControl]="disableSelect">Disable Details</mat-slide-toggle>
           </p>
         </div>
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header card-header-danger">
+                <div class="card-header card-header-info">
                     <h4 class="card-title">{{ 'baby.Update_Baby' | translate }}</h4>
                     <p class="card-category"></p>
                 </div>
@@ -2436,7 +2436,7 @@
                                                         Click to View/Edit
                                                       </mat-panel-description>
                                                     </mat-expansion-panel-header>
-                                                  <h4>For Mothers</h4>
+                                                  
                                                   <div class="card-body">
                                                     <div class="tab-content">
                                                         <div class="tab-pane active" id="profile">
@@ -2720,7 +2720,7 @@
                                                       Click to View/Edit
                                                     </mat-panel-description>
                                                   </mat-expansion-panel-header>
-                                                <h4>For Mothers</h4>
+                                               
                                                   <div class="card-body">
                                                     <div class="tab-content">
                                                         <div class="tab-pane active" id="profile">
@@ -3016,7 +3016,7 @@
                                                     Click to View/Edit
                                                   </mat-panel-description>
                                                 </mat-expansion-panel-header>
-                                              <h4>For Mothers And PHMs</h4>
+                                             
                                               <div class="row">
                                                 <div class="col-md-6">{{'baby.Age' | translate}}</div>
                                                 <div class="col-md-2">{{'baby.age_at_the_time_of_occurence' | translate}}</div>
@@ -4612,7 +4612,7 @@
                                                         
                                                 
                         
-                        <input type="submit" value="{{ 'Submit' | translate }}" class="btn btn-danger pull-right">
+                        <input type="submit" value="{{ 'Submit' | translate }}" class="btn btn-info pull-right">
                         <!-- <div *ngIf="onHidden()"><input readonly="{{onChange()}}" type="submit" value="Update" class="btn btn-info pull-right"></div> -->
                     </form>
                     <div *ngIf="success"><h1>You submitted a record</h1></div>
