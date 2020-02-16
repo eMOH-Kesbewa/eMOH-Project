@@ -41,6 +41,8 @@ export class RegPHMComponent implements OnInit {
 
   onSubmit(){
     console.log(this.regPHMform.value)
+    let areaId = this.regPHMform.value['areaId'].toString()
+    this.regPHMform.value['userid'] = areaId.concat(this.regPHMform.value['userid'])
     this.authService.registerUser(this.regPHMform.value).subscribe(
       res=>{
         console.log(res)

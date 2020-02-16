@@ -19,7 +19,7 @@
       <div class="container">
           <form [formGroup]="regPHMform" [hidden]="success" (ngSubmit)="onSubmit()">
               <mat-form-field class="example-full-width">
-                <input matInput placeholder="Area Id" type="number" formControlName="areaId">
+                <input matInput placeholder="Area Id" type="number" max="9" formControlName="areaId">
               </mat-form-field>
 
               <mat-form-field class="example-full-width">
