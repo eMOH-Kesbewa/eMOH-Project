@@ -6,19 +6,23 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:http/http.dart' as http;
 import 'package:logger/logger.dart';
 import '../globals.dart' as globals;
-Logger logger = Logger()
-;
+
+Logger logger = Logger();
+
 Future<Baby> fetchBaby() async {
   print('fetch Baby function');
   //String _babyId = globals.BabyId + babyIndex;
-  final response = await http
-      .get('https://emohback.herokuapp.com/babies/viewbybabyid/${globals.babyId}');
+  final response = await http.get(
+      'https://emohback.herokuapp.com/babies/viewbybabyid/${globals.babyId}');
   print('status code');
   print(response.statusCode);
   print(globals.babyId);
   // final json = jsonDecode(response.body);
   if (response.statusCode == 200) {
-    
+    // If the call to the server was successful, parse the JSON.
+    //return (json.decode(response.body));
+    //print(Baby.fromJson(json.decode(response.body)));
+
     return Baby.fromJson(json.decode(response.body)[0]);
   } else {
     // If that call was not successful, throw an error.
@@ -26,20 +30,18 @@ Future<Baby> fetchBaby() async {
   }
 }
 
-
-
 class Baby {
   //bool switchVal;
-  bool lightCheck;
-  bool faceCheck;
-  bool turnCheck;
-  bool theneyesCheck;
-  bool lookingCheck;
-  bool touchCheck;
-  bool squintCheck;
-  bool ringCheck;
-  bool askCheck;
-  bool talkCheck;
+  String lightCheck;
+  String faceCheck;
+  String turnCheck;
+  String theneyesCheck;
+  String lookingCheck;
+  String touchCheck;
+  String squintCheck;
+  String ringCheck;
+  String askCheck;
+  String talkCheck;
 
   Baby({
     //this.switchVal,
@@ -56,7 +58,16 @@ class Baby {
   });
 
   factory Baby.fromJson(Map<String, dynamic> json) {
+    logger.e(json["does_child_eyes_toward_the_light"]);
+
     return Baby(
+      // // idNumber: json['Identity_number'],
+      // vilID: json['village_id'],
+      // wifeName: json['Name_of_wife'],
+      // husbandName: json['Name_of_husband'],
+      // childrenCount: json['Number_of_living_childern']
+
+      //switchVal: json["baby_id"],
       lightCheck: json["does_child_eyes_toward_the_light"],
       faceCheck: json["does_the_child_look_good_on_your_face"],
       turnCheck: json[
@@ -106,6 +117,7 @@ Future updateDetails(
         talkCheck.toString(),
     'have_your_child_strech_out_his_hand_and_touch_them': askCheck.toString()
   };
+  //Map data = {'does_the_child_look_good_on_your_face': face.toString()};
   print('***face***');
   print(faceCheck.toString());
   print(lightCheck.toString());
@@ -113,6 +125,27 @@ Future updateDetails(
   var response = await http.put(
       "https://protected-bayou-52277.herokuapp.com/babies/eyetest",
       body: data);
+  /*.then((result) {
+           Fluttertoast.showToast(
+          msg: "Done",
+          toastLength: Toast.LENGTH_SHORT,
+          gravity: ToastGravity.BOTTOM,
+          timeInSecForIos: 1,
+          backgroundColor: Colors.black54,
+          textColor: Colors.white,
+          fontSize: 16.0);
+        }).catchError((e){
+          Fluttertoast.showToast(
+          msg: "An Error Has Occured.",
+          toastLength: Toast.LENGTH_SHORT,
+          gravity: ToastGravity.BOTTOM,
+          timeInSecForIos: 1,
+          backgroundColor: Colors.black54,
+          textColor: Colors.white,
+          fontSize: 16.0);
+        });*/
+  print("****status");
+  print(response.statusCode);
 
   if (response.statusCode == 200) {
     print("Done");
