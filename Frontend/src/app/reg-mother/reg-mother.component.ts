@@ -65,9 +65,17 @@ export class RegMotherComponent implements OnInit {
     console.log(this.regMotherForm.value['userid'])
     this.regMotherForm.value['userid'] = localStorage.getItem('userid').substr(0,1).concat(this.regMotherForm.value['villageId']).concat(this.regMotherForm.value['userid'])
     console.log(this.regMotherForm.value)
+    localStorage.setItem('newFamIdForNewUser',this.regMotherForm.value['userid'])
     this.authService.registerUser(this.regMotherForm.value).subscribe(
-      res=> console.log(res),    
-      err=> console.log(err)
+      res=>{
+        console.log(res);
+        let snackBarRef = this.snackBar.open("User Has been Registered", 'OK');
+        this.router.navigate(['viewApprovedFamilies/AddApprovedFamilies']);
+      },  
+      err=> {
+        console.log(err)
+        let snackBarRef = this.snackBar.open("Error, Pls Try Again!", 'OK');
+      }
     )
   }
 

@@ -74,7 +74,7 @@ module.exports = router;
 // });
 
 router.post("/register",function(req,res){
-  
+    userDetails = req.body;
     const newUser = new useraccounts({
         userid:req.body.userid,
         username:req.body.username,
@@ -88,11 +88,46 @@ router.post("/register",function(req,res){
            res.json({state:false,msg:"data not insereted"});
         }
         if(user){
+            sendMail(userDetails,info => {
+                console.log(`The mails has been send and the id is ${info.messageId}`);
+              });
             res.json({state:true,msg:"data inserted"});
         }
     });
 
 });
+
+
+
+async function sendMail(user,callback) {
+    // create reusable transporter object using the default SMTP transport
+    let transporter = nodemailer.createTransport({
+      host: "smtp.gmail.com",
+      port: 587,
+      secure: false, // true for 465, false for other ports
+      auth: {
+        user: "kesbewaemoh@gmail.com",
+        pass: "tempsend123"
+      }
+    });
+  
+    let mailOptions = {
+      from: '"Kesbewa MOH"<kesbewaemoh@gmail.com>', // sender address
+      to: userDetails['username'], // list of receivers
+      subject: `Registration Details`, // Subject line
+      html: `<h3>Your UserName is ${userDetails['userid']}</h3>
+      <br>
+      <h3>Your Password is ${userDetails['password']}</h3>
+      <br>
+      <h>Emails has been sent by eMOH notification system</h5>`
+    };
+  
+    // send mail with defined transport object
+    let info = await transporter.sendMail(mailOptions);
+  
+    callback(info);
+  }
+
 /*
 router.post('/register',(req,res)=>{
     console.log(req.body);//print body
