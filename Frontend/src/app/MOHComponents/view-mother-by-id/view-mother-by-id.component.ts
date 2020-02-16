@@ -31,6 +31,7 @@ export class ViewMotherByIDComponent implements OnInit {
 
   ngOnInit() {
     this.motherId = this.activeroute.snapshot.paramMap.get('motherId');
+    localStorage.setItem('selectedFamId',this.motherId);
     this.addMotherForm = this.formBuilder.group({
       mother_id: [''],
       registration_no: [''],
