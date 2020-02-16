@@ -29,16 +29,16 @@ Future<Baby> fetchBaby() async {
 
 class Baby {
   //bool switchVal;
-  bool bigNoise;
-  bool vehicleNoise;
-  bool guardianNoise;
-  bool turnToNoise;
-  bool turnToGuardianNoise;
-  bool dailyNoise;
-  bool hiddenNoise;
-  bool rythmeicNoise;
-  bool respondNameNoice;
-  bool byeNoise;
+  String bigNoise;
+  String vehicleNoise;
+  String guardianNoise;
+  String turnToNoise;
+  String turnToGuardianNoise;
+  String dailyNoise;
+  String hiddenNoise;
+  String rythmeicNoise;
+  String respondNameNoise;
+  String byeNoise;
 
   Baby({
     //this.switchVal,
@@ -50,7 +50,7 @@ class Baby {
     this.dailyNoise,
     this.hiddenNoise,
     this.rythmeicNoise,
-    this.respondNameNoice,
+    this.respondNameNoise,
     this.byeNoise,
   });
 
@@ -78,7 +78,7 @@ class Baby {
           json['listen_to_the_familiar_sounds_does_child_hear_everyday'],
       hiddenNoise: json['does_find_out_about_noises_from_an_unknown_location'],
       rythmeicNoise: json['does_child_like_it_when_talking_to_a_loud_tune'],
-      respondNameNoice:
+      respondNameNoise:
           json['does_he_respond_to_other_familiar_sounds_nd_his_name'],
       byeNoise: json['does_he_respond_to_words_even_when_they_do_not'],
       // childrenCount:
@@ -88,16 +88,16 @@ class Baby {
 }
 
 Future updateDetails(
-  bool bigNoise,
-  bool vehicleNoise,
-  bool guardianNoise,
-  bool turnToNoise,
-  bool turnToGuardianNoise,
-  bool dailyNoise,
-  bool hiddenNoise,
-  bool rythmeicNoise,
-  bool respondNameNoice,
-  bool byeNoise,
+  String bigNoise,
+  String vehicleNoise,
+  String guardianNoise,
+  String turnToNoise,
+  String turnToGuardianNoise,
+  String dailyNoise,
+  String hiddenNoise,
+  String rythmeicNoise,
+  String respondNameNoice,
+  String byeNoise,
 ) async {
   //Map query = {'baby_id' : 'A0000101'};
   Map data = {
@@ -123,7 +123,7 @@ Future updateDetails(
   };
   //Map data = {'does_the_child_look_good_on_your_face': face.toString()};
   var response = await http.put(
-      "https://protected-bayou-52277.herokuapp.com/babies/hearingtest",
+      "https://emohback.herokuapp.com/babies/hearingtest",
       body: data);
   /*.then((result) {
            Fluttertoast.showToast(

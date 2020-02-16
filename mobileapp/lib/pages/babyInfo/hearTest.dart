@@ -20,8 +20,96 @@ class _HearTestState extends State<HearTest> {
   bool dailyNoise = false;
   bool hiddenNoise = false;
   bool rythmeicNoise = false;
-  bool respondNameNoice = false;
+  bool respondNameNoise = false;
   bool byeNoise = false;
+
+  String bigNoiseS;
+  String vehicleNoiseS;
+  String guardianNoiseS;
+  String turnToNoiseS;
+  String turnToGuardianNoiseS;
+  String dailyNoiseS;
+  String hiddenNoiseS;
+  String rythmeicNoiseS;
+  String respondNameNoiseS;
+  String byeNoiseS;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+
+    baby.then((it) {
+      if (it.bigNoise.toString() == "no" || it.bigNoise == null) {
+        //this gives the error
+        bigNoise = false;
+      } else {
+        bigNoise = true;
+      }
+      if (it.vehicleNoise.toString() == "no" || it.vehicleNoise == null) {
+        //this gives the error
+        vehicleNoise = false;
+      } else {
+        vehicleNoise = true;
+      }
+      if (it.guardianNoise.toString() == "no" || it.guardianNoise == null) {
+        //this gives the error
+        guardianNoise = false;
+      } else {
+        guardianNoise = true;
+      }
+      if (it.turnToNoise.toString() == "no" || it.turnToNoise == null) {
+        //this gives the error
+        turnToNoise = false;
+      } else {
+        turnToNoise = true;
+      }
+      if (it.guardianNoise.toString() == "no" || it.guardianNoise == null) {
+        //this gives the error
+        guardianNoise = false;
+      } else {
+        guardianNoise = true;
+      }
+      if (it.turnToGuardianNoise.toString() == "no" ||
+          it.turnToGuardianNoise == null) {
+        //this gives the error
+        turnToGuardianNoise = false;
+      } else {
+        turnToGuardianNoise = true;
+      }
+      if (it.dailyNoise.toString() == "no" || it.dailyNoise == null) {
+        //this gives the error
+        dailyNoise = false;
+      } else {
+        dailyNoise = true;
+      }
+      if (it.hiddenNoise.toString() == "no" || it.hiddenNoise == null) {
+        //this gives the error
+        hiddenNoise = false;
+      } else {
+        hiddenNoise = true;
+      }
+      if (it.rythmeicNoise.toString() == "no" || it.rythmeicNoise == null) {
+        //this gives the error
+        rythmeicNoise = false;
+      } else {
+        rythmeicNoise = true;
+      }
+      if (it.respondNameNoise.toString() == "no" ||
+          it.respondNameNoise == null) {
+        //this gives the error
+        respondNameNoise = false;
+      } else {
+        respondNameNoise = true;
+      }
+      if (it.byeNoise.toString() == "no" || it.byeNoise == null) {
+        //this gives the error
+        byeNoise = false;
+      } else {
+        byeNoise = true;
+      }
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -78,13 +166,12 @@ class _HearTestState extends State<HearTest> {
                                   .tr('afterfewmonthsofbirthtxt')),
                               trailing: Checkbox(
                                   activeColor: Colors.red,
-                                  value: snapshot.data.bigNoise,
+                                  value: bigNoise,
                                   onChanged: (bool newValue) {
                                     if (switchVal == true) {
                                       setState(() {
-                                        snapshot.data.bigNoise =
-                                            !snapshot.data.bigNoise;
-                                        bigNoise = snapshot.data.bigNoise;
+                                        bigNoise = !bigNoise;
+                                        bigNoise = bigNoise;
                                         // faceCheck = !faceCheck;
                                       });
                                     } else {
@@ -108,14 +195,12 @@ class _HearTestState extends State<HearTest> {
                                   .tr('inonemonthtxt')),
                               trailing: Checkbox(
                                   activeColor: Colors.red,
-                                  value: snapshot.data.vehicleNoise,
+                                  value: vehicleNoise,
                                   onChanged: (bool newValue) {
                                     if (switchVal == true) {
                                       setState(() {
-                                        snapshot.data.vehicleNoise =
-                                            !snapshot.data.vehicleNoise;
-                                        vehicleNoise =
-                                            snapshot.data.vehicleNoise;
+                                        vehicleNoise = !vehicleNoise;
+                                        vehicleNoise = vehicleNoise;
                                         // faceCheck = !faceCheck;
                                       });
                                     } else {
@@ -139,14 +224,12 @@ class _HearTestState extends State<HearTest> {
                                   .tr('fromthefourmonthstxt1')),
                               trailing: Checkbox(
                                   activeColor: Colors.red,
-                                  value: snapshot.data.guardianNoise,
+                                  value: guardianNoise,
                                   onChanged: (bool newValue) {
                                     if (switchVal == true) {
                                       setState(() {
-                                        snapshot.data.guardianNoise =
-                                            !snapshot.data.guardianNoise;
-                                        guardianNoise =
-                                            snapshot.data.guardianNoise;
+                                        guardianNoise = !guardianNoise;
+                                        guardianNoise = guardianNoise;
                                         // faceCheck = !faceCheck;
                                       });
                                     } else {
@@ -160,13 +243,12 @@ class _HearTestState extends State<HearTest> {
                                   .tr('fromthefourmonthstxt2')),
                               trailing: Checkbox(
                                   activeColor: Colors.red,
-                                  value: snapshot.data.turnToNoise,
+                                  value: turnToNoise,
                                   onChanged: (bool newValue) {
                                     if (switchVal == true) {
                                       setState(() {
-                                        snapshot.data.turnToNoise =
-                                            !snapshot.data.turnToNoise;
-                                        turnToNoise = snapshot.data.turnToNoise;
+                                        turnToNoise = !turnToNoise;
+                                        turnToNoise = turnToNoise;
                                         // faceCheck = !faceCheck;
                                       });
                                     } else {
@@ -190,14 +272,14 @@ class _HearTestState extends State<HearTest> {
                                   .tr('fromthesevenmonthstxt1')),
                               trailing: Checkbox(
                                   activeColor: Colors.red,
-                                  value: snapshot.data.turnToGuardianNoise,
+                                  value: turnToGuardianNoise,
                                   onChanged: (bool newValue) {
                                     if (switchVal == true) {
                                       setState(() {
-                                        snapshot.data.turnToGuardianNoise =
-                                            !snapshot.data.turnToGuardianNoise;
                                         turnToGuardianNoise =
-                                            snapshot.data.turnToGuardianNoise;
+                                            !turnToGuardianNoise;
+                                        turnToGuardianNoise =
+                                            turnToGuardianNoise;
                                         // faceCheck = !faceCheck;
                                       });
                                     } else {
@@ -221,13 +303,12 @@ class _HearTestState extends State<HearTest> {
                                   .tr('inninemonthstxt1')),
                               trailing: Checkbox(
                                   activeColor: Colors.red,
-                                  value: snapshot.data.dailyNoise,
+                                  value: dailyNoise,
                                   onChanged: (bool newValue) {
                                     if (switchVal == true) {
                                       setState(() {
-                                        snapshot.data.dailyNoise =
-                                            !snapshot.data.dailyNoise;
-                                        dailyNoise = snapshot.data.dailyNoise;
+                                        dailyNoise = !dailyNoise;
+                                        dailyNoise = dailyNoise;
                                         // faceCheck = !faceCheck;
                                       });
                                     } else {
@@ -241,13 +322,12 @@ class _HearTestState extends State<HearTest> {
                                   .tr('inninemonthstxt2')),
                               trailing: Checkbox(
                                   activeColor: Colors.red,
-                                  value: snapshot.data.hiddenNoise,
+                                  value: hiddenNoise,
                                   onChanged: (bool newValue) {
                                     if (switchVal == true) {
                                       setState(() {
-                                        snapshot.data.hiddenNoise =
-                                            !snapshot.data.hiddenNoise;
-                                        hiddenNoise = snapshot.data.hiddenNoise;
+                                        hiddenNoise = !hiddenNoise;
+                                        hiddenNoise = hiddenNoise;
                                         // faceCheck = !faceCheck;
                                       });
                                     } else {
@@ -261,14 +341,12 @@ class _HearTestState extends State<HearTest> {
                                   .tr('inninemonthstxt3')),
                               trailing: Checkbox(
                                   activeColor: Colors.red,
-                                  value: snapshot.data.rythmeicNoise,
+                                  value: rythmeicNoise,
                                   onChanged: (bool newValue) {
                                     if (switchVal == true) {
                                       setState(() {
-                                        snapshot.data.rythmeicNoise =
-                                            !snapshot.data.rythmeicNoise;
-                                        rythmeicNoise =
-                                            snapshot.data.rythmeicNoise;
+                                        rythmeicNoise = !rythmeicNoise;
+                                        rythmeicNoise = rythmeicNoise;
                                         // faceCheck = !faceCheck;
                                       });
                                     } else {
@@ -292,14 +370,12 @@ class _HearTestState extends State<HearTest> {
                                   .tr('intwelvemonthstxt1')),
                               trailing: Checkbox(
                                   activeColor: Colors.red,
-                                  value: snapshot.data.respondNameNoice,
+                                  value: respondNameNoise,
                                   onChanged: (bool newValue) {
                                     if (switchVal == true) {
                                       setState(() {
-                                        snapshot.data.respondNameNoice =
-                                            !snapshot.data.respondNameNoice;
-                                        respondNameNoice =
-                                            snapshot.data.respondNameNoice;
+                                        respondNameNoise = !respondNameNoise;
+                                        respondNameNoise = respondNameNoise;
                                         // faceCheck = !faceCheck;
                                       });
                                     } else {
@@ -313,13 +389,12 @@ class _HearTestState extends State<HearTest> {
                                   .tr('intwelvemonthstxt2')),
                               trailing: Checkbox(
                                   activeColor: Colors.red,
-                                  value: snapshot.data.byeNoise,
+                                  value: byeNoise,
                                   onChanged: (bool newValue) {
                                     if (switchVal == true) {
                                       setState(() {
-                                        snapshot.data.byeNoise =
-                                            !snapshot.data.byeNoise;
-                                        byeNoise = snapshot.data.byeNoise;
+                                        byeNoise = !byeNoise;
+                                        byeNoise = byeNoise;
                                         // faceCheck = !faceCheck;
                                       });
                                     } else {
@@ -351,16 +426,16 @@ class _HearTestState extends State<HearTest> {
           child: Icon(Icons.done),
           onPressed: () {
             updateDetails(
-                    bigNoise,
-                    vehicleNoise,
-                    guardianNoise,
-                    turnToNoise,
-                    turnToGuardianNoise,
-                    dailyNoise,
-                    hiddenNoise,
-                    rythmeicNoise,
-                    respondNameNoice,
-                    byeNoise)
+                    bigNoiseS,
+                    vehicleNoiseS,
+                    guardianNoiseS,
+                    turnToNoiseS,
+                    turnToGuardianNoiseS,
+                    dailyNoiseS,
+                    hiddenNoiseS,
+                    rythmeicNoiseS,
+                    respondNameNoiseS,
+                    byeNoiseS)
                 .then((res) {
               Toast.show("Done", context,
                   duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);

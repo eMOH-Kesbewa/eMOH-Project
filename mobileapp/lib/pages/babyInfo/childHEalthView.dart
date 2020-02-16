@@ -4,15 +4,404 @@ import 'package:mobileapp/widgets/childHealthCard.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:easy_localization/easy_localization_provider.dart';
 
+String date1mo,
+    eye1mo,
+    squint1mo,
+    cataract1mo,
+    heart1mo,
+    hearingR1mo,
+    weight1mo,
+    height1mo,
+    lungs1mo,
+    hipJoint1mo,
+    inhProblems1mo,
+    otherDiseases1mo,
+    officer1mo;
+String date2mo,
+    eye2mo,
+    squint2mo,
+    cataract2mo,
+    heart2mo,
+    hearingR2mo,
+    weight2mo,
+    height2mo,
+    lungs2mo,
+    hipJoint2mo,
+    inhProblems2mo,
+    otherDiseases2mo,
+    officer2mo;
+String date4mo,
+    eye4mo,
+    squint4mo,
+    cataract4mo,
+    heart4mo,
+    hearingR4mo,
+    weight4mo,
+    height4mo,
+    lungs4mo,
+    hipJoint4mo,
+    inhProblems4mo,
+    otherDiseases4mo,
+    officer4mo;
+String date6mo,
+    eye6mo,
+    squint6mo,
+    cataract6mo,
+    heart6mo,
+    hearingR6mo,
+    weight6mo,
+    height6mo,
+    lungs6mo,
+    hipJoint6mo,
+    inhProblems6mo,
+    otherDiseases6mo,
+    officer6mo;
+String date9mo,
+    eye9mo,
+    squint9mo,
+    cataract9mo,
+    heart9mo,
+    hearingR9mo,
+    weight9mo,
+    height9mo,
+    lungs9mo,
+    hipJoint9mo,
+    inhProblems9mo,
+    otherDiseases9mo,
+    officer9mo;
+String date12mo,
+    eye12mo,
+    squint12mo,
+    cataract12mo,
+    heart12mo,
+    hearingR12mo,
+    weight12mo,
+    height12mo,
+    lungs12mo,
+    hipJoint12mo,
+    inhProblems12mo,
+    otherDiseases12mo,
+    officer12mo;
+String date18mo,
+    eye18mo,
+    squint18mo,
+    cataract18mo,
+    heart18mo,
+    hearingR18mo,
+    weight18mo,
+    height18mo,
+    lungs18mo,
+    hipJoint18mo,
+    inhProblems18mo,
+    otherDiseases18mo,
+    officer18mo;
+String date3y,
+    eye3y,
+    squint3y,
+    cataract3y,
+    heart3y,
+    hearingR3y,
+    weight3y,
+    height3y,
+    lungs3y,
+    hipJoint3y,
+    inhProblems3y,
+    otherDiseases3y,
+    officer3y;
+String date4y,
+    eye4y,
+    squint4y,
+    cataract4y,
+    heart4y,
+    hearingR4y,
+    weight4y,
+    height4y,
+    lungs4y,
+    hipJoint4y,
+    inhProblems4y,
+    otherDiseases4y,
+    officer4y;
+
+String date5y,
+    eye5y,
+    squint5y,
+    cataract5y,
+    heart5y,
+    hearingR5y,
+    weight5y,
+    height5y,
+    lungs5y,
+    hipJoint5y,
+    inhProblems5y,
+    otherDiseases5y,
+    officer5y;
+
+String dentalSpots6mo,
+    dentalCavities6mo,
+    dentalSpots9mo,
+    dentalCavities9mo,
+    dentalSpots12mo,
+    dentalCavities12mo,
+    dentalSpots18mo,
+    dentalCavities18mo,
+    dentalSpots3y,
+    dentalCavities3y,
+    dentalSpots4y,
+    dentalCavities4y,
+    dentalSpots5y,
+    dentalCavities5y;
+
+String nightBlind3y,
+    bitoSpots3y,
+    nightBlind4y,
+    bitoSpots4y,
+    nightBlind5y,
+    bitoSpots5y;
+
+String sightL5y, sightR5y;
+
 class ChildHealthView extends StatefulWidget {
   @override
   _ChildHealthViewState createState() => _ChildHealthViewState();
 }
 
 class _ChildHealthViewState extends State<ChildHealthView> {
+  Future baby = fetchBaby();
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    baby.then((it) {
+      it.date1mo = date1mo;
+      it.eye1mo = eye1mo;
+      it.squint1mo = squint1mo;
+      it.cataract1mo = cataract1mo;
+      it.heart1mo = heart1mo;
+      it.hearingR1mo = hearingR1mo;
+      it.weight1mo = weight1mo;
+      it.height1mo = height1mo;
+      it.lungs1mo = lungs1mo;
+      it.hipJoint1mo = hipJoint1mo;
+      it.inhProblems1mo = inhProblems1mo;
+      it.otherDiseases1mo = otherDiseases1mo;
+      it.officer1mo = officer1mo;
+
+      it.date2mo = date2mo;
+      it.eye2mo = eye2mo;
+      it.squint2mo = squint2mo;
+      it.cataract2mo = cataract2mo;
+      it.heart2mo = heart2mo;
+      it.hearingR2mo = hearingR2mo;
+      it.weight2mo = weight2mo;
+      it.height2mo = height2mo;
+      it.lungs2mo = lungs2mo;
+      it.hipJoint2mo = hipJoint2mo;
+      it.inhProblems2mo = inhProblems2mo;
+      it.otherDiseases2mo = otherDiseases2mo;
+      it.officer2mo = officer2mo;
+      it.date4mo = date4mo;
+      it.eye4mo = eye4mo;
+      it.squint4mo = squint4mo;
+      it.cataract4mo = cataract4mo;
+      it.heart4mo = heart4mo;
+      it.hearingR4mo = hearingR4mo;
+      it.weight4mo = weight4mo;
+      it.height4mo = height4mo;
+      it.lungs4mo = lungs4mo;
+      it.hipJoint4mo = hipJoint4mo;
+      it.inhProblems4mo = inhProblems4mo;
+      it.otherDiseases4mo = otherDiseases4mo;
+      it.officer4mo = officer4mo;
+
+      it.date9mo = date9mo;
+      it.eye9mo = eye9mo;
+      it.squint9mo = squint9mo;
+      it.cataract9mo = cataract9mo;
+      it.heart9mo = heart9mo;
+      it.hearingR9mo = hearingR9mo;
+      it.weight9mo = weight9mo;
+      it.height9mo = height9mo;
+      it.lungs9mo = lungs9mo;
+      it.hipJoint9mo = hipJoint9mo;
+      it.inhProblems9mo = inhProblems9mo;
+      it.otherDiseases9mo = otherDiseases9mo;
+      it.officer9mo = officer9mo;
+
+      it.date12mo = date12mo;
+      it.eye12mo = eye12mo;
+      it.squint12mo = squint12mo;
+      it.cataract12mo = cataract12mo;
+      it.heart12mo = heart12mo;
+      it.hearingR12mo = hearingR12mo;
+      it.weight12mo = weight12mo;
+      it.height12mo = height12mo;
+      it.lungs12mo = lungs12mo;
+      it.hipJoint12mo = hipJoint12mo;
+      it.inhProblems12mo = inhProblems12mo;
+      it.otherDiseases12mo = otherDiseases12mo;
+      it.officer12mo = officer12mo;
+
+      it.date18mo = date18mo;
+      it.eye18mo = eye18mo;
+      it.squint18mo = squint18mo;
+      it.cataract18mo = cataract18mo;
+      it.heart18mo = heart18mo;
+      it.hearingR18mo = hearingR18mo;
+      it.weight18mo = weight18mo;
+      it.height18mo = height18mo;
+      it.lungs18mo = lungs18mo;
+      it.hipJoint18mo = hipJoint18mo;
+      it.inhProblems18mo = inhProblems18mo;
+      it.otherDiseases18mo = otherDiseases18mo;
+      it.officer18mo = officer18mo;
+
+      it.date6mo = date6mo;
+      it.eye6mo = eye6mo;
+      it.squint6mo = squint6mo;
+      it.cataract6mo = cataract6mo;
+      it.heart6mo = heart6mo;
+      it.hearingR6mo = hearingR6mo;
+      it.weight6mo = weight6mo;
+      it.height6mo = height6mo;
+      it.lungs6mo = lungs6mo;
+      it.hipJoint6mo = hipJoint6mo;
+      it.inhProblems6mo = inhProblems6mo;
+      it.otherDiseases6mo = otherDiseases6mo;
+      it.officer6mo = officer6mo;
+
+      it.date3y = date3y;
+      it.eye3y = eye3y;
+      it.squint3y = squint3y;
+      it.cataract3y = cataract3y;
+      it.heart3y = heart3y;
+      it.hearingR3y = hearingR3y;
+      it.weight3y = weight3y;
+      it.height3y = height3y;
+      it.lungs3y = lungs3y;
+      it.hipJoint3y = hipJoint3y;
+      it.inhProblems3y = inhProblems3y;
+      it.otherDiseases3y = otherDiseases3y;
+      it.officer3y = officer3y;
+
+      it.date4y = date4y;
+      it.eye4y = eye4y;
+      it.squint4y = squint4y;
+      it.cataract4y = cataract4y;
+      it.heart4y = heart4y;
+      it.hearingR4y = hearingR4y;
+      it.weight4y = weight4y;
+      it.height4y = height4y;
+      it.lungs4y = lungs4y;
+      it.hipJoint4y = hipJoint4y;
+      it.inhProblems4y = inhProblems4y;
+      it.otherDiseases4y = otherDiseases4y;
+      it.officer4y = officer4y;
+
+      it.date5y = date5y;
+      it.eye5y = eye5y;
+      it.squint5y = squint5y;
+      it.cataract5y = cataract5y;
+      it.heart5y = heart5y;
+      it.hearingR5y = hearingR5y;
+      it.weight5y = weight5y;
+      it.height5y = height5y;
+      it.lungs5y = lungs5y;
+      it.hipJoint5y = hipJoint5y;
+      it.inhProblems5y = inhProblems5y;
+      it.otherDiseases5y = otherDiseases5y;
+      it.officer5y = officer5y;
+
+      it.dentalSpots6mo = dentalSpots6mo;
+      it.dentalCavities6mo = dentalCavities6mo;
+      it.dentalSpots9mo = dentalCavities6mo;
+      it.dentalCavities9mo = dentalCavities6mo;
+      it.dentalSpots12mo = dentalCavities6mo;
+      it.dentalCavities12mo = dentalCavities6mo;
+      it.dentalSpots18mo = dentalCavities6mo;
+      it.dentalCavities18mo = dentalCavities6mo;
+      it.dentalSpots3y = dentalCavities6mo;
+      it.dentalCavities3y = dentalCavities6mo;
+      it.dentalSpots4y = dentalCavities6mo;
+      it.dentalCavities4y = dentalCavities6mo;
+      it.dentalSpots5y = dentalCavities6mo;
+      it.dentalCavities5y = dentalCavities6mo;
+
+      it.nightBlind3y = nightBlind3y;
+      it.bitoSpots3y = bitoSpots3y;
+      it.nightBlind4y = nightBlind4y;
+      it.bitoSpots4y = bitoSpots4y;
+      it.nightBlind5y = nightBlind5y;
+      it.bitoSpots5y = bitoSpots5y;
+
+      it.sightL5y = sightL5y;
+      it.sightR5y = sightR5y;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     var data = EasyLocalizationProvider.of(context).data;
+
+    if (date1mo == null) {
+      date1mo = eye1mo = squint1mo = cataract1mo = heart1mo = hearingR1mo =
+          weight1mo = height1mo = lungs1mo = hipJoint1mo =
+              inhProblems1mo = otherDiseases1mo = officer1mo = "No Data";
+    }
+
+    if (date2mo == null) {
+      date2mo = eye2mo = squint2mo = cataract2mo = heart2mo = hearingR2mo =
+          weight2mo = height2mo = lungs2mo = hipJoint2mo =
+              inhProblems2mo = otherDiseases2mo = officer2mo = "No Data";
+    }
+    if (date4mo == null) {
+      date4mo = eye4mo = squint4mo = cataract4mo = heart4mo = hearingR4mo =
+          weight4mo = height4mo = lungs4mo = hipJoint4mo =
+              inhProblems4mo = otherDiseases4mo = officer4mo = "No Data";
+    }
+    if (date6mo == null) {
+      date6mo = eye6mo = squint6mo = cataract6mo = heart6mo = hearingR6mo =
+          weight6mo = height6mo = lungs6mo = hipJoint6mo = inhProblems6mo =
+              otherDiseases6mo =
+                  officer6mo = dentalSpots6mo = dentalCavities6mo = "No Data";
+    }
+    if (date9mo == null) {
+      date9mo = eye9mo = squint9mo = cataract9mo = heart9mo = hearingR9mo =
+          weight9mo = height9mo = lungs9mo = hipJoint9mo = inhProblems9mo =
+              otherDiseases9mo =
+                  officer9mo = dentalSpots9mo = dentalCavities9mo = "No Data";
+    }
+    if (date12mo == null) {
+      date12mo = eye12mo = squint12mo = cataract12mo = heart12mo =
+          hearingR12mo = weight12mo = height12mo = lungs12mo = hipJoint12mo =
+              inhProblems12mo = otherDiseases12mo = officer12mo =
+                  dentalSpots12mo = dentalCavities12mo = "No Data";
+    }
+    if (date18mo == null) {
+      date18mo = eye18mo = squint18mo = cataract18mo = heart18mo =
+          hearingR18mo = weight18mo = height18mo = lungs18mo = hipJoint18mo =
+              inhProblems18mo = otherDiseases18mo = officer18mo =
+                  dentalSpots18mo = dentalCavities18mo = "No Data";
+    }
+    if (date3y == null) {
+      date3y = eye3y = squint3y = cataract3y = heart3y = hearingR3y = weight3y =
+          height3y = lungs3y = hipJoint3y = inhProblems3y = otherDiseases3y =
+              officer3y = nightBlind3y =
+                  bitoSpots3y = dentalSpots3y = dentalCavities3y = "No Data";
+    }
+    if (date4y == null) {
+      date4y = eye4y = squint4y = cataract4y = heart4y = hearingR4y = weight4y =
+          height4y = lungs4y = hipJoint4y = inhProblems4y = otherDiseases4y =
+              officer4y = nightBlind4y =
+                  bitoSpots4y = dentalSpots4y = dentalCavities4y = "No Data";
+    }
+    if (date5y == null) {
+      date5y = eye5y = squint5y = cataract5y = heart5y = hearingR5y = weight5y =
+          height5y = lungs5y = hipJoint5y = inhProblems5y = otherDiseases5y =
+              officer5y = nightBlind5y = bitoSpots5y = dentalSpots5y =
+                  dentalCavities5y = sightL5y = sightR5y = "No Data";
+    }
+
     return FutureBuilder<Baby>(
       future: fetchBaby(),
       builder: (context, snapshot) {
@@ -31,195 +420,194 @@ class _ChildHealthViewState extends State<ChildHealthView> {
             List<Choice> choices = <Choice>[
               Choice.onemotoFour(
                   title: AppLocalizations.of(context).tr('1month'),
-                  date: snapshot.data.date1mo.substring(0, 10),
-                  eye: snapshot.data.eye1mo,
-                  squint: snapshot.data.squint1mo,
-                  cataract: snapshot.data.cataract1mo,
-                  hearingL: snapshot.data.heart1mo,
-                  hearingR: snapshot.data.hearingR1mo,
-                  weight: snapshot.data.weight1mo,
-                  height: snapshot.data.height1mo,
-                  heart: snapshot.data.heart1mo,
-                  lungs: snapshot.data.lungs1mo,
-                  hipJoint: snapshot.data.hipJoint1mo,
-                  inhProblems: snapshot.data.inhProblems1mo,
-                  otherDiseases: snapshot.data.otherDiseases1mo,
-                  officer: snapshot.data.officer6mo,
+                  date: date1mo,
+                  eye: eye1mo,
+                  squint: squint1mo,
+                  cataract: cataract1mo,
+                  hearingL: heart1mo,
+                  hearingR: hearingR1mo,
+                  weight: weight1mo,
+                  height: height1mo,
+                  heart: heart1mo,
+                  lungs: lungs1mo,
+                  hipJoint: hipJoint1mo,
+                  inhProblems: inhProblems1mo,
+                  otherDiseases: otherDiseases1mo,
+                  officer: officer6mo,
                   count: 4),
               Choice.onemotoFour(
                   title: AppLocalizations.of(context).tr('2month'),
-                  date: snapshot.data.date2mo.substring(0, 10),
-                  eye: snapshot.data.eye2mo,
-                  squint: snapshot.data.squint2mo,
-                  cataract: snapshot.data.cataract2mo,
-                  hearingL: snapshot.data.heart2mo,
-                  hearingR: snapshot.data.hearingR2mo,
-                  weight: snapshot.data.weight2mo,
-                  height: snapshot.data.height2mo,
-                  heart: snapshot.data.heart2mo,
-                  lungs: snapshot.data.lungs2mo,
-                  hipJoint: snapshot.data.hipJoint2mo,
-                  inhProblems: snapshot.data.inhProblems2mo,
-                  otherDiseases: snapshot.data.otherDiseases2mo,
-                  officer: snapshot.data.officer6mo,
+                  date: date2mo,
+                  eye: eye2mo,
+                  squint: squint2mo,
+                  cataract: cataract2mo,
+                  hearingL: heart2mo,
+                  hearingR: hearingR2mo,
+                  weight: weight2mo,
+                  height: height2mo,
+                  heart: heart2mo,
+                  lungs: lungs2mo,
+                  hipJoint: hipJoint2mo,
+                  inhProblems: inhProblems2mo,
+                  otherDiseases: otherDiseases2mo,
+                  officer: officer6mo,
                   count: 4),
               Choice.onemotoFour(
                   title: AppLocalizations.of(context).tr('4month'),
-                  date: snapshot.data.date4mo.substring(0, 10),
-                  eye: snapshot.data.eye4mo,
-                  squint: snapshot.data.squint4mo,
-                  cataract: snapshot.data.cataract4mo,
-                  hearingL: snapshot.data.heart4mo,
-                  hearingR: snapshot.data.hearingR4mo,
-                  weight: snapshot.data.weight4mo,
-                  height: snapshot.data.height4mo,
-                  heart: snapshot.data.heart4mo,
-                  lungs: snapshot.data.lungs4mo,
-                  hipJoint: snapshot.data.hipJoint4mo,
-                  inhProblems: snapshot.data.inhProblems4mo,
-                  otherDiseases: snapshot.data.otherDiseases4mo,
-                  officer: snapshot.data.officer4mo,
+                  date: date4mo,
+                  eye: eye4mo,
+                  squint: squint4mo,
+                  cataract: cataract4mo,
+                  hearingL: heart4mo,
+                  hearingR: hearingR4mo,
+                  weight: weight4mo,
+                  height: height4mo,
+                  heart: heart4mo,
+                  lungs: lungs4mo,
+                  hipJoint: hipJoint4mo,
+                  inhProblems: inhProblems4mo,
+                  otherDiseases: otherDiseases4mo,
+                  officer: officer4mo,
                   count: 4),
               Choice.sixmotoEighteen(
                   title: AppLocalizations.of(context).tr('6month'),
-                  date: snapshot.data.date6mo.substring(0, 10),
-                  eye: snapshot.data.eye6mo,
-                  squint: snapshot.data.squint6mo,
-                  cataract: snapshot.data.cataract6mo,
-                  hearingL: snapshot.data.heart6mo,
-                  hearingR: snapshot.data.hearingR6mo,
-                  weight: snapshot.data.weight6mo,
-                  height: snapshot.data.height6mo,
-                  heart: snapshot.data.heart6mo,
-                  lungs: snapshot.data.lungs6mo,
-                  hipJoint: snapshot.data.hipJoint6mo,
-                  inhProblems: snapshot.data.inhProblems6mo,
-                  otherDiseases: snapshot.data.otherDiseases6mo,
-                  officer: snapshot.data.officer6mo,
-                  dentalSpots: snapshot.data.dentalSpots6mo,
-                  dentalCavities: snapshot.data.dentalCavities6mo,
+                  date: date6mo,
+                  squint: squint6mo,
+                  cataract: cataract6mo,
+                  hearingL: heart6mo,
+                  hearingR: hearingR6mo,
+                  weight: weight6mo,
+                  height: height6mo,
+                  heart: heart6mo,
+                  lungs: lungs6mo,
+                  hipJoint: hipJoint6mo,
+                  inhProblems: inhProblems6mo,
+                  otherDiseases: otherDiseases6mo,
+                  officer: officer6mo,
+                  dentalSpots: dentalSpots6mo,
+                  dentalCavities: dentalCavities6mo,
                   count: 3),
               Choice.sixmotoEighteen(
                   title: AppLocalizations.of(context).tr('9month'),
-                  date: snapshot.data.date9mo.substring(0, 10),
-                  eye: snapshot.data.eye9mo,
-                  squint: snapshot.data.squint9mo,
-                  cataract: snapshot.data.cataract9mo,
-                  hearingL: snapshot.data.heart9mo,
-                  hearingR: snapshot.data.hearingR9mo,
-                  weight: snapshot.data.weight9mo,
-                  height: snapshot.data.height9mo,
-                  heart: snapshot.data.heart9mo,
-                  lungs: snapshot.data.lungs9mo,
-                  hipJoint: snapshot.data.hipJoint9mo,
-                  inhProblems: snapshot.data.inhProblems9mo,
-                  otherDiseases: snapshot.data.otherDiseases9mo,
-                  officer: snapshot.data.officer9mo,
-                  dentalSpots: snapshot.data.dentalSpots9mo,
-                  dentalCavities: snapshot.data.dentalCavities9mo,
+                  date: date9mo,
+                  eye: eye9mo,
+                  squint: squint9mo,
+                  cataract: cataract9mo,
+                  hearingL: heart9mo,
+                  hearingR: hearingR9mo,
+                  weight: weight9mo,
+                  height: height9mo,
+                  heart: heart9mo,
+                  lungs: lungs9mo,
+                  hipJoint: hipJoint9mo,
+                  inhProblems: inhProblems9mo,
+                  otherDiseases: otherDiseases9mo,
+                  officer: officer9mo,
+                  dentalSpots: dentalSpots9mo,
+                  dentalCavities: dentalCavities9mo,
                   count: 3),
               Choice.sixmotoEighteen(
                   title: AppLocalizations.of(context).tr('12month'),
-                  date: snapshot.data.date12mo.substring(0, 10),
-                  eye: snapshot.data.eye12mo,
-                  squint: snapshot.data.squint12mo,
-                  cataract: snapshot.data.cataract12mo,
-                  hearingL: snapshot.data.heart12mo,
-                  hearingR: snapshot.data.hearingR12mo,
-                  weight: snapshot.data.weight12mo,
-                  height: snapshot.data.height12mo,
-                  heart: snapshot.data.heart12mo,
-                  lungs: snapshot.data.lungs12mo,
-                  hipJoint: snapshot.data.hipJoint12mo,
-                  inhProblems: snapshot.data.inhProblems12mo,
-                  otherDiseases: snapshot.data.otherDiseases12mo,
-                  officer: snapshot.data.officer12mo,
-                  dentalSpots: snapshot.data.dentalSpots12mo,
-                  dentalCavities: snapshot.data.dentalCavities12mo,
+                  date: date12mo,
+                  eye: eye12mo,
+                  squint: squint12mo,
+                  cataract: cataract12mo,
+                  hearingL: heart12mo,
+                  hearingR: hearingR12mo,
+                  weight: weight12mo,
+                  height: height12mo,
+                  heart: heart12mo,
+                  lungs: lungs12mo,
+                  hipJoint: hipJoint12mo,
+                  inhProblems: inhProblems12mo,
+                  otherDiseases: otherDiseases12mo,
+                  officer: officer12mo,
+                  dentalSpots: dentalSpots12mo,
+                  dentalCavities: dentalCavities12mo,
                   count: 3),
               Choice.sixmotoEighteen(
                   title: AppLocalizations.of(context).tr('18month'),
-                  date: snapshot.data.date18mo.substring(0, 10),
-                  eye: snapshot.data.eye18mo,
-                  squint: snapshot.data.squint18mo,
-                  cataract: snapshot.data.cataract18mo,
-                  hearingL: snapshot.data.heart18mo,
-                  hearingR: snapshot.data.hearingR18mo,
-                  weight: snapshot.data.weight18mo,
-                  height: snapshot.data.height18mo,
-                  heart: snapshot.data.heart18mo,
-                  lungs: snapshot.data.lungs18mo,
-                  hipJoint: snapshot.data.hipJoint18mo,
-                  inhProblems: snapshot.data.inhProblems18mo,
-                  otherDiseases: snapshot.data.otherDiseases18mo,
-                  officer: snapshot.data.officer18mo,
-                  dentalSpots: snapshot.data.dentalSpots18mo,
-                  dentalCavities: snapshot.data.dentalCavities18mo,
+                  date: date18mo,
+                  eye: eye18mo,
+                  squint: squint18mo,
+                  cataract: cataract18mo,
+                  hearingL: heart18mo,
+                  hearingR: hearingR18mo,
+                  weight: weight18mo,
+                  height: height18mo,
+                  heart: heart18mo,
+                  lungs: lungs18mo,
+                  hipJoint: hipJoint18mo,
+                  inhProblems: inhProblems18mo,
+                  otherDiseases: otherDiseases18mo,
+                  officer: officer18mo,
+                  dentalSpots: dentalSpots18mo,
+                  dentalCavities: dentalCavities18mo,
                   count: 3),
               Choice.fourToThree(
                   title: AppLocalizations.of(context).tr('3year'),
-                  date: snapshot.data.date3y,
-                  eye: snapshot.data.eye3y,
-                  squint: snapshot.data.squint3y,
-                  cataract: snapshot.data.cataract3y,
-                  nightBlind: snapshot.data.nightBlind3y,
-                  bitoSpots: snapshot.data.bitoSpots3y,
-                  hearingL: snapshot.data.heart3y,
-                  hearingR: snapshot.data.hearingR3y,
-                  weight: snapshot.data.weight3y,
-                  height: snapshot.data.height3y,
-                  heart: snapshot.data.heart3y,
-                  lungs: snapshot.data.lungs3y,
-                  hipJoint: snapshot.data.hipJoint3y,
-                  inhProblems: snapshot.data.inhProblems3y,
-                  otherDiseases: snapshot.data.otherDiseases3y,
-                  officer: snapshot.data.officer3y,
-                  dentalSpots: snapshot.data.dentalSpots3y,
-                  dentalCavities: snapshot.data.dentalCavities3y,
+                  date: date3y,
+                  eye: eye3y,
+                  squint: squint3y,
+                  cataract: cataract3y,
+                  nightBlind: nightBlind3y,
+                  bitoSpots: bitoSpots3y,
+                  hearingL: heart3y,
+                  hearingR: hearingR3y,
+                  weight: weight3y,
+                  height: height3y,
+                  heart: heart3y,
+                  lungs: lungs3y,
+                  hipJoint: hipJoint3y,
+                  inhProblems: inhProblems3y,
+                  otherDiseases: otherDiseases3y,
+                  officer: officer3y,
+                  dentalSpots: dentalSpots3y,
+                  dentalCavities: dentalCavities3y,
                   count: 2),
               Choice.fourToThree(
                   title: AppLocalizations.of(context).tr('4year'),
-                  date: snapshot.data.date4y,
-                  eye: snapshot.data.eye4y,
-                  squint: snapshot.data.squint4y,
-                  cataract: snapshot.data.cataract4y,
-                  nightBlind: snapshot.data.nightBlind4y,
-                  bitoSpots: snapshot.data.bitoSpots4y,
-                  hearingL: snapshot.data.heart4y,
-                  hearingR: snapshot.data.hearingR4y,
-                  weight: snapshot.data.weight4y,
-                  height: snapshot.data.height4y,
-                  heart: snapshot.data.heart4y,
-                  lungs: snapshot.data.lungs4y,
-                  hipJoint: snapshot.data.hipJoint4y,
-                  inhProblems: snapshot.data.inhProblems4y,
-                  otherDiseases: snapshot.data.otherDiseases4y,
-                  officer: snapshot.data.officer4y,
-                  dentalSpots: snapshot.data.dentalSpots4y,
-                  dentalCavities: snapshot.data.dentalCavities4y,
+                  date: date4y,
+                  eye: eye4y,
+                  squint: squint4y,
+                  cataract: cataract4y,
+                  nightBlind: nightBlind4y,
+                  bitoSpots: bitoSpots4y,
+                  hearingL: heart4y,
+                  hearingR: hearingR4y,
+                  weight: weight4y,
+                  height: height4y,
+                  heart: heart4y,
+                  lungs: lungs4y,
+                  hipJoint: hipJoint4y,
+                  inhProblems: inhProblems4y,
+                  otherDiseases: otherDiseases4y,
+                  officer: officer4y,
+                  dentalSpots: dentalSpots4y,
+                  dentalCavities: dentalCavities4y,
                   count: 2),
               Choice(
                   title: AppLocalizations.of(context).tr('5year'),
-                  date: snapshot.data.date5y.substring(0, 10),
-                  eye: snapshot.data.eye5y,
-                  squint: snapshot.data.squint5y,
-                  cataract: snapshot.data.cataract5y,
-                  sightL: snapshot.data.sightL5y,
-                  sightR: snapshot.data.sightR5y,
-                  nightBlind: snapshot.data.nightBlind5y,
-                  bitoSpots: snapshot.data.bitoSpots5y,
-                  hearingL: snapshot.data.heart5y,
-                  hearingR: snapshot.data.hearingR5y,
-                  weight: snapshot.data.weight5y,
-                  height: snapshot.data.height5y,
-                  heart: snapshot.data.heart5y,
-                  lungs: snapshot.data.lungs5y,
-                  hipJoint: snapshot.data.hipJoint5y,
-                  inhProblems: snapshot.data.inhProblems5y,
-                  otherDiseases: snapshot.data.otherDiseases5y,
-                  officer: snapshot.data.officer5y,
-                  dentalSpots: snapshot.data.dentalSpots5y,
-                  dentalCavities: snapshot.data.dentalCavities5y,
+                  date: date5y,
+                  eye: eye5y,
+                  squint: squint5y,
+                  cataract: cataract5y,
+                  sightL: sightL5y,
+                  sightR: sightR5y,
+                  nightBlind: nightBlind5y,
+                  bitoSpots: bitoSpots5y,
+                  hearingL: heart5y,
+                  hearingR: hearingR5y,
+                  weight: weight5y,
+                  height: height5y,
+                  heart: heart5y,
+                  lungs: lungs5y,
+                  hipJoint: hipJoint5y,
+                  inhProblems: inhProblems5y,
+                  otherDiseases: otherDiseases5y,
+                  officer: officer5y,
+                  dentalSpots: dentalSpots5y,
+                  dentalCavities: dentalCavities5y,
                   count: 1),
             ];
             return DefaultTabController(
@@ -250,6 +638,8 @@ class _ChildHealthViewState extends State<ChildHealthView> {
                 ));
           } catch (e) {
             //return Text("No Data");
+
+            logger.e(e);
             return Scaffold(
               appBar: AppBar(
                 title: Text(AppLocalizations.of(context).tr('childHealthCard')),
