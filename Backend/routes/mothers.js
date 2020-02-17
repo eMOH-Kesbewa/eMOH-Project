@@ -78,7 +78,7 @@ router.get('/update/motherfordoc', async (req, res) => {
             new: true,
             upsert: true 
         });
-        console.log(doc);
+        res.status(200).send(error);
     } catch (error) {
         res.status(500).send(error);
         console.log(error);
