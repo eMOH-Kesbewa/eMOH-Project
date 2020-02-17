@@ -22,7 +22,7 @@ export class AddMotherComponent implements OnInit {
     this.familyId = this.activeroute.snapshot.paramMap.get('familyId');
     this.addMotherSchema= this.fb.group({
       mother_id: ['', Validators.required],
-      registration_no: ['', Validators.required],
+      registration_no: [''],
       registration_date: ['', Validators.required],
       mothers_name: ['', Validators.required],
       address: ['', Validators.required],
