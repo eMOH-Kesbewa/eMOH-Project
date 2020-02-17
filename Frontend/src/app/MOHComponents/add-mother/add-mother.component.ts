@@ -104,6 +104,7 @@ export class AddMotherComponent implements OnInit {
         error=>{
           this.openSnackBar("Update is Unsuccessfull, Pls enter it again!");
             this.router.navigate(["viewMothers/"])
+            console.log(error)
         }
         );
   }

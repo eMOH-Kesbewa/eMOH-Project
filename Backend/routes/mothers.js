@@ -9,19 +9,18 @@ var phm = require('../Schemas/phm');
 
 //Add Details to MotherBabyJoinedTable
 router.post('/register', (req, res) => { 
-    //console.log(req.body);
+    console.log(req.body);
     var data = new Mother(req.body);
     data.save((err,doc)=>{
         if(err) {
-            console.log(handleError(err));
+            //console.log(handleError(err));
             res.status(500).json("Error When Inserting");
         }
         else if(doc){
             res.status(200).json("Inserted successfully.");
-            console.log(doc)
         }
     })
-    //console.log("Completed");
+    console.log("Completed");
 });
 
 
