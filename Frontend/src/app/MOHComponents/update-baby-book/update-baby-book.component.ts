@@ -1425,13 +1425,13 @@ export class UpdateBabyBookComponent implements OnInit {
           return;
       }
   
-      this.success=true;
+     // this.success=true;
       this.addbabyService.register(this.BabyForm.value,this.babyID)
         .subscribe(
           response=>{
             if(response.status==201){
               this.openSnackBar("Updated Successfully");
-              this.router.navigate(["viewBabies/ViewMotherBabybyID/",localStorage.getItem('selectedFamId')])
+              this.router.navigate(["viewBabies/ViewMotherBabybyID/",this.babyID])
             }else{
               this.openSnackBar("Update is Unsuccessfull, Pls enter it again!");
               this.router.navigate([this.router.url,'viewMotherbyId',this.babyID])
