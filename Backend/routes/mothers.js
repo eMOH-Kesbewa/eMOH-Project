@@ -11,7 +11,9 @@ var phm = require('../Schemas/phm');
 router.post('/register', (req, res) => { 
     console.log(req.body);
     var data = new Mother(req.body);
-    data.save();
+    data.save((err,doc)=>{
+        res.status(200).json("Inserted successfully.");
+    });
     console.log("Completed");
 });
 
@@ -30,7 +32,7 @@ router.put('/update/motherbabyjoined', async (req, res) => {
             new: true,
             upsert: true 
         });
-        res.status(200).send("Updated successfully.");
+        res.status(200).json("Updated successfully.");
         console.log(doc);
     } catch (error) {
         res.status(500).send(error);
