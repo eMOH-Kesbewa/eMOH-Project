@@ -8,7 +8,7 @@ router.post('/add', (req, res) => {
     console.log(req.body);
     var data = new ApprovedFamily(req.body);
     data.save((err,doc)=>{
-        res.status(200).send("Inserted successfully.");
+        res.status(200).json("Inserted successfully.");
     });
     console.log("Completed");
 });
