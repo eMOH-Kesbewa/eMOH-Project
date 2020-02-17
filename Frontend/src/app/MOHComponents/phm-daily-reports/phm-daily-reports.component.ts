@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PhmdailyupdateService } from 'app/Services/phmdailyupdate.service';
 //import { FamiliesService } from 'app/Services/families.service';
 import { from } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-phm-daily-reports',
@@ -16,7 +17,7 @@ export class PhmDailyReportsComponent implements OnInit {
   submitted = false;
   success = false;
 
-  constructor(private formBuilder: FormBuilder, private addphmService: PhmdailyupdateService) { }
+  constructor(private formBuilder: FormBuilder, private addphmService: PhmdailyupdateService,private router: Router) { }
 
   ngOnInit() {
     this.phmForm = this.formBuilder.group({
@@ -365,6 +366,10 @@ export class PhmDailyReportsComponent implements OnInit {
           else console.log("Success No Errors")
         }
     );
+}
+GotoMonth(year,month){
+  
+  this.router.navigate(["ViewWeightTable",'MonthlyReport',year,month])
 }
 
 }
