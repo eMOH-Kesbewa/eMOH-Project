@@ -91,95 +91,99 @@ class _HelthCardState extends State<HelthCard> {
       fteenToTfirstValx = widget.fteenToTfirstVal;
     }
 
-    return EasyLocalizationProvider(
-      data: data,
-      child: Card(
-        child: Padding(
-          padding: EdgeInsets.all(8.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: <Widget>[
-              Row(
-                children: <Widget>[
-                  SizedBox(
-                    width: 25.0,
-                  ),
-                  Text(
-                    widget.title,
-                    style:
-                        TextStyle(fontSize: 15.0, fontWeight: FontWeight.bold),
-                  ),
-                ],
-              ),
-              SizedBox(
-                height: 10.0,
-              ),
-              div,
-              ListTile(
-                  leading: growBulletIcon,
-                  title: Column(
-                    children: <Widget>[
-                      Text(
-                        AppLocalizations.of(context).tr('from1-5days'),
-                        style: TextStyle(fontSize: 15.0),
-                      ),
-                      Text(
-                        //2019-12-15T00:00:00.000Z
-                        date1x,
-                        style: TextStyle(fontSize: 15.0),
-                      ),
-                    ],
-                  ),
-                  trailing: Text(oneToFiveValx)),
-              ListTile(
-                  leading: growBulletIcon,
-                  title: Column(
-                    children: <Widget>[
-                      Text(
-                        AppLocalizations.of(context).tr('from6-10days'),
-                        style: TextStyle(fontSize: 15.0),
-                      ),
-                      Text(
-                        date2x,
-                        style: TextStyle(fontSize: 15.0),
-                      ),
-                    ],
-                  ),
-                  trailing: Text(sixToTenValx)),
-              ListTile(
-                  leading: growBulletIcon,
-                  title: Column(
-                    children: <Widget>[
-                      Text(
-                        AppLocalizations.of(context).tr('from14-21days'),
-                        style: TextStyle(fontSize: 15.0),
-                      ),
-                      Text(
-                        date3x,
-                        style: TextStyle(fontSize: 15.0),
-                      ),
-                    ],
-                  ),
-                  trailing: Text(fteenToTfirstValx)),
-              ListTile(
-                  leading: growBulletIcon,
-                  title: Column(
-                    children: <Widget>[
-                      Text(
-                        AppLocalizations.of(context).tr('around42days'),
-                        style: TextStyle(fontSize: 15.0),
-                      ),
-                      Text(
-                        date4x,
-                        style: TextStyle(fontSize: 15.0),
-                      ),
-                    ],
-                  ),
-                  trailing: Text(aroundFourtyValx)),
-            ],
+    try {
+      return EasyLocalizationProvider(
+        data: data,
+        child: Card(
+          child: Padding(
+            padding: EdgeInsets.all(8.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: <Widget>[
+                Row(
+                  children: <Widget>[
+                    SizedBox(
+                      width: 25.0,
+                    ),
+                    Text(
+                      widget.title,
+                      style: TextStyle(
+                          fontSize: 15.0, fontWeight: FontWeight.bold),
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: 10.0,
+                ),
+                div,
+                ListTile(
+                    leading: growBulletIcon,
+                    title: Column(
+                      children: <Widget>[
+                        Text(
+                          AppLocalizations.of(context).tr('from1-5days'),
+                          style: TextStyle(fontSize: 15.0),
+                        ),
+                        Text(
+                          //2019-12-15T00:00:00.000Z
+                          date1x,
+                          style: TextStyle(fontSize: 15.0),
+                        ),
+                      ],
+                    ),
+                    trailing: Text(oneToFiveValx)),
+                ListTile(
+                    leading: growBulletIcon,
+                    title: Column(
+                      children: <Widget>[
+                        Text(
+                          AppLocalizations.of(context).tr('from6-10days'),
+                          style: TextStyle(fontSize: 15.0),
+                        ),
+                        Text(
+                          date2x,
+                          style: TextStyle(fontSize: 15.0),
+                        ),
+                      ],
+                    ),
+                    trailing: Text(sixToTenValx)),
+                ListTile(
+                    leading: growBulletIcon,
+                    title: Column(
+                      children: <Widget>[
+                        Text(
+                          AppLocalizations.of(context).tr('from14-21days'),
+                          style: TextStyle(fontSize: 15.0),
+                        ),
+                        Text(
+                          date3x,
+                          style: TextStyle(fontSize: 15.0),
+                        ),
+                      ],
+                    ),
+                    trailing: Text(fteenToTfirstValx)),
+                ListTile(
+                    leading: growBulletIcon,
+                    title: Column(
+                      children: <Widget>[
+                        Text(
+                          AppLocalizations.of(context).tr('around42days'),
+                          style: TextStyle(fontSize: 15.0),
+                        ),
+                        Text(
+                          date4x,
+                          style: TextStyle(fontSize: 15.0),
+                        ),
+                      ],
+                    ),
+                    trailing: Text(aroundFourtyValx)),
+              ],
+            ),
           ),
         ),
-      ),
-    );
+      );
+    } catch (e) {
+      return Text('No Data');
+    }
   }
 }

@@ -20,7 +20,7 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { Mothers } from "./view-mothers.component.routing";
 import { ViewPregnantMothersComponent } from "../view-pregnant-mothers/view-pregnant-mothers.component";
 import { AddMotherComponent } from "../add-mother/add-mother.component";
-import { PregnancyFormComponent } from "../pregnancy-form/pregnancy-form.component";
+// import { PregnancyFormComponent } from "../pregnancy-form/pregnancy-form.component";
 import { ViewMothersComponent } from "./view-mothers.component";
 import { ViewMotherByIDComponent } from "../view-mother-by-id/view-mother-by-id.component";
 import { TranslateModule, TranslateLoader } from "@ngx-translate/core";
@@ -33,7 +33,7 @@ import { DeliveryReportComponent } from 'app/Graphs/delivery-report/delivery-rep
 
 
 @NgModule({
-    declarations:[ViewMothersComponent,PregnancyFormComponent,ViewMotherByIDComponent,ViewPregnantMothersComponent,RegPregMothersComponent,DeliveryReportComponent
+    declarations:[ViewMothersComponent,ViewMotherByIDComponent,ViewPregnantMothersComponent,RegPregMothersComponent,DeliveryReportComponent
     ],
     imports:[
         Mothers,

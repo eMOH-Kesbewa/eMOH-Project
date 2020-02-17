@@ -9,16 +9,13 @@ import '../globals.dart' as globals;
 Future<Baby> fetchBaby() async {
   print('fetch Baby function');
   //String _babyId = globals.BabyId + babyIndex;
-  final response = await http.get(
-      'https://protected-bayou-52277.herokuapp.com/babies/viewbyid/${globals.babyId}');
+  final response = await http
+      .get('https://emohback.herokuapp.com/babies/viewbybabyid/${globals.babyId}');
   print('status code');
   print(response.statusCode);
   print(response.body);
   // final json = jsonDecode(response.body);
   if (response.statusCode == 200) {
-    // If the call to the server was successful, parse the JSON.
-    //return (json.decode(response.body));
-    //print(Baby.fromJson(json.decode(response.body)));
     return Baby.fromJson(json.decode(response.body)[0]);
   } else {
     // If that call was not successful, throw an error.
@@ -80,36 +77,33 @@ class Baby {
     this.otherStatus,
   });
 
- List<Widget> getReasons() {
-      // <<<<< Note this change for the return type
-      List reasons = new List<Widget>();
-      if (prematureBirthsStatus != "Normal") {
-        reasons.add(
-          new ListTile(
-            leading: warningIcon,
-            title: Text(prematureBirthsStatus),
-          ),
-        );
-      }
-      // int i = 0;
-      // for (i = 0; i < 5; i++) {
-      //   reasons.add(
-      //     new RadioListTile<String>(
-      //       title: const Text('Lafayette'),
-      //       value: "c",
-      //       groupValue: "x",
-      //       onChanged: (_) {},
-      //     ),
-      //   );
-      // }
-      return reasons;
+  List<Widget> getReasons() {
+    // <<<<< Note this change for the return type
+    List reasons = new List<Widget>();
+    if (prematureBirthsStatus != "Normal") {
+      reasons.add(
+        new ListTile(
+          leading: warningIcon,
+          title: Text(prematureBirthsStatus),
+        ),
+      );
     }
-  
+    // int i = 0;
+    // for (i = 0; i < 5; i++) {
+    //   reasons.add(
+    //     new RadioListTile<String>(
+    //       title: const Text('Lafayette'),
+    //       value: "c",
+    //       groupValue: "x",
+    //       onChanged: (_) {},
+    //     ),
+    //   );
+    // }
+    return reasons;
+  }
 
   factory Baby.fromJson(Map<String, dynamic> json) {
     List _reasons = new List();
-
-    
 
     return Baby(
       // // idNumber: json['Identity_number'],
@@ -153,7 +147,4 @@ class Baby {
       //     json["total_Number_of_children_alive_including_this_child"].toString(),
     );
   }
-
- 
-  
 }

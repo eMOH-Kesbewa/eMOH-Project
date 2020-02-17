@@ -246,11 +246,11 @@ router.get('/getBabyList/:searchData', (req, res) => {
                 ]
         }, (err, doc) => {
             if (doc.length) {
-                res.send(doc);
+                res.status(200).json(doc);
                 console.log(doc);
             } else {
                 console.log('Cannot find the record');
-                res.send(doc);
+                res.status(500).send(doc);
             }
         });
     }

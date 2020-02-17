@@ -157,7 +157,7 @@ class _BabyBasicInfoState extends State<BabyBasicInfo> {
                               )
                             ],
                           );
-                          ;
+                          
                         }
 
                         // By default, show a loading spinner.

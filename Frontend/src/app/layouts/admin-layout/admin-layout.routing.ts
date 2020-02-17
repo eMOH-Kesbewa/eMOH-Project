@@ -14,7 +14,7 @@ import { ViewFamilybyIdComponent } from 'app/MOHComponents/view-familyby-id/view
 import { AddWeightHeightComponent } from 'app/MOHComponents/add-weight-height/add-weight-height.component';
 import { AddMotherComponent } from 'app/MOHComponents/add-mother/add-mother.component';
 import { ViewMothersComponent } from 'app/MOHComponents/view-mothers/view-mothers.component';
-import { PregnancyFormComponent } from 'app/MOHComponents/pregnancy-form/pregnancy-form.component';
+// import { PregnancyFormComponent } from 'app/MOHComponents/pregnancy-form/pregnancy-form.component';
 import { ViewPregnantMothersComponent } from 'app/MOHComponents/view-pregnant-mothers/view-pregnant-mothers.component';
 import { ViewWeightTableComponent } from 'app/MOHComponents/view-weight-table/view-weight-table.component';
 import { ViewMotherByIDComponent } from 'app/MOHComponents/view-mother-by-id/view-mother-by-id.component';

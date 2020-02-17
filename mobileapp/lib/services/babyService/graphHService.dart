@@ -15,7 +15,9 @@ Future fetchWeightHeight() async {
   final response = await http.get(
       // 'http://protected-bayou-52277.herokuapp.com/weightheight/viewWeightHeightById/A000010'
 
-      'http://protected-bayou-52277.herokuapp.com/weightheight/viewWeightHeightById/${globals.babyId}');
+      'http://emohback.herokuapp.com/reports/viewWeightHeightById/${globals.babyId}');
+
+  ///viewWeightHeightById/:id
 
   logger.d('${globals.babyId}');
 

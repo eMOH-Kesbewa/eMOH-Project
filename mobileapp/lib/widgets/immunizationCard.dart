@@ -56,170 +56,45 @@ class _ImmunizationCardState extends State<ImmunizationCard> {
       //  2012-04-03 T18:30:00.000Z
     );
     if (widget.vCount == 2) {
-      return Card(
-        child: Padding(
-          padding: EdgeInsets.all(8.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: <Widget>[
-              Row(
-                children: <Widget>[
-                  SizedBox(
-                    width: 25.0,
-                  ),
-                  Text(
-                    widget.title,
-                    style:
-                        TextStyle(fontSize: 15.0, fontWeight: FontWeight.bold),
-                  ),
-                ],
-              ),
-              SizedBox(
-                height: 10.0,
-              ),
-              div,
-              ListTile(
-                  leading: Text(widget.vaccine1),
-                  title: Column(
-                    children: <Widget>[
-                      Text(
-                        widget.date1.toString().substring(0, 10),
-                        style: TextStyle(fontSize: 15.0),
-                      ),
-                      Text(
-                        widget.effects1,
-                        style: TextStyle(fontSize: 15.0),
-                      ),
-                    ],
-                  ),
-                  trailing: Text(widget.batchNo1)),
-              ListTile(
-                  leading: Text(widget.vaccine2),
-                  title: Column(
-                    children: <Widget>[
-                      Text(
-                        widget.date2.toString().substring(0, 10),
-                        style: TextStyle(fontSize: 15.0),
-                      ),
-                      Text(
-                        widget.effects2,
-                        style: TextStyle(fontSize: 15.0),
-                      ),
-                    ],
-                  ),
-                  trailing: Text(widget.batchNo2)),
-            ],
-          ),
-        ),
-      );
-    }
-    if (widget.vCount == 1) {
-      return Card(
-        child: Padding(
-          padding: EdgeInsets.all(8.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: <Widget>[
-              Row(
-                children: <Widget>[
-                  SizedBox(
-                    width: 25.0,
-                  ),
-                  Text(
-                    widget.title,
-                    style:
-                        TextStyle(fontSize: 15.0, fontWeight: FontWeight.bold),
-                    maxLines: 3,
-                    //overflow: TextOverflow.ellipsis,
-                  ),
-                ],
-              ),
-              SizedBox(
-                height: 10.0,
-              ),
-              div,
-              ListTile(
-                  leading: Container(
-                    width: 100.0,
-                                      child: Text(
-                      
-                      widget.vaccine1,
-                      softWrap: true,
-                     // maxLines: 3,
-                      //overflow: TextOverflow.ellipsis,
+      try {
+        return Card(
+          child: Padding(
+            padding: EdgeInsets.all(8.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: <Widget>[
+                Row(
+                  children: <Widget>[
+                    SizedBox(
+                      width: 25.0,
                     ),
-                  ),
-                  title: Column(
-                    children: <Widget>[
-                      Text(
-                        widget.date1.toString().substring(0, 10),
-                        style: TextStyle(fontSize: 15.0),
-                        maxLines: 1,
-                      ),
-                      Text(
-                        widget.effects1,
-                        style: TextStyle(fontSize: 15.0),
-                        //maxLines: 3,
-                      ),
-                    ],
-                  ),
-                  trailing: Text(
-                    widget.batchNo1,
-                    maxLines: 3,
-                  )),
-            ],
-          ),
-        ),
-      );
-    }
-    if (widget.vCount == 0) {
-      return Card(
-        child: Padding(
-          padding: EdgeInsets.all(8.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: <Widget>[
-              Row(
-                children: <Widget>[
-                  SizedBox(
-                    width: 25.0,
-                  ),
-                  Text(
-                    widget.title,
-                    style:
-                        TextStyle(fontSize: 15.0, fontWeight: FontWeight.bold),
-                  ),
-                ],
-              ),
-              SizedBox(
-                height: 10.0,
-              ),
-              div,
-              ListTile(
-                  leading: Text(widget.vaccine1),
-                  title: Column(
-                    children: <Widget>[
-                      Text(
-                        widget.date1.toString().substring(0, 10),
-                        style: TextStyle(fontSize: 15.0),
-                      ),
-                      Text(
-                        widget.effects1,
-                        style: TextStyle(fontSize: 15.0),
-                      ),
-                    ],
-                  ),
-                  trailing: Text(widget.batchNo1)),
-              Chip(
-                avatar: CircleAvatar(
-                  backgroundColor: Colors.grey.shade800,
-                  child: Text('BCG Scar'),
+                    Text(
+                      widget.title,
+                      style: TextStyle(
+                          fontSize: 15.0, fontWeight: FontWeight.bold),
+                    ),
+                  ],
                 ),
-                label: Text(widget.bcgMark.toString()),
-              ),
-              Visibility(
-                visible: !widget.bcgMark,
-                child: ListTile(
+                SizedBox(
+                  height: 10.0,
+                ),
+                div,
+                ListTile(
+                    leading: Text(widget.vaccine1),
+                    title: Column(
+                      children: <Widget>[
+                        Text(
+                          widget.date1.toString().substring(0, 10),
+                          style: TextStyle(fontSize: 15.0),
+                        ),
+                        Text(
+                          widget.effects1,
+                          style: TextStyle(fontSize: 15.0),
+                        ),
+                      ],
+                    ),
+                    trailing: Text(widget.batchNo1)),
+                ListTile(
                     leading: Text(widget.vaccine2),
                     title: Column(
                       children: <Widget>[
@@ -234,37 +109,147 @@ class _ImmunizationCardState extends State<ImmunizationCard> {
                       ],
                     ),
                     trailing: Text(widget.batchNo2)),
-              ),
-            ],
+              ],
+            ),
           ),
-        ),
-      );
-
-      //  return  ListTile(
-      //       leading: Text(widget.vaccine1),
-      //       title: Column(
-      //         children: <Widget>[
-      //           Text(
-      //             widget.date1.toString().substring(0, 10),
-      //             style: TextStyle(fontSize: 15.0),
-      //             maxLines: 3,
-      //           ),
-      //           Text(
-      //             widget.effects1,
-      //             style: TextStyle(fontSize: 15.0),
-      //             maxLines: 3,
-      //           ),
-      //           Text(
-      //             widget.bcgMark.toString(),
-      //             style: TextStyle(fontSize: 15.0),
-      //             maxLines: 3,
-      //           ),
-      //         ],
-      //       ),
-      //       trailing: Text(
-      //         widget.batchNo1,
-      //         maxLines: 3,
-      //       ));
+        );
+      } catch (e) {
+        return Text('No Data');
+      }
+    }
+    if (widget.vCount == 1) {
+      try {
+        return Card(
+          child: Padding(
+            padding: EdgeInsets.all(8.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: <Widget>[
+                Row(
+                  children: <Widget>[
+                    SizedBox(
+                      width: 25.0,
+                    ),
+                    Text(
+                      widget.title,
+                      style: TextStyle(
+                          fontSize: 15.0, fontWeight: FontWeight.bold),
+                      maxLines: 3,
+                      //overflow: TextOverflow.ellipsis,
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: 10.0,
+                ),
+                div,
+                ListTile(
+                    leading: Container(
+                      width: 100.0,
+                      child: Text(
+                        widget.vaccine1,
+                        softWrap: true,
+                        // maxLines: 3,
+                        //overflow: TextOverflow.ellipsis,
+                      ),
+                    ),
+                    title: Column(
+                      children: <Widget>[
+                        Text(
+                          widget.date1.toString().substring(0, 10),
+                          style: TextStyle(fontSize: 15.0),
+                          maxLines: 1,
+                        ),
+                        Text(
+                          widget.effects1,
+                          style: TextStyle(fontSize: 15.0),
+                          //maxLines: 3,
+                        ),
+                      ],
+                    ),
+                    trailing: Text(
+                      widget.batchNo1,
+                      maxLines: 3,
+                    )),
+              ],
+            ),
+          ),
+        );
+      } catch (e) {
+        return Text('No Data');
+      }
+    }
+    if (widget.vCount == 0) {
+      try {
+        return Card(
+          child: Padding(
+            padding: EdgeInsets.all(8.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: <Widget>[
+                Row(
+                  children: <Widget>[
+                    SizedBox(
+                      width: 25.0,
+                    ),
+                    Text(
+                      widget.title,
+                      style: TextStyle(
+                          fontSize: 15.0, fontWeight: FontWeight.bold),
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: 10.0,
+                ),
+                div,
+                ListTile(
+                    leading: Text(widget.vaccine1),
+                    title: Column(
+                      children: <Widget>[
+                        Text(
+                          widget.date1.toString().substring(0, 10),
+                          style: TextStyle(fontSize: 15.0),
+                        ),
+                        Text(
+                          widget.effects1,
+                          style: TextStyle(fontSize: 15.0),
+                        ),
+                      ],
+                    ),
+                    trailing: Text(widget.batchNo1)),
+                Chip(
+                  avatar: CircleAvatar(
+                    backgroundColor: Colors.grey.shade800,
+                    child: Text('BCG Scar'),
+                  ),
+                  label: Text(widget.bcgMark.toString()),
+                ),
+                Visibility(
+                  visible: !widget.bcgMark,
+                  child: ListTile(
+                      leading: Text(widget.vaccine2),
+                      title: Column(
+                        children: <Widget>[
+                          Text(
+                            widget.date2.toString().substring(0, 10),
+                            style: TextStyle(fontSize: 15.0),
+                          ),
+                          Text(
+                            widget.effects2,
+                            style: TextStyle(fontSize: 15.0),
+                          ),
+                        ],
+                      ),
+                      trailing: Text(widget.batchNo2)),
+                ),
+              ],
+            ),
+          ),
+        );
+      } catch (e) {
+        return Text('No Data');
+      }
 
     } else {
       return Center(

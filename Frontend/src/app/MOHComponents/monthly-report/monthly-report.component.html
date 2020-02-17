@@ -1,0 +1,1184 @@
+<div class="main-content">
+  <div class="row">
+    <div class="col-md-12"></div>
+      <div class="col-md-6"></div>
+      <div class="col-md-3">
+        <mat-slide-toggle  [formControl]="autoRenew" (change)="onChange()">{{'edit'| translate}}</mat-slide-toggle>
+    </div>
+      <div class="col-md-3" ><button (click)="saveToPdf()" class="btn btn-info btn-block">Export As PDF</button></div>
+        <div class="card">
+            <div class="card-header">
+                 
+                <div class="container-fluid">
+                  <div class="row">
+                      <div class="col-md-12">
+                          <div class="card">
+                              <div class="card-body">
+                                  <form [formGroup]="phmForm">
+                                    <div class="card-body" id="element-to-export">
+                                      <h4 class="card-title "><h3>Monthly Report</h3></h4>
+                                      <h4></h4>
+                                    <div class="second_field">
+                                      <!--start second field-->
+                                      <h5>{{'phm.approvedfamilydetails'| translate}}</h5>
+                                      <div class="row">
+                                      <div class="col-md-6">
+                                          <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="{{'phm.No_of_new_registered_family'| translate}}" readonly="{{onChange()}}" formControlName="No_of_new_registered_family">
+                                          </mat-form-field>
+                                        </div>
+                                      <div class="col-md-6">
+                                          <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="{{'phm.No_of_house_walking'| translate}}" readonly="{{onChange()}}" formControlName="No_of_house_walking">
+                                          </mat-form-field>
+                                        </div>
+                                      </div>
+                                      <!--end second field-->
+                                     </div>
+
+                                     <div class="third_field">
+                                      <!--start third field-->
+                                      <h5>{{'phm.motherProtection'| translate}}</h5>
+                                          <div class="row">
+                                        <div class="col-md-6">{{'phm.NoofpregnantMothers'| translate}} </div>
+                                        <div class="col-md-3">
+                                          <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="{{'phm.low_risk'| translate}}" readonly="{{onChange()}}" formControlName="No_of_low_risk_mothers">
+                                          </mat-form-field>
+                                        </div>
+                                        <div class="col-md-3">
+                                          <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="{{'phm.high_risk'| translate}}" readonly="{{onChange()}}" formControlName="No_of_hish_risk_mothers">
+                                          </mat-form-field>
+                                        </div>
+                                      </div>
+                                      <div class="row">
+                                        <div class="col-md-3">{{'phm.Registered_mothers'| translate}}</div>
+                                        <div class="col-md-3">
+                                          <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="{{'phm.before_eight_weeks'| translate}}" readonly="{{onChange()}}" formControlName="Registered_mothers_before_eight_weeks">
+                                          </mat-form-field>
+                                        </div>
+                                        <div class="col-md-3">
+                                          <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="{{'phm.between_eight_twelve_weeks'| translate}}" readonly="{{onChange()}}" formControlName="Registered_mothers_between_eight_twelve_weeks">
+                                          </mat-form-field>
+                                        </div>
+                                        <div class="col-md-3">
+                                          <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="{{'phm.after_twelve_weeks'| translate}}" readonly="{{onChange()}}" formControlName="Registered_mothers_after_twelve_weeks">
+                                          </mat-form-field>
+                                        </div>
+                                      </div>
+                                      <div class="row">
+                                        <div class="col-md-2">{{'phm.age'| translate}}</div>
+                                        <div class="col-md-2">
+                                          <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="<16" readonly="{{onChange()}}" formControlName="Low_sixteen_age_in_registration">
+                                          </mat-form-field>
+                                        </div>
+                                        <div class="col-md-2">
+                                          <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="16-17" readonly="{{onChange()}}" formControlName="between_sixteen_seventeen_age_in_registration">
+                                          </mat-form-field>
+                                        </div>
+                                        <div class="col-md-2">
+                                          <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="18-19" readonly="{{onChange()}}" formControlName="between_eighteen_nineteen_age_in_registration">
+                                          </mat-form-field>
+                                        </div>
+                                        <div class="col-md-2">
+                                          <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="20-35" readonly="{{onChange()}}" formControlName="between_twenty_thirtyfive_age_in_registration">
+                                          </mat-form-field>
+                                        </div>
+                                        <div class="col-md-2">
+                                          <mat-form-field class="example-full-width">
+                                            <input matInput placeholder=">35" readonly="{{onChange()}}" formControlName="high_thirtyfive_age_in_registration">
+                                          </mat-form-field>
+                                        </div>
+                                      </div>
+                                      <div class="row">
+                                        <div class="col-md-4">{{'phm.Mothers_with_1st_Pregnancy'| translate}}</div>
+                                        <div class="col-md-4">
+                                          <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="{{'phm.numberOfRegistered'| translate}}" readonly="{{onChange()}}" formControlName="No_of_registered_at_first_pregnant">
+                                          </mat-form-field>
+                                        </div>
+                                        <div class="col-md-4">
+                                          <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="{{'phm.numberOfBeforePregnancyTest'| translate}}" readonly="{{onChange()}}" formControlName="no_of_before_preganancy_checked_at_first_pregnant">
+                                          </mat-form-field>
+                                        </div>
+                                      </div>
+                                      <div class="row">
+                                        <div class="col-md-4"></div>
+                                        <div class="col-md-4">
+                                          <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="{{'phm.numberOfCouplesComeTo2Visit'| translate}}" readonly="{{onChange()}}" formControlName="no_of_couples_for_two_clinics_at_first_pregnant">
+                                          </mat-form-field>
+                                        </div>
+                                        <div class="col-md-4">
+                                          <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="{{'phm.numberOfquasinMaarriage'| translate}}" readonly="{{onChange()}}" formControlName="no_of_couples_quasin_marraige_at_first_pregnant">
+                                          </mat-form-field>
+                                        </div>
+                                      </div>
+                                      <div class="row">
+                                        <div class="col-md-4">{{'phm.5_or_more_than_times_pregnancy'| translate}}</div>
+                                        <div class="col-md-4">
+                                          <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="{{'phm.Number_of_registered_mothers'| translate}}" readonly="{{onChange()}}" formControlName="No_of_registered_more_than_equal_five_pregnancy">
+                                          </mat-form-field>
+                                        </div>
+                                        <div class="col-md-4">
+                                          <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="{{'phm.number_of_mothers_more_than_living_children_more_than_equal_five_pregnancy'| translate}}" readonly="{{onChange()}}" formControlName="No_of_mothers_have_three_or_more_than_living_children_more_than_equal_five_pregnancy">
+                                          </mat-form-field>
+                                        </div>
+                                      </div>
+                                      <div class="row">
+                                        <div class="col-md-6">
+                                          <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="{{'phm.No_of_registered_mothers_with_rubella'| translate}}" readonly="{{onChange()}}" formControlName="No_of_registered_mothers_with_rubella">
+                                          </mat-form-field>
+                                        </div>
+                                        <div class="col-md-6">
+                                          <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="{{'phm.No_of_registered_mothers_getting_folic_acid'| translate}}" readonly="{{onChange()}}" formControlName="No_of_registered_mothers_getting_folic_acid">
+                                          </mat-form-field>
+                                        </div>
+                                      </div>
+                                      <div class="row">
+                                        <div class="col-md-6">{{'phm.No_of_house_walkings'| translate}}</div>
+                                        <div class="col-md-3">
+                                          <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="{{'phm.new'| translate}}" readonly="{{onChange()}}" formControlName="No_of_new_house_walking">
+                                          </mat-form-field>
+                                        </div>
+                                        <div class="col-md-3">
+                                          <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="{{'phm.old'| translate}}" readonly="{{onChange()}}" formControlName="No_of_old_house_walking">
+                                          </mat-form-field>
+                                        </div>
+                                      </div>
+                                      <div class="row">
+                                        <div class="col-md-6">{{'phm.No_of_coming_clinics_mothers'| translate}}</div>
+                                        <div class="col-md-3">
+                                          <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="{{'phm.new'| translate}}" readonly="{{onChange()}}" formControlName="No_of_coming_clinics_new_mothers">
+                                          </mat-form-field>
+                                        </div>
+                                        <div class="col-md-3">
+                                          <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="{{'phm.old'| translate}}" readonly="{{onChange()}}" formControlName="No_of_coming_clinics_old_mothers">
+                                          </mat-form-field>
+                                        </div>
+                                      </div>
+                                      <div class="row">
+                                        <div class="col-md-5">{{'phm.No_of_out_of_mothers'| translate}}</div>
+                                        <div class="col-md-3">{{'phm.No_of_out_of_registered_mothers'| translate}}</div>
+                                        <div class="col-md-2">
+                                          <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="{{'phm.permenent'| translate}}" readonly="{{onChange()}}" formControlName="No_of_out_of_registered_permanant_mothers">
+                                          </mat-form-field>
+                                        </div>
+                                        <div class="col-md-2">
+                                          <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="{{'phm.notpermenent'| translate}}" readonly="{{onChange()}}" formControlName="No_of_out_of_registered_not_permanant_mothers">
+                                          </mat-form-field>
+                                        </div>
+                                      </div>
+                                      <div class="row">
+                                        <div class="col-md-5"></div>
+                                        <div class="col-md-3">{{'phm.No_of_out_of_notregistered_mothers'| translate}}</div>
+                                        <div class="col-md-2">
+                                          <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="{{'phm.permenent'| translate}}" readonly="{{onChange()}}" formControlName="No_of_out_of_notregistered_permanant_mothers">
+                                          </mat-form-field>
+                                        </div>
+                                        <div class="col-md-2">
+                                          <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="{{'phm.notpermenent'| translate}}" readonly="{{onChange()}}" formControlName="No_of_out_of_notregistered_notpermanant_mothers">
+                                          </mat-form-field>
+                                        </div>
+                                      </div>
+                                      
+                                     
+                                      <!--end third field-->
+                                    </div>
+                                    <div class="third_section">
+                                      <!--start third section-->
+                                      <h5>{{'phm.03_Mother_Protection_At_Delivery'| translate}} </h5>
+                                         <div class="row">
+                                        <div class="col-md-6">{{'phm.Number_of_deliveries_from_come_out_mothers_who_come_to_permanant_after_delivery'| translate}}</div>
+                                        <div class="col-md-3">
+                                          <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="{{'phm.after_walking'| translate}}" readonly="{{onChange()}}" formControlName="No_of_delivery_permant_mothers_after_walking">
+                                          </mat-form-field>
+                                        </div>
+                                        <div class="col-md-3">
+                                          <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="{{'phm.from_hearing'| translate}}" readonly="{{onChange()}}" formControlName="No_of_delivery_permant_mothers_hearing">
+                                          </mat-form-field>
+                                        </div>
+                                      </div>
+                                      <div class="row">
+                                        <div class="col-md-6">{{'phm.Number_of_deliveries_from_come_out_notpermanant_mothers'| translate}}</div>
+                                        <div class="col-md-3">
+                                          <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="{{'phm.No_of_out_of_registered_mothers'| translate}}" readonly="{{onChange()}}" formControlName="No_of_out_of_registered_mothers_before_delivery">
+                                          </mat-form-field>
+                                        </div>
+                                        <div class="col-md-3">
+                                          <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="{{'phm.No_of_out_of_notregistered_mothers'| translate}}" readonly="{{onChange()}}" formControlName="No_of_out_of_not_registered_mothers_before_delivery">
+                                          </mat-form-field>
+                                        </div>
+                                      </div>
+                                      <div class="row">
+                                        <div class="col-md-6">{{'phm.Number_of_deliveries_from_come_out_mothers_who_come_to_permanant_after_deliverys'| translate}}</div>
+                                        <div class="col-md-3">
+                                          <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="{{'phm.No_of_out_of_registered_mothers'| translate}}" readonly="{{onChange()}}" formControlName="No_of_out_of_registered_mothers_after_delivery">
+                                          </mat-form-field>
+                                        </div>
+                                        <div class="col-md-3">
+                                          <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="{{'phm.No_of_out_of_notregistered_mothers'| translate}}" readonly="{{onChange()}}" formControlName="No_of_out_of_not_registered_mothers_after_delivery">
+                                          </mat-form-field>
+                                        </div>
+                                      </div>
+                                      <div class="row">
+                                        <div class="col-md-6">{{'phm.delivery'| translate}}</div>
+                                        <div class="col-md-3">
+                                          <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="{{'phm.Yoni_delivery'| translate}}" readonly="{{onChange()}}" formControlName="Yoni_delivery">
+                                          </mat-form-field>
+                                        </div>
+                                        <div class="col-md-3">
+                                          <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="{{'phm.Sesar_delivary'| translate}}" readonly="{{onChange()}}" formControlName="Sesar_delivary">
+                                          </mat-form-field>
+                                        </div>
+                                      </div>
+                                      <div class="row">
+                                        <div class="col-md-3">{{'phm.Home_delivary'| translate}}</div>
+                                        <div class="col-md-3">
+                                          <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="{{'phm.Home_delivary_from_phm'| translate}}" readonly="{{onChange()}}" formControlName="Home_delivary_from_phm">
+                                          </mat-form-field>
+                                        </div>
+                                        <div class="col-md-3">
+                                          <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="{{'phm.Home_delivary_from_other_traineer'| translate}}" readonly="{{onChange()}}" formControlName="Home_delivary_from_other_traineer">
+                                          </mat-form-field>
+                                        </div>
+                                        <div class="col-md-3">
+                                          <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="{{'phm.Home_delivary_from_not_traineer'| translate}}" readonly="{{onChange()}}" formControlName="Home_delivary_from_not_traineer">
+                                          </mat-form-field>
+                                        </div>
+                                      </div>
+                                      <div class="row">
+                                        <div class="col-md-6">
+                                          <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="{{'phm.No_of_mothers_get_piatagasma_protection_in_delivary'| translate}}" readonly="{{onChange()}}" formControlName="No_of_mothers_get_piatagasma_protection_in_delivary">
+                                          </mat-form-field>
+                                        </div>
+                                        <div class="col-md-6">
+                                          <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="{{'phm.no_of_mothers_check_blood_group_in_delivary'| translate}}" readonly="{{onChange()}}" formControlName="no_of_mothers_check_blood_group_in_delivary">
+                                          </mat-form-field>
+                                        </div>
+                                      </div>
+                                      <h5>{{'phm.Number_of_mothers_checked_blood_test_in_delivery'| translate}}</h5>
+                                      <div class="row">
+                                        <div class="col-md-3">VDRL</div>
+                                        <div class="col-md-3"> 
+                                          <mat-form-field class="example-full-width"> 
+                                            <input matInput placeholder="{{'phm.No_of_mothers_vdrl_test_before_twelve_weeks'| translate}}" readonly="{{onChange()}}" formControlName="No_of_mothers_vdrl_test_before_twelve_weeks">
+                                          </mat-form-field>
+                                        </div>
+                                        <div class="col-md-3">
+                                          <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="{{'phm.No_of_mothers_vdrl_test_after_twelve_weeks'| translate}}" readonly="{{onChange()}}" formControlName="No_of_mothers_vdrl_test_after_twelve_weeks">
+                                          </mat-form-field>
+                                        </div>
+                                      </div>
+                                      <div class="row">
+                                        <div class="col-md-6">{{'phm.mothers_hemoglobin_test'| translate}}</div>
+                                      </div>
+                                        <div class="row">
+                                          <div class="col-md-3">{{'phm.before_twelve_weeks_one'| translate}}</div>
+                                          <div class="col-md-2">
+                                            <mat-form-field class="example-full-width">
+                                              <input matInput placeholder="<7g/dl" readonly="{{onChange()}}" formControlName="No_of_mothers_hemoglobin_test_before_twelve_weeks_one">
+                                            </mat-form-field>
+                                          </div>
+                                          <div class="col-md-2">
+                                            <mat-form-field class="example-full-width">
+                                              <input matInput placeholder="7-10.9g/dl" readonly="{{onChange()}}" formControlName="No_of_mothers_hemoglobin_test_before_twelve_weeks_two">
+                                            </mat-form-field>
+                                          </div>
+                                          <div class="col-md-2">
+                                            <mat-form-field class="example-full-width">
+                                              <input matInput placeholder=">=11g/dl" readonly="{{onChange()}}" formControlName="No_of_mothers_hemoglobin_test_before_twelve_weeks_three">
+                                            </mat-form-field>
+                                          </div>
+                                        </div>
+                                        <div class="row">
+                                          <div class="col-md-3">{{'phm.twentysix_twentyeight_weeks_one'| translate}}</div>
+                                          <div class="col-md-2">
+                                            <mat-form-field class="example-full-width">
+                                              <input matInput placeholder="<7g/dl" readonly="{{onChange()}}" formControlName="No_of_mothers_hemoglobin_test_twentysix_twentyeight_weeks_one">
+                                            </mat-form-field>
+                                          </div>
+                                          <div class="col-md-2">
+                                            <mat-form-field class="example-full-width">
+                                              <input matInput placeholder="7-10.9g/dl" readonly="{{onChange()}}" formControlName="No_of_mothers_hemoglobin_test_twentysix_twentyeight_weeks_two">
+                                            </mat-form-field>
+                                          </div>
+                                          <div class="col-md-2">
+                                            <mat-form-field class="example-full-width">
+                                              <input matInput placeholder=">=11g/dl" readonly="{{onChange()}}" formControlName="No_of_mothers_hemoglobin_test_twentysix_twentyeight_weeks_three">
+                                            </mat-form-field>
+                                          </div>
+                                        </div>
+                                        <div class="row">
+                                          <div class="col-md-6">{{'phm.No_of_mothers_sugar_test'| translate}}</div>
+                                        </div>
+                                        <div class="row">
+                                          <div class="col-md-3">{{'phm.before_twelve_weeks_one'| translate}}</div>
+                                          <div class="col-md-3">
+                                            <mat-form-field class="example-full-width">
+                                              <input matInput placeholder="{{'phm.normal'| translate}}" readonly="{{onChange()}}" formControlName="No_of_mothers_sugar_test_before_twelve_weeks_normal">
+                                            </mat-form-field>
+                                          </div>
+                                          <div class="col-md-3">
+                                            <mat-form-field class="example-full-width">
+                                              <input matInput placeholder="{{'phm.abnormal'| translate}}" readonly="{{onChange()}}" formControlName="No_of_mothers_sugar_test_before_twelve_weeks_abnormal">
+                                            </mat-form-field>
+                                          </div>
+                                        </div>
+                                        <div class="row">
+                                          <div class="col-md-3">{{'phm.twentysix_twentyeight_weeks_one'| translate}}</div>
+                                          <div class="col-md-3">
+                                            <mat-form-field class="example-full-width">
+                                              <input matInput placeholder="{{'phm.normal'| translate}}" readonly="{{onChange()}}" formControlName="No_of_mothers_hemoglobin_test_twentyfour_twentyeight_weeks_normal">
+                                            </mat-form-field>
+                                          </div>
+                                          <div class="col-md-3">
+                                            <mat-form-field class="example-full-width">
+                                              <input matInput placeholder="{{'phm.abnormal'| translate}}" readonly="{{onChange()}}" formControlName="No_of_mothers_hemoglobin_test_twentyfour_twentyeight_weeks_abnormal">
+                                            </mat-form-field>
+                                          </div>
+                                        </div>
+                                        <div class="row">
+                                          <div class="col-md-6">
+                                            <mat-form-field class="example-full-width">
+                                              <input matInput placeholder="{{'phm.No_of_mothers_do_hiv_check'| translate}}" readonly="{{onChange()}}" formControlName="No_of_mothers_do_hiv_check">
+                                            </mat-form-field>
+                                          </div>
+                                        </div>
+                                        <div class="row">
+                                          <div class="col-md-4">{{'phm.Number_of_couples_paricipation_for_clinics'| translate}}</div>
+                                          <div class="col-md-2">
+                                            <mat-form-field class="example-full-width">
+                                              <input matInput placeholder="{{'phm.no_of_couples_join_one_clinic'| translate}}" readonly="{{onChange()}}" formControlName="no_of_couples_join_one_clinic">
+                                            </mat-form-field>
+                                          </div>
+                                          <div class="col-md-2">
+                                            <mat-form-field class="example-full-width">
+                                              <input matInput placeholder="{{'phm.No_of_couples_join_two_clinic'| translate}}" readonly="{{onChange()}}" formControlName="No_of_couples_join_two_clinic">
+                                            </mat-form-field>
+                                          </div>
+                                          <div class="col-md-2">
+                                            <mat-form-field class="example-full-width">
+                                              <input matInput placeholder="{{'phm.no_of_couples_join_three_clinic'| translate}}" readonly="{{onChange()}}" formControlName="no_of_couples_join_three_clinic">
+                                            </mat-form-field>
+                                          </div>
+                                        </div>
+                                        <div class="row">
+                                          <div class="col-md-6">
+                                            <mat-form-field class="example-full-width">
+                                              <input matInput placeholder="{{'phm.No_of_mothers_join_child_development_clinic'| translate}}" readonly="{{onChange()}}" formControlName="No_of_mothers_join_child_development_clinic">
+                                            </mat-form-field>
+                                          </div>
+                                        </div>
+                                        <div class="row">
+                                        <div class="col-md-5">{{'phm.Number_of_mothers_participation_for_government_clinics'| translate}}</div>
+                                        <div class="col-md-2">
+                                          <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="{{'phm.No_of_mothers_less_than_three_clinics'| translate}}" readonly="{{onChange()}}" formControlName="No_of_mothers_less_than_three_clinics">
+                                          </mat-form-field>
+                                        </div>
+                                        <div class="col-md-2">
+                                          <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="{{'phm.No_of_mothers_between_four_seven_clinics'| translate}}" readonly="{{onChange()}}" formControlName="No_of_mothers_between_four_seven_clinics">
+                                          </mat-form-field>
+                                        </div>
+                                        <div class="col-md-2">
+                                          <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="{{'phm.No_of_mothers_more_than_eight_clinics'| translate}}" readonly="{{onChange()}}" formControlName="No_of_mothers_more_than_eight_clinics">
+                                          </mat-form-field>
+                                        </div>
+                                      </div>
+                                        <div class="row">
+                                          <div class="col-md-6">
+                                            <mat-form-field class="example-full-width">
+                                              <input matInput placeholder="{{'phm.No_of_mothers_good_for_vdrl'| translate}}" readonly="{{onChange()}}" formControlName="No_of_mothers_good_for_vdrl">
+                                            </mat-form-field>
+                                          </div>
+                                          <div class="col-md-6">
+                                            <mat-form-field class="example-full-width">
+                                              <input matInput placeholder="{{'phm.No_of_mothers_for_dental_treatement'| translate}}" readonly="{{onChange()}}" formControlName="No_of_mothers_for_dental_treatement">
+                                            </mat-form-field>
+                                          </div>
+                                          <div class="col-md-6">
+                                            <mat-form-field class="example-full-width">
+                                              <input matInput placeholder="{{'phm.No_of_mothers_identify_dental_problems'| translate}}" readonly="{{onChange()}}" formControlName="No_of_mothers_identify_dental_problems">
+                                            </mat-form-field>
+                                          </div>
+                                        </div>
+                                      <!--end third section-->
+                                      
+                                    </div>
+                                    
+                                    <div class="fourth_section">
+                                      <!--start 4 section-->
+                                      <h5>{{'phm.04_Mother_Protection'| translate}}</h5>
+                                         <div class="row">
+                                        <div class="col-md-6">
+                                          <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="{{'phm.No_of_mothers_identify_health_problems_pregnancy_time'| translate}}" readonly="{{onChange()}}" formControlName="No_of_mothers_identify_health_problems_pregnancy_time">
+                                          </mat-form-field>
+                                        </div>
+                                      </div>
+                                      <div class="row">
+                                        <div class="col-md-4">{{'phm.Blood_presure'| translate}}</div>
+                                        <div class="col-md-4">
+                                          <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="{{'phm.before'| translate}}" readonly="{{onChange()}}" formControlName="Blood_presure_before">
+                                          </mat-form-field>
+                                        </div>
+                                        <div class="col-md-4">
+                                          <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="{{'phm.after_prgnancy'| translate}}" readonly="{{onChange()}}" formControlName="Blood_presure_prgnancy">
+                                          </mat-form-field>
+                                        </div>
+                                      </div>
+                                      <div class="row">
+                                        <div class="col-md-4">{{'phm.Sugar'| translate}}</div>
+                                        <div class="col-md-4">
+                                          <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="{{'phm.before'| translate}}" readonly="{{onChange()}}" formControlName="Sugar_before">
+                                          </mat-form-field>
+                                        </div>
+                                        <div class="col-md-4">
+                                          <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="{{'phm.after_prgnancy'| translate}}" readonly="{{onChange()}}" formControlName="Sugar_pregnancy">
+                                          </mat-form-field>
+                                        </div>
+                                      </div>
+                                 
+                                      <!--end 4th section-->
+                                      
+                                    </div>
+                                    <div class="fifth_section">
+                                      <!--start 5 section-->
+                                     <h5>{{'phm.05_Result_Of_Pregnancy'| translate}}</h5>
+                                         <div class="row">
+                                        <div class="col-md-3">{{'phm.No_of_live_birth'| translate}}</div>
+                                        <div class="col-md-2">
+                                          <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="{{'phm.No_of_live_birth_first'| translate}}" readonly="{{onChange()}}" formControlName="No_of_live_birth_first_permamnt">
+                                          </mat-form-field>
+                                        </div>
+                                        </div>
+                                      <div class="row">
+                                        <div class="col-md-5"></div>
+                                        <div class="col-md-3">
+                                          <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="{{'phm._notpermamnt'| translate}}" readonly="{{onChange()}}" formControlName="No_of_live_birth_first_permamnt">
+                                          </mat-form-field>
+                                        </div>
+                                        </div>
+                                       
+                                        <div class="row">
+                                          <div class="col-md-4">
+                                            <mat-form-field class="example-full-width">
+                                              <input matInput placeholder="{{'phm.No_of_abortions'| translate}}" readonly="{{onChange()}}" formControlName="No_of_abortions">
+                                            </mat-form-field>
+                                          </div>
+                                          <div class="col-md-4">
+                                            <mat-form-field class="example-full-width">
+                                              <input matInput placeholder="{{'phm.No_of_death_birth'| translate}}" readonly="{{onChange()}}" formControlName="No_of_death_birth">
+                                            </mat-form-field>
+                                          </div>
+                                          <div class="col-md-4">
+                                            <mat-form-field class="example-full-width">
+                                              <input matInput placeholder="{{'phm.No_of_mother_death'| translate}}" readonly="{{onChange()}}" formControlName="No_of_mother_death">
+                                            </mat-form-field>
+                                          </div>
+                                        </div>
+                                      <!--end 5 section-->
+                                      
+                                    </div>
+
+                                    <div class="sixth section">
+                                      <!--start sixth section-->
+                                      <h5>{{'phm.After_dilivery_protection'| translate}}</h5>
+                                         <div class="row">
+                                        <div class="col-md-6">
+                                          <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="{{'phm.No_of_after_dekivary_mothers'| translate}}" readonly="{{onChange()}}" formControlName="No_of_after_dekivary_mothers">
+                                          </mat-form-field>
+                                        </div>
+                                      </div>
+                                      <div class="row">
+                                        <div class="col-md-4">{{'phm.after_delivery_visists'| translate}}</div>
+                                        <div class="col-md-2">
+                                          <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="{{'phm.new'| translate}}" readonly="{{onChange()}}" formControlName="New_first_five_days">
+                                          </mat-form-field>
+                                        </div>
+                                        </div>
+                                      <div class="row">
+                                        <div class="col-md-4">{{'phm.New_between_six_ten_days'| translate}}</div>
+                                        <div class="col-md-2">
+                                          <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="{{'phm.new'| translate}}" readonly="{{onChange()}}" formControlName="New_between_six_ten_days">
+                                          </mat-form-field>
+                                        </div>
+                                        </div>
+                                      <div class="row">
+                                        <div class="col-md-6">
+                                          <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="{{'phm.Between_elevn_thirteen_days'| translate}}" readonly="{{onChange()}}" formControlName="Between_elevn_thirteen_days">
+                                          </mat-form-field>
+                                        </div>
+                                      </div>
+                                      <div class="row">
+                                        <div class="col-md-4">{{'phm.New_between_fouteen_twentyone_days'| translate}}</div>
+                                        <div class="col-md-2">
+                                          <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="{{'phm.new'| translate}}" readonly="{{onChange()}}" formControlName="New_between_fouteen_twentyone_days">
+                                          </mat-form-field>
+                                        </div>
+                                        </div>
+                                      <div class="row">
+                                        <div class="col-md-6">
+                                          <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="{{'phm.Near_fourtytwo_days'| translate}}" readonly="{{onChange()}}" formControlName="Near_fourtytwo_days">
+                                          </mat-form-field>
+                                        </div>
+                                      </div>
+                                      <div class="row">
+                                        <div class="col-md-6">
+                                          <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="{{'phm.no_of_after_delivery_mothers_get_vitamine_A'| translate}}" readonly="{{onChange()}}" formControlName="no_of_after_delivery_mothers_get_vitamine_A">
+                                          </mat-form-field>
+                                        </div>
+                                        </div>
+                                      
+                                      <div class="row">
+                                        <div class="col-md-3">
+                                          <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="{{'phm.Hemorrhagic'| translate}}" readonly="{{onChange()}}" formControlName="Hemorrhagic">
+                                          </mat-form-field>
+                                        </div>
+                                        <div class="col-md-3">
+                                          <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="{{'phm.diseses_reproductivE_system'| translate}}" readonly="{{onChange()}}" formControlName="diseses_reproductivE_system">
+                                          </mat-form-field>
+                                        </div>
+                                        <div class="col-md-3">
+                                          <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="{{'phm.Urinary_tract'| translate}}" readonly="{{onChange()}}" formControlName="Urinary_tract">
+                                          </mat-form-field>
+                                        </div>
+                                        <div class="col-md-3">
+                                          <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="{{'phm.Vitapiya_infection'| translate}}" readonly="{{onChange()}}" formControlName="Vitapiya_infection">
+                                          </mat-form-field>
+                                        </div>
+                                      </div>
+                                      <div class="row">
+                                        <div class="col-md-3">
+                                          <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="{{'phm.Vitapiya_broken'| translate}}" readonly="{{onChange()}}" formControlName="Vitapiya_broken">
+                                          </mat-form-field>
+                                        </div>
+                                        <div class="col-md-3">
+                                          <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="{{'phm.Vaginal_infection'| translate}}" readonly="{{onChange()}}" formControlName="Vaginal_infection">
+                                          </mat-form-field>
+                                        </div>
+                                        <div class="col-md-3">
+                                          <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="{{'phm.Sesariyan_cut'| translate}}" readonly="{{onChange()}}" formControlName="Sesariyan_cut">
+                                          </mat-form-field>
+                                        </div>
+                                        <div class="col-md-3">
+                                          <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="{{'phm.Mental_problem_after'| translate}}" readonly="{{onChange()}}" formControlName="Mental_problem_after">
+                                          </mat-form-field>
+                                        </div>
+                                      </div>
+                                      <div class="row">
+                                        <div class="col-md-3">
+                                          <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="{{'phm.Depression'| translate}}" readonly="{{onChange()}}" formControlName="Depression">
+                                          </mat-form-field>
+                                        </div>
+                                        <div class="col-md-3">
+                                          <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="{{'phm.Nipples_erruptions'| translate}}" readonly="{{onChange()}}" formControlName="Nipples_erruptions">
+                                          </mat-form-field>
+                                        </div>
+                                        <div class="col-md-3">
+                                          <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="{{'phm.milk_tightning_breat'| translate}}" readonly="{{onChange()}}" formControlName="milk_tightning_breat">
+                                          </mat-form-field>
+                                        </div>
+                                        <div class="col-md-3">
+                                          <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="{{'phm.Breast_infection'| translate}}" readonly="{{onChange()}}" formControlName="Breast_infection">
+                                          </mat-form-field>
+                                        </div>
+                                      </div>
+                                      <div class="row">
+                                        <div class="col-md-3">
+                                          <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="{{'phm.High_blood_presure'| translate}}" readonly="{{onChange()}}" formControlName="High_blood_presure">
+                                          </mat-form-field>
+                                        </div>
+                                        <div class="col-md-3">
+                                          <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="{{'phm.Heart'| translate}}" readonly="{{onChange()}}" formControlName="Heart">
+                                          </mat-form-field>
+                                        </div>
+                                        <div class="col-md-3">
+                                          <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="{{'phm.Blood_sugar'| translate}}" readonly="{{onChange()}}" formControlName="Blood_sugar">
+                                          </mat-form-field>
+                                        </div>
+                                        </div>
+                                      <!-- end sixth section-->
+                                      
+                                    </div>
+
+                                    <div class="seventh_section">
+                                      <!--start 7 section-->
+                                      <h5>{{'phm.child_protection'| translate}}</h5>
+                                         <div class="row">
+                                       <div class="col-md-6">
+                                          <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="{{'phm.No_of_registered_child'| translate}}" readonly="{{onChange()}}" formControlName="No_of_registered_child">
+                                          </mat-form-field>
+                                        </div>
+                                        <div class="col-md-6">
+                                          <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="{{'phm.New_house_walking_after_fourtytwo_days'| translate}}" readonly="{{onChange()}}" formControlName="New_house_walking_after_fourtytwo_days">
+                                          </mat-form-field>
+                                        </div>
+                                        </div>
+                                      
+                                      <div class="row">
+                                        <div class="col-md-4">{{'phm.Join_to_the_clinic'| translate}}</div>
+                                        
+                                        <div class="col-md-4">
+                                         <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="{{'phm.Join_to_the_clinic_before_month'| translate}}" readonly="{{onChange()}}" formControlName="Join_to_the_clinic_first_month">
+                                          </mat-form-field>
+                                        </div>
+                                        <div class="col-md-4">
+                                         <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="{{'phm.Join_to_the_clinic_after_month'| translate}}" readonly="{{onChange()}}" formControlName="Join_to_the_clinic_after_month">
+                                          </mat-form-field>
+                                        </div>
+                                      </div>
+                                      
+                                       
+                                       <div class="row">
+                                         <div class="col-md-3">{{'phm.No_of_child_death'| translate}}</div>
+                                         <div class="col-md-3">
+                                          <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="{{'phm.No_of_child_death_between_one_seven_days'| translate}}" readonly="{{onChange()}}" formControlName="No_of_child_death_between_one_seven_days">
+                                          </mat-form-field>
+                                         </div>
+                                         <div class="col-md-3">
+                                          <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="{{'phm.No_of_child_death_between_eight_twentyeight_days'| translate}}" readonly="{{onChange()}}" formControlName="No_of_child_death_between_eight_twentyeight_days">
+                                          </mat-form-field>
+                                         </div>
+                                         <div class="col-md-3">
+                                          <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="{{'phm.No_of_child_death_at_birth'| translate}}" readonly="{{onChange()}}" formControlName="No_of_child_death_at_birth">
+                                          </mat-form-field>
+                                         </div>
+                                       </div>
+                                       
+                                       <h5>{{'phm.reasons'| translate}}</h5>
+                                       <div class="row">
+                                         <div class="col-md-3">
+                                          <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="{{'phm.Nishpuranaya'| translate}}" readonly="{{onChange()}}" formControlName="Nishpuranaya">
+                                          </mat-form-field>
+                                         </div>
+                                         <div class="col-md-3">
+                                          <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="{{'phm.New_infections'| translate}}" readonly="{{onChange()}}" formControlName="New_infections">
+                                          </mat-form-field>
+                                         </div>
+                                         <div class="col-md-3">
+                                          <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="{{'phm.Birth_infections'| translate}}" readonly="{{onChange()}}" formControlName="Birth_infections">
+                                          </mat-form-field>
+                                         </div>
+                                         <div class="col-md-3">
+                                          <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="{{'phm.Premature'| translate}}" readonly="{{onChange()}}" formControlName="Premature">
+                                          </mat-form-field>
+                                         </div>
+                                         <div class="col-md-3">
+                                          <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="{{'phm.Other_num'| translate}}" readonly="{{onChange()}}" formControlName="Other_num">
+                                          </mat-form-field>
+                                         </div>
+                                       </div>
+                                      <!--end 7 section-->
+                                      
+                                    </div>
+                                    <div class="8th_section">
+                                      <!--start 8 section-->
+                                      <h5>{{'phm.one_five_children_protectiob'| translate}}</h5>
+                                         <div class="row">
+                                        <div class="col-md-6">
+                                          <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="{{'phm.No_of_child_between_one_two'| translate}}" readonly="{{onChange()}}" formControlName="No_of_child_between_one_five">
+                                          </mat-form-field>
+                                        </div>
+                                        <div class="col-md-6">
+                                          <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="{{'phm.No_of_nursary_child'| translate}}" readonly="{{onChange()}}" formControlName="No_of_nursary_child">
+                                          </mat-form-field>
+                                        </div>
+                                      </div>
+                                      <div class="row">
+                                       <div class="col-md-6">
+                                          <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="{{'phm.New_house_walking_for_small_child'| translate}}" readonly="{{onChange()}}" formControlName="New_house_walking_for_small_child">
+                                          </mat-form-field>
+                                        </div>
+                                        <div class="col-md-6">
+                                          <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="{{'phm.New_house_walking_for_nursary_child'| translate}}" readonly="{{onChange()}}" formControlName="New_house_walking_for_nursary_child">
+                                          </mat-form-field>
+                                        </div>
+                                        
+                                        </div>
+                                     <div class="row">
+                                        <div class="col-md-4">{{'phm.no_of_child_give_vitamine_A'| translate}}</div>
+                                        <div class="col-md-2">
+                                          <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="{{'phm.no_of_child_give_vitamine_A_18_month'| translate}}" readonly="{{onChange()}}" formControlName="no_of_child_give_vitamine_A_18_month">
+                                          </mat-form-field>
+                                        </div>
+                                        <div class="col-md-2">
+                                          <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="{{'phm.no_of_child_give_vitamine_A_2_yr'| translate}}" readonly="{{onChange()}}" formControlName="no_of_child_give_vitamine_A_2_yr">
+                                          </mat-form-field>
+                                        </div>
+                                        <div class="col-md-2">
+                                          <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="{{'phm.no_of_child_give_vitamine_A_3_yr'| translate}}" readonly="{{onChange()}}" formControlName="no_of_child_give_vitamine_A_3_yr">
+                                          </mat-form-field>
+                                        </div>
+                                        <div class="col-md-2">
+                                          <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="{{'phm.no_of_child_give_vitamine_A_4_yr'| translate}}" readonly="{{onChange()}}" formControlName="no_of_child_give_vitamine_A_4_yr">
+                                          </mat-form-field>
+                                        </div>
+                                      </div>
+                                      <div class="row">
+                                        <div class="col-md-4">{{'phm.no_of_child_give_warm_18_month'| translate}}</div>
+                                        <div class="col-md-2">
+                                          <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="{{'phm.no_of_child_give_vitamine_A_18_month'| translate}}" readonly="{{onChange()}}" formControlName="no_of_child_give_warm_18_month">
+                                          </mat-form-field>
+                                        </div>
+                                        <div class="col-md-2">
+                                          <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="{{'phm.no_of_child_give_vitamine_A_2_yr'| translate}}" readonly="{{onChange()}}" formControlName="no_of_child_give_warm_2_yr">
+                                          </mat-form-field>
+                                        </div>
+                                        <div class="col-md-2">
+                                          <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="{{'phm.no_of_child_give_vitamine_A_3_yr'| translate}}" readonly="{{onChange()}}" formControlName="no_of_child_give_warm_3_yr">
+                                          </mat-form-field>
+                                        </div>
+                                        <div class="col-md-2">
+                                          <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="{{'phm.no_of_child_give_vitamine_A_4_yr'| translate}}" readonly="{{onChange()}}" formControlName="No_of_child_give_warm_4_yr">
+                                          </mat-form-field>
+                                        </div>
+                                      </div>
+                                      <div class="row">
+                                        <div class="col-md-3">{{'phm.coming_to_clinics'| translate}}</div>
+                                       
+                                        <div class="col-md-4">
+                                          <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="{{'phm.No_of_coming_clinic_new_1_2_yr'| translate}}" readonly="{{onChange()}}" formControlName="No_of_coming_clinic_new_1_2_yr">
+                                          </mat-form-field>
+                                        </div>
+                                        <div class="col-md-4">
+                                          <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="{{'phm.no_of_coming_clinic_new_2_5_yr'| translate}}" readonly="{{onChange()}}" formControlName="no_of_coming_clinic_new_2_5_yr">
+                                          </mat-form-field>
+                                        </div>
+                                      </div>
+                                      
+                                      <div class="row">
+                                        <div class="col-md-6">
+                                          <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="{{'phm.No_of_small_child_death'| translate}}" readonly="{{onChange()}}" formControlName="No_of_small_child_death">
+                                          </mat-form-field>
+                                        </div>
+                                      </div>
+                                      <h5>{{'phm.reasons_for_deaths'| translate}}</h5>
+                                      <div class="row">
+                                        <div class="col-md-3">
+                                          <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="{{'phm.Accident'| translate}}" readonly="{{onChange()}}" formControlName="Accident">
+                                          </mat-form-field>
+                                        </div>
+                                        <div class="col-md-3">
+                                          <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="{{'phm.Infections'| translate}}" readonly="{{onChange()}}" formControlName="Infections">
+                                          </mat-form-field>
+                                        </div>
+                                        <div class="col-md-3">
+                                          <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="{{'phm.Diarrhea'| translate}}" readonly="{{onChange()}}" formControlName="Diarrhea">
+                                          </mat-form-field>
+                                        </div>
+                                        <div class="col-md-3">
+                                          <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="{{'phm.Respiratory'| translate}}" readonly="{{onChange()}}" formControlName="Respiratory">
+                                          </mat-form-field>
+                                        </div>
+                                        <div class="col-md-3">
+                                          <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="{{'phm.Other_numb'| translate}}" readonly="{{onChange()}}" formControlName="Other_numb">
+                                          </mat-form-field>
+                                        </div>
+                                      </div>
+                                      <div class="row">
+                                        <div class="col-md-6">
+                                          <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="{{'phm.No_of_aefi_child'| translate}}" readonly="{{onChange()}}" formControlName="No_of_aefi_child">
+                                          </mat-form-field>
+                                        </div>
+                                      </div>
+                                      <!--end 8 section-->
+                                     </div>
+
+                                     <div class="10th_section">
+                                      <!--start 10 section-->
+                                      <h5>{{'phm.family_planing'| translate}}</h5>
+                                          <h5>{{'phm.tablets'| translate}}</h5>
+                                      <div class="row">
+                                      <div class="col-md-4">
+                                          <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="{{'phm.New_identified_tablet'| translate}}" readonly="{{onChange()}}" formControlName="New_identified_tablet">
+                                          </mat-form-field>
+                                        </div>
+                                        <div class="col-md-4">
+                                          <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="{{'phm.Removed_tablet'| translate}}" readonly="{{onChange()}}" formControlName="Removed_tablet">
+                                          </mat-form-field>
+                                        </div>
+                                        <div class="col-md-4">
+                                          <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="{{'phm.No_of_packet'| translate}}" readonly="{{onChange()}}" formControlName="No_of_packet">
+                                          </mat-form-field>
+                                        </div>
+                                      </div>
+                                      <h5>{{'phm.injectins'| translate}}</h5>
+                                      <div class="row">
+                                        
+                                        <div class="col-md-4">
+                                          <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="{{'phm.New_identified_tablet'| translate}}" readonly="{{onChange()}}" formControlName="New_identified_injection">
+                                          </mat-form-field>
+                                        </div>
+                                        <div class="col-md-4">
+                                          <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="{{'phm.Removed_tablet'| translate}}" readonly="{{onChange()}}" formControlName="Removed_injection">
+                                          </mat-form-field>
+                                        </div>
+                                        </div>
+                                        <h5>{{'phm.Uterus'| translate}}</h5>
+                                        <div class="row">
+                                        
+                                        <div class="col-md-4">
+                                          <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="{{'phm.New_identified_tablet'| translate}}" readonly="{{onChange()}}" formControlName="New_identified_uterus">
+                                          </mat-form-field>
+                                        </div>
+                                        <div class="col-md-4">
+                                          <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="{{'phm.Removed_tablet'| translate}}" readonly="{{onChange()}}" formControlName="Removed_uterus">
+                                          </mat-form-field>
+                                        </div>
+                                        </div>
+                                        <h5>{{'phm.Hormona'| translate}}</h5>
+                                        <div class="row">
+                                        
+                                        <div class="col-md-4">
+                                          <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="{{'phm.New_identified_tablet'| translate}}" readonly="{{onChange()}}" formControlName="New_identified_hormona">
+                                          </mat-form-field>
+                                        </div>
+                                        <div class="col-md-4">
+                                          <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="{{'phm.Removed_tablet'| translate}}" readonly="{{onChange()}}" formControlName="Removed_hormona">
+                                          </mat-form-field>
+                                        </div>
+                                        </div>
+                                        <h5>{{'phm.Condom'| translate}}</h5>
+                                        <div class="row">
+                                        
+                                        <div class="col-md-4">
+                                          <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="{{'phm.New_identified_tablet'| translate}}" readonly="{{onChange()}}" formControlName="New_identified_condom">
+                                          </mat-form-field>
+                                        </div>
+                                        <div class="col-md-4">
+                                          <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="{{'phm.Removed_tablet'| translate}}" readonly="{{onChange()}}" formControlName="Removed_condom">
+                                          </mat-form-field>
+                                        </div>
+                                        </div>
+                                        <h5>{{'phm.Lady'| translate}}</h5>
+                                        <div class="row">
+                                        
+                                        <div class="col-md-4">
+                                          <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="{{'phm.New_identified_tablet'| translate}}" readonly="{{onChange()}}" formControlName="New_identified_lady">
+                                          </mat-form-field>
+                                        </div>
+                                        <div class="col-md-4">
+                                          <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="{{'phm.Removed_tablet'| translate}}" readonly="{{onChange()}}" formControlName="Removed_lady">
+                                          </mat-form-field>
+                                        </div>
+                                        </div>
+                                        <h5>{{'phm.Man'| translate}}</h5>
+                                        <div class="row">
+                                        
+                                        <div class="col-md-4">
+                                          <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="{{'phm.New_identified_tablet'| translate}}" readonly="{{onChange()}}" formControlName="New_identified_man">
+                                          </mat-form-field>
+                                        </div>
+                                        <div class="col-md-4">
+                                          <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="{{'phm.Removed_tablet'| translate}}" readonly="{{onChange()}}" formControlName="Removed_man">
+                                          </mat-form-field>
+                                        </div>
+                                        </div>
+                                        <div class="row">
+                                          <div class="col-md-6">
+                                            <mat-form-field class="example-full-width">
+                                              <input matInput placeholder="{{'phm.Total_couples_using_new_family_palning'| translate}}" readonly="{{onChange()}}" formControlName="Total_couples_using_new_family_palning">
+                                            </mat-form-field>
+                                          </div>
+                                        </div>
+                                        <h5>{{'phm.OldPlaning'| translate}}</h5>
+                                        <div class="row">
+                                          
+                                          <div class="col-md-4">
+                                            <mat-form-field class="example-full-width">
+                                              <input matInput placeholder="{{'phm.New_identified_old'| translate}}" readonly="{{onChange()}}" formControlName="New_identified_old">
+                                            </mat-form-field>
+                                          </div>
+                                          <div class="col-md-4">
+                                            <mat-form-field class="example-full-width">
+                                              <input matInput placeholder="{{'phm.Removed_old'| translate}}" readonly="{{onChange()}}" formControlName="Removed_old">
+                                            </mat-form-field>
+                                          </div>
+                                          <div class="col-md-4">
+                                            <mat-form-field class="example-full-width">
+                                              <input matInput placeholder="{{'phm.accept_new_old'| translate}}" readonly="{{onChange()}}" formControlName="accept_new_old">
+                                            </mat-form-field>
+                                          </div>
+                                          </div>
+                                        <h5>{{'phm.notusing'| translate}}</h5>
+                                        <div class="row">
+                                          
+                                          <div class="col-md-4">
+                                            <mat-form-field class="example-full-width">
+                                              <input matInput placeholder="{{'phm.New_identified_old'| translate}}" readonly="{{onChange()}}" formControlName="New_identified_not_use">
+                                            </mat-form-field>
+                                          </div>
+                                          <div class="col-md-4">
+                                            <mat-form-field class="example-full-width">
+                                              <input matInput placeholder="{{'phm.notusingrejected'| translate}}" readonly="{{onChange()}}" formControlName="Removed_not_use">
+                                            </mat-form-field>
+                                          </div>
+                                          <div class="col-md-4">
+                                            <mat-form-field class="example-full-width">
+                                              <input matInput placeholder="{{'phm.accept_new_old'| translate}}" readonly="{{onChange()}}" formControlName="accept_use">
+                                            </mat-form-field>
+                                          </div>
+                                          </div>
+                                          <h5>{{'phm.madasaru'| translate}}</h5>
+                                          <div class="row">
+                                          
+                                          <div class="col-md-4">
+                                            <mat-form-field class="example-full-width">
+                                              <input matInput placeholder="{{'phm.New_identified_madasaru'| translate}}" readonly="{{onChange()}}" formControlName="New_identified_madasaru">
+                                            </mat-form-field>
+                                          </div>
+                                          <div class="col-md-4">
+                                            <mat-form-field class="example-full-width">
+                                              <input matInput placeholder="{{'phm.prganant_that_month_madasaru'| translate}}" readonly="{{onChange()}}" formControlName="prganant_that_month_madasaru">
+                                            </mat-form-field>
+                                          </div>
+                                          <div class="col-md-4">
+                                            <mat-form-field class="example-full-width">
+                                              <input matInput placeholder="{{'phm.Removed_madasaru'| translate}}" readonly="{{onChange()}}" formControlName="Removed_madasaru">
+                                            </mat-form-field>
+                                          </div>
+                                          <div class="col-md-4">
+                                            <mat-form-field class="example-full-width">
+                                              <input matInput placeholder="{{'phm.Reffer_madasaru'| translate}}" readonly="{{onChange()}}" formControlName="Reffer_madasaru">
+                                            </mat-form-field>
+                                          </div>
+                                          </div>
+                                          <h5>{{'phm.failed'| translate}}</h5>
+                                          <div class="row">
+                                            
+                                            <div class="col-md-3">
+                                              <mat-form-field class="example-full-width">
+                                                <input matInput placeholder="{{'phm.Fail_family_plan_one'| translate}}" readonly="{{onChange()}}" formControlName="Fail_family_plan_one">
+                                              </mat-form-field>
+                                            </div>
+                                          </div>
+                                          
+                                          <div class="row">
+                                            <div class="col-md-6">
+                                              <mat-form-field class="example-full-width">
+                                                <input matInput placeholder="{{'phm.No_of_high_infections'| translate}}" readonly="{{onChange()}}" formControlName="No_of_high_infections">
+                                              </mat-form-field>
+                                            </div>
+                                            <div class="col-md-6">
+                                              <mat-form-field class="example-full-width">
+                                                <input matInput placeholder="{{'phm.No_of_house_walking_new_famiy_planners'| translate}}" readonly="{{onChange()}}" formControlName="No_of_house_walking_new_famiy_planners">
+                                              </mat-form-field>
+                                            </div>
+                                          </div>
+                                      <!--end 10 section-->
+                                    </div>
+
+                                    <div class="11th_section">
+                                      <!--start 11th section-->
+                                     <h5>{{'phm.men_women_health'| translate}}</h5>
+                                         <div class="row">
+                                        <div class="col-md-6">{{'phm.No_of_arresements'| translate}}</div>
+                                        <div class="col-md-2">
+                                          <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="{{'phm.No_of_arresements_man'| translate}}" readonly="{{onChange()}}" formControlName="No_of_arresements_man">
+                                          </mat-form-field>
+                                        </div>
+                                        <div class="col-md-2">
+                                          <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="{{'phm.No_of_arresements_woman'| translate}}" readonly="{{onChange()}}" formControlName="No_of_arresements_woman">
+                                          </mat-form-field>
+                                        </div>
+                                      </div>
+                                      <div class="row">
+                                        <div class="col-md-6">
+                                          <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="{{'phm.No_of_arresements_mental_new'| translate}}" readonly="{{onChange()}}" formControlName="No_of_arresements_mental_new">
+                                          </mat-form-field>
+                                        </div>
+                                        <div class="col-md-6">
+                                          <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="{{'phm.No_of_reffers'| translate}}" readonly="{{onChange()}}" formControlName="No_of_reffers">
+                                          </mat-form-field>
+                                        </div>
+                                        </div>
+                                      <!--end 11th section-->
+                                    
+                                    </div>
+
+                                    <div class="12th_section">
+                                      <!--start 12 section-->
+                                     <h5>{{'phm.other'| translate}}</h5>
+                                          <div class="row">
+                                        <div class="col-md-6">
+                                          <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="{{'phm.About_nutritions'| translate}}" readonly="{{onChange()}}" formControlName="About_nutritions">
+                                          </mat-form-field>
+                                        </div>
+                                        <div class="col-md-6">
+                                          <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="{{'phm.No_of_clinics_married'| translate}}" readonly="{{onChange()}}" formControlName="No_of_clinics_married">
+                                          </mat-form-field>
+                                        </div>
+                                      </div>
+                                      <div class="row">
+                                        <div class="col-md-6">
+                                          <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="{{'phm.No_of_suawanari_clinic'| translate}}" readonly="{{onChange()}}" formControlName="No_of_suawanari_clinic">
+                                          </mat-form-field>
+                                        </div>
+                                        <div class="col-md-6">
+                                          <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="{{'phm.house_wlking_suawanari_clinic'| translate}}" readonly="{{onChange()}}" formControlName="house_wlking_suawanari_clinic">
+                                          </mat-form-field>
+                                        </div>
+                                      </div>
+                                      <div class="row">
+                                        <div class="col-md-6">
+                                          <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="{{'phm.No_of_clinic_joined'| translate}}" readonly="{{onChange()}}" formControlName="No_of_clinic_joined">
+                                          </mat-form-field>
+                                        </div>
+                                        <div class="col-md-6">
+                                          <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="{{'phm.No_of_special_clinics'| translate}}" readonly="{{onChange()}}" formControlName="No_of_special_clinics">
+                                          </mat-form-field>
+                                        </div>
+                                        <div class="col-md-6">
+                                          <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="{{'phm.No_of_school_clinic'| translate}}" readonly="{{onChange()}}" formControlName="No_of_school_clinic">
+                                          </mat-form-field>
+                                        </div>
+                                      </div>
+                                      <!--end 12 section-->
+                                     </div>
+
+                                    </div>
+                                    </form>
+                                    </div>
+                                    </div>
+                                    </div>
+                                    </div>
+                                    </div>
+
+                
+            </div>
+          
+
+<div class="col-md-12"></div>
+    <div class="card card-plain">
+      
+        </div>
+    </div>
+</div>
+</div>

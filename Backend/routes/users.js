@@ -74,8 +74,71 @@ module.exports = router;
 // });
 
 router.post("/register",function(req,res){
+    userDetails = req.body;
+
+    useraccounts.find({ username: userDetails['username'] }, (err, doc) => {
+        if (doc.length) {
+            res.json("EqualEmail");
+            console.log(doc);
+        }else{
+            const newUser = new useraccounts({
+                userid:req.body.userid,
+                username:req.body.username,
+                password:req.body.password,
+                role:req.body.role,
+                areaId:req.body.areaId
+            });
+        
+            User.adduser(newUser,function(err,user){
+                if(err){
+                   res.json({state:false,msg:"data not insereted"});
+                }
+                if(user){
+                    sendMail(userDetails,info => {
+                        console.log(`The mails has been send and the id is ${info.messageId}`);
+                      });
+                    res.json({state:true,msg:"data inserted"});
+                }
+            });
+        }
+    });
+});
+
+
+
+async function sendMail(user,callback) {
+    // create reusable transporter object using the default SMTP transport
+    let transporter = nodemailer.createTransport({
+      host: "smtp.gmail.com",
+      port: 587,
+      secure: false, // true for 465, false for other ports
+      auth: {
+        user: "kesbewaemoh@gmail.com",
+        pass: "tempsend123"
+      }
+    });
   
-    const newUser = new useraccounts({
+    let mailOptions = {
+      from: '"Kesbewa MOH"<kesbewaemoh@gmail.com>', // sender address
+      to: userDetails['username'], // list of receivers
+      subject: `Registration Details`, // Subject line
+      html: `<h3>Your UserName is ${userDetails['userid']}</h3>
+      <br>
+      <h3>Your Password is ${userDetails['password']}</h3>
+      <br>
+      <h>Emails has been sent by eMOH notification system</h5>`
+    };
+  
+    // send mail with defined transport object
+    let info = await transporter.sendMail(mailOptions);
+  
+    callback(info);
+  }
+
+/*
+router.post('/register',(req,res)=>{
+    console.log(req.body);//print body
+    var newUser = new useraccounts({
         userid:req.body.userid,
         username:req.body.username,
         password:req.body.password,
@@ -91,65 +154,13 @@ router.post("/register",function(req,res){
             res.json({state:true,msg:"data inserted"});
         }
     });
-
-});
-/*
-router.post('/register',(req,res)=>{
-    console.log(req.body);//print body
-    var newUser = new useraccounts({
-        userid:req.body.userid,
-        username:req.body.username,
-        password:req.body.password,
-        role:req.body.role,
-        areaId:req.body.areaId   
-    });
-    let responseMsg = [];
-    if(newUser.userid == undefined || newUser.username == undefined || newUser.password == undefined || newUser.role == undefined || newUser.areaId == undefined){
-        res.json({success:false,msg: 'Wrong message format'});
-    }
-
-    const idValid = validators.idValidation({id:newUser.userid});
-    // const pwValid = validators.pwdValidation({pwd:newUser.password});
-    // const roleValid = validators.roleValidation({role:newUser.role});
-    // const areaidValid = validators.areaidValidation({areaid:newUser.areaId});
-    
-    let usernameValid;
-    validators.usernameValidation({username:newUser.username})
-    .then(
-        (val) => {
-            usernameValid = val;
-            if(!idValid.valid){
-                responseMsg.push(idValid.msg);
-            }
-            if(!usernameValid.valid){
-                responseMsg.push(usernameValid.msg);
-            }
-            // if(!pwValid.valid){
-            //     responseMsg.push(pwValid.msg);
-            // }
-            // if(!roleValid.valid){
-            //     responseMsg.push(roleValid.msg);
-            // }
-            // if(!areaidValid.valid){
-            //    responseMsg = responseMsg.concat(areaidValid.msg);
-            // }
-            if(!idValid.valid || !usernameValid.valid ){
-                return res.json({success:false , msg : responseMsg});
-            }
-            User.adduser(newUser,(err)=>{
-                if(err){
-                    return res.json({success:false,msg:responseMsg});
-                }
-                return res.json({success:true,msg:'User registered'});
-            });
-            return null;
-        }
         ,()=> res.json({success:false,msg:'error is'}),
     );
     
   });
-*/
 
+
+});*/
 //login 
 router.post("/login",(req,res)=>{
 
@@ -195,6 +206,7 @@ router.post("/login",(req,res)=>{
             console.log("email,password matched login successed");
             // const token = jwt.sign(user.toJSON(),secret,{expiresIn:604800 });
              const token = jwt.sign(user.toJSON(), 'your_jwt_secret',{expiresIn:604800 });
+
             res.json(
                 {
                     success:true,

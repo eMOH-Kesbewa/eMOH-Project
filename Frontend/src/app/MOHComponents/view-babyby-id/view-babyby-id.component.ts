@@ -182,6 +182,11 @@ export class ViewBabybyIDComponent implements OnInit {
       
     }
 
+    goToWeightHeight(){
+      console.log(this.babyId);
+      this.router.navigate(["ViewWeightTable/",'viewWeightbyId',this.babyId])
+    }
+
    
 
 }

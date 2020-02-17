@@ -1,6 +1,13 @@
 <div class="container-fluid">
   <div class="row">
       <div class="col-md-12">
+        <div class="col-md-9"></div>
+        <div class="row">
+          <div class="col-md-9"></div>
+          <div class="col-md-3">
+            <mat-slide-toggle  [formControl]="autoRenew" (change)="onChange()">{{'edit'| translate}}</mat-slide-toggle>
+        </div>
+        </div>
           <div class="card">
               <div class="card-header card-header-info">
                   <h4 class="card-title">{{'phm.dailyUpdateForm'| translate}}</h4>
@@ -12,14 +19,14 @@
                       <div class="1st_field">
                         <!--start 1st field-->
                         <div class="row">
-                          <div class="col-md-3">
+                          <!-- <div class="col-md-3">
                             <mat-form-field class="example-full-width">
                               <input matInput placeholder="{{'phm.MOH_division'| translate}}" type="text" formControlName="MOH_division">
                               <div *ngIf="submitted && phmForm.controls.MOH_division.errors" class="error">
                                   <div *ngIf="phmForm.controls.MOH_division.errors.required">This field is required</div>
                                 </div>
                             </mat-form-field>
-                          </div>
+                          </div> -->
                           <div class="col-md-3">
                             <mat-form-field class="example-full-width">
                               <input matInput placeholder="{{'phm.date_of_today'| translate}}" type="date" formControlName="date_of_today">
@@ -29,22 +36,22 @@
                             </mat-form-field>
                           </div>
                           <div class="col-md-3">
-                            <mat-form-field class="example-full-width">
+                            <!-- <mat-form-field class="example-full-width">
                               <input matInput placeholder="{{'phm.Batch_no'| translate}}" type="text" formControlName="Batch_no">
                               <div *ngIf="submitted && phmForm.controls.Batch_no.errors" class="error">
                                   <div *ngIf="phmForm.controls.Batch_no.errors.required">This field is required</div>
                                 </div>
-                            </mat-form-field>
+                            </mat-form-field> -->
                           </div>
                           <div class="col-md-3">
-                            <mat-form-field class="example-full-width">
+                            <!-- <mat-form-field class="example-full-width">
                               <input matInput placeholder="{{'phm.Division'| translate}}" type="text" formControlName="Division">
                               <div *ngIf="submitted && phmForm.controls.Division.errors" class="error">
                                   <div *ngIf="phmForm.controls.Division.errors.required">This field is required</div>
                                 </div>
-                            </mat-form-field>
+                            </mat-form-field> -->
                           </div>
-                          <div class="col-md-8">
+                          <!-- <div class="col-md-8">
                             <div class="row">
                               <div class="col-md-4"></div>
                               <div class="col-md-2">{{'phm.Moh_population_urban'| translate}}</div>
@@ -69,17 +76,17 @@
                                 </mat-form-field>
                               </div>
                             </div>
-                          </div>
+                          </div> -->
                         </div>
-                        <h4>{{'phm.importantThings'| translate}}</h4>
-                        <div class="row">
+                        <!-- <h4>{{'phm.importantThings'| translate}}</h4> -->
+                        <!-- <div class="row">
                           <div class="col-md-4"></div>
                           <div class="col-md-2">{{'phm.Number_of_baby_birth_for_year'| translate}}</div>
                           <div class="col-md-2">{{'phm.Number_of_baby_death_for_year'| translate}}</div>
                           <div class="col-md-2">{{'phm.Number_of_mother_death_for_year'| translate}}</div>
                           <div class="col-md-2">{{'phm.Number_of_child_death_for_year'| translate}}</div>
-                        </div>
-                        <div class="row">
+                        </div> -->
+                        <!-- <div class="row">
                           <div class="col-md-4">{{'phm.Number_of_birth_for_year'| translate}}</div>
                           <div class="col-md-2">
                             <mat-form-field class="example-full-width">
@@ -101,7 +108,7 @@
                               <input matInput placeholder="" type= "number" formControlName="Number_of_child_death_for_year">
                             </mat-form-field>
                           </div>
-                        </div>
+                        </div> -->
                         <!--end 1st field-->
                       </div>
                       <div class="second_field">
@@ -116,23 +123,23 @@
                             </mat-panel-description>
                           </mat-expansion-panel-header>
                         <div class="row">
-                          <div class="col-md-6">
+                          <!-- <div class="col-md-6">
                             <mat-form-field class="example-full-width">
                               <input matInput placeholder="{{'phm.No_of_approved_families_start_of_month'| translate}}" type= "number" formControlName="No_of_approved_families_start_of_month">
                             </mat-form-field>
-                          </div>
+                          </div> -->
                           <div class="col-md-6">
                             <mat-form-field class="example-full-width">
                               <input matInput placeholder="{{'phm.No_of_new_registered_family'| translate}}" type= "number" formControlName="No_of_new_registered_family">
                             </mat-form-field>
                           </div>
-                        </div>
-                        <div class="row">
-                          <div class="col-md-6">
+                        
+                        
+                          <!-- <div class="col-md-6">
                             <mat-form-field class="example-full-width">
                               <input matInput placeholder="{{'phm.No_of_removed_family_from_form'| translate}}" type= "number" formControlName="No_of_removed_family_from_form">
                             </mat-form-field>
-                          </div>
+                          </div> -->
                           <div class="col-md-6">
                             <mat-form-field class="example-full-width">
                               <input matInput placeholder="{{'phm.No_of_house_walking'| translate}}" type= "number" formControlName="No_of_house_walking">
@@ -317,19 +324,7 @@
                             </mat-form-field>
                           </div>
                         </div>
-                        <div class="row">
-                          <div class="col-md-6">{{'phm.No_of_mothers_removed_from_village'| translate}}</div>
-                          <div class="col-md-3">
-                            <mat-form-field class="example-full-width">
-                              <input matInput placeholder="{{'phm.permenent'| translate}}" type= "number" formControlName="No_of_permanant_mothers_removed_from_village">
-                            </mat-form-field>
-                          </div>
-                          <div class="col-md-3">
-                            <mat-form-field class="example-full-width">
-                              <input matInput placeholder="{{'phm.notpermenent'| translate}}" type= "number" formControlName="No_of_notpermanant_mothers_removed_from_village">
-                            </mat-form-field>
-                          </div>
-                        </div>
+                        
                         </mat-expansion-panel>
                         <!--end third field-->
                       </div>
@@ -585,7 +580,7 @@
                       <mat-expansion-panel>
                         <mat-expansion-panel-header>
                           <mat-panel-title>
-                            <h5>{{'phm.04_Mother_Protection(1st_After_Delivery_Visit)'| translate}}</h5>
+                            <h5>{{'phm.04_Mother_Protection'| translate}}</h5>
                           </mat-panel-title>
                           <mat-panel-description>
                             Click to View/Edit
@@ -1003,21 +998,21 @@
                           </mat-panel-description>
                         </mat-expansion-panel-header>
                       <div class="row">
-                        <div class="col-md-6">
+                        <!-- <div class="col-md-6">
                           <mat-form-field class="example-full-width">
                             <input matInput placeholder="{{'phm.No_of_child'| translate}}" type= "number" formControlName="No_of_child">
                           </mat-form-field>
-                        </div>
+                        </div> -->
                         <div class="col-md-6">
                           <mat-form-field class="example-full-width">
                             <input matInput placeholder="{{'phm.No_of_registered_child'| translate}}" type= "number" formControlName="No_of_registered_child">
                           </mat-form-field>
                         </div>
-                        <div class="col-md-6">
+                        <!-- <div class="col-md-6">
                           <mat-form-field class="example-full-width">
                             <input matInput placeholder="{{'phm.No_of_removed_child'| translate}}" type= "number" formControlName="No_of_removed_child">
                           </mat-form-field>
-                        </div>
+                        </div> -->
                       </div>
                       <div class="row">
                         <div class="col-md-6">{{'phm.New_house_walking_after_fourtytwo_days'| translate}}</div>
@@ -1044,14 +1039,14 @@
                           </mat-form-field>
                         </div>
                       </div>
-                      <div class="row">
+                      <!-- <div class="row">
                         <div class="col-md-4"></div>
                         <div class="col-md-2">
                           <mat-form-field class="example-full-width">
                             <input matInput placeholder="{{'phm.Join_to_the_clinic_old'| translate}}" type= "number" formControlName="Join_to_the_clinic_old">
                           </mat-form-field>
                         </div>
-                       </div>
+                       </div> -->
                        <div class="row">
                          <div class="col-md-4">{{'phm.weight_measuring'| translate}}</div>
                          <div class="col-md-4">
@@ -1113,13 +1108,13 @@
                           </mat-form-field>
                          </div>
                        </div>
-                       <div class="row">
+                       <!-- <div class="row">
                          <div class="col-md-6">
                           <mat-form-field class="example-full-width">
                             <input matInput placeholder="{{'phm.Total_child_death'| translate}}" type= "number" formControlName="Total_child_death">
                           </mat-form-field>
                          </div>
-                       </div>
+                       </div> -->
                        <h5>{{'phm.reasons'| translate}}</h5>
                        <div class="row">
                          <div class="col-md-3">
@@ -1381,74 +1376,7 @@
                       <!--end 8 section-->
                       </mat-expansion-panel>
                     </div>
-                    <div class="9th_section">
-                      <!--start 9 section-->
-                      <mat-expansion-panel>
-                        <mat-expansion-panel-header>
-                          <mat-panel-title>
-                            <h5>{{'phm.young_child_protection'| translate}}</h5>
-                          </mat-panel-title>
-                          <mat-panel-description>
-                            Click to View/Edit
-                          </mat-panel-description>
-                        </mat-expansion-panel-header>
-                      <div class="row">
-                        <div class="col-md-6">
-                          <mat-form-field class="example-full-width">
-                            <input matInput placeholder="{{'phm.No_of_new_youngers'| translate}}" type= "number" formControlName="No_of_new_youngers">
-                          </mat-form-field>
-                        </div>
-                        <div class="col-md-6">
-                          <mat-form-field class="example-full-width">
-                            <input matInput placeholder="{{'phm.No_of_new_registered_new_youngers'| translate}}" type= "number" formControlName="No_of_new_registered_new_youngers">
-                          </mat-form-field>
-                        </div>
-                      </div>
-                      <div class="row">
-                        <div class="col-md-6">
-                          <mat-form-field class="example-full-width">
-                            <input matInput placeholder="{{'phm.No_of_removed_new_youngers'| translate}}" type= "number" formControlName="No_of_removed_new_youngers">
-                          </mat-form-field>
-                        </div>
-                        <div class="col-md-6">
-                          <mat-form-field class="example-full-width">
-                            <input matInput placeholder="{{'phm.No_of_house_walking_new_youngers'| translate}}" type= "number" formControlName="No_of_house_walking_new_youngers">
-                          </mat-form-field>
-                        </div>
-                      </div>
-                      <div class="row">
-                        <div class="col-md-6">
-                          <mat-form-field class="example-full-width">
-                            <input matInput placeholder="{{'phm.No_of_problems'| translate}}" type= "number" formControlName="No_of_problems">
-                          </mat-form-field>
-                        </div>
-                        <div class="col-md-6">
-                          <mat-form-field class="example-full-width">
-                            <input matInput placeholder="{{'phm.No_of_enter_phm'| translate}}" type= "number" formControlName="No_of_enter_phm">
-                          </mat-form-field>
-                        </div>
-                        <div class="col-md-6">
-                          <mat-form-field class="example-full-width">
-                            <input matInput placeholder="{{'phm.No_of_referes'| translate}}" type= "number" formControlName="No_of_referes">
-                          </mat-form-field>
-                        </div>
-                      </div>
-                      <div class="row">
-                        <div class="col-md-3">{{'phm.young_deaths'| translate}}</div>
-                        <div class="col-md-3">
-                          <mat-form-field class="example-full-width">
-                            <input matInput placeholder="{{'phm.No_of_death_between_5_10_yr'| translate}}" type= "number" formControlName="No_of_death_between_5_10_yr">
-                          </mat-form-field>
-                        </div>
-                        <div class="col-md-3">
-                          <mat-form-field class="example-full-width">
-                            <input matInput placeholder="{{'phm.no_of_death_between_10_19_yr'| translate}}" type= "number" formControlName="no_of_death_between_10_19_yr">
-                          </mat-form-field>
-                        </div>
-                      </div>
-                      <!--end 9 section-->
-                      </mat-expansion-panel>
-                    </div>
+                   
                     <div class="10th_section">
                       <!--start 10 section-->
                       <mat-expansion-panel>
@@ -1463,11 +1391,7 @@
                      
                       <h5>{{'phm.tablets'| translate}}</h5>
                       <div class="row">
-                        <div class="col-md-4">
-                          <mat-form-field class="example-full-width">
-                            <input matInput placeholder="{{'phm.No_of_couples_start_month_tablet'| translate}}" type= "number" formControlName="No_of_couples_start_month_tablet">
-                          </mat-form-field>
-                        </div>
+                        
                         <div class="col-md-4">
                           <mat-form-field class="example-full-width">
                             <input matInput placeholder="{{'phm.New_identified_tablet'| translate}}" type= "number" formControlName="New_identified_tablet">
@@ -1486,11 +1410,7 @@
                       </div>
                       <h5>{{'phm.injectins'| translate}}</h5>
                       <div class="row">
-                        <div class="col-md-4">
-                          <mat-form-field class="example-full-width">
-                            <input matInput placeholder="{{'phm.No_of_couples_start_month_tablet'| translate}}" type= "number" formControlName="No_of_couples_start_month_injection">
-                          </mat-form-field>
-                        </div>
+                        
                         <div class="col-md-4">
                           <mat-form-field class="example-full-width">
                             <input matInput placeholder="{{'phm.New_identified_tablet'| translate}}" type= "number" formControlName="New_identified_injection">
@@ -1504,11 +1424,7 @@
                         </div>
                         <h5>{{'phm.Uterus'| translate}}</h5>
                         <div class="row">
-                        <div class="col-md-4">
-                          <mat-form-field class="example-full-width">
-                            <input matInput placeholder="{{'phm.No_of_couples_start_month_tablet'| translate}}" type= "number" formControlName="No_of_couples_start_month_uterus">
-                          </mat-form-field>
-                        </div>
+                        
                         <div class="col-md-4">
                           <mat-form-field class="example-full-width">
                             <input matInput placeholder="{{'phm.New_identified_tablet'| translate}}" type= "number" formControlName="New_identified_uterus">
@@ -1522,11 +1438,7 @@
                         </div>
                         <h5>{{'phm.Hormona'| translate}}</h5>
                         <div class="row">
-                        <div class="col-md-4">
-                          <mat-form-field class="example-full-width">
-                            <input matInput placeholder="{{'phm.No_of_couples_start_month_tablet'| translate}}" type= "number" formControlName="No_of_couples_start_month_hormona">
-                          </mat-form-field>
-                        </div>
+                        
                         <div class="col-md-4">
                           <mat-form-field class="example-full-width">
                             <input matInput placeholder="{{'phm.New_identified_tablet'| translate}}" type= "number" formControlName="New_identified_hormona">
@@ -1540,11 +1452,7 @@
                         </div>
                         <h5>{{'phm.Condom'| translate}}</h5>
                         <div class="row">
-                        <div class="col-md-4">
-                          <mat-form-field class="example-full-width">
-                            <input matInput placeholder="{{'phm.No_of_couples_start_month_tablet'| translate}}" type= "number" formControlName="No_of_couples_start_month_condom">
-                          </mat-form-field>
-                        </div>
+                        
                         <div class="col-md-4">
                           <mat-form-field class="example-full-width">
                             <input matInput placeholder="{{'phm.New_identified_tablet'| translate}}" type= "number" formControlName="New_identified_condom">
@@ -1558,11 +1466,7 @@
                         </div>
                         <h5>{{'phm.Lady'| translate}}</h5>
                         <div class="row">
-                        <div class="col-md-4">
-                          <mat-form-field class="example-full-width">
-                            <input matInput placeholder="{{'phm.No_of_couples_start_month_tablet'| translate}}" type= "number" formControlName="No_of_couples_start_month_lady">
-                          </mat-form-field>
-                        </div>
+                        
                         <div class="col-md-4">
                           <mat-form-field class="example-full-width">
                             <input matInput placeholder="{{'phm.New_identified_tablet'| translate}}" type= "number" formControlName="New_identified_lady">
@@ -1576,11 +1480,7 @@
                         </div>
                         <h5>{{'phm.Man'| translate}}</h5>
                         <div class="row">
-                        <div class="col-md-4">
-                          <mat-form-field class="example-full-width">
-                            <input matInput placeholder="{{'phm.No_of_couples_start_month_tablet'| translate}}" type= "number" formControlName="No_of_couples_start_month_man">
-                          </mat-form-field>
-                        </div>
+                        
                         <div class="col-md-4">
                           <mat-form-field class="example-full-width">
                             <input matInput placeholder="{{'phm.New_identified_tablet'| translate}}" type= "number" formControlName="New_identified_man">
@@ -1601,11 +1501,7 @@
                         </div>
                         <h5>{{'phm.OldPlaning'| translate}}</h5>
                         <div class="row">
-                          <div class="col-md-4">
-                            <mat-form-field class="example-full-width">
-                              <input matInput placeholder="{{'phm.No_of_couples_start_month_old'| translate}}" type= "number" formControlName="No_of_couples_start_month_old">
-                            </mat-form-field>
-                          </div>
+                          
                           <div class="col-md-4">
                             <mat-form-field class="example-full-width">
                               <input matInput placeholder="{{'phm.New_identified_old'| translate}}" type= "number" formControlName="New_identified_old">
@@ -1624,11 +1520,7 @@
                           </div>
                         <h5>{{'phm.notusing'| translate}}</h5>
                         <div class="row">
-                          <div class="col-md-4">
-                            <mat-form-field class="example-full-width">
-                              <input matInput placeholder="{{'phm.No_of_couples_start_month_old'| translate}}" type= "number" formControlName="No_of_couples_start_month_not_use">
-                            </mat-form-field>
-                          </div>
+                          
                           <div class="col-md-4">
                             <mat-form-field class="example-full-width">
                               <input matInput placeholder="{{'phm.New_identified_old'| translate}}" type= "number" formControlName="New_identified_not_use">
@@ -1647,11 +1539,7 @@
                           </div>
                           <h5>{{'phm.madasaru'| translate}}</h5>
                           <div class="row">
-                          <div class="col-md-4">
-                            <mat-form-field class="example-full-width">
-                              <input matInput placeholder="{{'phm.No_of_couples_start_month_madasaru'| translate}}" type= "number" formControlName="No_of_couples_start_month_madasaru">
-                            </mat-form-field>
-                          </div>
+                          
                           <div class="col-md-4">
                             <mat-form-field class="example-full-width">
                               <input matInput placeholder="{{'phm.New_identified_madasaru'| translate}}" type= "number" formControlName="New_identified_madasaru">
@@ -1675,29 +1563,14 @@
                           </div>
                           <h5>{{'phm.failed'| translate}}</h5>
                           <div class="row">
-                            <div class="col-md-6">
-                              <mat-form-field class="example-full-width">
-                                <input matInput placeholder="{{'phm.Fail_family_plan_one_detail'| translate}}" type= "text" formControlName="Fail_family_plan_one_detail">
-                              </mat-form-field>
-                            </div>
+                            
                             <div class="col-md-3">
                               <mat-form-field class="example-full-width">
                                 <input matInput placeholder="{{'phm.Fail_family_plan_one'| translate}}" type= "number" formControlName="Fail_family_plan_one">
                               </mat-form-field>
                             </div>
                           </div>
-                          <div class="row">
-                            <div class="col-md-6">
-                              <mat-form-field class="example-full-width">
-                                <input matInput placeholder="{{'phm.Fail_family_plan_two_detai'| translate}}" type= "text" formControlName="Fail_family_plan_two_detai">
-                              </mat-form-field>
-                            </div>
-                            <div class="col-md-3">
-                              <mat-form-field class="example-full-width">
-                                <input matInput placeholder="{{'phm.Fail_family_plan_two'| translate}}" type= "number" formControlName="Fail_family_plan_two">
-                              </mat-form-field>
-                            </div>
-                          </div>
+                          
                           <div class="row">
                             <div class="col-md-6">
                               <mat-form-field class="example-full-width">
@@ -1817,55 +1690,7 @@
                       <!--end 12 section-->
                       </mat-expansion-panel>
                     </div>
-                    <div class="13th_section">
-                      <!--strt 13 section-->
-                      <mat-expansion-panel>
-                        <mat-expansion-panel-header>
-                          <mat-panel-title>
-                            <h5>{{'phm.checking'| translate}}</h5>
-                          </mat-panel-title>
-                          <mat-panel-description>
-                            Click to View/Edit
-                          </mat-panel-description>
-                        </mat-expansion-panel-header>
-                     
-                      <div class="row">
-                        <div class="col-md-4">
-                          <mat-form-field class="example-full-width">
-                            <input matInput placeholder="{{'phm.Officer'| translate}}" type= "number" formControlName="Officer">
-                          </mat-form-field>
-                        </div>
-                        <div class="col-md-4">
-                          <mat-form-field class="example-full-width">
-                            <input matInput placeholder="{{'phm.Health_officer'| translate}}" type= "number" formControlName="Health_officer">
-                          </mat-form-field>
-                        </div>
-                        <div class="col-md-4">
-                          <mat-form-field class="example-full-width">
-                            <input matInput placeholder="{{'phm.Deputy_officer'| translate}}" type= "number" formControlName="Deputy_officer">
-                          </mat-form-field>
-                        </div>
-                      </div>
-                      <div class="row">
-                        <div class="col-md-4">
-                          <mat-form-field class="example-full-width">
-                            <input matInput placeholder="{{'phm.Nurse'| translate}}" type= "number" formControlName="Nurse">
-                          </mat-form-field>
-                        </div>
-                        <div class="col-md-4">
-                          <mat-form-field class="example-full-width">
-                            <input matInput placeholder="{{'phm.Mo_nurse'| translate}}" type= "number" formControlName="Mo_nurse">
-                          </mat-form-field>
-                        </div>
-                        <div class="col-md-4">
-                          <mat-form-field class="example-full-width">
-                            <input matInput placeholder="{{'phm.Phm'| translate}}" type= "number" formControlName="Phm">
-                          </mat-form-field>
-                        </div>
-                      </div>
-                      <!--end 13 section-->
-                      </mat-expansion-panel>
-                    </div>
+                   
                       
                  <input type="submit" value="{{'enter'| translate}}" class="btn btn-danger pull-right">
                     
