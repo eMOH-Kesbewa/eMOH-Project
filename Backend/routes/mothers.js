@@ -9,12 +9,19 @@ var phm = require('../Schemas/phm');
 
 //Add Details to MotherBabyJoinedTable
 router.post('/register', (req, res) => { 
-    console.log(req.body);
+    //console.log(req.body);
     var data = new Mother(req.body);
     data.save((err,doc)=>{
-        res.status(200).json("Inserted successfully.");
-    });
-    console.log("Completed");
+        if(err) {
+            console.log(handleError(err));
+            res.status(500).json("Error When Inserting");
+        }
+        else if(doc){
+            res.status(200).json("Inserted successfully.");
+            console.log(doc)
+        }
+    })
+    //console.log("Completed");
 });
 
 
@@ -32,7 +39,7 @@ router.put('/update/motherbabyjoined', async (req, res) => {
             new: true,
             upsert: true 
         });
-        res.status(200).json("Updated successfully.");
+        res.status(200).send("Updated successfully.");
         console.log(doc);
     } catch (error) {
         res.status(500).send(error);
@@ -55,10 +62,10 @@ router.put('/update/mother', async (req, res) => {
             new: true,
             upsert: false 
         });
-        res.status(200).send(doc)
+        res.status(200).json(doc)
         console.log(doc);
     } catch (error) {
-        res.status(500).send(error);
+        res.status(500).json(error);
         console.log(error);
     }
 
@@ -78,9 +85,9 @@ router.get('/update/motherfordoc', async (req, res) => {
             new: true,
             upsert: true 
         });
-        res.status(200).send(error);
+        console.log(doc);
     } catch (error) {
-        res.status(500).send(error);
+        res.status(500).json(error);
         console.log(error);
     }
 
@@ -91,7 +98,7 @@ router.post('/addmotherfordoc', (req, res) => {
     console.log(req.body);
     var data = new motherfordoc(req.body);
     data.save((err,doc)=>{
-        res.status(200).send("Inserted successfully.");
+        res.status(200).json("Inserted successfully.");
     });
     console.log("Completed");
 });
