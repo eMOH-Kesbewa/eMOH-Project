@@ -106,11 +106,10 @@ export class AddmotherbabyjoineddataComponent implements OnInit {
         .subscribe(
           response=>{
             this.openSnackBar("Inserted Successfully");
-            this.router.navigate(["viewMothers/"])
+            this.router.navigate(["viewMothers/viewMotherbyId/",localStorage.getItem('selectedFamId')]);
           },
           error=>{
             this.openSnackBar("Inserted  not Successful");
-            this.router.navigate(["viewMothers/"])
           }
         );
        // this.router.navigate(['viewClinics']);

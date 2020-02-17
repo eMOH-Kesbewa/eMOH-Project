@@ -1431,7 +1431,7 @@ export class UpdateBabyBookComponent implements OnInit {
           response=>{
             if(response.status==201){
               this.openSnackBar("Updated Successfully");
-              this.router.navigate(["viewBabies/"])
+              this.router.navigate(["viewBabies/ViewMotherBabybyID/",localStorage.getItem('selectedFamId')])
             }else{
               this.openSnackBar("Update is Unsuccessfull, Pls enter it again!");
               this.router.navigate([this.router.url,'viewMotherbyId',this.babyID])
