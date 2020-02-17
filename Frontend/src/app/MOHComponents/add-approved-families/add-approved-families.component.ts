@@ -86,16 +86,17 @@ export class AddApprovedFamiliesComponent implements OnInit {
         return;
     }
 
-    this.success = true;
+   // this.success = true;
     this.addfamilyService.add(this.approvedFamilyForm.value)
       .subscribe(
-        response=>console.log('Success!',response),
-        error=>{
-          if(error) {
+        response=>{
             this.openSnackBar("Inserted Successfully");
             this.router.navigate(["viewApprovedFamilies/"])
-          }
-          else console.log("Success No Errors")
+          
+        } ,
+        error=>{
+          this.openSnackBar("Update is Unsuccessfull, Pls enter it again!");
+            this.router.navigate(["AddApprovedFamilies"])
         }
     );
 }

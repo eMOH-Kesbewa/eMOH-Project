@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var Mother = new Schema({
     "mother_id": String,
-    "registration_no": String,
+    //"registration_no": String,
     "registration_date": Date,
     "mothers_name": String,
     "address": String,

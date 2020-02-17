@@ -219,16 +219,17 @@ export class ViewWeightByIdComponent implements OnInit {
         return;
     }
 
-    this.success=true;
+  //  this.success=true;
     this.weightService.register(this.addWeightForm.value,this.babyId)
       .subscribe(
-        response=>console.log('Success!',response),
-        error=>{
-          if(error) {
-            this.openSnackBar("Inserted Successfully");
+        response=>{
+          this.openSnackBar("Inserted Successfully");
             this.router.navigate(["ViewWeightTable/"])
-          }
-          else console.log("Success No Errors")
+        },
+        error=>{
+            this.openSnackBar("Inserted Unsuccessfully");
+            this.router.navigate([this.router.url,'viewWeightbyId',this.babyId])
+          
         }
       )
     }

@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MotherService } from 'app/Services/mother.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FamiliesService } from 'app/Services/families.service';
-
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-add-mother',
@@ -16,13 +16,13 @@ export class AddMotherComponent implements OnInit {
   submit=false;
   success=false;
   familyId;
-  constructor(private fb: FormBuilder, private motherService: MotherService,private activeroute: ActivatedRoute,private familyservice:FamiliesService) { }
+  constructor(private fb: FormBuilder, private motherService: MotherService,private activeroute: ActivatedRoute,private familyservice:FamiliesService, private router: Router, private _snackBar: MatSnackBar) { }
 
   ngOnInit() {
     this.familyId = this.activeroute.snapshot.paramMap.get('familyId');
     this.addMotherSchema= this.fb.group({
       mother_id: ['', Validators.required],
-      registration_no: ['', Validators.required],
+      registration_no: [''],
       registration_date: ['', Validators.required],
       mothers_name: ['', Validators.required],
       address: ['', Validators.required],
@@ -96,12 +96,21 @@ export class AddMotherComponent implements OnInit {
     console.log(this.addMotherSchema.value);
       this.motherService.add(this.addMotherSchema.value)
         .subscribe(
-          response=>console.log('Success!',response),
-          error=>{
-            if(error) console.log("Failure") 
-            else console.log("Success No Errors")
-          }
+          response=>{
+            this.openSnackBar("Inserted Successfully");
+            this.router.navigate(["viewMothers/"])
+          
+        } ,
+        error=>{
+          this.openSnackBar("Update is Unsuccessfull, Pls enter it again!");
+            this.router.navigate(["viewMothers/"])
+            console.log(error)
+        }
         );
+  }
+
+  openSnackBar(msg) {
+    this._snackBar.open(msg,"OK")
   }
 
   

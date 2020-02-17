@@ -147,7 +147,7 @@ router.post('/addweight', (req, res) => {
     console.log(req.body);
     var data = new weight_height(req.body);
     data.save((err,doc)=>{
-        res.status(200).send("Inserted successfully.");
+        res.status(200).json("Inserted successfully.");
     });
     console.log("Completed");
 });
@@ -188,10 +188,10 @@ router.put('/update/heightweight', async (req, res) => {
             new: true,
             upsert: true 
         });
-        res.status(200).send("Updated successfully.");
+        res.status(200).json("Updated successfully.");
         console.log(doc);
     } catch (error) {
-        res.status(500).send(error);
+        res.status(500).json(error);
         console.log(error);
     }
 
