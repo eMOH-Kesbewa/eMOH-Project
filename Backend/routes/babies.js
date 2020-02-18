@@ -50,7 +50,7 @@ router.put('/update/babybook', async (req, res) => {
 
 });
 
-//add and view baby
+//add a baby
 
 router.post('/add', (req, res) => {
     console.log("baby");
@@ -72,20 +72,20 @@ router.post('/addbook', (req, res) => {
     });
     console.log("Completed");
 });
-
+//View baby
 router.get('/viewbaby', (req, res) => {
     Baby.find((err, doc) => {
         res.send(doc)
     })
 });
-
+//view motherbaby joined table
 router.get('/view', (req, res) => {
     motherbabyjoined.find((err, doc) => {
         res.send(doc)
     })
 });
 
-
+// view baby book by id
 router.get('/viewbyid/:id', (req, res) => {
     Baby.find({ mother_id: req.params.id }, (err, doc) => {
         if (!err) {
@@ -229,7 +229,7 @@ router.get('/searchbyid/:searchData', (req, res) => {
         });
     }
 });
-
+//retrieve the baby list of a mother
 router.get('/getBabyList/:searchData', (req, res) => {
     searchData = req.params.searchData;
     console.log(searchData)
@@ -255,7 +255,7 @@ router.get('/getBabyList/:searchData', (req, res) => {
         });
     }
 });
-
+//Search in the weight height data by the name of child or baby id
 router.get('/searchweightbyid/:searchData', (req, res) => {
     searchData = req.params.searchData;
     console.log(searchData)

@@ -3,7 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from 'app/Services/auth.service';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material';
-
+import * as JWT from 'jwt-decode';
 @Component({
   selector: 'app-reg-phm',
   templateUrl: './reg-phm.component.html',
@@ -17,7 +17,9 @@ export class RegPHMComponent implements OnInit {
   constructor(private formBuilder: FormBuilder,private authService : AuthService, private router: Router,private snackBar : MatSnackBar) { }
 
   ngOnInit() {
-    if(localStorage.getItem('role')!="Doctor") this.router.navigate([''])
+    let decodedToken = JWT(localStorage.getItem('token'));
+    let role = decodedToken['role'];
+    if(role!="Doctor") this.router.navigate([''])
     this.generatedPassword = this.generatePassword()
     this.regPHMform = this.formBuilder.group({
       username : ['', Validators.email],
