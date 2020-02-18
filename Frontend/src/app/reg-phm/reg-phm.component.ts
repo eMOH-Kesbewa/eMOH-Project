@@ -14,6 +14,7 @@ export class RegPHMComponent implements OnInit {
   passwordType = "password";
   regPHMform: FormGroup;
   generatedPassword;
+  areaIds=[1,2,3,4,5,6,7,8,9]
   constructor(private formBuilder: FormBuilder,private authService : AuthService, private router: Router,private snackBar : MatSnackBar) { }
 
   ngOnInit() {
@@ -29,7 +30,7 @@ export class RegPHMComponent implements OnInit {
       role:['PHM']
   })
 }
-
+  //generate password with random letters and numbers
   generatePassword(){
     var length = 8;
     var result           = '';
@@ -40,7 +41,7 @@ export class RegPHMComponent implements OnInit {
     }
      return result;
   }
-
+  //Submitting the form value
   onSubmit(){
     console.log(this.regPHMform.value)
     let areaId = this.regPHMform.value['areaId'].toString()

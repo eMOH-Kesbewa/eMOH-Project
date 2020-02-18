@@ -18,8 +18,13 @@
       </mat-card-header>
       <div class="container">
           <form [formGroup]="regPHMform" [hidden]="success" (ngSubmit)="onSubmit()">
-              <mat-form-field class="example-full-width">
-                <input matInput placeholder="Area Id" type="number" max="9" formControlName="areaId">
+              <mat-form-field>
+                <mat-label>Area Id</mat-label>
+                <mat-select formControlName="areaId">
+                  <mat-option *ngFor="let areaId of areaIds" [value]="areaId">
+                    {{areaId}}
+                  </mat-option>
+                </mat-select>
               </mat-form-field>
 
               <mat-form-field class="example-full-width">
@@ -39,7 +44,7 @@
                   </div>
             </div>
               
-              <button mat-raised-button color="primary" [disabled]="!regPHMform.valid" type="submit">Login</button>
+              <button mat-raised-button color="primary" [disabled]="!regPHMform.valid" type="submit">Register</button>
 
           </form>
      </div>

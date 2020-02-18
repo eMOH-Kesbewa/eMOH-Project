@@ -15,7 +15,7 @@ export class WeightHeightGraphbyIdComponent implements OnInit {
   constructor(private WeightService : WeightService,private activeroute:ActivatedRoute) { }
   
   babyId
-  title = 'Ng7ChartJs By DotNet Techy';
+  title = '';
   LineChart=[];
   BarChart=[];
   PieChart=[];
