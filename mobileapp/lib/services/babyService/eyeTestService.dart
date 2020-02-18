@@ -171,7 +171,10 @@ Future updateDetails(
         turnCheck,
     'then_the_baby_eyes_move': theneyesCheck,
     'does_the_child_look_arround': lookingCheck,
-    'is_child_streching_out_his_hand_and_trying_to_touch_something': touchCheck,
+    /** */
+
+    
+    'is_child_streching_out_his_hand_and_tryimg_to_touch_something': touchCheck,
     'do_you_suspect_that_your_child_has_a_problem': squintCheck,
     'is_it_possible_for_a_child_to_pickup_small_things_with_a_thumb_and_forefinger':
         ringCheck,
