@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import * as JWT from 'jwt-decode';
 declare const $: any;
 declare interface RouteInfo {
     path: string;
@@ -45,13 +45,17 @@ export class SidebarComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    if(localStorage.getItem('role')=="Doctor"){
+    //var decoded = jwt_decode(token);
+    let decodedToken = JWT(localStorage.getItem('token'));
+    let role = decodedToken['role'];
+
+    if(role=="Doctor"){
      this.menuItems = ROUTESforDoc.filter(menuItem => menuItem)
     }
-    else if((localStorage.getItem('role')=="PHM")){
+    else if(role=="PHM"){
       this.menuItems = ROUTESforPHM.filter(menuItem => menuItem)
     }
-    else if((localStorage.getItem('role')=="mother")){
+    else if(role=="mother"){
       this.menuItems = ROUTESforMother.filter(menuItem => menuItem)
     }
   }
