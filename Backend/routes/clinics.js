@@ -17,6 +17,17 @@ router.get('/viewUpComingClinics', (req, res) => {
     //console.log("Completed");
 });
 
+router.get('/viewClinicRecords', (req, res) => {
+    //Sorted in a Latest to Oldest Order
+    var now = new Date();
+    var newFomat = formatDate(now);
+    clinics.find({date:{$lt: newFomat}}).sort({date: 'descending'}).exec(function(err, docs) { 
+        res.send(docs) 
+    });
+    //console.log("Completed");
+});
+
+
 router.get('/getLatestClinicId', (req, res) => {
     //Sorted in a Latest to Oldest Order
     clinics.find().sort( { _id : -1 } ).limit(1).exec(function(err, docs) { 
