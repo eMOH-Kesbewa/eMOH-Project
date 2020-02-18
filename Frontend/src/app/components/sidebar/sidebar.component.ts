@@ -31,7 +31,7 @@ export const ROUTESforPHM: RouteInfo[] = [
 ];
 
 export const ROUTESforMother: RouteInfo[] = [
-  { path: '/viewBabies', title: 'Babies',  icon:'child_care', class: '' },
+  
 ];
 
 @Component({

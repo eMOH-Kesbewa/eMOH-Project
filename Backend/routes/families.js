@@ -4,6 +4,7 @@ var ApprovedFamily = require('../Schemas/ApprovedFamiliesSchema');
 var mongoose = require('mongoose');
 var phm =require('../Schemas/phm');
 
+//Insert New Families
 router.post('/add', (req, res) => {
     console.log(req.body);
     var data = new ApprovedFamily(req.body);
@@ -20,7 +21,7 @@ router.get('/view', (req, res) => {
     })
     
 });
-
+//Update families
 router.put('/update', async (req, res) => {
     try {
         const filter = req.query;
@@ -41,7 +42,7 @@ router.put('/update', async (req, res) => {
     }
 
 });
-
+//View families by id
 router.get('/viewbyid/:id', (req, res) => {
     ApprovedFamily.find({ Identity_number: req.params.id }, (err, doc) => {
 
@@ -57,7 +58,7 @@ router.get('/viewbyid/:id', (req, res) => {
 
 });
 
-
+//Search the family by famId or Name of wife
 router.get('/searchbyid/:searchData', (req, res) => {
     searchData = req.params.searchData;
     console.log(searchData)
@@ -86,7 +87,7 @@ router.get('/searchbyid/:searchData', (req, res) => {
         });
     }
 });
-
+//Get data to generate the Modern Contraceptive Methods Graph -> Need to give which year we need to retrieve data
 router.get('/getModernContraceptiveMethods/:year', (req, res) => {
     currentYear = req.params.year;
     console.log(currentYear)

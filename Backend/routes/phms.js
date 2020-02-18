@@ -21,7 +21,7 @@ router.get('/view', (req, res) => {
     
 });
 
-//create monthly report
+//create monthly report from the phm daily report
 router.get('/MonthlyReport/:year/:month',(req,res)=>{
     currentMonth = req.params.month
     console.log(currentMonth)
