@@ -4,115 +4,191 @@ import 'package:toast/toast.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:easy_localization/easy_localization_provider.dart';
 
+Future<Baby> baby = fetchBaby();
+bool switchVal = false;
+bool bigNoise = false;
+bool vehicleNoise = false;
+bool guardianNoise = false;
+bool turnToNoise = false;
+bool turnToGuardianNoise = false;
+bool dailyNoise = false;
+bool hiddenNoise = false;
+bool rythmeicNoise = false;
+bool respondNameNoise = false;
+bool byeNoise = false;
+
+String bigNoiseS;
+String vehicleNoiseS;
+String guardianNoiseS;
+String turnToNoiseS;
+String turnToGuardianNoiseS;
+String dailyNoiseS;
+String hiddenNoiseS;
+String rythmeicNoiseS;
+String respondNameNoiseS;
+String byeNoiseS;
+
 class HearTest extends StatefulWidget {
   @override
   _HearTestState createState() => _HearTestState();
 }
 
 class _HearTestState extends State<HearTest> {
-  Future<Baby> baby = fetchBaby();
-  bool switchVal = false;
-  bool bigNoise = false;
-  bool vehicleNoise = false;
-  bool guardianNoise = false;
-  bool turnToNoise = false;
-  bool turnToGuardianNoise = false;
-  bool dailyNoise = false;
-  bool hiddenNoise = false;
-  bool rythmeicNoise = false;
-  bool respondNameNoise = false;
-  bool byeNoise = false;
-
-  String bigNoiseS;
-  String vehicleNoiseS;
-  String guardianNoiseS;
-  String turnToNoiseS;
-  String turnToGuardianNoiseS;
-  String dailyNoiseS;
-  String hiddenNoiseS;
-  String rythmeicNoiseS;
-  String respondNameNoiseS;
-  String byeNoiseS;
-
   @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
+  // void initState() {
+  //   // TODO: implement initState
+  //   super.initState();
 
-    baby.then((it) {
-      if (it.bigNoise.toString() == "no" || it.bigNoise == null) {
-        //this gives the error
-        bigNoise = false;
-      } else {
-        bigNoise = true;
-      }
-      if (it.vehicleNoise.toString() == "no" || it.vehicleNoise == null) {
-        //this gives the error
-        vehicleNoise = false;
-      } else {
-        vehicleNoise = true;
-      }
-      if (it.guardianNoise.toString() == "no" || it.guardianNoise == null) {
-        //this gives the error
-        guardianNoise = false;
-      } else {
-        guardianNoise = true;
-      }
-      if (it.turnToNoise.toString() == "no" || it.turnToNoise == null) {
-        //this gives the error
-        turnToNoise = false;
-      } else {
-        turnToNoise = true;
-      }
-      if (it.guardianNoise.toString() == "no" || it.guardianNoise == null) {
-        //this gives the error
-        guardianNoise = false;
-      } else {
-        guardianNoise = true;
-      }
-      if (it.turnToGuardianNoise.toString() == "no" ||
-          it.turnToGuardianNoise == null) {
-        //this gives the error
-        turnToGuardianNoise = false;
-      } else {
-        turnToGuardianNoise = true;
-      }
-      if (it.dailyNoise.toString() == "no" || it.dailyNoise == null) {
-        //this gives the error
-        dailyNoise = false;
-      } else {
-        dailyNoise = true;
-      }
-      if (it.hiddenNoise.toString() == "no" || it.hiddenNoise == null) {
-        //this gives the error
-        hiddenNoise = false;
-      } else {
-        hiddenNoise = true;
-      }
-      if (it.rythmeicNoise.toString() == "no" || it.rythmeicNoise == null) {
-        //this gives the error
-        rythmeicNoise = false;
-      } else {
-        rythmeicNoise = true;
-      }
-      if (it.respondNameNoise.toString() == "no" ||
-          it.respondNameNoise == null) {
-        //this gives the error
-        respondNameNoise = false;
-      } else {
-        respondNameNoise = true;
-      }
-      if (it.byeNoise.toString() == "no" || it.byeNoise == null) {
-        //this gives the error
-        byeNoise = false;
-      } else {
-        byeNoise = true;
-      }
-    });
-  }
+  //   baby.then((it) {
+  //     if (it.bigNoise.toString() == "no" || it.bigNoise == null) {
+  //       //this gives the error
+  //       bigNoise = false;
+  //     } else {
+  //       bigNoise = true;
+  //     }
+  //     if (it.vehicleNoise.toString() == "no" || it.vehicleNoise == null) {
+  //       //this gives the error
+  //       vehicleNoise = false;
+  //     } else {
+  //       vehicleNoise = true;
+  //     }
+  //     if (it.guardianNoise.toString() == "no" || it.guardianNoise == null) {
+  //       //this gives the error
+  //       guardianNoise = false;
+  //     } else {
+  //       guardianNoise = true;
+  //     }
+  //     if (it.turnToNoise.toString() == "no" || it.turnToNoise == null) {
+  //       //this gives the error
+  //       turnToNoise = false;
+  //     } else {
+  //       turnToNoise = true;
+  //     }
+  //     if (it.guardianNoise.toString() == "no" || it.guardianNoise == null) {
+  //       //this gives the error
+  //       guardianNoise = false;
+  //     } else {
+  //       guardianNoise = true;
+  //     }
+  //     if (it.turnToGuardianNoise.toString() == "no" ||
+  //         it.turnToGuardianNoise == null) {
+  //       //this gives the error
+  //       turnToGuardianNoise = false;
+  //     } else {
+  //       turnToGuardianNoise = true;
+  //     }
+  //     if (it.dailyNoise.toString() == "no" || it.dailyNoise == null) {
+  //       //this gives the error
+  //       dailyNoise = false;
+  //     } else {
+  //       dailyNoise = true;
+  //     }
+  //     if (it.hiddenNoise.toString() == "no" || it.hiddenNoise == null) {
+  //       //this gives the error
+  //       hiddenNoise = false;
+  //     } else {
+  //       hiddenNoise = true;
+  //     }
+  //     if (it.rythmeicNoise.toString() == "no" || it.rythmeicNoise == null) {
+  //       //this gives the error
+  //       rythmeicNoise = false;
+  //     } else {
+  //       rythmeicNoise = true;
+  //     }
+  //     if (it.respondNameNoise.toString() == "no" ||
+  //         it.respondNameNoise == null) {
+  //       //this gives the error
+  //       respondNameNoise = false;
+  //     } else {
+  //       respondNameNoise = true;
+  //     }
+  //     if (it.byeNoise.toString() == "no" || it.byeNoise == null) {
+  //       //this gives the error
+  //       byeNoise = false;
+  //     } else {
+  //       byeNoise = true;
+  //     }
+  //   });
+  // }
 
   @override
   Widget build(BuildContext context) {
+    void initState() {
+      // TODO: implement initState
+      super.initState();
+
+      baby.then((it) {
+        if (it.bigNoise.toString() == "no" || it.bigNoise == null) {
+          //this gives the error
+          bigNoise = false;
+        } else {
+          bigNoise = true;
+        }
+        if (it.vehicleNoise.toString() == "no" || it.vehicleNoise == null) {
+          //this gives the error
+          vehicleNoise = false;
+        } else {
+          vehicleNoise = true;
+        }
+        if (it.guardianNoise.toString() == "no" || it.guardianNoise == null) {
+          //this gives the error
+          guardianNoise = false;
+        } else {
+          guardianNoise = true;
+        }
+        if (it.turnToNoise.toString() == "no" || it.turnToNoise == null) {
+          //this gives the error
+          turnToNoise = false;
+        } else {
+          turnToNoise = true;
+        }
+        if (it.guardianNoise.toString() == "no" || it.guardianNoise == null) {
+          //this gives the error
+          guardianNoise = false;
+        } else {
+          guardianNoise = true;
+        }
+        if (it.turnToGuardianNoise.toString() == "no" ||
+            it.turnToGuardianNoise == null) {
+          //this gives the error
+          turnToGuardianNoise = false;
+        } else {
+          turnToGuardianNoise = true;
+        }
+        if (it.dailyNoise.toString() == "no" || it.dailyNoise == null) {
+          //this gives the error
+          dailyNoise = false;
+        } else {
+          dailyNoise = true;
+        }
+        if (it.hiddenNoise.toString() == "no" || it.hiddenNoise == null) {
+          //this gives the error
+          hiddenNoise = false;
+        } else {
+          hiddenNoise = true;
+        }
+        if (it.rythmeicNoise.toString() == "no" || it.rythmeicNoise == null) {
+          //this gives the error
+          rythmeicNoise = false;
+        } else {
+          rythmeicNoise = true;
+        }
+        if (it.respondNameNoise.toString() == "no" ||
+            it.respondNameNoise == null) {
+          //this gives the error
+          respondNameNoise = false;
+        } else {
+          respondNameNoise = true;
+        }
+        if (it.byeNoise.toString() == "no" || it.byeNoise == null) {
+          //this gives the error
+          byeNoise = false;
+        } else {
+          byeNoise = true;
+        }
+      });
+    }
+
     var data = EasyLocalizationProvider.of(context).data;
     return EasyLocalizationProvider(
       data: data,
@@ -172,12 +248,12 @@ class _HearTestState extends State<HearTest> {
                                       setState(() {
                                         bigNoise = !bigNoise;
 
-                                        if(bigNoise == true){
+                                        if (bigNoise == true) {
                                           bigNoiseS = "yes";
-                                        }else{
+                                        } else {
                                           bigNoiseS = "no";
                                         }
-                                        
+
                                         // faceCheck = !faceCheck;
                                       });
                                     } else {
@@ -208,9 +284,9 @@ class _HearTestState extends State<HearTest> {
                                         vehicleNoise = !vehicleNoise;
                                         vehicleNoise = vehicleNoise;
 
-                                        if(vehicleNoise == true){
+                                        if (vehicleNoise == true) {
                                           vehicleNoiseS = "yes";
-                                        }else{
+                                        } else {
                                           vehicleNoiseS = "no";
                                         }
 
@@ -244,9 +320,9 @@ class _HearTestState extends State<HearTest> {
                                         guardianNoise = !guardianNoise;
                                         guardianNoise = guardianNoise;
                                         // faceCheck = !faceCheck;
-                                        if(guardianNoise == true){
+                                        if (guardianNoise == true) {
                                           guardianNoiseS = "yes";
-                                        }else{
+                                        } else {
                                           guardianNoiseS = "no";
                                         }
                                       });
@@ -269,12 +345,11 @@ class _HearTestState extends State<HearTest> {
                                         turnToNoise = turnToNoise;
                                         // faceCheck = !faceCheck;
 
-                                        if(turnToNoise == true){
+                                        if (turnToNoise == true) {
                                           turnToNoiseS = "yes";
-                                        }else{
+                                        } else {
                                           turnToNoiseS = "no";
                                         }
-
                                       });
                                     } else {
                                       return null;
@@ -307,12 +382,11 @@ class _HearTestState extends State<HearTest> {
                                             turnToGuardianNoise;
                                         // faceCheck = !faceCheck;
 
-                                        if(turnToGuardianNoise == true){
+                                        if (turnToGuardianNoise == true) {
                                           turnToGuardianNoiseS = "yes";
-                                        }else{
+                                        } else {
                                           turnToGuardianNoiseS = "no";
                                         }
-
                                       });
                                     } else {
                                       return null;
@@ -343,12 +417,11 @@ class _HearTestState extends State<HearTest> {
                                         dailyNoise = dailyNoise;
                                         // faceCheck = !faceCheck;
 
-                                        if(dailyNoise == true){
+                                        if (dailyNoise == true) {
                                           dailyNoiseS = "yes";
-                                        }else{
+                                        } else {
                                           dailyNoiseS = "no";
                                         }
-
                                       });
                                     } else {
                                       return null;
@@ -369,12 +442,11 @@ class _HearTestState extends State<HearTest> {
                                         hiddenNoise = hiddenNoise;
                                         // faceCheck = !faceCheck;
 
-                                        if(hiddenNoise == true){
+                                        if (hiddenNoise == true) {
                                           hiddenNoiseS = "yes";
-                                        }else{
+                                        } else {
                                           hiddenNoiseS = "no";
                                         }
-
                                       });
                                     } else {
                                       return null;
@@ -395,12 +467,11 @@ class _HearTestState extends State<HearTest> {
                                         rythmeicNoise = rythmeicNoise;
                                         // faceCheck = !faceCheck;
 
-                                        if(rythmeicNoise == true){
+                                        if (rythmeicNoise == true) {
                                           rythmeicNoiseS = "yes";
-                                        }else{
+                                        } else {
                                           rythmeicNoiseS = "no";
                                         }
-
                                       });
                                     } else {
                                       return null;
@@ -431,13 +502,11 @@ class _HearTestState extends State<HearTest> {
                                         respondNameNoise = respondNameNoise;
                                         // faceCheck = !faceCheck;
 
-                                        if(respondNameNoise == true){
+                                        if (respondNameNoise == true) {
                                           respondNameNoiseS = "yes";
-                                        }else{
+                                        } else {
                                           respondNameNoiseS = "no";
                                         }
-
-
                                       });
                                     } else {
                                       return null;
@@ -458,12 +527,11 @@ class _HearTestState extends State<HearTest> {
                                         byeNoise = byeNoise;
                                         // faceCheck = !faceCheck;
 
-                                        if(byeNoise == true){
+                                        if (byeNoise == true) {
                                           byeNoiseS = "yes";
-                                        }else{
+                                        } else {
                                           byeNoiseS = "no";
                                         }
-
                                       });
                                     } else {
                                       return null;
