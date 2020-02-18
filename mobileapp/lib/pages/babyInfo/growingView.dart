@@ -1195,32 +1195,34 @@ class _GrowingViewState extends State<GrowingView> {
                     'can_create_a_sentence_with_three_or_more_words_age_at_the_time_of_occurence'),
                 4),
           ];
-          return DefaultTabController(
-            length: choices.length,
-            child: Scaffold(
-              appBar: AppBar(
-                title: Text('Baby Growth'),
-                bottom: TabBar(
-                  isScrollable: true,
-                  tabs: choices.map((Choice choice) {
-                    index = choice;
-                    return Tab(
-                      text: choice.title,
-                      icon: Icon(choice.icon),
-                    );
-                  }).toList(),
+          return EasyLocalizationProvider(
+                      child: DefaultTabController(
+              length: choices.length,
+              child: Scaffold(
+                appBar: AppBar(
+                  title: Text(AppLocalizations.of(context).tr('babygrowth')), //babygrowth
+                  bottom: TabBar(
+                    isScrollable: true,
+                    tabs: choices.map((Choice choice) {
+                      index = choice;
+                      return Tab(
+                        text: choice.title,
+                        icon: Icon(choice.icon),
+                      );
+                    }).toList(),
+                  ),
                 ),
-              ),
-              body: SizedBox(
-                child: TabBarView(
-                  children: choices.map((Choice choice) {
-                    return Padding(
-                      padding: EdgeInsets.all(8.0),
-                      child: Display(
-                        choice: choice,
-                      ),
-                    );
-                  }).toList(),
+                body: SizedBox(
+                  child: TabBarView(
+                    children: choices.map((Choice choice) {
+                      return Padding(
+                        padding: EdgeInsets.all(8.0),
+                        child: Display(
+                          choice: choice,
+                        ),
+                      );
+                    }).toList(),
+                  ),
                 ),
               ),
             ),

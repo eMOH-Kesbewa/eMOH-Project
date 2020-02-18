@@ -7,101 +7,163 @@ import 'package:toast/toast.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:easy_localization/easy_localization_provider.dart';
 
+Future<Baby> baby = fetchBaby();
+bool switchVal = false;
+bool lightCheck = false;
+bool faceCheck = false;
+bool turnCheck = false;
+bool theneyesCheck = false;
+bool lookingCheck = false;
+bool touchCheck = false;
+bool squintCheck = false;
+bool ringCheck = false;
+bool askCheck = false;
+bool talkCheck = false;
+
+String switchValS = "no";
+String lightCheckS = "no";
+String faceCheckS = "no";
+String turnCheckS = "no";
+String theneyesCheckS = "no";
+String lookingCheckS = "no";
+String touchCheckS = "no";
+String squintCheckS = "no";
+String ringCheckS = "no";
+String askCheckS = "no";
+String talkCheckS = "no";
+
 class EyeTest extends StatefulWidget {
   @override
   _EyeTestState createState() => _EyeTestState();
 }
 
 class _EyeTestState extends State<EyeTest> {
-  Future<Baby> baby = fetchBaby();
-  bool switchVal = false;
-  bool lightCheck = false;
-  bool faceCheck = false;
-  bool turnCheck = false;
-  bool theneyesCheck = false;
-  bool lookingCheck = false;
-  bool touchCheck = false;
-  bool squintCheck = false;
-  bool ringCheck = false;
-  bool askCheck = false;
-  bool talkCheck = false;
+  // initState() {
+  //   super.initState();
+  //   // setState(() {
+  //   //   switchVal = true;
+  //   // });
+  //   baby.then((it) {
+  //     if (it.faceCheck.toString() == "no" || it.faceCheck == null) {
+  //       //this gives the error
+  //       faceCheck = false;
+  //     } else {
+  //       faceCheck = true;
+  //     }
+  //     if (it.lightCheck.toString() == "no" || it.lightCheck == null) {
+  //       lightCheck = false;
+  //     } else {
+  //       lightCheck = true;
+  //     }
+  //     if (it.turnCheck.toString() == "no" || it.turnCheck == null) {
+  //       turnCheck = false;
+  //     } else {
+  //       turnCheck = true;
+  //     }
+  //     if (it.theneyesCheck.toString() == "no" || it.theneyesCheck == null) {
+  //       theneyesCheck = false;
+  //     } else {
+  //       theneyesCheck = true;
+  //     }
+  //     if (it.lookingCheck.toString() == "no" || it.lookingCheck == null) {
+  //       lookingCheck = false;
+  //     } else {
+  //       lookingCheck = true;
+  //     }
+  //     if (it.touchCheck.toString() == "no" || it.touchCheck == null) {
+  //       touchCheck = false;
+  //     } else {
+  //       touchCheck = true;
+  //     }
+  //     if (it.squintCheck.toString() == "no" || it.squintCheck == null) {
+  //       squintCheck = false;
+  //     } else {
+  //       squintCheck = true;
+  //     }
+  //     if (it.ringCheck.toString() == "no" || it.ringCheck == null) {
+  //       ringCheck = false;
+  //     } else {
+  //       ringCheck = true;
+  //     }
+  //     if (it.askCheck.toString() == "no" || it.askCheck == null) {
+  //       askCheck = false;
+  //     } else {
+  //       askCheck = true;
+  //     }
+  //     if (it.talkCheck.toString() == "no" || it.talkCheck == null) {
+  //       talkCheck = false;
+  //     } else {
+  //       talkCheck = true;
+  //     }
+  //   });
 
-  String switchValS = "no";
-  String lightCheckS = "no";
-  String faceCheckS = "no";
-  String turnCheckS = "no";
-  String theneyesCheckS = "no";
-  String lookingCheckS = "no";
-  String touchCheckS = "no";
-  String squintCheckS = "no";
-  String ringCheckS = "no";
-  String askCheckS = "no";
-  String talkCheckS = "no";
-
-  initState() {
-    super.initState();
-    // setState(() {
-    //   switchVal = true;
-    // });
-    baby.then((it) {
-      if (it.faceCheck.toString() == "no" || it.faceCheck == null) {
-        //this gives the error
-        faceCheck = false;
-      } else {
-        faceCheck = true;
-      }
-      if (it.lightCheck.toString() == "no" || it.lightCheck == null) {
-        lightCheck = false;
-      } else {
-        lightCheck = true;
-      }
-      if (it.turnCheck.toString() == "no" || it.turnCheck == null) {
-        turnCheck = false;
-      } else {
-        turnCheck = true;
-      }
-      if (it.theneyesCheck.toString() == "no" || it.theneyesCheck == null) {
-        theneyesCheck = false;
-      } else {
-        theneyesCheck = true;
-      }
-      if (it.lookingCheck.toString() == "no" || it.lookingCheck == null) {
-        lookingCheck = false;
-      } else {
-        lookingCheck = true;
-      }
-      if (it.touchCheck.toString() == "no" || it.touchCheck == null) {
-        touchCheck = false;
-      } else {
-        touchCheck = true;
-      }
-      if (it.squintCheck.toString() == "no" || it.squintCheck == null) {
-        squintCheck = false;
-      } else {
-        squintCheck = true;
-      }
-      if (it.ringCheck.toString() == "no" || it.ringCheck == null) {
-        ringCheck = false;
-      } else {
-        ringCheck = true;
-      }
-      if (it.askCheck.toString() == "no" || it.askCheck == null) {
-        askCheck = false;
-      } else {
-        askCheck = true;
-      }
-      if (it.talkCheck.toString() == "no" || it.talkCheck == null) {
-        talkCheck = false;
-      } else {
-        talkCheck = true;
-      }
-    });
-
-    // print(faceCheck);
-  }
+  //   // print(faceCheck);
+  // }
 
   @override
   Widget build(BuildContext context) {
+    initState() {
+      super.initState();
+      // setState(() {
+      //   switchVal = true;
+      // });
+      baby.then((it) {
+        if (it.faceCheck.toString() == "no" || it.faceCheck == null) {
+          //this gives the error
+          faceCheck = false;
+        } else {
+          faceCheck = true;
+        }
+        if (it.lightCheck.toString() == "no" || it.lightCheck == null) {
+          lightCheck = false;
+        } else {
+          lightCheck = true;
+        }
+        if (it.turnCheck.toString() == "no" || it.turnCheck == null) {
+          turnCheck = false;
+        } else {
+          turnCheck = true;
+        }
+        if (it.theneyesCheck.toString() == "no" || it.theneyesCheck == null) {
+          theneyesCheck = false;
+        } else {
+          theneyesCheck = true;
+        }
+        if (it.lookingCheck.toString() == "no" || it.lookingCheck == null) {
+          lookingCheck = false;
+        } else {
+          lookingCheck = true;
+        }
+        if (it.touchCheck.toString() == "no" || it.touchCheck == null) {
+          touchCheck = false;
+        } else {
+          touchCheck = true;
+        }
+        if (it.squintCheck.toString() == "no" || it.squintCheck == null) {
+          squintCheck = false;
+        } else {
+          squintCheck = true;
+        }
+        if (it.ringCheck.toString() == "no" || it.ringCheck == null) {
+          ringCheck = false;
+        } else {
+          ringCheck = true;
+        }
+        if (it.askCheck.toString() == "no" || it.askCheck == null) {
+          askCheck = false;
+        } else {
+          askCheck = true;
+        }
+        if (it.talkCheck.toString() == "no" || it.talkCheck == null) {
+          talkCheck = false;
+        } else {
+          talkCheck = true;
+        }
+      });
+
+      // print(faceCheck);
+    }
+
     var data = EasyLocalizationProvider.of(context).data;
     return EasyLocalizationProvider(
       data: data,
@@ -163,7 +225,7 @@ class _EyeTestState extends State<EyeTest> {
                                   setState(() {
                                     lightCheck = !lightCheck;
 
-                                    if (faceCheck == true) {
+                                    if (lightCheck == true) {
                                       lightCheckS = "yes";
                                     } else {
                                       lightCheckS = "no";

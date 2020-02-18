@@ -42,6 +42,15 @@ class _LoginState extends State<Login> {
           return 'Please Enter The Name';
         }
       },*/
+
+      validator: (input) {
+        if (input.isEmpty) {
+          return 'Please Enter email';
+        }
+        else if(!input.contains('@')){
+          return 'Please Enter a Valid Email'; 
+        }
+      },
       keyboardType: TextInputType.emailAddress,
       controller: emailController,
       cursorColor: Color(0xff5d1049),
@@ -155,55 +164,63 @@ class _LoginState extends State<Login> {
   signIn(String email, pass) async {
     // SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
 
-    Map data = {'username': email, 'password': pass};
-    var jsonResponse = null;
-    var response = await http.post("https://emohback.herokuapp.com/users/login",
-        body: data);
-    logger.wtf(response.statusCode);
-    if (response.statusCode == 200) {
-      jsonResponse = json.decode(response.body);
-      globals.globalEmail = emailController.text.toString();
-      logger.wtf(jsonResponse['token']);
-      logger.w(jsonResponse['userid']);
-      SharedPreferences prefs = await SharedPreferences.getInstance();
-
-      prefs.setString('jwt', jsonResponse['token']);
-      if (jsonResponse != null) {
-        setState(() {
-          _isLoading = false;
-        });
-        //String name = decoded['name'];
-        // sharedPreferences.setString("token", jsonResponse['token']);
-        bool success = jsonResponse['success'];
-        logger.wtf(jsonResponse['success']);
-        print(success);
-        if (success == true) {
-          print('***validated***');
+    final formState = _formKey.currentState;
+    if (formState.validate()) {
+      formState.save();
+      try {
+        Map data = {'username': email, 'password': pass};
+        var jsonResponse = null;
+        var response = await http
+            .post("https://emohback.herokuapp.com/users/login", body: data);
+        logger.wtf(response.statusCode);
+        if (response.statusCode == 200) {
+          jsonResponse = json.decode(response.body);
+          globals.globalEmail = emailController.text.toString();
+          logger.wtf(jsonResponse['token']);
+          logger.w(jsonResponse['userid']);
           SharedPreferences prefs = await SharedPreferences.getInstance();
-          prefs.setString('email', jsonResponse['userid']);
 
-          Navigator.pushReplacement(
-              context,
-              MaterialPageRoute(
-                  builder: (BuildContext ctx) => BottomNavigation()));
-          // Navigator.of(context).pushAndRemoveUntil(
+          prefs.setString('jwt', jsonResponse['token']);
+          if (jsonResponse != null) {
+            setState(() {
+              _isLoading = false;
+            });
+            //String name = decoded['name'];
+            // sharedPreferences.setString("token", jsonResponse['token']);
+            bool success = jsonResponse['success'];
+            logger.wtf(jsonResponse['success']);
+            print(success);
+            if (success == true) {
+              print('***validated***');
+              SharedPreferences prefs = await SharedPreferences.getInstance();
+              prefs.setString('email', jsonResponse['userid']);
 
-          //     MaterialPageRoute(
-          //         builder: (BuildContext context) => FamilyProfile()),
-          //     (Route<dynamic> route) => false);
+              Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                      builder: (BuildContext ctx) => BottomNavigation()));
+              // Navigator.of(context).pushAndRemoveUntil(
+
+              //     MaterialPageRoute(
+              //         builder: (BuildContext context) => FamilyProfile()),
+              //     (Route<dynamic> route) => false);
+            } else {
+              print('***else clause***');
+              return Toast.show("Invalid email or password", context,
+                  duration: Toast.LENGTH_LONG, gravity: Toast.CENTER);
+            }
+          }
         } else {
-          print('***else clause***');
-          return Toast.show("Invalid email or password", context,
-              duration: Toast.LENGTH_LONG, gravity: Toast.CENTER);
-        }
-      }
-    } else {
-      print('***');
-      /* setState(() {
+          print('***');
+          /* setState(() {
         _isLoading = false;
       });*/
 
-      //print(response.body);
+          //print(response.body);
+        }
+      } catch (e) {
+        logger.e(e);
+      }
     }
   }
 
