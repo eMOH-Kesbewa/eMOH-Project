@@ -58,7 +58,7 @@ class Baby {
   });
 
   factory Baby.fromJson(Map<String, dynamic> json) {
-    logger.e(json["does_child_eyes_toward_the_light"]);
+    logger.e(json["does_child_eyes_toward_the_light"],'eyes');
 
     return Baby(
       // // idNumber: json['Identity_number'],

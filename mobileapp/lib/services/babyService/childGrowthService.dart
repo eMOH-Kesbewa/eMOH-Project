@@ -13,13 +13,14 @@ Future<Baby> fetchBaby() async {
   print('fetch Baby function');
   //String _babyId = globals.BabyId + babyIndex;
   final response = await http.get(
-      'https://emohbackherokuapp.com/babies/viewbybabyid/${globals.babyId}');
+      'https://emohback.herokuapp.com/babies/viewbybabyid/${globals.babyId}');
   print('status code');
   print(response.statusCode);
   print(globals.babyId);
   print(response.body);
   // final json = jsonDecode(response.body);
   if (response.statusCode == 200) {
+    
     return Baby.fromJson(json.decode(response.body)[0]);
   } else {
     // If that call was not successful, throw an error.
@@ -193,7 +194,14 @@ class Baby {
       this.canCreateOcc,
       this.canCreateOf});
 
+      
+
   factory Baby.fromJson(Map<String, dynamic> json) {
+
+    logger.wtf('*****************');
+    
+    logger.wtf(json['lie_your_hips_and_head_up_age_at_the_time_of_occurence'],
+        'zzzzz');
     return Baby(
       layingFaceDownOcc:
           json['lie_your_hips_and_head_up_age_at_the_time_of_occurence'],
@@ -402,17 +410,11 @@ Future updateDetails(
 ) async {
   //Map query = {'baby_id' : 'A0000101'};
   logger.w('field', field);
-  Map data = {
-    'baby_id': globals.babyId,
-    'value': value,
-    'field' : field
-
-  };
+  Map data = {'baby_id': globals.babyId, 'value': value, 'field': field};
   //Map data = {'does_the_child_look_good_on_your_face': face.toString()};
 
-  var response =
-      await http.put("https://emohback.herokuapp.com/babies/updategrowth",
-          body: data);
+  var response = await http
+      .put("https://emohback.herokuapp.com/babies/updategrowth", body: data);
   print("****status");
   print(response.statusCode);
 

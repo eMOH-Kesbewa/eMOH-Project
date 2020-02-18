@@ -11,6 +11,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:easy_localization/easy_localization_provider.dart';
 
 //Update function no tworking
+Logger logger = Logger();
 
 Future<Baby> baby = fetchBaby();
 String layingFaceDownOcc,
@@ -130,130 +131,130 @@ class GrowingView extends StatefulWidget {
 }
 
 class _GrowingViewState extends State<GrowingView> {
-  TabController _tabController;
+  
+  initState() {
+    logger.i('in initState');
+    super.initState();
+    baby.then((it) {
+      layingFaceDownOcc = it.layingFaceDownOcc;
+    //  logger.e(layingFaceDownOcc, 'layingFaceDownOcc');
+      movingObjectOcc =it.movingObjectOcc;
+      bigSoundOcc =it.bigSoundOcc;
+      ohhOcc =it.ohhOcc;
+      smileOcc =it.smileOcc;
+      raiseHeadOcc =it.raiseHeadOcc;
+      playFingersOcc =it.playFingersOcc;
+      strechHandOcc =it.strechHandOcc;
+      soundTurnOcc =it.soundTurnOcc;
+      singleLetterSoundOcc =it.singleLetterSoundOcc;
+      laughtLoudOcc =it.laughtLoudOcc;
+      raiseHead2Occ =it.raiseHead2Occ;
+      turnFaceUpDownOcc =it.turnFaceUpDownOcc;
+      //it.switchObjectsOcc =it.switchObjectsOcc;
+      makeSoundOcc =it.makeSoundOcc;
+      sittingOcc =it.sittingOcc;
+      holdingHimSelfOcc =it.holdingHimSelfOcc;
+      thumbForeOcc =it.thumbForeOcc;
+      followingVoiceOcc =it.followingVoiceOcc;
+      proWordsOcc =it.proWordsOcc;
+      understandOcc =it.understandOcc;
+      walkingWithHelpOcc =it.walkingWithHelpOcc;
+      canSpeakOcc =it.canSpeakOcc;
+      handPointOcc =it.handPointOcc;
+      canRollOcc =it.canRollOcc;
+      canIdentifyOcc =it.canIdentifyOcc;
+      walkingWithoutHelpOcc =it.walkingWithoutHelpOcc;
+      canClimbOcc =it.canClimbOcc;
+      makeTowerOcc =it.makeTowerOcc;
+      eatHimselfOcc =it.eatHimselfOcc;
+      canTalkTenOcc =it.canTalkTenOcc;
+      lipsShapeOcc =it.lipsShapeOcc;
+      runWithoutFallingOcc =it.runWithoutFallingOcc;
+      upDownStairOcc =it.upDownStairOcc;
+      canCopyOcc =it.canCopyOcc;
+      canCreateOcc =it.canCreateOcc;
 
-  @override
-  var logger = Logger();
+      layingFaceDownCon =it.layingFaceDownCon;
+      movingObjectCon =it.movingObjectCon;
+      bigSoundCon =it.bigSoundCon;
+      ohhCon =it.ohhCon;
+      smileCon =it.smileCon;
+      raiseHeadCon =it.raiseHeadCon;
+      playFingersCon =it.playFingersCon;
+      strechHandCon =it.strechHandCon;
+      soundTurnCon =it.soundTurnCon;
+      singleLetterSoundCon =it.singleLetterSoundCon;
+      laughtLoudCon =it.laughtLoudCon;
+      raiseHead2Con =it.raiseHead2Con;
+      turnFaceUpDownCon =it.turnFaceUpDownCon;
+      //it.switchObjectsCon =it.switchObjectsCon;
+      makeSoundCon =it.makeSoundCon;
+      sittingCon =it.sittingCon;
+      holdingHimSelfCon =it.holdingHimSelfCon;
+      thumbForeCon =it.thumbForeCon;
+      followingVoiceCon =it.followingVoiceCon;
+      proWordsCon =it.proWordsCon;
+      understandCon =it.understandCon;
+      walkingWithHelpCon =it.walkingWithHelpCon;
+      canSpeakCon =it.canSpeakCon;
+      handPointCon =it.handPointCon;
+      canRollCon =it.canRollCon;
+      canIdentifyCon =it.canIdentifyCon;
+      walkingWithoutHelpCon =it.walkingWithoutHelpCon;
+      canClimbCon =it.canClimbCon;
+      makeTowerCon =it.makeTowerCon;
+      eatHimselfCon =it.eatHimselfCon;
+      canTalkTenCon =it.canTalkTenCon;
+      lipsShapeCon =it.lipsShapeCon;
+      runWithoutFallingCon =it.runWithoutFallingCon;
+      upDownStairCon =it.upDownStairCon;
+      canCopyCon =it.canCopyCon;
+      canCreateCon =it.canCreateCon;
+
+      layingFaceDownOf =it.layingFaceDownOf;
+      movingObjectOf =it.movingObjectOf;
+      bigSoundOf =it.bigSoundOf;
+      ohhOf =it.ohhOf;
+      smileOf =it.smileOf;
+      raiseHeadOf =it.raiseHeadOf;
+      playFingersOf =it.playFingersOf;
+      strechHandOf =it.strechHandOf;
+      soundTurnOf =it.soundTurnOf;
+      singleLetterSoundOf =it.singleLetterSoundOf;
+      laughtLoudOf =it.laughtLoudOf;
+      raiseHead2Of =it.raiseHead2Of;
+      turnFaceUpDownOf =it.turnFaceUpDownOf;
+      //it.switchObjectsOf =it.switchObjectsOf;
+      makeSoundOf =it.makeSoundOf;
+      sittingOf =it.sittingOf;
+      holdingHimSelfOf =it.holdingHimSelfOf;
+      thumbForeOf =it.thumbForeOf;
+      followingVoiceOf =it.followingVoiceOf;
+      proWordsOf =it.proWordsOf;
+      understandOf =it.understandOf;
+      walkingWithHelpOf =it.walkingWithHelpOf;
+      canSpeakOf =it.canSpeakOf;
+      handPointOf =it.handPointOf;
+      canRollOf =it.canRollOf;
+      canIdentifyOf =it.canIdentifyOf;
+      walkingWithoutHelpOf =it.walkingWithoutHelpOf;
+      canClimbOf =it.canClimbOf;
+      makeTowerOf =it.makeTowerOf;
+      eatHimselfOf =it.eatHimselfOf;
+      canTalkTenOf =it.canTalkTenOf;
+      lipsShapeOf =it.lipsShapeOf;
+      runWithoutFallingOf =it.runWithoutFallingOf;
+      upDownStairOf =it.upDownStairOf;
+      canCopyOf =it.canCopyOf;
+      canCreateOf =it.canCreateOf;
+
+      logger.d(it.layingFaceDownOcc,'it.layingFaceDownOcc in init');
+    });
+  }
+
+  TabController _tabController;
   @override
   Widget build(BuildContext context) {
-    initState() {
-      logger.i('in initState');
-      super.initState();
-      baby.then((it) {
-        layingFaceDownOcc = it.layingFaceDownOcc;
-        logger.e(layingFaceDownOcc, 'layingFaceDownOcc');
-        it.movingObjectOcc = movingObjectOcc;
-        it.bigSoundOcc = bigSoundOcc;
-        it.ohhOcc = ohhOcc;
-        it.smileOcc = smileOcc;
-        it.raiseHeadOcc = raiseHeadOcc;
-        it.playFingersOcc = playFingersOcc;
-        it.strechHandOcc = strechHandOcc;
-        it.soundTurnOcc = soundTurnOcc;
-        it.singleLetterSoundOcc = singleLetterSoundOcc;
-        it.laughtLoudOcc = laughtLoudOcc;
-        it.raiseHead2Occ = raiseHead2Occ;
-        it.turnFaceUpDownOcc = turnFaceUpDownOcc;
-        //it.switchObjectsOcc = switchObjectsOcc;
-        it.makeSoundOcc = makeSoundOcc;
-        it.sittingOcc = sittingOcc;
-        it.holdingHimSelfOcc = holdingHimSelfOcc;
-        it.thumbForeOcc = thumbForeOcc;
-        it.followingVoiceOcc = followingVoiceOcc;
-        it.proWordsOcc = proWordsOcc;
-        it.understandOcc = understandOcc;
-        it.walkingWithHelpOcc = walkingWithHelpOcc;
-        it.canSpeakOcc = canSpeakOcc;
-        it.handPointOcc = handPointOcc;
-        it.canRollOcc = canRollOcc;
-        it.canIdentifyOcc = canIdentifyOcc;
-        it.walkingWithoutHelpOcc = walkingWithoutHelpOcc;
-        it.canClimbOcc = canClimbOcc;
-        it.makeTowerOcc = makeTowerOcc;
-        it.eatHimselfOcc = eatHimselfOcc;
-        it.canTalkTenOcc = canTalkTenOcc;
-        it.lipsShapeOcc = lipsShapeOcc;
-        it.runWithoutFallingOcc = runWithoutFallingOcc;
-        it.upDownStairOcc = upDownStairOcc;
-        it.canCopyOcc = canCopyOcc;
-        it.canCreateOcc = canCreateOcc;
-
-        it.layingFaceDownCon = layingFaceDownCon;
-        it.movingObjectCon = movingObjectCon;
-        it.bigSoundCon = bigSoundCon;
-        it.ohhCon = ohhCon;
-        it.smileCon = smileCon;
-        it.raiseHeadCon = raiseHeadCon;
-        it.playFingersCon = playFingersCon;
-        it.strechHandCon = strechHandCon;
-        it.soundTurnCon = soundTurnCon;
-        it.singleLetterSoundCon = singleLetterSoundCon;
-        it.laughtLoudCon = laughtLoudCon;
-        it.raiseHead2Con = raiseHead2Con;
-        it.turnFaceUpDownCon = turnFaceUpDownCon;
-        //it.switchObjectsCon = switchObjectsCon;
-        it.makeSoundCon = makeSoundCon;
-        it.sittingCon = sittingCon;
-        it.holdingHimSelfCon = holdingHimSelfCon;
-        it.thumbForeCon = thumbForeCon;
-        it.followingVoiceCon = followingVoiceCon;
-        it.proWordsCon = proWordsCon;
-        it.understandCon = understandCon;
-        it.walkingWithHelpCon = walkingWithHelpCon;
-        it.canSpeakCon = canSpeakCon;
-        it.handPointCon = handPointCon;
-        it.canRollCon = canRollCon;
-        it.canIdentifyCon = canIdentifyCon;
-        it.walkingWithoutHelpCon = walkingWithoutHelpCon;
-        it.canClimbCon = canClimbCon;
-        it.makeTowerCon = makeTowerCon;
-        it.eatHimselfCon = eatHimselfCon;
-        it.canTalkTenCon = canTalkTenCon;
-        it.lipsShapeCon = lipsShapeCon;
-        it.runWithoutFallingCon = runWithoutFallingCon;
-        it.upDownStairCon = upDownStairCon;
-        it.canCopyCon = canCopyCon;
-        it.canCreateCon = canCreateCon;
-
-        it.layingFaceDownOf = layingFaceDownOf;
-        it.movingObjectOf = movingObjectOf;
-        it.bigSoundOf = bigSoundOf;
-        it.ohhOf = ohhOf;
-        it.smileOf = smileOf;
-        it.raiseHeadOf = raiseHeadOf;
-        it.playFingersOf = playFingersOf;
-        it.strechHandOf = strechHandOf;
-        it.soundTurnOf = soundTurnOf;
-        it.singleLetterSoundOf = singleLetterSoundOf;
-        it.laughtLoudOf = laughtLoudOf;
-        it.raiseHead2Of = raiseHead2Of;
-        it.turnFaceUpDownOf = turnFaceUpDownOf;
-        //it.switchObjectsOf = switchObjectsOf;
-        it.makeSoundOf = makeSoundOf;
-        it.sittingOf = sittingOf;
-        it.holdingHimSelfOf = holdingHimSelfOf;
-        it.thumbForeOf = thumbForeOf;
-        it.followingVoiceOf = followingVoiceOf;
-        it.proWordsOf = proWordsOf;
-        it.understandOf = understandOf;
-        it.walkingWithHelpOf = walkingWithHelpOf;
-        it.canSpeakOf = canSpeakOf;
-        it.handPointOf = handPointOf;
-        it.canRollOf = canRollOf;
-        it.canIdentifyOf = canIdentifyOf;
-        it.walkingWithoutHelpOf = walkingWithoutHelpOf;
-        it.canClimbOf = canClimbOf;
-        it.makeTowerOf = makeTowerOf;
-        it.eatHimselfOf = eatHimselfOf;
-        it.canTalkTenOf = canTalkTenOf;
-        it.lipsShapeOf = lipsShapeOf;
-        it.runWithoutFallingOf = runWithoutFallingOf;
-        it.upDownStairOf = upDownStairOf;
-        it.canCopyOf = canCopyOf;
-        it.canCreateOf = canCreateOf;
-      });
-    }
-
     Choice index;
     var data = EasyLocalizationProvider.of(context).data;
 
@@ -299,6 +300,7 @@ class _GrowingViewState extends State<GrowingView> {
       builder: (context, snapshot) {
         logger.w(layingFaceDownOcc, 'layingFaceDownOcc');
         if (snapshot.connectionState == ConnectionState.waiting) {
+          logger.i(layingFaceDownOcc,'layingFaceDownOcc');
           if (layingFaceDownOcc == null) {
             layingFaceDownVis = true;
             layingFaceDownOcc = "No Data";
