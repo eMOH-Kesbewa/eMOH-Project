@@ -126,9 +126,10 @@ export class ViewBabybyIDComponent implements OnInit {
     this.motherbabyjoinedservice.register(this.addmotherbabyForm.value,this.babyId)
     .subscribe(
        response=>{
-        if(response.status==201){
+        if(response.status==200){
            this.openSnackBar("Updated Successfully");
            this.router.navigate(["viewMothers/"])
+
         }else{
           this.openSnackBar("Update is Unsuccessfull, Pls enter it again!");
           this.router.navigate([this.router.url,'viewMotherbyId',this.babyId])

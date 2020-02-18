@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MotherbabyjoinedService } from 'app/Services/motherbabyjoined.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
+import {MatSnackBar} from '@angular/material/snack-bar';
+
 import { FamiliesService } from 'app/Services/families.service';
 import { MotherService } from 'app/Services/mother.service';
 
@@ -16,8 +18,9 @@ export class AddmotherbabyjoineddataComponent implements OnInit {
   submitted = false;
   success = false;
   motherId;
-  constructor(private fb: FormBuilder,private MotherbabyjoinedService : MotherbabyjoinedService,private familyservice : FamiliesService,private motherService: MotherService) { }
+  constructor(private fb: FormBuilder,private MotherbabyjoinedService : MotherbabyjoinedService,private familyservice : FamiliesService,private motherService: MotherService,private router : Router, private _snackBar:MatSnackBar) { }
 
+  
   ngOnInit() {
     this.motherId = localStorage.getItem('selectedFamId');
     this.addmotherbabyForm=this.fb.group({
@@ -101,17 +104,23 @@ export class AddmotherbabyjoineddataComponent implements OnInit {
     console.log(this.addmotherbabyForm.value);
       this.MotherbabyjoinedService.addnewbaby(this.addmotherbabyForm.value)
         .subscribe(
-          response=>console.log('Success!',response),
+          response=>{
+            this.openSnackBar("Inserted Successfully");
+            this.router.navigate(["viewMothers/viewMotherbyId/",localStorage.getItem('selectedFamId')]);
+          },
           error=>{
-            if(error) console.log("Failure") 
-            else console.log("Success No Errors")
+            this.openSnackBar("Inserted  not Successful");
           }
         );
        // this.router.navigate(['viewClinics']);
     console.log(this.addmotherbabyForm.value);
   }
 
-    
+   
+  openSnackBar(msg) {
+    this._snackBar.open(msg,"OK")
+  }
+  
   getAge(dob){
     let presentYear = new Date().getUTCFullYear();
     let birthYearStr = dob.substr(0,4);

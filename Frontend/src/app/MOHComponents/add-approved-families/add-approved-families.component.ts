@@ -26,10 +26,10 @@ export class AddApprovedFamiliesComponent implements OnInit {
 
   ngOnInit() {
     this.approvedFamilyForm = this.formBuilder.group({
-      village_id : ['', Validators.required],
+      village_id : [localStorage.getItem('newFamIdForNewUser')[1], Validators.required],
       // Approved_family_category: ['', Validators.required],
-      Identity_number: ['', Validators.required],
-      Date: ['',Validators.required],
+      Identity_number: [localStorage.getItem('newFamIdForNewUser'), Validators.required],
+      Date: [this.getToday(),Validators.required],
       Name_of_wife: ['', Validators.required],
       Name_of_husband: [''],
       Address: ['', Validators.required],
@@ -62,6 +62,7 @@ export class AddApprovedFamiliesComponent implements OnInit {
       number_of_young_children: ['']
     },
     {validator: this.dateLessThan('Date_of_birth', 'Date')});
+    this.getToday();
   }
 
   dateLessThan(from: string, to: string) {
@@ -85,22 +86,27 @@ export class AddApprovedFamiliesComponent implements OnInit {
         return;
     }
 
-    this.success = true;
+   // this.success = true;
     this.addfamilyService.add(this.approvedFamilyForm.value)
       .subscribe(
-        response=>console.log('Success!',response),
-        error=>{
-          if(error) {
+        response=>{
             this.openSnackBar("Inserted Successfully");
             this.router.navigate(["viewApprovedFamilies/"])
-          }
-          else console.log("Success No Errors")
+          
+        } ,
+        error=>{
+          this.openSnackBar("Update is Unsuccessfull, Pls enter it again!");
+            this.router.navigate(["AddApprovedFamilies"])
         }
     );
 }
 
 openSnackBar(msg) {
   this._snackBar.open(msg,"OK")
+}
+
+getToday(){
+  return new Date().toISOString().substr(0,10)
 }
 
 }

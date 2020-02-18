@@ -33,7 +33,7 @@ import { DeliveryReportComponent } from 'app/Graphs/delivery-report/delivery-rep
 
 
 @NgModule({
-    declarations:[ViewMothersComponent,ViewMotherByIDComponent,ViewPregnantMothersComponent,RegPregMothersComponent,DeliveryReportComponent
+    declarations:[ViewMothersComponent,ViewMotherByIDComponent,RegPregMothersComponent,DeliveryReportComponent
     ],
     imports:[
         Mothers,

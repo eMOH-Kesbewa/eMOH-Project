@@ -11,7 +11,15 @@ var phm = require('../Schemas/phm');
 router.post('/register', (req, res) => { 
     console.log(req.body);
     var data = new Mother(req.body);
-    data.save();
+    data.save((err,doc)=>{
+        if(err) {
+            //console.log(handleError(err));
+            res.status(500).json("Error When Inserting");
+        }
+        else if(doc){
+            res.status(200).json("Inserted successfully.");
+        }
+    })
     console.log("Completed");
 });
 
@@ -53,10 +61,10 @@ router.put('/update/mother', async (req, res) => {
             new: true,
             upsert: false 
         });
-        res.status(200).send(doc)
+        res.status(200).json(doc)
         console.log(doc);
     } catch (error) {
-        res.status(500).send(error);
+        res.status(500).json(error);
         console.log(error);
     }
 
@@ -78,7 +86,7 @@ router.get('/update/motherfordoc', async (req, res) => {
         });
         console.log(doc);
     } catch (error) {
-        res.status(500).send(error);
+        res.status(500).json(error);
         console.log(error);
     }
 
@@ -89,7 +97,7 @@ router.post('/addmotherfordoc', (req, res) => {
     console.log(req.body);
     var data = new motherfordoc(req.body);
     data.save((err,doc)=>{
-        res.status(200).send("Inserted successfully.");
+        res.status(200).json("Inserted successfully.");
     });
     console.log("Completed");
 });

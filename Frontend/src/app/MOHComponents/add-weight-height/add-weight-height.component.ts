@@ -124,14 +124,17 @@ export class AddWeightHeightComponent implements OnInit {
         return;
     }
 
-    this.success = true;
+   // this.success = true;
     this.addweightService.add(this.WeightHeightForm.value)
       .subscribe(
-        response=>console.log('Success!',response),
+        response=>{
+          this.openSnackBar("Inserted Successfully");
+            this.router.navigate(["ViewWeightTable/"])
+        },
         error=>{
           if(error) {
-            this.openSnackBar("Inserted Successfully");
-            this.router.navigate(["ViewWeightTable/"])
+            this.openSnackBar("Inserted Unsuccessful! Please add Again");
+            this.router.navigate(["AddWeightHeight"])
           } 
           else console.log("Success No Errors")
         }

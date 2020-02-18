@@ -19,7 +19,7 @@
                     
                       <tr>
                         <th rowspan = 2><b>{{ 'weightHeight.baby_id' | translate }}</b></th>
-                        <th rowspan = 2><b>{{ 'weightHeight.bathch_no' | translate }}</b></th>
+                        <!-- <th rowspan = 2><b>{{ 'weightHeight.bathch_no' | translate }}</b></th> -->
                         <th rowspan = 2><b>{{ 'weightHeight.childs_name' | translate }}</b></th>
                         <th rowspan = 2><b>{{ 'weightHeight.sex' | translate }}</b></th>
                         <th rowspan = 2><b>{{ 'weightHeight.date_of_birth' | translate }}</b></th>
@@ -33,7 +33,7 @@
                       <tbody>
                       <tr *ngFor="let weight of weights" (click)="onClickMe(weight.baby_id)" style="cursor:pointer">
                           <td>{{weight.baby_id}}</td>
-                          <td align="center">{{weight.batch_no}}</td>
+                          <!-- <td align="center">{{weight.batch_no}}</td> -->
                           <td >{{weight.name_of_child}}</td>
                           <td align="center">{{weight.sex}}</td>
                           <td>{{weight.Date_of_birth | date: 'yyyy/MM/dd'}}</td>

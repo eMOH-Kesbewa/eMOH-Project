@@ -1,14 +1,52 @@
 <div class="container-fluid">
+  <router-outlet></router-outlet>
   <div class="row">
       <div class="col-md-12">
         <div class="col-md-9"></div>
         <div class="row">
           <div class="col-md-9"></div>
-          <div class="col-md-3">
-            <mat-slide-toggle  [formControl]="autoRenew" (change)="onChange()">{{'edit'| translate}}</mat-slide-toggle>
+           <div class="col-md-3">
+          <button class="btn btn-info btn-block" mat-button [matMenuTriggerFor]="menu">{{ 'family.generateReports' | translate }}</button>
+      <mat-menu #menu="matMenu">
+        
+        <a mat-menu-item [matMenuTriggerFor]="MonthlyReportComponent">2020</a>
+        <!-- <a mat-menu-item [matMenuTriggerFor]="MonthlyReportComponent">2019</a> -->
+
+        <!-- <a mat-menu-item [matMenuTriggerFor]="ViewDeliveryReport">Deliveries And Postpartum Visits</a> -->
+        
+        </mat-menu>
+        <mat-menu #MonthlyReportComponent="matMenu">
+          <a mat-menu-item (click)= "GotoMonth(2020,01)">01</a>
+          <a mat-menu-item (click)= "GotoMonth(2020,02)">02</a>
+          <a mat-menu-item (click)= "GotoMonth(2020,03)">03</a>
+          <a mat-menu-item (click)= "GotoMonth(2020,04)">04</a>
+          <a mat-menu-item (click)= "GotoMonth(2020,05)">05</a>
+          <a mat-menu-item (click)= "GotoMonth(2020,06)">06</a>
+          <a mat-menu-item (click)= "GotoMonth(2020,07)">07</a>
+          <a mat-menu-item (click)= "GotoMonth(2020,08)">08</a>
+          <a mat-menu-item (click)= "GotoMonth(2020,09)">09</a>
+          <a mat-menu-item (click)= "GotoMonth(2020,10)">10</a>
+          <a mat-menu-item (click)= "GotoMonth(2020,11)">11</a>
+          <a mat-menu-item (click)= "GotoMonth(2020,12)">12</a>
+        </mat-menu>
+
+        <!-- <mat-menu #MonthlyReportComponent="matMenu">
+          <a mat-menu-item (click)= "GotoMonth(2019,01)">01</a>
+          <a mat-menu-item (click)= "GotoMonth(2019,02)">02</a>
+          <a mat-menu-item (click)= "GotoMonth(2019,03)">03</a>
+          <a mat-menu-item (click)= "GotoMonth(2019,04)">04</a>
+          <a mat-menu-item (click)= "GotoMonth(2019,05)">05</a>
+          <a mat-menu-item (click)= "GotoMonth(2019,06)">06</a>
+          <a mat-menu-item (click)= "GotoMonth(2019,07)">07</a>
+          <a mat-menu-item (click)= "GotoMonth(2019,08)">08</a>
+          <a mat-menu-item (click)= "GotoMonth(2019,09)">09</a>
+          <a mat-menu-item (click)= "GotoMonth(2019,10)">10</a>
+          <a mat-menu-item (click)= "GotoMonth(2019,11)">11</a>
+          <a mat-menu-item (click)= "GotoMonth(2019,12)">12</a>
+        </mat-menu> -->
         </div>
         </div>
-          <div class="card">
+        <div class="card">
               <div class="card-header card-header-info">
                   <h4 class="card-title">{{'phm.dailyUpdateForm'| translate}}</h4>
               </div>

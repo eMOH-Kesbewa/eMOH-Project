@@ -55,7 +55,7 @@
                             </div>
                             <div class="col-md-5">
                                     <mat-form-field class="example-full-width">
-                                        <input matInput placeholder="{{ 'motherBabyJoined.address' | translate }}" type= "text" formControlName="address" readonly>
+                                        <input matInput placeholder="{{ 'motherBabyJoined.address' | translate }}" type= "text" formControlName="address" >
                                         <div *ngIf="submitted && addmotherbabyForm.controls.address.errors" class="error">
                                             <div *ngIf="addmotherbabyForm.controls.address.errors.required">This field is required</div>
                                           </div>

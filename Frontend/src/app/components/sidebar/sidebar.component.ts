@@ -26,7 +26,7 @@ export const ROUTESforPHM: RouteInfo[] = [
   { path: '/viewMothers', title: 'Mothers',  icon:'pregnant_woman', class: '' },
   { path:'/ViewWeightTable',title: 'Weight Height', icon:'content_paste',class:''},
   { path:'/specialAttention',title: 'Special Attention', icon:'pan_tool',class:''},
-  { path:'/phmReport',title: 'PHM Report', icon:'perm_contact_calendar',class:''},
+  { path:'/ViewWeightTable/phmReports',title: 'PHM Report', icon:'perm_contact_calendar',class:''},
   { path:'/regMother',title: 'Register New Mother', icon:'person_add',class:''}
 ];
 
