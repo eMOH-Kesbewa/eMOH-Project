@@ -38,132 +38,71 @@ class EyeTest extends StatefulWidget {
 }
 
 class _EyeTestState extends State<EyeTest> {
-  // initState() {
-  //   super.initState();
-  //   // setState(() {
-  //   //   switchVal = true;
-  //   // });
-  //   baby.then((it) {
-  //     if (it.faceCheck.toString() == "no" || it.faceCheck == null) {
-  //       //this gives the error
-  //       faceCheck = false;
-  //     } else {
-  //       faceCheck = true;
-  //     }
-  //     if (it.lightCheck.toString() == "no" || it.lightCheck == null) {
-  //       lightCheck = false;
-  //     } else {
-  //       lightCheck = true;
-  //     }
-  //     if (it.turnCheck.toString() == "no" || it.turnCheck == null) {
-  //       turnCheck = false;
-  //     } else {
-  //       turnCheck = true;
-  //     }
-  //     if (it.theneyesCheck.toString() == "no" || it.theneyesCheck == null) {
-  //       theneyesCheck = false;
-  //     } else {
-  //       theneyesCheck = true;
-  //     }
-  //     if (it.lookingCheck.toString() == "no" || it.lookingCheck == null) {
-  //       lookingCheck = false;
-  //     } else {
-  //       lookingCheck = true;
-  //     }
-  //     if (it.touchCheck.toString() == "no" || it.touchCheck == null) {
-  //       touchCheck = false;
-  //     } else {
-  //       touchCheck = true;
-  //     }
-  //     if (it.squintCheck.toString() == "no" || it.squintCheck == null) {
-  //       squintCheck = false;
-  //     } else {
-  //       squintCheck = true;
-  //     }
-  //     if (it.ringCheck.toString() == "no" || it.ringCheck == null) {
-  //       ringCheck = false;
-  //     } else {
-  //       ringCheck = true;
-  //     }
-  //     if (it.askCheck.toString() == "no" || it.askCheck == null) {
-  //       askCheck = false;
-  //     } else {
-  //       askCheck = true;
-  //     }
-  //     if (it.talkCheck.toString() == "no" || it.talkCheck == null) {
-  //       talkCheck = false;
-  //     } else {
-  //       talkCheck = true;
-  //     }
-  //   });
+  initState() {
+    super.initState();
+    // setState(() {
+    //   switchVal = true;
+    // });
+    baby.then((it) {
+      if (it.faceCheck.toString() == "no" || it.faceCheck == null) {
+        //this gives the error
+        faceCheck = false;
+      } else {
+        faceCheck = true;
+      }
+      if (it.lightCheck.toString() == "no" || it.lightCheck == null) {
+        lightCheck = false;
+      } else {
+        lightCheck = true;
+      }
+      if (it.turnCheck.toString() == "no" || it.turnCheck == null) {
+        turnCheck = false;
+      } else {
+        turnCheck = true;
+      }
+      if (it.theneyesCheck.toString() == "no" || it.theneyesCheck == null) {
+        theneyesCheck = false;
+      } else {
+        theneyesCheck = true;
+      }
+      if (it.lookingCheck.toString() == "no" || it.lookingCheck == null) {
+        lookingCheck = false;
+      } else {
+        lookingCheck = true;
+      }
+      if (it.touchCheck.toString() == "no" || it.touchCheck == null) {
+        touchCheck = false;
+      } else {
+        touchCheck = true;
+      }
+      if (it.squintCheck.toString() == "no" || it.squintCheck == null) {
+        squintCheck = false;
+      } else {
+        squintCheck = true;
+      }
+      if (it.ringCheck.toString() == "no" || it.ringCheck == null) {
+        ringCheck = false;
+      } else {
+        ringCheck = true;
+      }
+      if (it.askCheck.toString() == "no" || it.askCheck == null) {
+        askCheck = false;
+      } else {
+        askCheck = true;
+      }
+      if (it.talkCheck.toString() == "no" || it.talkCheck == null) {
+        talkCheck = false;
+      } else {
+        talkCheck = true;
+      }
+    });
 
-  //   // print(faceCheck);
-  // }
+    // print(faceCheck);
+  }
 
   @override
   Widget build(BuildContext context) {
-    initState() {
-      super.initState();
-      // setState(() {
-      //   switchVal = true;
-      // });
-      baby.then((it) {
-        if (it.faceCheck.toString() == "no" || it.faceCheck == null) {
-          //this gives the error
-          faceCheck = false;
-        } else {
-          faceCheck = true;
-        }
-        if (it.lightCheck.toString() == "no" || it.lightCheck == null) {
-          lightCheck = false;
-        } else {
-          lightCheck = true;
-        }
-        if (it.turnCheck.toString() == "no" || it.turnCheck == null) {
-          turnCheck = false;
-        } else {
-          turnCheck = true;
-        }
-        if (it.theneyesCheck.toString() == "no" || it.theneyesCheck == null) {
-          theneyesCheck = false;
-        } else {
-          theneyesCheck = true;
-        }
-        if (it.lookingCheck.toString() == "no" || it.lookingCheck == null) {
-          lookingCheck = false;
-        } else {
-          lookingCheck = true;
-        }
-        if (it.touchCheck.toString() == "no" || it.touchCheck == null) {
-          touchCheck = false;
-        } else {
-          touchCheck = true;
-        }
-        if (it.squintCheck.toString() == "no" || it.squintCheck == null) {
-          squintCheck = false;
-        } else {
-          squintCheck = true;
-        }
-        if (it.ringCheck.toString() == "no" || it.ringCheck == null) {
-          ringCheck = false;
-        } else {
-          ringCheck = true;
-        }
-        if (it.askCheck.toString() == "no" || it.askCheck == null) {
-          askCheck = false;
-        } else {
-          askCheck = true;
-        }
-        if (it.talkCheck.toString() == "no" || it.talkCheck == null) {
-          talkCheck = false;
-        } else {
-          talkCheck = true;
-        }
-      });
-
-      // print(faceCheck);
-    }
-
+   
     var data = EasyLocalizationProvider.of(context).data;
     return EasyLocalizationProvider(
       data: data,
@@ -552,3 +491,5 @@ class _EyeTestState extends State<EyeTest> {
 //}
 
 }
+
+

@@ -105,10 +105,12 @@ class _GrowthCardState extends State<GrowthCard> {
                           print(widget.occAge);
                           updateDetails(widget.funText, widget.occAge)
                               .then((res) {
+                                logger.e('res',res);
                             Toast.show("Done", context,
                                 duration: Toast.LENGTH_LONG,
                                 gravity: Toast.BOTTOM);
                           }).catchError((e) {
+                            logger.e('growth card', e);
                             Toast.show("An Error Has Occured", context,
                                 duration: Toast.LENGTH_LONG,
                                 gravity: Toast.BOTTOM);

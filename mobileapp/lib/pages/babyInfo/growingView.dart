@@ -10,9 +10,119 @@ import 'package:mobileapp/services/globals.dart' as globals;
 import 'package:easy_localization/easy_localization.dart';
 import 'package:easy_localization/easy_localization_provider.dart';
 
-
-
 //Update function no tworking
+
+Future<Baby> baby = fetchBaby();
+String layingFaceDownOcc,
+    movingObjectOcc,
+    bigSoundOcc,
+    ohhOcc,
+    smileOcc,
+    raiseHeadOcc,
+    playFingersOcc,
+    strechHandOcc,
+    soundTurnOcc,
+    singleLetterSoundOcc,
+    laughtLoudOcc,
+    raiseHead2Occ,
+    turnFaceUpDownOcc,
+    switchObjectsOcc,
+    makeSoundOcc,
+    sittingOcc,
+    holdingHimSelfOcc,
+    thumbForeOcc,
+    followingVoiceOcc,
+    proWordsOcc,
+    understandOcc,
+    walkingWithHelpOcc,
+    canSpeakOcc,
+    handPointOcc,
+    canRollOcc,
+    canIdentifyOcc,
+    walkingWithoutHelpOcc,
+    canClimbOcc,
+    makeTowerOcc,
+    eatHimselfOcc,
+    canTalkTenOcc,
+    lipsShapeOcc,
+    runWithoutFallingOcc,
+    upDownStairOcc,
+    canCopyOcc,
+    canCreateOcc;
+
+String layingFaceDownCon,
+    movingObjectCon,
+    bigSoundCon,
+    ohhCon,
+    smileCon,
+    raiseHeadCon,
+    playFingersCon,
+    strechHandCon,
+    soundTurnCon,
+    singleLetterSoundCon,
+    laughtLoudCon,
+    raiseHead2Con,
+    turnFaceUpDownCon,
+    switchObjectsCon,
+    makeSoundCon,
+    sittingCon,
+    holdingHimSelfCon,
+    thumbForeCon,
+    followingVoiceCon,
+    proWordsCon,
+    understandCon,
+    walkingWithHelpCon,
+    canSpeakCon,
+    handPointCon,
+    canRollCon,
+    canIdentifyCon,
+    walkingWithoutHelpCon,
+    canClimbCon,
+    makeTowerCon,
+    eatHimselfCon,
+    canTalkTenCon,
+    lipsShapeCon,
+    runWithoutFallingCon,
+    upDownStairCon,
+    canCopyCon,
+    canCreateCon;
+
+String layingFaceDownOf,
+    movingObjectOf,
+    bigSoundOf,
+    ohhOf,
+    smileOf,
+    raiseHeadOf,
+    playFingersOf,
+    strechHandOf,
+    soundTurnOf,
+    singleLetterSoundOf,
+    laughtLoudOf,
+    raiseHead2Of,
+    turnFaceUpDownOf,
+    switchObjectsOf,
+    makeSoundOf,
+    sittingOf,
+    holdingHimSelfOf,
+    thumbForeOf,
+    followingVoiceOf,
+    proWordsOf,
+    understandOf,
+    walkingWithHelpOf,
+    canSpeakOf,
+    handPointOf,
+    canRollOf,
+    canIdentifyOf,
+    walkingWithoutHelpOf,
+    canClimbOf,
+    makeTowerOf,
+    eatHimselfOf,
+    canTalkTenOf,
+    lipsShapeOf,
+    runWithoutFallingOf,
+    upDownStairOf,
+    canCopyOf,
+    canCreateOf;
 
 class GrowingView extends StatefulWidget {
   @override
@@ -20,127 +130,18 @@ class GrowingView extends StatefulWidget {
 }
 
 class _GrowingViewState extends State<GrowingView> {
-  Future<Baby> baby = fetchBaby();
   TabController _tabController;
-  
-  String layingFaceDownOcc,
-      movingObjectOcc,
-      bigSoundOcc,
-      ohhOcc,
-      smileOcc,
-      raiseHeadOcc,
-      playFingersOcc,
-      strechHandOcc,
-      soundTurnOcc,
-      singleLetterSoundOcc,
-      laughtLoudOcc,
-      raiseHead2Occ,
-      turnFaceUpDownOcc,
-      switchObjectsOcc,
-      makeSoundOcc,
-      sittingOcc,
-      holdingHimSelfOcc,
-      thumbForeOcc,
-      followingVoiceOcc,
-      proWordsOcc,
-      understandOcc,
-      walkingWithHelpOcc,
-      canSpeakOcc,
-      handPointOcc,
-      canRollOcc,
-      canIdentifyOcc,
-      walkingWithoutHelpOcc,
-      canClimbOcc,
-      makeTowerOcc,
-      eatHimselfOcc,
-      canTalkTenOcc,
-      lipsShapeOcc,
-      runWithoutFallingOcc,
-      upDownStairOcc,
-      canCopyOcc,
-      canCreateOcc;
 
-  String layingFaceDownCon,
-      movingObjectCon,
-      bigSoundCon,
-      ohhCon,
-      smileCon,
-      raiseHeadCon,
-      playFingersCon,
-      strechHandCon,
-      soundTurnCon,
-      singleLetterSoundCon,
-      laughtLoudCon,
-      raiseHead2Con,
-      turnFaceUpDownCon,
-      switchObjectsCon,
-      makeSoundCon,
-      sittingCon,
-      holdingHimSelfCon,
-      thumbForeCon,
-      followingVoiceCon,
-      proWordsCon,
-      understandCon,
-      walkingWithHelpCon,
-      canSpeakCon,
-      handPointCon,
-      canRollCon,
-      canIdentifyCon,
-      walkingWithoutHelpCon,
-      canClimbCon,
-      makeTowerCon,
-      eatHimselfCon,
-      canTalkTenCon,
-      lipsShapeCon,
-      runWithoutFallingCon,
-      upDownStairCon,
-      canCopyCon,
-      canCreateCon;
-
-  String layingFaceDownOf,
-      movingObjectOf,
-      bigSoundOf,
-      ohhOf,
-      smileOf,
-      raiseHeadOf,
-      playFingersOf,
-      strechHandOf,
-      soundTurnOf,
-      singleLetterSoundOf,
-      laughtLoudOf,
-      raiseHead2Of,
-      turnFaceUpDownOf,
-      switchObjectsOf,
-      makeSoundOf,
-      sittingOf,
-      holdingHimSelfOf,
-      thumbForeOf,
-      followingVoiceOf,
-      proWordsOf,
-      understandOf,
-      walkingWithHelpOf,
-      canSpeakOf,
-      handPointOf,
-      canRollOf,
-      canIdentifyOf,
-      walkingWithoutHelpOf,
-      canClimbOf,
-      makeTowerOf,
-      eatHimselfOf,
-      canTalkTenOf,
-      lipsShapeOf,
-      runWithoutFallingOf,
-      upDownStairOf,
-      canCopyOf,
-      canCreateOf;
   @override
   var logger = Logger();
   @override
   Widget build(BuildContext context) {
     initState() {
+      logger.i('in initState');
       super.initState();
       baby.then((it) {
-        it.layingFaceDownOcc = layingFaceDownOcc;
+        layingFaceDownOcc = it.layingFaceDownOcc;
+        logger.e(layingFaceDownOcc, 'layingFaceDownOcc');
         it.movingObjectOcc = movingObjectOcc;
         it.bigSoundOcc = bigSoundOcc;
         it.ohhOcc = ohhOcc;
@@ -296,6 +297,7 @@ class _GrowingViewState extends State<GrowingView> {
     return FutureBuilder<Baby>(
       future: fetchBaby(),
       builder: (context, snapshot) {
+        logger.w(layingFaceDownOcc, 'layingFaceDownOcc');
         if (snapshot.connectionState == ConnectionState.waiting) {
           if (layingFaceDownOcc == null) {
             layingFaceDownVis = true;
@@ -694,7 +696,6 @@ class _GrowingViewState extends State<GrowingView> {
             // canCreateOcc = snapshot.data.canCreateOcc;
             // canCreateOf = snapshot.data.canCreateOf;
           }
-
           return EasyLocalizationProvider(
             data: data,
             child: Scaffold(
@@ -707,187 +708,7 @@ class _GrowingViewState extends State<GrowingView> {
             ),
           );
         } else {
-          // if (snapshot.data.layingFaceDownOcc == '0') {
-          //   layingFaceDownVis = true;
-          // } else {
-          //   layingFaceDownVis = false;
-          // }
-          // if (snapshot.data.movingObjectOcc == '0') {
-          //   movingObjectVis = true;
-          // } else {
-          //   movingObjectVis = false;
-          // }
-          // if (snapshot.data.bigSoundOcc == '0') {
-          //   bigSoundVis = true;
-          // } else {
-          //   bigSoundVis = false;
-          // }
-          // if (snapshot.data.ohhOcc == '0') {
-          //   ohhVis = true;
-          // } else {
-          //   ohhVis = false;
-          // }
-          // if (snapshot.data.smileOcc == '0') {
-          //   smileVis = true;
-          // } else {
-          //   smileVis = false;
-          // }
-          // if (snapshot.data.raiseHeadOcc == '0') {
-          //   raiseHeadVis = true;
-          // } else {
-          //   raiseHeadVis = false;
-          // }
-          // if (snapshot.data.playFingersOcc == '0') {
-          //   playFingersVis = true;
-          // } else {
-          //   playFingersVis = false;
-          // }
-          // if (snapshot.data.strechHandOcc == '0') {
-          //   strechHandVis = true;
-          // } else {
-          //   strechHandVis = false;
-          // }
-          // if (snapshot.data.soundTurnOcc == '0') {
-          //   soundTurnVis = true;
-          // } else {
-          //   soundTurnVis = false;
-          // }
-          // if (snapshot.data.singleLetterSoundOcc == '0') {
-          //   singleLetterSoundVis = true;
-          // } else {
-          //   singleLetterSoundVis = false;
-          // }
-          // if (snapshot.data.laughtLoudOcc == '0') {
-          //   laughtLoudVis = true;
-          // } else {
-          //   laughtLoudVis = false;
-          // }
-          // if (snapshot.data.raiseHead2Occ == '0') {
-          //   raiseHead2Vis = true;
-          // } else {
-          //   raiseHead2Vis = false;
-          // }
-          // if (snapshot.data.turnFaceUpDownOcc == '0') {
-          //   turnFaceUpDownVis = true;
-          // } else {
-          //   turnFaceUpDownVis = false;
-          // }
-          // if (snapshot.data.switchObjectsOcc == '0') {
-          //   switchObjectVis = true;
-          // } else {
-          //   switchObjectVis = false;
-          // }
-          // if (snapshot.data.makeSoundOcc == '0') {
-          //   makeSoundVis = true;
-          // } else {
-          //   makeSoundVis = false;
-          // }
-          // if (snapshot.data.sittingOcc == '0') {
-          //   sittingVis = true;
-          // } else {
-          //   sittingVis = false;
-          // }
-          // if (snapshot.data.holdingHimSelfOcc == '0') {
-          //   holdingHimSelfVis = true;
-          // } else {
-          //   holdingHimSelfVis = false;
-          // }
-          // if (snapshot.data.thumbForeOcc == '0') {
-          //   thumbForeVis = true;
-          // } else {
-          //   thumbForeVis = false;
-          // }
-          // if (snapshot.data.followingVoiceOcc == '0') {
-          //   followingVoiceVis = true;
-          // } else {
-          //   followingVoiceVis = false;
-          // }
-          // if (snapshot.data.proWordsOcc == '0') {
-          //   proWordsVis = true;
-          // } else {
-          //   proWordsVis = false;
-          // }
-          // if (snapshot.data.understandOcc == '0') {
-          //   understandVis = true;
-          // } else {
-          //   understandVis = false;
-          // }
-          // if (snapshot.data.walkingWithHelpOcc == '0') {
-          //   walkingWithHelpVis = true;
-          // } else {
-          //   walkingWithHelpVis = false;
-          // }
-          // if (snapshot.data.canSpeakOcc == '0') {
-          //   canSpeakVis = true;
-          // } else {
-          //   canSpeakVis = false;
-          // }
-          // if (snapshot.data.handPointOcc == '0') {
-          //   handPointVis = true;
-          // } else {
-          //   handPointVis = false;
-          // }
-          // if (snapshot.data.canRollOcc == '0') {
-          //   canRollVis = true;
-          // } else {
-          //   canRollVis = false;
-          // }
-          // if (snapshot.data.canIdentifyOcc == '0') {
-          //   canIdentifyVis = true;
-          // } else {
-          //   canIdentifyVis = false;
-          // }
-          // if (snapshot.data.walkingWithoutHelpOcc == '0') {
-          //   walkingWithoutHelpVis = true;
-          // } else {
-          //   walkingWithoutHelpVis = false;
-          // }
-          // if (snapshot.data.canClimbOcc == '0') {
-          //   canClimbVis = true;
-          // } else {
-          //   canClimbVis = false;
-          // }
-          // if (snapshot.data.makeTowerOcc == '0') {
-          //   makeTowerVis = true;
-          // } else {
-          //   makeTowerVis = false;
-          // }
-          // if (snapshot.data.eatHimselfOcc == '0') {
-          //   eatHimselfVis = true;
-          // } else {
-          //   eatHimselfVis = false;
-          // }
-          // if (snapshot.data.canTalkTenOcc == '0') {
-          //   canTalkTenVis = true;
-          // } else {
-          //   canTalkTenVis = false;
-          // }
-          // if (snapshot.data.lipsShapeOcc == '0') {
-          //   lipsShapeVis = true;
-          // } else {
-          //   lipsShapeVis = false;
-          // }
-          // if (snapshot.data.runWithoutFallingOcc == '0') {
-          //   runWithoutFallingVis = true;
-          // } else {
-          //   runWithoutFallingVis = false;
-          // }
-          // if (snapshot.data.upDownStairOcc == '0') {
-          //   upDownStairVis = true;
-          // } else {
-          //   upDownStairVis = false;
-          // }
-          // if (snapshot.data.canCopyOcc == '0') {
-          //   canCopyVis = true;
-          // } else {
-          //   canCopyVis = false;
-          // }
-          // if (snapshot.data.canCreateOcc == '0') {
-          //   canCreateVis = true;
-          // } else {
-          //   canCreateVis = false;
-          // }
-
+          logger.i(layingFaceDownOcc, 'layingFaceDownOcc');
           List<Choice> choices = <Choice>[
             Choice(
                 '01',
@@ -1196,11 +1017,12 @@ class _GrowingViewState extends State<GrowingView> {
                 4),
           ];
           return EasyLocalizationProvider(
-                      child: DefaultTabController(
+            child: DefaultTabController(
               length: choices.length,
               child: Scaffold(
                 appBar: AppBar(
-                  title: Text(AppLocalizations.of(context).tr('babygrowth')), //babygrowth
+                  title: Text(AppLocalizations.of(context)
+                      .tr('babygrowth')), //babygrowth
                   bottom: TabBar(
                     isScrollable: true,
                     tabs: choices.map((Choice choice) {

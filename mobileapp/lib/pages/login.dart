@@ -46,9 +46,8 @@ class _LoginState extends State<Login> {
       validator: (input) {
         if (input.isEmpty) {
           return 'Please Enter email';
-        }
-        else if(!input.contains('@')){
-          return 'Please Enter a Valid Email'; 
+        } else if (!input.contains('@')) {
+          return 'Please Enter a Valid Email';
         }
       },
       keyboardType: TextInputType.emailAddress,
@@ -104,18 +103,17 @@ class _LoginState extends State<Login> {
           // prefs.setString('email', emailController.text);
           signIn(emailController.text.toString(),
               passwordController.text.toString());
-          // Navigator.pushReplacement(context,
-          //     MaterialPageRoute(builder: (BuildContext ctx) => FamilyProfile()));
+          return Center(child: CircularProgressIndicator());
         },
       ),
     );
-    final forgotPasswordText = FlatButton(
-      child: Text('Forgot Password?'),
-      padding: EdgeInsets.all(1.0),
-      textColor: Colors.grey,
-      //splashColor: Colors.blueAccent,
-      onPressed: () {},
-    );
+    // final forgotPasswordText = FlatButton(
+    //   child: Text('Forgot Password?'),
+    //   padding: EdgeInsets.all(1.0),
+    //   textColor: Colors.grey,
+    //   //splashColor: Colors.blueAccent,
+    //   onPressed: () {},
+    // );
 
     return Scaffold(
       backgroundColor: Color(0xfffffffa),
@@ -150,7 +148,7 @@ class _LoginState extends State<Login> {
                               SizedBox(
                                 height: 20.0,
                               ),
-                              forgotPasswordText,
+                              // forgotPasswordText,
                             ],
                           ),
                         ),
@@ -172,8 +170,14 @@ class _LoginState extends State<Login> {
         var jsonResponse = null;
         var response = await http
             .post("https://emohback.herokuapp.com/users/login", body: data);
-        logger.wtf(response.statusCode);
-        if (response.statusCode == 200) {
+
+        if (response.statusCode == null) {
+          return Center(
+            child: CircularProgressIndicator(),
+          );
+        }
+        //logger.wtf(response.statusCode);
+        else if (response.statusCode == 200) {
           jsonResponse = json.decode(response.body);
           globals.globalEmail = emailController.text.toString();
           logger.wtf(jsonResponse['token']);
@@ -211,12 +215,8 @@ class _LoginState extends State<Login> {
             }
           }
         } else {
-          print('***');
-          /* setState(() {
-        _isLoading = false;
-      });*/
-
-          //print(response.body);
+          return Toast.show("Check Your Internet Connection", context,
+              duration: Toast.LENGTH_LONG, gravity: Toast.CENTER);
         }
       } catch (e) {
         logger.e(e);
