@@ -12,7 +12,6 @@ import 'package:mobileapp/pages/babyInfo/babyBasicInfo.dart';
 import 'package:mobileapp/pages/babyDetails.dart';
 import 'package:mobileapp/pages/bottomNavigation.dart';
 import 'package:mobileapp/pages/login.dart';
-import 'package:mobileapp/pages/motherDetails.dart';
 import 'package:mobileapp/services/familyProflieServices.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../services/globals.dart' as globals;

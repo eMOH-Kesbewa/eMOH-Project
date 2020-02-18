@@ -105,7 +105,7 @@ class _GrowthCardState extends State<GrowthCard> {
                           print(widget.occAge);
                           updateDetails(widget.funText, widget.occAge)
                               .then((res) {
-                                logger.e('res',res);
+                            logger.e('res', res);
                             Toast.show("Done", context,
                                 duration: Toast.LENGTH_LONG,
                                 gravity: Toast.BOTTOM);
@@ -115,7 +115,9 @@ class _GrowthCardState extends State<GrowthCard> {
                                 duration: Toast.LENGTH_LONG,
                                 gravity: Toast.BOTTOM);
                           });
-                          setState(() {});
+                          setState(() {
+                            widget.vis = false;
+                          });
                         },
                       )
                     ],

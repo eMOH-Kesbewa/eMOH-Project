@@ -301,7 +301,7 @@ class _GrowingViewState extends State<GrowingView> {
         logger.w(layingFaceDownOcc, 'layingFaceDownOcc');
         if (snapshot.connectionState == ConnectionState.waiting) {
           logger.i(layingFaceDownOcc,'layingFaceDownOcc');
-          if (layingFaceDownOcc == null) {
+          if (layingFaceDownOcc ==  null || layingFaceDownOcc == '0') {
             layingFaceDownVis = true;
             layingFaceDownOcc = "No Data";
             layingFaceDownCon = "No Data";
@@ -313,7 +313,7 @@ class _GrowingViewState extends State<GrowingView> {
             // layingFaceDownCon = snapshot.data.layingFaceDownCon;
             // layingFaceDownOf = snapshot.data.layingFaceDownOf;
           }
-          if (movingObjectOcc == null) {
+          if (movingObjectOcc ==  null || movingObjectOcc == '0') {
             movingObjectVis = true;
             movingObjectCon = "No Data";
             movingObjectOcc = "No Data";
@@ -324,7 +324,7 @@ class _GrowingViewState extends State<GrowingView> {
             // movingObjectOcc = snapshot.data.movingObjectOcc;
             // movingObjectOf = snapshot.data.movingObjectOf;
           }
-          if (bigSoundOcc == null) {
+          if (bigSoundOcc ==  null || bigSoundOcc == '0') {
             bigSoundVis = true;
             bigSoundCon = "No Data";
             bigSoundOcc = "No Data";
@@ -335,7 +335,7 @@ class _GrowingViewState extends State<GrowingView> {
             // bigSoundOcc = snapshot.data.bigSoundOcc;
             // bigSoundOf = snapshot.data.bigSoundOf;
           }
-          if (ohhOcc == null) {
+          if (ohhOcc ==  null || ohhOcc == '0') {
             ohhVis = true;
             ohhCon = "No Data";
             ohhOcc = "No Data";
@@ -346,7 +346,7 @@ class _GrowingViewState extends State<GrowingView> {
             // ohhOcc = snapshot.data.ohhOcc;
             // ohhOf = snapshot.data.ohhOf;
           }
-          if (smileOcc == null) {
+          if (smileOcc ==  null || smileOcc == '0') {
             smileVis = true;
             smileCon = "No Data";
             smileOcc = "No Data";
@@ -357,7 +357,7 @@ class _GrowingViewState extends State<GrowingView> {
             // smileOcc = snapshot.data.smileOcc;
             // smileOf = snapshot.data.smileOf;
           }
-          if (raiseHeadOcc == null) {
+          if (raiseHeadOcc ==  null || raiseHeadOcc == '0') {
             raiseHeadVis = true;
             raiseHeadCon = "No Data";
             raiseHeadOcc = "No Data";
@@ -368,7 +368,7 @@ class _GrowingViewState extends State<GrowingView> {
             // raiseHeadOcc = snapshot.data.raiseHeadOcc;
             // raiseHeadOf = snapshot.data.raiseHeadOf;
           }
-          if (playFingersOcc == null) {
+          if (playFingersOcc ==  null || playFingersOcc == '0') {
             playFingersVis = true;
             playFingersCon = "No Data";
             playFingersOcc = "No Data";
@@ -379,7 +379,7 @@ class _GrowingViewState extends State<GrowingView> {
             // playFingersOcc = snapshot.data.playFingersOcc;
             // playFingersOf = snapshot.data.playFingersOf;
           }
-          if (strechHandOcc == null) {
+          if (strechHandOcc ==  null || strechHandOcc == '0') {
             strechHandVis = true;
             strechHandCon = "No Data";
             strechHandOcc = "No Data";
@@ -390,7 +390,7 @@ class _GrowingViewState extends State<GrowingView> {
             // strechHandOcc = snapshot.data.strechHandOcc;
             // strechHandOf = snapshot.data.strechHandOf;
           }
-          if (soundTurnOcc == null) {
+          if (soundTurnOcc ==  null || soundTurnOcc == '0') {
             soundTurnVis = true;
             soundTurnCon = "No Data";
             soundTurnOcc = "No Data";
@@ -401,7 +401,7 @@ class _GrowingViewState extends State<GrowingView> {
             // soundTurnOcc = snapshot.data.soundTurnOcc;
             // soundTurnOf = snapshot.data.soundTurnOf;
           }
-          if (singleLetterSoundOcc == null) {
+          if (singleLetterSoundOcc ==  null || singleLetterSoundOcc == '0') {
             singleLetterSoundVis = true;
             singleLetterSoundCon = "No Data";
             singleLetterSoundOcc = "No Data";
@@ -412,7 +412,7 @@ class _GrowingViewState extends State<GrowingView> {
             // singleLetterSoundOcc = snapshot.data.singleLetterSoundOcc;
             // singleLetterSoundOf = snapshot.data.singleLetterSoundOf;
           }
-          if (laughtLoudOcc == null) {
+          if (laughtLoudOcc ==  null || laughtLoudOcc == '0') {
             laughtLoudVis = true;
             laughtLoudCon = "No Data";
             laughtLoudOcc = "No Data";
@@ -423,7 +423,7 @@ class _GrowingViewState extends State<GrowingView> {
             // laughtLoudOcc = snapshot.data.laughtLoudOcc;
             // laughtLoudOf = snapshot.data.laughtLoudOf;
           }
-          if (raiseHead2Occ == null) {
+          if (raiseHead2Occ ==  null || raiseHead2Occ == '0') {
             raiseHead2Vis = true;
             raiseHead2Con = "No Data";
             raiseHead2Occ = "No Data";
@@ -434,7 +434,7 @@ class _GrowingViewState extends State<GrowingView> {
             // raiseHead2Occ = snapshot.data.raiseHead2Occ;
             // raiseHead2Of = snapshot.data.raiseHead2Of;
           }
-          if (turnFaceUpDownOcc == null) {
+          if (turnFaceUpDownOcc ==  null || turnFaceUpDownOcc == '0') {
             turnFaceUpDownVis = true;
             turnFaceUpDownCon = "No Data";
             turnFaceUpDownOcc = "No Data";
@@ -445,7 +445,7 @@ class _GrowingViewState extends State<GrowingView> {
             // turnFaceUpDownOcc = snapshot.data.turnFaceUpDownOcc;
             // turnFaceUpDownOf = snapshot.data.turnFaceUpDownOf;
           }
-          if (switchObjectsOcc == null) {
+          if (switchObjectsOcc ==  null || switchObjectOcc == '0') {
             switchObjectVis = true;
             switchObjectsCon = "No Data";
             switchObjectsOcc = "No Data";
@@ -456,7 +456,7 @@ class _GrowingViewState extends State<GrowingView> {
             // switchObjectsOcc = snapshot.data.switchObjectsOcc;
             // switchObjectsOf = snapshot.data.switchObjectOf;
           }
-          if (makeSoundOcc == null) {
+          if (makeSoundOcc ==  null || makeSoundOcc == '0') {
             makeSoundVis = true;
             makeSoundCon = "No Data";
             makeSoundOcc = "No Data";
@@ -467,7 +467,7 @@ class _GrowingViewState extends State<GrowingView> {
             // makeSoundOcc = snapshot.data.makeSoundOcc;
             // makeSoundOf = snapshot.data.makeSoundOf;
           }
-          if (sittingOcc == null) {
+          if (sittingOcc ==  null || sittingOcc == '0') {
             sittingVis = true;
             sittingCon = "No Data";
             sittingOcc = "No Data";
@@ -478,7 +478,7 @@ class _GrowingViewState extends State<GrowingView> {
             // sittingOcc = snapshot.data.sittingOcc;
             // sittingOf = snapshot.data.sittingOf;
           }
-          if (holdingHimSelfOcc == null) {
+          if (holdingHimSelfOcc ==  null || holdingHimSelfOcc == '0') {
             holdingHimSelfVis = true;
             holdingHimSelfCon = "No Data";
             holdingHimSelfOcc = "No Data";
@@ -489,7 +489,7 @@ class _GrowingViewState extends State<GrowingView> {
             // holdingHimSelfOcc = snapshot.data.holdingHimSelfOcc;
             // holdingHimSelfOf = snapshot.data.holdingHimSelfOf;
           }
-          if (thumbForeOcc == null) {
+          if (thumbForeOcc ==  null || thumbForeOcc == '0') {
             thumbForeVis = true;
             thumbForeCon = "No Data";
             thumbForeOcc = "No Data";
@@ -500,7 +500,7 @@ class _GrowingViewState extends State<GrowingView> {
             // thumbForeOcc = snapshot.data.thumbForeOcc;
             // thumbForeOf = snapshot.data.thumbForeOf;
           }
-          if (followingVoiceOcc == null) {
+          if (followingVoiceOcc ==  null || followingVoiceOcc == '0') {
             followingVoiceVis = true;
             followingVoiceCon = "No Data";
             followingVoiceOcc = "No Data";
@@ -511,7 +511,7 @@ class _GrowingViewState extends State<GrowingView> {
             // followingVoiceOcc = snapshot.data.followingVoiceOcc;
             // followingVoiceOf = snapshot.data.followingVoiceOf;
           }
-          if (proWordsOcc == null) {
+          if (proWordsOcc ==  null || proWordsOcc == '0') {
             proWordsVis = true;
             proWordsCon = "No Data";
             proWordsOcc = "No Data";
@@ -522,7 +522,7 @@ class _GrowingViewState extends State<GrowingView> {
             // proWordsOcc = snapshot.data.proWordsOcc;
             // proWordsOf = snapshot.data.proWordsOf;
           }
-          if (understandOcc == null) {
+          if (understandOcc ==  null || understandOcc == '0') {
             understandVis = true;
             understandCon = "No Data";
             understandOcc = "No Data";
@@ -533,7 +533,7 @@ class _GrowingViewState extends State<GrowingView> {
             // understandOcc = snapshot.data.understandOcc;
             // understandOf = snapshot.data.understandOf;
           }
-          if (walkingWithHelpOcc == null) {
+          if (walkingWithHelpOcc ==  null || walkingWithHelpOcc == '0') {
             walkingWithHelpVis = true;
             walkingWithHelpCon = "No Data";
             walkingWithHelpOcc = "No Data";
@@ -544,7 +544,7 @@ class _GrowingViewState extends State<GrowingView> {
             // walkingWithHelpOcc = snapshot.data.walkingWithHelpOcc;
             // walkingWithHelpOf = snapshot.data.walkingWithHelpOf;
           }
-          if (canSpeakOcc == null) {
+          if (canSpeakOcc ==  null || canSpeakOcc == '0') {
             canSpeakVis = true;
             canSpeakCon = "No Data";
             canSpeakOcc = "No Data";
@@ -555,7 +555,7 @@ class _GrowingViewState extends State<GrowingView> {
             // canSpeakOcc = snapshot.data.canSpeakOcc;
             // canSpeakOf = snapshot.data.canSpeakOf;
           }
-          if (handPointOcc == null) {
+          if (handPointOcc ==  null || handPointOcc == '0') {
             handPointVis = true;
             handPointCon = "No Data";
             handPointOcc = "No Data";
@@ -566,7 +566,7 @@ class _GrowingViewState extends State<GrowingView> {
             // handPointOcc = snapshot.data.handPointOcc;
             // handPointOf = snapshot.data.handPointOf;
           }
-          if (canRollOcc == null) {
+          if (canRollOcc ==  null || canRollOcc == '0') {
             canRollVis = true;
             canRollCon = "No Data";
             canRollOcc = "No Data";
@@ -577,7 +577,7 @@ class _GrowingViewState extends State<GrowingView> {
             // canRollOcc = snapshot.data.canRollOcc;
             // canRollOf = snapshot.data.canRollOf;
           }
-          if (canIdentifyOcc == null) {
+          if (canIdentifyOcc ==  null || canIdentifyOcc == '0') {
             canIdentifyVis = true;
             canIdentifyCon = "No Data";
             canIdentifyOcc = "No Data";
@@ -588,7 +588,7 @@ class _GrowingViewState extends State<GrowingView> {
             // canIdentifyOcc = snapshot.data.canIdentifyOcc;
             // canIdentifyOf = snapshot.data.canIdentifyOf;
           }
-          if (walkingWithoutHelpOcc == null) {
+          if (walkingWithoutHelpOcc ==  null || walkingWithoutHelpOcc == '0') {
             walkingWithoutHelpVis = true;
             walkingWithoutHelpCon = "No Data";
             walkingWithoutHelpOcc = "No Data";
@@ -599,7 +599,7 @@ class _GrowingViewState extends State<GrowingView> {
             // walkingWithoutHelpOcc = snapshot.data.walkingWithoutHelpOcc;
             // walkingWithoutHelpOf = snapshot.data.walkingWithoutHelpOf;
           }
-          if (canClimbOcc == null) {
+          if (canClimbOcc ==  null || canClimbOcc == '0') {
             canClimbVis = true;
             canClimbCon = "No Data";
             canClimbOcc = "No Data";
@@ -610,7 +610,7 @@ class _GrowingViewState extends State<GrowingView> {
             // canClimbOcc = snapshot.data.canClimbOcc;
             // canClimbOf = snapshot.data.canClimbOf;
           }
-          if (makeTowerOcc == null) {
+          if (makeTowerOcc ==  null || makeTowerOcc == '0') {
             makeTowerVis = true;
             makeTowerCon = "No Data";
             makeTowerOcc = "No Data";
@@ -621,7 +621,7 @@ class _GrowingViewState extends State<GrowingView> {
             // makeTowerOcc = snapshot.data.makeTowerOcc;
             // makeTowerOf = snapshot.data.makeTowerOf;
           }
-          if (eatHimselfOcc == null) {
+          if (eatHimselfOcc ==  null || eatHimselfOcc == '0') {
             eatHimselfVis = true;
             eatHimselfCon = "No Data";
             eatHimselfOcc = "No Data";
@@ -632,7 +632,7 @@ class _GrowingViewState extends State<GrowingView> {
             // eatHimselfOcc = snapshot.data.eatHimselfOcc;
             // eatHimselfOf = snapshot.data.eatHimselfOf;
           }
-          if (canTalkTenOcc == null) {
+          if (canTalkTenOcc ==  null || canTalkTenOcc == '0') {
             canTalkTenVis = true;
             canTalkTenCon = "No Data";
             canTalkTenOcc = "No Data";
@@ -643,7 +643,7 @@ class _GrowingViewState extends State<GrowingView> {
             // canTalkTenOcc = snapshot.data.canTalkTenCon;
             // canTalkTenOf = snapshot.data.canTalkTenOf;
           }
-          if (lipsShapeOcc == null) {
+          if (lipsShapeOcc ==  null || lipsShapeOcc == '0') {
             lipsShapeVis = true;
             lipsShapeCon = "No Data";
             lipsShapeOcc = "No Data";
@@ -654,7 +654,7 @@ class _GrowingViewState extends State<GrowingView> {
             // lipsShapeOcc = snapshot.data.lipsShapeOcc;
             // lipsShapeOf = snapshot.data.lipsShapeOf;
           }
-          if (runWithoutFallingOcc == null) {
+          if (runWithoutFallingOcc ==  null || runWithoutFallingOcc == '0') {
             runWithoutFallingVis = true;
             runWithoutFallingCon = "No Data";
             runWithoutFallingOcc = "No Data";
@@ -665,7 +665,7 @@ class _GrowingViewState extends State<GrowingView> {
             // runWithoutFallingOcc = snapshot.data.runWithoutFallingOcc;
             // runWithoutFallingOf = snapshot.data.runWithoutFallingOf;
           }
-          if (upDownStairOcc == null) {
+          if (upDownStairOcc ==  null || upDownStairOcc == '0') {
             upDownStairVis = true;
             upDownStairCon = "No Data";
             upDownStairOcc = "No Data";
@@ -676,7 +676,7 @@ class _GrowingViewState extends State<GrowingView> {
             // upDownStairOcc = snapshot.data.upDownStairOcc;
             // upDownStairOf = snapshot.data.upDownStairOf;
           }
-          if (canCopyOcc == null) {
+          if (canCopyOcc ==  null || canCopyOcc == '0') {
             canCopyVis = true;
             canCopyCon = "No Data";
             canCopyOcc = "No Data";
@@ -687,7 +687,7 @@ class _GrowingViewState extends State<GrowingView> {
             // canCopyOcc = snapshot.data.canCopyOcc;
             // canCopyOf = snapshot.data.canCopyOf;
           }
-          if (canCreateOcc == null) {
+          if (canCreateOcc ==  null || canCreateOcc == '0') {
             canCreateVis = true;
             canCreateCon = "No Data";
             canCreateOcc = "No Data";

@@ -60,7 +60,6 @@ flutter:
     - images/mother.png
     - assets/si-SL.json
     - assets/en-US.json
-    - html/
     - basicinfo.jpeg
 
   # To add assets to your application, add an assets section, like this:
