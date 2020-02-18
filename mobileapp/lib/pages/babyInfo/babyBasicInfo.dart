@@ -1,3 +1,6 @@
+/*
+ *View basic information about baby 
+ */
 import 'package:easy_localization/easy_localization.dart';
 import 'package:easy_localization/easy_localization_provider.dart';
 import 'package:flutter/material.dart';
@@ -10,7 +13,6 @@ class BabyBasicInfo extends StatefulWidget {
 }
 
 class _BabyBasicInfoState extends State<BabyBasicInfo> {
-  // Future <Baby> baby = fetchBaby();
   @override
   Widget build(BuildContext context) {
     var data = EasyLocalizationProvider.of(context).data;
@@ -31,10 +33,9 @@ class _BabyBasicInfoState extends State<BabyBasicInfo> {
                 children: <Widget>[
                   Center(
                     child: FutureBuilder<Baby>(
-                      future: fetchBaby(),
+                      future:
+                          fetchBaby(), //get baby data from babyBasicInfoService.dart
                       builder: (context, snapshot) {
-                        // print('snapdata');
-                        // print(snapshot.data.childrenCount);
                         if (snapshot.connectionState == ConnectionState.none) {
                           return Center(
                             child:
@@ -43,9 +44,11 @@ class _BabyBasicInfoState extends State<BabyBasicInfo> {
                         }
                         if (snapshot.connectionState ==
                             ConnectionState.waiting) {
+                          //when loading
                           return Center(child: CircularProgressIndicator());
                         }
                         if (snapshot.hasData) {
+                          //after loading
                           return SingleChildScrollView(
                             child: Column(
                               children: <Widget>[
@@ -126,19 +129,14 @@ class _BabyBasicInfoState extends State<BabyBasicInfo> {
                                             snapshot.data.address.toString()),
                                       ),
                                       div,
-                                      // ListTile(
-                                      //   leading: Icon(Icons.child_friendly),
-                                      //   title: Text('Number of Children Alive'),
-                                      //   subtitle: Text(snapshot.data.childrenCount
-                                      //       .toString()),
-                                      // ),
                                     ],
                                   ),
                                 ),
                               ],
                             ),
-                          ); //Text(snapshot.data.childrenCount);
+                          );
                         } else if (snapshot.hasError) {
+                          //no data or connection error
                           return Column(
                             children: <Widget>[
                               Icon(
@@ -157,9 +155,7 @@ class _BabyBasicInfoState extends State<BabyBasicInfo> {
                               )
                             ],
                           );
-                          
                         }
-
                         // By default, show a loading spinner.
                         return Center(child: CircularProgressIndicator());
                       },

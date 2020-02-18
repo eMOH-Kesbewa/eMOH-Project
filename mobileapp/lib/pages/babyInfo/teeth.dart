@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:logger/logger.dart';
 import 'package:mobileapp/services/babyService/teethService.dart';
-//import 'package:mobileapp/pages/babyInfo/teethCard.dart';
 import 'package:mobileapp/widgets/teethCard.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:easy_localization/easy_localization_provider.dart';

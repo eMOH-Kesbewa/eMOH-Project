@@ -1,16 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:logger/logger.dart';
-//import 'package:mobileapp/pages/babyInfo/basicInfo.dart';
 import 'package:mobileapp/pages/babyInfo/babyBasicInfo.dart';
 import 'package:mobileapp/pages/babyInfo/babyprotection.dart';
 import 'package:mobileapp/pages/babyInfo/graphHome.dart';
 import 'package:mobileapp/pages/babyInfo/childHEalthView.dart';
-import 'package:mobileapp/pages/babyInfo/doctorNotes.dart';
 import 'package:mobileapp/pages/babyInfo/eyeTest.dart';
 import 'package:mobileapp/pages/babyInfo/growingView.dart';
 import 'package:mobileapp/pages/babyInfo/hearTest.dart';
 import 'package:mobileapp/pages/babyInfo/immunization.dart';
-import 'package:mobileapp/pages/babyInfo/immunizationRef.dart';
 import 'package:mobileapp/pages/babyInfo/newBornBayHealthChart.dart';
 import 'package:mobileapp/pages/babyInfo/teeth.dart';
 import 'package:mobileapp/pages/babyInfo/vitaminA.dart';
