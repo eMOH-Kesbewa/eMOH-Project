@@ -4,13 +4,22 @@ var Mother = require('../Schemas/MotherSchema');
 var mongoose = require('mongoose');
 var motherbabyjoined = require('../Schemas/MotherBabyJoined');
 var motherfordoc = require('../Schemas/motherfordoc');
+var phm = require('../Schemas/phm');
 
 
 //Add Details to MotherBabyJoinedTable
 router.post('/register', (req, res) => { 
     console.log(req.body);
     var data = new Mother(req.body);
-    data.save();
+    data.save((err,doc)=>{
+        if(err) {
+            //console.log(handleError(err));
+            res.status(500).json("Error When Inserting");
+        }
+        else if(doc){
+            res.status(200).json("Inserted successfully.");
+        }
+    })
     console.log("Completed");
 });
 
@@ -52,10 +61,10 @@ router.put('/update/mother', async (req, res) => {
             new: true,
             upsert: false 
         });
-        res.status(201).send(doc)
+        res.status(200).json(doc)
         console.log(doc);
     } catch (error) {
-        res.status(500).send(error);
+        res.status(500).json(error);
         console.log(error);
     }
 
@@ -77,7 +86,7 @@ router.get('/update/motherfordoc', async (req, res) => {
         });
         console.log(doc);
     } catch (error) {
-        res.status(500).send(error);
+        res.status(500).json(error);
         console.log(error);
     }
 
@@ -88,7 +97,7 @@ router.post('/addmotherfordoc', (req, res) => {
     console.log(req.body);
     var data = new motherfordoc(req.body);
     data.save((err,doc)=>{
-        res.status(200).send("Inserted successfully.");
+        res.status(200).json("Inserted successfully.");
     });
     console.log("Completed");
 });
@@ -198,6 +207,88 @@ router.put('/update/:id', function(req, res, next) {
         });
     }
 });
+
+//create report for registration of pregnanat mothers
+router.get('/registrationMothers/:year',(req,res)=>{
+    currentYear = req.params.year;
+    console.log(currentYear)
+    nextYearInt = parseInt(currentYear);
+    nextYearInt+=1;
+    nextYear = nextYearInt.toString();
+    
+      phm.aggregate([
+       { $match: {
+            "date_of_today": 
+            {
+                $gte: new Date(`${currentYear}-01-01T00:00:00.000Z`),
+                $lt: new Date(`${nextYear}-01-01T00:00:00.000Z`),
+            }
+        } 
+    },
+          {
+             $group:{
+                            _id:null,
+                            "sum_of_dates1":{$sum:"$Registered_mothers_before_eight_weeks"},
+                            "sum_of_dates2":{$sum:"$Registered_mothers_between_eight_twelve_weeks"},
+                            "sum_of_dates3":{$sum:"$Registered_mothers_after_twelve_weeks"},
+                            "total":{$sum:{$add:["$Registered_mothers_before_eight_weeks","$Registered_mothers_between_eight_twelve_weeks","$Registered_mothers_after_twelve_weeks"]}}
+                       }
+                     
+                
+                }
+                
+
+      ],
+      
+      ).then(doc=>
+        {
+            res.status(200).json(doc[0])
+    }
+      )
+})
+
+//create graph about deliveries
+router.get('/deliveryMothers/:year',(req,res)=>{
+    currentYear = req.params.year
+    nextYearInt = parseInt(currentYear)
+    nextYearInt += 1
+    nextYear = nextYearInt.toString();
+
+    phm.aggregate([
+        {$match :{
+            "date_of_today": 
+            {
+                $gte: new Date(`${currentYear}-01-01T00:00:00.000Z`),
+                $lt: new Date(`${nextYear}-01-01T00:00:00.000Z`),
+            }
+        }
+
+        },
+        {
+            $group:{
+                           _id:null,
+                           
+                           "total1":{$sum:{$add:["$No_of_delivery_permant_mothers_after_walking","$No_of_delivery_permant_mothers_hearing","$No_of_out_of_registered_mothers_before_delivery","$No_of_out_of_not_registered_mothers_before_delivery",
+                             "$No_of_out_of_registered_mothers_after_delivery","$No_of_out_of_not_registered_mothers_after_delivery"
+                        ]}},
+                        "total2":{$sum:{$add:["$New_first_five_days","$Old_first_five_days"]}},
+                        "total3":{$sum:{$add:["$New_between_six_ten_days","$Old_between_six_ten_days"]}},
+                        "total4":{$sum:"$Between_elevn_thirteen_days"},
+                        "total5":{$sum:{$add:["$New_between_fouteen_twentyone_days","$Old_between_fouteen_twentyone_days"]}},
+                        "total6":{$sum:"$Near_fourtytwo_days"},
+                        
+                      }
+                    
+               
+               }
+
+    ]).then(doc=>
+        {
+            res.status(200).json(doc[0])
+    }
+      )
+})
+
 
 
 

@@ -7,6 +7,9 @@ import { BabiesService } from 'app/Services/babies.service';
 import { from } from 'rxjs';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import { FormBuilder, FormGroup, Validators,FormControl } from '@angular/forms';
+import {  minDate,prop, } from "@rxweb/reactive-form-validators";
+import { MotherbabyjoinedService } from 'app/Services/motherbabyjoined.service';
+import { MotherService } from 'app/Services/mother.service';
 
 @Component({
   selector: 'app-update-baby-book',
@@ -20,8 +23,16 @@ export class UpdateBabyBookComponent implements OnInit {
   BabyForm: FormGroup;
   submitted = false;
   success = false;
+  DOB;
+  disableSelect = new FormControl(true);
+  @prop()
+	date_of_birth_of_child: string ;
 
-  constructor(private router: Router,private formBuilder: FormBuilder, private _snackBar: MatSnackBar,private addbabyService: BabiesService, private ngZone: NgZone,private activeroute: ActivatedRoute) { }
+	@minDate({fieldName:'date_of_birth_of_child',operator:">" }) 
+	date_of_registered: string;
+
+
+  constructor(private motherService: MotherService,private router: Router,private formBuilder: FormBuilder, private _snackBar: MatSnackBar,private addbabyService: BabiesService, private ngZone: NgZone,private activeroute: ActivatedRoute,private motherbabyjoinedservice : MotherbabyjoinedService) { }
 
   autoRenew : FormControl;
   public babyID;
@@ -41,7 +52,7 @@ export class UpdateBabyBookComponent implements OnInit {
       Number_of_apgas_1m: [''],
       Number_of_apgas_5m: [''],
       Number_of_apgas_10m: [''],
-      total_Number_of_children_alive_including_this_child: [''],
+      total_Number_of_children_alive_including_this_child: ['',],
       method_of_delivery:[''],
       birth_weight: [''],
       gridle_circumference_at_birth: [''],
@@ -704,19 +715,20 @@ export class UpdateBabyBookComponent implements OnInit {
       });
 
       this.addbabyService.getbabydata(this.babyID).subscribe(data => {
+      //  this.DOB =  this.dateconverter(data[0] ['date_of_birth_of_child'])
         this.BabyForm.patchValue({
           
-          baby_id: data[0] ['baby_id'],
-      name_of_child: data[0] ['name_of_child'],
-      date_of_birth_of_child: this.dateconverter(data[0] ['date_of_birth_of_child']),
-      date_of_registered: this.dateconverter( data[0] ['date_of_registered']),
-      name_of_mother: data[0] ['name_of_mother'],
-      age_of_mother: data[0] ['age_of_mother'],
-      address: data[0] ['address'],
+         // baby_id: data[0] ['baby_id'],
+     // name_of_child: data[0] ['name_of_child'],
+     // date_of_birth_of_child: this.dateconverter(data[0] ['date_of_birth_of_child']),
+     // date_of_registered: this.dateconverter( data[0] ['date_of_registered']),
+    //  name_of_mother: data[0] ['name_of_mother'],
+      //age_of_mother: data[0] ['age_of_mother'],
+      //address: data[0] ['address'],
       Number_of_apgas_1m: data[0] ['Number_of_apgas_1m'],
       Number_of_apgas_5m: data[0] ['Number_of_apgas_5m'],
       Number_of_apgas_10m: data[0] ['Number_of_apgas_10m'],
-      total_Number_of_children_alive_including_this_child: data[0] ['total_Number_of_children_alive_including_this_child'],
+    //  total_Number_of_children_alive_including_this_child: data[0] ['total_Number_of_children_alive_including_this_child'],
       method_of_delivery:data[0] ['method_of_delivery'],
       birth_weight: data[0] ['birth_weight'],
       gridle_circumference_at_birth: data[0] ['gridle_circumference_at_birth'],
@@ -1379,8 +1391,32 @@ export class UpdateBabyBookComponent implements OnInit {
         });
     });
 
+ 
+
+    this.motherbabyjoinedservice.getmotherbabyjoineddataById(this.babyID).subscribe(data => {
+      this.BabyForm.patchValue({
+        baby_id: data[0]['baby_id'],
+        name_of_child: data[0]['child_name'],
+        date_of_birth_of_child: this.dateconverter(data[0]['date_of_birth']),
+        date_of_registered: this.dateconverter( data[0]['registration_date']),
+        name_of_mother: data[0]['mothers_name'],
+        age_of_mother: data[0]['age_of_mother'],
+        address: data[0]['address']
+      })
+    }
+    )
+    this.motherService.getmothersdataById(this.getMotherId(this.babyID)).subscribe(data => {
+      this.BabyForm.patchValue({
+        
+        age_of_mother: data[0]['age'],
+        total_Number_of_children_alive_including_this_child: parseInt(data[0]['no_of_living_children'])+1
+      })
+    }
+
+    )
     this.autoRenew = new FormControl();
     this.onChange();
+    
   }
 
   onSubmit() {
@@ -1389,13 +1425,13 @@ export class UpdateBabyBookComponent implements OnInit {
           return;
       }
   
-      this.success=true;
+     // this.success=true;
       this.addbabyService.register(this.BabyForm.value,this.babyID)
         .subscribe(
           response=>{
             if(response.status==201){
               this.openSnackBar("Updated Successfully");
-              this.router.navigate(["viewBabies/"])
+              this.router.navigate(["viewBabies/ViewMotherBabybyID/",this.babyID])
             }else{
               this.openSnackBar("Update is Unsuccessfull, Pls enter it again!");
               this.router.navigate([this.router.url,'viewMotherbyId',this.babyID])
@@ -1403,6 +1439,8 @@ export class UpdateBabyBookComponent implements OnInit {
           } 
         )
       }
+
+     
 
 
 
@@ -1437,5 +1475,24 @@ export class UpdateBabyBookComponent implements OnInit {
               return false;
             }
           }
+
+          getToday(): string {
+            
+            return new Date().toISOString().split('T')[0]
+            
+          }
+
+          getVaccineDate(months,DOB){
+            let dateBirth = DOB.split('-');
+            let month = dateBirth[1];
+            let newMonth = parseInt(month)+months;
+            return dateBirth[0]+"-"+newMonth+"-"+dateBirth[2]
+          }
+
+          getMotherId(babyId){
+            let mother_id = babyId.slice(0, 6);
+            return mother_id;
+          }
+        
  
 }

@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MotherbabyjoinedService } from 'app/Services/motherbabyjoined.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
+import {MatSnackBar} from '@angular/material/snack-bar';
+
+import { FamiliesService } from 'app/Services/families.service';
+import { MotherService } from 'app/Services/mother.service';
 
 @Component({
   selector: 'app-addmotherbabyjoineddata',
@@ -13,20 +17,23 @@ export class AddmotherbabyjoineddataComponent implements OnInit {
   addmotherbabyForm: FormGroup;
   submitted = false;
   success = false;
+  motherId;
+  constructor(private fb: FormBuilder,private MotherbabyjoinedService : MotherbabyjoinedService,private familyservice : FamiliesService,private motherService: MotherService,private router : Router, private _snackBar:MatSnackBar) { }
 
-  constructor(private fb: FormBuilder,private MotherbabyjoinedService : MotherbabyjoinedService) { }
-
+  
   ngOnInit() {
+    this.motherId = localStorage.getItem('selectedFamId');
     this.addmotherbabyForm=this.fb.group({
     mother_id: ['', Validators.required],
-    child_name: ['', Validators.required],
+    child_name: [''],
+    baby_id: ['', Validators.required],
     mothers_name: ['', Validators.required],
-    address: ['', Validators.required],
+    address: [''],
     sex: ['', Validators.required],
     date_of_birth: ['', Validators.required],
     birth_weight: ['', Validators.required],
     registration_date: ['', Validators.required],
-    registration_category: ['', Validators.required],
+    registration_category: [''],
     immunization__BGC: [''],
     immunization__scar: [false],
     immunization__pentavalent__first: [''],
@@ -59,6 +66,27 @@ export class AddmotherbabyjoineddataComponent implements OnInit {
     remarks: ['']
     })
     this.addmotherbabyForm.valueChanges.subscribe(console.log)
+
+    this.familyservice.getfamilydataById(this.motherId).subscribe(data => {
+      console.log(data[0]);
+      this.addmotherbabyForm.patchValue({
+        mother_id: data[0]['Identity_number'],
+        registration_date: this.getCurrentDate(),
+        mothers_name:data[0]['Name_of_wife'],
+        address: data[0]['Address'],
+        age: this.getAge(data[0]['Date_of_birth'])
+      })
+    })
+
+    this.motherService.getBabyList(this.motherId).subscribe(
+      data=>{
+        
+        this.addmotherbabyForm.patchValue({
+          baby_id:this.countBabies(data)
+        })
+      }
+    )
+  
   }
 
   
@@ -76,14 +104,41 @@ export class AddmotherbabyjoineddataComponent implements OnInit {
     console.log(this.addmotherbabyForm.value);
       this.MotherbabyjoinedService.addnewbaby(this.addmotherbabyForm.value)
         .subscribe(
-          response=>console.log('Success!',response),
+          response=>{
+            this.openSnackBar("Inserted Successfully");
+            this.router.navigate(["viewMothers/viewMotherbyId/",localStorage.getItem('selectedFamId')]);
+          },
           error=>{
-            if(error) console.log("Failure") 
-            else console.log("Success No Errors")
+            this.openSnackBar("Inserted  not Successful");
           }
         );
        // this.router.navigate(['viewClinics']);
     console.log(this.addmotherbabyForm.value);
   }
+
+   
+  openSnackBar(msg) {
+    this._snackBar.open(msg,"OK")
+  }
+  
+  getAge(dob){
+    let presentYear = new Date().getUTCFullYear();
+    let birthYearStr = dob.substr(0,4);
+    let birthYear = parseInt(birthYearStr)
+    return presentYear-birthYear;
+  }
+
+  getCurrentDate(){
+    let iso =  new Date().toISOString();
+    let isoDate = iso.substr(0,10);
+    let isoDateArray = isoDate.split("-");
+    let stdDate = isoDateArray[0].concat("-",isoDateArray[1],"-",isoDateArray[2]);
+    return stdDate
+  }
+
+  countBabies(data){
+    return this.motherId.concat("0"+(data.length+1).toString());
+  }
+
 
 }

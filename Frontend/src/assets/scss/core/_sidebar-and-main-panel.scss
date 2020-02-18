@@ -234,7 +234,7 @@
             content: "";
             display: block;
             background: #FFFFFF;
-            opacity: .93;
+            opacity: .90;
         }
     }
 
@@ -265,10 +265,10 @@
         }
 
         .simple-text{
-            text-transform: uppercase;
+            //text-transform: uppercase;
             padding: $padding-small-vertical $padding-zero;
             display: inline-block;
-            font-size: 18px;
+            font-size: 25px;
             color: $black-color;
             white-space: nowrap;
             font-weight: $font-weight-default;

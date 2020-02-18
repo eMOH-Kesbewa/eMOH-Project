@@ -1,7 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 import { FamiliesService } from 'app/Services/families.service';
+
+import {  minDate,prop, RxReactiveFormsModule, RxwebValidators} from "@rxweb/reactive-form-validators";
+
 
 @Component({
   selector: 'app-add-approved-families',
@@ -16,18 +22,18 @@ export class AddApprovedFamiliesComponent implements OnInit {
   submitted = false;
   success = false;
 
-  constructor(private formBuilder: FormBuilder, private addfamilyService: FamiliesService) { }
+  constructor(private formBuilder: FormBuilder, private addfamilyService: FamiliesService, private router: Router, private activeroute: ActivatedRoute, private _snackBar: MatSnackBar) { }
 
   ngOnInit() {
     this.approvedFamilyForm = this.formBuilder.group({
-      village_id : ['', Validators.required],
-      Approved_family_category: ['', Validators.required],
-      Identity_number: ['', Validators.required],
-      Date: ['', Validators.required],
+      village_id : [localStorage.getItem('newFamIdForNewUser')[1], Validators.required],
+      // Approved_family_category: ['', Validators.required],
+      Identity_number: [localStorage.getItem('newFamIdForNewUser'), Validators.required],
+      Date: [this.getToday(),Validators.required],
       Name_of_wife: ['', Validators.required],
       Name_of_husband: [''],
-      address: ['', Validators.required],
-      Date_of_birth: ['', Validators.required],
+      Address: ['', Validators.required],
+      Date_of_birth: [''],
       Age_at_the_time_of_marriage: ['', Validators.required],
       Job_status: [''],
       Education_level: [''],
@@ -54,8 +60,23 @@ export class AddApprovedFamiliesComponent implements OnInit {
       Date_of_cervical_mucous_test: [''],
       Other_details: [''],
       number_of_young_children: ['']
-    });
+    },
+    {validator: this.dateLessThan('Date_of_birth', 'Date')});
+    this.getToday();
   }
+
+  dateLessThan(from: string, to: string) {
+    return (group: FormGroup): {[key: string]: any} => {
+      let f = group.controls[from];
+      let t = group.controls[to];
+      if (f.value > t.value) {
+        return {
+          dates: "Date of birth should be less than Date"
+        };
+      }
+      return {};
+    }
+}
 
   onSubmit() {
     this.submitted = true;
@@ -65,15 +86,27 @@ export class AddApprovedFamiliesComponent implements OnInit {
         return;
     }
 
-    this.success = true;
+   // this.success = true;
     this.addfamilyService.add(this.approvedFamilyForm.value)
       .subscribe(
-        response=>console.log('Success!',response),
+        response=>{
+            this.openSnackBar("Inserted Successfully");
+            this.router.navigate(["viewApprovedFamilies/"])
+          
+        } ,
         error=>{
-          if(error) console.log("Failure") 
-          else console.log("Success No Errors")
+          this.openSnackBar("Update is Unsuccessfull, Pls enter it again!");
+            this.router.navigate(["AddApprovedFamilies"])
         }
     );
+}
+
+openSnackBar(msg) {
+  this._snackBar.open(msg,"OK")
+}
+
+getToday(){
+  return new Date().toISOString().substr(0,10)
 }
 
 }

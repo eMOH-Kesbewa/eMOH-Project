@@ -2,7 +2,7 @@
 
 <div class="container-fluid">
   <div class="row">
-        <div class="col-md-8"></div>
+        <div class="col-md-6"></div>
         <div class="col-md-2-toggle">
             <mat-slide-toggle  [formControl]="autoRenew" (change)="onChange()">{{'edit'| translate}}</mat-slide-toggle>
         </div>
@@ -19,6 +19,10 @@
             </mat-select>
         </mat-form-field>
         </div>
+        
+        
+            <div class="col-md-3"> <button (click)="goToAddNewBaby()" class="btn btn-info btn-block">{{'motherBabyJoined.fill'| translate }}</button></div>
+       
         <div class="col-md-12">
       <div class="col-md-12">
           <div class="card">
@@ -58,6 +62,7 @@
                               </mat-panel-description>
                             </mat-expansion-panel-header>     
                             <div class="row">
+                                <!--
                                 <div class="col-md-3">
                                     <mat-form-field class="example-full-width">
                                         <input matInput placeholder="{{'mother.registration_no'| translate}}" type="text"readonly="{{onChange()}}" formControlName="registration_no">
@@ -73,13 +78,11 @@
                                             <div *ngIf="addMotherSchema.controls.registration_date.errors.required">This field is required</div>
                                         </div>
                                     </mat-form-field>
-                            </div>
+                            </div> -->
                                   <div class="col-md-5">
                                           <mat-form-field class="example-full-width">
                                               <input matInput placeholder="{{'mother.address'| translate}}" type="text" readonly="{{onChange()}}" formControlName="address">
-                                              <div *ngIf="submit && addMotherSchema.controls.address.errors" class="error">
-                                                  <div *ngIf="addMotherSchema.controls.address.errors.required">This field is required</div>
-                                              </div>
+                                              
                                           </mat-form-field>
                                   </div>
                                   <div class="col-md-2">
@@ -103,9 +106,7 @@
                                   <div class="col-md-2">
                                           <mat-form-field class="example-full-width">
                                               <input matInput placeholder="{{'mother.gravidity'| translate}}" type="number" readonly="{{onChange()}}" formControlName="gravidity" min="0">
-                                              <div *ngIf="submit && addMotherSchema.controls.gravidity.errors" class="error">
-                                                      <div *ngIf="addMotherSchema.controls.gravidity.errors.required">This field is required</div>
-                                                    </div>
+                                              
                                           </mat-form-field>
                                   </div>
                                   <div class="col-md-2">
@@ -358,7 +359,7 @@
                 </mat-expansion-panel>
                     </mat-accordion>
                     <div *ngIf="onHidden()">
-                        <input type="submit" value="Update" class="btn btn-info pull-right">
+                        <input type="submit" value="{{'update'|translate}}" class="btn btn-info pull-right">
                     </div>
                     
               </form>

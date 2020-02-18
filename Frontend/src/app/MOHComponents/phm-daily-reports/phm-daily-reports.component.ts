@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PhmdailyupdateService } from 'app/Services/phmdailyupdate.service';
 //import { FamiliesService } from 'app/Services/families.service';
 import { from } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-phm-daily-reports',
@@ -16,15 +17,15 @@ export class PhmDailyReportsComponent implements OnInit {
   submitted = false;
   success = false;
 
-  constructor(private formBuilder: FormBuilder, private addphmService: PhmdailyupdateService) { }
+  constructor(private formBuilder: FormBuilder, private addphmService: PhmdailyupdateService,private router: Router) { }
 
   ngOnInit() {
     this.phmForm = this.formBuilder.group({
       
-      MOH_division: ['', Validators.required],
+      // MOH_division: ['', Validators.required],
       date_of_today : ['', Validators.required],
-      Batch_no : ['', Validators.required],
-      Division : ['', Validators.required],
+      // Batch_no : ['', Validators.required],
+      // Division : ['', Validators.required],
       Moh_population_urban :[''],
       Moh_population_rural :[''],
       Moh_population_other :[''],
@@ -345,6 +346,7 @@ export class PhmDailyReportsComponent implements OnInit {
       Mo_nurse:[''],
       Phm:[''],
     });
+    
   }
 
   onSubmit() {
@@ -364,6 +366,10 @@ export class PhmDailyReportsComponent implements OnInit {
           else console.log("Success No Errors")
         }
     );
+}
+GotoMonth(year,month){
+  
+  this.router.navigate(["ViewWeightTable",'MonthlyReport',year,month])
 }
 
 }

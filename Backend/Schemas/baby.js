@@ -586,7 +586,7 @@ var baby = new Schema({
    "b_c_g_date":Date,
    "b_c_g_batch_no": String,
    "b_c_g_effects_of_immunization": String,
-   "b_c_g_b_c_g_scar": Boolean,
+   "b_c_g_b_c_g_scar": String,
 
    "b_c_g_second_dose_date":Date,
    "b_c_g_second_dose_batch_no": String,

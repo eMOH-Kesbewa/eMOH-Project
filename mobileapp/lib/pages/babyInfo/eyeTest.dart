@@ -1,299 +1,3 @@
-/*import 'package:flutter/material.dart';
-import 'package:mobileapp/pages/bottomNavigation.dart';
-
-class EyeTest extends StatefulWidget {
-  @override
-  _EyeTestState createState() => _EyeTestState();
-}
-
-class _EyeTestState extends State<EyeTest> {
-  bool switchVal = false;
-  bool lightCheck = false;
-  bool faceCheck = false;
-  bool turnCheck = false;
-  bool theneyesCheck = false;
-  bool lookingCheck = false;
-  bool touchCheck = false;
-  bool squintCheck = false;
-  bool ringCheck = false;
-  bool askCheck = false;
-  bool talkCheck = false;
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Eye Test'),
-        actions: <Widget>[
-          Switch(
-              activeColor: Colors.red,
-              value: switchVal,
-              onChanged: (bool newValue) {
-                setState(() {
-                  switchVal = !switchVal;
-                });
-              }),
-        ],
-
-      ),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: EdgeInsets.all(8.0),
-          child: Column(
-            //crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              /*Switch(
-                  activeColor: Colors.red,
-                  value: switchVal,
-                  onChanged: (bool newValue) {
-                    setState(() {
-                      switchVal = !switchVal;
-                    });
-                  }),*/
-              Chip(
-                avatar: CircleAvatar(
-                  backgroundColor: Colors.grey.shade800,
-                  //child: Text('From the First Month of Birth'),
-                ),
-                label: Text('From the First Month of Birth'),
-              ),
-              SizedBox(
-                height: 0.0,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: <Widget>[
-                  Text('Does the baby look at light? '),
-
-                  Checkbox(
-                      activeColor: Colors.red,
-                      value: lightCheck,
-                      onChanged: (bool newValue) {
-                        setState(() {
-                          lightCheck = !lightCheck;
-                        });
-                      }),
-
-                  /*Radio(
-                      value: lightRadio,
-                      activeColor: Colors.red,
-                      onChanged: (bool newValue) {
-                        setState(() {
-                          lightRadio = !lightRadio;
-                          print(lightRadio);
-                        });
-                      }*/
-                  // onChanged: (bool val) {
-                  //   setState(() {
-                  //     lightRadio = !lightRadio;
-                  //     print(lightRadio);
-                  //   });
-                  // },
-                ],
-              ),
-              SizedBox(
-                height: 20.0,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: <Widget>[
-                  Text('Does the baby look at your face? '),
-                  Checkbox(
-                      activeColor: Colors.red,
-                      value: faceCheck,
-                      onChanged: (bool newValue) {
-                        setState(() {
-                          faceCheck = !faceCheck;
-                        });
-                      }),
-                ],
-              ),
-              Chip(
-                avatar: CircleAvatar(
-                  backgroundColor: Colors.grey.shade800,
-                  //child: Text('From the First Month of Birth'),
-                ),
-                label: Text('When two months'),
-              ),
-              Row(
-                children: <Widget>[
-                  Flexible(
-                    child: Text(
-                      'When you turn your head from side to side, the child smile in response while looking at your face?',
-                      overflow: TextOverflow.ellipsis,
-                      maxLines: 3,
-                    ),
-                  ),
-                  SizedBox(
-                    width: 10.0,
-                  ),
-                  Checkbox(
-                      activeColor: Colors.red,
-                      value: turnCheck,
-                      onChanged: (bool newValue) {
-                        setState(() {
-                          turnCheck = !turnCheck;
-                        });
-                      }),
-                ],
-              ),
-              Row(
-                children: <Widget>[
-                  Text('Then eyes? '),
-                  SizedBox(
-                    width: 100.0,
-                  ),
-                  Checkbox(
-                      activeColor: Colors.red,
-                      value: theneyesCheck,
-                      onChanged: (bool newValue) {
-                        setState(() {
-                          theneyesCheck = !theneyesCheck;
-                        });
-                      }),
-                ],
-              ),
-              Chip(
-                avatar: CircleAvatar(
-                  backgroundColor: Colors.grey.shade800,
-                  //child: Text('From the First Month of Birth'),
-                ),
-                label: Text('When six months'),
-              ),
-              Row(
-                children: <Widget>[
-                  Text('look?'),
-                  SizedBox(
-                    width: 100.0,
-                  ),
-                  Checkbox(
-                      activeColor: Colors.red,
-                      value: lookingCheck,
-                      onChanged: (bool newValue) {
-                        setState(() {
-                          lookingCheck = !lookingCheck;
-                        });
-                      }),
-                ],
-              ),
-              Row(
-                children: <Widget>[
-                  Text('Touch?'),
-                  SizedBox(
-                    width: 100.0,
-                  ),
-                  Checkbox(
-                      activeColor: Colors.red,
-                      value: touchCheck,
-                      onChanged: (bool newValue) {
-                        setState(() {
-                          touchCheck = !touchCheck;
-                        });
-                      }),
-                ],
-              ),
-              Row(
-                children: <Widget>[
-                  Text('Squint?'),
-                  SizedBox(
-                    width: 100.0,
-                  ),
-                  Checkbox(
-                      activeColor: Colors.red,
-                      value: squintCheck,
-                      onChanged: (bool newValue) {
-                        setState(() {
-                          squintCheck = !squintCheck;
-                        });
-                      }),
-                ],
-              ),
-              Chip(
-                avatar: CircleAvatar(
-                  backgroundColor: Colors.grey.shade800,
-                  //child: Text('From the First Month of Birth'),
-                ),
-                label: Text('When ten months'),
-              ),
-              Row(
-                children: <Widget>[
-                  Text('Ring?'),
-                  SizedBox(
-                    width: 100.0,
-                  ),
-                  Checkbox(
-                      activeColor: Colors.red,
-                      value: ringCheck,
-                      onChanged: (bool newValue) {
-                        setState(() {
-                          ringCheck = !ringCheck;
-                        });
-                      }),
-                ],
-              ),
-              Chip(
-                avatar: CircleAvatar(
-                  backgroundColor: Colors.grey.shade800,
-                  //child: Text('From the First Month of Birth'),
-                ),
-                label: Text('When ten months'),
-              ),
-              Row(
-                children: <Widget>[
-                  Flexible(
-                    child: Text(
-                      'Ask?',
-                      overflow: TextOverflow.ellipsis,
-                      maxLines: 3,
-                    ),
-                  ),
-                  SizedBox(
-                    width: 10.0,
-                  ),
-                  Checkbox(
-                      activeColor: Colors.red,
-                      value: askCheck,
-                      onChanged: (bool newValue) {
-                        setState(() {
-                          askCheck = !askCheck;
-                        });
-                      }),
-                ],
-              ),
-              Row(
-                children: <Widget>[
-                  Flexible(
-                    child: Text(
-                      'Talk?',
-                      overflow: TextOverflow.ellipsis,
-                      maxLines: 3,
-                    ),
-                  ),
-                  SizedBox(
-                    width: 10.0,
-                  ),
-                  Checkbox(
-                      activeColor: Colors.red,
-                      value: talkCheck,
-                      onChanged: (bool newValue) {
-                        setState(() {
-                          talkCheck = !talkCheck;
-                        });
-                      }),
-                ],
-              ),
-            ],
-          ),
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.done),
-        onPressed: (){},
-      ),
-    );
-  }
-}*/
-
 import 'package:flutter/material.dart';
 //import 'package:fluttertoast/fluttertoast.dart';
 //import 'package:fluttertoast/fluttertoast.dart' as prefix0;
@@ -321,21 +25,87 @@ class _EyeTestState extends State<EyeTest> {
   bool ringCheck = false;
   bool askCheck = false;
   bool talkCheck = false;
-  // initState() {
-  //   super.initState();
-  //   baby.then((it) {
-  //     faceCheck = it.faceCheck;
-  //   });
 
-  //   print(faceCheck);
-  // }
+  String switchValS = "no";
+  String lightCheckS = "no";
+  String faceCheckS = "no";
+  String turnCheckS = "no";
+  String theneyesCheckS = "no";
+  String lookingCheckS = "no";
+  String touchCheckS = "no";
+  String squintCheckS = "no";
+  String ringCheckS = "no";
+  String askCheckS = "no";
+  String talkCheckS = "no";
+
+  initState() {
+    super.initState();
+    // setState(() {
+    //   switchVal = true;
+    // });
+    baby.then((it) {
+      if (it.faceCheck.toString() == "no" || it.faceCheck == null) {
+        //this gives the error
+        faceCheck = false;
+      } else {
+        faceCheck = true;
+      }
+      if (it.lightCheck.toString() == "no" || it.lightCheck == null) {
+        lightCheck = false;
+      } else {
+        lightCheck = true;
+      }
+      if (it.turnCheck.toString() == "no" || it.turnCheck == null) {
+        turnCheck = false;
+      } else {
+        turnCheck = true;
+      }
+      if (it.theneyesCheck.toString() == "no" || it.theneyesCheck == null) {
+        theneyesCheck = false;
+      } else {
+        theneyesCheck = true;
+      }
+      if (it.lookingCheck.toString() == "no" || it.lookingCheck == null) {
+        lookingCheck = false;
+      } else {
+        lookingCheck = true;
+      }
+      if (it.touchCheck.toString() == "no" || it.touchCheck == null) {
+        touchCheck = false;
+      } else {
+        touchCheck = true;
+      }
+      if (it.squintCheck.toString() == "no" || it.squintCheck == null) {
+        squintCheck = false;
+      } else {
+        squintCheck = true;
+      }
+      if (it.ringCheck.toString() == "no" || it.ringCheck == null) {
+        ringCheck = false;
+      } else {
+        ringCheck = true;
+      }
+      if (it.askCheck.toString() == "no" || it.askCheck == null) {
+        askCheck = false;
+      } else {
+        askCheck = true;
+      }
+      if (it.talkCheck.toString() == "no" || it.talkCheck == null) {
+        talkCheck = false;
+      } else {
+        talkCheck = true;
+      }
+    });
+
+    // print(faceCheck);
+  }
 
   @override
   Widget build(BuildContext context) {
     var data = EasyLocalizationProvider.of(context).data;
     return EasyLocalizationProvider(
       data: data,
-          child: Scaffold(
+      child: Scaffold(
         appBar: AppBar(
           title: Text(AppLocalizations.of(context).tr('eyetest')),
           actions: <Widget>[
@@ -353,9 +123,15 @@ class _EyeTestState extends State<EyeTest> {
           child: FutureBuilder<Baby>(
             future: baby,
             builder: (context, snapshot) {
-              if (snapshot.connectionState == ConnectionState.waiting)
+              // setState(() {
+              //   switchVal = false;
+              // });
+              logger.i('light check');
+
+              if (snapshot.connectionState == ConnectionState.waiting) {
                 return Center(child: CircularProgressIndicator());
-              else {
+              } else if (snapshot.hasData) {
+                //logger.i(snapshot.data.lightCheck);
                 //print('faceCheck');
                 // print(snapshot.data.faceCheck);
                 return SingleChildScrollView(
@@ -369,46 +145,51 @@ class _EyeTestState extends State<EyeTest> {
                             backgroundColor: Colors.grey.shade800,
                             //child: Text('From the First Month of Birth'),
                           ),
-                          label: Text(AppLocalizations.of(context).tr('fromthefirstmonth')),
+                          label: Text(AppLocalizations.of(context)
+                              .tr('fromthefirstmonth')),
                         ),
                         SizedBox(
                           height: 0.0,
                         ),
                         Card(
                             child: ListTile(
-                          title: Text(AppLocalizations.of(context).tr('does_child_eyes_toward_the_light')),
+                          title: Text(AppLocalizations.of(context)
+                              .tr('does_child_eyes_toward_the_light')),
                           trailing: Checkbox(
                               activeColor: Colors.red,
-                              value: snapshot.data.lightCheck,
+                              value: lightCheck,
                               onChanged: (bool newValue) {
                                 if (switchVal == true) {
                                   setState(() {
-                                    snapshot.data.lightCheck =
-                                        !snapshot.data.lightCheck;
-                                    lightCheck = snapshot.data.lightCheck;
-                                    // faceCheck = !faceCheck;
+                                    lightCheck = !lightCheck;
+
+                                    if (faceCheck == true) {
+                                      lightCheckS = "yes";
+                                    } else {
+                                      lightCheckS = "no";
+                                    }
                                   });
-                                } else {
-                                  return null;
                                 }
                               }),
                         )),
                         Card(
                             child: ListTile(
-                          title: Text(AppLocalizations.of(context).tr('does_the_child_look_good_on_your_face')),
+                          title: Text(AppLocalizations.of(context)
+                              .tr('does_the_child_look_good_on_your_face')),
                           trailing: Checkbox(
                               activeColor: Colors.red,
-                              value: snapshot.data.faceCheck,
+                              value: faceCheck,
                               onChanged: (bool newValue) {
                                 if (switchVal == true) {
                                   setState(() {
-                                    snapshot.data.faceCheck =
-                                        !snapshot.data.faceCheck;
-                                    faceCheck = snapshot.data.faceCheck;
-                                    // faceCheck = !faceCheck;
+                                    faceCheck = !faceCheck;
+
+                                    if (faceCheck == true) {
+                                      faceCheckS = "yes";
+                                    } else {
+                                      faceCheckS = "no";
+                                    }
                                   });
-                                } else {
-                                  return null;
                                 }
                               }),
                         )),
@@ -418,43 +199,48 @@ class _EyeTestState extends State<EyeTest> {
                             backgroundColor: Colors.grey.shade800,
                             //child: Text('From the First Month of Birth'),
                           ),
-                          label: Text(AppLocalizations.of(context).tr('whentwomonths')),
+                          label: Text(
+                              AppLocalizations.of(context).tr('whentwomonths')),
                         ),
                         Card(
                             child: ListTile(
-                          title: Text(AppLocalizations.of(context).tr('when_you_turn_your_face_to_the_side_do_you_see_the_child_smiling_in_response')),
+                          title: Text(AppLocalizations.of(context).tr(
+                              'when_you_turn_your_face_to_the_side_do_you_see_the_child_smiling_in_response')),
                           trailing: Checkbox(
                               activeColor: Colors.red,
-                              value: snapshot.data.turnCheck,
+                              value: turnCheck,
                               onChanged: (bool newValue) {
                                 if (switchVal == true) {
                                   setState(() {
-                                    snapshot.data.turnCheck =
-                                        !snapshot.data.turnCheck;
-                                    turnCheck = snapshot.data.turnCheck;
-                                    // faceCheck = !faceCheck;
+                                    turnCheck = !turnCheck;
+
+                                    if (turnCheck == true) {
+                                      turnCheckS = "yes";
+                                    } else {
+                                      turnCheckS = "no";
+                                    }
                                   });
-                                } else {
-                                  return null;
                                 }
                               }),
                         )),
                         Card(
                           child: ListTile(
-                            title: Text(AppLocalizations.of(context).tr('then_the_baby_eyes_move')),
+                            title: Text(AppLocalizations.of(context)
+                                .tr('then_the_baby_eyes_move')),
                             trailing: Checkbox(
                                 activeColor: Colors.red,
-                                value: snapshot.data.theneyesCheck,
+                                value: theneyesCheck,
                                 onChanged: (bool newValue) {
                                   if (switchVal == true) {
                                     setState(() {
-                                      snapshot.data.theneyesCheck =
-                                          !snapshot.data.theneyesCheck;
-                                      theneyesCheck = snapshot.data.theneyesCheck;
-                                      // faceCheck = !faceCheck;
+                                      theneyesCheck = !theneyesCheck;
+
+                                      if (theneyesCheck == true) {
+                                        theneyesCheckS = "yes";
+                                      } else {
+                                        theneyesCheckS = "no";
+                                      }
                                     });
-                                  } else {
-                                    return null;
                                   }
                                 }),
                           ),
@@ -465,93 +251,71 @@ class _EyeTestState extends State<EyeTest> {
                             backgroundColor: Colors.grey.shade800,
                             //child: Text('From the First Month of Birth'),
                           ),
-                          label: Text(AppLocalizations.of(context).tr('whensixmonths')),
+                          label: Text(
+                              AppLocalizations.of(context).tr('whensixmonths')),
                         ),
                         Card(
                           child: ListTile(
-                            title: Text(AppLocalizations.of(context).tr('does_the_child_look_arround')),
+                            title: Text(AppLocalizations.of(context)
+                                .tr('does_the_child_look_arround')),
                             trailing: Checkbox(
                                 activeColor: Colors.red,
-                                value: snapshot.data.lookingCheck,
+                                value: lookingCheck,
                                 onChanged: (bool newValue) {
                                   if (switchVal == true) {
                                     setState(() {
-                                      snapshot.data.lookingCheck =
-                                          !snapshot.data.lookingCheck;
-                                      lookingCheck = snapshot.data.lookingCheck;
-                                      // faceCheck = !faceCheck;
+                                      lookingCheck = !lookingCheck;
+
+                                      if (lookingCheck == true) {
+                                        lookingCheckS = "yes";
+                                      } else {
+                                        lookingCheckS = "no";
+                                      }
                                     });
-                                  } else {
-                                    return null;
                                   }
                                 }),
                           ),
                         ),
                         Card(
                           child: ListTile(
-                            title: Text(
-                                AppLocalizations.of(context).tr('is_child_streching_out_his_hand_and_trying_to_touch_something')),
+                            title: Text(AppLocalizations.of(context).tr(
+                                'is_child_streching_out_his_hand_and_trying_to_touch_something')),
                             trailing: Checkbox(
                                 activeColor: Colors.red,
-                                value: snapshot.data.touchCheck,
+                                value: touchCheck,
                                 onChanged: (bool newValue) {
                                   if (switchVal == true) {
                                     setState(() {
-                                      snapshot.data.touchCheck =
-                                          !snapshot.data.touchCheck;
-                                      touchCheck = snapshot.data.touchCheck;
-                                      // faceCheck = !faceCheck;
+                                      touchCheck = !touchCheck;
+
+                                      if (touchCheck == true) {
+                                        touchCheckS = "yes";
+                                      } else {
+                                        touchCheckS = "no";
+                                      }
                                     });
-                                  } else {
-                                    return null;
                                   }
                                 }),
                           ),
                         ),
                         Card(
                           child: ListTile(
-                            title: Text(AppLocalizations.of(context).tr('do_you_suspect_that_your_child_has_a_problem')),
+                            title: Text(AppLocalizations.of(context).tr(
+                                'do_you_suspect_that_your_child_has_a_problem')),
                             trailing: Checkbox(
                                 activeColor: Colors.red,
-                                value: snapshot.data.squintCheck,
+                                value: squintCheck,
                                 onChanged: (bool newValue) {
-                                  if (switchVal == true) {
+                                  if (switchVal) {
                                     setState(() {
-                                      snapshot.data.squintCheck =
-                                          !snapshot.data.squintCheck;
-                                      squintCheck = snapshot.data.squintCheck;
-                                      // faceCheck = !faceCheck;
+                                      squintCheck = !squintCheck;
+
+                                      if (squintCheck == true) {
+                                        squintCheckS = "yes";
+                                      } else {
+                                        squintCheckS = "no";
+                                      }
                                     });
-                                  } else {
-                                    return null;
-                                  }
-                                }),
-                          ),
-                        ),
-                        Chip(
-                          avatar: CircleAvatar(
-                            backgroundImage: AssetImage("images/mother.png"),
-                            backgroundColor: Colors.grey.shade800,
-                            //child: Text('From the First Month of Birth'),
-                          ),
-                          label: Text(AppLocalizations.of(context).tr('whentenmonths')),
-                        ),
-                        Card(
-                          child: ListTile(
-                            title: Text(AppLocalizations.of(context).tr('is_it_possible_for_a_child_to_pickup_small_things_with_a_thumb_and_forefinger')),
-                            trailing: Checkbox(
-                                activeColor: Colors.red,
-                                value: snapshot.data.ringCheck,
-                                onChanged: (bool newValue) {
-                                  if (switchVal == true) {
-                                    setState(() {
-                                      snapshot.data.ringCheck =
-                                          !snapshot.data.ringCheck;
-                                      ringCheck = snapshot.data.ringCheck;
-                                      // faceCheck = !faceCheck;
-                                    });
-                                  } else {
-                                    return null;
                                   }
                                 }),
                           ),
@@ -562,44 +326,80 @@ class _EyeTestState extends State<EyeTest> {
                             backgroundColor: Colors.grey.shade800,
                             //child: Text('From the First Month of Birth'),
                           ),
-                          label: Text(AppLocalizations.of(context).tr('whentwelvemonths')),
+                          label: Text(
+                              AppLocalizations.of(context).tr('whentenmonths')),
                         ),
                         Card(
                           child: ListTile(
-                            title: Text(AppLocalizations.of(context).tr('have_your_child_strech_out_his_hand_and_touch_them')),
+                            title: Text(AppLocalizations.of(context).tr(
+                                'is_it_possible_for_a_child_to_pickup_small_things_with_a_thumb_and_forefinger')),
                             trailing: Checkbox(
                                 activeColor: Colors.red,
-                                value: snapshot.data.askCheck,
+                                value: ringCheck,
                                 onChanged: (bool newValue) {
                                   if (switchVal == true) {
                                     setState(() {
-                                      snapshot.data.askCheck =
-                                          !snapshot.data.askCheck;
-                                      askCheck = snapshot.data.askCheck;
-                                      // faceCheck = !faceCheck;
+                                      ringCheck = !ringCheck;
+
+                                      if (ringCheck == true) {
+                                        ringCheckS = "yes";
+                                      } else {
+                                        ringCheckS = "no";
+                                      }
                                     });
-                                  } else {
-                                    return null;
+                                  }
+                                }),
+                          ),
+                        ),
+                        Chip(
+                          avatar: CircleAvatar(
+                            backgroundImage: AssetImage("images/mother.png"),
+                            backgroundColor: Colors.grey.shade800,
+                            //child: Text('From the First Month of Birth'),
+                          ),
+                          label: Text(AppLocalizations.of(context)
+                              .tr('whentwelvemonths')),
+                        ),
+                        Card(
+                          child: ListTile(
+                            title: Text(AppLocalizations.of(context).tr(
+                                'have_your_child_strech_out_his_hand_and_touch_them')),
+                            trailing: Checkbox(
+                                activeColor: Colors.red,
+                                value: askCheck,
+                                onChanged: (bool newValue) {
+                                  if (switchVal == true) {
+                                    setState(() {
+                                      askCheck = !askCheck;
+
+                                      if (askCheck == true) {
+                                        askCheckS = "yes";
+                                      } else {
+                                        askCheckS = "no";
+                                      }
+                                    });
                                   }
                                 }),
                           ),
                         ),
                         Card(
                           child: ListTile(
-                            title: Text(AppLocalizations.of(context).tr('if_the_person_identifies_them_the_child_will_recognize_them_before_they_call_them')),
+                            title: Text(AppLocalizations.of(context).tr(
+                                'if_the_person_identifies_them_the_child_will_recognize_them_before_they_call_them')),
                             trailing: Checkbox(
                                 activeColor: Colors.red,
-                                value: snapshot.data.talkCheck,
+                                value: talkCheck,
                                 onChanged: (bool newValue) {
                                   if (switchVal == true) {
                                     setState(() {
-                                      snapshot.data.talkCheck =
-                                          !snapshot.data.talkCheck;
-                                      talkCheck = snapshot.data.talkCheck;
-                                      // faceCheck = !faceCheck;
+                                      talkCheck = !talkCheck;
+
+                                      if (talkCheck == true) {
+                                        talkCheckS = "yes";
+                                      } else {
+                                        talkCheckS = "no";
+                                      }
                                     });
-                                  } else {
-                                    return null;
                                   }
                                 }),
                           ),
@@ -618,6 +418,9 @@ class _EyeTestState extends State<EyeTest> {
                     ),
                   ),
                 );
+              } else if (snapshot.hasError) {
+                logger.e(snapshot.error);
+                return Text('No Data');
               }
             },
           ),
@@ -626,16 +429,16 @@ class _EyeTestState extends State<EyeTest> {
           child: Icon(Icons.done),
           onPressed: () {
             updateDetails(
-                    lightCheck,
-                    faceCheck,
-                    turnCheck,
-                    theneyesCheck,
-                    lookingCheck,
-                    touchCheck,
-                    squintCheck,
-                    ringCheck,
-                    askCheck,
-                    talkCheck)
+                    lightCheckS,
+                    faceCheckS,
+                    turnCheckS,
+                    theneyesCheckS,
+                    lookingCheckS,
+                    touchCheckS,
+                    squintCheckS,
+                    ringCheckS,
+                    askCheckS,
+                    talkCheckS)
                 .then((res) {
               Toast.show("Done", context,
                   duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
@@ -663,6 +466,12 @@ class _EyeTestState extends State<EyeTest> {
         ),
       ),
     );
+    // try {
+
+    // } catch (e) {
+    //   logger.e(e);
+    //   return Text('No data');
+    // }
   }
 
 //  updateDetails(String name)async{

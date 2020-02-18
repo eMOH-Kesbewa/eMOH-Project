@@ -7,13 +7,137 @@ const connection = require('../connection');
 const bcrypt = require('bcryptjs');
 const passport = require('passport');
 const useraccounts = require('../Schemas/useraccountSchema');
+const validators = require('../scripts/validators');
+const nodemailer = require('nodemailer');
 module.exports = router;
 
+// https://github.com/hermajul/mean-login-app
+
+// router.post("/reguser",(req, res)=>{
+//     console.log(req.body);//print body
+
+//     var newUser = new useraccounts({
+//         userid:req.body.userid,
+//         username:req.body.username,
+//         password:req.body.password,
+//         role:req.body.role,
+//         areaId:req.body.areaId
+//     });
+//     //function for save username password to db
+// /*
+//     useraccounts.find({username: 'req.body.username'},
+//     (err,doc)=>{
+//         doc=>{
+//             if(doc.length){
+//                 res.json({state:false,msg:"data not inserted"});
+//                 console.log("error");
+//             }else{
+//                 User.saveuser(newUser,function(err,user){
+
+//                     if(err){
+//                         res.json({state:false,msg:"data not inserted"});
+//                         console.log("error");
+//                     }
+//                     if(user){
+//                         res.json({state:true,msg:"data inserted"});
+//                         console.log("correct inserted");
+//                     }
+//                 })
+//             }
+//         },
+//         err=>{
+//             res.json({state:false,msg:"data not inserted"});
+//         }
+//     },/** */
+//     // User.saveuser(newUser,function(err,user){
+        
+       
+//     //     if(err){
+//     //         res.json({state:false,msg:"data not inserted"});
+//     //         console.log("error");
+//     //     }
+//     //     if(user){
+//     //         res.json({state:true,msg:"data inserted"});
+//     //         console.log("correct inserted");
+//     //     }
+//     // }
+//     // );
+//     User.create(req.body)
+//       .then(function(){
+//           res.sendStatus(200);
+//       })
+//       .catch(function(err){
+//           res.status(400).send(err);
+//       });
+
+     
+// });
+
+router.post("/register",function(req,res){
+    userDetails = req.body;
+
+    useraccounts.find({ username: userDetails['username'] }, (err, doc) => {
+        if (doc.length) {
+            res.json("EqualEmail");
+            console.log(doc);
+        }else{
+            const newUser = new useraccounts({
+                userid:req.body.userid,
+                username:req.body.username,
+                password:req.body.password,
+                role:req.body.role,
+                areaId:req.body.areaId
+            });
+        
+            User.adduser(newUser,function(err,user){
+                if(err){
+                   res.json({state:false,msg:"data not insereted"});
+                }
+                if(user){
+                    sendMail(userDetails,info => {
+                        console.log(`The mails has been send and the id is ${info.messageId}`);
+                      });
+                    res.json({state:true,msg:"data inserted"});
+                }
+            });
+        }
+    });
+});
 
 
-router.post("/reguser",function(req, res){
+
+async function sendMail(user,callback) {
+    // create reusable transporter object using the default SMTP transport
+    let transporter = nodemailer.createTransport({
+      host: "smtp.gmail.com",
+      port: 587,
+      secure: false, // true for 465, false for other ports
+      auth: {
+        user: "kesbewaemoh@gmail.com",
+        pass: "tempsend123"
+      }
+    });
+  
+    let mailOptions = {
+      from: '"Kesbewa MOH"<kesbewaemoh@gmail.com>', // sender address
+      to: userDetails['username'], // list of receivers
+      subject: `Registration Details`, // Subject line
+      html: `<h3>Your UserName is ${userDetails['userid']}</h3>
+      <br>
+      <h3>Your Password is ${userDetails['password']}</h3>
+      <br>
+      <h>Emails has been sent by eMOH notification system</h5>`
+    };
+  
+    // send mail with defined transport object
+    let info = await transporter.sendMail(mailOptions);
+  
+    callback(info);
+  }
+
+/*
+router.post('/register',(req,res)=>{
     console.log(req.body);//print body
-
     var newUser = new useraccounts({
         userid:req.body.userid,
         username:req.body.username,
@@ -21,57 +145,33 @@ router.post("/reguser",function(req, res){
         role:req.body.role,
         areaId:req.body.areaId
     });
-    //function for save username password to db
-/*
-    useraccounts.find({username: 'req.body.username'},
-    (err,doc)=>{
-        doc=>{
-            if(doc.length){
-                res.json({state:false,msg:"data not inserted"});
-                console.log("error");
-            }else{
-                User.saveuser(newUser,function(err,user){
 
-                    if(err){
-                        res.json({state:false,msg:"data not inserted"});
-                        console.log("error");
-                    }
-                    if(user){
-                        res.json({state:true,msg:"data inserted"});
-                        console.log("correct inserted");
-                    }
-                })
-            }
-        },
-        err=>{
-            res.json({state:false,msg:"data not inserted"});
-        }
-    },/** */
-    User.saveuser(newUser,function(err,user){
-        
-       
+    User.adduser(newUser,function(err,user){
         if(err){
-            res.json({state:false,msg:"data not inserted"});
-            console.log("error");
+           res.json({state:false,msg:"data not insereted"});
         }
         if(user){
             res.json({state:true,msg:"data inserted"});
-            console.log("correct inserted");
         }
-    }
+    });
+        ,()=> res.json({success:false,msg:'error is'}),
     );
+    
+  });
 
 
-});
-
-
+});*/
 //login 
-router.post("/login",function(req,res){
+router.post("/login",(req,res)=>{
 
     const username = req.body.username;
     const password = req.body.password;
 
-    User.findByUsername(username,function(err,user){
+    if(username == undefined || password == undefined){
+        res.json({success:false,msg:'wrong msg format'});
+    }
+
+    User.findByUsername(username,(err,user)=>{
         
         if(err){
             return res.send({
@@ -82,19 +182,19 @@ router.post("/login",function(req,res){
         }
         
         if(!user){
-            return res.send({
+            return res.status(500).send({
                 success:false,
                 message:'Error,no user found'
             });
-            res.json({state:false,msg:"no user found"});
+            // res.json({state:false,msg:"no user found"});
         }
 
-       User.passwordCheck(password,user.password,function(err,match){
+       User.passwordCheck(password,user.password,(err,match)=>{
         
         if(!match) {
 
             console.log("Login error");
-            return res.send({
+            return res.json({
                 success:false,
                 message:"error,invalid password"
             });
@@ -106,6 +206,7 @@ router.post("/login",function(req,res){
             console.log("email,password matched login successed");
             // const token = jwt.sign(user.toJSON(),secret,{expiresIn:604800 });
              const token = jwt.sign(user.toJSON(), 'your_jwt_secret',{expiresIn:604800 });
+
             res.json(
                 {
                     success:true,
@@ -201,6 +302,38 @@ router.get('/generateUserId/:areaId', (req, res) => {
         })
     } else {
         useraccounts.find({
+            $and:[
+                {userid: new RegExp('^'+areaId,'i')},
+                {role:'mother'}
+            ]
+            
+           
+        }, (err, doc) => {
+            if (doc.length) {
+                //res.send(doc);
+                console.log(doc);
+                console.log(doc[0].userid);
+                res.send(doc);
+            } else {
+                console.log('Cannot find the record');
+                //res.send(doc);
+                res.send(areaId.concat('..1001')) ;
+            }
+        }).sort({_id:-1}).limit(1);;
+    }
+});
+
+/*
+
+router.get('/generateUserId/:areaId', (req, res) => {
+    areaId = req.params.areaId;
+    console.log(areaId)
+    if (areaId == '0') {
+        useraccounts.find((err, doc) => {
+            res.send(areaId+"..0000") 
+        })
+    } else {
+        useraccounts.find({
             //userid: new RegExp(areaId, 'i')
             userid: new RegExp('^'+areaId,'i')
             //userid: /^2/ 
@@ -218,3 +351,6 @@ router.get('/generateUserId/:areaId', (req, res) => {
         }).sort({_id:-1}).limit(1);;
     }
 });
+
+
+*/

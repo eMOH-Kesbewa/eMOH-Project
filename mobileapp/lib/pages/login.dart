@@ -31,17 +31,6 @@ class _LoginState extends State<Login> {
   var password;
   bool _passwordVisible = true;
 
-  // @override
-  // void initState() async {
-  //   super.initState();
-  //   SharedPreferences pref = await SharedPreferences.getInstance();
-  //   if (pref.getString("email") != null) {
-  //     Navigator.push(
-  //         context, MaterialPageRoute(builder: (context) => BottomNavigation()));
-  //   }
-  // }
-
-//https://protected-bayou-52277.herokuapp.com/
   @override
   Widget build(BuildContext context) {
     final motherLogo = const ImageIcon(AssetImage("images/mother.png"),
@@ -65,25 +54,6 @@ class _LoginState extends State<Login> {
         hintStyle: TextStyle(color: Colors.black26),
       ),
     );
-
-    /* final pwField =  Container(
-            margin: EdgeInsets.only(left: 16.0),
-            child: TextFormField(
-              controller: passwordController,
-              decoration: InputDecoration(
-                  hintText: 'Password',
-                  filled: true,
-                  prefixIcon: Icon(
-                    Icons.account_box,
-                    size: 28.0,
-                  ),
-                  suffixIcon: IconButton(
-                      icon: Icon(Icons.remove),
-                      onPressed: () {
-                        debugPrint('222');
-                      })),
-            ),
-          );*/
 
     final pwField = TextFormField(
       controller: passwordController,
@@ -187,29 +157,30 @@ class _LoginState extends State<Login> {
 
     Map data = {'username': email, 'password': pass};
     var jsonResponse = null;
-    var response = await http.post(
-        "https://protected-bayou-52277.herokuapp.com/users/login",
+    var response = await http.post("https://emohback.herokuapp.com/users/login",
         body: data);
     logger.wtf(response.statusCode);
     if (response.statusCode == 200) {
       jsonResponse = json.decode(response.body);
       globals.globalEmail = emailController.text.toString();
-      logger.d(jsonResponse['token']);
+      logger.wtf(jsonResponse['token']);
+      logger.w(jsonResponse['userid']);
       SharedPreferences prefs = await SharedPreferences.getInstance();
-      
-          prefs.setString('jwt', jsonResponse['token']);
+
+      prefs.setString('jwt', jsonResponse['token']);
       if (jsonResponse != null) {
         setState(() {
           _isLoading = false;
         });
         //String name = decoded['name'];
         // sharedPreferences.setString("token", jsonResponse['token']);
-        bool state = jsonResponse['state'];
-        print(state);
-        if (state == true) {
+        bool success = jsonResponse['success'];
+        logger.wtf(jsonResponse['success']);
+        print(success);
+        if (success == true) {
           print('***validated***');
           SharedPreferences prefs = await SharedPreferences.getInstance();
-          prefs.setString('email', emailController.text);
+          prefs.setString('email', jsonResponse['userid']);
 
           Navigator.pushReplacement(
               context,
@@ -224,25 +195,6 @@ class _LoginState extends State<Login> {
           print('***else clause***');
           return Toast.show("Invalid email or password", context,
               duration: Toast.LENGTH_LONG, gravity: Toast.CENTER);
-          /* setState(() {
-            print('#########');
-            _isError = true;
-          });*/
-          /*return AlertDialog(
-            title: Text('Error!'),
-            content: SingleChildScrollView(
-              child: ListBody(
-                children: <Widget>[
-                  Text('Invalid user name or password'),
-                ],
-              ),
-            ),
-          );*/
-          //alert dialog is not working
-          /*setState(() {
-            _isLoading = false;
-          });*/
-
         }
       }
     } else {

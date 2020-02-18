@@ -31,12 +31,12 @@
                                   <input matInput placeholder="{{ 'family.village_id' | translate }}" type="text"  readonly="{{onChange()}}" formControlName="village_id" >
                                 </mat-form-field>
                             </div>
-                            <div class="col-md-5">
+                            <!-- <div class="col-md-5">
                                 <mat-form-field class="example-full-width">
                                   <input matInput placeholder="{{ 'family.Approved_family_category' | translate }}" type= "text" readonly="{{onChange()}}" formControlName="Approved_family_category">
                                  
                                 </mat-form-field>
-                            </div>
+                            </div> -->
                             <div class="col-md-3">
                                 <mat-form-field class="example-full-width">
                                   <input matInput placeholder="{{ 'family.Identity_number' | translate }}" type="text" readonly="{{onChange()}}" formControlName="Identity_number">
@@ -70,7 +70,7 @@
                                 </mat-form-field>
                             </div><div class="col-md-5">
                                 <mat-form-field class="example-full-width">
-                                  <input matInput placeholder="{{ 'family.Address' | translate }}" type= "text" readonly="{{onChange()}}" formControlName="address">
+                                  <input matInput placeholder="{{ 'family.Address' | translate }}" type= "text" readonly="{{onChange()}}" formControlName="Address">
                                   
                                 </mat-form-field>
                             </div><div class="col-md-3">
@@ -264,7 +264,8 @@
                       </div>
                     </mat-expansion-panel>
                       <div *ngIf="onHidden()">
-                        <input type="submit" value={{'update'| translate=""" class="btn btn-danger pull-right">
+                        
+                        <input type="submit" value="{{'update'|translate}}" class="btn btn-info pull-right">
                       </div>
                       </form>
                         <div *ngIf="success"><h1>You submitted a record</h1></div>

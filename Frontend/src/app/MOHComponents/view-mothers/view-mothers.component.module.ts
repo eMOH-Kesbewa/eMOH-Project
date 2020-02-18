@@ -20,16 +20,21 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { Mothers } from "./view-mothers.component.routing";
 import { ViewPregnantMothersComponent } from "../view-pregnant-mothers/view-pregnant-mothers.component";
 import { AddMotherComponent } from "../add-mother/add-mother.component";
-import { PregnancyFormComponent } from "../pregnancy-form/pregnancy-form.component";
+// import { PregnancyFormComponent } from "../pregnancy-form/pregnancy-form.component";
 import { ViewMothersComponent } from "./view-mothers.component";
 import { ViewMotherByIDComponent } from "../view-mother-by-id/view-mother-by-id.component";
 import { TranslateModule, TranslateLoader } from "@ngx-translate/core";
 import { HttpLoaderFactory } from "app/app.module";
 import { HttpClient } from "@angular/common/http";
+import { RegPregMothersComponent } from "app/Graphs/reg-preg-mothers/reg-preg-mothers.component";
+import {MatMenuModule} from '@angular/material/menu';
+import { DeliveryReportComponent } from 'app/Graphs/delivery-report/delivery-report.component';
+
 
 
 @NgModule({
-    declarations:[ViewMothersComponent,PregnancyFormComponent,ViewMotherByIDComponent,ViewPregnantMothersComponent],
+    declarations:[ViewMothersComponent,ViewMotherByIDComponent,RegPregMothersComponent,DeliveryReportComponent
+    ],
     imports:[
         Mothers,
         CommonModule,
@@ -46,6 +51,7 @@ import { HttpClient } from "@angular/common/http";
         MatSlideToggleModule,
         MatSnackBarModule,
         MatExpansionModule,
+        MatMenuModule,
         TranslateModule.forChild({
           loader: {
             provide: TranslateLoader,

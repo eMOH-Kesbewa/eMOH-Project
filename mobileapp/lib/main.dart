@@ -39,7 +39,7 @@ void main() => runApp(EasyLocalization(child: MyApp()));
 var email;
 final ThemeData themeData = ThemeData(
   brightness: Brightness.light,
-  primarySwatch: Colors.brown,
+  primarySwatch: Colors.blue,
 );
 Future getemail() async {
   SharedPreferences prefs = await SharedPreferences.getInstance();
@@ -56,6 +56,7 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         title: 'Flutter Demo',
         theme: themeData,
+        debugShowCheckedModeBanner: false,
         // home: MaterialApp(home: email == null ? Login() : BottomNavigation()),
         // home: email == null ? Login() : BottomNavigation()));
         //home: Login(),

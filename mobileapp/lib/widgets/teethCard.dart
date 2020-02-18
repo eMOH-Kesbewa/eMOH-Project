@@ -56,8 +56,8 @@ class _TeethCardState extends State<TeethCard> {
 
   @override
   Widget build(BuildContext context) {
-     var data = EasyLocalizationProvider.of(context).data;
-     
+    var data = EasyLocalizationProvider.of(context).data;
+
     final pickDateButton = IconButton(
       onPressed: () {
         _selectDate(context);
@@ -73,185 +73,195 @@ class _TeethCardState extends State<TeethCard> {
       //style: style,
     );
     logger.e(widget.teethCount);
-    return EasyLocalizationProvider(
-      data: data,
-          child: Card(
-        child: Column(
-          children: <Widget>[
-            Visibility(
-              visible: widget.listVis,
-              child: Column(
-                children: <Widget>[
-                  ListTile(
-                    leading: growBulletIcon,
-                    title: Text(AppLocalizations.of(context).tr('checkeddate')),
-                    trailing: Text(widget.date.substring(0, 10)),
-                  ),
-                  ListTile(
-                    leading: growBulletIcon,
-                    title: Text(AppLocalizations.of(context).tr('teethcount')),
-                    trailing: Text(widget.teethCount),
-                  ),
-                  ListTile(
-                    leading: growBulletIcon,
-                    title: Text(AppLocalizations.of(context).tr('statusofteeth')),
-                    trailing: Text(widget.status),
-                  ),
-                ],
+    try {
+      return EasyLocalizationProvider(
+        data: data,
+        child: Card(
+          child: Column(
+            children: <Widget>[
+              Visibility(
+                visible: widget.listVis,
+                child: Column(
+                  children: <Widget>[
+                    ListTile(
+                      leading: growBulletIcon,
+                      title:
+                          Text(AppLocalizations.of(context).tr('checkeddate')),
+                      trailing: Text(widget.date.substring(0, 10)),
+                    ),
+                    ListTile(
+                      leading: growBulletIcon,
+                      title:
+                          Text(AppLocalizations.of(context).tr('teethcount')),
+                      trailing: Text(widget.teethCount),
+                    ),
+                    ListTile(
+                      leading: growBulletIcon,
+                      title: Text(
+                          AppLocalizations.of(context).tr('statusofteeth')),
+                      trailing: Text(widget.status),
+                    ),
+                  ],
+                ),
               ),
-            ),
-            Visibility(
-              visible: widget.formVis,
-              child: Column(
-                children: <Widget>[
-                  Container(
-                    width: 100.0,
-                    //child: TextField(),
-                    child: Form(
-                      key: _formKey,
-                      child: TextFormField(
-                        keyboardType: TextInputType.number,
-                        controller: teethCountController,
-                        validator: (input) {
-                          // int _val = int.parse(teethCountController.text.toString());
-                          if (input.isEmpty) {
-                            return "Enter teeth count";
-                          }
-                          if (int.parse(input) > 32) {
-                            return "Invalid Count";
-                          }
+              Visibility(
+                visible: widget.formVis,
+                child: Column(
+                  children: <Widget>[
+                    Container(
+                      width: 100.0,
+                      //child: TextField(),
+                      child: Form(
+                        key: _formKey,
+                        child: TextFormField(
+                          keyboardType: TextInputType.number,
+                          controller: teethCountController,
+                          validator: (input) {
+                            // int _val = int.parse(teethCountController.text.toString());
+                            if (input.isEmpty) {
+                              return "Enter teeth count";
+                            }
+                            if (int.parse(input) > 32) {
+                              return "Invalid Count";
+                            }
 
-                          return null;
-                        },
+                            return null;
+                          },
 
-                        //autovalidate: true,
-                        decoration: const InputDecoration(
-                          hintText: 'Teeth Count',
+                          //autovalidate: true,
+                          decoration: const InputDecoration(
+                            hintText: 'Teeth Count',
+                          ),
+
+                          //onSaved: (input) => teethCountController.text,
                         ),
-
-                        //onSaved: (input) => teethCountController.text,
                       ),
                     ),
-                  ),
-                  SizedBox(
-                    height: 20.0,
-                  ),
-                  Container(
-                    child: pickedDate,
-                    width: 100.0,
-                  ),
-                  pickDateButton,
-                  Row(
-                    children: <Widget>[
-                      SizedBox(
-                        child: Container(
-                          width: 200.0,
-                          child: RadioListTile(
-                            title: Text('Good'),
-                            value: false,
-                            groupValue: _isRadioSelected,
-                            onChanged: (bool value) {
-                              setState(() {
-                                logger.wtf(goodRadio);
-                                //_isRadioSelected = newValue;
-                                //goodRadio = !goodRadio;
-                                _isRadioSelected = value;
-                                teethStatus = 'good';
-                                logger.v(teethStatus);
-                                if (_isRadioSelected) {
-                                  // teethStatus = 'good';
-                                  // logger.v(teethStatus);
-                                }
-                              });
-                            },
-                          ),
-                          // child: ListTile(
-                          //   leading: Text('Bad'),
-                          //   trailing: Radio(
-                          //     value: false,
-                          //     onChanged: (bool) {
-                          //       setState(() {
-                          //         badRadio = !badRadio;
-                          //         if (badRadio) {
-                          //           teethStatus = 'Bad';
-                          //         }
-                          //       });
-                          //     },
-                          //   ),
-                          // ),
-                        ),
-                      ),
-                      SizedBox(
-                        child: Container(
-                          width: 100.0,
-                          child: ListTile(
-                            leading: Text('Bad'),
-                            trailing: Radio(
-                              value: true,
+                    SizedBox(
+                      height: 20.0,
+                    ),
+                    Container(
+                      child: pickedDate,
+                      width: 100.0,
+                    ),
+                    pickDateButton,
+                    Row(
+                      children: <Widget>[
+                        SizedBox(
+                          child: Container(
+                            width: 200.0,
+                            child: RadioListTile(
+                              title: Text('Good'),
+                              value: false,
                               groupValue: _isRadioSelected,
                               onChanged: (bool value) {
                                 setState(() {
-                                  //badRadio = !badRadio;
+                                  logger.wtf(goodRadio);
+                                  //_isRadioSelected = newValue;
+                                  //goodRadio = !goodRadio;
                                   _isRadioSelected = value;
-                                  teethStatus = 'bad';
+                                  teethStatus = 'good';
                                   logger.v(teethStatus);
                                   if (_isRadioSelected) {
-                                    // teethStatus = 'bad';
+                                    // teethStatus = 'good';
                                     // logger.v(teethStatus);
                                   }
                                 });
                               },
                             ),
+                            // child: ListTile(
+                            //   leading: Text('Bad'),
+                            //   trailing: Radio(
+                            //     value: false,
+                            //     onChanged: (bool) {
+                            //       setState(() {
+                            //         badRadio = !badRadio;
+                            //         if (badRadio) {
+                            //           teethStatus = 'Bad';
+                            //         }
+                            //       });
+                            //     },
+                            //   ),
+                            // ),
                           ),
                         ),
-                      ),
-                    ],
-                  ),
-                  FlatButton(
-                    child: Text('Set'),
-                    color: Colors.grey[200],
-                    onPressed: () {
-                      // widget.callback();
-                      logger.wtf(teethCountController.text.toString());
-                      // print(widget.occAge);
-                      if (_formKey.currentState.validate()) {
+                        SizedBox(
+                          child: Container(
+                            width: 100.0,
+                            child: ListTile(
+                              leading: Text('Bad'),
+                              trailing: Radio(
+                                value: true,
+                                groupValue: _isRadioSelected,
+                                onChanged: (bool value) {
+                                  setState(() {
+                                    //badRadio = !badRadio;
+                                    _isRadioSelected = value;
+                                    teethStatus = 'bad';
+                                    logger.v(teethStatus);
+                                    if (_isRadioSelected) {
+                                      // teethStatus = 'bad';
+                                      // logger.v(teethStatus);
+                                    }
+                                  });
+                                },
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    FlatButton(
+                      child: Text('Set'),
+                      color: Colors.grey[200],
+                      onPressed: () {
+                        // widget.callback();
                         logger.wtf(teethCountController.text.toString());
-                        updateDetails(
-                                teethCountController.text.toString(),
-                                today,
-                                teethStatus,
-                                widget.dateField,
-                                widget.countField,
-                                widget.statusField)
-                            .then((res) {
-                          Toast.show("Done", context,
-                              duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
-                        }).catchError((e) {
-                          logger.d(e);
-                          Toast.show("An Error Has Occured", context,
-                              duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
-                        });
-                        setState(() {
-                          widget.teethCount =
-                              teethCountController.text.toString();
-                          widget.status = teethStatus;
-                          widget.date = today.substring(0, 10);
-                          // widget.status =
-                          widget.formVis = false;
-                          widget.listVis = true;
-                        });
-                      } else {
-                        Toast.show("Enter valid data", context,
-                            duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
-                      }
-                    },
-                  )
-                ],
-              ),
-            )
-          ],
+                        // print(widget.occAge);
+                        if (_formKey.currentState.validate()) {
+                          logger.wtf(teethCountController.text.toString());
+                          updateDetails(
+                                  teethCountController.text.toString(),
+                                  today,
+                                  teethStatus,
+                                  widget.dateField,
+                                  widget.countField,
+                                  widget.statusField)
+                              .then((res) {
+                            Toast.show("Done", context,
+                                duration: Toast.LENGTH_LONG,
+                                gravity: Toast.BOTTOM);
+                          }).catchError((e) {
+                            logger.d(e);
+                            Toast.show("An Error Has Occured", context,
+                                duration: Toast.LENGTH_LONG,
+                                gravity: Toast.BOTTOM);
+                          });
+                          setState(() {
+                            widget.teethCount =
+                                teethCountController.text.toString();
+                            widget.status = teethStatus;
+                            widget.date = today.substring(0, 10);
+                            // widget.status =
+                            widget.formVis = false;
+                            widget.listVis = true;
+                          });
+                        } else {
+                          Toast.show("Enter valid data", context,
+                              duration: Toast.LENGTH_LONG,
+                              gravity: Toast.BOTTOM);
+                        }
+                      },
+                    )
+                  ],
+                ),
+              )
+            ],
+          ),
         ),
-      ),
-    );
+      );
+    } catch (e) {
+      return Text('No Data');
+    }
   }
 }

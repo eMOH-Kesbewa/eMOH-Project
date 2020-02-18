@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Chart } from 'chart.js';
 import { FamiliesService } from 'app/Services/families.service';
+import { ActivatedRoute } from '@angular/router';
+import * as html2pdf from 'html2pdf.js';
+
 @Component({
   selector: 'app-contraceptive-prevalance',
   templateUrl: './contraceptive-prevalance.component.html',
@@ -8,7 +11,7 @@ import { FamiliesService } from 'app/Services/families.service';
 })
 export class ContraceptivePrevalanceComponent implements OnInit {
 
-  constructor(private familyService : FamiliesService) { }
+  constructor(private familyService : FamiliesService,private activeroute: ActivatedRoute) { }
 
   LineChart=[];
   BarChart=[];
@@ -23,9 +26,10 @@ export class ContraceptivePrevalanceComponent implements OnInit {
   not_accepted=[]
   totalFp=[]
   ModMethods=[]
-
+  year
   ngOnInit() {
-    this.familyService.getModernContraceptiveMethods().subscribe(data=>{
+    this.year = this.activeroute.snapshot.paramMap.get('year');
+    this.familyService.getModernContraceptiveMethods(this.year).subscribe(data=>{
         
       console.log(data['Quarter1'][2]['_id'])
       console.log(data['Quarter1'].length)
@@ -81,7 +85,7 @@ export class ContraceptivePrevalanceComponent implements OnInit {
        console.log(this.Implanon[3])
       i=0;
       
-      this.totalFp[0]=this.DMPA[0]+this.not_accepted[0];
+     // this.totalFp[0]=this.DMPA[0]+this.not_accepted[0];
       
        while(i<4){
           this.totalFp[i]=(this.DMPA[i]||0)+(this.IUCD[i]||0)+(this.OCP[i]||0)+(this.Implanon[i]||0)+(this.Condoms[i]||0)+(this.LRT[i]||0)+(this.V[i]||0)+(this.not_accepted[i]||0);
@@ -129,8 +133,8 @@ export class ContraceptivePrevalanceComponent implements OnInit {
          },
          options: {
           title:{
-              text:'Contraceptive Prevalence',
-              display:true
+              //text:'Contraceptive Prevalence',
+              //display:true
           },
           scales: {
               yAxes: [{
@@ -148,4 +152,20 @@ export class ContraceptivePrevalanceComponent implements OnInit {
 })
 
 }
+
+saveToPdf(){
+  const options = {
+    filename:"contraceptivePrevalance",
+    image:{type:'jpeg'},
+    html2canvas:{},
+    jsPDF:{orientation: 'landscape'}
+  };
+
+  const content : Element = document.getElementById('element-to-export');
+
+  html2pdf()
+    .from(content)
+    .set(options)
+    .save();
+ }
 }

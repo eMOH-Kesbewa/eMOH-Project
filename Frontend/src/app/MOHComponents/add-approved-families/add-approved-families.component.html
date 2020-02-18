@@ -2,7 +2,7 @@
 
   <div class="container-fluid">
     <div class="row">
-        <div class="col-md-12">
+        
             <div class="card">
                 <div class="card-header card-header-info">
                     <h4 class="card-title">{{ 'family.fill' | translate }}</h4>
@@ -28,14 +28,15 @@
                                     </div>
                                 </mat-form-field>
                             </div>
-                            <div class="col-md-5">
+                            <!-- <div class="col-md-5">
                                 <mat-form-field class="example-full-width">
                                   <input matInput placeholder="{{ 'family.Approved_family_category' | translate }}" type= "text" formControlName="Approved_family_category">
                                   <div *ngIf="submitted && approvedFamilyForm.controls.Approved_family_category.errors" class="error">
                                       <div *ngIf="approvedFamilyForm.controls.Approved_family_category.errors.required">This field is required</div>
                                     </div>
                                 </mat-form-field>
-                            </div>
+                            </div> -->
+                            
                             <div class="col-md-3">
                                 <mat-form-field class="example-full-width">
                                   <input matInput placeholder="{{ 'family.Identity_number' | translate }}" type="text" formControlName="Identity_number">
@@ -47,6 +48,8 @@
                             <div class="col-md-3">
                                 <mat-form-field class="example-full-width">
                                   <input matInput placeholder="{{ 'family.Date' | translate }}" type="date" formControlName="Date">
+                                  <label *ngIf="approvedFamilyForm.errors">{{ approvedFamilyForm.errors.dates | json }}</label>
+                                  
                                 </mat-form-field>
                             </div>
                         </div>
@@ -72,9 +75,9 @@
                                 </mat-form-field>
                             </div><div class="col-md-5">
                                 <mat-form-field class="example-full-width">
-                                  <input matInput placeholder="{{ 'family.Address' | translate }}" type= "text" formControlName="address">
-                                  <div *ngIf="submitted && approvedFamilyForm.controls.address.errors" class="error">
-                                      <div *ngIf="approvedFamilyForm.controls.address.errors.required">This field is required</div>
+                                  <input matInput placeholder="{{ 'family.Address' | translate }}" type= "text" formControlName="Address">
+                                  <div *ngIf="submitted && approvedFamilyForm.controls.Address.errors" class="error">
+                                      <div *ngIf="approvedFamilyForm.controls.Address.errors.required">This field is required</div>
                                     </div>
                                 </mat-form-field>
                             </div><div class="col-md-3">
@@ -272,12 +275,13 @@
                           </div>
                       </div>
                       </mat-expansion-panel>
-                      <input type="submit" value="{{ 'enter' | translate }}" class="btn btn-danger pull-right">
+                      <input type="submit" value="{{ 'enter' | translate }}" class="btn btn-info pull-right">
                       
                       </form>
+                      
                         <div *ngIf="success"><h1>You submitted a record</h1></div>
                 </div>
             </div>
-        </div>
+        
     </div>
 </div>

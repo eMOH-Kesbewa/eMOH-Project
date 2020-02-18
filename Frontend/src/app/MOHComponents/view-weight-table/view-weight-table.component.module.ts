@@ -22,6 +22,8 @@ import { WeightHeightGraphbyIdComponent } from "app/Graphs/weight-height-graphby
 import { ViewWeightTableComponent } from "./view-weight-table.component";
 import { AddWeightHeightComponent } from "../add-weight-height/add-weight-height.component";
 import { ViewWeightByIdComponent } from "../view-weight-by-id/view-weight-by-id.component";
+import { MonthlyReportComponent } from '../monthly-report/monthly-report.component';
+import {MatMenuModule} from '@angular/material/menu';
 import { PhmDailyReportsComponent } from "../phm-daily-reports/phm-daily-reports.component";
 import { TranslateModule, TranslateLoader } from "@ngx-translate/core";
 import { HttpLoaderFactory } from "app/app.module";
@@ -30,10 +32,12 @@ import { HttpClient } from "@angular/common/http";
 
 
 @NgModule({
-    declarations:[ViewWeightTableComponent,AddWeightHeightComponent,ViewWeightByIdComponent,WeightHeightGraphbyIdComponent,PhmDailyReportsComponent],
+    declarations:[ViewWeightTableComponent,AddWeightHeightComponent,
+      MonthlyReportComponent,ViewWeightByIdComponent,WeightHeightGraphbyIdComponent,PhmDailyReportsComponent],
     imports:[
         WeightHeightsR,
         CommonModule,
+        MatMenuModule,
         FormsModule,
         ReactiveFormsModule,
         MatButtonModule,

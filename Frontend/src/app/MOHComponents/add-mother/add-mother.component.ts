@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MotherService } from 'app/Services/mother.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FamiliesService } from 'app/Services/families.service';
-
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-add-mother',
@@ -16,21 +16,21 @@ export class AddMotherComponent implements OnInit {
   submit=false;
   success=false;
   familyId;
-  constructor(private fb: FormBuilder, private motherService: MotherService,private activeroute: ActivatedRoute,private familyservice:FamiliesService) { }
+  constructor(private fb: FormBuilder, private motherService: MotherService,private activeroute: ActivatedRoute,private familyservice:FamiliesService, private router: Router, private _snackBar: MatSnackBar) { }
 
   ngOnInit() {
     this.familyId = this.activeroute.snapshot.paramMap.get('familyId');
     this.addMotherSchema= this.fb.group({
       mother_id: ['', Validators.required],
-      registration_no: ['', Validators.required],
+      registration_no: [''],
       registration_date: ['', Validators.required],
       mothers_name: ['', Validators.required],
       address: ['', Validators.required],
       age: ['', Validators.required],
       no_of_living_children: ['', Validators.required],
       gravidity: ['', Validators.required],
-      POA: [''],
-      EDD: [''],
+      POA: [],
+      EDD: [],
       protection_against_tetanus: [false],
       protection_against_rubella: [false],
       risk_conditions: [false],
@@ -80,46 +80,6 @@ export class AddMotherComponent implements OnInit {
         address: data[0]['Address'],
         age: this.getAge(data[0]['Date_of_birth']),
         no_of_living_children: data[0]['Number_of_living_children'],
-        gravidity: [''],
-        POA: [''],
-        EDD: [''],
-        protection_against_tetanus: [''],
-        protection_against_rubella: [''],
-        risk_conditions: [''],
-        blood_sugar__during_first_twelve_weeks: [''],
-        blood_sugar__twentyfour_fourtyeight_weeks: [''],
-        hemoglobin_level__first_twelve_weeks: [''],
-        hemoglobin_level__twentysix_twentyeight_weeks: [''],
-        blood_group: [''],
-        vdrl_test__before_twelve_weeks: [''],
-        vdrl_test__after_twelve_weeks: [''],
-        hiv_screening: [''],
-        
-        mothers_weight__weight_at_first_visit: [''],
-        mothers_weight__poa_at_first_visit: [''],
-        mothers_weight__weight_at_last_visit: [''],
-        mothers_weight__poa_at_last_visit: [''],
-        mothers_weight__gained_weight_during_pregnancy: [''],
-
-        bmi_before_twelve_weeks: [''],
-
-        delivery_informations__date: [''],
-        delivery_informations__place: [''],
-        delivery_informations__outcome: [''],
-        delivery_informations__sex: [''],
-        mode_of_delivery: [''],
-
-        birth_weight: [''],
-
-        postpartum_visits__within_first_five_days: [''],
-        postpartum_visits__six_to_ten_days: [''],
-        postpartum_visits__late_first_visit_eleven_thirteen_days: [''],
-        postpartum_visits__fourteen_twentyone_days: [''],
-        postpartum_visits__arround_fourtytwo_days: [''],
-
-        registration_no_in_bi_register: [''],
-        registration_date_in_bi_register: [''],
-        remarks: ['']
       })
     })
 
@@ -136,12 +96,21 @@ export class AddMotherComponent implements OnInit {
     console.log(this.addMotherSchema.value);
       this.motherService.add(this.addMotherSchema.value)
         .subscribe(
-          response=>console.log('Success!',response),
-          error=>{
-            if(error) console.log("Failure") 
-            else console.log("Success No Errors")
-          }
+          response=>{
+            this.openSnackBar("Inserted Successfully");
+            this.router.navigate(["viewMothers/"])
+          
+        } ,
+        error=>{
+          this.openSnackBar("Update is Unsuccessfull, Pls enter it again!");
+            this.router.navigate(["viewMothers/"])
+            console.log(error)
+        }
         );
+  }
+
+  openSnackBar(msg) {
+    this._snackBar.open(msg,"OK")
   }
 
   

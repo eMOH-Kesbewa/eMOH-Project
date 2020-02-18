@@ -25,4 +25,13 @@ export class ClinicsService {
     return this.http.post<any>(this.__url , clinicData);
    }
    
+   getClinicId(){
+     let uri = "http://localhost:3000/clinics/getLatestClinicId"
+     return this.http.get<Clinic>(uri);
+   }
+
+   sendEmails(clinicDetails){
+    let uri = "http://localhost:3000/clinics/sendmail"
+    return this.http.post<any>(uri,clinicDetails);
+  }
 }

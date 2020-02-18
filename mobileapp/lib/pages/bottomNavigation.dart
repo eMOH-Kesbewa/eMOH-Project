@@ -100,9 +100,7 @@
 import 'package:flutter/material.dart';
 import 'package:mobileapp/pages/babyDetails.dart';
 import 'package:mobileapp/pages/familyProfile.dart';
-import 'package:mobileapp/pages/familyProfile.dart';
 import 'package:mobileapp/pages/messages.dart';
-
 
 class BottomNavigation extends StatefulWidget {
   BottomNavigation({Key key}) : super(key: key);
@@ -115,27 +113,11 @@ class _BottomNavigationState extends State<BottomNavigation> {
   int _selectedIndex = 0;
   static const TextStyle optionStyle =
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
-  static List<Widget> _widgetOptions = <Widget>[
-    // FP(),
-    // MSG(),
-    // Baby(),
 
+  static List<Widget> _widgetOptions = <Widget>[
     FamilyProfile(),
     Messages(),
     BabyDetails(),
-
-    // Text(
-    //   'Index 0: Home',
-    //   style: optionStyle,
-    // ),
-    // Text(
-    //   'Index 1: Business',
-    //   style: optionStyle,
-    // ),
-    // Text(
-    //   'Index 2: School',
-    //   style: optionStyle,
-    // ),
   ];
 
   void _onItemTapped(int index) {

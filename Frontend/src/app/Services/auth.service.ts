@@ -14,8 +14,13 @@ export class AuthService {
     return this.http.post<any>(_loginUrl,userCredentials);
   }
 
+  // registerUser(UserDetails){
+  //   let _regUrl = "http://localhost:3000/users/reguser";
+  //   return this.http.post<any>(_regUrl,UserDetails)
+  // }
+  
   registerUser(UserDetails){
-    let _regUrl = "http://localhost:3000/users/reguser";
+    let _regUrl = "http://localhost:3000/users/register";
     return this.http.post<any>(_regUrl,UserDetails)
   }
 
