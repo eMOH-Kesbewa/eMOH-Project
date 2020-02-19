@@ -1,6 +1,8 @@
+/**
+ * To display child health data
+ */
 import 'package:flutter/material.dart';
 import 'package:mobileapp/pages/babyInfo/childHEalthView.dart';
-//import 'package:mobileapp/pages/babyInfo/growingView.dart';
 import 'package:mobileapp/services/style.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:easy_localization/easy_localization_provider.dart';
@@ -13,7 +15,6 @@ class ChoiceCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var data = EasyLocalizationProvider.of(context).data;
-    final TextStyle textStyle = Theme.of(context).textTheme.display1;
     try {
       if (choice.count == 1) {
         return EasyLocalizationProvider(

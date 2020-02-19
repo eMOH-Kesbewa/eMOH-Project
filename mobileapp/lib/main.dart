@@ -15,6 +15,8 @@ final ThemeData themeData = ThemeData(
   brightness: Brightness.light,
   primarySwatch: Colors.blue,
 );
+
+//get emial from shared preferances
 Future getemail() async {
   SharedPreferences prefs = await SharedPreferences.getInstance();
   email = prefs.getString('email');
@@ -31,9 +33,6 @@ class MyApp extends StatelessWidget {
         title: 'Flutter Demo',
         theme: themeData,
         debugShowCheckedModeBanner: false,
-        // home: MaterialApp(home: email == null ? Login() : BottomNavigation()),
-        // home: email == null ? Login() : BottomNavigation()));
-        //home: Login(),
         home: email == null ? Login() : BottomNavigation(),
         localizationsDelegates: [
           GlobalMaterialLocalizations.delegate,

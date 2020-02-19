@@ -1,6 +1,7 @@
+/**
+ * Immunization card widget
+ */
 import 'package:flutter/material.dart';
-import 'package:mobileapp/services/style.dart';
-import 'package:mobileapp/widgets/growthCard.dart';
 
 class ImmunizationCard extends StatefulWidget {
   String title, title2;
@@ -14,6 +15,8 @@ class ImmunizationCard extends StatefulWidget {
       batchNo2;
   int vCount;
   bool bcgMark;
+
+  
 
   ImmunizationCard(
       this.title,
