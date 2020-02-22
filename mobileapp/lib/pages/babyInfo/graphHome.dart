@@ -1,9 +1,10 @@
+/**
+ * Home page for graphs
+ */
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:mobileapp/pages/babyInfo/graphH.dart';
 import 'package:mobileapp/pages/babyInfo/graphW.dart';
-import 'package:mobileapp/pages/babyInfo/graphWH.dart';
 
 class GraphHome extends StatefulWidget {
   @override
@@ -13,8 +14,7 @@ class GraphHome extends StatefulWidget {
 class _GraphHomeState extends State<GraphHome> {
   @override
   Widget build(BuildContext context) {
-    var data = EasyLocalizationProvider.of(context).data;
-
+//button for weight graph
     final chartw = Container(
       width: 315.0,
       height: 48.0,
@@ -31,6 +31,8 @@ class _GraphHomeState extends State<GraphHome> {
             context, MaterialPageRoute(builder: (context) => GraphW())),
       ),
     );
+
+    //button for height graph
     final charth = Container(
       width: 315.0,
       height: 48.0,
@@ -58,30 +60,6 @@ class _GraphHomeState extends State<GraphHome> {
             Center(child: charth),
             SizedBox(height: 50.0),
             Center(child: chartw)
-            // MaterialButton(
-            //   child: Text('Weight Graph'),
-            //   onPressed: () => Navigator.push(
-            //       context, MaterialPageRoute(builder: (context) => GraphW())),
-            // ),
-            // SizedBox(
-            //   height: 30.0,
-            // ),
-            // MaterialButton(
-            //   child: Text('Height Graph'),
-            //   onPressed: () => Navigator.push(
-            //       context, MaterialPageRoute(builder: (context) => GraphH())),
-            // ),
-            // SizedBox(
-            //   height: 30.0,
-            // ),
-            // MaterialButton(
-            //   child: Text('Weight Height Graph'),
-            //   onPressed: () => Navigator.push(
-            //       context, MaterialPageRoute(builder: (context) => GraphWH())),
-            // ),
-            // SizedBox(
-            //   height: 30.0,
-            // ),
           ],
         ),
       ),

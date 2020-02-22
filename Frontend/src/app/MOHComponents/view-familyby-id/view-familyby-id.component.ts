@@ -71,7 +71,7 @@ export class ViewFamilybyIdComponent implements OnInit {
           Date: this.dateconverter(data[0]['Date']),
           Name_of_wife: data[0]['Name_of_wife'],
           Name_of_husband: data[0]['Name_of_husband'],
-          address: data[0]['address'],
+          Address: data[0]['Address'],
           Date_of_birth: this.dateconverter(data[0]['Date_of_birth']),
           Age_at_the_time_of_marriage: data[0]['Age_at_the_time_of_marriage'],
           Job_status: data[0]['Job_status'],

@@ -1,11 +1,41 @@
+/**
+ * Update and view eye test data
+ * 
+ */
+
 import 'package:flutter/material.dart';
-//import 'package:fluttertoast/fluttertoast.dart';
-//import 'package:fluttertoast/fluttertoast.dart' as prefix0;
 import 'package:mobileapp/services/babyService/eyeTestService.dart';
-import 'package:http/http.dart' as http;
 import 'package:toast/toast.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:easy_localization/easy_localization_provider.dart';
+
+Future<Baby> baby = fetchBaby(); //get baby data from eyeTestService.dart file
+
+//To update check boxes
+bool switchVal = false;
+bool lightCheck = false;
+bool faceCheck = false;
+bool turnCheck = false;
+bool theneyesCheck = false;
+bool lookingCheck = false;
+bool touchCheck = false;
+bool squintCheck = false;
+bool ringCheck = false;
+bool askCheck = false;
+bool talkCheck = false;
+
+//To update details
+String switchValS = "no";
+String lightCheckS = "no";
+String faceCheckS = "no";
+String turnCheckS = "no";
+String theneyesCheckS = "no";
+String lookingCheckS = "no";
+String touchCheckS = "no";
+String squintCheckS = "no";
+String ringCheckS = "no";
+String askCheckS = "no";
+String talkCheckS = "no";
 
 class EyeTest extends StatefulWidget {
   @override
@@ -13,39 +43,12 @@ class EyeTest extends StatefulWidget {
 }
 
 class _EyeTestState extends State<EyeTest> {
-  Future<Baby> baby = fetchBaby();
-  bool switchVal = false;
-  bool lightCheck = false;
-  bool faceCheck = false;
-  bool turnCheck = false;
-  bool theneyesCheck = false;
-  bool lookingCheck = false;
-  bool touchCheck = false;
-  bool squintCheck = false;
-  bool ringCheck = false;
-  bool askCheck = false;
-  bool talkCheck = false;
-
-  String switchValS = "no";
-  String lightCheckS = "no";
-  String faceCheckS = "no";
-  String turnCheckS = "no";
-  String theneyesCheckS = "no";
-  String lookingCheckS = "no";
-  String touchCheckS = "no";
-  String squintCheckS = "no";
-  String ringCheckS = "no";
-  String askCheckS = "no";
-  String talkCheckS = "no";
-
+  // this function runs only one time when widget creating
   initState() {
     super.initState();
-    // setState(() {
-    //   switchVal = true;
-    // });
     baby.then((it) {
+      //if faceCheck is no OR null, faceCheck check box is false,else true
       if (it.faceCheck.toString() == "no" || it.faceCheck == null) {
-        //this gives the error
         faceCheck = false;
       } else {
         faceCheck = true;
@@ -96,8 +99,6 @@ class _EyeTestState extends State<EyeTest> {
         talkCheck = true;
       }
     });
-
-    // print(faceCheck);
   }
 
   @override
@@ -123,27 +124,22 @@ class _EyeTestState extends State<EyeTest> {
           child: FutureBuilder<Baby>(
             future: baby,
             builder: (context, snapshot) {
-              // setState(() {
-              //   switchVal = false;
-              // });
               logger.i('light check');
 
               if (snapshot.connectionState == ConnectionState.waiting) {
-                return Center(child: CircularProgressIndicator());
+                return Center(
+                    child: CircularProgressIndicator()); //when loading
               } else if (snapshot.hasData) {
-                //logger.i(snapshot.data.lightCheck);
-                //print('faceCheck');
-                // print(snapshot.data.faceCheck);
                 return SingleChildScrollView(
                   child: Padding(
                     padding: EdgeInsets.all(8.0),
                     child: Column(
                       children: <Widget>[
+                        //Chip widget to display label
                         Chip(
                           avatar: CircleAvatar(
                             backgroundImage: AssetImage("images/mother.png"),
                             backgroundColor: Colors.grey.shade800,
-                            //child: Text('From the First Month of Birth'),
                           ),
                           label: Text(AppLocalizations.of(context)
                               .tr('fromthefirstmonth')),
@@ -151,6 +147,7 @@ class _EyeTestState extends State<EyeTest> {
                         SizedBox(
                           height: 0.0,
                         ),
+                        //Card widget to display details
                         Card(
                             child: ListTile(
                           title: Text(AppLocalizations.of(context)
@@ -162,8 +159,7 @@ class _EyeTestState extends State<EyeTest> {
                                 if (switchVal == true) {
                                   setState(() {
                                     lightCheck = !lightCheck;
-
-                                    if (faceCheck == true) {
+                                    if (lightCheck == true) {
                                       lightCheckS = "yes";
                                     } else {
                                       lightCheckS = "no";
@@ -197,7 +193,6 @@ class _EyeTestState extends State<EyeTest> {
                           avatar: CircleAvatar(
                             backgroundImage: AssetImage("images/mother.png"),
                             backgroundColor: Colors.grey.shade800,
-                            //child: Text('From the First Month of Birth'),
                           ),
                           label: Text(
                               AppLocalizations.of(context).tr('whentwomonths')),
@@ -249,7 +244,6 @@ class _EyeTestState extends State<EyeTest> {
                           avatar: CircleAvatar(
                             backgroundImage: AssetImage("images/mother.png"),
                             backgroundColor: Colors.grey.shade800,
-                            //child: Text('From the First Month of Birth'),
                           ),
                           label: Text(
                               AppLocalizations.of(context).tr('whensixmonths')),
@@ -324,7 +318,6 @@ class _EyeTestState extends State<EyeTest> {
                           avatar: CircleAvatar(
                             backgroundImage: AssetImage("images/mother.png"),
                             backgroundColor: Colors.grey.shade800,
-                            //child: Text('From the First Month of Birth'),
                           ),
                           label: Text(
                               AppLocalizations.of(context).tr('whentenmonths')),
@@ -355,7 +348,6 @@ class _EyeTestState extends State<EyeTest> {
                           avatar: CircleAvatar(
                             backgroundImage: AssetImage("images/mother.png"),
                             backgroundColor: Colors.grey.shade800,
-                            //child: Text('From the First Month of Birth'),
                           ),
                           label: Text(AppLocalizations.of(context)
                               .tr('whentwelvemonths')),
@@ -425,9 +417,11 @@ class _EyeTestState extends State<EyeTest> {
             },
           ),
         ),
+        //submit button
         floatingActionButton: FloatingActionButton(
           child: Icon(Icons.done),
           onPressed: () {
+            //this function include in eyeTestService.dart file
             updateDetails(
                     lightCheckS,
                     faceCheckS,
@@ -440,53 +434,17 @@ class _EyeTestState extends State<EyeTest> {
                     askCheckS,
                     talkCheckS)
                 .then((res) {
+              //Display a toast message
               Toast.show("Done", context,
                   duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
-              /* Fluttertoast.showToast(
-            msg: "Done",
-            toastLength: prefix0.Toast.LENGTH_LONG,
-            gravity: ToastGravity.BOTTOM,
-            timeInSecForIos: 1,
-            backgroundColor: Colors.black54,
-            textColor: Colors.white,
-            fontSize: 16.0);*/
             }).catchError((e) {
+              //Display a toast message
               Toast.show("An Error Has Occured", context,
                   duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
-              /* Fluttertoast.showToast(
-            msg: "Done",
-            toastLength: prefix0.Toast.LENGTH_LONG,
-            gravity: ToastGravity.BOTTOM,
-            timeInSecForIos: 1,
-            backgroundColor: Colors.black54,
-            textColor: Colors.white,
-            fontSize: 16.0);*/
             });
           },
         ),
       ),
     );
-    // try {
-
-    // } catch (e) {
-    //   logger.e(e);
-    //   return Text('No data');
-    // }
   }
-
-//  updateDetails(String name)async{
-//     Map data = {'name_of_child': name};
-//     print('***face***');
-//     print(name);
-//     var response = await http.put(
-//         "https://protected-bayou-52277.herokuapp.com/babies/update/A0000101",
-//         body: data);
-//     print("****status");
-//     print(response.statusCode);
-//     if(response.statusCode == 200){
-//       print("Done");
-//     }
-//   }
-//}
-
 }

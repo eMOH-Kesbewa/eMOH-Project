@@ -1,18 +1,135 @@
+/**
+ * View growing details of baby
+ */
+
 import 'package:flutter/material.dart';
 import 'package:logger/logger.dart';
 import 'package:mobileapp/services/babyService/childGrowthService.dart';
 import 'package:mobileapp/services/globals.dart';
-import 'package:mobileapp/widgets/cardDisplay.dart';
 import 'package:mobileapp/widgets/growthCard.dart';
 import 'package:mobileapp/widgets/sixWToThreeM.dart';
-import 'package:toast/toast.dart';
-import 'package:mobileapp/services/globals.dart' as globals;
 import 'package:easy_localization/easy_localization.dart';
 import 'package:easy_localization/easy_localization_provider.dart';
 
+Logger logger = Logger();
 
+Future<Baby> baby = fetchBaby();
 
-//Update function no tworking
+///get baby data from childGrowthService.dart file
+
+//for occurence age
+String layingFaceDownOcc,
+    movingObjectOcc,
+    bigSoundOcc,
+    ohhOcc,
+    smileOcc,
+    raiseHeadOcc,
+    playFingersOcc,
+    strechHandOcc,
+    soundTurnOcc,
+    singleLetterSoundOcc,
+    laughtLoudOcc,
+    raiseHead2Occ,
+    turnFaceUpDownOcc,
+    switchObjectsOcc,
+    makeSoundOcc,
+    sittingOcc,
+    holdingHimSelfOcc,
+    thumbForeOcc,
+    followingVoiceOcc,
+    proWordsOcc,
+    understandOcc,
+    walkingWithHelpOcc,
+    canSpeakOcc,
+    handPointOcc,
+    canRollOcc,
+    canIdentifyOcc,
+    walkingWithoutHelpOcc,
+    canClimbOcc,
+    makeTowerOcc,
+    eatHimselfOcc,
+    canTalkTenOcc,
+    lipsShapeOcc,
+    runWithoutFallingOcc,
+    upDownStairOcc,
+    canCopyOcc,
+    canCreateOcc;
+
+//fro confrimed age
+String layingFaceDownCon,
+    movingObjectCon,
+    bigSoundCon,
+    ohhCon,
+    smileCon,
+    raiseHeadCon,
+    playFingersCon,
+    strechHandCon,
+    soundTurnCon,
+    singleLetterSoundCon,
+    laughtLoudCon,
+    raiseHead2Con,
+    turnFaceUpDownCon,
+    switchObjectsCon,
+    makeSoundCon,
+    sittingCon,
+    holdingHimSelfCon,
+    thumbForeCon,
+    followingVoiceCon,
+    proWordsCon,
+    understandCon,
+    walkingWithHelpCon,
+    canSpeakCon,
+    handPointCon,
+    canRollCon,
+    canIdentifyCon,
+    walkingWithoutHelpCon,
+    canClimbCon,
+    makeTowerCon,
+    eatHimselfCon,
+    canTalkTenCon,
+    lipsShapeCon,
+    runWithoutFallingCon,
+    upDownStairCon,
+    canCopyCon,
+    canCreateCon;
+
+//for confrimed officer
+String layingFaceDownOf,
+    movingObjectOf,
+    bigSoundOf,
+    ohhOf,
+    smileOf,
+    raiseHeadOf,
+    playFingersOf,
+    strechHandOf,
+    soundTurnOf,
+    singleLetterSoundOf,
+    laughtLoudOf,
+    raiseHead2Of,
+    turnFaceUpDownOf,
+    switchObjectsOf,
+    makeSoundOf,
+    sittingOf,
+    holdingHimSelfOf,
+    thumbForeOf,
+    followingVoiceOf,
+    proWordsOf,
+    understandOf,
+    walkingWithHelpOf,
+    canSpeakOf,
+    handPointOf,
+    canRollOf,
+    canIdentifyOf,
+    walkingWithoutHelpOf,
+    canClimbOf,
+    makeTowerOf,
+    eatHimselfOf,
+    canTalkTenOf,
+    lipsShapeOf,
+    runWithoutFallingOf,
+    upDownStairOf,
+    canCopyOf,
+    canCreateOf;
 
 class GrowingView extends StatefulWidget {
   @override
@@ -20,242 +137,128 @@ class GrowingView extends StatefulWidget {
 }
 
 class _GrowingViewState extends State<GrowingView> {
-  Future<Baby> baby = fetchBaby();
-  TabController _tabController;
-  
-  String layingFaceDownOcc,
-      movingObjectOcc,
-      bigSoundOcc,
-      ohhOcc,
-      smileOcc,
-      raiseHeadOcc,
-      playFingersOcc,
-      strechHandOcc,
-      soundTurnOcc,
-      singleLetterSoundOcc,
-      laughtLoudOcc,
-      raiseHead2Occ,
-      turnFaceUpDownOcc,
-      switchObjectsOcc,
-      makeSoundOcc,
-      sittingOcc,
-      holdingHimSelfOcc,
-      thumbForeOcc,
-      followingVoiceOcc,
-      proWordsOcc,
-      understandOcc,
-      walkingWithHelpOcc,
-      canSpeakOcc,
-      handPointOcc,
-      canRollOcc,
-      canIdentifyOcc,
-      walkingWithoutHelpOcc,
-      canClimbOcc,
-      makeTowerOcc,
-      eatHimselfOcc,
-      canTalkTenOcc,
-      lipsShapeOcc,
-      runWithoutFallingOcc,
-      upDownStairOcc,
-      canCopyOcc,
-      canCreateOcc;
+  initState() {
+    logger.i('in initState');
+    super.initState();
+    baby.then((it) {
+      layingFaceDownOcc = it.layingFaceDownOcc;
+      //  logger.e(layingFaceDownOcc, 'layingFaceDownOcc');
+      movingObjectOcc = it.movingObjectOcc;
+      bigSoundOcc = it.bigSoundOcc;
+      ohhOcc = it.ohhOcc;
+      smileOcc = it.smileOcc;
+      raiseHeadOcc = it.raiseHeadOcc;
+      playFingersOcc = it.playFingersOcc;
+      strechHandOcc = it.strechHandOcc;
+      soundTurnOcc = it.soundTurnOcc;
+      singleLetterSoundOcc = it.singleLetterSoundOcc;
+      laughtLoudOcc = it.laughtLoudOcc;
+      raiseHead2Occ = it.raiseHead2Occ;
+      turnFaceUpDownOcc = it.turnFaceUpDownOcc;
+      makeSoundOcc = it.makeSoundOcc;
+      sittingOcc = it.sittingOcc;
+      holdingHimSelfOcc = it.holdingHimSelfOcc;
+      thumbForeOcc = it.thumbForeOcc;
+      followingVoiceOcc = it.followingVoiceOcc;
+      proWordsOcc = it.proWordsOcc;
+      understandOcc = it.understandOcc;
+      walkingWithHelpOcc = it.walkingWithHelpOcc;
+      canSpeakOcc = it.canSpeakOcc;
+      handPointOcc = it.handPointOcc;
+      canRollOcc = it.canRollOcc;
+      canIdentifyOcc = it.canIdentifyOcc;
+      walkingWithoutHelpOcc = it.walkingWithoutHelpOcc;
+      canClimbOcc = it.canClimbOcc;
+      makeTowerOcc = it.makeTowerOcc;
+      eatHimselfOcc = it.eatHimselfOcc;
+      canTalkTenOcc = it.canTalkTenOcc;
+      lipsShapeOcc = it.lipsShapeOcc;
+      runWithoutFallingOcc = it.runWithoutFallingOcc;
+      upDownStairOcc = it.upDownStairOcc;
+      canCopyOcc = it.canCopyOcc;
+      canCreateOcc = it.canCreateOcc;
 
-  String layingFaceDownCon,
-      movingObjectCon,
-      bigSoundCon,
-      ohhCon,
-      smileCon,
-      raiseHeadCon,
-      playFingersCon,
-      strechHandCon,
-      soundTurnCon,
-      singleLetterSoundCon,
-      laughtLoudCon,
-      raiseHead2Con,
-      turnFaceUpDownCon,
-      switchObjectsCon,
-      makeSoundCon,
-      sittingCon,
-      holdingHimSelfCon,
-      thumbForeCon,
-      followingVoiceCon,
-      proWordsCon,
-      understandCon,
-      walkingWithHelpCon,
-      canSpeakCon,
-      handPointCon,
-      canRollCon,
-      canIdentifyCon,
-      walkingWithoutHelpCon,
-      canClimbCon,
-      makeTowerCon,
-      eatHimselfCon,
-      canTalkTenCon,
-      lipsShapeCon,
-      runWithoutFallingCon,
-      upDownStairCon,
-      canCopyCon,
-      canCreateCon;
+      layingFaceDownCon = it.layingFaceDownCon;
+      movingObjectCon = it.movingObjectCon;
+      bigSoundCon = it.bigSoundCon;
+      ohhCon = it.ohhCon;
+      smileCon = it.smileCon;
+      raiseHeadCon = it.raiseHeadCon;
+      playFingersCon = it.playFingersCon;
+      strechHandCon = it.strechHandCon;
+      soundTurnCon = it.soundTurnCon;
+      singleLetterSoundCon = it.singleLetterSoundCon;
+      laughtLoudCon = it.laughtLoudCon;
+      raiseHead2Con = it.raiseHead2Con;
+      turnFaceUpDownCon = it.turnFaceUpDownCon;
+      //it.switchObjectsCon =it.switchObjectsCon;
+      makeSoundCon = it.makeSoundCon;
+      sittingCon = it.sittingCon;
+      holdingHimSelfCon = it.holdingHimSelfCon;
+      thumbForeCon = it.thumbForeCon;
+      followingVoiceCon = it.followingVoiceCon;
+      proWordsCon = it.proWordsCon;
+      understandCon = it.understandCon;
+      walkingWithHelpCon = it.walkingWithHelpCon;
+      canSpeakCon = it.canSpeakCon;
+      handPointCon = it.handPointCon;
+      canRollCon = it.canRollCon;
+      canIdentifyCon = it.canIdentifyCon;
+      walkingWithoutHelpCon = it.walkingWithoutHelpCon;
+      canClimbCon = it.canClimbCon;
+      makeTowerCon = it.makeTowerCon;
+      eatHimselfCon = it.eatHimselfCon;
+      canTalkTenCon = it.canTalkTenCon;
+      lipsShapeCon = it.lipsShapeCon;
+      runWithoutFallingCon = it.runWithoutFallingCon;
+      upDownStairCon = it.upDownStairCon;
+      canCopyCon = it.canCopyCon;
+      canCreateCon = it.canCreateCon;
 
-  String layingFaceDownOf,
-      movingObjectOf,
-      bigSoundOf,
-      ohhOf,
-      smileOf,
-      raiseHeadOf,
-      playFingersOf,
-      strechHandOf,
-      soundTurnOf,
-      singleLetterSoundOf,
-      laughtLoudOf,
-      raiseHead2Of,
-      turnFaceUpDownOf,
-      switchObjectsOf,
-      makeSoundOf,
-      sittingOf,
-      holdingHimSelfOf,
-      thumbForeOf,
-      followingVoiceOf,
-      proWordsOf,
-      understandOf,
-      walkingWithHelpOf,
-      canSpeakOf,
-      handPointOf,
-      canRollOf,
-      canIdentifyOf,
-      walkingWithoutHelpOf,
-      canClimbOf,
-      makeTowerOf,
-      eatHimselfOf,
-      canTalkTenOf,
-      lipsShapeOf,
-      runWithoutFallingOf,
-      upDownStairOf,
-      canCopyOf,
-      canCreateOf;
-  @override
-  var logger = Logger();
+      layingFaceDownOf = it.layingFaceDownOf;
+      movingObjectOf = it.movingObjectOf;
+      bigSoundOf = it.bigSoundOf;
+      ohhOf = it.ohhOf;
+      smileOf = it.smileOf;
+      raiseHeadOf = it.raiseHeadOf;
+      playFingersOf = it.playFingersOf;
+      strechHandOf = it.strechHandOf;
+      soundTurnOf = it.soundTurnOf;
+      singleLetterSoundOf = it.singleLetterSoundOf;
+      laughtLoudOf = it.laughtLoudOf;
+      raiseHead2Of = it.raiseHead2Of;
+      turnFaceUpDownOf = it.turnFaceUpDownOf;
+      //it.switchObjectsOf =it.switchObjectsOf;
+      makeSoundOf = it.makeSoundOf;
+      sittingOf = it.sittingOf;
+      holdingHimSelfOf = it.holdingHimSelfOf;
+      thumbForeOf = it.thumbForeOf;
+      followingVoiceOf = it.followingVoiceOf;
+      proWordsOf = it.proWordsOf;
+      understandOf = it.understandOf;
+      walkingWithHelpOf = it.walkingWithHelpOf;
+      canSpeakOf = it.canSpeakOf;
+      handPointOf = it.handPointOf;
+      canRollOf = it.canRollOf;
+      canIdentifyOf = it.canIdentifyOf;
+      walkingWithoutHelpOf = it.walkingWithoutHelpOf;
+      canClimbOf = it.canClimbOf;
+      makeTowerOf = it.makeTowerOf;
+      eatHimselfOf = it.eatHimselfOf;
+      canTalkTenOf = it.canTalkTenOf;
+      lipsShapeOf = it.lipsShapeOf;
+      runWithoutFallingOf = it.runWithoutFallingOf;
+      upDownStairOf = it.upDownStairOf;
+      canCopyOf = it.canCopyOf;
+      canCreateOf = it.canCreateOf;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    initState() {
-      super.initState();
-      baby.then((it) {
-        it.layingFaceDownOcc = layingFaceDownOcc;
-        it.movingObjectOcc = movingObjectOcc;
-        it.bigSoundOcc = bigSoundOcc;
-        it.ohhOcc = ohhOcc;
-        it.smileOcc = smileOcc;
-        it.raiseHeadOcc = raiseHeadOcc;
-        it.playFingersOcc = playFingersOcc;
-        it.strechHandOcc = strechHandOcc;
-        it.soundTurnOcc = soundTurnOcc;
-        it.singleLetterSoundOcc = singleLetterSoundOcc;
-        it.laughtLoudOcc = laughtLoudOcc;
-        it.raiseHead2Occ = raiseHead2Occ;
-        it.turnFaceUpDownOcc = turnFaceUpDownOcc;
-        //it.switchObjectsOcc = switchObjectsOcc;
-        it.makeSoundOcc = makeSoundOcc;
-        it.sittingOcc = sittingOcc;
-        it.holdingHimSelfOcc = holdingHimSelfOcc;
-        it.thumbForeOcc = thumbForeOcc;
-        it.followingVoiceOcc = followingVoiceOcc;
-        it.proWordsOcc = proWordsOcc;
-        it.understandOcc = understandOcc;
-        it.walkingWithHelpOcc = walkingWithHelpOcc;
-        it.canSpeakOcc = canSpeakOcc;
-        it.handPointOcc = handPointOcc;
-        it.canRollOcc = canRollOcc;
-        it.canIdentifyOcc = canIdentifyOcc;
-        it.walkingWithoutHelpOcc = walkingWithoutHelpOcc;
-        it.canClimbOcc = canClimbOcc;
-        it.makeTowerOcc = makeTowerOcc;
-        it.eatHimselfOcc = eatHimselfOcc;
-        it.canTalkTenOcc = canTalkTenOcc;
-        it.lipsShapeOcc = lipsShapeOcc;
-        it.runWithoutFallingOcc = runWithoutFallingOcc;
-        it.upDownStairOcc = upDownStairOcc;
-        it.canCopyOcc = canCopyOcc;
-        it.canCreateOcc = canCreateOcc;
-
-        it.layingFaceDownCon = layingFaceDownCon;
-        it.movingObjectCon = movingObjectCon;
-        it.bigSoundCon = bigSoundCon;
-        it.ohhCon = ohhCon;
-        it.smileCon = smileCon;
-        it.raiseHeadCon = raiseHeadCon;
-        it.playFingersCon = playFingersCon;
-        it.strechHandCon = strechHandCon;
-        it.soundTurnCon = soundTurnCon;
-        it.singleLetterSoundCon = singleLetterSoundCon;
-        it.laughtLoudCon = laughtLoudCon;
-        it.raiseHead2Con = raiseHead2Con;
-        it.turnFaceUpDownCon = turnFaceUpDownCon;
-        //it.switchObjectsCon = switchObjectsCon;
-        it.makeSoundCon = makeSoundCon;
-        it.sittingCon = sittingCon;
-        it.holdingHimSelfCon = holdingHimSelfCon;
-        it.thumbForeCon = thumbForeCon;
-        it.followingVoiceCon = followingVoiceCon;
-        it.proWordsCon = proWordsCon;
-        it.understandCon = understandCon;
-        it.walkingWithHelpCon = walkingWithHelpCon;
-        it.canSpeakCon = canSpeakCon;
-        it.handPointCon = handPointCon;
-        it.canRollCon = canRollCon;
-        it.canIdentifyCon = canIdentifyCon;
-        it.walkingWithoutHelpCon = walkingWithoutHelpCon;
-        it.canClimbCon = canClimbCon;
-        it.makeTowerCon = makeTowerCon;
-        it.eatHimselfCon = eatHimselfCon;
-        it.canTalkTenCon = canTalkTenCon;
-        it.lipsShapeCon = lipsShapeCon;
-        it.runWithoutFallingCon = runWithoutFallingCon;
-        it.upDownStairCon = upDownStairCon;
-        it.canCopyCon = canCopyCon;
-        it.canCreateCon = canCreateCon;
-
-        it.layingFaceDownOf = layingFaceDownOf;
-        it.movingObjectOf = movingObjectOf;
-        it.bigSoundOf = bigSoundOf;
-        it.ohhOf = ohhOf;
-        it.smileOf = smileOf;
-        it.raiseHeadOf = raiseHeadOf;
-        it.playFingersOf = playFingersOf;
-        it.strechHandOf = strechHandOf;
-        it.soundTurnOf = soundTurnOf;
-        it.singleLetterSoundOf = singleLetterSoundOf;
-        it.laughtLoudOf = laughtLoudOf;
-        it.raiseHead2Of = raiseHead2Of;
-        it.turnFaceUpDownOf = turnFaceUpDownOf;
-        //it.switchObjectsOf = switchObjectsOf;
-        it.makeSoundOf = makeSoundOf;
-        it.sittingOf = sittingOf;
-        it.holdingHimSelfOf = holdingHimSelfOf;
-        it.thumbForeOf = thumbForeOf;
-        it.followingVoiceOf = followingVoiceOf;
-        it.proWordsOf = proWordsOf;
-        it.understandOf = understandOf;
-        it.walkingWithHelpOf = walkingWithHelpOf;
-        it.canSpeakOf = canSpeakOf;
-        it.handPointOf = handPointOf;
-        it.canRollOf = canRollOf;
-        it.canIdentifyOf = canIdentifyOf;
-        it.walkingWithoutHelpOf = walkingWithoutHelpOf;
-        it.canClimbOf = canClimbOf;
-        it.makeTowerOf = makeTowerOf;
-        it.eatHimselfOf = eatHimselfOf;
-        it.canTalkTenOf = canTalkTenOf;
-        it.lipsShapeOf = lipsShapeOf;
-        it.runWithoutFallingOf = runWithoutFallingOf;
-        it.upDownStairOf = upDownStairOf;
-        it.canCopyOf = canCopyOf;
-        it.canCreateOf = canCreateOf;
-      });
-    }
-
     Choice index;
     var data = EasyLocalizationProvider.of(context).data;
-
+//for visibility of dropdown button section
     bool layingFaceDownVis,
         movingObjectVis,
         ohhVis,
@@ -296,405 +299,297 @@ class _GrowingViewState extends State<GrowingView> {
     return FutureBuilder<Baby>(
       future: fetchBaby(),
       builder: (context, snapshot) {
+        logger.w(layingFaceDownOcc, 'layingFaceDownOcc');
         if (snapshot.connectionState == ConnectionState.waiting) {
-          if (layingFaceDownOcc == null) {
+          //if Occurance date is null of 0, dropdown section will be shown
+          if (layingFaceDownOcc == null || layingFaceDownOcc == '0') {
             layingFaceDownVis = true;
             layingFaceDownOcc = "No Data";
             layingFaceDownCon = "No Data";
             layingFaceDownOf = "No Data";
           } else {
             layingFaceDownVis = false;
-
-            // layingFaceDownOcc = snapshot.data.layingFaceDownOcc;
-            // layingFaceDownCon = snapshot.data.layingFaceDownCon;
-            // layingFaceDownOf = snapshot.data.layingFaceDownOf;
           }
-          if (movingObjectOcc == null) {
+          if (movingObjectOcc == null || movingObjectOcc == '0') {
             movingObjectVis = true;
             movingObjectCon = "No Data";
             movingObjectOcc = "No Data";
             movingObjectOf = "No Data";
           } else {
             movingObjectVis = false;
-            // movingObjectCon = snapshot.data.movingObjectCon;
-            // movingObjectOcc = snapshot.data.movingObjectOcc;
-            // movingObjectOf = snapshot.data.movingObjectOf;
           }
-          if (bigSoundOcc == null) {
+          if (bigSoundOcc == null || bigSoundOcc == '0') {
             bigSoundVis = true;
             bigSoundCon = "No Data";
             bigSoundOcc = "No Data";
             bigSoundOf = "No Data";
           } else {
             bigSoundVis = false;
-            // bigSoundCon = snapshot.data.bigSoundCon;
-            // bigSoundOcc = snapshot.data.bigSoundOcc;
-            // bigSoundOf = snapshot.data.bigSoundOf;
           }
-          if (ohhOcc == null) {
+          if (ohhOcc == null || ohhOcc == '0') {
             ohhVis = true;
             ohhCon = "No Data";
             ohhOcc = "No Data";
             ohhOf = "No Data";
           } else {
             ohhVis = false;
-            // ohhCon = snapshot.data.ohhCon;
-            // ohhOcc = snapshot.data.ohhOcc;
-            // ohhOf = snapshot.data.ohhOf;
           }
-          if (smileOcc == null) {
+          if (smileOcc == null || smileOcc == '0') {
             smileVis = true;
             smileCon = "No Data";
             smileOcc = "No Data";
             smileOf = "No Data";
           } else {
             smileVis = false;
-            // smileCon = snapshot.data.smileCon;
-            // smileOcc = snapshot.data.smileOcc;
-            // smileOf = snapshot.data.smileOf;
           }
-          if (raiseHeadOcc == null) {
+          if (raiseHeadOcc == null || raiseHeadOcc == '0') {
             raiseHeadVis = true;
             raiseHeadCon = "No Data";
             raiseHeadOcc = "No Data";
             raiseHeadOf = "No Data";
           } else {
             raiseHeadVis = false;
-            // raiseHeadCon = snapshot.data.raiseHeadCon;
-            // raiseHeadOcc = snapshot.data.raiseHeadOcc;
-            // raiseHeadOf = snapshot.data.raiseHeadOf;
           }
-          if (playFingersOcc == null) {
+          if (playFingersOcc == null || playFingersOcc == '0') {
             playFingersVis = true;
             playFingersCon = "No Data";
             playFingersOcc = "No Data";
             playFingersOf = "No Data";
           } else {
             playFingersVis = false;
-            // playFingersCon = snapshot.data.playFingersCon;
-            // playFingersOcc = snapshot.data.playFingersOcc;
-            // playFingersOf = snapshot.data.playFingersOf;
           }
-          if (strechHandOcc == null) {
+          if (strechHandOcc == null || strechHandOcc == '0') {
             strechHandVis = true;
             strechHandCon = "No Data";
             strechHandOcc = "No Data";
             strechHandOf = "No Data";
           } else {
             strechHandVis = false;
-            // strechHandCon = snapshot.data.strechHandCon;
-            // strechHandOcc = snapshot.data.strechHandOcc;
-            // strechHandOf = snapshot.data.strechHandOf;
           }
-          if (soundTurnOcc == null) {
+          if (soundTurnOcc == null || soundTurnOcc == '0') {
             soundTurnVis = true;
             soundTurnCon = "No Data";
             soundTurnOcc = "No Data";
             soundTurnOf = "No Data";
           } else {
             soundTurnVis = false;
-            // soundTurnCon = snapshot.data.soundTurnCon;
-            // soundTurnOcc = snapshot.data.soundTurnOcc;
-            // soundTurnOf = snapshot.data.soundTurnOf;
           }
-          if (singleLetterSoundOcc == null) {
+          if (singleLetterSoundOcc == null || singleLetterSoundOcc == '0') {
             singleLetterSoundVis = true;
             singleLetterSoundCon = "No Data";
             singleLetterSoundOcc = "No Data";
             singleLetterSoundOf = "No Data";
           } else {
             singleLetterSoundVis = false;
-            // singleLetterSoundCon = snapshot.data.singleLetterSoundCon;
-            // singleLetterSoundOcc = snapshot.data.singleLetterSoundOcc;
-            // singleLetterSoundOf = snapshot.data.singleLetterSoundOf;
           }
-          if (laughtLoudOcc == null) {
+          if (laughtLoudOcc == null || laughtLoudOcc == '0') {
             laughtLoudVis = true;
             laughtLoudCon = "No Data";
             laughtLoudOcc = "No Data";
             laughtLoudOf = "No Data";
           } else {
             laughtLoudVis = false;
-            // laughtLoudCon = snapshot.data.laughtLoudCon;
-            // laughtLoudOcc = snapshot.data.laughtLoudOcc;
-            // laughtLoudOf = snapshot.data.laughtLoudOf;
           }
-          if (raiseHead2Occ == null) {
+          if (raiseHead2Occ == null || raiseHead2Occ == '0') {
             raiseHead2Vis = true;
             raiseHead2Con = "No Data";
             raiseHead2Occ = "No Data";
             raiseHead2Of = "No Data";
           } else {
             raiseHead2Vis = false;
-            // raiseHead2Con = snapshot.data.raiseHead2Con;
-            // raiseHead2Occ = snapshot.data.raiseHead2Occ;
-            // raiseHead2Of = snapshot.data.raiseHead2Of;
           }
-          if (turnFaceUpDownOcc == null) {
+          if (turnFaceUpDownOcc == null || turnFaceUpDownOcc == '0') {
             turnFaceUpDownVis = true;
             turnFaceUpDownCon = "No Data";
             turnFaceUpDownOcc = "No Data";
             turnFaceUpDownOf = "No Data";
           } else {
             turnFaceUpDownVis = false;
-            // turnFaceUpDownCon = snapshot.data.turnFaceUpDownCon;
-            // turnFaceUpDownOcc = snapshot.data.turnFaceUpDownOcc;
-            // turnFaceUpDownOf = snapshot.data.turnFaceUpDownOf;
           }
-          if (switchObjectsOcc == null) {
+          if (switchObjectsOcc == null || switchObjectOcc == '0') {
             switchObjectVis = true;
             switchObjectsCon = "No Data";
             switchObjectsOcc = "No Data";
             switchObjectsOf = "No Data";
           } else {
             switchObjectVis = false;
-            // switchObjectsCon = snapshot.data.switchObjectCon;
-            // switchObjectsOcc = snapshot.data.switchObjectsOcc;
-            // switchObjectsOf = snapshot.data.switchObjectOf;
           }
-          if (makeSoundOcc == null) {
+          if (makeSoundOcc == null || makeSoundOcc == '0') {
             makeSoundVis = true;
             makeSoundCon = "No Data";
             makeSoundOcc = "No Data";
             makeSoundOf = "No Data";
           } else {
             makeSoundVis = false;
-            // makeSoundCon = snapshot.data.makeSoundCon;
-            // makeSoundOcc = snapshot.data.makeSoundOcc;
-            // makeSoundOf = snapshot.data.makeSoundOf;
           }
-          if (sittingOcc == null) {
+          if (sittingOcc == null || sittingOcc == '0') {
             sittingVis = true;
             sittingCon = "No Data";
             sittingOcc = "No Data";
             sittingOf = "No Data";
           } else {
             sittingVis = false;
-            // sittingCon = snapshot.data.sittingCon;
-            // sittingOcc = snapshot.data.sittingOcc;
-            // sittingOf = snapshot.data.sittingOf;
           }
-          if (holdingHimSelfOcc == null) {
+          if (holdingHimSelfOcc == null || holdingHimSelfOcc == '0') {
             holdingHimSelfVis = true;
             holdingHimSelfCon = "No Data";
             holdingHimSelfOcc = "No Data";
             holdingHimSelfOf = "No Data";
           } else {
             holdingHimSelfVis = false;
-            // holdingHimSelfCon = snapshot.data.holdingHimSelfCon;
-            // holdingHimSelfOcc = snapshot.data.holdingHimSelfOcc;
-            // holdingHimSelfOf = snapshot.data.holdingHimSelfOf;
           }
-          if (thumbForeOcc == null) {
+          if (thumbForeOcc == null || thumbForeOcc == '0') {
             thumbForeVis = true;
             thumbForeCon = "No Data";
             thumbForeOcc = "No Data";
             thumbForeOf = "No Data";
           } else {
             thumbForeVis = false;
-            // thumbForeCon = snapshot.data.thumbForeCon;
-            // thumbForeOcc = snapshot.data.thumbForeOcc;
-            // thumbForeOf = snapshot.data.thumbForeOf;
           }
-          if (followingVoiceOcc == null) {
+          if (followingVoiceOcc == null || followingVoiceOcc == '0') {
             followingVoiceVis = true;
             followingVoiceCon = "No Data";
             followingVoiceOcc = "No Data";
             followingVoiceOf = "No Data";
           } else {
             followingVoiceVis = false;
-            // followingVoiceCon = snapshot.data.followingVoiceCon;
-            // followingVoiceOcc = snapshot.data.followingVoiceOcc;
-            // followingVoiceOf = snapshot.data.followingVoiceOf;
           }
-          if (proWordsOcc == null) {
+          if (proWordsOcc == null || proWordsOcc == '0') {
             proWordsVis = true;
             proWordsCon = "No Data";
             proWordsOcc = "No Data";
             proWordsOf = "No Data";
           } else {
             proWordsVis = false;
-            // proWordsCon = snapshot.data.proWordsCon;
-            // proWordsOcc = snapshot.data.proWordsOcc;
-            // proWordsOf = snapshot.data.proWordsOf;
           }
-          if (understandOcc == null) {
+          if (understandOcc == null || understandOcc == '0') {
             understandVis = true;
             understandCon = "No Data";
             understandOcc = "No Data";
             understandOf = "No Data";
           } else {
             understandVis = false;
-            // understandCon = snapshot.data.understandCon;
-            // understandOcc = snapshot.data.understandOcc;
-            // understandOf = snapshot.data.understandOf;
           }
-          if (walkingWithHelpOcc == null) {
+          if (walkingWithHelpOcc == null || walkingWithHelpOcc == '0') {
             walkingWithHelpVis = true;
             walkingWithHelpCon = "No Data";
             walkingWithHelpOcc = "No Data";
             walkingWithHelpOf = "No Data";
           } else {
             walkingWithHelpVis = false;
-            // walkingWithHelpCon = snapshot.data.walkingWithHelpCon;
-            // walkingWithHelpOcc = snapshot.data.walkingWithHelpOcc;
-            // walkingWithHelpOf = snapshot.data.walkingWithHelpOf;
           }
-          if (canSpeakOcc == null) {
+          if (canSpeakOcc == null || canSpeakOcc == '0') {
             canSpeakVis = true;
             canSpeakCon = "No Data";
             canSpeakOcc = "No Data";
             canSpeakOf = "No Data";
           } else {
             canSpeakVis = false;
-            // canSpeakCon = snapshot.data.canSpeakCon;
-            // canSpeakOcc = snapshot.data.canSpeakOcc;
-            // canSpeakOf = snapshot.data.canSpeakOf;
           }
-          if (handPointOcc == null) {
+          if (handPointOcc == null || handPointOcc == '0') {
             handPointVis = true;
             handPointCon = "No Data";
             handPointOcc = "No Data";
             handPointOf = "No Data";
           } else {
             handPointVis = false;
-            // handPointCon = snapshot.data.handPointCon;
-            // handPointOcc = snapshot.data.handPointOcc;
-            // handPointOf = snapshot.data.handPointOf;
           }
-          if (canRollOcc == null) {
+          if (canRollOcc == null || canRollOcc == '0') {
             canRollVis = true;
             canRollCon = "No Data";
             canRollOcc = "No Data";
             canRollOf = "No Data";
           } else {
             canRollVis = false;
-            // canRollCon = snapshot.data.canRollCon;
-            // canRollOcc = snapshot.data.canRollOcc;
-            // canRollOf = snapshot.data.canRollOf;
           }
-          if (canIdentifyOcc == null) {
+          if (canIdentifyOcc == null || canIdentifyOcc == '0') {
             canIdentifyVis = true;
             canIdentifyCon = "No Data";
             canIdentifyOcc = "No Data";
             canIdentifyOf = "No Data";
           } else {
             canIdentifyVis = false;
-            // canIdentifyCon = snapshot.data.canIdentifyCon;
-            // canIdentifyOcc = snapshot.data.canIdentifyOcc;
-            // canIdentifyOf = snapshot.data.canIdentifyOf;
           }
-          if (walkingWithoutHelpOcc == null) {
+          if (walkingWithoutHelpOcc == null || walkingWithoutHelpOcc == '0') {
             walkingWithoutHelpVis = true;
             walkingWithoutHelpCon = "No Data";
             walkingWithoutHelpOcc = "No Data";
             walkingWithoutHelpOf = "No Data";
           } else {
             walkingWithoutHelpVis = false;
-            // walkingWithoutHelpCon = snapshot.data.walkingWithoutHelpCon;
-            // walkingWithoutHelpOcc = snapshot.data.walkingWithoutHelpOcc;
-            // walkingWithoutHelpOf = snapshot.data.walkingWithoutHelpOf;
           }
-          if (canClimbOcc == null) {
+          if (canClimbOcc == null || canClimbOcc == '0') {
             canClimbVis = true;
             canClimbCon = "No Data";
             canClimbOcc = "No Data";
             canClimbOf = "No Data";
           } else {
             canClimbVis = false;
-            // canClimbCon = snapshot.data.canClimbCon;
-            // canClimbOcc = snapshot.data.canClimbOcc;
-            // canClimbOf = snapshot.data.canClimbOf;
           }
-          if (makeTowerOcc == null) {
+          if (makeTowerOcc == null || makeTowerOcc == '0') {
             makeTowerVis = true;
             makeTowerCon = "No Data";
             makeTowerOcc = "No Data";
             makeTowerOf = "No Data";
           } else {
             makeTowerVis = false;
-            // makeTowerCon = snapshot.data.makeTowerCon;
-            // makeTowerOcc = snapshot.data.makeTowerOcc;
-            // makeTowerOf = snapshot.data.makeTowerOf;
           }
-          if (eatHimselfOcc == null) {
+          if (eatHimselfOcc == null || eatHimselfOcc == '0') {
             eatHimselfVis = true;
             eatHimselfCon = "No Data";
             eatHimselfOcc = "No Data";
             eatHimselfOf = "No Data";
           } else {
             eatHimselfVis = false;
-            // eatHimselfCon = snapshot.data.eatHimselfCon;
-            // eatHimselfOcc = snapshot.data.eatHimselfOcc;
-            // eatHimselfOf = snapshot.data.eatHimselfOf;
           }
-          if (canTalkTenOcc == null) {
+          if (canTalkTenOcc == null || canTalkTenOcc == '0') {
             canTalkTenVis = true;
             canTalkTenCon = "No Data";
             canTalkTenOcc = "No Data";
             canTalkTenOf = "No Data";
           } else {
             canTalkTenVis = false;
-            // canTalkTenCon = snapshot.data.canTalkTenCon;
-            // canTalkTenOcc = snapshot.data.canTalkTenCon;
-            // canTalkTenOf = snapshot.data.canTalkTenOf;
           }
-          if (lipsShapeOcc == null) {
+          if (lipsShapeOcc == null || lipsShapeOcc == '0') {
             lipsShapeVis = true;
             lipsShapeCon = "No Data";
             lipsShapeOcc = "No Data";
             lipsShapeOf = "No Data";
           } else {
             lipsShapeVis = false;
-            // lipsShapeCon = snapshot.data.lipsShapeCon;
-            // lipsShapeOcc = snapshot.data.lipsShapeOcc;
-            // lipsShapeOf = snapshot.data.lipsShapeOf;
           }
-          if (runWithoutFallingOcc == null) {
+          if (runWithoutFallingOcc == null || runWithoutFallingOcc == '0') {
             runWithoutFallingVis = true;
             runWithoutFallingCon = "No Data";
             runWithoutFallingOcc = "No Data";
             runWithoutFallingOf = "No Data";
           } else {
             runWithoutFallingVis = false;
-            // runWithoutFallingCon = snapshot.data.runWithoutFallingCon;
-            // runWithoutFallingOcc = snapshot.data.runWithoutFallingOcc;
-            // runWithoutFallingOf = snapshot.data.runWithoutFallingOf;
           }
-          if (upDownStairOcc == null) {
+          if (upDownStairOcc == null || upDownStairOcc == '0') {
             upDownStairVis = true;
             upDownStairCon = "No Data";
             upDownStairOcc = "No Data";
             upDownStairOf = "No Data";
           } else {
             upDownStairVis = false;
-            // upDownStairCon = snapshot.data.understandCon;
-            // upDownStairOcc = snapshot.data.upDownStairOcc;
-            // upDownStairOf = snapshot.data.upDownStairOf;
           }
-          if (canCopyOcc == null) {
+          if (canCopyOcc == null || canCopyOcc == '0') {
             canCopyVis = true;
             canCopyCon = "No Data";
             canCopyOcc = "No Data";
             canCopyOf = "No Data";
           } else {
             canCopyVis = false;
-            // canCopyCon = snapshot.data.canCopyCon;
-            // canCopyOcc = snapshot.data.canCopyOcc;
-            // canCopyOf = snapshot.data.canCopyOf;
           }
-          if (canCreateOcc == null) {
+          if (canCreateOcc == null || canCreateOcc == '0') {
             canCreateVis = true;
             canCreateCon = "No Data";
             canCreateOcc = "No Data";
             canCreateOf = "No Data";
           } else {
             canCreateVis = false;
-            // canCreateCon = snapshot.data.canCreateCon;
-            // canCreateOcc = snapshot.data.canCreateOcc;
-            // canCreateOf = snapshot.data.canCreateOf;
           }
-
           return EasyLocalizationProvider(
             data: data,
             child: Scaffold(
@@ -707,192 +602,13 @@ class _GrowingViewState extends State<GrowingView> {
             ),
           );
         } else {
-          // if (snapshot.data.layingFaceDownOcc == '0') {
-          //   layingFaceDownVis = true;
-          // } else {
-          //   layingFaceDownVis = false;
-          // }
-          // if (snapshot.data.movingObjectOcc == '0') {
-          //   movingObjectVis = true;
-          // } else {
-          //   movingObjectVis = false;
-          // }
-          // if (snapshot.data.bigSoundOcc == '0') {
-          //   bigSoundVis = true;
-          // } else {
-          //   bigSoundVis = false;
-          // }
-          // if (snapshot.data.ohhOcc == '0') {
-          //   ohhVis = true;
-          // } else {
-          //   ohhVis = false;
-          // }
-          // if (snapshot.data.smileOcc == '0') {
-          //   smileVis = true;
-          // } else {
-          //   smileVis = false;
-          // }
-          // if (snapshot.data.raiseHeadOcc == '0') {
-          //   raiseHeadVis = true;
-          // } else {
-          //   raiseHeadVis = false;
-          // }
-          // if (snapshot.data.playFingersOcc == '0') {
-          //   playFingersVis = true;
-          // } else {
-          //   playFingersVis = false;
-          // }
-          // if (snapshot.data.strechHandOcc == '0') {
-          //   strechHandVis = true;
-          // } else {
-          //   strechHandVis = false;
-          // }
-          // if (snapshot.data.soundTurnOcc == '0') {
-          //   soundTurnVis = true;
-          // } else {
-          //   soundTurnVis = false;
-          // }
-          // if (snapshot.data.singleLetterSoundOcc == '0') {
-          //   singleLetterSoundVis = true;
-          // } else {
-          //   singleLetterSoundVis = false;
-          // }
-          // if (snapshot.data.laughtLoudOcc == '0') {
-          //   laughtLoudVis = true;
-          // } else {
-          //   laughtLoudVis = false;
-          // }
-          // if (snapshot.data.raiseHead2Occ == '0') {
-          //   raiseHead2Vis = true;
-          // } else {
-          //   raiseHead2Vis = false;
-          // }
-          // if (snapshot.data.turnFaceUpDownOcc == '0') {
-          //   turnFaceUpDownVis = true;
-          // } else {
-          //   turnFaceUpDownVis = false;
-          // }
-          // if (snapshot.data.switchObjectsOcc == '0') {
-          //   switchObjectVis = true;
-          // } else {
-          //   switchObjectVis = false;
-          // }
-          // if (snapshot.data.makeSoundOcc == '0') {
-          //   makeSoundVis = true;
-          // } else {
-          //   makeSoundVis = false;
-          // }
-          // if (snapshot.data.sittingOcc == '0') {
-          //   sittingVis = true;
-          // } else {
-          //   sittingVis = false;
-          // }
-          // if (snapshot.data.holdingHimSelfOcc == '0') {
-          //   holdingHimSelfVis = true;
-          // } else {
-          //   holdingHimSelfVis = false;
-          // }
-          // if (snapshot.data.thumbForeOcc == '0') {
-          //   thumbForeVis = true;
-          // } else {
-          //   thumbForeVis = false;
-          // }
-          // if (snapshot.data.followingVoiceOcc == '0') {
-          //   followingVoiceVis = true;
-          // } else {
-          //   followingVoiceVis = false;
-          // }
-          // if (snapshot.data.proWordsOcc == '0') {
-          //   proWordsVis = true;
-          // } else {
-          //   proWordsVis = false;
-          // }
-          // if (snapshot.data.understandOcc == '0') {
-          //   understandVis = true;
-          // } else {
-          //   understandVis = false;
-          // }
-          // if (snapshot.data.walkingWithHelpOcc == '0') {
-          //   walkingWithHelpVis = true;
-          // } else {
-          //   walkingWithHelpVis = false;
-          // }
-          // if (snapshot.data.canSpeakOcc == '0') {
-          //   canSpeakVis = true;
-          // } else {
-          //   canSpeakVis = false;
-          // }
-          // if (snapshot.data.handPointOcc == '0') {
-          //   handPointVis = true;
-          // } else {
-          //   handPointVis = false;
-          // }
-          // if (snapshot.data.canRollOcc == '0') {
-          //   canRollVis = true;
-          // } else {
-          //   canRollVis = false;
-          // }
-          // if (snapshot.data.canIdentifyOcc == '0') {
-          //   canIdentifyVis = true;
-          // } else {
-          //   canIdentifyVis = false;
-          // }
-          // if (snapshot.data.walkingWithoutHelpOcc == '0') {
-          //   walkingWithoutHelpVis = true;
-          // } else {
-          //   walkingWithoutHelpVis = false;
-          // }
-          // if (snapshot.data.canClimbOcc == '0') {
-          //   canClimbVis = true;
-          // } else {
-          //   canClimbVis = false;
-          // }
-          // if (snapshot.data.makeTowerOcc == '0') {
-          //   makeTowerVis = true;
-          // } else {
-          //   makeTowerVis = false;
-          // }
-          // if (snapshot.data.eatHimselfOcc == '0') {
-          //   eatHimselfVis = true;
-          // } else {
-          //   eatHimselfVis = false;
-          // }
-          // if (snapshot.data.canTalkTenOcc == '0') {
-          //   canTalkTenVis = true;
-          // } else {
-          //   canTalkTenVis = false;
-          // }
-          // if (snapshot.data.lipsShapeOcc == '0') {
-          //   lipsShapeVis = true;
-          // } else {
-          //   lipsShapeVis = false;
-          // }
-          // if (snapshot.data.runWithoutFallingOcc == '0') {
-          //   runWithoutFallingVis = true;
-          // } else {
-          //   runWithoutFallingVis = false;
-          // }
-          // if (snapshot.data.upDownStairOcc == '0') {
-          //   upDownStairVis = true;
-          // } else {
-          //   upDownStairVis = false;
-          // }
-          // if (snapshot.data.canCopyOcc == '0') {
-          //   canCopyVis = true;
-          // } else {
-          //   canCopyVis = false;
-          // }
-          // if (snapshot.data.canCreateOcc == '0') {
-          //   canCreateVis = true;
-          // } else {
-          //   canCreateVis = false;
-          // }
-
+          //widget list of scaffold body
           List<Choice> choices = <Choice>[
             Choice(
                 '01',
                 Icons.book,
                 AppLocalizations.of(context).tr('fromsixweeks'),
+                //GrowthCard Widget is implemented in growthCard.dart
                 GrowthCard(
                     AppLocalizations.of(context).tr('fromsixweekstxt1'),
                     layingFaceDownOcc.toString(),
@@ -929,6 +645,8 @@ class _GrowingViewState extends State<GrowingView> {
                     smileVis,
                     'the_mother_recognize_and_smiles_age_at_the_time_of_occurence'),
                 5),
+
+            //Overloaded constructor of choice class
             Choice.six(
                 '02',
                 Icons.book,
@@ -1062,6 +780,7 @@ class _GrowingViewState extends State<GrowingView> {
                     understandVis,
                     'understand_simple_instructions_age_at_the_time_of_occurence'),
                 6),
+            //Deafult constructor of Choise class
             Choice(
                 '05',
                 Icons.book,
@@ -1161,6 +880,7 @@ class _GrowingViewState extends State<GrowingView> {
                     lipsShapeVis,
                     'the_lips_are_sharpened_to_kiss_age_at_the_time_of_occurence'),
                 6),
+            //Overloaded constructor of Choice class
             Choice.four(
                 '07',
                 Icons.book,
@@ -1195,32 +915,35 @@ class _GrowingViewState extends State<GrowingView> {
                     'can_create_a_sentence_with_three_or_more_words_age_at_the_time_of_occurence'),
                 4),
           ];
-          return DefaultTabController(
-            length: choices.length,
-            child: Scaffold(
-              appBar: AppBar(
-                title: Text('Baby Growth'),
-                bottom: TabBar(
-                  isScrollable: true,
-                  tabs: choices.map((Choice choice) {
-                    index = choice;
-                    return Tab(
-                      text: choice.title,
-                      icon: Icon(choice.icon),
-                    );
-                  }).toList(),
+          return EasyLocalizationProvider(
+            child: DefaultTabController(
+              length: choices.length,
+              child: Scaffold(
+                appBar: AppBar(
+                  title: Text(AppLocalizations.of(context)
+                      .tr('babygrowth')), //babygrowth
+                  bottom: TabBar(
+                    isScrollable: true,
+                    tabs: choices.map((Choice choice) {
+                      index = choice;
+                      return Tab(
+                        text: choice.title,
+                        icon: Icon(choice.icon),
+                      );
+                    }).toList(),
+                  ),
                 ),
-              ),
-              body: SizedBox(
-                child: TabBarView(
-                  children: choices.map((Choice choice) {
-                    return Padding(
-                      padding: EdgeInsets.all(8.0),
-                      child: Display(
-                        choice: choice,
-                      ),
-                    );
-                  }).toList(),
+                body: SizedBox(
+                  child: TabBarView(
+                    children: choices.map((Choice choice) {
+                      return Padding(
+                        padding: EdgeInsets.all(8.0),
+                        child: Display(
+                          choice: choice,
+                        ),
+                      );
+                    }).toList(),
+                  ),
                 ),
               ),
             ),
@@ -1231,6 +954,7 @@ class _GrowingViewState extends State<GrowingView> {
   }
 }
 
+//This class is a collection of growth cards
 class Choice {
   Choice(this.title, this.icon, this.chipTitle, this.card1, this.card2,
       this.card3, this.card4, this.card5, this.cards);

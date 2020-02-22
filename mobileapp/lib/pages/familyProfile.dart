@@ -1,3 +1,6 @@
+/**
+ * View Famiy profile
+ */
 import 'package:flutter/material.dart';
 import 'package:logger/logger.dart';
 import 'package:mobileapp/pages/Settings.dart';
@@ -7,7 +10,6 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../services/globals.dart' as globals;
 import 'package:easy_localization/easy_localization.dart';
 import 'package:easy_localization/easy_localization_provider.dart';
-//import '../BabyBookSinhala.json' as text;
 
 var logger = Logger();
 
@@ -25,18 +27,13 @@ class _FamilyProfileState extends State<FamilyProfile> {
   @override
   Widget build(BuildContext context) {
     var data = EasyLocalizationProvider.of(context).data;
+    //to divide card ui
     final div = Divider(
       height: 10.0,
       color: Colors.grey[300],
     );
-    final profilePicDrawer = Container(
-        width: 100.0,
-        height: 100.0,
-        decoration: BoxDecoration(
-            color: Colors.white,
-            image: DecorationImage(image: AssetImage("images/mother.png")),
-            borderRadius: BorderRadius.all(Radius.circular(75.0)),
-            boxShadow: [BoxShadow(blurRadius: 7.0, color: Colors.black)]));
+
+    //Profile pic display
     final profilePic = Container(
         width: 150.0,
         height: 150.0,
@@ -46,12 +43,8 @@ class _FamilyProfileState extends State<FamilyProfile> {
             borderRadius: BorderRadius.all(Radius.circular(75.0)),
             boxShadow: [BoxShadow(blurRadius: 7.0, color: Colors.black)]));
 
-    Future family = fetchFamily();
-    Future readFile() async {
-      String data = await DefaultAssetBundle.of(context)
-          .loadString("text/BabyBookSinhala.json");
-      text = data;
-    }
+    Future family =
+        fetchFamily(); //this function is implemented in familyProflieServices.dart
 
     return EasyLocalizationProvider(
       data: data,
@@ -83,9 +76,11 @@ class _FamilyProfileState extends State<FamilyProfile> {
             child: FutureBuilder<Family>(
               future: family,
               builder: (context, snapshot) {
-                var data = readFile();
-
-                String idNumber, address, wifeName, husbandName, childrenCount;
+                String idNumber,
+                    address,
+                    wifeName,
+                    husbandName,
+                    childrenCount; //variables to display information
 
                 if (snapshot.connectionState == ConnectionState.waiting) {
                   return Center(
@@ -118,13 +113,8 @@ class _FamilyProfileState extends State<FamilyProfile> {
                     childrenCount = snapshot.data.childrenCount;
                   }
 
-                  logger.i(idNumber);
-                  logger.i(address);
-                  logger.i(wifeName);
-                  logger.i(husbandName);
-                  logger.i(childrenCount);
-
-                  globals.children = int.parse(snapshot.data.childrenCount);
+                  globals.children = int.parse(snapshot
+                      .data.childrenCount); //parse children string to int
                   return SingleChildScrollView(
                     child: Column(
                       children: <Widget>[
@@ -141,6 +131,7 @@ class _FamilyProfileState extends State<FamilyProfile> {
                           child: Column(
                             mainAxisSize: MainAxisSize.min,
                             children: <Widget>[
+                              //ListTiles to view data
                               ListTile(
                                 leading: Icon(Icons.perm_identity),
                                 title: Text(
@@ -150,7 +141,6 @@ class _FamilyProfileState extends State<FamilyProfile> {
                               div,
                               ListTile(
                                 leading: Icon(Icons.home),
-                                // title: Text(.idNo),
                                 title: Text(
                                     AppLocalizations.of(context).tr('address')),
                                 subtitle: Text(address),

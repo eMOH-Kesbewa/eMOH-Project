@@ -17,8 +17,13 @@
       </mat-card-header>
       <div class="container">
         <form [formGroup]="regMotherForm" [hidden]="success" (ngSubmit)="onSubmit()">
-          <mat-form-field class="example-full-width">
-            <input matInput placeholder="Village Id" type="text" formControlName="villageId">
+          <mat-form-field>
+            <mat-label>Select Village Id</mat-label>
+            <mat-select formControlName="villageId">
+              <mat-option *ngFor="let village of villages" [value]="village">
+                {{village}}
+              </mat-option>
+            </mat-select>
           </mat-form-field>
             <mat-form-field class="example-full-width">
               <input matInput placeholder="Email" type="text" formControlName="username">

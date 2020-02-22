@@ -1,3 +1,6 @@
+/**
+ * Teeth widget to view teeth data
+ */
 import 'package:flutter/material.dart';
 import 'package:logger/logger.dart';
 import 'package:mobileapp/services/babyService/teethService.dart';
@@ -157,32 +160,13 @@ class _TeethCardState extends State<TeethCard> {
                               onChanged: (bool value) {
                                 setState(() {
                                   logger.wtf(goodRadio);
-                                  //_isRadioSelected = newValue;
-                                  //goodRadio = !goodRadio;
                                   _isRadioSelected = value;
                                   teethStatus = 'good';
                                   logger.v(teethStatus);
-                                  if (_isRadioSelected) {
-                                    // teethStatus = 'good';
-                                    // logger.v(teethStatus);
-                                  }
+                                  if (_isRadioSelected) {}
                                 });
                               },
                             ),
-                            // child: ListTile(
-                            //   leading: Text('Bad'),
-                            //   trailing: Radio(
-                            //     value: false,
-                            //     onChanged: (bool) {
-                            //       setState(() {
-                            //         badRadio = !badRadio;
-                            //         if (badRadio) {
-                            //           teethStatus = 'Bad';
-                            //         }
-                            //       });
-                            //     },
-                            //   ),
-                            // ),
                           ),
                         ),
                         SizedBox(
@@ -195,14 +179,10 @@ class _TeethCardState extends State<TeethCard> {
                                 groupValue: _isRadioSelected,
                                 onChanged: (bool value) {
                                   setState(() {
-                                    //badRadio = !badRadio;
                                     _isRadioSelected = value;
                                     teethStatus = 'bad';
                                     logger.v(teethStatus);
-                                    if (_isRadioSelected) {
-                                      // teethStatus = 'bad';
-                                      // logger.v(teethStatus);
-                                    }
+                                    if (_isRadioSelected) {}
                                   });
                                 },
                               ),
@@ -215,9 +195,8 @@ class _TeethCardState extends State<TeethCard> {
                       child: Text('Set'),
                       color: Colors.grey[200],
                       onPressed: () {
-                        // widget.callback();
                         logger.wtf(teethCountController.text.toString());
-                        // print(widget.occAge);
+
                         if (_formKey.currentState.validate()) {
                           logger.wtf(teethCountController.text.toString());
                           updateDetails(

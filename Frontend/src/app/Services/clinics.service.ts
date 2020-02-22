@@ -34,4 +34,9 @@ export class ClinicsService {
     let uri = "http://localhost:3000/clinics/sendmail"
     return this.http.post<any>(uri,clinicDetails);
   }
+
+  getPreviousClinicData(){
+    let uri = "http://localhost:3000/clinics/viewClinicRecords";
+    return this.http.get<Clinic>(uri);
+  }
 }

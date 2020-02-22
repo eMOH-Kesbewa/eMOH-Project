@@ -1,7 +1,9 @@
+/**
+ * NOtification view card
+ */
 import 'package:flutter/material.dart';
 import 'package:logger/logger.dart';
 import 'package:mobileapp/services/viewClinicService.dart';
-//import 'package:mobileapp/lib/service/viewClinicService.dart';
 
 var logger = Logger();
 
@@ -10,7 +12,6 @@ class NotificationView extends StatelessWidget {
   NotificationView({Key key, @required this.clinic}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-  
     String dis = clinic.priority;
     int col = 0xff454e9e;
     switch (dis) {
@@ -52,7 +53,7 @@ class NotificationView extends StatelessWidget {
               Text(
                 clinic.title,
                 style: TextStyle(
-                 fontWeight: FontWeight.bold,
+                  fontWeight: FontWeight.bold,
                 ),
               ),
               SizedBox(

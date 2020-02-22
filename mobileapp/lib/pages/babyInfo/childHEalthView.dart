@@ -1,9 +1,15 @@
+/**
+ * View Child health Details
+ * Uses child Health card widget with overloaded constructors
+ */
+
 import 'package:flutter/material.dart';
 import 'package:mobileapp/services/babyService/childHealthService.dart';
 import 'package:mobileapp/widgets/childHealthCard.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:easy_localization/easy_localization_provider.dart';
 
+//data of 1st month
 String date1mo,
     eye1mo,
     squint1mo,
@@ -17,6 +23,7 @@ String date1mo,
     inhProblems1mo,
     otherDiseases1mo,
     officer1mo;
+//data of 2nd month
 String date2mo,
     eye2mo,
     squint2mo,
@@ -30,6 +37,7 @@ String date2mo,
     inhProblems2mo,
     otherDiseases2mo,
     officer2mo;
+//data of 4th month
 String date4mo,
     eye4mo,
     squint4mo,
@@ -43,6 +51,7 @@ String date4mo,
     inhProblems4mo,
     otherDiseases4mo,
     officer4mo;
+//data of 6th month
 String date6mo,
     eye6mo,
     squint6mo,
@@ -56,6 +65,7 @@ String date6mo,
     inhProblems6mo,
     otherDiseases6mo,
     officer6mo;
+//data of 5th month
 String date9mo,
     eye9mo,
     squint9mo,
@@ -69,6 +79,7 @@ String date9mo,
     inhProblems9mo,
     otherDiseases9mo,
     officer9mo;
+//data of 12th month
 String date12mo,
     eye12mo,
     squint12mo,
@@ -82,6 +93,7 @@ String date12mo,
     inhProblems12mo,
     otherDiseases12mo,
     officer12mo;
+//data of 18th month
 String date18mo,
     eye18mo,
     squint18mo,
@@ -95,6 +107,7 @@ String date18mo,
     inhProblems18mo,
     otherDiseases18mo,
     officer18mo;
+//data of 3rd year
 String date3y,
     eye3y,
     squint3y,
@@ -108,6 +121,7 @@ String date3y,
     inhProblems3y,
     otherDiseases3y,
     officer3y;
+//data of 4th year
 String date4y,
     eye4y,
     squint4y,
@@ -121,7 +135,7 @@ String date4y,
     inhProblems4y,
     otherDiseases4y,
     officer4y;
-
+//data of 5th year
 String date5y,
     eye5y,
     squint5y,
@@ -135,6 +149,8 @@ String date5y,
     inhProblems5y,
     otherDiseases5y,
     officer5y;
+
+//dental data
 
 String dentalSpots6mo,
     dentalCavities6mo,
@@ -151,6 +167,7 @@ String dentalSpots6mo,
     dentalSpots5y,
     dentalCavities5y;
 
+//eye data
 String nightBlind3y,
     bitoSpots3y,
     nightBlind4y,
@@ -403,7 +420,7 @@ class _ChildHealthViewState extends State<ChildHealthView> {
     }
 
     return FutureBuilder<Baby>(
-      future: fetchBaby(),
+      future: fetchBaby(), //get baby data from childHealthService.dart file
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
           return EasyLocalizationProvider(
@@ -418,6 +435,7 @@ class _ChildHealthViewState extends State<ChildHealthView> {
         } else {
           try {
             List<Choice> choices = <Choice>[
+              //overloaded constructor for 1-4 months
               Choice.onemotoFour(
                   title: AppLocalizations.of(context).tr('1month'),
                   date: date1mo,
@@ -469,6 +487,8 @@ class _ChildHealthViewState extends State<ChildHealthView> {
                   otherDiseases: otherDiseases4mo,
                   officer: officer4mo,
                   count: 4),
+
+              //overloaded constructor for 6-18 months
               Choice.sixmotoEighteen(
                   title: AppLocalizations.of(context).tr('6month'),
                   date: date6mo,
@@ -544,6 +564,7 @@ class _ChildHealthViewState extends State<ChildHealthView> {
                   dentalSpots: dentalSpots18mo,
                   dentalCavities: dentalCavities18mo,
                   count: 3),
+              //overloaded constructor for 4-3 years
               Choice.fourToThree(
                   title: AppLocalizations.of(context).tr('3year'),
                   date: date3y,
@@ -586,6 +607,7 @@ class _ChildHealthViewState extends State<ChildHealthView> {
                   dentalSpots: dentalSpots4y,
                   dentalCavities: dentalCavities4y,
                   count: 2),
+              //Default constructor for 5 years
               Choice(
                   title: AppLocalizations.of(context).tr('5year'),
                   date: date5y,
@@ -611,15 +633,14 @@ class _ChildHealthViewState extends State<ChildHealthView> {
                   count: 1),
             ];
             return DefaultTabController(
-                length: choices.length,
+                length: choices.length, //lenght of the tab view
                 child: Scaffold(
                   appBar: AppBar(
                     title: Text(
                         AppLocalizations.of(context).tr('ChildHealthCard')),
                     bottom: TabBar(
-                      isScrollable: true,
+                      isScrollable: true, //to scroll tab view
                       tabs: choices.map((Choice choice) {
-                        //index = choice;
                         return Tab(
                           text: choice.title,
                           icon: Icon(choice.icon),
@@ -637,15 +658,13 @@ class _ChildHealthViewState extends State<ChildHealthView> {
                   ),
                 ));
           } catch (e) {
-            //return Text("No Data");
-
             logger.e(e);
             return Scaffold(
               appBar: AppBar(
                 title: Text(AppLocalizations.of(context).tr('childHealthCard')),
               ),
               body: Container(
-                child: Text('No Data'),
+                child: Text('No Data'), //If no data found this will display
               ),
             );
           }
@@ -655,6 +674,7 @@ class _ChildHealthViewState extends State<ChildHealthView> {
   }
 }
 
+//For tab view
 class Choice {
   Choice(
       {this.date,
@@ -680,6 +700,7 @@ class Choice {
       this.title,
       this.icon,
       this.count});
+  ////overloaded constructor for 4-3 months
   Choice.fourToThree(
       {this.title,
       this.date,
@@ -702,7 +723,7 @@ class Choice {
       this.bitoSpots,
       this.icon,
       this.count});
-
+//overloaded constructor for 6-18 months
   Choice.sixmotoEighteen(
       {this.title,
       this.date,
@@ -723,7 +744,7 @@ class Choice {
       this.dentalCavities,
       this.icon,
       this.count});
-
+//overloaded constructor for 1-4 months
   Choice.onemotoFour(
       {this.title,
       this.date,
@@ -751,7 +772,6 @@ class Choice {
       hearingR,
       weight,
       height,
-      //development,
       heart,
       lungs,
       hipJoint,
@@ -764,6 +784,6 @@ class Choice {
       bitoSpots,
       sightL,
       sightR;
-  final IconData icon;
+  final IconData icon; //tab view icon
   int count;
 }

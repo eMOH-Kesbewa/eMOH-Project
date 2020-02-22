@@ -1,3 +1,6 @@
+/**
+ * View Vitamin data about baby
+ */
 import 'package:flutter/material.dart';
 import 'package:logger/logger.dart';
 import 'package:mobileapp/services/babyService/immunizationRefService.dart';
@@ -12,8 +15,9 @@ class VitaminA extends StatefulWidget {
 }
 
 class _VitaminAState extends State<VitaminA> {
-  Future baby = fetchBaby();
-  String date1, date2, date3, date4, date5, date6, date7, date8, date9, date10;
+  Future baby = fetchBaby(); //This function is implemented on immunizationRefService.dart
+  String date1, date2, date3, date4, date5, date6, date7, date8, date9, date10; //for dates
+
   String batchNo1,
       batchNo2,
       batchNo3,
@@ -146,7 +150,7 @@ class _VitaminAState extends State<VitaminA> {
           title: Text(AppLocalizations.of(context).tr('vitaminA')),
         ),
         body: FutureBuilder<Baby>(
-          future: fetchBaby(),
+          future: fetchBaby(), //This function is implemented on immunizationRefService.dart
           builder: (context, snapshot) {
             if (snapshot.connectionState == ConnectionState.waiting) {
               return Center(

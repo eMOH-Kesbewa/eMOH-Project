@@ -1,11 +1,11 @@
-//
+/**
+ * To view baby grwoing details
+ */
 
 import 'package:flutter/material.dart';
 import 'package:mobileapp/pages/babyInfo/growingView.dart';
-import 'package:mobileapp/services/babyService/childGrowthService.dart';
 import 'package:mobileapp/widgets/growthCard.dart';
-import 'package:toast/toast.dart';
-import 'package:mobileapp/services/globals.dart' as globals;
+
 
 class Display extends StatelessWidget {
   //const Display({Key key, this.choice,}) : super(key: key);

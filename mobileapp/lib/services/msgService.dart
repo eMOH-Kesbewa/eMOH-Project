@@ -14,23 +14,19 @@ List<String> discription = List();
 List<String> date = List();
 
 Future fetchClinic() async {
-
+  logger.i('messageService.dart');
   var x = await globals.getGlobals();
-  final response = await http
-      .get('https://emohback.herokuapp.com/clinics/view');
+  final response =
+      await http.get('https://emohback.herokuapp.com/clinics/view');
 
   if (response.statusCode == 200) {
-    
     var result = json.decode(response.body);
 
-
     return result;
-   
+
     //return [id,name,]
   } else {
     // If that call was not successful, throw an error.
     throw Exception('Failed to load Family');
   }
 }
-
-

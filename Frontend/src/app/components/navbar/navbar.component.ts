@@ -6,7 +6,7 @@ import { Clinic } from 'app/Services/Models/clinic';
 import { searchdata } from 'app/Services/Models/searchdata';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
-
+import * as JWT from 'jwt-decode';
 
 @Component({
   selector: 'app-navbar',
@@ -29,13 +29,15 @@ export class NavbarComponent implements OnInit {
     }
 
     ngOnInit(){
-        if(localStorage.getItem('role')=="Doctor"){
+        let decodedToken = JWT(localStorage.getItem('token'));
+        let role = decodedToken['role'];
+        if(role=="Doctor"){
             this.listTitles = ROUTESforDoc.filter(listTitle => listTitle);
            }
-           else if((localStorage.getItem('role')=="PHM")){
+           else if(role=="PHM"){
             this.listTitles = ROUTESforPHM.filter(listTitle => listTitle);
            }
-           else if((localStorage.getItem('role')=="mother")){
+           else if(role=="mother"){
             this.listTitles = ROUTESforMother.filter(listTitle => listTitle);
            }  
       //this.listTitles = ROUTESforDoc.filter(listTitle => listTitle);

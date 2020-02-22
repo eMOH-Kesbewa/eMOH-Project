@@ -1,6 +1,5 @@
 import 'dart:async';
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:logger/logger.dart';
@@ -8,9 +7,10 @@ import 'globals.dart' as globals;
 
 var logger = Logger();
 
-Future <Clinic> readMessage(String id) async {
-  final response = await http.get(
-      'https://emohback.herokuapp.com/clinics/viewbyid/${id}');
+Future<Clinic> readMessage(String id) async {
+  logger.d('msgService.dart');
+  final response =
+      await http.get('https://emohback.herokuapp.com/clinics/viewbyid/${id}');
 
   if (response.statusCode == 200) {
     return Clinic.fromJson(json.decode(response.body)[0]);
