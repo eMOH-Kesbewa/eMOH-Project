@@ -172,7 +172,7 @@ router.get('/familyReport/:year',(req,res)=>{
                            _id:null,
                            
                            "total1": {$sum:"$No_of_new_registered_family"},
-                           "total2" : {$sum:"$No_of_removed_family_from_form"}
+                           "total2" : {$sum:"$No_of_new_married_couple"}
                         
                       }
                     
