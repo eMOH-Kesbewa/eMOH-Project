@@ -1,10 +1,16 @@
+/**
+ * View and update hearing test data
+ */
+
 import 'package:flutter/material.dart';
 import 'package:mobileapp/services/babyService/hearingTestService.dart';
 import 'package:toast/toast.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:easy_localization/easy_localization_provider.dart';
 
-Future<Baby> baby = fetchBaby();
+Future<Baby> baby = fetchBaby(); //this function is on hearingTestService.dart
+
+//To update check boxes
 bool switchVal = false;
 bool bigNoise = false;
 bool vehicleNoise = false;
@@ -17,6 +23,7 @@ bool rythmeicNoise = false;
 bool respondNameNoise = false;
 bool byeNoise = false;
 
+//To update details
 String bigNoiseS;
 String vehicleNoiseS;
 String guardianNoiseS;
@@ -34,162 +41,77 @@ class HearTest extends StatefulWidget {
 }
 
 class _HearTestState extends State<HearTest> {
+  // this function runs only one time when widget creating
   @override
-  // void initState() {
-  //   // TODO: implement initState
-  //   super.initState();
+  void initState() {
+    // TODO: implement initState
+    super.initState();
 
-  //   baby.then((it) {
-  //     if (it.bigNoise.toString() == "no" || it.bigNoise == null) {
-  //       //this gives the error
-  //       bigNoise = false;
-  //     } else {
-  //       bigNoise = true;
-  //     }
-  //     if (it.vehicleNoise.toString() == "no" || it.vehicleNoise == null) {
-  //       //this gives the error
-  //       vehicleNoise = false;
-  //     } else {
-  //       vehicleNoise = true;
-  //     }
-  //     if (it.guardianNoise.toString() == "no" || it.guardianNoise == null) {
-  //       //this gives the error
-  //       guardianNoise = false;
-  //     } else {
-  //       guardianNoise = true;
-  //     }
-  //     if (it.turnToNoise.toString() == "no" || it.turnToNoise == null) {
-  //       //this gives the error
-  //       turnToNoise = false;
-  //     } else {
-  //       turnToNoise = true;
-  //     }
-  //     if (it.guardianNoise.toString() == "no" || it.guardianNoise == null) {
-  //       //this gives the error
-  //       guardianNoise = false;
-  //     } else {
-  //       guardianNoise = true;
-  //     }
-  //     if (it.turnToGuardianNoise.toString() == "no" ||
-  //         it.turnToGuardianNoise == null) {
-  //       //this gives the error
-  //       turnToGuardianNoise = false;
-  //     } else {
-  //       turnToGuardianNoise = true;
-  //     }
-  //     if (it.dailyNoise.toString() == "no" || it.dailyNoise == null) {
-  //       //this gives the error
-  //       dailyNoise = false;
-  //     } else {
-  //       dailyNoise = true;
-  //     }
-  //     if (it.hiddenNoise.toString() == "no" || it.hiddenNoise == null) {
-  //       //this gives the error
-  //       hiddenNoise = false;
-  //     } else {
-  //       hiddenNoise = true;
-  //     }
-  //     if (it.rythmeicNoise.toString() == "no" || it.rythmeicNoise == null) {
-  //       //this gives the error
-  //       rythmeicNoise = false;
-  //     } else {
-  //       rythmeicNoise = true;
-  //     }
-  //     if (it.respondNameNoise.toString() == "no" ||
-  //         it.respondNameNoise == null) {
-  //       //this gives the error
-  //       respondNameNoise = false;
-  //     } else {
-  //       respondNameNoise = true;
-  //     }
-  //     if (it.byeNoise.toString() == "no" || it.byeNoise == null) {
-  //       //this gives the error
-  //       byeNoise = false;
-  //     } else {
-  //       byeNoise = true;
-  //     }
-  //   });
-  // }
+    baby.then((it) {
+      //if bigNoise is no OR null, bigNoise check box is false,else true
+      if (it.bigNoise.toString() == "no" || it.bigNoise == null) {
+        bigNoise = false;
+      } else {
+        bigNoise = true;
+      }
+      if (it.vehicleNoise.toString() == "no" || it.vehicleNoise == null) {
+        vehicleNoise = false;
+      } else {
+        vehicleNoise = true;
+      }
+      if (it.guardianNoise.toString() == "no" || it.guardianNoise == null) {
+        guardianNoise = false;
+      } else {
+        guardianNoise = true;
+      }
+      if (it.turnToNoise.toString() == "no" || it.turnToNoise == null) {
+        turnToNoise = false;
+      } else {
+        turnToNoise = true;
+      }
+      if (it.guardianNoise.toString() == "no" || it.guardianNoise == null) {
+        guardianNoise = false;
+      } else {
+        guardianNoise = true;
+      }
+      if (it.turnToGuardianNoise.toString() == "no" ||
+          it.turnToGuardianNoise == null) {
+        turnToGuardianNoise = false;
+      } else {
+        turnToGuardianNoise = true;
+      }
+      if (it.dailyNoise.toString() == "no" || it.dailyNoise == null) {
+        dailyNoise = false;
+      } else {
+        dailyNoise = true;
+      }
+      if (it.hiddenNoise.toString() == "no" || it.hiddenNoise == null) {
+        hiddenNoise = false;
+      } else {
+        hiddenNoise = true;
+      }
+      if (it.rythmeicNoise.toString() == "no" || it.rythmeicNoise == null) {
+        rythmeicNoise = false;
+      } else {
+        rythmeicNoise = true;
+      }
+      if (it.respondNameNoise.toString() == "no" ||
+          it.respondNameNoise == null) {
+        respondNameNoise = false;
+      } else {
+        respondNameNoise = true;
+      }
+      if (it.byeNoise.toString() == "no" || it.byeNoise == null) {
+        byeNoise = false;
+      } else {
+        byeNoise = true;
+      }
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
-    void initState() {
-      // TODO: implement initState
-      super.initState();
-
-      baby.then((it) {
-        if (it.bigNoise.toString() == "no" || it.bigNoise == null) {
-          //this gives the error
-          bigNoise = false;
-        } else {
-          bigNoise = true;
-        }
-        if (it.vehicleNoise.toString() == "no" || it.vehicleNoise == null) {
-          //this gives the error
-          vehicleNoise = false;
-        } else {
-          vehicleNoise = true;
-        }
-        if (it.guardianNoise.toString() == "no" || it.guardianNoise == null) {
-          //this gives the error
-          guardianNoise = false;
-        } else {
-          guardianNoise = true;
-        }
-        if (it.turnToNoise.toString() == "no" || it.turnToNoise == null) {
-          //this gives the error
-          turnToNoise = false;
-        } else {
-          turnToNoise = true;
-        }
-        if (it.guardianNoise.toString() == "no" || it.guardianNoise == null) {
-          //this gives the error
-          guardianNoise = false;
-        } else {
-          guardianNoise = true;
-        }
-        if (it.turnToGuardianNoise.toString() == "no" ||
-            it.turnToGuardianNoise == null) {
-          //this gives the error
-          turnToGuardianNoise = false;
-        } else {
-          turnToGuardianNoise = true;
-        }
-        if (it.dailyNoise.toString() == "no" || it.dailyNoise == null) {
-          //this gives the error
-          dailyNoise = false;
-        } else {
-          dailyNoise = true;
-        }
-        if (it.hiddenNoise.toString() == "no" || it.hiddenNoise == null) {
-          //this gives the error
-          hiddenNoise = false;
-        } else {
-          hiddenNoise = true;
-        }
-        if (it.rythmeicNoise.toString() == "no" || it.rythmeicNoise == null) {
-          //this gives the error
-          rythmeicNoise = false;
-        } else {
-          rythmeicNoise = true;
-        }
-        if (it.respondNameNoise.toString() == "no" ||
-            it.respondNameNoise == null) {
-          //this gives the error
-          respondNameNoise = false;
-        } else {
-          respondNameNoise = true;
-        }
-        if (it.byeNoise.toString() == "no" || it.byeNoise == null) {
-          //this gives the error
-          byeNoise = false;
-        } else {
-          byeNoise = true;
-        }
-      });
-    }
-
-    var data = EasyLocalizationProvider.of(context).data;
+    var data = EasyLocalizationProvider.of(context).data; //localization data
     return EasyLocalizationProvider(
       data: data,
       child: Scaffold(
@@ -210,8 +132,6 @@ class _HearTestState extends State<HearTest> {
           child: FutureBuilder<Baby>(
               future: baby,
               builder: (context, snapshot) {
-                // print('fetch baby');
-                // print(snapshot.data.bigNoise);
                 if (snapshot.connectionState == ConnectionState.waiting) {
                   return Center(
                     child: CircularProgressIndicator(),
@@ -228,7 +148,6 @@ class _HearTestState extends State<HearTest> {
                                 backgroundImage:
                                     AssetImage("images/mother.png"),
                                 backgroundColor: Colors.grey.shade800,
-                                //child: Text('From the First Month of Birth'),
                               ),
                               label: Text(AppLocalizations.of(context)
                                   .tr('afterfewmonthsofbirth')),
@@ -253,8 +172,6 @@ class _HearTestState extends State<HearTest> {
                                         } else {
                                           bigNoiseS = "no";
                                         }
-
-                                        // faceCheck = !faceCheck;
                                       });
                                     } else {
                                       return null;
@@ -266,7 +183,6 @@ class _HearTestState extends State<HearTest> {
                                 backgroundImage:
                                     AssetImage("images/mother.png"),
                                 backgroundColor: Colors.grey.shade800,
-                                //child: Text('From the First Month of Birth'),
                               ),
                               label: Text(AppLocalizations.of(context)
                                   .tr('inonemonth')),
@@ -290,7 +206,7 @@ class _HearTestState extends State<HearTest> {
                                           vehicleNoiseS = "no";
                                         }
 
-                                        // faceCheck = !faceCheck;
+      
                                       });
                                     } else {
                                       return null;
@@ -302,7 +218,7 @@ class _HearTestState extends State<HearTest> {
                                 backgroundImage:
                                     AssetImage("images/mother.png"),
                                 backgroundColor: Colors.grey.shade800,
-                                //child: Text('From the First Month of Birth'),
+             
                               ),
                               label: Text(AppLocalizations.of(context)
                                   .tr('fromthefourmonths')),
@@ -319,7 +235,7 @@ class _HearTestState extends State<HearTest> {
                                       setState(() {
                                         guardianNoise = !guardianNoise;
                                         guardianNoise = guardianNoise;
-                                        // faceCheck = !faceCheck;
+                                 
                                         if (guardianNoise == true) {
                                           guardianNoiseS = "yes";
                                         } else {
@@ -343,7 +259,7 @@ class _HearTestState extends State<HearTest> {
                                       setState(() {
                                         turnToNoise = !turnToNoise;
                                         turnToNoise = turnToNoise;
-                                        // faceCheck = !faceCheck;
+ 
 
                                         if (turnToNoise == true) {
                                           turnToNoiseS = "yes";
@@ -558,9 +474,12 @@ class _HearTestState extends State<HearTest> {
                 }
               }),
         ),
+
+        //submit button
         floatingActionButton: FloatingActionButton(
           child: Icon(Icons.done),
           onPressed: () {
+            //this function include in hearingTestService.dart file
             updateDetails(
                     bigNoiseS,
                     vehicleNoiseS,
@@ -573,6 +492,7 @@ class _HearTestState extends State<HearTest> {
                     respondNameNoiseS,
                     byeNoiseS)
                 .then((res) {
+                  //show toast message
               Toast.show("Done", context,
                   duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
             }).catchError((e) {

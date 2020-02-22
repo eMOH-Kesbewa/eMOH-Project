@@ -1,7 +1,9 @@
+/**
+ * Health Card widget
+ */
 import 'package:flutter/material.dart';
 import 'package:logger/logger.dart';
 import 'package:mobileapp/services/style.dart';
-import 'package:mobileapp/widgets/growthCard.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:easy_localization/easy_localization_provider.dart';
 

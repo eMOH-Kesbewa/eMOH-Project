@@ -1,6 +1,8 @@
+/**
+ * Weight graph of baby
+ */
 import 'package:flutter/material.dart';
 import 'package:charts_flutter/flutter.dart' as charts;
-
 import 'package:mobileapp/services/babyService/graphService.dart';
 
 class GraphW extends StatefulWidget {
@@ -16,11 +18,9 @@ class _GraphWState extends State<GraphW> {
 
   List<Points> plot = List();
 
-  var endVal, month;
-  var message;
+  var endVal, month; //for end value and month
+  var message; //for warning message
   Color col = Colors.white;
-
-  //to display warnings.
 
   @override
   void initState() {
@@ -42,6 +42,8 @@ class _GraphWState extends State<GraphW> {
   }
 
   _asyncMethod() async {
+
+    //this function includes in graphService.dart
     fetchWeightHeight().then((it) {
       for (var i = 0; i < it.length; i++) {
         var p = 'p' + '${i}';
@@ -65,6 +67,7 @@ class _GraphWState extends State<GraphW> {
 
   @override
   Widget build(BuildContext context) {
+     //warnings for month 1
     if (month == 1) {
       //2.7,3.13.6,5.4
       if (endVal < 2.7) {
@@ -86,6 +89,7 @@ class _GraphWState extends State<GraphW> {
     }
 
     if (month == 2) {
+       //warnings for month 2
       //3.4,3.9,4.4,6.6
       if (endVal < 3.4) {
         message = "Severe Under Weight";
@@ -106,6 +110,7 @@ class _GraphWState extends State<GraphW> {
     }
 
     if (month == 3) {
+       //warnings for month 3
       //4,4.5,5.1,7.5
       if (endVal < 4) {
         message = "Severe Under Weight";
@@ -126,6 +131,7 @@ class _GraphWState extends State<GraphW> {
     }
 
     if (month == 4) {
+       //warnings for month 4
       //4.4,5,5.6,8.2
       if (endVal < 4.4) {
         message = "Severe Under Weight";
@@ -146,6 +152,7 @@ class _GraphWState extends State<GraphW> {
     }
 
     if (month == 5) {
+       //warnings for month 5
       //4.8,5.3,6,8.8
       if (endVal < 4.8) {
         message = "Severe Under Weight";
@@ -166,6 +173,7 @@ class _GraphWState extends State<GraphW> {
     }
 
     if (month == 6) {
+       //warnings for month 6
       //5.1,5.7,6.4,9.3
       if (endVal < 5.1) {
         message = "Severe Under Weight";
@@ -186,6 +194,7 @@ class _GraphWState extends State<GraphW> {
     }
 
     if (month == 7) {
+       //warnings for month 7
       //5.3,6,6.7,9.8
       if (endVal < 5.3) {
         message = "Severe Under Weight";
@@ -206,6 +215,7 @@ class _GraphWState extends State<GraphW> {
     }
 
     if (month == 8) {
+       //warnings for month 8
       // 5.5,6.2,7,10.2
       if (endVal < 5.5) {
         message = "Severe Under Weight";
@@ -226,6 +236,7 @@ class _GraphWState extends State<GraphW> {
     }
 
     if (month == 9) {
+       //warnings for month 9
       //5.8,6.4,7.2,10.5
       if (endVal < 5.8) {
         message = "Severe Under Weight";
@@ -244,7 +255,7 @@ class _GraphWState extends State<GraphW> {
         col = Colors.lightBlue[400];
       }
     }
-
+ //warnings for month 10
     if (month == 10) {
       //6,6.6,7.5,10.9
       if (endVal < 6) {
@@ -264,7 +275,7 @@ class _GraphWState extends State<GraphW> {
         col = Colors.lightBlue[400];
       }
     }
-
+ //warnings for month 11
     if (month == 11) {
       //6.1,6.8,7.7,11.2
       if (endVal < 6.1) {
@@ -284,7 +295,7 @@ class _GraphWState extends State<GraphW> {
         col = Colors.lightBlue[400];
       }
     }
-
+ //warnings for month 12
     if (month == 12) {
       //6.3,7,8,11.5
       if (endVal < 6.3) {
@@ -304,7 +315,7 @@ class _GraphWState extends State<GraphW> {
         col = Colors.lightBlue[400];
       }
     }
-
+ //warnings for month 13
     if (month == 13) {
       //6.5,7.2,8.1,11.8
       if (endVal < 6.5) {
@@ -324,7 +335,7 @@ class _GraphWState extends State<GraphW> {
         col = Colors.lightBlue[400];
       }
     }
-
+ //warnings for month 14
     if (month == 14) {
       //6.6,7.3,8.3,12.1
       if (endVal < 6.6) {
@@ -344,7 +355,7 @@ class _GraphWState extends State<GraphW> {
         col = Colors.lightBlue[400];
       }
     }
-
+ //warings for month 15
     if (month == 15) {
       //6.8,7.5,8.5,12.4
       if (endVal < 6.8) {
@@ -364,7 +375,7 @@ class _GraphWState extends State<GraphW> {
         col = Colors.lightBlue[400];
       }
     }
-
+ //warnings for month 16
     if (month == 16) {
       //6.9,7.7,8.7,12.1
       if (endVal < 6.9) {
@@ -385,6 +396,8 @@ class _GraphWState extends State<GraphW> {
       }
     }
 
+     //warnings for month 17
+
     if (month == 17) {
       //7.1,7.8,8.8,12.9
       if (endVal < 7.1) {
@@ -404,7 +417,7 @@ class _GraphWState extends State<GraphW> {
         col = Colors.lightBlue[400];
       }
     }
-
+ //warnings for month 18
     if (month == 18) {
       //7.2,8,9,13.2
       if (endVal < 7.2) {
@@ -424,6 +437,7 @@ class _GraphWState extends State<GraphW> {
         col = Colors.lightBlue[400];
       }
     }
+     //warnings for month 19
 
     if (month == 19) {
       //8.4,7.2,9.2,13.5
@@ -444,7 +458,7 @@ class _GraphWState extends State<GraphW> {
         col = Colors.lightBlue[400];
       }
     }
-
+ //warnings for month 20
     if (month == 20) {
       //7.5,8.4,9.4,13.7
       if (endVal < 7.5) {
@@ -464,7 +478,7 @@ class _GraphWState extends State<GraphW> {
         col = Colors.lightBlue[400];
       }
     }
-
+ //warnings for month 21
     if (month == 21) {
       //7.7,8.5,9.6,14
       if (endVal < 7.7) {
@@ -484,6 +498,7 @@ class _GraphWState extends State<GraphW> {
         col = Colors.lightBlue[400];
       }
     }
+     //warnings for month 22
 
     if (month == 22) {
       //7.7,8.7,9.8,14.3
@@ -505,6 +520,8 @@ class _GraphWState extends State<GraphW> {
       }
     }
 
+     //warnings for month 23
+
     if (month == 23) {
       //7.9,8.9,10,14.1
       if (endVal < 7.9) {
@@ -524,7 +541,7 @@ class _GraphWState extends State<GraphW> {
         col = Colors.lightBlue[400];
       }
     }
-
+ //warnings for month 24
     if (month == 24) {
       //8,9,10.2,14.8
       if (endVal < 8) {
@@ -544,6 +561,8 @@ class _GraphWState extends State<GraphW> {
         col = Colors.lightBlue[400];
       }
     }
+
+     //warnings for month 25
 
     if (month == 25) {
       if (endVal < 2.7) {
@@ -611,6 +630,7 @@ class _GraphWState extends State<GraphW> {
   }
 }
 
+//for a single point
 class Points {
   var x;
   var y;

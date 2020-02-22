@@ -1,4 +1,7 @@
-//warnings need an update after database filled with data
+/**
+ *View protection details about 
+ *warnings need an update after database filled with data
+ **/
 
 import 'package:flutter/material.dart';
 import 'package:mobileapp/services/babyService/babyProtectionServeice.dart';
@@ -12,10 +15,9 @@ class BabyProtection extends StatefulWidget {
 }
 
 class _BabyProtectionState extends State<BabyProtection> {
-  static Future<Baby> baby = fetchBaby();
-  // Baby newBaby;
-  var reasons = new List<Widget>();
-  var result = new List<Widget>();
+  static Future<Baby> baby =
+      fetchBaby(); //get baby data from babyProtectionServeice.dart file
+  var reasons = new List<Widget>(); //to display warning
   @override
   Widget build(BuildContext context) {
     var data = EasyLocalizationProvider.of(context).data;
@@ -44,8 +46,6 @@ class _BabyProtectionState extends State<BabyProtection> {
                             child: CircularProgressIndicator(),
                           );
                         }
-                        print('${baby}');
-                        // print(snapsh.ot.data.childrenCount);
 
                         if (snapshot.hasData) {
                           if (snapshot.data.prematureBirthsStatus == "Normal") {
@@ -267,7 +267,7 @@ class _BabyProtectionState extends State<BabyProtection> {
                                 )
                               ],
                             ),
-                          ); //Text(snapshot.data.childrenCount);
+                          );
                         } else if (snapshot.hasError) {
                           return Text("${snapshot.error}");
                         }

@@ -1,7 +1,9 @@
+/**
+ * View new born baby health details
+ */
 import 'package:flutter/material.dart';
 import 'package:mobileapp/services/babyService/newBornHelth.dart';
 import 'package:mobileapp/widgets/HelthCard.dart';
-import 'package:mobileapp/widgets/growthCard.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:easy_localization/easy_localization_provider.dart';
 
@@ -21,8 +23,10 @@ class _HelthChartState extends State<HelthChart> {
             title: Text(AppLocalizations.of(context).tr('healthCard')),
           ),
           body: FutureBuilder<Baby>(
-            future: fetchBaby(),
+            future: fetchBaby(), //This function is implemented on newBornHelth.dart
             builder: (context, snapshot) {
+              
+              //temp variables to check null
               String date1, date2, date3, date4;
               String oneSkin, sixSkin, fourteenSkin, fourtyTwoSkin;
               String oneEyes, sixEyes, fourteenEyes, fourtyTwoEyes;
@@ -47,7 +51,6 @@ class _HelthChartState extends State<HelthChart> {
                   child: CircularProgressIndicator(),
                 );
               } else if (snapshot.hasData) {
-
                 //Date
                 if (snapshot.data.date1 == null) {
                   date1 = "No Data";
@@ -251,6 +254,8 @@ class _HelthChartState extends State<HelthChart> {
                 return SingleChildScrollView(
                   child: Column(
                     children: <Widget>[
+
+                      //Health Card widget is implemented on HelthCard.dart
                       HelthCard(
                           AppLocalizations.of(context).tr('skincolor'),
                           oneSkin,

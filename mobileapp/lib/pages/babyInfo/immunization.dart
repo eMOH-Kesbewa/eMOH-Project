@@ -1,6 +1,8 @@
+/**
+ * View immunizaion test data
+ */
 import 'package:flutter/material.dart';
 import 'package:mobileapp/services/babyService/immunizationService.dart';
-import 'package:mobileapp/widgets/growthCard.dart';
 import 'package:mobileapp/widgets/immunizationCard.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:easy_localization/easy_localization_provider.dart';
@@ -11,109 +13,29 @@ class Immunization extends StatefulWidget {
 }
 
 class _ImmunizationState extends State<Immunization> {
-  //Future<Baby> baby = fetchBaby();
   @override
   Widget build(BuildContext context) {
-     var data = EasyLocalizationProvider.of(context).data;
+    var data = EasyLocalizationProvider.of(context).data; //localization data
     return EasyLocalizationProvider(
       data: data,
-          child: Scaffold(
+      child: Scaffold(
         appBar: AppBar(
           title: Text(AppLocalizations.of(context).tr('immunization')),
         ),
         body: FutureBuilder<Baby>(
           future: fetchBaby(),
           builder: (context, snapshot) {
-            logger.d("bcg");
-            //logger.wtf(snapshot.data);
-           //logger.w(snapshot.data.bcgDate1);
-           //print(snapshot.data.)
-           // print(snapshot.data.bcgBatchNo1);
-        // bcgEffects1,
-        // bcgDate2,
-        // bcgBatchNo2,
-        // bcgEffects2,
-        // pentDate1,
-        // pentBatchNo1,
-        // pentEffects1,
-        // opvDate1,
-        // opvBatchNo1,
-        // opvEffects1,
-        // pentDate2,
-        // pentBatchNo2,
-        // pentEffects2,
-        // opvDate2,
-        // opvBatchNo2,
-        // opvEffects2,
-        // pentDate3,
-        // pentBatchNo3,
-        // pentEffects3,
-        // opvDate3,
-        // opvBatchNo3,
-        // opvEffects3,
-        // jeDate1,
-        // jeBatchNo1,
-        // jeEffects1,
-        // rubDate1,
-        // rubBatchNo1,
-        // rubEffects1,
-        // dptDate1,
-        // dptBatchNo1,
-        // dptEffects1,
-        // opvDate4,
-        // opvBatchNo4,
-        // opvEffects4,
-        // rubDate2,
-        // rubBatchNo2,
-        // rubEffects2,
-        // dtDate1,
-        // dtBatchNo1,
-        // dtEffects1,
-        // opvDate5,
-        // opvBatchNo5,
-        // opvEffects5,
-        // adultDipDate1,
-        // adultDipBatchNo1,
-        // adultDipEffects1,
-        // otherVacDate1,
-        // otherVacBatchNo1,
-        // otherVacEffects1,
-        // refDate,
-        // reasonRef,
-        // palceRef,
-        // notes,
-        // bcgScar;
-           // print(snapshot.data.bcgEffects1);
-            if(snapshot.connectionState == ConnectionState.none){
+            if (snapshot.connectionState == ConnectionState.none) {
               return Text('You are not connected');
             }
             if (snapshot.connectionState == ConnectionState.waiting) {
               return Center(child: CircularProgressIndicator());
-
             } else {
               return SingleChildScrollView(
                 child: Column(
                   children: <Widget>[
-                    // Text('hello'),
-                    // ImmunizationCard(
-                    //     'Two months completed',
-                    //     'Pentavalent',
-                    //     'snapshot.data.pentDate1',
-                    //     'snapshot.data.pentEffects1',
-                    //     'snapshot.data.pentBatchNo1',
-                    //     'OPV1',
-                    //     'snapshot.data.opvDate1',
-                    //     'snapshot.data.opvEffects1',
-                    //     'snapshot.data.opvBatchNo1',
-                    //     2),
-                    // ImmunizationCard.one(
-                    //     'Nine month completed',
-                    //     'Live JE',
-                    //     'snapshot.data.jeDate1',
-                    //     'snapshot.data.jeEffects1',
-                    //     'snapshot.data.jeBatchNo1',
-                    //     1),
-
+                    //Overloaded constructor of ImmunizationCard Widget
+                    //This widget has implemented on immunizationCard.dart
                     ImmunizationCard.bcg(
                       AppLocalizations.of(context).tr('immunizationtxt1'),
                       'B.C.G',
@@ -128,16 +50,7 @@ class _ImmunizationState extends State<Immunization> {
                       true,
                       0,
                     ),
-                    // ImmunizationCard.bcg(
-                    //   'At Birth(if no scar event at 6th month)',
-                    //   'B.C.G',
-                    //   snapshot.data.bcgDate2,
-                    //   snapshot.data.bcgEffects2,
-                    //   snapshot.data.bcgBatchNo2,
-                    //   0,
-                    // ),
-
-
+                    //Default constructor of ImmunizationCard Widget
                     ImmunizationCard(
                         AppLocalizations.of(context).tr('immunizationtxt2'),
                         'Pentavalent',
@@ -171,6 +84,7 @@ class _ImmunizationState extends State<Immunization> {
                         snapshot.data.opvEffects3,
                         snapshot.data.opvBatchNo3,
                         2),
+                    //Overloaded constructor of ImmunizationCard Widget
                     ImmunizationCard.one(
                         AppLocalizations.of(context).tr('immunizationtxt5'),
                         'Live JE',

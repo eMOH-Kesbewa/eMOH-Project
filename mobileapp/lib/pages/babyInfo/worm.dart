@@ -1,3 +1,6 @@
+/**
+ * VIew Worm data about baby
+ */
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:mobileapp/services/babyService/worm.dart';
@@ -20,7 +23,7 @@ class WormTreat extends StatefulWidget {
 }
 
 class _WormTreatState extends State<WormTreat> {
-  Future baby = fetchBaby();
+  Future baby = fetchBaby(); //This function is implemented on worm.dart
   @override
   void initState() {
     // TODO: implement initState
@@ -51,6 +54,7 @@ class _WormTreatState extends State<WormTreat> {
   Widget build(BuildContext context) {
     var data = EasyLocalizationProvider.of(context).data;
 
+//if date field is null,then display no data message
     if (date1h == null) {
       date1h = 'No Data';
     }
@@ -75,7 +79,7 @@ class _WormTreatState extends State<WormTreat> {
     if (date5 == null) {
       date5 = 'No Data';
     }
-
+//if batchNo field is null,then display no data message
     if (batchNo1h == null) {
       batchNo1h = "No Data";
     }
@@ -114,7 +118,7 @@ class _WormTreatState extends State<WormTreat> {
           title: Text(AppLocalizations.of(context).tr('worm')),
         ),
         body: FutureBuilder<Baby>(
-          future: fetchBaby(),
+          future: fetchBaby(), //This function is implemented on worm.dart
           builder: (context, snapshot) {
             if (snapshot.connectionState == ConnectionState.waiting) {
               return Center(
