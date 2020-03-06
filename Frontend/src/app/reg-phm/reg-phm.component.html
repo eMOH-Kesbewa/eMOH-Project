@@ -17,7 +17,7 @@
         <mat-card-subtitle></mat-card-subtitle>
       </mat-card-header>
       <div class="container">
-          <form [formGroup]="regPHMform" [hidden]="success" (ngSubmit)="onSubmit()">
+          <form [formGroup]="regPHMform"(ngSubmit)="onSubmit()">
               <mat-form-field>
                 <mat-label>Area Id</mat-label>
                 <mat-select formControlName="areaId">

@@ -20,8 +20,8 @@
                         <div class="col-md-3">
                             <mat-form-field class="example-full-width">
                                 <input matInput placeholder="{{'weightHeight.baby_id'| translate}}" type="text"  readonly="{{onChange()}}" formControlName="baby_id">
-                                <div *ngIf="submitted && WeightHeightForm.controls.baby_id.errors" class="error">
-                                    <div *ngIf="WeightHeightForm.controls.baby_id.errors.required">This field is required</div>
+                                <div *ngIf="addWeightForm.controls.baby_id.errors" class="error">
+                                    <div *ngIf="addWeightForm.controls.baby_id.errors.required">This field is required</div>
                                   </div>
                               </mat-form-field>
                         </div>
@@ -29,8 +29,8 @@
                         <div class="col-md-4">
                             <mat-form-field class="example-full-width">
                                 <input matInput placeholder="{{'weightHeight.childs_name'| translate}}" type="text" readonly="{{onChange()}}" formControlName="name_of_child">
-                                <div *ngIf="submitted && WeightHeightForm.controls.name_of_child.errors" class="error">
-                                    <div *ngIf="WeightHeightForm.controls.name_of_child.errors.required">This field is required</div>
+                                <div *ngIf="addWeightForm.controls.name_of_child.errors" class="error">
+                                    <div *ngIf="addWeightForm.controls.name_of_child.errors.required">This field is required</div>
                                   </div>
                               </mat-form-field>
                         </div>
@@ -38,8 +38,8 @@
                         <div class="col-md-4">
                             <mat-form-field class="example-full-width">
                                 <input matInput placeholder="{{'weightHeight.sex'| translate}}" type="text" readonly="{{onChange()}}" formControlName="Gender">
-                                <div *ngIf="submitted && WeightHeightForm.controls.sex.errors" class="error">
-                                    <div *ngIf="WeightHeightForm.controls.sex.errors.required">This field is required</div>
+                                <div *ngIf="addWeightForm.controls.sex.errors" class="error">
+                                    <div *ngIf="addWeightForm.controls.sex.errors.required">This field is required</div>
                                   </div>
                               </mat-form-field>
                           </div> -->
@@ -57,8 +57,8 @@
                         <div class="col-md-4">
                             <mat-form-field class="example-full-width">
                                 <input matInput placeholder="{{'weightHeight.date_of_birth'| translate}}" type="date" readonly="{{onChange()}}" formControlName="Date_of_birth">
-                                <div *ngIf="submitted && WeightHeightForm.controls.Date_of_birth.errors" class="error">
-                                    <div *ngIf="WeightHeightForm.controls.Date_of_birth.errors.required">This field is required</div>
+                                <div *ngIf="addWeightForm.controls.Date_of_birth.errors" class="error">
+                                    <div *ngIf="addWeightForm.controls.Date_of_birth.errors.required">This field is required</div>
                                   </div>
                               </mat-form-field>
                         </div>
@@ -66,8 +66,8 @@
                         <div class="col-md-3">
                             <mat-form-field class="example-full-width">
                                 <input matInput placeholder="{{'weightHeight.bathch_no'| translate}}" type="text" readonly="{{onChange()}}" formControlName="batch_no">
-                                <div *ngIf="submitted && WeightHeightForm.controls.batch_no.errors" class="error">
-                                    <div *ngIf="WeightHeightForm.controls.batch_no.errors.required">This field is required</div>
+                                <div *ngIf="addWeightForm.controls.batch_no.errors" class="error">
+                                    <div *ngIf="addWeightForm.controls.batch_no.errors.required">This field is required</div>
                                   </div>
                               </mat-form-field>
                         </div> -->
@@ -78,16 +78,16 @@
                         <div class="col-md-4">
                           <mat-form-field class="example-full-width">
                               <input matInput placeholder="{{'weightHeight.weight'| translate}}" type="number" readonly="{{onChange()}}" formControlName="weight_of_birth">
-                              <div *ngIf="submitted && WeightHeightForm.controls.weight_of_birth.errors" class="error">
-                                  <div *ngIf="WeightHeightForm.controls.weight_of_birth.errors.required">This field is required</div>
+                              <div *ngIf="addWeightForm.controls.weight_of_birth.errors" class="error">
+                                  <div *ngIf="addWeightForm.controls.weight_of_birth.errors.required">This field is required</div>
                                 </div>
                             </mat-form-field>
                         </div>
                         <div class="col-md-4">
                           <mat-form-field class="example-full-width">
                               <input matInput placeholder="{{'weightHeight.height'| translate}}" type="number" readonly="{{onChange()}}" formControlName="height_of_birth">
-                              <div *ngIf="submitted && WeightHeightForm.controls.height_of_birth.errors" class="error">
-                                  <div *ngIf="WeightHeightForm.controls.height_of_birth.errors.required">This field is required</div>
+                              <div *ngIf="addWeightForm.controls.height_of_birth.errors" class="error">
+                                  <div *ngIf="addWeightForm.controls.height_of_birth.errors.required">This field is required</div>
                                 </div>
                             </mat-form-field>
                         </div>

@@ -16,7 +16,7 @@
         <mat-card-subtitle></mat-card-subtitle>
       </mat-card-header>
       <div class="container">
-        <form [formGroup]="regMotherForm" [hidden]="success" (ngSubmit)="onSubmit()">
+        <form [formGroup]="regMotherForm" (ngSubmit)="onSubmit()">
           <mat-form-field>
             <mat-label>Select Village Id</mat-label>
             <mat-select formControlName="villageId">

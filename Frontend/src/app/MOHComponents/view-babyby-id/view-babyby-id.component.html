@@ -18,13 +18,13 @@
                     <h4 class="card-title">{{'motherBabyJoined.view_motherbaby'| translate}}</h4>
                 </div>
                 <div class="card-body">   
-                    <form [formGroup]="addmotherbabyForm" (ngSubmit)="onSubmit()" [hidden]="success">
+                    <form [formGroup]="addmotherbabyForm" (ngSubmit)="onSubmit()" >
                        
                         <div class="row">
                             <div class="col-md-3">
                                     <mat-form-field class="example-full-width">
                                         <input matInput placeholder="{{ 'motherBabyJoined.mother_id' | translate }}" type= "text" readonly="{{onChange()}}" formControlName="mother_id">
-                                        <div *ngIf="submitted && addmotherbabyForm.controls.mother_id.errors" class="error">
+                                        <div *ngIf="addmotherbabyForm.controls.mother_id.errors" class="error">
                                             <div *ngIf="addmotherbabyForm.controls.mother_id.errors.required">This field is required</div>
                                           </div>
                                     </mat-form-field>
@@ -32,7 +32,7 @@
                             <div class="col-md-3">
                                 <mat-form-field class="example-full-width">
                                     <input matInput placeholder="{{ 'motherBabyJoined.baby_id' | translate}}" type= "text" readonly="{{onChange()}}" formControlName="baby_id">
-                                    <div *ngIf="submitted && addmotherbabyForm.controls.baby_id.errors" class="error">
+                                    <div *ngIf="addmotherbabyForm.controls.baby_id.errors" class="error">
                                         <div *ngIf="addmotherbabyForm.controls.baby_id.errors.required">This field is required</div>
                                       </div>
                                 </mat-form-field>
@@ -40,7 +40,7 @@
                             <div class="col-md-3">
                                 <mat-form-field class="example-full-width">
                                     <input matInput placeholder="{{ 'motherBabyJoined.child_name' | translate }}" type= "text" readonly="{{onChange()}}" formControlName="child_name">
-                                    <div *ngIf="submitted && addmotherbabyForm.controls.child_name.errors" class="error">
+                                    <div *ngIf="addmotherbabyForm.controls.child_name.errors" class="error">
                                         <div *ngIf="addmotherbabyForm.controls.child_name.errors.required">This field is required</div>
                                       </div>
                                 </mat-form-field>
@@ -59,7 +59,7 @@
                             <div class="col-md-3">
                                 <mat-form-field class="example-full-width">
                                     <input matInput placeholder="{{ 'motherBabyJoined.mothers_name' | translate }}" type= "text" readonly="{{onChange()}}" formControlName="mothers_name">
-                                    <div *ngIf="submitted && addmotherbabyForm.controls.mothers_name.errors" class="error">
+                                    <div *ngIf="addmotherbabyForm.controls.mothers_name.errors" class="error">
                                         <div *ngIf="addmotherbabyForm.controls.mothers_name.errors.required">This field is required</div>
                                       </div>
                                 </mat-form-field>
@@ -67,7 +67,7 @@
                             <div class="col-md-5">
                                     <mat-form-field class="example-full-width">
                                         <input matInput placeholder="{{ 'motherBabyJoined.address' | translate }}" type= "text" readonly="{{onChange()}}" formControlName="address">
-                                        <div *ngIf="submitted && addmotherbabyForm.controls.address.errors" class="error">
+                                        <div *ngIf="addmotherbabyForm.controls.address.errors" class="error">
                                             <div *ngIf="addmotherbabyForm.controls.address.errors.required">This field is required</div>
                                           </div>
                                     </mat-form-field>
@@ -77,7 +77,7 @@
                                 <div class="col-md-2">
                                         <mat-form-field class="example-full-width">
                                             <input matInput placeholder="{{ 'motherBabyJoined.sex' | translate }}" type= "text" readonly="{{onChange()}}" formControlName="sex">
-                                            <div *ngIf="submitted && addmotherbabyForm.controls.sex.errors" class="error">
+                                            <div *ngIf="addmotherbabyForm.controls.sex.errors" class="error">
                                                 <div *ngIf="addmotherbabyForm.controls.sex.errors.required">This field is required</div>
                                               </div>
                                         </mat-form-field>
@@ -87,7 +87,7 @@
                                         <mat-form-field class="example-full-width">
                                             
                                             <input matInput placeholder="{{ 'motherBabyJoined.date_of_birth' | translate }}" type= "date" readonly="{{onChange()}}" formControlName="date_of_birth">
-                                            <div *ngIf="submitted && addmotherbabyForm.controls.date_of_birth.errors" class="error">
+                                            <div *ngIf="addmotherbabyForm.controls.date_of_birth.errors" class="error">
                                                 <div *ngIf="addmotherbabyForm.controls.date_of_birth.errors.required">This field is required</div>
                                               </div>
                                         </mat-form-field>
@@ -95,7 +95,7 @@
                                 <div class="col-md-2">
                                         <mat-form-field class="example-full-width">
                                             <input matInput placeholder="{{ 'motherBabyJoined.birth_weight' | translate }}" type= "number" readonly="{{onChange()}}" formControlName="birth_weight" min="0" max="5">
-                                            <div *ngIf="submitted && addmotherbabyForm.controls.birth_weight.errors" class="error">
+                                            <div *ngIf="addmotherbabyForm.controls.birth_weight.errors" class="error">
                                                 <div *ngIf="addmotherbabyForm.controls.birth_weight.errors.required">This field is required</div>
                                               </div>
                                         </mat-form-field>
@@ -105,7 +105,7 @@
                                 <div class="col-md-2">
                                         <mat-form-field class="example-full-width">
                                             <input matInput placeholder="{{ 'motherBabyJoined.registration_date' | translate }}" type= "date" readonly="{{onChange()}}" formControlName="registration_date">
-                                            <div *ngIf="submitted && addmotherbabyForm.controls.registration_date.errors" class="error">
+                                            <div *ngIf="addmotherbabyForm.controls.registration_date.errors" class="error">
                                                 <div *ngIf="addmotherbabyForm.controls.registration_date.errors.required">This field is required</div>
                                               </div>
                                         </mat-form-field>
@@ -113,7 +113,7 @@
                                 <!--<div class="col-md-2">
                                         <mat-form-field class="example-full-width">
                                             <input matInput placeholder="{{ 'motherBabyJoined.registration_category' | translate }}" type= "text" readonly="{{onChange()}}" formControlName="registration_category">
-                                            <div *ngIf="submitted && addmotherbabyForm.controls.registration_category.errors" class="error">
+                                            <div *ngIf="addmotherbabyForm.controls.registration_category.errors" class="error">
                                                 <div *ngIf="addmotherbabyForm.controls.registration_category.errors.required">This field is required</div>
                                               </div>
                                         </mat-form-field>
@@ -341,7 +341,7 @@
                             <input type="submit" value="{{'update'| translate}}" class="btn btn-info pull-right">
                         </div>
                     </form>
-                    <div *ngIf="success"><h5>You submitted a new baby record successfully</h5></div>
+                    
                 </div>
             </div>
         </div>

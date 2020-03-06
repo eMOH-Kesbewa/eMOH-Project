@@ -15,7 +15,7 @@
                     <h4 class="card-title">{{'family.familyDetails'| translate }}</h4>
                 </div>
                 <div class="card-body">
-                    <form [formGroup]="approvedFamilyForm" [hidden]="success" (ngSubmit)="onSubmit()">
+                    <form [formGroup]="approvedFamilyForm" (ngSubmit)="onSubmit()">
                         <mat-expansion-panel>
                             <mat-expansion-panel-header>
                               <mat-panel-title>
@@ -268,7 +268,7 @@
                         <input type="submit" value="{{'update'|translate}}" class="btn btn-info pull-right">
                       </div>
                       </form>
-                        <div *ngIf="success"><h1>You submitted a record</h1></div>
+                       
                 </div>
             </div>
         </div>
