@@ -48,7 +48,7 @@
     "html2pdf.js": "^0.9.1",
     "jquery": "3.4.1",
     "jwt-decode": "^2.2.0",
-    "moment": "2.24.0",
+    "moment": "2.29.2",
     "perfect-scrollbar": "1.1.0",
     "popper.js": "1.15.0",
     "rxjs": "6.5.2",
